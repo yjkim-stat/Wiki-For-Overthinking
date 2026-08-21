@@ -9,7 +9,7 @@ Scaling test-time compute by extending a single reasoning trace further (more se
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](../datasets/aime-2025.md), [budget forcing](../methods/budget-forcing.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [retrieval-augmented reasoning](retrieval-augmented-reasoning.md), [SciQ](../datasets/sciq.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [AIME 2025](../datasets/aime-2025.md), [Budget Forcing](../methods/budget-forcing.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [retrieval-augmented reasoning](retrieval-augmented-reasoning.md), [SciQ](../datasets/sciq.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

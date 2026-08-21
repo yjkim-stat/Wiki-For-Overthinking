@@ -8,7 +8,7 @@ HotpotQA is the archive's multi-hop question-answering leg, and it is where reas
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [BBH (Big Bench Hard)](bbh-big-bench-hard.md), [GRPO](../methods/grpo.md), [Length Penalty](../concepts/length-penalty.md), [MMLU](mmlu.md), [overthinking](../concepts/overthinking.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [BBH (Big Bench Hard)](bbh-big-bench-hard.md), [GRPO](../methods/grpo.md), [Length Penalty](../concepts/length-penalty.md), [MMLU](mmlu.md), [Overthinking](../concepts/overthinking.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
 
 ## Appears in
 

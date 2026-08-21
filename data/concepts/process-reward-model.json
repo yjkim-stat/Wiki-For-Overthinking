@@ -3,7 +3,8 @@
     "process reward model (PRM)",
     "PRM",
     "Process reward model",
-    "Process Reward Model"
+    "Process Reward Model",
+    "process reward models"
   ],
   "definition": "A reward model that scores the intermediate steps of a reasoning trace, used to guide test-time search rather than only rank finished answers. MetaStone-S1 shares one backbone between its policy and process-reward model; TaTToo trains a domain-specific PRM for tabular reasoning; JETTS benchmarks how well LLM-as-judge models substitute for a trained PRM in guiding test-time scaling, finding judges match outcome reward models but lag PRMs. Note: same concept as the archive's separately-tracked 'process reward model (PRM)' entry -- not merged.",
   "evidence": [
@@ -44,6 +45,12 @@
       "title": "Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators"
     },
     {
+      "id": "title:b2629aee97cadc77",
+      "kind": "paper",
+      "note": "T1 is a two-stage test-time-scaling framework for small language models that filters candidate responses with external tools before a small-model verifier makes the final judgment, offloading memorization-heavy checks to the tools.",
+      "title": "T1: Tool-integrated Verification for Test-time Compute Scaling in Small Language Models"
+    },
+    {
       "id": "title:da31eb8bef16ddcc",
       "kind": "paper",
       "note": "Trains a process reward model that scores chain-of-thought coherence instead of domain knowledge, and uses it to weight votes among sampled reasoning chains for test-time scaling across math and non-math domains.",
@@ -52,7 +59,7 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:49:09Z",
+  "last_seen": "2026-08-21T03:02:20Z",
   "name": "process reward model",
   "related": [
     "overthinking",
@@ -74,7 +81,7 @@
     "sat",
     "dynasor",
     "gsm8k",
-    "math-500",
+    "math500",
     "amc23",
     "aime-2024",
     "aime-2025",
@@ -137,6 +144,13 @@
     "step-level-beam-search",
     "jetts-benchmark",
     "jetts-benchmark-math-code-instruction-following-domains",
+    "verification",
+    "tool-integration",
+    "memorization-burden",
+    "t1",
+    "code-interpreter-tool-integration",
+    "critic-models",
+    "math",
     "contextual-coherence-between-chain-of-thought-steps",
     "domain-agnostic-process-reward-modeling",
     "test-time-scaling-via-verifier-weighted-voting",

@@ -1,15 +1,15 @@
-# recurrent depth
+# Recurrent Depth
 
 <!-- auto:begin -->
 
 Buying extra test-time computation by iterating a block of layers in latent space instead of emitting more chain-of-thought tokens, so the depth of the unrolling rather than the length of the output is the compute knob. The originating paper trains a 3.5B-parameter proof of concept on 800B tokens, unrolls a recurrent block to arbitrary depth at inference, needs no chain-of-thought training data, and gets per-token adaptive compute, KV-cache sharing and speculative decoding out of the same structure; the archived record reports no benchmark scores for it. Penelope keeps the idea but localises it, recurring only an eight-anchor memory through a five-layer interval of a 16-layer Llama-3.2-1B so that one more refinement costs r layers rather than L - 99.82 ms against Coconut's 188.15 ms on Deep ListOps at accuracies within one standard deviation. What the archive does not show is that the extra depth is doing reasoning: Penelope's K sweep stays inside a 0.50-point band, a K=0 boundary-only pass is within 0.69 EM point of the selected depth, and full-decoder recurrence gains 0.27 point for 2.51x the sequential decoder-layer applications.
 
 - **Kind**: concept
-- **Also called**: Recurrent Depth
+- **Also called**: Recurrent Depth, recurrent depth
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](accuracy-efficiency-tradeoff.md), [budget forcing](../methods/budget-forcing.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [latent reasoning](latent-reasoning.md), [speculative decoding](../methods/speculative-decoding.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [Budget Forcing](../methods/budget-forcing.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [Latent reasoning](latent-reasoning.md), [speculative decoding](../methods/speculative-decoding.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

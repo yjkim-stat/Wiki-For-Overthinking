@@ -28,6 +28,7 @@ from .enrich import concepts as concepts_mod
 from .enrich import dedupe
 from .enrich import findings as findings_mod
 from .enrich.queue import Queue
+from .local import queue_share
 from .publish import archive as archive_mod
 from .publish import lecture_note, report, slides, wiki
 
@@ -75,18 +76,21 @@ def rebuild_archive(cfg: Config) -> dict[str, int]:
     return {"papers": papers, "videos": videos}
 
 
-def _queue_and_summarizer(cfg: Config):
-    queue = Queue(
-        cfg.layout,
-        max_pending=int(
-            (cfg.settings.get("summarize", {}) or {}).get("max_pending_tasks", 0)
-        )
-        or None,
-    )
+_UNSET = object()
+
+
+def _queue_and_summarizer(cfg: Config, max_pending=_UNSET):
+    # LOCAL: `max_pending` is overridable so summaries can be held to a share of
+    # the cap on the first pass — see pipelines/local/queue_share.py.
+    if max_pending is _UNSET:
+        max_pending = queue_share.pending_cap(cfg)
+    queue = Queue(cfg.layout, max_pending=max_pending)
     return queue, get_summarizer(cfg.settings, enqueue=queue.enqueue)
 
 
-def queue_missing_summaries(cfg: Config) -> dict[str, int]:
+def queue_missing_summaries(
+    cfg: Config, max_pending=_UNSET, contested: dict[str, str] | None = None
+) -> dict[str, int]:
     """File a task for any stored record that still has no summary.
 
     Collection queues a task when it first sees an item, but a task can be lost
@@ -104,7 +108,12 @@ def queue_missing_summaries(cfg: Config) -> dict[str, int]:
     `refreshed` are what the queue actually wrote.
     """
     store = RecordStore(cfg.layout)
-    queue, summarizer = _queue_and_summarizer(cfg)
+    queue, summarizer = _queue_and_summarizer(cfg, max_pending)  # LOCAL
+    # LOCAL: a hand-filed PDF is not subject to the cap -- see
+    # pipelines/local/queue_share.py for why. Built here so the two queues
+    # share nothing but the layout; both counters are summed at the end.
+    hand_queue = queue_share.hand_filed_queue(cfg, Queue)  # LOCAL
+    hand_summarizer = get_summarizer(cfg.settings, enqueue=hand_queue.enqueue)  # LOCAL
     unread = 0
 
     for paper in store.iter_papers():
@@ -120,7 +129,15 @@ def queue_missing_summaries(cfg: Config) -> dict[str, int]:
             context = cfg.topic_context(paper.topics)
         else:
             continue
-        if summarizer.summarize_paper(paper, context, cfg.language) is None:
+        # LOCAL: hand-filed papers go to the uncapped queue.
+        who = hand_summarizer if paper.is_local else summarizer  # LOCAL
+        # A record sharing an identifier with another is one a reader must look
+        # at before reading it. The conflict is known here because `render` has
+        # just reconciled, and carrying it onto the task puts it in front of the
+        # person who acts rather than the person who ran the command.
+        if who.summarize_paper(
+            paper, context, cfg.language, (contested or {}).get(paper.id, "")
+        ) is None:
             unread += 1
 
     for video in store.iter_videos():
@@ -134,12 +151,17 @@ def queue_missing_summaries(cfg: Config) -> dict[str, int]:
         ) is None:
             unread += 1
 
-    counts = {"unread": unread, "queued": queue.filed, "refreshed": queue.refreshed}
-    if queue.filed or queue.refreshed:
+    # LOCAL: both queues' writes are reported together; they are one backlog.
+    counts = {
+        "unread": unread,
+        "queued": queue.filed + hand_queue.filed,
+        "refreshed": queue.refreshed + hand_queue.refreshed,
+    }
+    if counts["queued"] or counts["refreshed"]:
         _LOG.info(
             "summary tasks: %d filed, %d refreshed (%d record(s) still unread)",
-            queue.filed,
-            queue.refreshed,
+            counts["queued"],
+            counts["refreshed"],
             unread,
         )
     return counts
@@ -406,6 +428,17 @@ def stale_analysis(cfg: Config) -> list[dict]:
     maintaining the marker. It is still better than the alternative, which is
     that the most valuable artifact in the repository is the only one with no
     integrity check at all.
+
+    **Both directions count.** A marker naming more sources than the entity has
+    is not a harmless overshoot. Either the author miscounted -- in which case
+    the one number that says how much evidence the prose rests on is wrong, and
+    every later check against it inherits the error -- or evidence really did
+    leave, because a paper was discarded, retopiced, or folded into another
+    entity by the alias map. In that second case the prose describes sources the
+    archive no longer holds, which is worse than describing too few: a reader
+    cannot find what it is talking about. Reporting only the growing direction
+    made an over-declared marker pass silently for as long as it took the
+    evidence to catch up with it.
     """
     store = RecordStore(cfg.layout)
     concepts = {c.slug: c for c in store.iter_concepts()}
@@ -422,15 +455,17 @@ def stale_analysis(cfg: Config) -> list[dict]:
                 continue
             written_for = int(match.group(1))
             now = len(concept.evidence)
-            if now > written_for:
-                stale.append(
-                    {
-                        "slug": concept.slug,
-                        "path": str(path),
-                        "written_for": written_for,
-                        "sources_now": now,
-                    }
-                )
+            if now == written_for:
+                continue
+            stale.append(
+                {
+                    "slug": concept.slug,
+                    "path": str(path),
+                    "written_for": written_for,
+                    "sources_now": now,
+                    "direction": "outgrown" if now > written_for else "over-declared",
+                }
+            )
     return stale
 
 
@@ -473,6 +508,77 @@ def stale_findings(cfg: Config) -> list[dict]:
     return sorted(stale, key=lambda row: row["established_against"] - row["sources_now"])
 
 
+def readings_without_models(cfg: Config) -> list[str]:
+    """Paper readings that named no model, which may or may not be a defect.
+
+    LOCAL: `models` — see docs/LOCAL-DELTAS.md.
+
+    `models` is optional and should stay optional: a paper that evaluates no
+    checkpoint answers with an empty list, and requiring a non-empty one would
+    force a guess where the honest answer is silence. That is the reasoning that
+    keeps `results` optional too.
+
+    The cost is that an omitted list and a genuine "none" produce **identical
+    records**, so the archive cannot tell a reading that answered from one that
+    did not. It happened to nine consecutive readings before anybody noticed,
+    and it was the second time this field had gone missing quietly.
+
+    Counting them is not an accusation. It is a number in the one place this
+    archive already looks for rot, and a count that stays flat while readings
+    accumulate says the prompt is being followed; a count that tracks them says
+    it is not.
+    """
+    store = RecordStore(cfg.layout)
+    return sorted(
+        summary.paper_id
+        for summary in (
+            store.load_paper_summary(paper.id) for paper in store.iter_papers()
+        )
+        if summary is not None and not summary.models
+    )
+
+
+def fragmented_entities(cfg: Config) -> list[dict]:
+    """Entity slugs that differ only in punctuation, said on the day they appear.
+
+    A term spelled two ways becomes two records, and neither is wrong about
+    anything: each holds a fraction of the evidence, each gets its own
+    definition written against that fraction, and nothing looks broken. One pair
+    in this archive was found at 39 sources against 5.
+
+    `pipelines.duplicates` reports four kinds of near-collision and is a command
+    somebody has to remember to run. Only the narrowest kind is reported here —
+    two slugs identical once punctuation is removed — because this fires on every
+    render and a rule with false positives would become noise, and because the
+    other three are judgements rather than spellings. `MATH` under `MATH500` is a
+    subset, not a spelling; merging it would make the archive unable to state a
+    distinction it currently states.
+
+    Reported and never merged. Which name survives is an editorial decision, and
+    the map at `config/concept-aliases.yaml` is the authored place for it —
+    `Concept.aliases` is harvested and holds at least one claim that is simply
+    false, which is the argument for never merging on it.
+    """
+    from .duplicates import reason_for
+
+    store = RecordStore(cfg.layout)
+    concepts = sorted(store.iter_concepts(), key=lambda c: c.slug)
+    found: list[dict] = []
+    for index, left in enumerate(concepts):
+        for right in concepts[index + 1 :]:
+            if reason_for(left.slug, right.slug) == "variant":
+                pair = sorted(
+                    (left, right), key=lambda c: (-c.mention_count, c.slug)
+                )
+                found.append(
+                    {
+                        "slugs": [pair[0].slug, pair[1].slug],
+                        "sources": [pair[0].mention_count, pair[1].mention_count],
+                    }
+                )
+    return found
+
+
 def report_staleness(cfg: Config) -> dict[str, int]:
     """Count what has been outgrown, and say so. Never rewrites anything.
 
@@ -497,10 +603,11 @@ def report_staleness(cfg: Config) -> dict[str, int]:
         _LOG.warning("... and %d more stale definition(s)", len(definitions) - 10)
     for row in analysis:
         _LOG.warning(
-            "analysis in %s declares %d source(s); there are now %d",
+            "analysis in %s declares %d source(s); there are now %d (%s)",
             row["path"],
             row["written_for"],
             row["sources_now"],
+            row["direction"],
         )
 
     for row in settled[:10]:
@@ -513,10 +620,20 @@ def report_staleness(cfg: Config) -> dict[str, int]:
     if len(settled) > 10:
         _LOG.warning("... and %d more finding(s) their subject has outgrown", len(settled) - 10)
 
+    # LOCAL: `models` — see docs/LOCAL-DELTAS.md
+    silent = readings_without_models(cfg)
+    if silent:
+        _LOG.info(
+            "%d reading(s) name no model; empty is a valid answer, absent is "
+            "indistinguishable from it",
+            len(silent),
+        )
+
     return {
         "definitions": len(definitions),
         "analysis": len(analysis),
         "findings": len(settled),
+        "readings_without_models": len(silent),  # LOCAL
     }
 
 
@@ -562,7 +679,13 @@ def run(
         result["documents"] = shelve_documents(cfg)
         result["archive"] = rebuild_archive(cfg)
         if not skip_queueing:
-            summaries = queue_missing_summaries(cfg)
+            # LOCAL: hold back part of the cap so definition tasks are not
+            # crowded out; the remainder is released below.
+            summaries = queue_missing_summaries(
+                cfg,
+                queue_share.summary_cap(cfg),
+                (result.get("identifiers") or {}).get("contested"),
+            )
             result["summaries_queued"] = summaries["queued"]
             result["summaries_refreshed"] = summaries["refreshed"]
             result["summaries_unread"] = summaries["unread"]
@@ -582,9 +705,37 @@ def run(
             # worse gap than one whose definition is behind its evidence, and
             # they share the queue's cap.
             result["definitions_reasked"] = queue_stale_definitions(cfg)["queued"]
+            # LOCAL: give any unused reserve back to the reading queue. Only
+            # when the archive stage ran — under `--only wiki` nothing was held.
+            # Runs *after* the re-asks as well as the missing ones: the reserve
+            # exists so the wiki is not starved by the reading backlog, and a
+            # re-ask is wiki work like any other. Whatever neither definition
+            # pass used goes back.
+            # The `pending_count` arithmetic this delta used to need is gone:
+            # upstream's counters count tasks *written*, so a second pass adds
+            # rather than double-counting (note 0054). `unread` is replaced
+            # rather than summed — it is a snapshot of the backlog, not a total.
+            if "summaries_queued" in result:
+                more = queue_missing_summaries(
+                    cfg, contested=(result.get("identifiers") or {}).get("contested")
+                )
+                result["summaries_queued"] += more["queued"]
+                result["summaries_refreshed"] += more["refreshed"]
+                result["summaries_unread"] = more["unread"]
         # Reported, never acted on: an empty queue means nothing is unwritten,
         # not that nothing is out of date.
         result["stale"] = report_staleness(cfg)
+        # Beside staleness rather than inside it: an outgrown definition is a
+        # cost of time passing, and this is a defect that appeared in one pass.
+        fragmented = fragmented_entities(cfg)
+        result["fragmented"] = len(fragmented)
+        for pair in fragmented:
+            _LOG.warning(
+                "'%s' (%d source(s)) and '%s' (%d) differ only in punctuation; "
+                "rule on it in config/concept-aliases.yaml before either grows",
+                pair["slugs"][0], pair["sources"][0],
+                pair["slugs"][1], pair["sources"][1],
+            )
 
     if only in (None, "outputs"):
         result["outputs"] = rebuild_outputs(cfg, topic_slugs)

@@ -46,7 +46,7 @@ Stated in Section 6: evaluation is centered on tasks with extractable final answ
 
 - **Concepts**: hesitation markers as a lexical signal of unproductive reasoning, late-stage generation waste in self-consistency, rollout pruning vs sample-axis stopping rules, early voting / vote banking, hesitation-marker density as a leading indicator of runaway trajectory length
 - **Methods**: Funnel of Thoughts (FoT), Self-Consistency (SC@k), early voting / vote banking, hesitation-marker density pruning, Adaptive Consistency (baseline), [Slim-SC (baseline)](../../../../wiki/methods/slim-sc-baseline.md)
-- **Datasets**: AIME24, AIME25, [AMC23](../../../../wiki/datasets/amc23.md), MATH500, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), LCB-Lite
+- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), LCB-Lite
 
 Tags: `test-time-scaling`, `self-consistency`, `overthinking`, `rollout-pruning`, `inference-efficiency`, `reasoning-length`
 

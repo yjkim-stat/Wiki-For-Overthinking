@@ -169,6 +169,37 @@ def load_topics(topics_dir: Path | None = None) -> list[Topic]:
     return topics
 
 
+def overlapping_keywords(topics: list[Topic]) -> list[tuple[str, str, str]]:
+    """Keyword pairs where one term occurs inside another, per topic.
+
+    A single occurrence then matches both and adds to the score twice.
+    `enrich/score.py` loops over the terms with no notion that two of them might
+    be the same words, which is a deliberate property — a rule you can read and
+    correct beats an opaque score — and its cost is that redundancy in the list
+    is the author's problem. This is what tells the author they have one.
+
+    Uses the same matcher as scoring rather than a substring test, for the
+    reason `common/text.py` exists: a check that disagreed with the scorer about
+    what counts as an occurrence would report pairs that do not double-count and
+    miss pairs that do.
+
+    Returns ``(topic slug, contained, containing)``, which is the order a person
+    needs to decide: the short term has the broader recall and the long one is
+    presumably there to weight a specific phrase higher, so neither is
+    obviously the one to drop.
+    """
+    from .text import contains
+
+    found: list[tuple[str, str, str]] = []
+    for topic in topics:
+        terms = [t for t in topic.keywords_any if t]
+        for short in terms:
+            for long in terms:
+                if short != long and contains(short, long):
+                    found.append((topic.slug, short, long))
+    return sorted(found)
+
+
 def load(root: Path | None = None) -> Config:
     """Load settings, sources and topics from the deployment root.
 
@@ -184,6 +215,12 @@ def load(root: Path | None = None) -> Config:
     settings = _read_yaml(settings_file)
     sources = _read_yaml(sources_file)
     layout = P.Layout(settings.get("paths"), root=root)
+    # LOCAL: the authored concept-alias map, installed here because `slug_for`
+    # is called from four modules with no config to hand. Imported inside the
+    # function so `common` keeps no import-time edge on `local`.
+    from ..local import aliases as _aliases  # LOCAL
+
+    _aliases.install(layout)  # LOCAL
     return Config(
         settings=settings,
         sources=sources,

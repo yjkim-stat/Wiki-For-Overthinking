@@ -46,7 +46,7 @@ The authors state that the conditions under which weak-cheap data reliably beats
 
 - **Concepts**: Compute-Optimal Sampling, Coverage and Diversity of Synthetic Data, False Positive Reasoning Traces, Weak-to-Strong Improvement, Knowledge Distillation
 - **Methods**: compute-matched sampling, [knowledge distillation](../../../../wiki/methods/knowledge-distillation.md), self-improvement, weak-to-strong improvement, supervised fine-tuning, final-answer correctness filtering, coverage / diversity / false-positive-rate data analysis
-- **Datasets**: [MATH](../../../../wiki/datasets/math.md), GSM-8K, Functional MATH
+- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [GSM-8K](../../../../wiki/datasets/gsm8k.md), Functional MATH
 
 Tags: `compute-optimal`, `synthetic-data`, `distillation`, `sampling`, `reasoning-training`, `weak-to-strong`, `tangential`
 

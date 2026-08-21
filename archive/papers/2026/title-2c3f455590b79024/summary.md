@@ -45,7 +45,7 @@ Only a third-party-extracted summary of the abstract was available (no PDF attac
 
 - **Concepts**: KV-cache memory-bound decoding bottleneck, query state approximation from temporal patterns, asynchronous KV cache selection, sparse attention decoding
 - **Methods**: AsyncSpade, temporal-regressive query prediction, asynchronous sparse KV cache selection
-- **Datasets**: AIME-24, AIME-25, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MATH-500](../../../../wiki/datasets/math-500.md)
+- **Datasets**: [AIME-24](../../../../wiki/datasets/aime-2024.md), [AIME-25](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MATH-500](../../../../wiki/datasets/math500.md)
 
 Tags: `kv-cache`, `sparse-attention`, `inference-efficiency`, `asynchronous-decoding`, `long-context`, `tangential`
 

@@ -1,15 +1,15 @@
-# latent reasoning
+# Latent reasoning
 
 <!-- auto:begin -->
 
 Carrying the intermediate steps of reasoning in continuous hidden states rather than emitting them as chain-of-thought tokens, so that test-time compute is spent on internal iterations instead of on generated text. The archived sources instantiate this in four ways: a recurrent-depth architecture that iterates a latent block to arbitrary depth in place of longer chains; Penelope, which confines the recurrence to a five-layer slice of the decoder and refines a fixed-size boundary memory K times rather than re-running the whole model; Heima, which replaces each stage of a multimodal chain of thought with one learned thinking token and trains a separate decoder to expand those tokens back into readable reasoning; and AVA-VLA, which trains latent reasoning variables in a vision-language-action policy by RL denoising. The recurring open problem across them is not whether to reason latently but how deep to go: AVA-VLA adds a confidence-gated early exit that cuts mean reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms at essentially unchanged LIBERO success, and SLPO trains a stopping head that turns a fixed latent thinking budget into a learned per-instance horizon, scoring latent transitions with a Gaussian surrogate density from MC-dropout forwards. Because the steps are no longer text, they are not directly inspectable, which is why Heima trains a decoder to recover them.
 
 - **Kind**: concept
-- **Also called**: Latent Reasoning, Latent reasoning
+- **Also called**: Latent Reasoning, Latent reasoning, latent reasoning
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 5
 
-**Related**: [Accuracy-Efficiency Tradeoff](accuracy-efficiency-tradeoff.md), [AI2D](../datasets/ai2d.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [chain-of-thought compression](chain-of-thought-compression.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [early exit](../methods/early-exit.md), [GRPO](../methods/grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [LIBERO-LONG](../datasets/libero-long.md), [MATH-500](../datasets/math-500.md), [MathVista](../datasets/mathvista.md), [MMStar](../datasets/mmstar.md), [recurrent depth](recurrent-depth.md), [RLOO](../methods/rloo.md), [speculative decoding](../methods/speculative-decoding.md), [test-time compute scaling](test-time-compute-scaling.md), [test-time scaling](test-time-scaling.md), [thinking budget](thinking-budget.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [AI2D](../datasets/ai2d.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Chain-of-Thought Compression](chain-of-thought-compression.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [Early Exit](../methods/early-exit.md), [GRPO](../methods/grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [LIBERO-LONG](../datasets/libero-long.md), [MATH500](../datasets/math500.md), [MathVista](../datasets/mathvista.md), [MMStar](../datasets/mmstar.md), [Recurrent Depth](recurrent-depth.md), [RLOO](../methods/rloo.md), [speculative decoding](../methods/speculative-decoding.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-time scaling](test-time-scaling.md), [Thinking Budget](thinking-budget.md)
 
 ## Appears in
 

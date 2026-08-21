@@ -8,7 +8,7 @@ GQA entered this wiki through papers that share vocabulary with the tracked topi
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AI2D](ai2d.md), [ImageNet-1K](imagenet-1k.md), [Layer-wise early exit](../methods/layer-wise-early-exit.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [MMStar](mmstar.md), [OlympiadBench](olympiadbench.md), [POPE](pope.md)
+**Related**: [AI2D](ai2d.md), [ImageNet-1k](imagenet-1k.md), [Layer-wise early exit](../methods/layer-wise-early-exit.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [MMStar](mmstar.md), [OlympiadBench](olympiadbench.md), [POPE](pope.md)
 
 ## Appears in
 

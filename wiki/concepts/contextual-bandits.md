@@ -8,7 +8,7 @@ An online-learning framework for repeatedly choosing an action (e.g. which model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [test-time compute scaling](test-time-compute-scaling.md), [test-time scaling](test-time-scaling.md)
+**Related**: [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-time scaling](test-time-scaling.md)
 
 ## Appears in
 

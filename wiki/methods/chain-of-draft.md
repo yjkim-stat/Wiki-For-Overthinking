@@ -8,7 +8,7 @@ Neither archived source says anything about what Chain-of-Draft is; it is mentio
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [A*-Thought](a-thought.md), [AMC23](../datasets/amc23.md), [BIG-Bench Hard](../datasets/big-bench-hard.md), [budget forcing](budget-forcing.md), [chain-of-thought compression](../concepts/chain-of-thought-compression.md), [Distribution Shift](../concepts/distribution-shift.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH-500](../datasets/math-500.md), [MMLU-PRO](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [QwQ-32B](qwq-32b.md), [Risk Control](../concepts/risk-control.md), [s1K-1.1](../datasets/s1k-1-1.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [Token Budget](../concepts/token-budget.md), [TokenSkip](tokenskip.md)
+**Related**: [A*-Thought](a-thought.md), [AMC23](../datasets/amc23.md), [BBH](../datasets/bbh.md), [Budget Forcing](budget-forcing.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [Distribution Shift](../concepts/distribution-shift.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](../concepts/overthinking.md), [QwQ-32B](qwq-32b.md), [Risk Control](../concepts/risk-control.md), [s1K-1.1](../datasets/s1k-1-1.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Token Budget](../concepts/token-budget.md), [TokenSkip](tokenskip.md)
 
 ## Appears in
 

@@ -42,8 +42,8 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: model compression, quantization, [distillation](../../../../wiki/concepts/distillation.md), pruning, attribution patching, reasoning vs. memorization
-- **Methods**: quantization, distillation, pruning, attribution patching, difference of means analysis
+- **Concepts**: model compression, quantization, distillation, pruning, attribution patching, reasoning vs. memorization
+- **Methods**: quantization, [distillation](../../../../wiki/methods/knowledge-distillation.md), pruning, attribution patching, difference of means analysis
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), FOLIO, Temporal Sequences, MuSiQue
 
 Tags: `model-compression`, `quantization`, `distillation`, `pruning`, `tangential`

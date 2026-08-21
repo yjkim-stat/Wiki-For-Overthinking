@@ -15,6 +15,7 @@ from __future__ import annotations
 
 from ..common.config import Config
 from ..common.log import get
+from ..common.paths import WIKI_KINDS
 from ..common.schema import PaperSummary, VideoSummary, utcnow
 from ..common.store import RecordStore
 from . import findings as findings_mod
@@ -120,6 +121,7 @@ def _apply_paper(cfg: Config, store: RecordStore, task: dict) -> bool:
         concepts=list(result.get("concepts") or []),
         methods=list(result.get("methods") or []),
         datasets=list(result.get("datasets") or []),
+        models=list(result.get("models") or []),  # LOCAL
         tags=list(result.get("tags") or []),
         read_from=_reading_basis(task, result),
         generated_by=task.get("completed_by") or "queue",
@@ -146,6 +148,7 @@ def _apply_video(cfg: Config, store: RecordStore, task: dict) -> bool:
         concepts=list(result.get("concepts") or []),
         methods=list(result.get("methods") or []),
         datasets=list(result.get("datasets") or []),
+        models=list(result.get("models") or []),  # LOCAL
         tags=list(result.get("tags") or []),
         generated_by=task.get("completed_by", "queue"),
         generated_at=task.get("completed_at") or utcnow(),
@@ -165,7 +168,7 @@ def _apply_concept(cfg: Config, store: RecordStore, task: dict) -> bool:
 
     concept.definition = result.get("definition", "").strip()
     declared = result.get("kind")
-    if declared in ("concept", "method", "dataset"):
+    if declared in WIKI_KINDS:  # LOCAL: includes `model`
         concept.kind = declared
     for alias in result.get("aliases") or []:
         if alias and alias not in concept.aliases:

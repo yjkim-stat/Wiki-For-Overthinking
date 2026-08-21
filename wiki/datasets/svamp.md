@@ -8,7 +8,7 @@ Neither source describes SVAMP directly; it appears as one of the math-word-prob
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [Ada-GRPO](../methods/ada-grpo.md), [AIME 2025](aime-2025.md), [ARC-Challenge](arc-challenge.md), [BIG-Bench Hard](big-bench-hard.md), [C4](../methods/c4.md), [CommonsenseQA](commonsenseqa.md), [confidence calibration](../concepts/confidence-calibration.md), [early exit](../methods/early-exit.md), [GPQA](gpqa.md), [Group-Relative Policy Optimization](../methods/group-relative-policy-optimization.md), [GRPO](../methods/grpo.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [overthinking](../concepts/overthinking.md), [StrategyQA](strategyqa.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [Token Budget](../concepts/token-budget.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [Ada-GRPO](../methods/ada-grpo.md), [AIME 2025](aime-2025.md), [ARC-Challenge](arc-challenge.md), [BBH](bbh.md), [C4](../methods/c4.md), [CommonsenseQA](commonsenseqa.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GPQA](gpqa.md), [GRPO](../methods/grpo.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Overthinking](../concepts/overthinking.md), [StrategyQA](strategyqa.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [Token Budget](../concepts/token-budget.md)
 
 ## Appears in
 

@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Self-Distillation"
+    "Self-Distillation",
+    "self-distillation"
   ],
   "definition": "Self-distillation here means using a model's own outputs, produced under some favorable condition, as training data for itself under the ordinary condition. ConPress harvests the shorter reasoning traces a model naturally produces when several questions share one prompt, and fine-tunes on them for the single-question setting; D-CORE instead self-distills before a diversity-aware RL stage, to correct 'Lazy Reasoning' (inadequate task decomposition) in complex tool-use settings.",
   "evidence": [
@@ -19,8 +20,8 @@
   ],
   "first_seen": "2026-08-20T12:20:08Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:49:10Z",
-  "name": "self-distillation",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Self-Distillation",
   "related": [
     "overthinking",
     "self-compression",
@@ -32,7 +33,7 @@
     "self-supervised-supervised-fine-tuning",
     "self-compression-multi-question-prompting",
     "rejection-style-trace-filtering",
-    "math-500",
+    "math500",
     "aime-2025",
     "gsm8k",
     "olympiadbench",

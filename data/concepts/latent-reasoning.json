@@ -1,7 +1,8 @@
 {
   "aliases": [
     "Latent reasoning",
-    "Latent Reasoning"
+    "Latent Reasoning",
+    "latent reasoning"
   ],
   "definition": "Carrying the intermediate steps of reasoning in continuous hidden states rather than emitting them as chain-of-thought tokens, so that test-time compute is spent on internal iterations instead of on generated text. The archived sources instantiate this in four ways: a recurrent-depth architecture that iterates a latent block to arbitrary depth in place of longer chains; Penelope, which confines the recurrence to a five-layer slice of the decoder and refines a fixed-size boundary memory K times rather than re-running the whole model; Heima, which replaces each stage of a multimodal chain of thought with one learned thinking token and trains a separate decoder to expand those tokens back into readable reasoning; and AVA-VLA, which trains latent reasoning variables in a vision-language-action policy by RL denoising. The recurring open problem across them is not whether to reason latently but how deep to go: AVA-VLA adds a confidence-gated early exit that cuts mean reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms at essentially unchanged LIBERO success, and SLPO trains a stopping head that turns a fixed latent thinking budget into a learned per-instance horizon, scoring latent transitions with a Gaussian surrogate density from MC-dropout forwards. Because the steps are no longer text, they are not directly inspectable, which is why Heima trains a decoder to recover them.",
   "evidence": [
@@ -38,8 +39,8 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:56:47Z",
-  "name": "latent reasoning",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Latent reasoning",
   "related": [
     "test-time-scaling",
     "thinking-budget",
@@ -70,7 +71,7 @@
     "gsm8k-test",
     "gsm-hard",
     "multiarith",
-    "math-500",
+    "math500",
     "aime-2025",
     "amc23",
     "svamp-latent-geometry-probe-only",

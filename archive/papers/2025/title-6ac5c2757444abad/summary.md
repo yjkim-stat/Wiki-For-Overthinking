@@ -45,7 +45,7 @@ Stated: the method is confined to supervised fine-tuning; the authors flag exten
 
 - **Concepts**: [Chain-of-Thought Compression](../../../../wiki/concepts/chain-of-thought-compression.md), [Overthinking](../../../../wiki/concepts/overthinking.md), [Token Budget](../../../../wiki/concepts/token-budget.md), Reasoning Span, Bidirectional Importance Estimation, Accuracy per Computation Unit, Search over Reasoning Paths, Information Density of a Reasoning Trace
 - **Methods**: [A*-Thought](../../../../wiki/methods/a-thought.md), A* search, Bidirectional Importance Score (BIS), supervised fine-tuning on compressed traces, [QwQ-32B](../../../../wiki/methods/qwq-32b.md), DeepSeek-R1-Distill-Qwen-32B, s1.1-32B, GPT-2 as scoring model, [Chain-of-Draft](../../../../wiki/methods/chain-of-draft.md), Break-the-Chain, [TokenSkip](../../../../wiki/methods/tokenskip.md)
-- **Datasets**: [s1K-1.1](../../../../wiki/datasets/s1k-1-1.md), MATH500, [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GSM8K](../../../../wiki/datasets/gsm8k.md)
+- **Datasets**: [s1K-1.1](../../../../wiki/datasets/s1k-1-1.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GSM8K](../../../../wiki/datasets/gsm8k.md)
 
 Tags: `overthinking`, `efficient reasoning`, `cot compression`, `a-star search`, `token budget`, `supervised fine-tuning`, `large reasoning models`, `math reasoning`
 

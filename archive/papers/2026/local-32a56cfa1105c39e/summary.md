@@ -45,7 +45,7 @@ The analysis focuses on mathematical and scientific reasoning tasks; the authors
 
 - **Concepts**: marginal utility of reasoning tokens, [overthinking](../../../../wiki/concepts/overthinking.md), flip events (positive/negative answer flips), flip ratio, budget forcing, cost-aware evaluation / efficiency frontier, difficulty-stratified optimal stopping
 - **Methods**: [budget forcing](../../../../wiki/methods/budget-forcing.md), flip event tracking, marginal utility measurement, cost-aware utility function (lambda-parameterized), overthinking indicators (hesitation markers, answer oscillation, confidence trajectory), bootstrap resampling for confidence intervals
-- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MATH-500](../../../../wiki/datasets/math-500.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MATH-500](../../../../wiki/datasets/math500.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `overthinking`, `test-time-compute`, `chain-of-thought`, `reasoning-length`, `marginal-utility`, `flip-events`, `budget-forcing`, `cost-aware-evaluation`, `aime`, `gpqa`, `math-500`
 

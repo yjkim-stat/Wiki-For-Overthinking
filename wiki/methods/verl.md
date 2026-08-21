@@ -9,7 +9,7 @@ Neither source describes veRL directly; it appears as a named point of reference
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [aha moment](../concepts/aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [GPQA](../datasets/gpqa.md), [Group-Relative Policy Optimization](group-relative-policy-optimization.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LASER](laser.md), [MATH-500](../datasets/math-500.md), [O1-Pruner](o1-pruner.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [preference optimization](preference-optimization.md), [Redundant Self-Verification](../concepts/redundant-self-verification.md), [Thinkless](thinkless.md), [ThinkPrune](thinkprune.md)
+**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [Aha Moment](../concepts/aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [GPQA](../datasets/gpqa.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Laser](laser.md), [MATH500](../datasets/math500.md), [O1-Pruner](o1-pruner.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](../concepts/overthinking.md), [Preference Optimization](preference-optimization.md), [Redundant Self-Verification](../concepts/redundant-self-verification.md), [Thinkless](thinkless.md), [ThinkPrune](thinkprune.md)
 
 ## Appears in
 

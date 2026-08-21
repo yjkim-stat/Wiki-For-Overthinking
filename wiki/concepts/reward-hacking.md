@@ -1,15 +1,15 @@
-# reward hacking
+# Reward Hacking
 
 <!-- auto:begin -->
 
 None of the three sources define reward hacking's mechanism directly; it appears only as a named risk category. The survey on mechanistic understanding of large reasoning models groups it with hallucination, CoT unfaithfulness and overthinking as one of the 'unintended behaviors' that RL training on reasoning models can produce. TwT's n-gram repetition penalty on its translation reward and ThreadWeaver's reward design for parallel reasoning threads are each built to prevent a shortcut that would satisfy the stated reward without the intended reasoning behaviour, which is the same underlying failure mode the term names.
 
 - **Kind**: concept
-- **Also called**: Reward Hacking
+- **Also called**: Reward Hacking, reward hacking
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [Accuracy-Efficiency Pareto Frontier](accuracy-efficiency-pareto-frontier.md), [aha moment](aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GRPO](../methods/grpo.md), [linear probing](../methods/linear-probing.md), [MATH-500](../datasets/math-500.md), [Minerva Math](../datasets/minerva-math.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](overthinking.md), [Reasoning Collapse](reasoning-collapse.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [Accuracy-Efficiency Pareto Frontier](accuracy-efficiency-pareto-frontier.md), [Aha Moment](aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GRPO](../methods/grpo.md), [linear probe](../methods/linear-probe.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Reasoning Collapse](reasoning-collapse.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

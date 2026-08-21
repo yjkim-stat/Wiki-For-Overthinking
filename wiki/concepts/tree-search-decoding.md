@@ -1,15 +1,15 @@
-# tree-search decoding
+# Tree Search Decoding
 
 <!-- auto:begin -->
 
 Tree-search decoding explores a branching space of partial reasoning continuations rather than sampling independent complete rollouts. The inference-scaling-laws source measures accuracy against FLOPs for greedy decoding, majority/weighted-vote sampling, best-of-n and tree search, and introduces REBASE, a reward-guided tree search; the second source proposes BG-MCTS, a budget-aware Monte Carlo Tree Search policy that reallocates exploration versus refinement as a fixed per-query token budget is consumed.
 
 - **Kind**: concept
-- **Also called**: Tree Search Decoding
+- **Also called**: Tree Search Decoding, tree-search decoding
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](accuracy-efficiency-tradeoff.md), [Best-of-N](../methods/best-of-n.md), [Compute-optimal inference](compute-optimal-inference.md), [GSM8K](../datasets/gsm8k.md), [majority voting](../methods/majority-voting.md), [MATH-500](../datasets/math-500.md), [mathematical reasoning benchmarks](mathematical-reasoning-benchmarks.md), [MBPP](../datasets/mbpp.md), [Monte Carlo Tree Search](../methods/monte-carlo-tree-search.md), [process reward model](process-reward-model.md), [test-time compute scaling](test-time-compute-scaling.md), [test-time scaling](test-time-scaling.md), [weighted voting](weighted-voting.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [Best-of-N](../methods/best-of-n.md), [Compute-optimal inference](compute-optimal-inference.md), [GSM8K](../datasets/gsm8k.md), [Majority Voting](../methods/majority-voting.md), [MATH500](../datasets/math500.md), [mathematical reasoning benchmarks](mathematical-reasoning-benchmarks.md), [MBPP](../datasets/mbpp.md), [Monte Carlo Tree Search](../methods/monte-carlo-tree-search.md), [process reward model](process-reward-model.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-time scaling](test-time-scaling.md), [weighted voting](weighted-voting.md)
 
 ## Appears in
 

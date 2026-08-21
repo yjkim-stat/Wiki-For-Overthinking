@@ -9,7 +9,7 @@ The failure in which reinforcement learning drives a model's reasoning trace tow
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Dr. GRPO](../methods/dr-grpo.md), [GRPO](../methods/grpo.md), [Length reward](length-reward.md), [overthinking](overthinking.md), [reward hacking](reward-hacking.md), [underthinking](underthinking.md)
+**Related**: [Dr. GRPO](../methods/dr-grpo.md), [GRPO](../methods/grpo.md), [Length reward](length-reward.md), [Overthinking](overthinking.md), [Reward Hacking](reward-hacking.md), [underthinking](underthinking.md)
 
 ## Appears in
 

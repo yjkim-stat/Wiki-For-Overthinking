@@ -8,7 +8,7 @@ HLE appears in this archive only as coverage of the hardest science and knowledg
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [conformal prediction](../methods/conformal-prediction.md), [early stopping](../concepts/early-stopping.md), [GAIA](gaia.md), [GPQA](gpqa.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [MMLU](mmlu.md), [overthinking](../concepts/overthinking.md), [test-time compute](../concepts/test-time-compute.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
+**Related**: [Conformal Prediction](../methods/conformal-prediction.md), [early stopping](../concepts/early-stopping.md), [GAIA](gaia.md), [GPQA](gpqa.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [MMLU](mmlu.md), [Overthinking](../concepts/overthinking.md), [Test-Time Compute](../concepts/test-time-compute.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
 
 ## Appears in
 

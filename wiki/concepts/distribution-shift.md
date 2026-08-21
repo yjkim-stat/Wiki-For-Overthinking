@@ -8,7 +8,7 @@ Neither source defines distribution shift; both take it as the reason a decision
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [BIG-Bench Hard](../datasets/big-bench-hard.md), [Chain-of-Draft](../methods/chain-of-draft.md), [early exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [MATH](../datasets/math.md), [MMLU-PRO](../datasets/mmlu-pro.md), [Risk Control](risk-control.md), [test-time adaptation](test-time-adaptation.md), [test-time compute scaling](test-time-compute-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
+**Related**: [BBH](../datasets/bbh.md), [Chain-of-Draft](../methods/chain-of-draft.md), [Early Exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [MATH](../datasets/math.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Risk Control](risk-control.md), [test-time adaptation](test-time-adaptation.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
 
 ## Appears in
 

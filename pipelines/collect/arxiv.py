@@ -161,6 +161,10 @@ def collect(
     )
 
     collected: dict[str, Paper] = {}
+    # LOCAL: topics the API answered with nothing. Tracked per topic rather than
+    # in aggregate because that is the unit the fallback can actually act on:
+    # the listing is read per category and filtered by the topics it is given.
+    barren: list[Topic] = []
     for topic in topics:
         if not topic.source_enabled("arxiv"):
             continue
@@ -170,6 +174,11 @@ def collect(
             _LOG.warning("topic '%s' produced no arXiv query", topic.slug)
             continue
 
+        # LOCAL: whether *this topic's* queries returned anything, not whether
+        # the shared dict grew: topics overlap, so a topic whose every result was
+        # already contributed by an earlier one has still been answered by the
+        # API and must not be sent to the fallback.
+        answered = False
         for query in queries:
             search_query = f"{query} AND {_date_clause(since, until)}"
             try:
@@ -196,19 +205,36 @@ def collect(
             for entry in entries:
                 paper = _parse_entry(entry)
                 if paper is not None:
+                    answered = True
                     collected.setdefault(paper.id, paper)
+
+        if not answered:
+            barren.append(topic)
 
     # The website is a different host from the API, and a host blocked from one
     # is not always blocked from the other. `auto` reaches for the listing only
-    # when the API produced nothing, because the listing cannot search abstracts
+    # where the API produced nothing, because the listing cannot search abstracts
     # and so sees strictly less.
+    #
+    # LOCAL: "where", not "when" — the gate is per topic. Gating on the whole run
+    # meant one topic returning a single paper suppressed the fallback for every
+    # other topic, so the topics that most needed it — the ones the API answered
+    # with nothing — were exactly the ones that never got it. That is not a rare
+    # case: with five topics sharing four categories, some topic almost always
+    # matches something, and the fallback had never fired in a scheduled run.
     mode = str((block.get("listing", {}) or {}).get("mode", "auto")).lower()
-    if mode == "always" or (mode == "auto" and not collected):
+    targets = topics if mode == "always" else (barren if mode == "auto" else [])
+    if targets:
         if mode == "auto":
-            _LOG.info("arxiv API returned nothing; falling back to the listing pages")
+            _LOG.info(
+                "arxiv API returned nothing for %d topic(s) (%s); falling back to "
+                "the listing pages",
+                len(targets),
+                ", ".join(t.slug for t in targets),
+            )
         try:
             found = arxiv_listing.collect(
-                cfg, topics, since, client=injected, errors=errors
+                cfg, targets, since, client=injected, errors=errors
             )
         except Exception as exc:  # noqa: BLE001 - a fallback must not sink the run
             _LOG.exception("arxiv listing collection failed")

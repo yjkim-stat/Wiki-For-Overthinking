@@ -9,7 +9,7 @@ The five archived sources use 'early stopping' in three unrelated senses, and th
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 5
 
-**Related**: [adaptive test-time compute](adaptive-test-time-compute.md), [Best-of-N](../methods/best-of-n.md), [confidence-based early stopping](../methods/confidence-based-early-stopping.md), [confidence calibration](confidence-calibration.md), [conformal prediction](../methods/conformal-prediction.md), [early exit](../methods/early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [MathQA](../datasets/mathqa.md), [MMLU](../datasets/mmlu.md), [overthinking](overthinking.md), [self-consistency](../methods/self-consistency.md), [test-time compute](test-time-compute.md), [test-time scaling](test-time-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
+**Related**: [adaptive test-time compute](adaptive-test-time-compute.md), [Best-of-N](../methods/best-of-n.md), [Confidence-based early stopping](../methods/confidence-based-early-stopping.md), [Confidence Calibration](confidence-calibration.md), [Conformal Prediction](../methods/conformal-prediction.md), [Early Exit](../methods/early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [MathQA](../datasets/mathqa.md), [MMLU](../datasets/mmlu.md), [Overthinking](overthinking.md), [Self-Consistency](../methods/self-consistency.md), [Test-Time Compute](test-time-compute.md), [Test-time scaling](test-time-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
 
 ## Appears in
 

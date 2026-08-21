@@ -45,7 +45,7 @@ The paper states no limitations section. Things a reader should notice: (1) the 
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Early Exit, [Test-Time Scaling](../../../../wiki/concepts/test-time-scaling.md), [Chain-of-Thought Compression](../../../../wiki/concepts/chain-of-thought-compression.md), Outcome-Reward Reinforcement Learning, Serial Group Rollout, Decaying Reward, Sufficiency of Intermediate Reasoning
 - **Methods**: S-GRPO (Serial-Group Decaying-Reward Policy Optimization), [GRPO](../../../../wiki/methods/grpo.md), early-exit prompting via injected instruction, DeepSeek-R1-Distill-Qwen-7B/14B, Qwen3-8B/14B
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), AMC 2023, [MATH-500](../../../../wiki/datasets/math-500.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [MATH-500](../../../../wiki/datasets/math500.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `overthinking`, `early exit`, `reinforcement learning`, `grpo`, `chain-of-thought`, `test-time scaling`, `efficient reasoning`, `reward shaping`
 

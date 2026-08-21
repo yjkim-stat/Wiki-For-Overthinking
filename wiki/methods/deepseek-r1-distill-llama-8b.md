@@ -9,7 +9,7 @@ DeepSeek-R1-Distill-Llama-8B is a language model that two archived papers run ex
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [budget forcing](budget-forcing.md), [confidence-based early stopping](confidence-based-early-stopping.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [distillation](../concepts/distillation.md), [GPQA](../datasets/gpqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [HMMT 2025](../datasets/hmmt-2025.md), [KV cache compression](kv-cache-compression.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [process reward model](../concepts/process-reward-model.md), [Qwen3-8B](qwen3-8b.md), [R-KV](r-kv.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [vLLM](vllm.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Budget Forcing](budget-forcing.md), [Confidence-based early stopping](confidence-based-early-stopping.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [Dynasor](dynasor.md), [GPQA](../datasets/gpqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [HMMT 2025](../datasets/hmmt-2025.md), [KV-cache compression](kv-cache-compression.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [process reward model](../concepts/process-reward-model.md), [Qwen3-8B](qwen3-8b.md), [R-KV](r-kv.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [vLLM](vllm.md)
 
 ## Appears in
 

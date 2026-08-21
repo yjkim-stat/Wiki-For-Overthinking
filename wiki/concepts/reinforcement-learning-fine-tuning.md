@@ -9,7 +9,7 @@ Further training an already-pretrained reasoning model with reinforcement learni
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Bayesian inference](bayesian-inference.md), [preference optimization](../methods/preference-optimization.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [Bayesian inference](bayesian-inference.md), [Preference Optimization](../methods/preference-optimization.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

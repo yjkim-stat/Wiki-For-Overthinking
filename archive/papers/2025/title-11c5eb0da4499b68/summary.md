@@ -45,7 +45,7 @@ The abstract does not state limitations explicitly; no PDF was attached, so meth
 
 - **Concepts**: [reasoning graph](../../../../wiki/concepts/reasoning-graph.md), cyclicity, graph diameter, small-world index
 - **Methods**: [reasoning graph extraction](../../../../wiki/methods/reasoning-graph-extraction.md), hidden-state clustering, graph-theoretic analysis (cyclicity, diameter, small-world index)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH500, [AIME 2024](../../../../wiki/datasets/aime-2024.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md)
 
 Tags: `interpretability`, `reasoning-graph`, `hidden-states`, `graph-theory`, `scaling`
 

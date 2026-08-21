@@ -8,7 +8,7 @@ No archived paper is about DAPO; it is named only in passing, and always as a GR
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [DeepScaleR](../datasets/deepscaler.md), [GFPO](gfpo.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [Minerva Math](../datasets/minerva-math.md), [OlympiadBench](../datasets/olympiadbench.md), [Omni-MATH](../datasets/omni-math.md), [overthinking](../concepts/overthinking.md), [Qwen2.5-Instruct](qwen2-5-instruct.md), [Reinforcement Learning with Verifiable Rewards](../concepts/reinforcement-learning-with-verifiable-rewards.md), [RLVR](../concepts/rlvr.md), [S-GRPO](s-grpo.md), [Still](../datasets/still.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DeepScaleR](../datasets/deepscaler.md), [GFPO](gfpo.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [Omni-MATH](../datasets/omni-math.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-Instruct](qwen2-5-instruct.md), [RLVR](rlvr.md), [S-GRPO](s-grpo.md), [Still](../datasets/still.md)
 
 ## Appears in
 

@@ -44,7 +44,7 @@ _not recorded_
 
 - **Concepts**: verifier-guided adaptive compute allocation, process reward model as control signal, compute intensity metric, iterative trajectory generation and selection
 - **Methods**: process reward model (PRM), verifier-guided adaptive test-time compute allocation
-- **Datasets**: [MATH-500](../../../../wiki/datasets/math-500.md), AIME24, AMO-Bench
+- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), AMO-Bench
 
 Tags: `test-time-compute`, `process-reward-model`, `adaptive-allocation`, `efficient-reasoning`
 

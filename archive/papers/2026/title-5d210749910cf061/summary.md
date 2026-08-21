@@ -43,7 +43,7 @@ Not stated in the abstract; the core analysis is carried out in a simplified big
 
 ## Entities
 
-- **Concepts**: [distillation](../../../../wiki/concepts/distillation.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), in-context learning, induction heads, bigram model sandbox
+- **Concepts**: distillation, [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), in-context learning, induction heads, bigram model sandbox
 - **Methods**: distilled pretraining, bigram model analysis
 - **Datasets**: _none recorded_
 

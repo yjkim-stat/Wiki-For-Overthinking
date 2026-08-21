@@ -1,15 +1,15 @@
-# thinking budget
+# Thinking Budget
 
 <!-- auto:begin -->
 
 Thinking budget denotes a cap, fixed or learned, on how much reasoning a model performs before answering. SLPO turns a fixed latent thinking budget into a learned per-instance horizon via a trained stopping head; the machine-translation-evaluator source instead finds reasoning models overthink simple translation-quality judgments and calibrates their thinking via synthetic human-like trajectories, cutting the thinking budget roughly 35x while improving correlation with human judgments.
 
 - **Kind**: concept
-- **Also called**: Thinking Budget
+- **Also called**: Thinking Budget, thinking budget
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [latent reasoning](latent-reasoning.md), [MATH-500](../datasets/math-500.md), [RLOO](../methods/rloo.md), [test-time scaling](test-time-scaling.md)
+**Related**: [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [Latent reasoning](latent-reasoning.md), [MATH500](../datasets/math500.md), [RLOO](../methods/rloo.md), [Test-time scaling](test-time-scaling.md)
 
 ## Appears in
 

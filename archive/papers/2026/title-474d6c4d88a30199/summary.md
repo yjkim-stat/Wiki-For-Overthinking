@@ -46,7 +46,7 @@ The authors state the method is validated only on distilled 7B large reasoning m
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Reflection in reasoning traces, [Length reward](../../../../wiki/concepts/length-reward.md), Reflection reward, [Sequential revision](../../../../wiki/concepts/sequential-revision.md), [Test-time compute scaling](../../../../wiki/concepts/test-time-compute-scaling.md), Online reinforcement learning for efficient reasoning, Difficulty-adaptive reasoning length
 - **Methods**: REA-RL, [GRPO](../../../../wiki/methods/grpo.md), reflection reward, sequential revision, parallel sampling, supervised fine-tuning distillation, [DeepSeek-R1-Distill-Qwen-7B](../../../../wiki/methods/deepseek-r1-distill-qwen-7b.md), Qwen2.5-7B-Instruct, Qwen2.5-32B
-- **Datasets**: [DeepScaleR](../../../../wiki/datasets/deepscaler.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH500, Gaokao23, [AMC23](../../../../wiki/datasets/amc23.md), AIME24
+- **Datasets**: [DeepScaleR](../../../../wiki/datasets/deepscaler.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), Gaokao23, [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md)
 
 Tags: `overthinking`, `efficient-reasoning`, `reinforcement-learning`, `grpo`, `reflection`, `length-reward`, `chain-of-thought`, `inference-cost`, `math-reasoning`
 

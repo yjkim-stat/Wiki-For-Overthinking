@@ -45,7 +45,7 @@ Stated in Section 7: (1) retrieval quality depends on corpus coverage - for prob
 
 - **Concepts**: [sequential test-time scaling](../../../../wiki/concepts/sequential-test-time-scaling.md), diminishing/negative returns from longer reasoning traces, [retrieval-augmented reasoning](../../../../wiki/concepts/retrieval-augmented-reasoning.md), in-context exemplar injection at each reasoning step, predictive entropy of final answers as a proxy for reasoning quality
 - **Methods**: ThinkRetrieve, sequential test-time scaling (budget forcing, Muennighoff et al. 2025), static input-level ICL (S-ICL) baseline, random per-step retrieval (Rand) baseline, E5-Large dense retrieval with FAISS indexing, self-consistency / majority voting (compute-matched comparison)
-- **Datasets**: GSM-8K, [MATH-500](../../../../wiki/datasets/math-500.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [SciQ](../../../../wiki/datasets/sciq.md), NuminaMath-1.5 (synthetic split, used as external example corpus)
+- **Datasets**: [GSM-8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [SciQ](../../../../wiki/datasets/sciq.md), NuminaMath-1.5 (synthetic split, used as external example corpus)
 
 Tags: `test-time-scaling`, `retrieval-augmented-reasoning`, `overthinking`, `in-context-learning`, `large-reasoning-models`, `chain-of-thought`
 

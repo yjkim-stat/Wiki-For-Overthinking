@@ -8,7 +8,7 @@ A benchmark of multi-step, tool-using agent tasks used in the archive to evaluat
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [budget forcing](../methods/budget-forcing.md), [GPQA](gpqa.md), [HLE](hle.md)
+**Related**: [Budget Forcing](../methods/budget-forcing.md), [GPQA](gpqa.md), [HLE](hle.md)
 
 ## Appears in
 

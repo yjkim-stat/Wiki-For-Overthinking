@@ -47,7 +47,7 @@ No limitations section is given; future work only proposes investigating why the
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), [Redundant Self-Verification](../../../../wiki/concepts/redundant-self-verification.md), Atomic Reasoning Unit, Reasoning Trajectory Compression, Fast-Slow Thinking Switching, [Aha Moment](../../../../wiki/concepts/aha-moment.md), From-Wrong-to-Right Supervision, Reasoning Length Distribution by Difficulty, Self-Training on Pruned Traces, Preference Optimization
 - **Methods**: EvoThink, Self-Pruning Training (SPT), Aha-Moment Preference Optimization (AMPO), DPO, atomic reasoning unit segmentation, diversity fitness over distinct local conclusions, [ThinkPrune](../../../../wiki/methods/thinkprune.md), [O1-Pruner](../../../../wiki/methods/o1-pruner.md), DIET, Kimi 1.5 SFT / DPO, [veRL](../../../../wiki/methods/verl.md)
-- **Datasets**: [MATH-500](../../../../wiki/datasets/math-500.md), AIME24, AIME25, TACO, AIME 1983-2023 (training set, gold solutions from Art of Problem Solving), MATH training set
+- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), TACO, AIME 1983-2023 (training set, gold solutions from Art of Problem Solving), MATH training set
 
 Tags: `overthinking`, `efficient-reasoning`, `token-reduction`, `self-pruning`, `dpo`, `aha-moment`, `math-reasoning`, `code-generation`, `self-training`
 

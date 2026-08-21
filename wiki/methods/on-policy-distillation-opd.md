@@ -9,7 +9,7 @@ Training a student on its own sampled reasoning trajectories while minimizing re
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [AMC23](../datasets/amc23.md), [DAPO-Math-17k](../datasets/dapo-math-17k.md), [LiveCodeBench-v6](../datasets/livecodebench-v6.md), [pass@K](../concepts/pass-k.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [AMC23](../datasets/amc23.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [LiveCodeBench v6](../datasets/livecodebench-v6.md), [pass@K](../concepts/pass-k.md)
 
 ## Appears in
 

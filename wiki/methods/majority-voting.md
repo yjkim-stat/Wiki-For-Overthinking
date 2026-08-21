@@ -1,15 +1,15 @@
-# majority voting
+# Majority Voting
 
 <!-- auto:begin -->
 
 Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' finds it mostly fails to improve vision-language-model accuracy unless the sampled outputs are actually diverse; 'Does Thinking More Always Help?' proposes 'parallel thinking' (multiple short chains plus majority vote) as an alternative to extending a single chain, beating extended thinking by up to 20%.
 
 - **Kind**: method
-- **Also called**: Majority Voting, self-consistency
+- **Also called**: Majority Voting, majority voting, self-consistency
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [Accuracy-Efficiency Tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [Best-of-N](best-of-n.md), [best-of-N sampling](best-of-n-sampling.md), [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH-500](../datasets/math-500.md), [MBPP](../datasets/mbpp.md), [MMLU](../datasets/mmlu.md), [overthinking](../concepts/overthinking.md), [process reward model](../concepts/process-reward-model.md), [self-consistency](self-consistency.md), [test-time compute](../concepts/test-time-compute.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md), [tree-search decoding](../concepts/tree-search-decoding.md), [weighted voting](../concepts/weighted-voting.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [Best-of-N](best-of-n.md), [Best-of-N sampling](best-of-n-sampling.md), [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [MMLU](../datasets/mmlu.md), [Overthinking](../concepts/overthinking.md), [process reward model](../concepts/process-reward-model.md), [Self-Consistency](self-consistency.md), [Test-Time Compute](../concepts/test-time-compute.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-time scaling](../concepts/test-time-scaling.md), [Tree Search Decoding](../concepts/tree-search-decoding.md), [weighted voting](../concepts/weighted-voting.md)
 
 ## Appears in
 

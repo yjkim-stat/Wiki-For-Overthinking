@@ -8,7 +8,7 @@ An inference-acceleration technique where a small draft model proposes tokens th
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [best-of-N sampling](best-of-n-sampling.md), [early exit](early-exit.md), [latent reasoning](../concepts/latent-reasoning.md), [recurrent depth](../concepts/recurrent-depth.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md)
+**Related**: [Best-of-N sampling](best-of-n-sampling.md), [Early Exit](early-exit.md), [Latent reasoning](../concepts/latent-reasoning.md), [Recurrent Depth](../concepts/recurrent-depth.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-time scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

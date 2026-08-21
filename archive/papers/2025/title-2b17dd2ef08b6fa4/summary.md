@@ -45,7 +45,7 @@ Only the abstract was available for this task (no PDF attachment); the paper's o
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), redundant reasoning steps, self-regulated reasoning termination, [adaptive reasoning length](../../../../wiki/concepts/adaptive-reasoning-length.md), braking prompt mechanism
 - **Methods**: Self-Braking Tuning (SBT), overthinking identification metrics, braking prompt mechanism
-- **Datasets**: [AIME](../../../../wiki/datasets/aime.md), [AMC](../../../../wiki/datasets/amc.md), MATH500, [GSM8K](../../../../wiki/datasets/gsm8k.md)
+- **Datasets**: [AIME](../../../../wiki/datasets/aime.md), [AMC](../../../../wiki/datasets/amc.md), [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md)
 
 Tags: `overthinking`, `self-braking-tuning`, `reasoning-length`, `efficiency`, `chain-of-thought`, `math-reasoning`
 

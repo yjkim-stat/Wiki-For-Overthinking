@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "KV-cache compression"
+    "KV-cache compression",
+    "KV cache compression"
   ],
   "definition": "Shrinking the stored key-value tensors of an already-generated reasoning trace — by quantizing them, by evicting entries, or both — so that long chain-of-thought inference fits in memory and runs faster. The archive files this as tangential to overthinking: it cuts the serving cost of whatever trace the model produces and does not decide how long that trace is. The three sources vary the retention policy: BeaconKV is training-free and keeps the distant early context that later reasoning steps revisit, using clustered 'beacon queries', for up to 5.8x memory reduction and over 4.3x throughput; ThinKV labels segments of the trace by thought type and applies per-type quantization plus progressive eviction, staying near full-cache accuracy at under 5% of the cache; ReCo drives the per-step retention ratio from a 30M process-reward estimator and pairs it with generation-side controls, cutting tokens 37-65% and latency 2.08-2.35x. Two archived measurements cut against reading compression as an efficiency win in the overthinking sense: ReCo reports cache-only baselines increasing generated tokens rather than reducing them (SnapKV goes from 7,078 to 11,266 tokens on Llama-8B), and ThinKV measures quantization inflating generated length by up to 5.1x across datasets and techniques.",
   "evidence": [
@@ -25,8 +26,8 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "method",
-  "last_seen": "2026-08-21T00:49:09Z",
-  "name": "KV cache compression",
+  "last_seen": "2026-08-21T03:02:20Z",
+  "name": "KV-cache compression",
   "related": [
     "overthinking",
     "compression-tolerance-of-a-reasoning-state",
@@ -47,7 +48,7 @@
     "sat",
     "dynasor",
     "gsm8k",
-    "math-500",
+    "math500",
     "amc23",
     "aime-2024",
     "aime-2025",
@@ -62,7 +63,7 @@
     "thought-types-in-chain-of-thought",
     "attention-sparsity",
     "hybrid-quantization-eviction",
-    "paged-attention",
+    "pagedattention",
     "generation-length-inflation-under-compression",
     "thinkv",
     "kv-cache-quantization",

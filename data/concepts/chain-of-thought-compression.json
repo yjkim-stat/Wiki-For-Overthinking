@@ -1,7 +1,8 @@
 {
   "aliases": [
     "Chain-of-Thought Compression",
-    "Chain-of-thought compression"
+    "Chain-of-thought compression",
+    "chain-of-thought compression"
   ],
   "definition": "In these eight sources 'chain-of-thought compression' is an umbrella for making a reasoning trace shorter while keeping the answer, and it covers at least three operations that share no mechanism. One is selecting a subset of an existing trace -- A*-Thought runs A* search with a bidirectional importance score over reasoning spans and fine-tunes on the survivors. A second replaces the trace with non-textual tokens: Heima emits one learned thinking token per reasoning stage in latent space with a separate decoder that expands them back, while ImgCoT trains an autoencoder to reconstruct an image of the rendered CoT rather than its text. A third stops the trace early -- S-GRPO rewards correct answers with a decay in how late the exit was, DEER terminates at a thought-chain switch once a trial answer's token confidence clears a threshold, and ShorterBetter targets the shortest correct response in a sampled group, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B; one source is negative, showing that entropy-based selection never beats random pruning once a random baseline is included and that the apparent maths exception is caused by numeric tokens rather than entropy.",
   "evidence": [
@@ -56,8 +57,8 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:56:47Z",
-  "name": "chain-of-thought compression",
+  "last_seen": "2026-08-21T03:02:20Z",
+  "name": "Chain-of-Thought Compression",
   "related": [
     "token-entropy",
     "forking-tokens",
@@ -167,7 +168,7 @@
     "deepseek-r1-distill-qwen-7b-14b",
     "qwen3-8b-14b",
     "amc23",
-    "math-500",
+    "math500",
     "token-budget",
     "reasoning-span",
     "bidirectional-importance-estimation",
@@ -211,7 +212,7 @@
     "over-exploration-of-alternatives",
     "shorterbetter",
     "sample-optimal-length-sol",
-    "reinforcement-learning-with-verifiable-rewards",
+    "rlvr",
     "deepseek-r1-distill-qwen-1-5b",
     "deepseek-r1-distill-qwen-7b",
     "o1-pruner",
@@ -233,7 +234,6 @@
     "answer-confidence",
     "training-free-inference-intervention",
     "self-truncation",
-    "deer-pro",
     "branch-parallel-decoding",
     "answer-inducer-prompting",
     "entropy-based-transition-detection",

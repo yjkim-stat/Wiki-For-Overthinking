@@ -9,7 +9,7 @@ LIBERO-LONG is a long-horizon robot manipulation suite that entered this wiki th
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [early exit](../methods/early-exit.md), [latent reasoning](../concepts/latent-reasoning.md)
+**Related**: [Early Exit](../methods/early-exit.md), [Latent reasoning](../concepts/latent-reasoning.md)
 
 ## Appears in
 

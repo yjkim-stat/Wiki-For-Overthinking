@@ -9,7 +9,7 @@ A self-consistency-style baseline used for comparison by test-time-scaling paper
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [AMC23](../datasets/amc23.md), [best-of-N sampling](best-of-n-sampling.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [MATH-500](../datasets/math-500.md), [self-consistency](self-consistency.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [AMC23](../datasets/amc23.md), [Best-of-N sampling](best-of-n-sampling.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [MATH500](../datasets/math500.md), [Self-Consistency](self-consistency.md)
 
 ## Appears in
 

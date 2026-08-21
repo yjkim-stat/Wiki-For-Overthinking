@@ -53,8 +53,10 @@ keywords:
     - thinking effort
     - reasoning budget
     - token budget
+    # `reasoning token` alone: the matcher is word-boundary based and
+    # already counts the hyphenated spelling, so listing both scored the
+    # same words twice. Found by tests/test_keyword_overlap.py.
     - reasoning token
-    - reasoning-token
     - shared budget
     - resource-rational
     - compute-optimal

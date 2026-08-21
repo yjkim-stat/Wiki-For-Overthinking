@@ -8,7 +8,7 @@ Neither DR²Seg's nor PixelThink's given note describes Seg-Zero (baseline) dire
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning length](../concepts/adaptive-reasoning-length.md), [GRPO (Group Relative Policy Optimization)](grpo-group-relative-policy-optimization.md), [Length reward](../concepts/length-reward.md), [overthinking](../concepts/overthinking.md), [Qwen2.5-VL](qwen2-5-vl.md), [Reasoning Segmentation](../concepts/reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [Reinforcement Learning with Verifiable Rewards](../concepts/reinforcement-learning-with-verifiable-rewards.md), [task decomposition](../concepts/task-decomposition.md)
+**Related**: [adaptive reasoning length](../concepts/adaptive-reasoning-length.md), [GRPO](grpo.md), [Length reward](../concepts/length-reward.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-VL](qwen2-5-vl.md), [Reasoning Segmentation](../concepts/reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [RLVR](rlvr.md), [Task Decomposition](../concepts/task-decomposition.md)
 
 ## Appears in
 

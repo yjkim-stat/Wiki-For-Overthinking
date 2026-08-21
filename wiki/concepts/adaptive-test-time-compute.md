@@ -9,7 +9,7 @@ Both archived sources use 'adaptive test-time compute' for setting the inference
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning](adaptive-reasoning.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Best-of-N](../methods/best-of-n.md), [budget forcing](../methods/budget-forcing.md), [Compute-optimal inference](compute-optimal-inference.md), [confidence-based early stopping](../methods/confidence-based-early-stopping.md), [confidence calibration](confidence-calibration.md), [early stopping](early-stopping.md), [GPQA](../datasets/gpqa.md), [gpt-oss-120b](../methods/gpt-oss-120b.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [MathQA](../datasets/mathqa.md), [Qwen3-8B](../methods/qwen3-8b.md), [self-consistency](../methods/self-consistency.md), [test-time scaling](test-time-scaling.md)
+**Related**: [adaptive reasoning](adaptive-reasoning.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Best-of-N](../methods/best-of-n.md), [Budget Forcing](../methods/budget-forcing.md), [Compute-optimal inference](compute-optimal-inference.md), [Confidence-based early stopping](../methods/confidence-based-early-stopping.md), [Confidence Calibration](confidence-calibration.md), [early stopping](early-stopping.md), [GPQA](../datasets/gpqa.md), [gpt-oss-120b](../methods/gpt-oss-120b.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [MathQA](../datasets/mathqa.md), [Qwen3-8B](../methods/qwen3-8b.md), [Self-Consistency](../methods/self-consistency.md), [Test-time scaling](test-time-scaling.md)
 
 ## Appears in
 

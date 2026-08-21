@@ -47,7 +47,7 @@ The paper states no limitations section; the conclusion only names larger backbo
 
 - **Concepts**: [Latent reasoning](../../../../wiki/concepts/latent-reasoning.md), [Test-Time Scaling](../../../../wiki/concepts/test-time-scaling.md), [Thinking Budget](../../../../wiki/concepts/thinking-budget.md), Adaptive Stopping, Difficulty-Adaptive Compute Allocation, Outcome-Reward RL / RLVR, Trajectory-Level Credit Assignment, Pass@k under Parallel Sampling, MC-Dropout Stochastic Rollouts, Prefix Effective Rank
 - **Methods**: SLPO (Surrogate Latent Policy Optimization), surrogate Gaussian latent-transition likelihood from MC-dropout, correctness-supervised stopping gate / first-stop objective, [RLOO](../../../../wiki/methods/rloo.md), [GRPO](../../../../wiki/methods/grpo.md), [COCONUT](../../../../wiki/methods/coconut.md), [CODI](../../../../wiki/methods/codi.md), LEPO, Latent-GRPO, [CoLaR](../../../../wiki/methods/colar.md), ReGuLaR, DART, Latent-SFT, soft-token / Soft Thinking inference, iCoT, CoT-SFT
-- **Datasets**: GSM8K-Aug (training), GSM8K-Test, [GSM-Hard](../../../../wiki/datasets/gsm-hard.md), MultiArith, MATH500, [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), SVAMP (latent-geometry probe only)
+- **Datasets**: GSM8K-Aug (training), GSM8K-Test, [GSM-Hard](../../../../wiki/datasets/gsm-hard.md), MultiArith, [MATH500](../../../../wiki/datasets/math500.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), SVAMP (latent-geometry probe only)
 
 Tags: `latent-reasoning`, `continuous-cot`, `rlvr`, `test-time-scaling`, `adaptive-computation`, `stopping-policy`, `gsm8k`, `grpo`, `rloo`
 

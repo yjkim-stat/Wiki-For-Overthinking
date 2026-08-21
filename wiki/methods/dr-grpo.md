@@ -9,7 +9,7 @@ The archive's sources name Dr. GRPO only as a GRPO variant used as a training ba
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [CommonsenseQA](../datasets/commonsenseqa.md), [Group-Relative Policy Optimization](group-relative-policy-optimization.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Length Penalty](../concepts/length-penalty.md), [overthinking](../concepts/overthinking.md), [Reasoning Collapse](../concepts/reasoning-collapse.md), [RLVR](../concepts/rlvr.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Length Penalty](../concepts/length-penalty.md), [Overthinking](../concepts/overthinking.md), [Reasoning Collapse](../concepts/reasoning-collapse.md), [RLVR](rlvr.md)
 
 ## Appears in
 

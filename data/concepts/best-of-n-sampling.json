@@ -3,7 +3,8 @@
     "Best-of-N sampling",
     "best-of-n sampling",
     "Best-of-N",
-    "BoN"
+    "BoN",
+    "best-of-N sampling"
   ],
   "definition": "A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority vote), trading inference compute for accuracy. The archive's 7 sources study when this actually pays off: its accuracy is bounded by verifier ROC-curve geometry and generally worse than Rejection Sampling at a fixed compute budget (ROC-n-reroll); it has provably worse sample complexity than self-consistency for some tasks (Θ(1/Δ) vs Θ(1/Δ²)); standard best-of-n is proven suboptimal under a mixture-of-reference-policy model, with reward-filtered sequential inference beating it under theoretical guarantees; how often the verifier is called (verification granularity) can itself be tuned to trade accuracy against cost; and its cost can be cut by truncating unpromising candidates early via internal-state sampling consistency (ST-BoN) or by speculative decoding, rather than paying for all N candidates in full.",
   "evidence": [
@@ -58,8 +59,8 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
-  "name": "best-of-N sampling",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Best-of-N sampling",
   "related": [
     "test-time-scaling",
     "per-query-compute-budget-allocation",
@@ -98,7 +99,7 @@
     "test-time-scaling-under-imperfect-verifiers",
     "best-of-n-bon",
     "rejection-sampling-rs",
-    "math-500",
+    "math500",
     "verification-granularity",
     "beam-search-and-best-of-n-as-special-cases-of-a-granularity-parameter",
     "compute-efficiency-in-test-time-scaling-via-verifier-call-frequency",

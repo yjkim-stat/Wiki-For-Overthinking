@@ -76,8 +76,8 @@
     ]
   },
   "created_at": "2026-08-21T02:03:43Z",
-  "instructions": "Revise the wiki definition for 'self-consistency'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretical paper derives that its sample complexity (Θ(1/Δ²)) is worse than best-of-n's (Θ(1/Δ)) for some tasks; CaTS uses a confidence signal to adaptively size how many samples to draw instead of a fixed count; 'Diversity Matters' finds it mostly fails to transfer to vision-language-model accuracy gains unless sampled outputs are genuinely diverse.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
-  "item_id": "self-consistency",
+  "instructions": "Revise the wiki definition for 'Self-Consistency'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretical paper derives that its sample complexity (Θ(1/Δ²)) is worse than best-of-n's (Θ(1/Δ)) for some tasks; CaTS uses a confidence signal to adaptively size how many samples to draw instead of a fixed count; 'Diversity Matters' finds it mostly fails to transfer to vision-language-model accuracy gains unless sampled outputs are genuinely diverse.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Self-Consistency",
   "kind": "concept",
   "language": "en",
   "output_schema": {
@@ -85,13 +85,13 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
-    "name": "self-consistency",
+    "name": "Self-Consistency",
     "previous_definition": "Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretical paper derives that its sample complexity (Θ(1/Δ²)) is worse than best-of-n's (Θ(1/Δ)) for some tasks; CaTS uses a confidence signal to adaptively size how many samples to draw instead of a fixed count; 'Diversity Matters' finds it mostly fails to transfer to vision-language-model accuracy gains unless sampled outputs are genuinely diverse.",
     "source_count": 9
   },

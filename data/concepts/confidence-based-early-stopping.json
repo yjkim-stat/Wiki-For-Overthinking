@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Confidence-based early stopping"
+    "Confidence-based early stopping",
+    "confidence-based early stopping"
   ],
   "definition": "Stopping a model's sampling or reasoning process once its own confidence signal (e.g. self-distilled calibration, or cross-agent consensus) indicates further compute is unlikely to change the answer, rather than running a fixed budget. CaTS uses a self-distilled confidence signal to adaptively size the sampling budget per query; TUMIX's multi-agent tool-use ensemble stops iterating once its agents' answers converge.",
   "evidence": [
@@ -25,8 +26,8 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
-  "name": "confidence-based early stopping",
+  "last_seen": "2026-08-21T03:02:20Z",
+  "name": "Confidence-based early stopping",
   "related": [
     "overthinking",
     "compression-tolerance-of-a-reasoning-state",
@@ -47,7 +48,7 @@
     "sat",
     "dynasor",
     "gsm8k",
-    "math-500",
+    "math500",
     "amc23",
     "aime-2024",
     "aime-2025",

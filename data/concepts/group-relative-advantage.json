@@ -1,7 +1,8 @@
 {
   "aliases": [
     "Group-Relative Advantage",
-    "Group-relative advantage"
+    "Group-relative advantage",
+    "group relative advantage"
   ],
   "definition": "The mechanism inside GRPO rather than a name for it: each sampled rollout's advantage is its reward normalised against the whole group of rollouts drawn for the same prompt, so a rollout is graded against its siblings instead of against a learned value function. The sources treat it mainly as a failure surface. DRPO shows that once a length penalty enters the reward, a correct-but-long rollout can fall below the group mean and receive a negative advantage, so training pushes the policy away from a valid solution — its fix is to normalise correct rollouts only against other correct rollouts. GFPO works on the same quantity from the other side, zeroing the advantage of every rollout outside a top-k selection so a scalar reward can express a preference among correct answers, and DisCO argues the group-relative construction carries question-level difficulty bias and entropy instability, reporting average gains of 7% over GRPO and 6% over DAPO on math benchmarks with a 1.5B model.",
   "evidence": [
@@ -26,8 +27,8 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:56:47Z",
-  "name": "group relative advantage",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Group-Relative Advantage",
   "related": [
     "overthinking",
     "length-reward",
@@ -43,7 +44,7 @@
     "accuracy-efficiency-score-aes",
     "deepscaler-preview-dataset",
     "gsm8k",
-    "math-500",
+    "math500",
     "olympiadbench",
     "aime",
     "length-inflation-under-rlvr",
@@ -56,7 +57,7 @@
     "gfpo",
     "group-filtered-policy-optimization",
     "adaptive-difficulty-gfpo",
-    "reinforcement-learning-with-verifiable-rewards",
+    "rlvr",
     "t-digest",
     "phi-4-reasoning",
     "aime-2024",

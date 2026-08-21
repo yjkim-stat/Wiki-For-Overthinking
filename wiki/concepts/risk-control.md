@@ -9,7 +9,7 @@ Risk control names giving an efficiency method a statistical guarantee on how mu
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [BIG-Bench Hard](../datasets/big-bench-hard.md), [Chain-of-Draft](../methods/chain-of-draft.md), [Confidence Thresholding](../methods/confidence-thresholding.md), [Distribution Shift](distribution-shift.md), [early exit](../methods/early-exit.md), [MATH](../datasets/math.md), [MMLU-PRO](../datasets/mmlu-pro.md), [SST-2](../datasets/sst-2.md), [T5-Large](../methods/t5-large.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [BBH](../datasets/bbh.md), [Chain-of-Draft](../methods/chain-of-draft.md), [Confidence Thresholding](../methods/confidence-thresholding.md), [Distribution Shift](distribution-shift.md), [Early Exit](../methods/early-exit.md), [MATH](../datasets/math.md), [MMLU-Pro](../datasets/mmlu-pro.md), [SST-2](../datasets/sst-2.md), [T5-Large](../methods/t5-large.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Process Supervision"
+    "Process Supervision",
+    "process supervision"
   ],
   "definition": "Supervising the intermediate steps of a reasoning chain rather than only its final answer. The archive's one worked instance is a safety method: it locates 'safety trigger' points and 'compliance cue' patterns inside the chain, replaces a compliance-cue step with a corrected one to build preference pairs, and trains on them with Intervened Preference Optimization, reporting over 30% harmfulness reduction against baselines on jailbreak and adversarial benchmarks - the archived record names neither the benchmarks nor the baseline numbers. The second source is a caution about what such supervision should reward: annotating 15,282 traces from 15 models across 6 benchmarks, it finds the behaviours reasoning training amplifies most (self-correction, hypothesis testing, uncertainty acknowledgment) sit at the bottom of its correctness-association ranking, uncertainty acknowledgment at -16.1% and -13.9% Behavioral Lift, while the top-ranked confidence calibration, knowledge alignment and self-awareness are barely amplified at all. The archive therefore supports process supervision as a place to intervene without establishing which step-level behaviours are worth rewarding.",
   "evidence": [
@@ -19,8 +20,8 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:41:33Z",
-  "name": "process supervision",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Process Supervision",
   "related": [
     "behavioral-lift",
     "amplification-lift-gap",
@@ -42,7 +43,7 @@
     "mathvista-testmini",
     "mmmu",
     "logiqa2",
-    "math-500",
+    "math500",
     "mmlu-pro",
     "gpqa-diamond-supplementary-frontier-validation",
     "safety-triggers",

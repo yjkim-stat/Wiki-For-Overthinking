@@ -9,7 +9,7 @@ GPT-OSS-20B is a language model that archived papers evaluate on, not a concept,
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2026](../datasets/aime-2026.md), [DRP](drp.md), [Efficient Reasoning](../concepts/efficient-reasoning.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](gpt-oss-120b.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [Minerva](../datasets/minerva.md), [Phi-4-reasoning](phi-4-reasoning.md), [self-consistency](self-consistency.md), [SelfBudgeter](selfbudgeter.md), [Thinkless](thinkless.md), [Token Budget](../concepts/token-budget.md), [vLLM](vllm.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2026](../datasets/aime-2026.md), [DRP](drp.md), [Efficient Reasoning](../concepts/efficient-reasoning.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](gpt-oss-120b.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [Phi-4-reasoning](phi-4-reasoning.md), [Self-Consistency](self-consistency.md), [SelfBudgeter](selfbudgeter.md), [Thinkless](thinkless.md), [Token Budget](../concepts/token-budget.md), [vLLM](vllm.md)
 
 ## Appears in
 

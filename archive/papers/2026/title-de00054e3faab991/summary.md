@@ -45,7 +45,7 @@ _not recorded_
 
 - **Concepts**: [test-time compute allocation](../../../../wiki/concepts/test-time-compute-allocation.md), bandit learning, query difficulty estimation
 - **Methods**: bandit learning algorithm for compute allocation
-- **Datasets**: [MATH-500](../../../../wiki/datasets/math-500.md), AIME25, [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
+- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `test-time-compute`, `bandit-learning`, `adaptive-allocation`, `reasoning-efficiency`
 

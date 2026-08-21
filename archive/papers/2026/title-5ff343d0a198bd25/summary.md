@@ -45,7 +45,7 @@ _not recorded_
 
 - **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), [process reward model](../../../../wiki/concepts/process-reward-model.md), self-supervised process reward model (SPRM), reasoning-effort modes, scaling law for thinking compute
 - **Methods**: Reflective Generative Model (RGM), self-supervised process reward model (SPRM), MetaStone-S1
-- **Datasets**: AIME24
+- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md)
 
 Tags: `test-time-scaling`, `process-reward-model`, `reasoning-length`, `scaling-law`, `reasoning-effort-modes`
 

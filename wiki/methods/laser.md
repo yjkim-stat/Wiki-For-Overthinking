@@ -1,15 +1,15 @@
-# LASER
+# Laser
 
 <!-- auto:begin -->
 
 In this archive LASER is a named efficient-reasoning method that appears only as a comparison point, never as a subject: no archived source describes how it works beyond its category. The survey of efficient R1-style reasoning models files it under single-model Adaptive Reasoning as one of the length-reward-shaped methods, alongside HAPO, ALP and SelfBudgeter. ARLCP uses it as one of seven efficient-reasoning baselines on distilled DeepSeek-R1-Qwen models, where it is the strongest baseline on GSM8K at 1.5B (82.26% against ARLCP's 87.34%) and the one method that beats ARLCP outright on AMC2023 at 1.5B (75.94% against 73.28%). Treat the entry as a pointer to the length-reward family rather than as a description of the method.
 
 - **Kind**: method
-- **Also called**: Laser
+- **Also called**: LASER, Laser
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [A*-Thought](a-thought.md), [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [Ada-R1](ada-r1.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [chain-of-thought compression](../concepts/chain-of-thought-compression.md), [DEER](deer.md), [DPO_Shortest](dpo-shortest.md), [DRP](drp.md), [early exit](early-exit.md), [Efficient Reasoning](../concepts/efficient-reasoning.md), [GPQA](../datasets/gpqa.md), [Group-Relative Policy Optimization](group-relative-policy-optimization.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LC-R1](lc-r1.md), [Length Penalty](../concepts/length-penalty.md), [Length reward](../concepts/length-reward.md), [Manifold Steering](manifold-steering.md), [MATH-500](../datasets/math-500.md), [NoThinking](nothinking.md), [NOWAIT](nowait.md), [O1-Pruner](o1-pruner.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [PLAN-AND-BUDGET](plan-and-budget.md), [S-GRPO](s-grpo.md), [SEAL](seal.md), [SelfBudgeter](selfbudgeter.md), [SFT_Shortest](sft-shortest.md), [SPIRIT](spirit.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [Thinkless](thinkless.md), [ThinkPrune](thinkprune.md), [TokenSkip](tokenskip.md), [VeriThinker](verithinker.md), [veRL](verl.md)
+**Related**: [A*-Thought](a-thought.md), [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [Ada-R1](ada-r1.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [DEER](deer.md), [DPO_Shortest](dpo-shortest.md), [DRP](drp.md), [Early Exit](early-exit.md), [Efficient Reasoning](../concepts/efficient-reasoning.md), [GPQA](../datasets/gpqa.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [LC-R1](lc-r1.md), [Length Penalty](../concepts/length-penalty.md), [Length reward](../concepts/length-reward.md), [Manifold Steering](manifold-steering.md), [MATH500](../datasets/math500.md), [NoThinking](nothinking.md), [NOWAIT](nowait.md), [O1-Pruner](o1-pruner.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](../concepts/overthinking.md), [PLAN-AND-BUDGET](plan-and-budget.md), [S-GRPO](s-grpo.md), [SEAL](seal.md), [SelfBudgeter](selfbudgeter.md), [SFT_Shortest](sft-shortest.md), [SPIRIT](spirit.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Thinkless](thinkless.md), [ThinkPrune](thinkprune.md), [TokenSkip](tokenskip.md), [VeriThinker](verithinker.md), [veRL](verl.md)
 
 ## Appears in
 

@@ -8,7 +8,7 @@ Both archived sources use the term in a narrow protocol sense -- a distilled stu
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [ARC-Challenge](../datasets/arc-challenge.md), [chain-of-thought distillation](../methods/chain-of-thought-distillation.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [Qwen3-8B](../methods/qwen3-8b.md), [StrategyQA](../datasets/strategyqa.md)
+**Related**: [ARC-Challenge](../datasets/arc-challenge.md), [Chain-of-Thought Distillation](../methods/chain-of-thought-distillation.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [Qwen3-8B](../methods/qwen3-8b.md), [StrategyQA](../datasets/strategyqa.md)
 
 ## Appears in
 

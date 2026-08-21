@@ -9,7 +9,7 @@ Both sources use this in the forward-pass sense: a network carries exit points a
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [early exit](early-exit.md), [early-exit neural networks](../concepts/early-exit-neural-networks.md), [GQA](../datasets/gqa.md), [MMStar](../datasets/mmstar.md), [POPE](../datasets/pope.md)
+**Related**: [Early Exit](early-exit.md), [early-exit neural networks](../concepts/early-exit-neural-networks.md), [GQA](../datasets/gqa.md), [MMStar](../datasets/mmstar.md), [POPE](../datasets/pope.md)
 
 ## Appears in
 

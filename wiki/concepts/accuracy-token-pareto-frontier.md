@@ -9,7 +9,7 @@ Used by both sources as the yardstick for whether emitting a reasoning trace is 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Pareto Frontier](accuracy-efficiency-pareto-frontier.md), [Accuracy-Efficiency Tradeoff](accuracy-efficiency-tradeoff.md), [Accuracy-Length Tradeoff](accuracy-length-tradeoff.md)
+**Related**: [Accuracy-Efficiency Pareto Frontier](accuracy-efficiency-pareto-frontier.md), [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [Accuracy-Length Tradeoff](accuracy-length-tradeoff.md)
 
 ## Appears in
 

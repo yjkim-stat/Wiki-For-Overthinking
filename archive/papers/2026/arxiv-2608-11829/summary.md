@@ -46,7 +46,7 @@ The paper does not state an explicit limitations section in the pages read; the 
 
 - **Concepts**: on-policy distillation (OPD), pass@K vs avg@K as complementary test-time-scaling diagnostics, capability boundary vs sampling efficiency, problem-level solvability transitions (retained/learned/forgotten), illusory distillation
 - **Methods**: [on-policy distillation (OPD)](../../../../wiki/methods/on-policy-distillation-opd.md), off-policy distillation, reverse-KL top-k token distillation, EOPD, ExOPD, Direct-OPD, forward-KL variant, pass@K, avg@K
-- **Datasets**: AMC2023, AIME2024, AIME2025, AIME2026, DAPO-Math-17k (OPD training set)
+- **Datasets**: [AMC2023](../../../../wiki/datasets/amc23.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [AIME2026](../../../../wiki/datasets/aime-2026.md), DAPO-Math-17k (OPD training set)
 
 Tags: `on-policy-distillation`, `test-time-scaling`, `pass-at-k`, `knowledge-distillation`, `capability-boundary`, `sampling-efficiency`
 

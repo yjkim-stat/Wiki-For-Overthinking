@@ -1,15 +1,15 @@
-# LiveCodeBench-v6
+# LiveCodeBench v6
 
 <!-- auto:begin -->
 
 The sixth release window of LiveCodeBench, used in the archive as a free-form competitive-programming set on which test-time-scaling and length-calibration methods are checked outside mathematics. Consilience is the only source reporting numbers on it: with n = 64 sampled completions its reasoning-isolated variant raises GPT-OSS-120B to 69.7% against Pass@1's 65.7% and self-certainty's degraded 64.5%, and Qwen to 60.4-60.9% against 55.3%, with the gain concentrated on hard problems (AUROC 0.61-0.62 for separating correct completions, versus 0.47-0.50 for mean confidence) and neutral on easy ones. SuCo folds it into an eight-benchmark average without a per-set figure, and Lightning OPD 2.0 names both v5 and v6 as evaluation sets but reports only a v5 number (63.0%), so the archive's version labelling is inconsistent and no v6 token-count or length figure is recorded anywhere.
 
 - **Kind**: dataset
-- **Also called**: LiveCodeBench v6
+- **Also called**: LiveCodeBench v6, LiveCodeBench-v6
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [CommonsenseQA](commonsenseqa.md), [DAPO-Math-17k](dapo-math-17k.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [HMMT 2025](hmmt-2025.md), [LiveCodeBench](livecodebench.md), [MATH-500](math-500.md), [MBPP](mbpp.md), [MMLU-STEM](mmlu-stem.md), [on-policy distillation (OPD)](../methods/on-policy-distillation-opd.md), [overthinking](../concepts/overthinking.md), [Pass@1](../concepts/pass-1.md), [s1K-1.1](s1k-1-1.md), [StrategyQA](strategyqa.md), [SWE-bench Verified](swe-bench-verified.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [CommonsenseQA](commonsenseqa.md), [DAPO-Math-17K](dapo-math-17k.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [HMMT 2025](hmmt-2025.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU-STEM](mmlu-stem.md), [on-policy distillation (OPD)](../methods/on-policy-distillation-opd.md), [Overthinking](../concepts/overthinking.md), [Pass@1](../concepts/pass-1.md), [s1K-1.1](s1k-1-1.md), [StrategyQA](strategyqa.md), [SWE-bench Verified](swe-bench-verified.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
 
 ## Appears in
 

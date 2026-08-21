@@ -9,7 +9,7 @@ Test-time adaptation means adjusting a model's behaviour at inference on a speci
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Distribution Shift](distribution-shift.md), [early exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md)
+**Related**: [Distribution Shift](distribution-shift.md), [Early Exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md)
 
 ## Appears in
 

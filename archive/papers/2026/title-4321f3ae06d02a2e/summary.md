@@ -45,7 +45,7 @@ No stated limitations section was found in the material available. Two the reade
 ## Entities
 
 - **Concepts**: adaptive reasoning mode selection, visually-grounded reasoning, mode-relative advantage, prefix-guided exploration, reasoning mode routing
-- **Methods**: MoVT, AdaVaR, AdaGRPO, [GRPO](../../../../wiki/methods/grpo.md), supervised cold start, curriculum data scheduling
+- **Methods**: MoVT, AdaVaR, [AdaGRPO](../../../../wiki/methods/ada-grpo.md), [GRPO](../../../../wiki/methods/grpo.md), supervised cold start, curriculum data scheduling
 - **Datasets**: [MathVista](../../../../wiki/datasets/mathvista.md), [MathVision](../../../../wiki/datasets/mathvision.md), [MathVerse](../../../../wiki/datasets/mathverse.md), [WeMath](../../../../wiki/datasets/wemath.md), [MMStar](../../../../wiki/datasets/mmstar.md), V*, [POPE](../../../../wiki/datasets/pope.md), SpatialScore
 
 Tags: `adaptive-reasoning`, `visual-reasoning`, `mode-selection`, `reinforcement-learning`, `multimodal`, `grpo`

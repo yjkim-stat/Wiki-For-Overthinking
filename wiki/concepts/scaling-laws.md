@@ -1,11 +1,11 @@
-# scaling laws
+# Scaling Laws
 
 <!-- auto:begin -->
 
 Scaling laws here cover two different senses: the first source's proposed constant-then-cooldown learning-rate schedule is meant to let scaling-law experiments reuse a single training run across many training durations, an experimental-methodology use; the second, on the Inverse Scaling Prize, instead reports 11 tasks on which accuracy gets worse, not better, as parameter count and training compute increase -- the sources disagree in valence rather than definition, one treating scaling as an experimental variable to control for and the other cataloguing where its usual benefit fails.
 
 - **Kind**: concept
-- **Also called**: Scaling Laws
+- **Also called**: Scaling Laws, scaling laws
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

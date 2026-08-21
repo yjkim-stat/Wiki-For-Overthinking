@@ -1,7 +1,8 @@
 {
   "aliases": [
     "KV-Cache Eviction",
-    "KV cache eviction"
+    "KV cache eviction",
+    "KV-cache eviction"
   ],
   "definition": "Dropping the key-value cache entries of tokens judged not to matter for what the model still has to produce — one mechanism inside KV-cache compression, the alternative to keeping every entry at lower precision. As with compression, the archive treats it as tangential to overthinking: it reduces the memory and latency cost of serving a reasoning trace, not the length of the trace. DynTS selects the decision-critical tokens of a chain of thought from its attention maps and evicts the cache for the rest, reporting a 2.6% Pass@1 gain over other KV-cache compression at equal budget, 1.84-2.62x lower latency and a 3.32-5.73x smaller peak cache; ThinKV evicts progressively by thought type and finds that a retention floor of zero degrades accuracy sharply, because the model loses track of trajectories it has already explored. The multimodal-inference survey argues the eviction policy cannot be tuned in isolation, since visual token compression, MoE routing, quantization and cache policy form a failure-propagation chain. ThinKV's own measurement that quantization-only compression can inflate generated length up to 5.1x is a reason not to read cache savings as shorter reasoning.",
   "evidence": [
@@ -26,8 +27,8 @@
   ],
   "first_seen": "2026-08-20T12:20:08Z",
   "kind": "method",
-  "last_seen": "2026-08-21T00:49:09Z",
-  "name": "KV-cache eviction",
+  "last_seen": "2026-08-21T03:02:20Z",
+  "name": "KV-Cache Eviction",
   "related": [
     "failure-propagation-chain",
     "temporal-routing-consistency",
@@ -54,14 +55,14 @@
     "thought-types-in-chain-of-thought",
     "attention-sparsity",
     "hybrid-quantization-eviction",
-    "paged-attention",
+    "pagedattention",
     "generation-length-inflation-under-compression",
     "thinkv",
     "kv-cache-quantization",
     "kivi",
     "pm-kvq",
     "r-kv",
-    "math-500",
+    "math500",
     "aime",
     "gsm8k",
     "livecodebench",

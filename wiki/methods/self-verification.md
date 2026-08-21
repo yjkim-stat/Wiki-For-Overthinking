@@ -1,15 +1,15 @@
-# self-verification
+# Self-verification
 
 <!-- auto:begin -->
 
 A model checking its own intermediate or final answers during reasoning, without an external verifier, to decide whether to continue, backtrack, or stop. GrAlgoBench identifies unproductive self-verification (excessive self-checking loops on graph-algorithm problems) as one driver of overthinking; LLaDA-S combines hierarchical search with self-verification to scale test-time compute for discrete diffusion language models.
 
 - **Kind**: method
-- **Also called**: Self-verification
+- **Also called**: Self-verification, self-verification
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [overthinking](../concepts/overthinking.md), [self-consistency](self-consistency.md)
+**Related**: [Overthinking](../concepts/overthinking.md), [Self-Consistency](self-consistency.md)
 
 ## Appears in
 

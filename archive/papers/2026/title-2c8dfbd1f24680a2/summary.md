@@ -46,7 +46,7 @@ The authors' own discussion notes smaller models benefit more, attributing it to
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Redundant Exploration, Thought Reuse, [Retrieval-Augmented Reasoning](../../../../wiki/concepts/retrieval-augmented-reasoning.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md)
 - **Methods**: Retrieval-of-Thought (RoT), thought graph, reward-guided traversal, Thinking Intervention, retrieval-augmented generation, Buffer of Thoughts, chain-of-thought, [self-consistency](../../../../wiki/methods/self-consistency.md)
-- **Datasets**: AIME 2023, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), AMC 2023, ReasonFlux-v2 template corpus
+- **Datasets**: AIME 2023, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC 2023](../../../../wiki/datasets/amc23.md), ReasonFlux-v2 template corpus
 
 Tags: `overthinking`, `efficient-reasoning`, `retrieval`, `thought-graph`, `training-free`, `inference-efficiency`, `test-time-compute`
 

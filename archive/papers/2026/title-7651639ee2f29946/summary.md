@@ -45,7 +45,7 @@ The source consulted (arXiv abstract, no PDF available) does not give absolute a
 
 - **Concepts**: hierarchical reasoning as a finite state machine, latent cognitive states, reasoning as a planning problem
 - **Methods**: Finite State Machine reasoning-state model, Q-Value guided steering, [activation steering](../../../../wiki/methods/activation-steering.md)
-- **Datasets**: AIME25, [MATH-500](../../../../wiki/datasets/math-500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+- **Datasets**: [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH-500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `reasoning-dynamics`, `finite-state-machine`, `activation-steering`, `interpretability`, `inference-time-control`
 

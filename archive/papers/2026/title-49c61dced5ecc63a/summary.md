@@ -45,7 +45,7 @@ Stated: the simulated loopholes are deliberately simplified and lack the heterog
 ## Entities
 
 - **Concepts**: [Reasoning effort](../../../../wiki/concepts/reasoning-effort.md), Implicit reward hacking, Explicit reward hacking, Chain-of-thought monitoring, Truncated reasoning, Reward-versus-reasoning-length curve, Scalable oversight, CoT obfuscation, [Overthinking](../../../../wiki/concepts/overthinking.md)
-- **Methods**: TRACE (Truncated Reasoning AUC Evaluation), progressive CoT truncation with forced answering, CoT monitoring baseline, [RLOO](../../../../wiki/methods/rloo.md), [GRPO](../../../../wiki/methods/grpo.md), Qwen2.5-Instruct (1.5B/3B/7B/14B/32B/72B), [Llama3-8B](../../../../wiki/methods/llama3-8b.md)
+- **Methods**: TRACE (Truncated Reasoning AUC Evaluation), progressive CoT truncation with forced answering, CoT monitoring baseline, [RLOO](../../../../wiki/methods/rloo.md), [GRPO](../../../../wiki/methods/grpo.md), Qwen2.5-Instruct (1.5B/3B/7B/14B/32B/72B), [Llama3-8B](../../../../wiki/methods/llama-3-8b.md)
 - **Datasets**: Big-Math-Verified, APPS
 
 Tags: `reward-hacking`, `reasoning-effort`, `cot-monitoring`, `scalable-oversight`, `truncation`, `auc`, `reinforcement-learning`, `detection`, `overthinking-confounder`

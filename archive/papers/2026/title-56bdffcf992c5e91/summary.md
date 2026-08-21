@@ -44,7 +44,7 @@ The paper does not state limitations. A reader should notice that the length-bas
 
 ## Entities
 
-- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Attention Dispersion, Self-Rewarding, [Task Decomposition](../../../../wiki/concepts/task-decomposition.md), Self-Contained Description, [Length Reward](../../../../wiki/concepts/length-reward.md), [Reasoning Segmentation](../../../../wiki/concepts/reasoning-segmentation.md), Rollout Design, [Reinforcement Learning with Verifiable Rewards](../../../../wiki/concepts/reinforcement-learning-with-verifiable-rewards.md)
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Attention Dispersion, Self-Rewarding, [Task Decomposition](../../../../wiki/concepts/task-decomposition.md), Self-Contained Description, [Length Reward](../../../../wiki/concepts/length-reward.md), [Reasoning Segmentation](../../../../wiki/concepts/reasoning-segmentation.md), Rollout Design, Reinforcement Learning with Verifiable Rewards
 - **Methods**: DR2Seg, two-stage rollout, self-rewarding reinforcement learning, description self-reward, length-based self-reward, [Qwen2.5-VL](../../../../wiki/methods/qwen2-5-vl.md), SAM2, SAM3, VisionReasoner (baseline), PixelThink (baseline), [Seg-Zero (baseline)](../../../../wiki/methods/seg-zero-baseline.md), SAM-R1 (baseline), LISA (baseline)
 - **Datasets**: [ReasonSeg](../../../../wiki/datasets/reasonseg.md), [RefCOCO](../../../../wiki/datasets/refcoco.md), [RefCOCO+](../../../../wiki/datasets/refcoco.md), [RefCOCOg](../../../../wiki/datasets/refcocog.md), VisionReasoner-7K, LVIS, gRefCOCO, LISA++
 

@@ -9,7 +9,7 @@ The archive cannot define ARC-Challenge from its own sources: the two papers tha
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [C4](../methods/c4.md), [chain-of-thought distillation](../methods/chain-of-thought-distillation.md), [CommonsenseQA](commonsenseqa.md), [confidence calibration](../concepts/confidence-calibration.md), [early exit](../methods/early-exit.md), [GPQA-Diamond](gpqa-diamond.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MMLU-PRO](mmlu-pro.md), [Out-of-Distribution Generalization](../concepts/out-of-distribution-generalization.md), [StrategyQA](strategyqa.md), [SVAMP](svamp.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [C4](../methods/c4.md), [Chain-of-Thought Distillation](../methods/chain-of-thought-distillation.md), [CommonsenseQA](commonsenseqa.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GPQA-Diamond](gpqa-diamond.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MMLU-Pro](mmlu-pro.md), [Out-of-Distribution Generalization](../concepts/out-of-distribution-generalization.md), [StrategyQA](strategyqa.md), [SVAMP](svamp.md)
 
 ## Appears in
 

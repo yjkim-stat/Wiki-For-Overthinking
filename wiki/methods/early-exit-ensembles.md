@@ -9,7 +9,7 @@ In both sources an early-exit ensemble is a network whose intermediate exit head
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Distribution Shift](../concepts/distribution-shift.md), [early exit](early-exit.md), [early-exit neural networks](../concepts/early-exit-neural-networks.md), [Knowledge Distillation](knowledge-distillation.md), [test-time adaptation](../concepts/test-time-adaptation.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
+**Related**: [Distribution Shift](../concepts/distribution-shift.md), [Early Exit](early-exit.md), [early-exit neural networks](../concepts/early-exit-neural-networks.md), [knowledge distillation](knowledge-distillation.md), [test-time adaptation](../concepts/test-time-adaptation.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
 
 ## Appears in
 

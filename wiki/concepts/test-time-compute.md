@@ -1,15 +1,15 @@
-# test-time compute
+# Test-Time Compute
 
 <!-- auto:begin -->
 
 The compute a model spends at inference time -- extra reasoning tokens, parallel samples, or search -- as opposed to compute spent during training. 'Diversity Matters' finds test-time-compute methods that work for LLM reasoning mostly fail to transfer to vision-language-model accuracy gains; Sequential Reward Filtering proves standard best-of-n sampling is a suboptimal way to spend it and proposes a reward-filtered sequential alternative with better guarantees. Note: overlaps heavily with the archive's separately-tracked 'test-time compute scaling' and 'test-time scaling' entries -- not merged.
 
 - **Kind**: concept
-- **Also called**: Test-Time Compute, test-time compute scaling, test-time scaling
+- **Also called**: Test-Time Compute, test-time compute, test-time compute scaling, test-time scaling
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [Accuracy-Efficiency Tradeoff](accuracy-efficiency-tradeoff.md), [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [Best-of-N (BoN) sampling](../methods/best-of-n-bon-sampling.md), [best-of-N sampling](../methods/best-of-n-sampling.md), [conformal prediction](../methods/conformal-prediction.md), [early stopping](early-stopping.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [LiveCodeBench](../datasets/livecodebench.md), [majority voting](../methods/majority-voting.md), [MATH](../datasets/math.md), [Minerva Math](../datasets/minerva-math.md), [MMLU](../datasets/mmlu.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](overthinking.md), [Reward Shaping](reward-shaping.md), [self-consistency](../methods/self-consistency.md), [sequential revision](sequential-revision.md), [test-time compute scaling](test-time-compute-scaling.md), [test-time scaling](test-time-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [Best-of-N (BoN) sampling](../methods/best-of-n-bon-sampling.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [Conformal Prediction](../methods/conformal-prediction.md), [early stopping](early-stopping.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [LiveCodeBench](../datasets/livecodebench.md), [Majority Voting](../methods/majority-voting.md), [MATH](../datasets/math.md), [Minerva](../datasets/minerva.md), [MMLU](../datasets/mmlu.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Reward Shaping](reward-shaping.md), [Self-Consistency](../methods/self-consistency.md), [Sequential revision](sequential-revision.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-time scaling](test-time-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
 
 ## Appears in
 

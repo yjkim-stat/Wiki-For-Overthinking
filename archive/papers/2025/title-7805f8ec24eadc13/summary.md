@@ -44,7 +44,7 @@ The abstract does not give specific numeric reductions in token usage or accurac
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), outcome and process efficiency metrics, self-training for reasoning-length reduction
 - **Methods**: self-training (preference-based), outcome/process efficiency metrics
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH500, [GPQA](../../../../wiki/datasets/gpqa.md), [AIME](../../../../wiki/datasets/aime.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [GPQA](../../../../wiki/datasets/gpqa.md), [AIME](../../../../wiki/datasets/aime.md)
 
 Tags: `overthinking`, `reasoning-efficiency`, `chain-of-thought`, `self-training`, `o1-like-models`
 

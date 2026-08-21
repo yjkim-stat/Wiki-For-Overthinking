@@ -4,7 +4,8 @@
     "Early Exit",
     "Early exit",
     "early-exit",
-    "early-exit inference"
+    "early-exit inference",
+    "early exit"
   ],
   "definition": "Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archive tracks, that computation is a reasoning model's generation: the trace is cut when internal or external evidence says the answer is already settled, so no more tokens are spent on unproductive continued reasoning — the survey of efficient R1-style models files it as one of its four families of overthinking mitigation, with monitoring-based, generation-control-based and RL-based variants; SpecExit predicts the exit signal alongside the next tokens with a speculative-decoding draft model for up to 66% shorter generations at 2.5x speedup; S-GRPO trains the exit by forcing answers at several truncation points and decaying the reward with how late the exit was; and confidence-and-stability gates play the same role for a diffusion language model's answer span and for a vision-language-action policy's latent reasoning depth (5.0 to 2.3 steps, 312 ms to 145 ms at essentially unchanged LIBERO success). The archive's sources for this term now split across two senses that are not the same technique, and the second is the majority of them: exiting a *reasoning trace*, as above, versus exiting a *forward pass at an intermediate layer* — the ordinary early-exit-network literature, covering layer-exit decoding (a calibrated layer window with a reduced-vocabulary head, 1.4x on Llama-2 7B; retrieval of the exit behaviour of similar training examples), exit branches on an RL actor, TinyML uncertainty ensembles, on-device test-time adaptation, speech separation, and visual autoregressive image generation. That second group reaches the archive through the keyword rather than through the overthinking topic and should be read as neighbouring work, though one result transfers directly: replacing a static confidence threshold with an online unsupervised bandit gives 1.70-2.10x speedup at under 2% performance drop, and the exit rule is the open problem in both senses.",
   "evidence": [
@@ -89,8 +90,8 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "method",
-  "last_seen": "2026-08-21T00:56:47Z",
-  "name": "early exit",
+  "last_seen": "2026-08-21T03:02:20Z",
+  "name": "Early Exit",
   "related": [
     "answer-stabilization",
     "adaptive-sampling",
@@ -223,7 +224,7 @@
     "k-nearest-neighbour-retrieval",
     "roberta-large",
     "t5-large",
-    "llama3-8b",
+    "llama-3-8b",
     "gemma-7b",
     "sst-2",
     "sst-5",
@@ -245,7 +246,7 @@
     "qwen3-8b-14b",
     "aime-2024",
     "amc23",
-    "math-500",
+    "math500",
     "gpqa-diamond",
     "predictive-uncertainty",
     "calibration",

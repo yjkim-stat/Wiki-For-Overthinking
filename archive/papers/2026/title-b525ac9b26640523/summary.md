@@ -46,7 +46,7 @@ Stated: the method routes between exactly two models and extending it to a menu 
 
 - **Concepts**: Selective Thinking, Query Routing, Anytime-Valid Guarantee, Partial Feedback, [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [Distribution Shift](../../../../wiki/concepts/distribution-shift.md), [Risk Control](../../../../wiki/concepts/risk-control.md)
 - **Methods**: B-PAC reasoning, test supermartingale, betting / wealth process, inverse propensity scoring, anytime-valid inference, Ville's inequality, query routing between thinking and non-thinking models, [Chain-of-Draft](../../../../wiki/methods/chain-of-draft.md), IPS+Hoeffding
-- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [BIG-Bench Hard](../../../../wiki/datasets/big-bench-hard.md), Magpie
+- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [BIG-Bench Hard](../../../../wiki/datasets/bbh.md), Magpie
 
 Tags: `overthinking`, `selective-thinking`, `query-routing`, `test-time-compute`, `anytime-valid`, `supermartingale`, `risk-control`, `efficient-reasoning`, `distribution-shift`, `llm`
 

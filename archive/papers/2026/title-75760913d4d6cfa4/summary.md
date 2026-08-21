@@ -44,7 +44,7 @@ The available material is the ICML 2026 poster abstract only; no preprint or ful
 ## Entities
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), [Adaptive Reasoning](../../../../wiki/concepts/adaptive-reasoning.md), Reasoning Mode Selection, Superficial Linguistic Complexity, Difficulty Estimation, Robustness to Surface Cues, [Reward Shaping](../../../../wiki/concepts/reward-shaping.md)
-- **Methods**: two-stage SFT + RL training, Group Relative Policy Optimization (GRPO), data augmentation by verbose restatement
+- **Methods**: two-stage SFT + RL training, [Group Relative Policy Optimization (GRPO)](../../../../wiki/methods/grpo.md), data augmentation by verbose restatement
 - **Datasets**: _none recorded_
 
 Tags: `overthinking`, `adaptive reasoning`, `grpo`, `efficient reasoning`, `difficulty estimation`, `robustness`, `large reasoning models`

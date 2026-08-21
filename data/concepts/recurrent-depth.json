@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Recurrent Depth"
+    "Recurrent Depth",
+    "recurrent depth"
   ],
   "definition": "Buying extra test-time computation by iterating a block of layers in latent space instead of emitting more chain-of-thought tokens, so the depth of the unrolling rather than the length of the output is the compute knob. The originating paper trains a 3.5B-parameter proof of concept on 800B tokens, unrolls a recurrent block to arbitrary depth at inference, needs no chain-of-thought training data, and gets per-token adaptive compute, KV-cache sharing and speculative decoding out of the same structure; the archived record reports no benchmark scores for it. Penelope keeps the idea but localises it, recurring only an eight-anchor memory through a five-layer interval of a 16-layer Llama-3.2-1B so that one more refinement costs r layers rather than L - 99.82 ms against Coconut's 188.15 ms on Deep ListOps at accuracies within one standard deviation. What the archive does not show is that the extra depth is doing reasoning: Penelope's K sweep stays inside a 0.50-point band, a K=0 boundary-only pass is within 0.69 EM point of the selected depth, and full-decoder recurrence gains 0.27 point for 2.51x the sequential decoder-layer applications.",
   "evidence": [
@@ -19,8 +20,8 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:41:33Z",
-  "name": "recurrent depth",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Recurrent Depth",
   "related": [
     "latent-reasoning",
     "test-time-compute-scaling",

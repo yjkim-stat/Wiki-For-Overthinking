@@ -1,0 +1,163 @@
+# One entity, many names.
+#
+# The harvest keys a concept by the slug of whatever name a summary used, so
+# `AIME24` and `AIME 2024` become two records, each holding part of the
+# evidence and each getting its own definition written against that part. This
+# file is where somebody rules that two names are one entity.
+#
+# Both sides may be written as a name or as a slug -- `AIME 2024` and
+# `aime-2024` mean the same thing here. The key is the name that wins; it is
+# what the wiki note is titled.
+#
+#   merge:
+#     <canonical name>:
+#       - <other name>
+#
+# `python3 scripts/merge_concept_aliases.py` lists candidates and retires the
+# records a new entry orphans. Adding an entry alone does not merge what is
+# already on disk -- see that script.
+#
+# **This file is for names, not for neighbours.** A `Concept.aliases` list is
+# populated by readers who use it for both relations, so it is a candidate list
+# and not a merge plan. GPQA is not GPQA-Diamond, which is a subset of it; MATH
+# is not MATH-500, which is 500 problems drawn from it; causal tracing is not
+# activation patching, which this archive's own note argues measures a
+# different quantity. Rulings that are judgement rather than spelling belong in
+# docs/issues/concept-alias-candidates.md until the group takes them.
+
+merge:
+  # -- spelling, punctuation and spacing -----------------------------------
+  # Identical once non-alphanumerics are dropped. No judgement in these.
+  AIME 2024:
+    - AIME24
+    - AIME-24
+    - AIME2024
+  # LOCAL: the year expansions below are not punctuation-identical -- `AMC23`
+  # and `AMC 2023` differ by two characters. They are still spelling and not
+  # judgement: a bare two-digit trailing year names the same sitting of the
+  # same exam, and every source here uses them interchangeably. Ruled in the
+  # map rather than in code; see docs/commit-local/0033.
+  AMC23:
+    - AMC-23
+    - AMC 2023
+    - AMC2023
+    - AMC-2023
+  AIME 2025:
+    - AIME25
+    - AIME-25
+    - AIME2025
+  AIME 2026:
+    - AIME2026
+    - AIME-26
+  IFEval:
+    - IF-Eval
+  GSM8K:
+    - GSM-8K
+  OlympiadBench:
+    - Olympiad-Bench
+  PagedAttention:
+    - paged attention
+  HMMT25:
+    - HMMT-25
+  Ada-GRPO:
+    - AdaGRPO
+  accuracy-efficiency tradeoff:
+    - accuracy-efficiency trade-off
+  reinforcement learning fine-tuning:
+    - reinforcement learning finetuning
+  MATH500:
+    - MATH-500
+    # NOT `MATH`. That is the 12,500-problem dataset; MATH500 is a 500-problem
+    # subset of it, and several summaries name both. Merging them would make
+    # the archive unable to say which one a result was measured on.
+  supervised fine-tuning:
+    - supervised finetuning
+  Llama-3.1-8B:
+    - Llama3.1-8B
+  Llama-3-8B:
+    - Llama3-8B
+  MathVision:
+    - Math-Vision
+
+  # -- an acronym and its expansion ----------------------------------------
+  # Not mechanical, but not a judgement either: each pair is one name written
+  # two ways, and no source in the archive uses them to mean different things.
+  BBH:
+    - BIG-Bench Hard
+  GRPO:
+    - Group-Relative Policy Optimization
+    - Group Relative Policy Optimization (GRPO)
+    - GRPO (Group Relative Policy Optimization)
+  RLVR:
+    - reinforcement learning with verifiable rewards
+  LoRA:
+    - low-rank adaptation
+  DAPO-Math-17K:
+    - DAPO-17K
+  PCA:
+    - principal component analysis
+  process reward model:
+    - process reward models
+  indirect object identification:
+    - Indirect Object Identification (IOI)
+
+  # -- one name for one thing ----------------------------------------------
+  # Not spelling, but not a judgement either: in every source here the two
+  # strings pick out the same object, and a reader looking up one is answered
+  # by the other's note. The canonical is the form the sources predominantly
+  # write, which is not always the one holding the most evidence.
+  benchmark contamination:
+    - data contamination
+  knowledge distillation:
+    - distillation
+  post-hoc rationalization:
+    - rationalization
+  training dynamics:
+    - learning dynamics
+  KL regularization:
+    - KL divergence regularization
+  difference-of-means probe:
+    - mean-difference probe
+  compounding error:
+    - error propagation
+  length generalization:
+    - length extrapolation
+  catastrophic forgetting:
+    - capability regression
+  traceability:
+    - provenance
+  foresight:
+    - lookahead
+  prompt difficulty:
+    - problem difficulty
+  activation steering:
+    - steering
+    # NOT `steering vector`. That is the artefact the method applies, and the
+    # archive holds results about the vector itself — where it comes from, and
+    # that its detection quality says nothing about its intervention effect.
+  chain of thought:
+    - reasoning trace
+    # NOT `reasoning trajectory`, which is also claimed by one summary. That
+    # one is treated as an object with geometry in the probing work here; this
+    # is the text.
+  linear probe:
+    - linear probing
+    # NOT `probing`, which is the family and includes non-linear readouts.
+  Inference Time Intervention:
+    - test-time intervention
+  Minerva:
+    - Minerva Math
+
+  # -- checkpoints and systems named two ways -------------------------------
+  # Same artefact, one name abbreviated. See the issue file for why the
+  # base/instruct pairs are *not* here.
+  Dynasor:
+    - Dynasor-CoT
+  DEER:
+    - DEER-PRo
+  DAPO-Qwen-32B:
+    - DAPO-Qwen2.5-32B
+  Qwen3-235B-A22B:
+    - Qwen3-235B
+  Qwen3-4B-Instruct-2507:
+    - Qwen3-4B-Instruct

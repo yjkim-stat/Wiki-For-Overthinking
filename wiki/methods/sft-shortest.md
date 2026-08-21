@@ -9,7 +9,7 @@ Neither source describes SFT_Shortest's own recipe; it appears as a named compar
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DPO_Shortest](dpo-shortest.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [LASER](laser.md), [Length Penalty](../concepts/length-penalty.md), [MATH-500](../datasets/math-500.md), [Minerva](../datasets/minerva.md), [MMLU-PRO](../datasets/mmlu-pro.md), [NoThinking](nothinking.md), [O1-Pruner](o1-pruner.md), [overthinking](../concepts/overthinking.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md)
+**Related**: [Accuracy-Length Tradeoff](../concepts/accuracy-length-tradeoff.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DPO_Shortest](dpo-shortest.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [Laser](laser.md), [Length Penalty](../concepts/length-penalty.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU-Pro](../datasets/mmlu-pro.md), [NoThinking](nothinking.md), [O1-Pruner](o1-pruner.md), [Overthinking](../concepts/overthinking.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-time scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

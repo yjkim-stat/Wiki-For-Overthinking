@@ -26,6 +26,7 @@ from ..common.config import Config, Topic
 from ..common.http import Client, HTTPError, from_settings
 from ..common.log import get
 from ..common.schema import Paper, canonical_paper_id, utcnow
+from ..local import abstracts as local_abstracts
 
 _LOG = get(__name__)
 
@@ -406,4 +407,15 @@ def collect(
             for paper in found:
                 collected.setdefault(paper.id, paper)
 
-    return list(collected.values())
+    papers = list(collected.values())
+    # LOCAL: fill in abstracts the indexes did not carry, after deduplication so
+    # a paper two indexes returned is not fetched for a field it already has.
+    # See pipelines/local/abstracts.py.
+    try:
+        local_abstracts.fill_missing(cfg, papers, client, errors)
+    except Exception as exc:  # noqa: BLE001 - enrichment must not sink collection
+        _LOG.exception("filling in missing abstracts failed")
+        if errors is not None:
+            errors.append(f"abstracts: {exc}")
+
+    return papers

@@ -8,7 +8,7 @@ QwQ-32B is a reasoning language model that archived papers evaluate on, not a co
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [A*-Thought](a-thought.md), [AMC23](../datasets/amc23.md), [Chain-of-Draft](chain-of-draft.md), [chain-of-thought compression](../concepts/chain-of-thought-compression.md), [Chain-of-thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [Chain-of-thought monitorability](../concepts/chain-of-thought-monitorability.md), [gpt-oss-120b](gpt-oss-120b.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [MMLU](../datasets/mmlu.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](../concepts/overthinking.md), [Qwen3-8B](qwen3-8b.md), [s1K-1.1](../datasets/s1k-1-1.md), [Token Budget](../concepts/token-budget.md), [TokenSkip](tokenskip.md)
+**Related**: [A*-Thought](a-thought.md), [AMC23](../datasets/amc23.md), [Chain-of-Draft](chain-of-draft.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [Chain-of-thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [Chain-of-thought monitorability](../concepts/chain-of-thought-monitorability.md), [gpt-oss-120b](gpt-oss-120b.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](../concepts/overthinking.md), [Qwen3-8B](qwen3-8b.md), [s1K-1.1](../datasets/s1k-1-1.md), [Token Budget](../concepts/token-budget.md), [TokenSkip](tokenskip.md)
 
 ## Appears in
 

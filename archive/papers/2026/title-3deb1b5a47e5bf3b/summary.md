@@ -46,7 +46,7 @@ The authors state the empirical study is deliberately simplified so that composi
 
 - **Concepts**: compositional generalization, atomic modules, routing mechanisms, latent selection variables, support coverage, SFT/RL division of labour
 - **Methods**: hierarchical latent selection model, supervised fine-tuning, reinforcement learning post-training
-- **Datasets**: synthetic string transformation tasks (24 atomic skills, 10 atomic routing mechanisms), [MATH-500](../../../../wiki/datasets/math-500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC](../../../../wiki/datasets/amc.md), [GSM8K](../../../../wiki/datasets/gsm8k.md)
+- **Datasets**: synthetic string transformation tasks (24 atomic skills, 10 atomic routing mechanisms), [MATH-500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC](../../../../wiki/datasets/amc.md), [GSM8K](../../../../wiki/datasets/gsm8k.md)
 
 Tags: `compositional-generalization`, `rl-post-training`, `sft`, `reasoning-traces`, `theory`, `tangential`
 

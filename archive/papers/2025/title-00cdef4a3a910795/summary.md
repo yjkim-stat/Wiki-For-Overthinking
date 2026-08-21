@@ -47,7 +47,7 @@ Stated: the work is tied to one RL algorithm (CGPO) and one application; extendi
 
 - **Concepts**: Inference budget constraint, Query-adaptive reasoning length, Constrained policy optimization, Response groups and density caps, Reward margin between groups, [Difficulty-aware compute allocation](../../../../wiki/concepts/difficulty-aware-compute-allocation.md), Uni-modal reasoning behaviour, Performance-cost efficiency frontier
 - **Methods**: IBPO (Inference Budget-Constrained Policy Optimization), CGPO (Constraint Generative Policy Optimization), Integer linear programming (SciPy solver), Weighted SFT projection with stop-gradient, Sequential Voting (SV), Adaptive Sequential Voting (ASV), Majority voting / self-consistency (baseline), RFT, RAFT, step-DPO (dataset source)
-- **Datasets**: Hendrycks MATH (training split), MATH500, step-DPO prompt set (about 10k RL prompts)
+- **Datasets**: Hendrycks MATH (training split), [MATH500](../../../../wiki/datasets/math500.md), step-DPO prompt set (about 10k RL prompts)
 
 Tags: `adaptive-reasoning`, `inference-budget`, `constrained-rl`, `test-time-compute`, `difficulty-aware-allocation`, `self-consistency`, `math500`, `compute-optimal`
 

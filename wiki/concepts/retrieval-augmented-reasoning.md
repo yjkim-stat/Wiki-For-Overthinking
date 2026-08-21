@@ -9,7 +9,7 @@ Retrieval-augmented reasoning augments a reasoning model's chain of thought with
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](accuracy-efficiency-tradeoff.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [overthinking](overthinking.md), [SciQ](../datasets/sciq.md), [self-consistency](../methods/self-consistency.md), [sequential test-time scaling](sequential-test-time-scaling.md), [test-time compute scaling](test-time-compute-scaling.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md), [SciQ](../datasets/sciq.md), [Self-Consistency](../methods/self-consistency.md), [sequential test-time scaling](sequential-test-time-scaling.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

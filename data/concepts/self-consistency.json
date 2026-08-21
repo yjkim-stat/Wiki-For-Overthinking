@@ -2,7 +2,8 @@
   "aliases": [
     "Self-Consistency",
     "majority voting",
-    "Self-consistency"
+    "Self-consistency",
+    "self-consistency"
   ],
   "definition": "Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretical paper derives that its sample complexity (Θ(1/Δ²)) is worse than best-of-n's (Θ(1/Δ)) for some tasks; CaTS uses a confidence signal to adaptively size how many samples to draw instead of a fixed count; 'Diversity Matters' finds it mostly fails to transfer to vision-language-model accuracy gains unless sampled outputs are genuinely diverse.",
   "evidence": [
@@ -63,8 +64,8 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "method",
-  "last_seen": "2026-08-21T00:56:47Z",
-  "name": "self-consistency",
+  "last_seen": "2026-08-21T03:02:20Z",
+  "name": "Self-Consistency",
   "related": [
     "overthinking",
     "reasoning-behaviour-annotation",
@@ -176,7 +177,7 @@
     "qwen3-235b-a22b",
     "intern-s1-mini",
     "gsm8k",
-    "math-500",
+    "math500",
     "gpqa",
     "sample-efficiency",
     "dynamic-sample-allocation",

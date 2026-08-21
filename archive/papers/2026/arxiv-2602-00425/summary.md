@@ -46,7 +46,7 @@ The paper has no limitations section. Points a reader should notice: the efficie
 
 - **Concepts**: Segment-level attribution, Attribution strength, Attribution direction consistency, CoT redundancy, Reflective versus shallow reasoning segments, Selective loss masking, Long-CoT distillation
 - **Methods**: Integrated Gradients, Selective SFT (loss masking), Segment Selective SFT, Rho-1 style token selection, [TokenSkip](../../../../wiki/methods/tokenskip.md), First-Correct-Solution pruning, Confidence-Gain segment selection
-- **Datasets**: LIMO (817 questions, training), MATH500, [AMC23](../../../../wiki/datasets/amc23.md), AIME24, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
+- **Datasets**: LIMO (817 questions, training), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 
 Tags: `long-cot`, `selective-sft`, `integrated-gradients`, `output-length`, `cot-compression`, `reasoning-efficiency`, `token-reduction`
 

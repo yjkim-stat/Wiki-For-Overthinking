@@ -25,6 +25,10 @@ TOPICS_DIR = CONFIG_DIR / "topics"
 SETTINGS_FILE = CONFIG_DIR / "settings.yaml"
 SOURCES_FILE = CONFIG_DIR / "sources.yaml"
 
+# LOCAL: the `model` kind is this deployment's fourth entity kind, and the
+# single source of truth for what kinds exist. See docs/LOCAL-DELTAS.md.
+WIKI_KINDS = ("concept", "method", "dataset", "model")
+
 #: Names the deployment root for every entry point at once, so a session that
 #: exports it does not have to remember `--root` on each command -- and, more
 #: to the point, cannot forget it on one of them.
@@ -201,6 +205,33 @@ class Layout:
     def requests_done(self) -> Path:
         return self.requests / "done"
 
+    # -- candidates ----------------------------------------------------------
+
+    @property
+    def candidates(self) -> Path:
+        """A third drop lane, beside `inbox/` and `requests/`.
+
+        What collection finds outside the literature — a repository, today —
+        and nobody has yet decided about. It is not under `data/` because it is
+        not a record: `data/` holds what arrived from a collector as literature
+        or was derived from it, and a candidate is neither until a person
+        promotes it. See `pipelines/candidates.py` for why the decision cannot
+        be made by the collector.
+        """
+        return self.root / "candidates"
+
+    @property
+    def candidates_pending(self) -> Path:
+        return self.candidates / "pending"
+
+    @property
+    def candidates_promoted(self) -> Path:
+        return self.candidates / "promoted"
+
+    @property
+    def candidates_dropped(self) -> Path:
+        return self.candidates / "dropped"
+
     @property
     def index(self) -> Path:
         return self.data / "index"
@@ -291,6 +322,9 @@ class Layout:
             self.requests_approved,
             self.requests_rejected,
             self.requests_done,
+            self.candidates_pending,
+            self.candidates_promoted,
+            self.candidates_dropped,
             self.abstracts,
             self.index,
             self.logs,
@@ -306,6 +340,7 @@ class Layout:
             self.wiki_kind_dir("concept"),
             self.wiki_kind_dir("method"),
             self.wiki_kind_dir("dataset"),
+            self.wiki_kind_dir("model"),  # LOCAL
             self.out_lecture_notes,
             self.out_slides,
             self.out_reports,

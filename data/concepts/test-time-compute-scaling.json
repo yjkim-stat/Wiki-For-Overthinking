@@ -1,7 +1,8 @@
 {
   "aliases": [
     "Test-time compute scaling",
-    "Test-Time Compute Scaling"
+    "Test-Time Compute Scaling",
+    "test-time compute scaling"
   ],
   "definition": "Letting a language model use more inference-time computation — a longer chain of thought, more reasoning tokens, more parallel samples, tree search, or self-refinement passes — in the hope of higher accuracy; the archive's sources treat it as non-monotonic and mechanism-dependent rather than as a reliable lever. Its two identified mechanisms are verifier-search and proposal-revision: allocating compute per prompt difficulty beats any fixed strategy and can beat scaling parameters, scaling by verification or RL beats scaling by imitation of successful traces with the gap growing as sqrt(token budget), and on the sampling side self-consistency error decays as a power law in the sample count, so the same budget reallocated across questions matches vanilla self-consistency with 4.8x fewer samples. Where the extra compute pays is sharply uneven, and the newer sources sharpen that rather than soften it: a budget-forcing sweep has GSM8K and MATH-500 accuracy saturating at 256 thinking tokens while AIME generations split bimodally into ones that terminate and ones that loop to the 10,000-token ceiling; measured against an empirical accuracy-versus-token-budget frontier, current efficiency methods leave a quantified gap (REO-RL reaches 62.9% at 5,966 tokens against vanilla RL's 64.4% at 11,283 — 1.5 points for 55.9% fewer tokens); and past a point the returns go negative, with constructed tasks where longer reasoning worsens accuracy and alignment-relevant behaviour, agentic software tasks where favouring internal reasoning over environment interaction lowers issue-resolution rates, basic-arithmetic benchmarks where reasoning-tuned models spend far more tokens for equal or worse accuracy, and no model among 33 evaluated balancing over- and underthinking. Two framing corrections arrive with the newer sources: spent tokens are not the same as effort — the fraction of tokens still being revised in the network's late layers tracks accuracy better than raw length (mean Pearson 0.683 against 0.605 for self-certainty) — and the budget is not the model's to choose alone, since priced as a service the provider's optimal default reasoning budget sits above what the user would pick, with the user's own optimum measured at zero extra reasoning on GPQA Diamond and HMMT 2025.",
   "evidence": [
@@ -140,8 +141,8 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T01:12:15Z",
-  "name": "test-time compute scaling",
+  "last_seen": "2026-08-21T03:02:20Z",
+  "name": "Test-Time Compute Scaling",
   "related": [
     "token-budget-saturation",
     "budget-forcing",
@@ -242,6 +243,7 @@
     "math-hendrycks-et-al-levels-1-2-for-ovt-math",
     "supergpqa-72-domain-source-for-ovt-general-question-generation",
     "reasoning-gym-11-reasoning-task-types-for-underthinkingbench",
+    "hmmt25",
     "reasoning-action-dilemma",
     "analysis-paralysis",
     "rogue-actions",
@@ -283,7 +285,7 @@
     "weighted-voting",
     "monte-carlo-tree-search-comparison",
     "greedy-decoding",
-    "math-500",
+    "math500",
     "mbpp",
     "reasoning-efficiency-frontier",
     "reasoning-efficiency-gap",
@@ -297,7 +299,7 @@
     "supervised-fine-tuning",
     "numerical-integration-over-token-budgets",
     "amc23",
-    "minerva-math",
+    "minerva",
     "deepscaler",
     "areal",
     "redundant-exploration",
@@ -345,7 +347,7 @@
     "deer",
     "nothinking",
     "nowait",
-    "dynasor-cot",
+    "dynasor",
     "seal",
     "manifold-steering",
     "flashthink",
@@ -372,7 +374,6 @@
     "memorization-burden",
     "t1",
     "code-interpreter-tool-integration",
-    "process-reward-models",
     "critic-models",
     "math",
     "minimal-sufficient-cot",
@@ -414,7 +415,7 @@
     "chain-of-draft",
     "ips-hoeffding",
     "mmlu-pro",
-    "big-bench-hard",
+    "bbh",
     "magpie",
     "deep-thinking-tokens",
     "settling-depth",

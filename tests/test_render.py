@@ -491,11 +491,44 @@ class StalenessTests(unittest.TestCase):
         render.report_staleness(self.cfg)
         self.assertEqual(path.read_text(encoding="utf-8"), before)
 
+    def test_analysis_declaring_more_sources_than_exist_is_reported(self):
+        """An over-declared marker is stale in the other direction, not harmless.
+
+        Either the count is wrong, or evidence left the entity -- discarded,
+        retopiced, or folded in by the alias map -- and the prose now describes
+        sources the archive does not hold.
+        """
+        self._concept(sources=4)
+        self._note("## Notes\n\nMy reading.\n\n<!-- analysis-sources: 9 -->")
+        rows = render.stale_analysis(self.cfg)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["written_for"], 9)
+        self.assertEqual(rows[0]["sources_now"], 4)
+        self.assertEqual(rows[0]["direction"], "over-declared")
+
+    def test_the_growing_direction_says_which_way_it_went(self):
+        self._concept(sources=9)
+        self._note("## Notes\n\nMy reading.\n\n<!-- analysis-sources: 4 -->")
+        self.assertEqual(render.stale_analysis(self.cfg)[0]["direction"], "outgrown")
+
+    def test_reporting_an_over_declared_marker_rewrites_nothing(self):
+        self._concept(sources=4)
+        path = self._note("## Notes\n\nMine.\n\n<!-- analysis-sources: 9 -->")
+        before = path.read_text(encoding="utf-8")
+        render.report_staleness(self.cfg)
+        self.assertEqual(path.read_text(encoding="utf-8"), before)
+
     def test_render_reports_every_count(self):
         self._concept(sources=9)
         self._definition_task(written_for=2)
         self._note("## Notes\n\nMine.\n\n<!-- analysis-sources: 4 -->")
         result = render.run(self.cfg, skip_queueing=True)
         self.assertEqual(
-            result["stale"], {"definitions": 1, "analysis": 1, "findings": 0}
+            result["stale"],
+            {
+                "definitions": 1,
+                "analysis": 1,
+                "findings": 0,
+                "readings_without_models": 0,  # LOCAL
+            },
         )

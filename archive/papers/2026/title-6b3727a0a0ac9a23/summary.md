@@ -44,7 +44,7 @@ _not recorded_
 
 - **Concepts**: verifier ROC geometry, Best-of-N sampling, rejection sampling, test-time scaling under imperfect verifiers
 - **Methods**: Best-of-N (BoN), Rejection Sampling (RS)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH500
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md)
 
 Tags: `test-time-scaling`, `verifier`, `roc-curve`, `best-of-n`, `rejection-sampling`
 

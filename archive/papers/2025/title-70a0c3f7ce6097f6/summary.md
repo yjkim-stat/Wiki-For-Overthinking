@@ -46,7 +46,7 @@ Stated: the Differential Attention implementation uses a naive four-pass of the 
 
 - **Concepts**: State Space Models, Hybrid Attention-SSM Architecture, Cross-Layer Memory Sharing, Decoding Throughput, Linear Pre-filling Complexity, Long Generation, Irreducible Loss Scaling
 - **Methods**: Gated Memory Unit (GMU), SambaY, Samba, YOCO, Mamba / State Space Models, Differential Attention, Phi4-mini-Flash-Reasoning, [vLLM](../../../../wiki/methods/vllm.md)
-- **Datasets**: Math500, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+- **Datasets**: [Math500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `architecture`, `state space models`, `decoding throughput`, `long generation`, `hybrid model`, `gated memory unit`, `inference efficiency`
 

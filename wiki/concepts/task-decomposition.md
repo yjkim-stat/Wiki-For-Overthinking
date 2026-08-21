@@ -1,15 +1,15 @@
-# task decomposition
+# Task Decomposition
 
 <!-- auto:begin -->
 
 Task decomposition here means splitting a single reasoning problem into ordered sub-stages rather than solving it in one pass. DR²Seg splits reasoning segmentation into a description stage and a referring-segmentation stage, rewarding shorter descriptions that still yield the correct mask; D-CORE instead names inadequate task decomposition 'Lazy Reasoning', a failure mode in complex tool-use settings that its self-distillation-then-diversity-aware-RL recipe is designed to correct.
 
 - **Kind**: concept
-- **Also called**: Task Decomposition
+- **Also called**: Task Decomposition, task decomposition
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Length reward](length-reward.md), [overthinking](overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Segmentation](reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [Reinforcement Learning with Verifiable Rewards](reinforcement-learning-with-verifiable-rewards.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md), [self-distillation](self-distillation.md)
+**Related**: [Length reward](length-reward.md), [Overthinking](overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Segmentation](reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [RLVR](../methods/rlvr.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md), [Self-Distillation](self-distillation.md)
 
 ## Appears in
 

@@ -44,7 +44,7 @@ The authors state the framework relies on coarse-grained difficulty scores and m
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [adaptive reasoning length](../../../../wiki/concepts/adaptive-reasoning-length.md), task difficulty estimation, model uncertainty as a stopping signal, chain-of-pixel reasoning, [reasoning segmentation](../../../../wiki/concepts/reasoning-segmentation.md), reasoning budget
-- **Methods**: PixelThink, [GRPO (group-relative policy optimization)](../../../../wiki/methods/grpo-group-relative-policy-optimization.md), [Seg-Zero (baseline)](../../../../wiki/methods/seg-zero-baseline.md), difficulty-conditioned reward shaping, uncertainty-based reasoning budgeting
+- **Methods**: PixelThink, [GRPO (group-relative policy optimization)](../../../../wiki/methods/grpo.md), [Seg-Zero (baseline)](../../../../wiki/methods/seg-zero-baseline.md), difficulty-conditioned reward shaping, uncertainty-based reasoning budgeting
 - **Datasets**: [ReasonSeg](../../../../wiki/datasets/reasonseg.md), ReasonSeg-Diff, [RefCOCO](../../../../wiki/datasets/refcoco.md), [RefCOCO+](../../../../wiki/datasets/refcoco.md), [RefCOCOg](../../../../wiki/datasets/refcocog.md)
 
 Tags: `overthinking`, `efficient-reasoning`, `multimodal`, `segmentation`, `grpo`, `reasoning-length`, `uncertainty`

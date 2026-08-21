@@ -1,15 +1,15 @@
-# budget forcing
+# Budget Forcing
 
 <!-- auto:begin -->
 
 Controlling a reasoning model's chain-of-thought length by inserting a keyword at inference time -- most commonly 'Wait' to force it to keep thinking past what it would have generated on its own, or a stop signal to cut it short. 'Wait, Do We Need to Wait?' stress-tests this technique across model families, non-reasoning models and alternative keywords; 'When More Thinking Hurts' and the deep-search asymmetric-verification paper both study its diminishing, and eventually negative, returns as forced length grows.
 
 - **Kind**: method
-- **Also called**: Budget Forcing, sequential test-time scaling
+- **Also called**: Budget Forcing, budget forcing, sequential test-time scaling
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 5
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [GAIA](../datasets/gaia.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [MATH-500](../datasets/math-500.md), [overthinking](../concepts/overthinking.md), [Qwen3-8B](qwen3-8b.md), [sequential test-time scaling](../concepts/sequential-test-time-scaling.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [vLLM](vllm.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [GAIA](../datasets/gaia.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen3-8B](qwen3-8b.md), [sequential test-time scaling](../concepts/sequential-test-time-scaling.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [vLLM](vllm.md)
 
 ## Appears in
 

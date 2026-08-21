@@ -1,15 +1,15 @@
-# self-distillation
+# Self-Distillation
 
 <!-- auto:begin -->
 
 Self-distillation here means using a model's own outputs, produced under some favorable condition, as training data for itself under the ordinary condition. ConPress harvests the shorter reasoning traces a model naturally produces when several questions share one prompt, and fine-tunes on them for the single-question setting; D-CORE instead self-distills before a diversity-aware RL stage, to correct 'Lazy Reasoning' (inadequate task decomposition) in complex tool-use settings.
 
 - **Kind**: concept
-- **Also called**: Self-Distillation
+- **Also called**: Self-Distillation, self-distillation
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](accuracy-efficiency-tradeoff.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [MMLU-STEM](../datasets/mmlu-stem.md), [OlympiadBench](../datasets/olympiadbench.md), [overthinking](overthinking.md), [task decomposition](task-decomposition.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [MMLU-STEM](../datasets/mmlu-stem.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Task Decomposition](task-decomposition.md)
 
 ## Appears in
 

@@ -45,8 +45,8 @@ The paper's own numbers qualify the headline in four places. Token Efficiency GF
 ## Entities
 
 - **Concepts**: Length inflation under RLVR, Filler tokens, Token efficiency (reward per token), [Group-relative advantage](../../../../wiki/concepts/group-relative-advantage.md), Response filtering, Retained fraction k/G, Adaptive difficulty allocation, Training-time compute traded for test-time compute
-- **Methods**: [GFPO](../../../../wiki/methods/gfpo.md), Group Filtered Policy Optimization, Adaptive Difficulty GFPO, [GRPO](../../../../wiki/methods/grpo.md), Reinforcement learning with verifiable rewards, t-digest, [Phi-4-reasoning](../../../../wiki/methods/phi-4-reasoning.md)
-- **Datasets**: AIME 24, AIME 25, [GPQA](../../../../wiki/datasets/gpqa.md), [Omni-MATH](../../../../wiki/datasets/omni-math.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
+- **Methods**: [GFPO](../../../../wiki/methods/gfpo.md), Group Filtered Policy Optimization, Adaptive Difficulty GFPO, [GRPO](../../../../wiki/methods/grpo.md), [Reinforcement learning with verifiable rewards](../../../../wiki/methods/rlvr.md), t-digest, [Phi-4-reasoning](../../../../wiki/methods/phi-4-reasoning.md)
+- **Datasets**: [AIME 24](../../../../wiki/datasets/aime-2024.md), [AIME 25](../../../../wiki/datasets/aime-2025.md), [GPQA](../../../../wiki/datasets/gpqa.md), [Omni-MATH](../../../../wiki/datasets/omni-math.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `overthinking`, `concise-reasoning`, `rlvr`, `grpo`, `length-inflation`, `token-efficiency`, `response-filtering`, `efficient-reasoning`
 

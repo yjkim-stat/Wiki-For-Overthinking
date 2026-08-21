@@ -9,7 +9,7 @@ A search algorithm that builds a tree of candidate reasoning/solution steps, usi
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [Best-of-N](best-of-n.md), [best-of-N sampling](best-of-n-sampling.md), [mathematical reasoning benchmarks](../concepts/mathematical-reasoning-benchmarks.md), [test-time compute scaling](../concepts/test-time-compute-scaling.md), [test-time scaling](../concepts/test-time-scaling.md), [tree-search decoding](../concepts/tree-search-decoding.md)
+**Related**: [Best-of-N](best-of-n.md), [Best-of-N sampling](best-of-n-sampling.md), [mathematical reasoning benchmarks](../concepts/mathematical-reasoning-benchmarks.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-time scaling](../concepts/test-time-scaling.md), [Tree Search Decoding](../concepts/tree-search-decoding.md)
 
 ## Appears in
 

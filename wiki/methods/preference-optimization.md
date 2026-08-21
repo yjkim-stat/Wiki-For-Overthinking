@@ -1,15 +1,15 @@
-# preference optimization
+# Preference Optimization
 
 <!-- auto:begin -->
 
 Training a model on pairs of preferred-vs-dispreferred outputs to shift its behavior, without a separate reward model. In the archive it is repeatedly used to shorten reasoning: LCPO (small-scale preference optimization) cuts average reasoning length over 50% while maintaining accuracy; 'Don't Think Longer, Think Wisely' builds optimal-vs-suboptimal thinking-pattern pairs for the same purpose; a safety-focused variant intervenes at 'safety trigger' points within a reasoning chain instead of on length.
 
 - **Kind**: method
-- **Also called**: DPO, Preference Optimization
+- **Also called**: DPO, Preference Optimization, preference optimization
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [aha moment](../concepts/aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [MATH-500](../datasets/math-500.md), [O1-Pruner](o1-pruner.md), [overthinking](../concepts/overthinking.md), [process supervision](../concepts/process-supervision.md), [Redundant Self-Verification](../concepts/redundant-self-verification.md), [ThinkPrune](thinkprune.md), [veRL](verl.md)
+**Related**: [Aha Moment](../concepts/aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [MATH500](../datasets/math500.md), [O1-Pruner](o1-pruner.md), [Overthinking](../concepts/overthinking.md), [Process Supervision](../concepts/process-supervision.md), [Redundant Self-Verification](../concepts/redundant-self-verification.md), [ThinkPrune](thinkprune.md), [veRL](verl.md)
 
 ## Appears in
 

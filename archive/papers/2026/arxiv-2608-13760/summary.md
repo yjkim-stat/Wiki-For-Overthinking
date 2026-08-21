@@ -47,7 +47,7 @@ Stated: the analysis covers only visible traces, which may be incomplete, post h
 
 - **Concepts**: Behavioral Lift, Amplification-Lift Gap, Recovery Rate, [Confidence Calibration](../../../../wiki/concepts/confidence-calibration.md), Uncertainty Acknowledgment, Self-Correction, [Process Supervision](../../../../wiki/concepts/process-supervision.md), Reasoning Trace Annotation, Deliberation as Surface Form
 - **Methods**: Behavioral Lift, Recovery Rate, cross-modal behavioral taxonomy (9 higher-order behaviors, 7 failure modes per modality), LLM-as-judge annotation (GPT-4o), cross-validated against DeepSeek-V3, Gemini-2.5-Flash, Gemini-3-Flash, within-question control (8 samples per question), word-count-quintile length control, linear probing of hidden states (logistic regression, group-aware CV), Qwen3 / Qwen3-VL / Qwen2.5, OLMo-3-7B-Think-SFT and Instruct-SFT, InternVL3.5-8B
-- **Datasets**: VisualPuzzles, MathVista (testmini), [MMMU](../../../../wiki/datasets/mmmu.md), LogiQA2, [MATH-500](../../../../wiki/datasets/math-500.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), GPQA Diamond (supplementary frontier validation)
+- **Datasets**: VisualPuzzles, MathVista (testmini), [MMMU](../../../../wiki/datasets/mmmu.md), LogiQA2, [MATH-500](../../../../wiki/datasets/math500.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), GPQA Diamond (supplementary frontier validation)
 
 Tags: `reasoning-traces`, `thinking-models`, `behavioral-taxonomy`, `calibration`, `self-correction`, `llm-as-judge`, `process-supervision`, `vlm`, `failure-modes`
 

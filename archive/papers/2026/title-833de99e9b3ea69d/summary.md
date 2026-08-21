@@ -47,7 +47,7 @@ The paper states no limitations section, and its own tables qualify the headline
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Unnecessary Reflection, [Length Penalty](../../../../wiki/concepts/length-penalty.md), Problem-Complexity-Adaptive Compute, Reinforcement Learning for Reasoning Length, [Accuracy/Length Tradeoff](../../../../wiki/concepts/accuracy-length-tradeoff.md), [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md)
 - **Methods**: ARLCP (Adaptive Reflection and Length Coordinated Penalty), REINFORCE Leave-One-Out (RLOO), reflection-token count (RTC) penalty, complexity-tiered length penalty, [NoThinking](../../../../wiki/methods/nothinking.md), [SFT_Shortest](../../../../wiki/methods/sft-shortest.md), [DPO_Shortest](../../../../wiki/methods/dpo-shortest.md), [O1-Pruner](../../../../wiki/methods/o1-pruner.md), TLMRE, [AdaptThink](../../../../wiki/methods/adaptthink.md), [LASER](../../../../wiki/methods/laser.md)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH500, AMC2023, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC2023](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md)
 
 Tags: `overthinking`, `efficient reasoning`, `reflection`, `length penalty`, `reinforcement learning`, `rloo`, `chain-of-thought`, `math reasoning`, `iclr-2026`
 

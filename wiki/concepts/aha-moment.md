@@ -1,15 +1,15 @@
-# aha moment
+# Aha Moment
 
 <!-- auto:begin -->
 
 Neither archived source defines 'aha moment'; it is used here as a label rather than an explained concept. In EvoThink it names the second of two separable stages, Aha-Moment Preference Optimization, which builds from-wrong-to-right preference pairs out of the model's most diverse failed attempts and applies DPO to them -- so what the term operationally picks out is the turn within a trace from a wrong path to a correct one, harvested as training signal. The mechanistic-interpretability survey covers the same territory only at the level of its taxonomy (reasoning-oriented training dynamics, reasoning mechanisms, unintended behaviours) and supplies no definition of the term.
 
 - **Kind**: concept
-- **Also called**: Aha Moment
+- **Also called**: Aha Moment, aha moment
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [linear probing](../methods/linear-probing.md), [MATH-500](../datasets/math-500.md), [mechanistic interpretability](mechanistic-interpretability.md), [O1-Pruner](../methods/o1-pruner.md), [overthinking](overthinking.md), [preference optimization](../methods/preference-optimization.md), [Redundant Self-Verification](redundant-self-verification.md), [reward hacking](reward-hacking.md), [ThinkPrune](../methods/thinkprune.md), [veRL](../methods/verl.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [linear probe](../methods/linear-probe.md), [MATH500](../datasets/math500.md), [Mechanistic Interpretability](mechanistic-interpretability.md), [O1-Pruner](../methods/o1-pruner.md), [Overthinking](overthinking.md), [Preference Optimization](../methods/preference-optimization.md), [Redundant Self-Verification](redundant-self-verification.md), [Reward Hacking](reward-hacking.md), [ThinkPrune](../methods/thinkprune.md), [veRL](../methods/verl.md)
 
 ## Appears in
 

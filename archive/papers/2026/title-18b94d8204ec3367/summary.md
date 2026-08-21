@@ -44,7 +44,7 @@ The paper notes that on length-control-RL models DiffAdapt is slightly worse tha
 
 - **Concepts**: Overthinking on easy instances, Difficulty-adaptive test-time compute, Token-probability entropy as a difficulty signal, U-shaped entropy over difficulty, [Hidden-state probing](../../../../wiki/concepts/hidden-state-probing.md), Inference strategy selection, Oracle upper bound on adaptive routing
 - **Methods**: DiffAdapt, hidden-state difficulty probe, Easy/Normal/Hard inference strategies, token-entropy analysis, [DEER](../../../../wiki/methods/deer.md), [ThinkPrune](../../../../wiki/methods/thinkprune.md), [vLLM](../../../../wiki/methods/vllm.md)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH500, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [Minerva](../../../../wiki/datasets/minerva.md), [GPQA](../../../../wiki/datasets/gpqa.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [Minerva](../../../../wiki/datasets/minerva.md), [GPQA](../../../../wiki/datasets/gpqa.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md)
 
 Tags: `overthinking`, `adaptive-compute`, `difficulty-prediction`, `token-efficiency`, `entropy`, `test-time-compute`, `iclr-2026`
 

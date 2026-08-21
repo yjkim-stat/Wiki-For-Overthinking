@@ -1,10 +1,17 @@
 {
   "aliases": [
     "knowledge distillation",
-    "distillation"
+    "distillation",
+    "Knowledge Distillation"
   ],
-  "definition": "The two archived sources use the term loosely, for teacher-to-student transfer of behaviour, and they do not share a teacher-student relation. In Smaller, Weaker, Yet Better it means training a separate student by supervised fine-tuning on solutions sampled from a generator model, and is one of three compute-matched setups alongside self-improvement and weak-to-strong improvement; at a fixed sampling-FLOPs budget the data from the weaker, cheaper generator wins the distillation setup by 5.8% on MATH and 1.3% on GSM-8K, despite a 7% higher false-positive rate, because the same budget buys proportionally more samples with 6% higher coverage and 125% higher diversity. In QUTE it means transfer inside a single network at training time: knowledge from early-exit branches is distilled into extra lightweight output blocks placed at the final exit, so one forward pass yields a diverse ensemble for uncertainty estimation at 59% smaller model size and 31% lower on-device latency than the closest prior work. So in the archive the label covers both across-model and across-exit transfer, and the stronger model is not always the teacher.",
+  "definition": "",
   "evidence": [
+    {
+      "id": "title:21d46f88974ff7dd",
+      "kind": "paper",
+      "note": "Trains a reinforcement-learned teacher model that is given the solution and rewarded for producing explanations that help a student model understand it, outperforming distillation pipelines built from much larger models.",
+      "title": "Reinforcement Learning Teachers of Test Time Scaling"
+    },
     {
       "id": "title:2e7ac25d673bc96f",
       "kind": "paper",
@@ -16,13 +23,32 @@
       "kind": "paper",
       "note": "QUTE is an early-exit-assisted ensemble architecture that quantifies predictive uncertainty in KB-sized TinyML classifiers within a single forward pass, for on-device monitoring without labels.",
       "title": "QUTE: Quantifying Uncertainty in TinyML models with Early-exit-assisted ensembles for model-monitoring"
+    },
+    {
+      "id": "title:5d210749910cf061",
+      "kind": "paper",
+      "note": "Studies how distillation during LLM pretraining improves test-time scaling but impairs in-context learning (via induction heads), explained through a bigram-model sandbox.",
+      "title": "Distilled Pretraining: A modern lens of Data, In-Context Learning and Test-Time Scaling"
+    },
+    {
+      "id": "title:c593d75efe2e5d8c",
+      "kind": "paper",
+      "note": "Analyzes how quantization, distillation, and pruning affect the reasoning versus memorization abilities of large reasoning models such as DeepSeek-R1, and proposes protecting a small subset of weights to recover accuracy under quantization.",
+      "title": "When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-21T00:49:09Z",
   "kind": "method",
-  "last_seen": "2026-08-21T00:49:10Z",
-  "name": "Knowledge Distillation",
+  "last_seen": "2026-08-21T03:02:20Z",
+  "name": "knowledge distillation",
   "related": [
+    "cold-starting-rl",
+    "dense-reward-from-student-understanding",
+    "reinforcement-learned-teachers-rlt",
+    "reinforcement-learning-with-dense-reward",
+    "cold-start-for-rl",
+    "competition-level-tasks",
+    "graduate-level-tasks",
     "compute-optimal-sampling",
     "coverage-and-diversity-of-synthetic-data",
     "false-positive-reasoning-traces",
@@ -43,11 +69,28 @@
     "tinyml",
     "qute",
     "early-exit-ensembles",
-    "deep-ensembles-baseline-family"
+    "deep-ensembles-baseline-family",
+    "test-time-scaling",
+    "in-context-learning",
+    "induction-heads",
+    "bigram-model-sandbox",
+    "distilled-pretraining",
+    "bigram-model-analysis",
+    "model-compression",
+    "quantization",
+    "pruning",
+    "attribution-patching",
+    "reasoning-vs-memorization",
+    "difference-of-means-analysis",
+    "aime-2024",
+    "folio",
+    "temporal-sequences",
+    "musique"
   ],
   "related_authored": [
     "deepseek-r1-distill-qwen-7b",
-    "deepseek-r1-distill-llama-8b"
+    "deepseek-r1-distill-llama-8b",
+    "test-time-compute-scaling"
   ],
   "schema_version": 1,
   "slug": "knowledge-distillation",

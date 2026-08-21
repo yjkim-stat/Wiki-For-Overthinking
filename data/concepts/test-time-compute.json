@@ -2,7 +2,8 @@
   "aliases": [
     "test-time compute scaling",
     "test-time scaling",
-    "Test-Time Compute"
+    "Test-Time Compute",
+    "test-time compute"
   ],
   "definition": "The compute a model spends at inference time -- extra reasoning tokens, parallel samples, or search -- as opposed to compute spent during training. 'Diversity Matters' finds test-time-compute methods that work for LLM reasoning mostly fail to transfer to vision-language-model accuracy gains; Sequential Reward Filtering proves standard best-of-n sampling is a suboptimal way to spend it and proposes a reward-filtered sequential alternative with better guarantees. Note: overlaps heavily with the archive's separately-tracked 'test-time compute scaling' and 'test-time scaling' entries -- not merged.",
   "evidence": [
@@ -33,8 +34,8 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:49:10Z",
-  "name": "test-time compute",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Test-Time Compute",
   "related": [
     "overthinking",
     "adaptive-thinking",
@@ -49,7 +50,7 @@
     "length-aware-reward-modulation",
     "ellipsis-prompt-think-n-n",
     "math",
-    "minerva-math",
+    "minerva",
     "olympiadbench",
     "aime-2024",
     "amc23",

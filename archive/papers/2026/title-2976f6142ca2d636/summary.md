@@ -45,7 +45,7 @@ Only a third-party-extracted summary of the abstract was available (no PDF attac
 
 - **Concepts**: query composition, multi-step reasoning horizon, effective reasoning length, compute allocation across sub-problems, reinforcement learning with verified rewards
 - **Methods**: R-HORIZON query composition, reinforcement learning with verified rewards
-- **Datasets**: R-HORIZON (composed multi-step reasoning benchmark), AIME2024
+- **Datasets**: R-HORIZON (composed multi-step reasoning benchmark), [AIME2024](../../../../wiki/datasets/aime-2024.md)
 
 Tags: `long-horizon-reasoning`, `test-time-compute`, `reasoning-length`, `compute-allocation`, `reinforcement-learning`, `benchmark`
 

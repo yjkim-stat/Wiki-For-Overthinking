@@ -45,7 +45,7 @@ Stated: the taxonomy is derived from MMLU-Pro traces and is biased toward mathem
 
 - **Concepts**: reasoning mechanisms versus reasoning heuristics, knowing how to reason versus knowing when, RL as orchestration of pre-existing capability, SFT-distillation as mechanism installation, unsupervised reasoning-behaviour taxonomy, activation steering, performance-gap recovery as an interpretability metric
 - **Methods**: constructive model diffing, Sparse Autoencoders on sentence-level activations, category (steering) vectors as reasoning mechanisms, firing classifier as reasoning heuristic, hybrid base+mechanism+heuristic models, per-position steering-coefficient MLP
-- **Datasets**: MMLU-Pro (12,102 prompts, 430,122 reasoning-trace sentences, for taxonomy discovery), [GSM8K](../../../../wiki/datasets/gsm8k.md), MATH500, Hendrycks MATH (held-out 1,000-question subset)
+- **Datasets**: MMLU-Pro (12,102 prompts, 430,122 reasoning-trace sentences, for taxonomy discovery), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), Hendrycks MATH (held-out 1,000-question subset)
 
 Tags: `reasoning-models`, `interpretability`, `sparse-autoencoders`, `model-diffing`, `activation-steering`, `rl-vs-distillation`, `when-to-reason`, `efficient-reasoning`
 

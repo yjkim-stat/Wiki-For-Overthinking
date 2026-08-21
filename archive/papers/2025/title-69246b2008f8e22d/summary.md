@@ -44,7 +44,7 @@ _not recorded_
 
 - **Concepts**: test-time search as resource allocation, direction-level vs. solution-level allocation, rollout budget
 - **Methods**: Direction-Oriented Resource Allocation (DORA)
-- **Datasets**: MATH500, AIME2024, AIME2025
+- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md)
 
 Tags: `test-time-scaling`, `resource-allocation`, `rollout-budget`, `search`
 

@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Sequential revision"
+    "Sequential revision",
+    "sequential revision"
   ],
   "definition": "Sequential revision denotes generating an answer, then revising it in further generation steps, as opposed to sampling independent parallel attempts. REA-RL trains online with a distilled reflection model supplying both parallel samples and truncated sequential revisions plus a reflection-density reward, cutting response length about 36% without losing accuracy; the second source proves plain best-of-n sampling is suboptimal for test-time compute under a mixture-of-reference-policy model and proposes reward-filtered sequential inference as a stronger alternative.",
   "evidence": [
@@ -19,8 +20,8 @@
   ],
   "first_seen": "2026-08-20T12:24:12Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:49:10Z",
-  "name": "sequential revision",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Sequential revision",
   "related": [
     "overthinking",
     "reflection-in-reasoning-traces",
@@ -38,7 +39,7 @@
     "qwen2-5-32b",
     "deepscaler",
     "gsm8k",
-    "math-500",
+    "math500",
     "gaokao23",
     "amc23",
     "aime-2024",

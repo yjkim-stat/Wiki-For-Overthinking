@@ -44,7 +44,7 @@ _not recorded_
 
 - **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), conformal prediction, asynchronous decoding, draft/target model speculation, rejection sampling
 - **Methods**: ATTS, conformal prediction-based rejection sampling, ordinal classification
-- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [AMC23](../../../../wiki/datasets/amc23.md), AIME24, AIME25
+- **Datasets**: [MATH](../../../../wiki/datasets/math.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md)
 
 Tags: `test-time-scaling`, `conformal-prediction`, `speculative-decoding`, `inference-efficiency`
 

@@ -30,9 +30,10 @@ from typing import Any, Iterator
 from ..common import config as config_mod
 from ..common.log import get
 from ..common import paths as P
-from ..common.paths import Layout, fs_id
+from ..common.paths import WIKI_KINDS, Layout, fs_id
 from ..common.schema import utcnow
 from ..common.store import RecordStore, read_json, write_json
+from ..local import placeholders  # LOCAL
 from .concepts import slug_for
 from .score import leverage
 
@@ -57,7 +58,16 @@ _REQUIRED_FIELDS = {
 _LIST_FIELDS = {
     # `topics` is optional and only honoured for a hand-filed PDF, where the
     # reader decides which tracked topics the document belongs to.
-    "paper": ["contributions", "concepts", "methods", "datasets", "tags", "topics"],
+    # LOCAL: `models` — see docs/LOCAL-DELTAS.md
+    "paper": [
+        "contributions",
+        "concepts",
+        "methods",
+        "datasets",
+        "models",
+        "tags",
+        "topics",
+    ],
     "video": [
         "chapters",
         "key_points",
@@ -314,6 +324,9 @@ def validate_result(
         if name in result and not isinstance(result[name], list):
             errors.append(f"field `{name}` must be a list")
 
+    # LOCAL: reject an entity entry that names a set instead of a thing.
+    errors.extend(placeholders.check(kind, result))
+
     if kind == "paper":
         relevance = result.get("relevance", {})
         if relevance and not isinstance(relevance, dict):
@@ -369,9 +382,11 @@ def validate_result(
 
     if kind == "concept":
         declared = result.get("kind")
-        if declared and declared not in ("concept", "method", "dataset"):
+        # LOCAL: the `model` kind — see docs/LOCAL-DELTAS.md
+        if declared and declared not in WIKI_KINDS:
             errors.append(
-                f"field `kind` must be concept, method or dataset (got '{declared}')"
+                "field `kind` must be one of "
+                f"{', '.join(WIKI_KINDS)} (got '{declared}')"
             )
 
     if kind == "video":

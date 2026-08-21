@@ -45,7 +45,7 @@ Stated/observed limitations from the document: the offline replay protocol opera
 
 - **Concepts**: test-time reasoning as a compute-allocation problem, generation vs. verification vs. stopping as competing actions under a fixed budget, compute-balanced routing, parameter-weighted token cost, accuracy-cost Pareto frontier
 - **Methods**: CoBa (Compute-Balanced test-time scaling) routing policy, CoBa-Routed-Light / -Routed / -Routed-Strong variants, tiered verification (rule-based V0, lightweight judge V1, process verifier V2, strong deep verifier V3), answer-frequency + verifier-score fusion ranking, paired bootstrap significance testing
-- **Datasets**: [MATH-500](../../../../wiki/datasets/math-500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), AMC 2023, Reasoning Gym (procedural symbolic reasoning, hard subset)
+- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC 2023](../../../../wiki/datasets/amc23.md), Reasoning Gym (procedural symbolic reasoning, hard subset)
 
 Tags: `test-time-scaling`, `compute-allocation`, `routing`, `verification`, `stopping-policy`, `mathematical-reasoning`, `cost-efficiency`
 

@@ -9,7 +9,7 @@ In both archived sources this names the property of a reasoning model that spend
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Length Tradeoff](accuracy-length-tradeoff.md), [AIME](../datasets/aime.md), [AMC](../datasets/amc.md), [GRPO (Group Relative Policy Optimization)](../methods/grpo-group-relative-policy-optimization.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [overthinking](overthinking.md), [Reasoning Segmentation](reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md)
+**Related**: [Accuracy-Length Tradeoff](accuracy-length-tradeoff.md), [AIME](../datasets/aime.md), [AMC](../datasets/amc.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md), [Reasoning Segmentation](reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md)
 
 ## Appears in
 

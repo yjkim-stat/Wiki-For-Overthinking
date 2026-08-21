@@ -45,7 +45,7 @@ The abstract does not report which models, benchmarks, or quantitative accuracy/
 ## Entities
 
 - **Concepts**: reasoning strength pre-planning, directional activation vector for reasoning length, linear probing of question activations, end-of-reasoning token logit control
-- **Methods**: [linear probing](../../../../wiki/methods/linear-probing.md), activation steering (vector addition/subtraction)
+- **Methods**: [linear probing](../../../../wiki/methods/linear-probe.md), activation steering (vector addition/subtraction)
 - **Datasets**: _none recorded_
 
 Tags: `reasoning-length`, `interpretability`, `activation-steering`, `overthinking`, `difficulty-awareness`

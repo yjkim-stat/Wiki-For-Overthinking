@@ -8,7 +8,7 @@ Weighted voting selects a final answer from multiple sampled reasoning chains by
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Tradeoff](accuracy-efficiency-tradeoff.md), [Best-of-N](../methods/best-of-n.md), [Compute-optimal inference](compute-optimal-inference.md), [GSM8K](../datasets/gsm8k.md), [majority voting](../methods/majority-voting.md), [MATH-500](../datasets/math-500.md), [MBPP](../datasets/mbpp.md), [process reward model](process-reward-model.md), [test-time compute scaling](test-time-compute-scaling.md), [tree-search decoding](tree-search-decoding.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [Best-of-N](../methods/best-of-n.md), [Compute-optimal inference](compute-optimal-inference.md), [GSM8K](../datasets/gsm8k.md), [Majority Voting](../methods/majority-voting.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [process reward model](process-reward-model.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Tree Search Decoding](tree-search-decoding.md)
 
 ## Appears in
 

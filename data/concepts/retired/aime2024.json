@@ -1,0 +1,65 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.11829",
+      "kind": "paper",
+      "note": "Using pass@K/avg@K analysis, the paper shows on-policy distillation improves a student model's sampling efficiency at small K but does not expand its reasoning capability boundary at large K, and even causes it to forget some previously solvable problems.",
+      "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
+    },
+    {
+      "id": "title:2976f6142ca2d636",
+      "kind": "paper",
+      "note": "Introduces R-HORIZON, a query-composition benchmark for long, multi-step reasoning, finds current reasoning models degrade sharply and misallocate compute across sub-problems, and uses the same data to improve models via RL.",
+      "title": "R-Horizon: How Far Can Your Large Reasoning Model Really Go in Breadth and Depth?"
+    },
+    {
+      "id": "title:69246b2008f8e22d",
+      "kind": "paper",
+      "note": "Formulates test-time search as a resource-allocation problem and introduces DORA, which allocates a fixed rollout budget across reasoning directions rather than individual solutions to avoid wasting compute on over-represented directions.",
+      "title": "Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling"
+    }
+  ],
+  "first_seen": "2026-08-21T03:00:11Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "AIME2024",
+  "related": [
+    "on-policy-distillation-opd",
+    "pass-k-vs-avg-k-as-complementary-test-time-scaling-diagnostics",
+    "capability-boundary-vs-sampling-efficiency",
+    "problem-level-solvability-transitions-retained-learned-forgotten",
+    "illusory-distillation",
+    "off-policy-distillation",
+    "reverse-kl-top-k-token-distillation",
+    "eopd",
+    "exopd",
+    "direct-opd",
+    "forward-kl-variant",
+    "pass-k",
+    "avg-k",
+    "amc2023",
+    "aime2025",
+    "aime-2026",
+    "dapo-math-17k-opd-training-set",
+    "query-composition",
+    "multi-step-reasoning-horizon",
+    "effective-reasoning-length",
+    "compute-allocation-across-sub-problems",
+    "reinforcement-learning-with-verified-rewards",
+    "r-horizon-query-composition",
+    "r-horizon-composed-multi-step-reasoning-benchmark",
+    "test-time-search-as-resource-allocation",
+    "direction-level-vs-solution-level-allocation",
+    "rollout-budget",
+    "direction-oriented-resource-allocation-dora",
+    "math500"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "aime2024",
+  "topics": [
+    "overthinking"
+  ]
+}

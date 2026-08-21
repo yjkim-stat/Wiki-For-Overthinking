@@ -8,7 +8,7 @@ A causal-analysis technique that alters part of a reasoning trace (e.g. an inter
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [overthinking](../concepts/overthinking.md)
+**Related**: [Overthinking](../concepts/overthinking.md)
 
 ## Appears in
 

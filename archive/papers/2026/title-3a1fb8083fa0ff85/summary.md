@@ -45,7 +45,7 @@ Complete eviction (minimum retention of zero) sharply degrades accuracy because 
 
 - **Concepts**: KV cache compression, thought types in chain of thought, attention sparsity, hybrid quantization-eviction, paged attention, generation length inflation under compression
 - **Methods**: ThinKV, PagedAttention, KV cache quantization, [KV cache eviction](../../../../wiki/methods/kv-cache-eviction.md), KIVI, PM-KVQ, [R-KV](../../../../wiki/methods/r-kv.md)
-- **Datasets**: [MATH-500](../../../../wiki/datasets/math-500.md), [AIME](../../../../wiki/datasets/aime.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
+- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [AIME](../../../../wiki/datasets/aime.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `kv-cache`, `inference-efficiency`, `reasoning-models`, `quantization`, `cache-eviction`, `tangential`
 

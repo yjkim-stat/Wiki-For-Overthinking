@@ -43,8 +43,8 @@ The abstract does not report specific benchmark names, accuracy numbers, or the 
 
 ## Entities
 
-- **Concepts**: [distillation](../../../../wiki/concepts/distillation.md), cold-starting RL, dense reward from student understanding
-- **Methods**: Reinforcement-Learned Teachers (RLT), reinforcement learning with dense reward, distillation, cold-start for RL
+- **Concepts**: distillation, cold-starting RL, dense reward from student understanding
+- **Methods**: Reinforcement-Learned Teachers (RLT), reinforcement learning with dense reward, [distillation](../../../../wiki/methods/knowledge-distillation.md), cold-start for RL
 - **Datasets**: competition-level tasks, graduate-level tasks
 
 Tags: `distillation`, `reinforcement-learning`, `teacher-student`, `cold-start`

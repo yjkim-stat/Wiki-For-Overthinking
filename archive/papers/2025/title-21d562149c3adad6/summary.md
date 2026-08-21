@@ -46,7 +46,7 @@ The authors state two: the four reasoning formats are predefined by hand and dis
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Adaptive Reasoning Format Selection, Format Collapse, [Token Budget](../../../../wiki/concepts/token-budget.md), Group Relative Policy Optimization, [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md)
 - **Methods**: [Ada-GRPO](../../../../wiki/methods/ada-grpo.md), [GRPO](../../../../wiki/methods/grpo.md), supervised fine-tuning, Long CoT / Short CoT / Direct Answer / Code reasoning formats, format diversity reward scaling with cosine decay, majority voting (maj@8)
-- **Datasets**: AQuA-Rat, [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), OpenBookQA, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [SVAMP](../../../../wiki/datasets/svamp.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [Big-Bench-Hard](../../../../wiki/datasets/big-bench-hard.md), [GPQA](../../../../wiki/datasets/gpqa.md), [StrategyQA](../../../../wiki/datasets/strategyqa.md)
+- **Datasets**: AQuA-Rat, [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), OpenBookQA, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [SVAMP](../../../../wiki/datasets/svamp.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [Big-Bench-Hard](../../../../wiki/datasets/bbh.md), [GPQA](../../../../wiki/datasets/gpqa.md), [StrategyQA](../../../../wiki/datasets/strategyqa.md)
 
 Tags: `overthinking`, `adaptive-reasoning`, `grpo`, `token-efficiency`, `reasoning-format`, `rl`, `chain-of-thought`
 

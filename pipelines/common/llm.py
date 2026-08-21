@@ -19,6 +19,7 @@ from __future__ import annotations
 
 from typing import Any, Callable, Protocol
 
+from .paths import WIKI_KINDS  # LOCAL: the `model` kind — see docs/LOCAL-DELTAS.md
 from .schema import Paper, PaperSummary, Video, VideoSummary
 
 
@@ -42,7 +43,15 @@ PAPER_OUTPUT_SCHEMA: dict[str, Any] = {
     },
     "concepts": ["string - reusable ideas this paper relies on or introduces"],
     "methods": ["string - named methods, architectures or algorithms"],
-    "datasets": ["string - datasets, benchmarks, corpora or simulators used"],
+    # LOCAL: `models` — a checkpoint is not a corpus. See docs/LOCAL-DELTAS.md.
+    "datasets": [
+        "string - datasets, benchmarks, corpora or simulators used. Not models:"
+        " a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "models": [
+        "string - models the work trains, evaluates or analyses, as named in"
+        " the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
     "tags": ["string - short lowercase keywords"],
 }
 
@@ -61,6 +70,7 @@ VIDEO_OUTPUT_SCHEMA: dict[str, Any] = {
     "concepts": ["string"],
     "methods": ["string"],
     "datasets": ["string"],
+    "models": ["string"],  # LOCAL
     "tags": ["string - short lowercase keywords"],
 }
 
@@ -116,7 +126,10 @@ CONCEPT_OUTPUT_SCHEMA: dict[str, Any] = {
         "string - two to four sentences defining the entity as the cited "
         "sources use it, not as a textbook would"
     ),
-    "kind": "string - one of: concept, method, dataset",
+    # LOCAL: enumerated from WIKI_KINDS rather than written out, so a fifth
+    # kind cannot reach the validator without reaching the reader. Spelling
+    # this list by hand is how `model` came to be accepted but never offered.
+    "kind": f"string - one of: {', '.join(WIKI_KINDS)}",
     "aliases": ["string - other names the sources use for the same thing"],
     "related": [
         "string - name of a neighbouring entity worth linking to. Kept as you "
@@ -136,12 +149,52 @@ Rules:
 """.strip()
 
 
+# LOCAL: `models` — see docs/LOCAL-DELTAS.md
+_MODELS_RULE = (
+    "Answer `models` explicitly, even when the answer is `[]`. List the "
+    "checkpoints the work trains, evaluates or analyses, named as the paper "
+    "names them — a base model, a released model, a judge. A paper that "
+    "evaluates none returns an empty list, and that is a real answer: the "
+    "archive holds several. Leaving it out looks identical to that in the "
+    "record, and nothing afterwards can tell the two apart."
+)
+
+
 _READ_FROM_RULE = (
     "Then set `read_from`: 'document' if you opened the file, 'abstract' if you "
     "did not and worked from the payload. Say which you actually did. A reading "
     "that is honest about being abstract-only can be redone later; one that "
     "claims a document it never opened cannot be found at all."
 )
+
+
+def _contested_warning(paper_id: str, other: str) -> str:
+    """Said on the task, because that is where somebody is about to act.
+
+    Two records claiming one identifier is reported by every render, to whoever
+    ran it. The person who then drains the queue is often not that person and is
+    always looking somewhere else — and reading this paper can be exactly the
+    wrong move, because the archive would gain a second summary of one paper and
+    count it twice in every entity that cites it.
+
+    A warning rather than a refusal, because the reading is not always wrong. If
+    neither record has been read, reading either is fine: a merge carries the
+    summary to whichever record survives. It is wrong only when the other record
+    has one already, and the reader can check that from here.
+    """
+    if not other:
+        return ""
+    return (
+        "\n\n---\n\n"
+        f"**Stop and check before reading this.** `{paper_id}` and `{other}` "
+        "claim the same identifier: they are probably one paper held as two "
+        "records.\n\n"
+        f"If `{other}` has already been read, **do not read this one** — the "
+        "archive would gain a second summary of one paper and count it twice in "
+        "every entity that cites it. Leave the task and say so.\n\n"
+        "Either way somebody has to decide which record survives:\n\n"
+        "    python3 -m pipelines.enrich.dedupe merge <survivor> <absorbed> --dry-run\n"
+    )
 
 
 def paper_instructions(
@@ -179,7 +232,8 @@ def paper_instructions(
         f"{document}"
         "It matched these tracked topics; `relevance` must contain one entry "
         "per slug, stating what this paper changes for that topic:\n"
-        f"{lens}\n\n" + _SHARED_RULES.format(language=language)
+        f"{lens}\n\n" + _MODELS_RULE + "\n\n"
+        + _SHARED_RULES.format(language=language)
     )
 
 
@@ -211,6 +265,7 @@ def local_pdf_instructions(topics: list[dict], language: str = "en") -> str:
         "empty rather than forcing a fit:\n"
         f"{lens}\n\n"
         "`relevance` must have one entry per slug you listed in `topics`.\n\n"
+        f"{_MODELS_RULE}\n\n"
         f"{_READ_FROM_RULE}\n\n" + _SHARED_RULES.format(language=language)
     )
 
@@ -294,7 +349,11 @@ class Summarizer(Protocol):
     name: str
 
     def summarize_paper(
-        self, paper: Paper, topics: list[dict], language: str
+        self,
+        paper: Paper,
+        topics: list[dict],
+        language: str,
+        contested_with: str = "",
     ) -> PaperSummary | None: ...
 
     def summarize_video(
@@ -326,7 +385,11 @@ class QueueSummarizer:
         self._enqueue = enqueue
 
     def summarize_paper(
-        self, paper: Paper, topics: list[dict], language: str
+        self,
+        paper: Paper,
+        topics: list[dict],
+        language: str,
+        contested_with: str = "",
     ) -> PaperSummary | None:
         # A hand-filed PDF is still a paper task — same kind, same appliers,
         # same archive page. Only the prompt, the extra schema fields and the
@@ -342,7 +405,7 @@ class QueueSummarizer:
                 local_pdf_instructions(topics, language)
                 if local
                 else paper_instructions(topics, language, has_pdf=has_document)
-            ),
+            ) + _contested_warning(paper.id, contested_with),
             output_schema=_paper_schema(local=local, has_document=has_document),
             # Whatever a paper's provenance, if a document is on disk the
             # reader is told where it is. A fetched PDF and a hand-filed one
@@ -351,6 +414,7 @@ class QueueSummarizer:
                 {"pdf_path": paper.local_path} if paper.local_path else None
             ),
             payload={
+                "contested_with": contested_with,
                 "title": paper.title,
                 "authors": paper.authors,
                 "abstract": paper.abstract,
@@ -439,7 +503,7 @@ class AnthropicSummarizer:
             "`summarize.backend: queue` in config/settings.yaml."
         )
 
-    def summarize_paper(self, paper, topics, language):  # noqa: D102
+    def summarize_paper(self, paper, topics, language, contested_with=""):  # noqa: D102
         self._unavailable()
 
     def summarize_video(self, video, transcript, topics, language):  # noqa: D102
@@ -464,7 +528,7 @@ class OllamaSummarizer:
             "`summarize.backend: queue` in config/settings.yaml."
         )
 
-    def summarize_paper(self, paper, topics, language):  # noqa: D102
+    def summarize_paper(self, paper, topics, language, contested_with=""):  # noqa: D102
         self._unavailable()
 
     def summarize_video(self, video, transcript, topics, language):  # noqa: D102

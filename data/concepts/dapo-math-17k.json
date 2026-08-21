@@ -1,7 +1,8 @@
 {
   "aliases": [
     "DAPO-MATH",
-    "DAPO-Math"
+    "DAPO-Math",
+    "DAPO-Math-17k"
   ],
   "definition": "A math dataset used for reinforcement-learning training of reasoning models, and the training-data counterpart of the DAPO algorithm rather than the algorithm itself. TRAAC trains on it exclusively — which the archive records as a limitation, since the difficulty binning it drives is math-only with hand-set cutoffs — and Lightning OPD 2.0 uses it as the math half of its two-domain setup (150 steps, paired with KlearReasoner-CodeSub-15K for code). IAPO uses it on the evaluation side instead, alongside GSM8K and MATH-500. It also appears as 'DAPO-MATH' and, in at least one source, as a bare 'DAPO'; no archived source describes how it was built or what its problems look like.",
   "evidence": [
@@ -26,8 +27,8 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T00:49:09Z",
-  "name": "DAPO-Math-17k",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "DAPO-Math-17K",
   "related": [
     "on-policy-distillation",
     "teacher-consistency",
@@ -58,7 +59,7 @@
     "difficulty-adaptive-compression-rate-calibrated-by-rollout-pass-rate",
     "uniformity-scaled-eviction-percentage",
     "sigmoid-smoothed-length-reward",
-    "grpo-group-relative-policy-optimization",
+    "grpo",
     "traac-attention-based-compression-module",
     "tokenskip",
     "l1-max",
@@ -84,14 +85,13 @@
     "early-exit-mi-estimator",
     "kv-cache-preloading",
     "chunk-wise-forwarding",
-    "grpo",
     "s-grpo",
     "dapo",
     "gfpo",
     "gtpo",
     "qwen2-5-instruct",
     "gsm8k",
-    "math-500"
+    "math500"
   ],
   "related_authored": [
     "dapo",

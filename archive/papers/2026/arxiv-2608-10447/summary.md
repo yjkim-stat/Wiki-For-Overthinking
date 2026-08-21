@@ -45,7 +45,7 @@ Stated: at the larger 7B scale REAM does not close the accuracy gap to the slow-
 
 ## Entities
 
-- **Concepts**: Slow-thinking vs fast-thinking recommendation, Reasoning verbosity without commensurate accuracy gain, Model merging as training-free behaviour transfer, Task vectors in a shared parameter space, Retrieval criticality of attention heads, Decision faithfulness (attention from the final prediction to the supporting reasoning segment), Fisher update sensitivity, Head-level heterogeneity of reasoning roles, Accuracy-efficiency trade-off
+- **Concepts**: Slow-thinking vs fast-thinking recommendation, Reasoning verbosity without commensurate accuracy gain, Model merging as training-free behaviour transfer, Task vectors in a shared parameter space, Retrieval criticality of attention heads, Decision faithfulness (attention from the final prediction to the supporting reasoning segment), Fisher update sensitivity, Head-level heterogeneity of reasoning roles, [Accuracy-efficiency trade-off](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md)
 - **Methods**: REAM (Reasoning-HEad-Aware Merging), Task arithmetic / task vectors, DARE, TIES-Merging, Average Merging (baselines), AIM, ACM, RAIN-Merging (data-driven baselines), Fisher-weighted merging, RecZero (slow-thinking source), TALLRec (fast-thinking source), Retrieval-head criterion, Jensen-Shannon divergence perturbation analysis
 - **Datasets**: Amazon Book (Reason4Rec splits), Amazon Music (Reason4Rec splits), Yelp (Reason4Rec splits)
 

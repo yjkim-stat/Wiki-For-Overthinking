@@ -1,7 +1,8 @@
 {
   "aliases": [
     "sequential test-time scaling",
-    "Budget Forcing"
+    "Budget Forcing",
+    "budget forcing"
   ],
   "definition": "Controlling a reasoning model's chain-of-thought length by inserting a keyword at inference time -- most commonly 'Wait' to force it to keep thinking past what it would have generated on its own, or a stop signal to cut it short. 'Wait, Do We Need to Wait?' stress-tests this technique across model families, non-reasoning models and alternative keywords; 'When More Thinking Hurts' and the deep-search asymmetric-verification paper both study its diminishing, and eventually negative, returns as forced length grows.",
   "evidence": [
@@ -38,8 +39,8 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
-  "name": "budget forcing",
+  "last_seen": "2026-08-21T03:00:11Z",
+  "name": "Budget Forcing",
   "related": [
     "token-budget-saturation",
     "reasoning-non-convergence",
@@ -94,7 +95,7 @@
     "cost-aware-utility-function-lambda-parameterized",
     "overthinking-indicators-hesitation-markers-answer-oscillation-confidence-traject",
     "bootstrap-resampling-for-confidence-intervals",
-    "math-500",
+    "math500",
     "sequential-test-time-scaling",
     "stopping-keyword-control",
     "asymmetric-verification",

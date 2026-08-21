@@ -9,7 +9,7 @@ gpt-oss-120b is an open-weight language model that archived papers evaluate on, 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive test-time compute](../concepts/adaptive-test-time-compute.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Chain-of-thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [Chain-of-thought monitorability](../concepts/chain-of-thought-monitorability.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [GPQA](../datasets/gpqa.md), [GPT-OSS-20B](gpt-oss-20b.md), [GSM8K](../datasets/gsm8k.md), [MATH-500](../datasets/math-500.md), [MMLU](../datasets/mmlu.md), [Qwen3-8B](qwen3-8b.md), [QwQ-32B](qwq-32b.md), [self-consistency](self-consistency.md)
+**Related**: [adaptive test-time compute](../concepts/adaptive-test-time-compute.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Chain-of-thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [Chain-of-thought monitorability](../concepts/chain-of-thought-monitorability.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [GPQA](../datasets/gpqa.md), [GPT-OSS-20B](gpt-oss-20b.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [Qwen3-8B](qwen3-8b.md), [QwQ-32B](qwq-32b.md), [Self-Consistency](self-consistency.md)
 
 ## Appears in
 

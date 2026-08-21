@@ -8,7 +8,7 @@ In these sources fixed-point iteration means running one block of weights repeat
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [test-time scaling](test-time-scaling.md)
+**Related**: [Test-time scaling](test-time-scaling.md)
 
 ## Appears in
 

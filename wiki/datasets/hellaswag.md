@@ -8,7 +8,7 @@ HellaSwag serves in this archive as a short-output control - a benchmark whose a
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [confidence calibration](../concepts/confidence-calibration.md), [early exit](../methods/early-exit.md), [GPQA-Diamond](gpqa-diamond.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MMLU-PRO](mmlu-pro.md), [SVAMP](svamp.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GPQA-Diamond](gpqa-diamond.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MMLU-Pro](mmlu-pro.md), [SVAMP](svamp.md)
 
 ## Appears in
 
