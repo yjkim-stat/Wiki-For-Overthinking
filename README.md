@@ -264,8 +264,12 @@ Nothing is approved automatically, however harmless it looks, and an approved
 request is work for the next maintenance session rather than a change already
 made. A rejected one keeps its reason: declined is not deleted.
 
-**The port writes nothing at all** — not to `data/`, not anywhere — and binds to
-loopback with no flag to change that. There is no authentication, which is why
+**The port never touches `data/`**, and binds to loopback with no flag to change
+that. It writes in exactly one place: a question it could not answer is left in
+`requests/pending/` for the same review as anything else. What the archive does
+not know is the most useful thing this port produces — the only signal anywhere
+of what people came looking for and did not find — and it would otherwise be
+lost the moment the caller closed the connection. There is no authentication, which is why
 the read-only guarantee has to be absolute: on a shared host, loopback means any
 local user. A host that wanted to publish its archive would put a proxy in
 front and make that decision where it can be seen.

@@ -89,3 +89,4 @@ reference for everything built before the practice existed.
 | 0063 | [A night that collected nothing](0063-a-night-that-collected-nothing.md) | feature | The reading survived only in a commit message, which is outside the thing it is about |
 | 0064 | [A merge with a person in it](0064-a-merge-with-a-person-in-it.md) | feature | The reading was on one record and the document on the other, so no rule could pick a survivor |
 | 0065 | [The validator takes the task](0065-the-validator-takes-the-task.md) | refactor | Three notes had each added a parameter for the same reason; by the fifth the argument list was the idea |
+| 0066 | [What the archive was asked and could not answer](0066-what-the-archive-was-asked-and-could-not-answer.md) | feature | The only signal of what people looked for and did not find, discarded when the connection closed |
