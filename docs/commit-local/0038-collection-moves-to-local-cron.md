@@ -92,3 +92,27 @@ this one: commits with the subject `archive: <date> collect — …` are the cro
 job's and were not written by a session. A session that finds the working tree
 dirty at 07:00 should expect the night's collection to have been skipped, and
 the log will say so.
+
+## Correction (0038)
+
+The "What a reviewer should check" section above says the `arxiv:` line
+classifies a run as `listing ok`, `BLOCKED`, or contributed nothing. That was
+the script's logic and it was wrong, in a way the first successful run exposed
+immediately: it looked only for listing lines, but `arxiv.listing.mode` is
+`auto`, so **the listing fires only when the API returned nothing**. A healthy
+run in which the API worked produces no listing lines at all, and the first real
+run — which collected 39 entries and filed a paper task — was recorded in its own
+commit subject as `arxiv contributed nothing`. Commit `26c9c0d0` carries that
+wrong subject and is left as it stands rather than rewritten.
+
+The classifier now counts both paths from this run's lines only, and reports
+`api ok` / `listing ok (api gave nothing)` / `api ok, listing also ran` /
+`BLOCKED` / contributed nothing, with the sweep's outstanding abstract count
+appended. Two things this fixes beyond the wording:
+
+- **The log is one file per day and appended to**, so a second run of the day
+  was classifying itself on the first run's evidence. The script now records the
+  log's length at entry and reads only past it.
+- **The API is the normal path and was not being reported at all.** The listing
+  is the fallback; a message that names only the fallback cannot distinguish "the
+  API worked" from "nothing happened", which is the whole purpose of the line.
