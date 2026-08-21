@@ -44,7 +44,7 @@ _not recorded_
 ## Entities
 
 - **Concepts**: [test-time compute scaling](../../../../wiki/concepts/test-time-compute-scaling.md), verification, tool integration, memorization burden
-- **Methods**: T1, code interpreter tool integration, process reward models, critic models
+- **Methods**: T1, code interpreter tool integration, [process reward models](../../../../wiki/methods/process-reward-model.md), critic models
 - **Datasets**: [MATH](../../../../wiki/datasets/math.md)
 
 Tags: `test-time-scaling`, `small-language-models`, `verification`, `tool-use`

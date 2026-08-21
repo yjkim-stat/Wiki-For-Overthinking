@@ -1,0 +1,75 @@
+{
+  "concepts": [
+    "adaptive test-time compute allocation",
+    "routing collapse",
+    "reasoning-mode routing token",
+    "per-mode reward surface",
+    "hard per-mode token cap",
+    "advantage balance term",
+    "temporal discounting of sequence reward",
+    "normalization amplification in GRPO",
+    "token-mean loss aggregation",
+    "accuracy-length Pareto frontier",
+    "difficulty heterogeneity as a precondition for routing",
+    "verbosity compensation",
+    "routing entropy"
+  ],
+  "contributions": [
+    "Shows a 1.5B reasoning model can learn to route problems by difficulty via a single first-response token, end-to-end inside GRPO, with no separate router and no supervised or distillation warm-up.",
+    "Identifies routing collapse as the central obstacle and answers it with two mechanisms rather than staging: hard per-mode token caps that make the modes behaviourally distinct so the label cannot decouple from behaviour, and an outcome-asymmetric balance term added to the advantage.",
+    "Replaces the usual global length discount with a per-mode base-plus-discount reward surface whose crossovers place each mode reward-optimal in its own length band.",
+    "Documents three GRPO adjustments the design needs: no standard-deviation normalisation (the discount's small in-group reward differences would otherwise be amplified), token-mean loss aggregation, and no KL penalty.",
+    "Places the routed policy on or above the accuracy-length Pareto frontier traced by single-mode baselines, in distribution and zero-shot on GSM8K and AIME.",
+    "Reports a negative result that bounds the method: two-mode routing collapses on Countdown because uniform task difficulty leaves no accuracy gap for the router to learn from."
+  ],
+  "datasets": [
+    "MATH",
+    "MATH-500",
+    "GSM8K",
+    "AIME 2024",
+    "AIME 2025",
+    "Countdown"
+  ],
+  "generated_at": "2026-08-21T03:37:47Z",
+  "generated_by": "queue",
+  "limitations": "Stated: three seeds of one 1.5B model on one mathematical training distribution; the mode caps are task-specific and must be matched to the target task's length distribution; and validation is uncapped, which makes brief-mode accuracy marginally optimistic relative to the trained objective. The authors name breadth -- more mathematical benchmarks, then code, agentic and tool-use settings -- as the necessary next step. Beyond those, a reader should notice that accuracy does not improve and the headline pair understates the drop: the abstract compares 0.782 to 0.796, while Table 2's own step-0 anchor under the routing prompt is 0.807 +/- 0.003, making the change -0.024 against a step-90 standard deviation of 0.015. Accuracy also dips hard while routing is being established (0.727 at step 30, -0.080) and only partly recovers by step 90, so the reported endpoint is a recovery curve that was still rising when training stopped. The reward surface is a hand-designed object -- three bases, two discounts, two caps, a balance coefficient and a target share -- whose crossovers were placed to sit at or below the briefer mode's cap, and no sensitivity study over those constants appears. The balance term forces a 1/3 target share, so the achieved 20/32/47 split is a compromise between the data's difficulty distribution and a prior that has nothing to do with it. AIME is two 30-problem sets, small enough that avg@16 still leaves the comparison coarse, and the AIME result is the one case where the method does not beat the frontier. Finally the Countdown collapse shows the mechanism's precondition rather than a tuning failure: the method needs a training distribution whose difficulty spread produces a measurable accuracy gap between modes, and the paper does not say how wide that spread has to be.",
+  "method": "The model emits a routing token -- NoThink, Short or Long -- as the first word of its response and then reasons accordingly; the token sits in the response head and receives gradient like any other token, so there is no separate router and no data preprocessing. A fixed instruction is appended to every prompt naming the three choices. Two mechanisms hold the modes apart. First, hard per-mode token caps enforced during generation: 1,024 tokens for NoThink, 3,000 for Short, uncapped for Long, and a correct final answer that falls beyond its mode's cap is scored incorrect regardless of content. The caps make the routing label inseparable from behaviour -- a capped brief mode genuinely fails on problems needing more tokens, so Long always retains a reason to exist and the brief modes cannot quietly absorb hard problems -- and they cut training compute because capped rollouts are short. Second, each mode gets its own base reward and per-token discount on the tokens generated after the routing token: r = b_mode * gamma_mode^L for a correct answer, 0.0 for an incorrect one, and -0.5 when the routing token is absent. With b_NT = 1.3, b_S = 1.2, b_L = 1.0 and Long undiscounted, the NoThink/Short crossover falls at about 800 tokens and the Short/Long crossover at about 3,000, so each mode is reward-optimal over its own length band and the crossovers sit at or below the briefer mode's cap. Three GRPO adjustments support this. Standard-deviation normalisation is removed and only mean-centering kept, because the gamma^L discount creates tiny reward differences inside an all-correct group and dividing by std would amplify them into full-magnitude advantages, diverting training toward small length optimisations; token-mean loss aggregation replaces DeepSeek's sequence-mean so long-mode tokens are not weighted down relative to brief-mode ones; and the KL penalty is removed entirely (beta = 0) because routing requires exploring behaviours the distilled base rarely produces. A balance term is added directly to the advantage after centering, A <- A + beta_bal(p* - f_mode) with p* = 1/3, in the spirit of Mixture-of-Experts load balancing, and applied asymmetrically by outcome: the negative correction for an over-represented mode is applied only to incorrect rollouts and the positive correction for an under-represented one only to correct rollouts, so balancing never penalises a correct answer or rewards an incorrect one. For the first warmup steps two rollouts per group are forced into each mode with the rest free, which is how the base model -- whose chat template prefills <think> so it never emits a routing token unprompted -- learns to route at all.",
+  "methods": [
+    "Three-Mode Self-Routing GRPO",
+    "GRPO",
+    "RLVR",
+    "forced-rollout warmup",
+    "Mixture-of-Experts load balancing",
+    "DAPO",
+    "Dr. GRPO",
+    "GRPO-LEAD",
+    "GRPO-lambda",
+    "AdaptThink",
+    "AutoThink",
+    "ARM",
+    "Thinkless"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "DeepSeek-R1"
+  ],
+  "one_liner": "Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.",
+  "paper_id": "arxiv:2608.20256",
+  "problem": "RLVR fine-tuning applies a single maximum response length uniformly to every training sample, which couples two opposite inefficiencies: early in training the model wastes compute generating long incorrect traces, and later the same fixed ceiling blocks the extended chains genuinely hard problems need. Temporal discounting fixes the first by penalising length directly, but it is non-adaptive -- an easy question and a hard one are pressed to be equally brief regardless of what each needs. The natural next step is to let the model decide per prompt how much reasoning a problem warrants, and the obstacle is routing collapse: the mode decision is a single discrete self-reinforcing token, so a mode with even a small reward edge is sampled more, reinforced more, and drives the alternatives out of the policy. Existing adaptive-mode methods avoid collapse with machinery the authors want to do without -- a supervised or distillation stage that pre-installs the modes (ARM, Thinkless), a multi-stage curriculum (AutoThink), or importance sampling under a constrained objective (AdaptThink).",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "This is a constructive test of the archive's position that allocation is decided when the problem is read. The decision here is literally the first token of the response, before any reasoning exists, and it works: routing is monotone in MATH-500's difficulty levels, a signal the model never saw in training, and per-mode accuracy inverts the base model's ordering as the brief modes take the easy problems. It also supplies the counterexample the archive lacked. The two-mode precursor collapsed on Countdown because that task's difficulty is uniform, so no accuracy gap existed for the router to learn from -- difficulty routing is not a capability a model either has or lacks, it is learnable only where the training distribution's difficulty varies enough to produce one. That reframes the archive's repeated finding that adaptation holds on easy problems and breaks on hard ones as a property of what the signal can be estimated from. The efficiency numbers say the same thing from the other side: savings are largest where the benchmark is heterogeneous (GSM8K, 76% fewer tokens than the base) and smallest where every problem is hard (AIME, 12%, and there the router sits on the frontier rather than above it), so a router earns its keep by declining to cut budget as much as by cutting it. Finally it is a rare case of an efficiency method reported honestly against its own baseline: accuracy does not improve, the abstract's -0.014 is -0.024 against the paper's own step-0 anchor, and the claim is a token-efficiency claim rather than an accuracy one."
+  },
+  "results": "Base model DeepSeek-R1-Distill-Qwen-1.5B, trained with GRPO at group size 8 for 90 steps on the MATH lighteval split with a 16,384-token context cap on 4 NVIDIA H100s, three seeds for the router and for each single-mode baseline. All three modes emerge and persist across all seeds with no collapse: after the forced warmup the split settles near 20/32/47% (NoThink/Short/Long) with routing entropy about 1.04 against a theoretical maximum of ln 3 = 1.10, Long remaining the plurality. Routing is difficulty-sorted rather than arbitrary, on two independent checks. Per-mode accuracy inverts the base model's prior ordering (Long > Short > NoThink) around step 50, with NoThink and Short ending well above Long across all seeds -- the brief modes are getting the easier problems. And against MATH-500's own difficulty levels, which the model never saw in training, the split is monotone: NoThink carries most of level 1 and little of level 5, Long the reverse, Short peaking at intermediate levels, with per-level accuracy falling 92/84/85/79/62% from level 1 to 5. On efficiency, MATH-500 accuracy is 0.782 against the untrained base's 0.796 while mean response length falls from 4,796 to 2,811 tokens, a 41% reduction. In the accuracy-versus-length plane the three single-mode baselines (NoThink-only 0.66 at 1,096 tokens, Short-only 0.72 at 2,030, Long-only 0.80 at 4,507) trace a Pareto frontier, and free routing at 0.78/2,811 lies strictly above it: it reaches an accuracy the frontier attains only with 27% more tokens, while sitting slightly higher than the frontier at its own length. The routing transfers zero-shot to benchmarks never trained on, and the saving tracks how heterogeneous the benchmark is. On GSM8K (avg@5), dominated by easy problems, free routing again lies strictly above the frontier, using 44% fewer tokens than the frontier needs to reach its accuracy and 76% fewer than the base. On AIME 2024+2025 (avg@16 over the two 30-problem sets), where nearly every problem demands extended reasoning, the router correctly declines to cut budget: it matches the frontier's accuracy at comparable length and is still 12% shorter than the base, landing on the frontier rather than above it. Long-only itself matches or slightly exceeds the base on all three benchmarks at fewer tokens, so full-reasoning RL helps even at fixed length and free routing trades a little of that accuracy for a large length reduction. The paper's own negative result is load-bearing: a two-mode (Short/Long) precursor on the Countdown task collapsed to a single mode because Countdown's uniform difficulty gives the router no accuracy gap to learn from -- difficulty routing is not learnable where difficulty does not vary.",
+  "schema_version": 1,
+  "tags": [
+    "adaptive reasoning",
+    "reinforcement learning",
+    "grpo",
+    "routing",
+    "token efficiency",
+    "test-time compute",
+    "reward shaping",
+    "mode collapse"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "attachments": {
+    "evidence": [
+      {
+        "id": "overthinking",
+        "kind": "concept",
+        "note": "A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that wastes compute for no accuracy gain, actively lowers accuracy, or degrades safety- or fairness-relevant behavior (e.g. more stereotype-aligned answers under sustained self-doubt, worse AI-risk judgments) as reasoning length grows. It is measured and explained several ways across the …",
+        "sources": 52,
+        "title": "overthinking"
+      },
+      {
+        "id": "analysis-paralysis",
+        "kind": "concept",
+        "note": "",
+        "sources": 1,
+        "title": "Analysis Paralysis"
+      },
+      {
+        "id": "local:9f60265e5ada34cb",
+        "kind": "paper",
+        "note": "Defines and measures 'overthinking' in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.",
+        "read": true,
+        "title": "The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks"
+      },
+      {
+        "id": "local:32a56cfa1105c39e",
+        "kind": "paper",
+        "note": "The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this 'overthinking' via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.",
+        "read": true,
+        "title": "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling"
+      },
+      {
+        "id": "local:49199e3b0f694ee1",
+        "kind": "paper",
+        "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
+        "read": true,
+        "title": "OptimalThinkingBench: Evaluating Over and Underthinking in LLMs"
+      },
+      {
+        "id": "title:f1e27aad3e870b08",
+        "kind": "paper",
+        "note": "Evaluates large reasoning models under budget-constrained interruptions and mid-reasoning context changes, finding accuracy drops of up to 60% and three recurring failure modes not visible under static evaluation.",
+        "read": true,
+        "title": "Are Large Reasoning Models Interruptible?"
+      },
+      {
+        "id": "arxiv:2608.18931",
+        "kind": "paper",
+        "note": "A compute-normalised, five-benchmark comparison of test-time scaling methods on open-ended generation finds that the candidate pool improves steadily with compute, but exploitation - selecting or synthesising the final answer from that pool - is the bottleneck, with reward-model-based selection near random (verifier correlation ~0.12) and even the best method (Fusion) recovering only ~40% of avai…",
+        "read": true,
+        "title": "Test-Time Scaling in the Wild: Why Exploitation, Not Exploration, Is the Bottleneck"
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T03:48:38Z",
+  "created_at": "2026-08-21T02:39:48Z",
+  "instructions": "Is overthinking in agentic environments the same phenomenon that maths-benchmark studies measure, or a different one that happens to share the name?\n\nThe evidence below is every archived record this question was filed against — readings, entity definitions and settled findings. Answer from those, and from the archive around them if you need to look.\n\n**If they settle it**, write one sentence somebody could disagree with, and say in `rationale` what settled it. Name the papers it rests on in `papers`; they are checked against the archive, so cite what is there rather than what you remember.\n\n**If they do not**, leave `statement` empty and say in `unresolved` what is missing and what would settle it. That is a real answer and it is recorded as one. A statement hedged until it cannot be argued with is worse than an honest open question, because nothing later can tell the two apart.\n\nWrite in en. Return one JSON object matching the schema exactly, with no prose around it.",
+  "item_id": "q:85150997e2cfc3ad",
+  "kind": "synthesis",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - entity names this bears on"
+    ],
+    "kind": "string - one of: decision (the group chose) | fact (it established)",
+    "papers": [
+      "string - canonical ids of archived papers it rests on"
+    ],
+    "rationale": "string - what settled it, and against which evidence",
+    "references": [
+      "string - ids of recorded external references, if any"
+    ],
+    "statement": "string - one sentence somebody could disagree with, settling the question. Leave empty if the evidence does not settle it",
+    "supersedes": "string - id of a finding this replaces, if any",
+    "topics": [
+      "string - tracked topic slugs"
+    ],
+    "unresolved": "string - required *instead of* `statement` when the evidence does not settle the question: what is missing, and what would settle it"
+  },
+  "payload": {
+    "evidence_count": 7,
+    "question": "Is overthinking in agentic environments the same phenomenon that maths-benchmark studies measure, or a different one that happens to share the name?"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "analysis-paralysis",
+      "rogue-actions",
+      "premature-disengagement",
+      "resource-rational-reasoning",
+      "reasoning-action-dilemma"
+    ],
+    "kind": "fact",
+    "papers": [
+      "arxiv:2608.16033",
+      "local:9f60265e5ada34cb",
+      "local:32a56cfa1105c39e",
+      "local:49199e3b0f694ee1",
+      "title:f1e27aad3e870b08",
+      "arxiv:2608.18931",
+      "arxiv:2608.07968"
+    ],
+    "rationale": "",
+    "references": [],
+    "statement": "",
+    "supersedes": "",
+    "topics": [
+      "overthinking"
+    ],
+    "unresolved": "The archive cannot settle this, and the reason is specific rather than a shortage of reading. Only one record measures both settings under one protocol -- R^3-Bench holds the problems, the difficulty stratification, the per-model budget calibration and the grader fixed and varies only the runtime, and finds the shortfall against the response-curve oracle present in all 72 cells with the agentic setting *milder* than the tool-free one in 27 of 36 matched comparisons. That looks like an answer, and it is not one, because both of its arms run the same Omni-MATH, LiveCodeBench Pro and Reasoning Gym problems: its 'agentic' setting is mathematics with a shell, so the two arms share the phenomenon by construction and the comparison can only ever return 'same, but easier with feedback'.\n\nThe agentic phenomenon the archive actually holds is a different object. 'The Danger of Overthinking' scores 3,908 SWE-bench Verified trajectories on detachment from environmental feedback, through three patterns -- Analysis Paralysis, Rogue Actions, Premature Disengagement -- of which at least Rogue Actions (issuing dependent actions without waiting for feedback) has no tool-free analogue at all, since there is no feedback to ignore. Three of its findings have no counterpart on the maths side and one contradicts it. Its effect size is far larger than anything measured on maths traces (overthinking score against issue resolution at R^2 = 0.892, against r = 0.78-0.82 for answer oscillation predicting negative flips in 'When More Thinking Hurts'). Its most effective intervention, native function calling, raises resolution 29.1% -> 47.7% while cutting the overthinking score 2.43 -> 1.05, and names an interface property that does not exist in a tool-free setting. And it reports reasoning models scoring roughly 3x higher on overthinking than non-reasoning ones (3.505 vs 2.228) with the gap widening as models get smaller -- whereas on UnderthinkingBench in OptimalThinkingBench the thinking models are the ones that can do the task at all (o3 at 65.0% against Qwen3 hybrids under 20% in non-thinking mode). A single construct that is both the cost of reasoning training and its benefit needs an argument the archive does not have.\n\nWhat would settle it, in order of decisiveness. (1) One measurement applying both instruments to one set of trajectories: the LLM-judge overthinking score of 'The Danger of Overthinking' and a token/flip-based measure from 'When More Thinking Hurts' or an Overthinking-Adjusted Accuracy from OptimalThinkingBench, computed on the same agentic episodes. If the two rank the same trajectories alike, they are one phenomenon measured two ways; if they rank differently, they are two. Nothing in the archive has ever computed both on one dataset. (2) A reproduction of the agentic result on a second scaffold and a second task family -- 'The Danger of Overthinking' is single-agent CodeAct on OpenHands over SWE-bench only, and its authors exclude multi-agent scaffolds by design, so its R^2 = 0.892 currently rests on one harness. (3) An R^3-Bench-style shared-budget design whose agentic arm carries genuinely agentic tasks rather than maths problems with a shell, which would let the oracle-gap decomposition ('spent budget elsewhere' under strong pressure, 'stopped after partial progress' under moderate) be tested against the Analysis-Paralysis / Premature-Disengagement taxonomy directly -- those two pairs are suggestively similar and no source compares them. Until (1) exists the honest position is that the two literatures share a name and a shape and have never been measured against each other."
+  },
+  "task_id": "synthesis__q-85150997e2cfc3ad",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -3,6 +3,14 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "An empirical study of compute-optimal inference that measures accuracy against FLOPs for greedy decoding, sampling with majority and weighted voting, best-of-n and tree search across model sizes, and introduces REBASE, a reward-guided tree search.",
+        "title": "Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for LLM Problem-Solving",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "An empirical study showing that test-time-compute methods effective for LLM reasoning mostly fail to transfer to vision-language models unless prediction diversity is present, and proposes an entropy-based selection method that works better in multi-model ensembles.",
         "title": "Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models",
         "topics": [
@@ -16,13 +24,21 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Analyses the scaling behaviour of self-consistency sampling as mode estimation, derives power-law error decay in the number of samples, and introduces Blend-ASC, a hyperparameter-free scheme that reallocates a fixed sample budget across questions.",
+        "title": "Optimal Self-Consistency for Efficient Reasoning with Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-20T12:26:51Z",
-  "created_at": "2026-08-20T12:24:12Z",
-  "instructions": "Write the wiki definition for 'majority voting'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
-  "item_id": "majority voting",
+  "completed_at": "2026-08-21T03:51:33Z",
+  "created_at": "2026-08-21T03:48:50Z",
+  "instructions": "Revise the wiki definition for 'Majority Voting'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' finds it mostly fails to improve vision-language-model accuracy unless the sampled outputs are actually diverse; 'Does Thinking More Always Help?' proposes 'parallel thinking' (multiple short chains plus majority vote) as an alternative to extending a single chain, beating extended thinking by up to 20%.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Majority Voting",
   "kind": "concept",
   "language": "en",
   "output_schema": {
@@ -30,24 +46,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
-    "name": "majority voting",
-    "source_count": 2
+    "name": "Majority Voting",
+    "previous_definition": "Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' finds it mostly fails to improve vision-language-model accuracy unless the sampled outputs are actually diverse; 'Does Thinking More Always Help?' proposes 'parallel thinking' (multiple short chains plus majority vote) as an alternative to extending a single chain, beating extended thinking by up to 20%.",
+    "source_count": 4
   },
   "result": {
     "aliases": [
-      "self-consistency"
+      "self-consistency",
+      "Majority Voting",
+      "majority voting",
+      "maj@k"
     ],
-    "definition": "Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' finds it mostly fails to improve vision-language-model accuracy unless the sampled outputs are actually diverse; 'Does Thinking More Always Help?' proposes 'parallel thinking' (multiple short chains plus majority vote) as an alternative to extending a single chain, beating extended thinking by up to 20%.",
+    "definition": "Sampling several independent answers to one problem and returning the most frequent one -- the cheapest parallel test-time-compute strategy, needing no verifier and no reward model. It is the reference point most parallel methods in this archive are measured against, and sources attack it from three directions: it gains nothing when the samples are not actually diverse, which is why it transfers poorly to vision-language models; a whole-trace agreement signal dilutes the evidence needed to catch one decisive flaw in an otherwise plausible trace, so buying more samples does not buy proportionate trustworthiness; and methods that reallocate part of the same budget -- to falsifying decision-critical claims, to a few strong-verifier calls, or to short parallel chains instead of one long one -- report reaching its accuracy at roughly half the tokens or beating it by 16-27 points at small k. This archive keeps a separate 'self-consistency' record for the same idea; nothing distinguishes them and the split is spelling, not substance.",
     "kind": "method",
     "related": [
       "self-consistency",
-      "best-of-N sampling"
+      "best-of-n-sampling",
+      "confidence-weighted voting",
+      "test-time scaling"
     ]
   },
   "task_id": "concept__majority-voting",

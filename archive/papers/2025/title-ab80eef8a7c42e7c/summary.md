@@ -43,7 +43,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), llm-as-judge, outcome reward model, [process reward model](../../../../wiki/concepts/process-reward-model.md), best-of-n reranking, step-level beam search
+- **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), llm-as-judge, outcome reward model, process reward model, best-of-n reranking, step-level beam search
 - **Methods**: JETTS benchmark
 - **Datasets**: JETTS benchmark (math, code, instruction-following domains)
 

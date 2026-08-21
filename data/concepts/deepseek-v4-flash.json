@@ -1,17 +1,26 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "DeepSeek-V4-Flash",
+    "deepseek-v4-flash"
+  ],
+  "definition": "A DeepSeek reasoning model used in this archive as an API-accessed backbone whose chain of thought is reachable. It is the frozen backbone of a self-reflection protocol study -- nine experiments over three tool-free benchmarks, where its self-reported numeric confidence proved useless (at or above 0.6 on 100% of first generations) while its discrete CONFIRMED sentinel early-stopped 82-88% of items -- and it is the most extractable of three open-CoT targets in a CoT-extraction study, where an attack reaches 66.4% near-verbatim success against near-zero for prior methods. Both uses treat it as a representative current reasoning model rather than as a subject in itself.",
   "evidence": [
     {
       "id": "arxiv:2608.18884",
       "kind": "paper",
       "note": "A training-free generate-critique-revise loop over a frozen backbone that stops when the critique emits a CONFIRMED sentinel or a depth cap is hit, measured across nine experiments to show the sentinel halts 82-88% of items at about 2.1 generations, with accuracy flat on BBH and significantly higher on GSM8K and MATH.",
       "title": "Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models"
+    },
+    {
+      "id": "arxiv:2608.20055",
+      "kind": "paper",
+      "note": "A security study showing that the hidden chain-of-thought of a black-box reasoning model can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must be retained across tool calls within a turn.",
+      "title": "EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-21T03:41:11Z",
   "name": "deepseek-v4-flash",
   "related": [
     "cost-bounded-early-stopping",
@@ -38,9 +47,50 @@
     "big-bench-hard-bbh-100-questions-sampled-evenly-across-20-tasks-plus-an-n-500-sp",
     "gsm8k-n-100-probes-n-500-for-the-scaled-comparison",
     "math-n-100-probes-n-500-for-the-scaled-comparison",
-    "gaia-named-as-required-future-work-for-the-tool-components-not-used"
+    "gaia-named-as-required-future-work-for-the-tool-components-not-used",
+    "hidden-chain-of-thought-as-a-model-asset",
+    "reasoning-replay-surface",
+    "reasoning-continuity-across-tool-calls",
+    "near-verbatim-cot-extraction",
+    "prompt-injection-through-tool-responses",
+    "online-fidelity-proxy-signals",
+    "reasoning-token-count-as-a-side-channel",
+    "cot-summary-as-a-leakage-channel",
+    "universal-injection-trajectory",
+    "adaptive-attacker",
+    "defence-in-depth-for-reasoning-traces",
+    "language-switching-in-reasoning-traces",
+    "self-correction-in-reasoning-traces",
+    "echocot",
+    "length-guided-optimization-lgo",
+    "length-and-text-guided-optimization-ltgo",
+    "inject-reflect-distill",
+    "scratchpad-tool-archival",
+    "rep",
+    "cot-synthesis",
+    "direct-prompting",
+    "stolen-thoughts",
+    "gepa",
+    "expel",
+    "openthoughts",
+    "math500",
+    "jeebench",
+    "livecodebench",
+    "qwen3-5-plus",
+    "glm-5-2",
+    "gemini-2-5",
+    "gemini-3-1",
+    "gemini-3-5",
+    "sonnet-4-6",
+    "opus-4-6",
+    "o4-mini",
+    "gpt-5-nano"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-v4-pro",
+    "glm-5-2",
+    "hidden-chain-of-thought-as-a-model-asset"
+  ],
   "schema_version": 1,
   "slug": "deepseek-v4-flash",
   "topics": [

@@ -1,17 +1,27 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Qwen2.5-7B",
+    "Qwen2.5-7B-Instruct",
+    "Qwen2.5-7B-Math"
+  ],
+  "definition": "Alibaba's 7B Qwen2.5 checkpoint, the most frequently used mid-scale backbone in this archive after the R1-Distill family. Sources use it in three ways that its variants keep apart: the Instruct model as a base for supervised fine-tuning and RL, including as the student a 32B reflection detector is distilled into so that detection costs one step; the Math variant as a mathematics-specialised generator; and the plain checkpoint as the non-reasoning control against which distilled reasoning models are compared. It is also the scale at which several papers report that a Qwen backbone and a Llama backbone of matched parameter count behave statistically alike.",
   "evidence": [
     {
       "id": "arxiv:2608.18222",
       "kind": "paper",
       "note": "Shows that whether a recurrent-depth reasoner is helped or harmed by extra test-time iterations is predicted by a measurable dynamical property of its trained update map (settling, marginal, or drifting), proves a sufficient condition for the decoded answer to be frozen under further iteration, and demonstrates that a single terminal fixed-point loss term moves the regime and the depth behaviour together in both directions.",
       "title": "Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth"
+    },
+    {
+      "id": "arxiv:2608.19535",
+      "kind": "paper",
+      "note": "Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.",
+      "title": "From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-21T03:41:11Z",
   "name": "Qwen2.5 7B",
   "related": [
     "recurrent-depth-reasoning",
@@ -67,9 +77,43 @@
     "prefix-sums-size-ladder-appendix-i",
     "arc-1-and-arc-2-transductive-no-augmentation-supporting-only",
     "procedural-single-token-probe-bank-for-huginn-digit-copying-letter-repetition-ca",
-    "a-7b-prompt-bank-of-chain-and-last-digit-tasks-n-40-per-point"
+    "a-7b-prompt-bank-of-chain-and-last-digit-tasks-n-40-per-point",
+    "net-benefit-versus-gross-speedup",
+    "compressor-overhead-on-the-same-device",
+    "adaptive-operating-region-between-two-knees",
+    "quality-knee",
+    "energy-knee",
+    "amortization-of-a-fixed-per-query-cost",
+    "stage-level-cost-attribution",
+    "telemetry-informed-runtime-control",
+    "hard-versus-soft-context-compression",
+    "extractive-versus-abstractive-compression",
+    "workload-conditioned-policy",
+    "llmlingua-2",
+    "retrieval-augmented-generation",
+    "context-compression",
+    "ragmark",
+    "hydra",
+    "flashrag",
+    "faiss-indexflatl2",
+    "tegrastats-telemetry",
+    "recomp",
+    "metis",
+    "natural-questions",
+    "hotpotqa",
+    "english-wikipedia-2018-flashrag-sentence-split",
+    "llama-3-2-1b",
+    "llama-3-2-3b",
+    "llama-3-1-8b",
+    "qwen2-5-1-5b",
+    "qwen2-5-3b",
+    "e5-base-v2"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-32b",
+    "deepseek-r1-distill-qwen-7b",
+    "llama-3-8b"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-7b",
   "topics": [

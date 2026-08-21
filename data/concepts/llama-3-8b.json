@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Llama3-8B"
+    "Llama3-8B",
+    "Llama-3.1-8B"
   ],
-  "definition": "",
+  "definition": "Meta's 8B-parameter Llama 3 checkpoint, used in this archive as a mid-scale general backbone rather than as a reasoning model: it appears in scaling sweeps alongside Pythia, Mistral-7B and the Llemma pair, in fast/slow-thinking comparisons, and as the largest generator in an edge RAG study where it accounts for roughly 90% of per-query latency and 91% of GPU energy. Sources treat it as the point where generation cost dominates everything else in a pipeline, which is what makes prompt-shortening worth its own overhead there and not at 1B.",
   "evidence": [
     {
       "id": "title:49c61dced5ecc63a",
@@ -18,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-21T03:00:11Z",
-  "kind": "method",
+  "kind": "model",
   "last_seen": "2026-08-21T03:00:11Z",
   "name": "Llama-3-8B",
   "related": [
@@ -59,7 +60,9 @@
     "cola"
   ],
   "related_authored": [
-    "deepseek-r1-distill-llama-8b"
+    "llama-3-2-1b",
+    "mistral-7b",
+    "qwen2-5-7b"
   ],
   "schema_version": 1,
   "slug": "llama-3-8b",

@@ -47,7 +47,7 @@ Stated: deliberation is sequential with an unknown number of turns, so it adds w
 
 ## Entities
 
-- **Concepts**: Reasoning Defect Detection, Step-Level Verification, LLM-as-a-Judge, Multi-Model Consensus, Moderated Deliberation, Reasoning Step Segmentation, [Process Reward Model](../../../../wiki/concepts/process-reward-model.md), Defect Severity, Right Answer Flawed Reasoning
+- **Concepts**: Reasoning Defect Detection, Step-Level Verification, LLM-as-a-Judge, Multi-Model Consensus, Moderated Deliberation, Reasoning Step Segmentation, Process Reward Model, Defect Severity, Right Answer Flawed Reasoning
 - **Methods**: Reasoning Jury (Phase 1 independent judgement, Phase 2 consolidation or deliberation), trace-blind procedural moderator, regex step segmentation (?<=[.!?])\s*\n\s*\n+, genericness test and 1-5 specificity self-check in the juror prompt, [LLM-as-a-judge](../../../../wiki/methods/llm-as-a-judge.md), majority vote and union-of-defects aggregation baselines, Balanced F1 at step level, bootstrap CIs, exact McNemar test, defect-guided retry, gpt-5.4, opus-4.6, sonnet-4.6, gemini-3.1-pro, gpt-oss-120b, glm-5.2, deepseek-v4-pro, kimi-k2.6, nemotron-3-super, minimax-m3, minimax-m2.7, qwen3.6-27b, gemma-4-31b, [vLLM](../../../../wiki/methods/vllm.md)
 - **Datasets**: Hard2Verify (200 human-annotated step-level records, advanced math competitions), DeltaBench (1,236 records; 1,226 used, STEM/coding/general reasoning), AIME2026 (30 problems, used for profiling and defect-guided retry), ProcessBench (discussed and deliberately not used, traces too short)
 

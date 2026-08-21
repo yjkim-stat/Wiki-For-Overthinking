@@ -44,7 +44,7 @@ The paper states no explicit limitations section. Points a reader should notice:
 ## Entities
 
 - **Concepts**: Early Exit, Retrieval-Augmented Inference, Adaptive Inference Depth, Exit Layer Distribution Prediction, Inference Efficiency
-- **Methods**: RAEE, [early exit](../../../../wiki/methods/early-exit.md), retrieval-augmented inference, k-nearest-neighbour retrieval, RoBERTa-Large, [T5-Large](../../../../wiki/methods/t5-large.md), [Llama-3-8B](../../../../wiki/methods/llama-3-8b.md), Gemma-7B
+- **Methods**: RAEE, [early exit](../../../../wiki/methods/early-exit.md), retrieval-augmented inference, k-nearest-neighbour retrieval, RoBERTa-Large, [T5-Large](../../../../wiki/methods/t5-large.md), Llama-3-8B, Gemma-7B
 - **Datasets**: [SST-2](../../../../wiki/datasets/sst-2.md), SST-5, MR, CR, MPQA, SUBJ, TREC, CoLA
 
 Tags: `early-exit`, `inference-efficiency`, `retrieval`, `adaptive-computation`, `classification`

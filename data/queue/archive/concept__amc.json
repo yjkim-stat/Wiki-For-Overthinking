@@ -11,8 +11,32 @@
       },
       {
         "kind": "paper",
+        "note": "ConPress observes that a reasoning model shortens its traces when several independent questions share one prompt, and harvests those shortened traces as self-supervised fine-tuning data for the single-question setting.",
+        "title": "ConPress: Learning Efficient Reasoning from Multi-Question Contextual Pressure",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
         "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Argues that the SFT-then-RL recipe works because RL decomposes compound reasoning traces into reusable atomic modules, formalises this as a hierarchical latent selection model, and tests it on synthetic string-transformation tasks.",
+        "title": "From Reasoning Traces to Reusable Modules: Understanding Compositional Generalization in Language Model Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ShorterBetter takes the length of the shortest correct response in a sampled group as a per-problem target and rewards the model for matching it, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B.",
+        "title": "ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning",
         "topics": [
           "overthinking"
         ]
@@ -27,9 +51,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T12:29:16Z",
-  "created_at": "2026-08-20T12:28:12Z",
-  "instructions": "Write the wiki definition for 'AMC'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-21T03:44:00Z",
+  "created_at": "2026-08-21T02:03:43Z",
+  "instructions": "Revise the wiki definition for 'AMC'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A competition-math benchmark used alongside AIME and MATH-500 in the archive's 3 sources as a standard hard-reasoning evaluation set: verifier-free self-correction (Refining Over Resampling), self-braking tuning, and reasoning-step pruning (LIMOPro). The sources use it only as an evaluation target, not describing its construction.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AMC",
   "kind": "concept",
   "language": "en",
@@ -45,18 +69,18 @@
   },
   "payload": {
     "name": "AMC",
-    "source_count": 3
+    "previous_definition": "A competition-math benchmark used alongside AIME and MATH-500 in the archive's 3 sources as a standard hard-reasoning evaluation set: verifier-free self-correction (Refining Over Resampling), self-braking tuning, and reasoning-step pruning (LIMOPro). The sources use it only as an evaluation target, not describing its construction.",
+    "source_count": 6
   },
   "result": {
     "aliases": [
-      "American Mathematics Competitions",
-      "AMC23"
+      "AMC (2022-2023)"
     ],
-    "definition": "A competition-math benchmark used alongside AIME and MATH-500 in the archive's 3 sources as a standard hard-reasoning evaluation set: verifier-free self-correction (Refining Over Resampling), self-braking tuning, and reasoning-step pruning (LIMOPro). The sources use it only as an evaluation target, not describing its construction.",
+    "definition": "The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that should not be confused: as a dated sitting used for evaluation, almost always AMC23 with its 40 problems, and as an undated pool that training corpora draw from alongside AIME, Omni-MATH and Still. At 40 problems a sitting it is small enough that a few items move a reported accuracy by percentage points, which several papers here note when comparing close methods.",
     "kind": "dataset",
     "related": [
-      "AIME",
-      "MATH-500"
+      "AMC23",
+      "AIME"
     ]
   },
   "task_id": "concept__amc",

@@ -8,7 +8,7 @@ A latent chain-of-thought reasoner that carries intermediate computation as cont
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [COCONUT](coconut.md), [CoLaR](colar.md), [GRPO](grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [Latent reasoning](../concepts/latent-reasoning.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Recurrent Depth](../concepts/recurrent-depth.md), [RLOO](rloo.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-time scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [COCONUT](coconut.md), [CoLaR](colar.md), [GRPO](grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [Latent reasoning](../concepts/latent-reasoning.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Recurrent Depth](../concepts/recurrent-depth.md), [RLOO](rloo.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-time scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
 
 ## Appears in
 

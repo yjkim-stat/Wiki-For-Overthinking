@@ -4,9 +4,10 @@
     "PRM",
     "Process reward model",
     "Process Reward Model",
-    "process reward models"
+    "process reward models",
+    "step-level reward model"
   ],
-  "definition": "A reward model that scores the intermediate steps of a reasoning trace, used to guide test-time search rather than only rank finished answers. MetaStone-S1 shares one backbone between its policy and process-reward model; TaTToo trains a domain-specific PRM for tabular reasoning; JETTS benchmarks how well LLM-as-judge models substitute for a trained PRM in guiding test-time scaling, finding judges match outcome reward models but lag PRMs. Note: same concept as the archive's separately-tracked 'process reward model (PRM)' entry -- not merged.",
+  "definition": "A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search and to decide where compute should go. Its recurring problem here is cost on two axes: training one normally needs step-level annotations, and running it consumes part of the very budget the search is trying to spend well -- sources are explicit that a search's quality is bounded by its PRM and that the PRM's own cost belongs in the accounting. The responses in the archive are to avoid the annotations (deriving process scores from the outcome reward, or sharing one backbone between policy and scorer at about 50M extra parameters) or to avoid the model (routing cheap answer-agreement evidence and reserving verifier calls).",
   "evidence": [
     {
       "id": "arxiv:2608.04771",
@@ -58,7 +59,7 @@
     }
   ],
   "first_seen": "2026-08-20T12:15:21Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-21T03:02:20Z",
   "name": "process reward model",
   "related": [
@@ -158,8 +159,9 @@
     "mmlu-pro-nine-non-mathematical-domains-including-law-history-philosophy"
   ],
   "related_authored": [
-    "process-reward-model-prm",
-    "monte-carlo-tree-search"
+    "outcome-reward-model",
+    "verifier",
+    "rebase"
   ],
   "schema_version": 1,
   "slug": "process-reward-model",

@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A survey that organizes existing mechanistic-interpretability research on large reasoning models into three areas -- reasoning-oriented training dynamics, reasoning mechanisms, and unintended behaviors (hallucination, CoT unfaithfulness, overthinking, unsafety) -- and proposes directions for future mechanistic work.",
+        "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Finds that large reasoning models pre-plan how much to reason via a directional vector in their activations, whose magnitude causally sets reasoning length.",
+        "title": "On Reasoning Strength Planning in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-21T03:46:12Z",
+  "created_at": "2026-08-21T03:00:12Z",
+  "instructions": "Write the wiki definition for 'linear probe'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "linear probe",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "linear probe",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "linear probing",
+      "activation probe"
+    ],
+    "definition": "A linear classifier -- logistic regression in the sources here -- fitted to a model's hidden-state activations to predict a property of the generation that the text does not yet show. The two archived uses are a non-convergence study, where a probe on the 3,584-dimensional hidden state at token 150 predicts whether an AIME generation will terminate or loop to the ceiling and beats a behavioural baseline built from entropy statistics and repeated n-grams, and hallucination detection, where probing scores sit far above perplexity and verbalized-certainty detectors. Both sources are explicit about what it does not establish: a probe shows predictive information is present in the hidden state, not that the state causes the outcome, which would need activation patching.",
+    "kind": "method",
+    "related": [
+      "activation steering",
+      "activation patching",
+      "hidden state"
+    ]
+  },
+  "task_id": "concept__linear-probe",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

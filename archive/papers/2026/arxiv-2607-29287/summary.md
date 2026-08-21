@@ -46,7 +46,7 @@ Stated: RL training data is sampled without controlling the difficulty distribut
 
 ## Entities
 
-- **Concepts**: Resource-Rational Reasoning, Difficulty-Adaptive Reasoning Depth, System 1 / System 2, [Reasoning Collapse](../../../../wiki/concepts/reasoning-collapse.md), Reasoning Redundancy, [Reward Hacking](../../../../wiki/concepts/reward-hacking.md), Rich Points, [Overthinking](../../../../wiki/concepts/overthinking.md)
+- **Concepts**: [Resource-Rational Reasoning](../../../../wiki/concepts/resource-rational-reasoning.md), Difficulty-Adaptive Reasoning Depth, System 1 / System 2, [Reasoning Collapse](../../../../wiki/concepts/reasoning-collapse.md), Reasoning Redundancy, [Reward Hacking](../../../../wiki/concepts/reward-hacking.md), Rich Points, [Overthinking](../../../../wiki/concepts/overthinking.md)
 - **Methods**: TwT (Translation with Thought), difficulty-adaptive CoT distillation and rewriting, [GRPO](../../../../wiki/methods/grpo.md), hybrid BLEU+COMET quality reward, n-gram repetition penalty (n=20), binary format reward, LLaMA-Factory, verl, vLLM, Qwen2.5-7B/14B-Instruct, Llama-3.1-8B-Instruct, Gemma-2-9B-IT (backbones), DeepSeek-R1 (trace distillation), GPT-4o (difficulty rating and rewriting)
 - **Datasets**: 7K difficulty-adaptive Long CoT SFT set (10 domains, De->En/En->Zh/Zh->En), 20K multi-domain parallel RL set, in-domain test sets: Laws, News, Science, Subtitles, Literary, IT, Koran, Medical, OOD test sets: Conversation, Ecommerce, Social, Culture, CommonSense, FLORES+ (59 unseen languages)
 

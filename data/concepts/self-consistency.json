@@ -3,9 +3,11 @@
     "Self-Consistency",
     "majority voting",
     "Self-consistency",
-    "self-consistency"
+    "self-consistency",
+    "SC@k",
+    "maj@k"
   ],
-  "definition": "Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretical paper derives that its sample complexity (Θ(1/Δ²)) is worse than best-of-n's (Θ(1/Δ)) for some tasks; CaTS uses a confidence signal to adaptively size how many samples to draw instead of a fixed count; 'Diversity Matters' finds it mostly fails to transfer to vision-language-model accuracy gains unless sampled outputs are genuinely diverse.",
+  "definition": "Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is the baseline every parallel test-time-scaling method is measured against, and the thing they try to reach at lower cost: methods prune, retire or reweight rollouts and report accuracy against SC at matched k. Sources treat it as strong rather than naive -- one paper's own criticism of itself is that it compared only at k=2 and k=3 -- and several generalise it by weighting each trace's vote by a reliability or confidence score, which reduces exactly to plain majority voting when the scores are equal.",
   "evidence": [
     {
       "id": "arxiv:2608.14161",
@@ -196,8 +198,9 @@
     "mmlu"
   ],
   "related_authored": [
-    "majority-voting",
-    "best-of-n-sampling"
+    "best-of-n",
+    "test-time-scaling",
+    "confidence-weighted-voting"
   ],
   "schema_version": 1,
   "slug": "self-consistency",

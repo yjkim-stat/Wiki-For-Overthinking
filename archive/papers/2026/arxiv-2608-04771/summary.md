@@ -44,7 +44,7 @@ The paper states no limitations section. Points a reader should notice: accuracy
 
 ## Entities
 
-- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Compression tolerance of a reasoning state, Length inflation under cache compression, [Process reward model](../../../../wiki/concepts/process-reward-model.md), KV-cache compression, Reflection tokens, Confidence-based early stopping, Step-wise inference-time budget allocation
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Compression tolerance of a reasoning state, Length inflation under cache compression, Process reward model, KV-cache compression, Reflection tokens, Confidence-based early stopping, Step-wise inference-time budget allocation
 - **Methods**: ReCo (Reward-Coordinated Compression), Reward-adaptive KV-cache retention ratio, Attention-guided token selection within a reward-set budget, Reward-banded reflection-token logit penalty, Confidence-probe early stopping on answer perplexity, Pilot (30M process-reward estimator distilled from Skywork-o1-Open-PRM-7B), SnapKV, [R-KV](../../../../wiki/methods/r-kv.md), RPC, SAT, [Dynasor](../../../../wiki/methods/dynasor.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AMC2023](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA](../../../../wiki/datasets/gpqa.md), DeepSeek-R1-Distill-Llama-8B, DeepSeek-R1-Distill-Qwen-7B, Qwen3-8B
 

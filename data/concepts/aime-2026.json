@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "AIME2026"
+    "AIME2026",
+    "AIME 26"
   ],
-  "definition": "Referenced in the archive's sources as a sitting of the American Invitational Mathematics Examination named alongside AIME 2024/2025 evaluation results in Gambit's thought-level beam search and the on-policy-distillation study. The sources do not say why this year specifically is named (rather than 2024/2025), so nothing further about its construction or scope can be stated from them.",
+  "definition": "The 2026 sitting of the American Invitational Mathematics Examination, 30 problems, used in this archive as the freshness control: it was administered after the training cutoffs of the models tested against it, so papers use it to check whether a result on AIME 2024 or 2025 could be contamination. That role is what its sources actually rely on it for -- a reasoning-effort pricing study measures on 30 AIME 2026 items precisely because the answers cannot have been memorised, and diagnoses rather than excludes contamination on the earlier sittings by comparing billed output tokens at matched indices. Being a different sitting, it is a different benchmark from AIME 2024 and AIME 2025 and is not merged with them.",
   "evidence": [
     {
       "id": "arxiv:2607.28707",
@@ -149,7 +150,8 @@
   ],
   "related_authored": [
     "aime-2025",
-    "aime-2024"
+    "aime-2024",
+    "benchmark-contamination"
   ],
   "schema_version": 1,
   "slug": "aime-2026",

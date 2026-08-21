@@ -11,8 +11,48 @@
       },
       {
         "kind": "paper",
+        "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
+        "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
         "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
+        "title": "How Far Are We from Optimal Reasoning Efficiency?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "QuRL runs the rollout phase of RL-with-verifiable-rewards training with an INT8 or FP8 quantized copy of the actor, adding an adaptive clipping range and an invariant weight-scaling trick to keep the low-precision policy from collapsing, for 20-80% faster rollout.",
+        "title": "QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Ada-R1 merges a long-CoT and a short-CoT model into one hybrid, then applies two levels of preference training so the model first picks a reasoning style per problem and then prefers the shorter correct trace within that style, cutting average reasoning length by about 51% on five maths datasets.",
+        "title": "Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains Qwen3-8B to split its chain of thought into concurrently decoded threads that spawn and join, so the critical path is shorter than a sequential trace of the same total length, using a trie-based rollout that runs on stock autoregressive inference engines.",
+        "title": "ThreadWeaver: Adaptive Threading for Efficient Parallel Reasoning in Language Models",
         "topics": [
           "overthinking"
         ]
@@ -35,8 +75,8 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T01:28:55Z",
-  "created_at": "2026-08-21T01:23:36Z",
+  "completed_at": "2026-08-21T03:44:00Z",
+  "created_at": "2026-08-21T03:00:12Z",
   "instructions": "Write the wiki definition for 'Minerva'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Minerva",
   "kind": "concept",
@@ -46,23 +86,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Minerva",
-    "source_count": 4
+    "source_count": 9
   },
   "result": {
-    "aliases": [],
-    "definition": "The shorter spelling under which four archived papers - Segment-Level Attribution, DiffAdapt, FROST and QFFT - name the Minerva maths benchmark; none of them states what it contains, so the archive knows it only by where it sits in an evaluation suite. Segment-Level Attribution puts it out-of-domain, with GPQA-Diamond and OlympiadBench, against in-domain MATH500, AMC23 and AIME24, so it serves there as a generalisation check on compressed-CoT fine-tuning rather than as a training target. FROST's per-benchmark table places it near the hard end: Phi-4-Reasoning after outlier pruning reaches 27.16% on Minerva at 401.19 average tokens, against 93.11% at 154.33 tokens on GSM8K and 26.67% at 899.80 tokens on AIME24 - roughly AIME's accuracy for under half its budget. The archive holds a separate entry, 'Minerva Math', built from the papers that use the longer name; the two are near-certainly one benchmark, kept apart rather than aliased together because a wrong alias silently fuses two entities.",
+    "aliases": [
+      "Minerva Math",
+      "Minerva-Math"
+    ],
+    "definition": "A quantitative-reasoning maths benchmark used in this archive almost exclusively as an out-of-domain evaluation: papers train on MATH500, AMC or AIME data and report Minerva alongside GPQA-Diamond and OlympiadBench to show the method did not overfit its training distribution. The sources use the name for the benchmark rather than for the model it was introduced with. Because it is always in the held-out group, no source here characterises its difficulty or size directly.",
     "kind": "dataset",
     "related": [
-      "Minerva Math",
-      "GPQA-Diamond",
-      "MATH-500"
+      "OlympiadBench",
+      "GPQA"
     ]
   },
   "task_id": "concept__minerva",

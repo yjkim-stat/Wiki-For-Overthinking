@@ -9,7 +9,7 @@ A reward model that scores the intermediate steps of a reasoning trace, not just
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [MATH500](../datasets/math500.md), [Monte Carlo Tree Search](../methods/monte-carlo-tree-search.md), [process reward model](process-reward-model.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [MATH500](../datasets/math500.md), [Monte Carlo Tree Search](../methods/monte-carlo-tree-search.md), [process reward model](../methods/process-reward-model.md)
 
 ## Appears in
 

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A sitting of the Harvard-MIT Mathematics Tournament used in this archive as a hard competition-maths benchmark alongside AIME, on the order of 30 problems. It appears mainly in parallel-reasoning and test-time-scaling evaluations, where sources use it as the case that breaks an aggregate: it is named as the one regression in a method that gains elsewhere, and as the ablation set where removing a component costs the most. At that size a few items move the score by several points, so per-benchmark differences here are not separable from noise without repeated runs.
 
 - **Kind**: dataset
-- **Also called**: HMMT'25
+- **Also called**: HMMT Nov 2025, HMMT'25, HMMT-25
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

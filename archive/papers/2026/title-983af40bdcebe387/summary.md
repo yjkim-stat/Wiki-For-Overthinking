@@ -43,7 +43,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: [process reward model](../../../../wiki/concepts/process-reward-model.md), tool-grounded verification, test-time scaling for search
+- **Concepts**: process reward model, tool-grounded verification, test-time scaling for search
 - **Methods**: TaTToo, process reward model (PRM), tool-grounded reward shaping, cold-start SFT + RL
 - **Datasets**: 5 tabular reasoning benchmarks covering numerical reasoning, fact-checking and data analysis
 

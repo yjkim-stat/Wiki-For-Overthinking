@@ -2,9 +2,10 @@
   "aliases": [
     "self-consistency",
     "Majority Voting",
-    "majority voting"
+    "majority voting",
+    "maj@k"
   ],
-  "definition": "Sampling multiple independent answers and taking the most common one, a simple parallel test-time-compute strategy that needs no verifier or reward model. 'Diversity Matters' finds it mostly fails to improve vision-language-model accuracy unless the sampled outputs are actually diverse; 'Does Thinking More Always Help?' proposes 'parallel thinking' (multiple short chains plus majority vote) as an alternative to extending a single chain, beating extended thinking by up to 20%.",
+  "definition": "Sampling several independent answers to one problem and returning the most frequent one -- the cheapest parallel test-time-compute strategy, needing no verifier and no reward model. It is the reference point most parallel methods in this archive are measured against, and sources attack it from three directions: it gains nothing when the samples are not actually diverse, which is why it transfers poorly to vision-language models; a whole-trace agreement signal dilutes the evidence needed to catch one decisive flaw in an otherwise plausible trace, so buying more samples does not buy proportionate trustworthiness; and methods that reallocate part of the same budget -- to falsifying decision-critical claims, to a few strong-verifier calls, or to short parallel chains instead of one long one -- report reaching its accuracy at roughly half the tokens or beating it by 16-27 points at small k. This archive keeps a separate 'self-consistency' record for the same idea; nothing distinguishes them and the split is spelling, not substance.",
   "evidence": [
     {
       "id": "title:0d818df77a2dc810",
@@ -83,7 +84,9 @@
   ],
   "related_authored": [
     "self-consistency",
-    "best-of-n-sampling"
+    "best-of-n-sampling",
+    "confidence-weighted-voting",
+    "test-time-scaling"
   ],
   "schema_version": 1,
   "slug": "majority-voting",

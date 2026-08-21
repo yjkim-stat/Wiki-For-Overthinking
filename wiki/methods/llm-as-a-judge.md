@@ -9,7 +9,7 @@ In both archived sources an LLM is prompted to score or label another model's ou
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Overthinking](../concepts/overthinking.md), [process reward model](../concepts/process-reward-model.md), [Self-Consistency](self-consistency.md), [vLLM](vllm.md)
+**Related**: [Overthinking](../concepts/overthinking.md), [process reward model](process-reward-model.md), [Self-Consistency](self-consistency.md), [vLLM](vllm.md)
 
 ## Appears in
 

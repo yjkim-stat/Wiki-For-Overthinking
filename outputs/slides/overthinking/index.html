@@ -153,6 +153,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Directly on topic, and it attacks the stopping problem from an unusual angle: instead of shortening a Long CoT, it lets the model decline to enter one. Ada-GRPO is a concrete answer to why the obvious approach fails — under plain outcome-reward GRPO the policy collapses onto Long CoT because that format wins on accuracy in every group, so any multi-format scheme needs an explicit force keeping cheap formats alive. The per-benchmark numbers are the more useful contribution for this topic than the headline: the 73% saving on CommonsenseQA and the +7.9% on AIME&#x27;25 together say the model is learning task difficulty roughly correctly, and that an average token-reduction figure across a mixed benchmark suite mostly measures how many easy problems the suite contains. Useful as a comparison point against methods that impose a length penalty on a single format.</p>
 </section>
 <section class="slide">
+<h2>Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation</h2>
+<p class="subtitle">Gijs Kassenaar, Zhao Yang, Vincent François-Lavet</p>
+<blockquote>
+<p>Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode&#x27;s budget, learned end-to-end inside GRPO with no separate router.</p>
+</blockquote>
+<ul>
+<li>Shows a 1.5B reasoning model can learn to route problems by difficulty via a single first-response token, end-to-end inside GRPO, with no separate router and no supervised or distillation warm-up.</li>
+<li>Identifies routing collapse as the central obstacle and answers it with two mechanisms rather than staging: hard per-mode token caps that make the modes behaviourally distinct so the label cannot decouple from behaviour, and an outcome-asymmetric balance term added to the advantage.</li>
+<li>Replaces the usual global length discount with a per-mode base-plus-discount reward surface whose crossovers place each mode reward-optimal in its own length band.</li>
+<li>Documents three GRPO adjustments the design needs: no standard-deviation normalisation (the discount&#x27;s small in-group reward differences would otherwise be amplified), token-mean loss aggregation, and no KL penalty.</li>
+</ul>
+<p><strong>Results.</strong> Base model DeepSeek-R1-Distill-Qwen-1.5B, trained with GRPO at group size 8 for 90 steps on the MATH lighteval split with a 16,384-token context cap on 4 NVIDIA H100s, three seeds for the router and for each single-mode baseline. All three modes emerge and persist across all seeds with no collapse: after the forced warmup the split settles near 20/32/47% (NoThink/Short/Long) with routing entropy about 1.04 against a theoretical maximum of ln 3 = 1.10, Long remaining the plurality. Routing is difficulty-sorted rather than arbitrary, on two independent checks. Per-mode accuracy inverts the base model&#x27;s prior ordering (Long &gt; Short &gt; NoThink) around step 50, with NoThink and Short ending well above Long across all seeds -- the brief modes are getting the easier problems. And against MATH-500&#x27;s own difficulty levels, which the model never saw in training, the split is monotone: NoThink carries most of level 1 and little of level 5, Long the reverse, Short peaking at intermediate levels, with per-level accuracy falling 92/84/85/79/62% from level 1 to 5. On efficiency, MATH-500 accuracy is 0.782 against the untrained base&#x27;s 0.796 while mean response length falls from 4,796 to 2,811 tokens, a 41% reduction. In the accuracy-versus-length plane the three single-mode baselines (NoThink-only 0.66 at 1,096 tokens, Short-only 0.72 at 2,030, Long-only 0.80 at 4,507) trace a Pareto frontier, and free routing at 0.78/2,811 lies strictly above it: it reaches an accuracy the frontier attains only with 27% more tokens, while sitting slightly higher than the frontier at its own length. The routing transfers zero-shot to benchmarks never trained on, and the saving tracks how heterogeneous the benchmark is. On GSM8K (avg@5), dominated by easy problems, free routing again lies strictly above the frontier, using 44% fewer tokens than the frontier needs to reach its accuracy and 76% fewer than the base. On AIME 2024+2025 (avg@16 over the two 30-problem sets), where nearly every problem demands extended reasoning, the router correctly declines to cut budget: it matches the frontier&#x27;s accuracy at comparable length and is still 12% shorter than the base, landing on the frontier rather than above it. Long-only itself matches or slightly exceeds the base on all three benchmarks at fewer tokens, so full-reasoning RL helps even at fixed length and free routing trades a little of that accuracy for a large length reduction. The paper&#x27;s own negative result is load-bearing: a two-mode (Short/Long) precursor on the Countdown task collapsed to a single mode because Countdown&#x27;s uniform difficulty gives the router no accuracy gap to learn from -- difficulty routing is not learnable where difficulty does not vary.</p>
+<p><strong>Why it matters.</strong> This is a constructive test of the archive&#x27;s position that allocation is decided when the problem is read. The decision here is literally the first token of the response, before any reasoning exists, and it works: routing is monotone in MATH-500&#x27;s difficulty levels, a signal the model never saw in training, and per-mode accuracy inverts the base model&#x27;s ordering as the brief modes take the easy problems. It also supplies the counterexample the archive lacked. The two-mode precursor collapsed on Countdown because that task&#x27;s difficulty is uniform, so no accuracy gap existed for the router to learn from -- difficulty routing is not a capability a model either has or lacks, it is learnable only where the training distribution&#x27;s difficulty varies enough to produce one. That reframes the archive&#x27;s repeated finding that adaptation holds on easy problems and breaks on hard ones as a property of what the signal can be estimated from. The efficiency numbers say the same thing from the other side: savings are largest where the benchmark is heterogeneous (GSM8K, 76% fewer tokens than the base) and smallest where every problem is hard (AIME, 12%, and there the router sits on the frontier rather than above it), so a router earns its keep by declining to cut budget as much as by cutting it. Finally it is a rare case of an efficiency method reported honestly against its own baseline: accuracy does not improve, the abstract&#x27;s -0.014 is -0.024 against the paper&#x27;s own step-0 anchor, and the claim is a token-efficiency claim rather than an accuracy one.</p>
+</section>
+<section class="slide">
 <h2>Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation</h2>
 <p class="subtitle">Yongshi Ye, Biao Fu, Chongxuan Huang et al. · 2026</p>
 <blockquote>
@@ -228,21 +243,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Directly on topic, and it adds a mechanism the topic&#x27;s usual framing misses: memory-side compression and reasoning length are coupled, not separable. The measured length inflation - R-KV at a 25% cache rate raising MATH-500 output from 3268.7 to 4538.1 tokens on Qwen-7B and 4409.8 to 7891.7 on Llama-8B, with 79.8% of problems longer - means an efficiency intervention can cause overthinking as a side effect, so any accounting of reasoning cost that stops at the cache is incomplete. It also supplies a concrete stop-at-the-right-point rule that separates two signals the archive should not conflate: process reward certifies the trajectory is sound, answer perplexity certifies the model is confident in the answer, and the paper stops only when both hold, arguing perplexity alone would license confident-but-wrong halts. The ablation that sets delta = 0 (uniform retention) and finds it among the weakest settings is evidence that per-step allocation, not just a smaller average budget, is what buys the accuracy.</p>
 </section>
 <section class="slide">
-<h2>ARES: Adaptive Reasoning-Effort Steering for PPA- and Cost-Aware RTL Optimization with LLM Agents</h2>
-<p class="subtitle">Stef Cuyckens, Mihaela Jivanescu, Jun Yin et al. · 2026</p>
-<blockquote>
-<p>Ares is an LLM-agent RTL optimizer that raises the per-call reasoning effort only after progress stalls, and reports the normalized dollar cost of every call next to the power-area-delay figure of merit.</p>
-</blockquote>
-<ul>
-<li>A normalized per-call dollar cost metric, reported alongside the figure of merit, that makes optimization quality and spend comparable across reasoning-effort levels and across optimizers</li>
-<li>A cost-controlled comparison showing that an engineered cross-design long-term memory brings no dependable gain over a plain concatenation of the same experience, though both beat having no long-term memory</li>
-<li>An adaptive per-call reasoning-effort policy driven by a patience counter fit once on training designs, escalating from medium to high only after progress stalls</li>
-<li>Evidence on three held-out designs that the adaptive policy reaches a lower FoM than any fixed effort level at equal normalized cost, and cuts run-to-run variance by 58% on a multiply-accumulate case study</li>
-</ul>
-<p><strong>Results.</strong> All numbers are from a commercial synthesis flow (Synopsys DC + PrimeTime, Nangate 45nm), not from silicon; the agent runs on Claude Code with Opus 4.6, repeated multiple times because the LLM cannot be seeded. On the three held-out test designs (tv80 ALU, uart, AES controller) the adaptive policy ends at mean FoM 0.76, 0.77 and 0.73 against fixed high&#x27;s 0.79, 0.84 and 0.79, i.e. it lowers FoM by 23-27% where the best fixed effort reaches 16-23%, at equal normalized cost. The fixed-effort sweep shows no level fits a whole run: low effort ends above medium everywhere and stops early because the LLM reports it is out of ideas; high effort lands its first successful optimization only after 4.6-7.1 high-calls where medium cuts its first 5% of FoM within 0.9-3.9; fixed high ends clearly deeper than medium only on tv80 (0.79 vs 0.84), the gap being 0.004 on uart and 0.016 on controller. Memory construction: with the same raw experience, the engineered memory and the plain concatenation descend together and end close on all three test designs with neither consistently ahead, though both end below the memoryless agent. On an LLM-drafted MX multiply-accumulate unit, six runs lower unnormalized FoM from 68.8 to a mean of 33.6 (deepest 27.5) against the hand-optimized MX_fp32&#x27;s published 18.9, closing up to 83% of the gap; the same optimizer improves the already hand-optimized MX_fp32 by only 16%. Branching each of those six runs at its stall point, the escalated continuation beats the fixed-medium one in five of six (the sixth within 2%), lowering the mean from 42.1 to 33.6 and cutting run-to-run std from 8.9 to 5.8 (a 58% variance reduction) for 7.3 extra high-calls. Against prior optimizers on controller from the same v0 with 25 candidates each, Ares reaches FoM 0.694 at about 15 high-calls, REvolution 0.943 at about 10, and Dr. RTL 0.923 at 8.7x Ares&#x27;s cost; Dr. RTL&#x27;s timing-focused selection discards its own best power-aware candidate at 0.909.</p>
-<p><strong>Why it matters.</strong> A domain application rather than a study of reasoning length itself, but a substantive one: it treats per-call reasoning effort as a control variable and shows an escalate-on-stall policy beating every fixed level at equal spend (FoM lowered 23-27% vs 16-23%), which is the overthinking thesis measured in dollars instead of tokens. Two things here are worth carrying over. First, the unit of allocation is an iteration inside a multi-step agent run, not an isolated prompt - the authors note that prior budget-aware work (FrugalGPT, budget-aware tree search, compute-optimal scaling) adapts a single task, whereas here the difficulty of the next improvement changes as the design gets more optimized, so the difficulty signal has to be read from the run&#x27;s own history. Second, the stall signal is entirely external: the counter charges on verified-but-no-gain and on failed candidates, never on anything inside the reasoning trace, which is a cheap difficulty proxy the archive&#x27;s trace-inspecting methods do not use. The evidence that a fixed high effort is not merely wasteful but actively worse early in a run (first gain only after 4.6-7.1 high-calls, where medium gains within 0.9-3.9) is a concrete instance of overthinking costing time-to-first-improvement. Caveats for the topic: the effort knob is the provider&#x27;s three-level setting, no reasoning-token counts or trace lengths are reported, and the accuracy axis is a hardware figure of merit rather than task correctness, so the tradeoff curve is not directly comparable to reasoning-benchmark results.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>Overthinking</strong> — A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that wastes compute for no...</li>
@@ -250,24 +250,24 @@ th { background: var(--surface); }
 <li><strong>Test-Time Compute Scaling</strong> — Letting a language model use more inference-time computation — a longer chain of thought, more reasoning tokens, more parallel samples, t...</li>
 <li><strong>accuracy-efficiency tradeoff</strong> — Across the eleven archived papers this is the background premise of the whole efficient-reasoning literature rather than a defined quanti...</li>
 <li><strong>Chain-of-Thought Compression</strong> — In these eight sources &#x27;chain-of-thought compression&#x27; is an umbrella for making a reasoning trace shorter while keeping the answer, and i...</li>
-<li><strong>process reward model</strong> — A reward model that scores the intermediate steps of a reasoning trace, used to guide test-time search rather than only rank finished ans...</li>
+<li><strong>adaptive reasoning</strong> — In these sources &#x27;adaptive reasoning&#x27; names the property that a model&#x27;s reasoning effort should follow the actual difficulty of the insta...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Methods</h2>
 <ul>
-<li><strong>GRPO</strong></li>
+<li><strong>GRPO</strong> — The reinforcement-learning algorithm almost every training-side method in this archive is built on: it samples a group of G completions p...</li>
 <li><strong>Early Exit</strong> — Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archi...</li>
-<li><strong>Self-Consistency</strong> — Sampling multiple reasoning traces and taking the most common final answer, the simplest form of parallel test-time compute. A theoretica...</li>
+<li><strong>Self-Consistency</strong> — Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is t...</li>
 <li><strong>Best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>
-<li><strong>Budget Forcing</strong> — Controlling a reasoning model&#x27;s chain-of-thought length by inserting a keyword at inference time -- most commonly &#x27;Wait&#x27; to force it to k...</li>
-<li><strong>knowledge distillation</strong></li>
+<li><strong>process reward model</strong> — A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search a...</li>
+<li><strong>RLVR</strong> — Reinforcement learning in which the reward is a programmatic check of the final answer rather than a learned preference model, and the do...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>MATH500</strong></li>
+<li><strong>MATH500</strong> — A 500-problem competition-mathematics test set drawn from the MATH dataset, and the archive&#x27;s default mid-difficulty maths benchmark: it...</li>
 <li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning...</li>
 <li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark. It appears acr...</li>
 <li><strong>GSM8K</strong> — A grade-school math word-problem benchmark used throughout the archive as an &#x27;easy&#x27; reasoning testbed, in contrast to harder benchmarks l...</li>
@@ -302,17 +302,18 @@ th { background: var(--surface); }
 <ul>
 <li>Jinyan Su, Jennifer Healey, Preslav Nakov et al.. <em>Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs</em>. preprint. 2025</li>
 <li><em>ARM: Adaptive Reasoning Model</em>. NeurIPS 2025. 2025</li>
+<li>Gijs Kassenaar, Zhao Yang, Vincent François-Lavet. <em>Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation</em>. cs.AI</li>
 <li>Yongshi Ye, Biao Fu, Chongxuan Huang et al.. <em>Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation</em>. cs.CL. 2026</li>
 <li><em>How Far Are We from Optimal Reasoning Efficiency?</em>. NeurIPS 2025. 2025</li>
 <li>Wei Yu, Suxing Liu, Minjie Yu et al.. <em>Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models</em>. cs.AI. 2026</li>
 <li>Linh Dieu Le, Tong Chen, Shazia Sadiq et al.. <em>Towards Efficient Reasoning in LLM-Based Recommender Systems via Model Merging</em>. cs.IR. 2026</li>
 <li>Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. <em>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</em>. cs.AI. 2026</li>
-<li>Stef Cuyckens, Mihaela Jivanescu, Jun Yin et al.. <em>ARES: Adaptive Reasoning-Effort Steering for PPA- and Cost-Aware RTL Optimization with LLM Agents</em>. cs.AR. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Stef Cuyckens, Mihaela Jivanescu, Jun Yin et al.. <em>ARES: Adaptive Reasoning-Effort Steering for PPA- and Cost-Aware RTL Optimization with LLM Agents</em>. cs.AR. 2026</li>
 <li>Junlin Fang, Do Nguyen-Thanh, Xiaogang Xu et al.. <em>Reasoning Denoiser: Denoising Reasoning Traces for Hallucination Detection in Large Reasoning Models</em>. cs.AI. 2026</li>
 <li>Shu Zhou, Rui Ling, Junan Chen et al.. <em>When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling</em>. preprint. 2026</li>
 <li><em>Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking</em>. ICLR 2026. 2026</li>
@@ -320,20 +321,19 @@ th { background: var(--surface); }
 <li>Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al.. <em>Inverse Scaling in Test-Time Compute</em>. Transactions on Machine Learning Research (TMLR). 2025</li>
 <li>Alejandro Cuadron, Dacheng Li, Wenjie Ma et al.. <em>The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks</em>. International Conference on Machine Learning (ICML) 2025. 2025</li>
 <li><em>Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL</em>. NeurIPS 2025. 2025</li>
-<li><em>Mitigating Overthinking in Large Reasoning Models via Manifold Steering</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li><em>Mitigating Overthinking in Large Reasoning Models via Manifold Steering</em>. NeurIPS 2025. 2025</li>
+<li>Peisong Wang, Zhiwei Ma, Bowen Liu et al.. <em><span class="math">R^3</span>-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets</em>. cs.CL</li>
 <li>Zishan Ahmad, Vishal Vaddina. <em>Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference</em>. cs.AI. 2026</li>
 <li>Ahmet Bugra Gundogan, Yigit Turkmen, Melih Bastopcu. <em>Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services</em>. cs.GT. 2026</li>
 <li>Xinbang Dai, Zheyu Xin, Huikang Hu et al.. <em>EvoThink: Evolving Thinking in Large Reasoning Models via Self-Pruning and Aha-Moment Preference Optimization</em>. cs.AI. 2026</li>
 <li><em>Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models</em>. ICLR 2026. 2026</li>
 <li><em>On Reasoning Strength Planning in Large Reasoning Models</em>. NeurIPS 2025. 2025</li>
 <li><em>Let LRMs Break Free from Overthinking via Self-Braking Tuning</em>. NeurIPS 2025. 2025</li>
-<li><em>Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models</em>. NeurIPS 2025. 2025</li>
-<li><em>S-GRPO: Early Exit via Reinforcement Learning in Reasoning Models</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide title-slide">

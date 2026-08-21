@@ -8,7 +8,7 @@ Reward shaping here means adding structure to an RL reward beyond a single termi
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [adaptive reasoning](adaptive-reasoning.md), [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [GPQA](../datasets/gpqa.md), [GRPO](../methods/grpo.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH](../datasets/math.md), [Minerva](../datasets/minerva.md), [MMLU](../datasets/mmlu.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Test-Time Compute](test-time-compute.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [adaptive reasoning](adaptive-reasoning.md), [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [AutoThink](../methods/autothink.md), [GPQA](../datasets/gpqa.md), [GRPO](../methods/grpo.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH](../datasets/math.md), [Minerva](../datasets/minerva.md), [MMLU](../datasets/mmlu.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Test-Time Compute](test-time-compute.md)
 
 ## Appears in
 

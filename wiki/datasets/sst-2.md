@@ -8,7 +8,7 @@ Neither source describes SST-2 directly; it appears as one of the classification
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Confidence Thresholding](../methods/confidence-thresholding.md), [Early Exit](../methods/early-exit.md), [Llama-3-8B](../methods/llama-3-8b.md), [Risk Control](../concepts/risk-control.md), [T5-Large](../methods/t5-large.md)
+**Related**: [Confidence Thresholding](../methods/confidence-thresholding.md), [Early Exit](../methods/early-exit.md), [Llama-3-8B](../models/llama-3-8b.md), [Risk Control](../concepts/risk-control.md), [T5-Large](../methods/t5-large.md)
 
 ## Appears in
 

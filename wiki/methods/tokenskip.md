@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A token-level chain-of-thought compression method listed under 'CoT Compression' in the 'Don't Overthink It' survey's taxonomy, alongside step/chunk- and chain-level pruning or rewriting approaches to shortening a reasoning trace. TRAAC uses it as one of its reinforcement-learning baselines (alongside L1-Max, LC-R1 and AdaptThink) and reports beating it jointly on accuracy and length on AIME/AMC/GPQA-D/BBEH, though the sources give no standalone numbers for TokenSkip itself.
+A token-level chain-of-thought compression method: it shortens a reasoning trace by dropping individual tokens, as against the step-, chunk- and chain-level pruning or rewriting approaches it sits beside in this archive's compression taxonomy. Its role in the sources is entirely as a baseline -- later efficient-reasoning methods report beating it jointly on accuracy and length -- and the archive still holds no standalone numbers for it, so nothing here says how much it compresses or at what accuracy cost on its own. What is confirmed is that it has an official public code release at github.com/hemingkx/TokenSkip, published alongside its EMNLP 2025 paper.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

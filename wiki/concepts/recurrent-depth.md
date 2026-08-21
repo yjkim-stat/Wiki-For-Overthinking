@@ -9,7 +9,7 @@ Buying extra test-time computation by iterating a block of layers in latent spac
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [Budget Forcing](../methods/budget-forcing.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [Latent reasoning](latent-reasoning.md), [speculative decoding](../methods/speculative-decoding.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [Budget Forcing](../methods/budget-forcing.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [Latent reasoning](latent-reasoning.md), [Llama-3.2-1B](../models/llama-3-2-1b.md), [speculative decoding](../methods/speculative-decoding.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

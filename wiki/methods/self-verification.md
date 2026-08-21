@@ -9,7 +9,7 @@ A model checking its own intermediate or final answers during reasoning, without
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [Overthinking](../concepts/overthinking.md), [Self-Consistency](self-consistency.md)
+**Related**: [deepseek-v4-flash](../models/deepseek-v4-flash.md), [Overthinking](../concepts/overthinking.md), [Self-Consistency](self-consistency.md)
 
 ## Appears in
 

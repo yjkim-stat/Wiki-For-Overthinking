@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A linear classifier -- logistic regression in the sources here -- fitted to a model's hidden-state activations to predict a property of the generation that the text does not yet show. The two archived uses are a non-convergence study, where a probe on the 3,584-dimensional hidden state at token 150 predicts whether an AIME generation will terminate or loop to the ceiling and beats a behavioural baseline built from entropy statistics and repeated n-grams, and hallucination detection, where probing scores sit far above perplexity and verbalized-certainty detectors. Both sources are explicit about what it does not establish: a probe shows predictive information is present in the hidden state, not that the state causes the outcome, which would need activation patching.
 
 - **Kind**: method
-- **Also called**: linear probing
+- **Also called**: activation probe, linear probing
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

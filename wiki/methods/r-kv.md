@@ -8,7 +8,7 @@ R-KV is a KV-cache compression method for reasoning models that both citing pape
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Confidence-based early stopping](confidence-based-early-stopping.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [Dynasor](dynasor.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [KV-cache compression](kv-cache-compression.md), [KV-Cache Eviction](kv-cache-eviction.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [process reward model](../concepts/process-reward-model.md), [Qwen3-8B](qwen3-8b.md)
+**Related**: [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Confidence-based early stopping](confidence-based-early-stopping.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [Dynasor](dynasor.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [KV-cache compression](kv-cache-compression.md), [KV-Cache Eviction](kv-cache-eviction.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [process reward model](process-reward-model.md), [Qwen3-8B](qwen3-8b.md)
 
 ## Appears in
 

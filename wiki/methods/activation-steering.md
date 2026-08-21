@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Controlling how long or how a reasoning model thinks by directly modifying its internal activations at inference time, rather than by prompting or retraining it. The archived sources use it two ways: modeling the chain-of-thought as transitions among latent cognitive states and steering generation toward more efficient state transitions, and identifying overthinking as movement along a low-dimensional manifold in activation space and projecting activations to counteract it (cutting output tokens up to 71% while maintaining or improving accuracy).
+Controlling how long or how a reasoning model thinks by modifying its internal activations at inference time, rather than by prompting or retraining it. Sources here use it on two objects: a direction in activation space along which overthinking varies, which is projected out or subtracted, and a trajectory through latent states, where the intervention nudges transitions rather than a single vector. The archive now also records the method's ceiling: single-direction steering plateaus and then degrades accuracy as intervention strength rises, which is what motivates the later variants -- sparse, orthogonal edits applied at sentence boundaries and scored by an estimate of a transition's long-horizon utility rather than by one global direction. Reported token savings reach 71% at maintained or improved accuracy, but only for the strength range below that plateau.
 
 - **Kind**: method
 - **Also called**: Activation Steering, manifold steering, representation engineering

@@ -1,17 +1,26 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "resource-rational reasoning",
+    "Resource-Rational Reasoning"
+  ],
+  "definition": "The idea, taken from resource-rational analysis in cognitive science, that an agent should allocate limited computation to maximise expected value -- so the question is not only how to solve a problem but whether further computation is worth its cost. In this archive it is the framing that turns reasoning length into an allocation problem with an opportunity cost: one source builds a benchmark around it by putting six problems under one shared budget and measuring the gap between what a model demonstrably solves in isolation and what it realises when spending is zero-sum, and another uses it to motivate difficulty-adaptive distillation. The first source's finding is that the framing exposes a real deficit: the gap is present in 71 of 72 cells and is not predicted by a general-capability composite over fifty-plus benchmarks.",
   "evidence": [
     {
       "id": "arxiv:2607.29287",
       "kind": "paper",
       "note": "TwT trains a translation model to spend reasoning tokens in proportion to input difficulty, by cold-starting on 7K difficulty-rewritten CoT traces and then running GRPO with a BLEU+COMET quality reward and an n-gram repetition penalty.",
       "title": "Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation"
+    },
+    {
+      "id": "arxiv:2608.16033",
+      "kind": "paper",
+      "note": "A benchmark that puts six problems of mixed difficulty under one shared computation budget and measures the gap between what a model solves problem-by-problem and what it solves when it must decide how to divide the budget.",
+      "title": "$R^3$-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "last_seen": "2026-08-21T03:41:11Z",
   "name": "Resource-Rational Reasoning",
   "related": [
     "difficulty-adaptive-reasoning-depth",
@@ -34,9 +43,47 @@
     "20k-multi-domain-parallel-rl-set",
     "in-domain-test-sets-laws-news-science-subtitles-literary-it-koran-medical",
     "ood-test-sets-conversation-ecommerce-social-culture-commonsense",
-    "flores-59-unseen-languages"
+    "flores-59-unseen-languages",
+    "shared-budget-across-a-task-suite",
+    "opportunity-cost-between-concurrent-tasks",
+    "demonstrated-competence-versus-realized-allocation",
+    "response-curve-oracle",
+    "equal-allocation-replay",
+    "gap-ratio",
+    "relative-budget-pressure",
+    "presentation-order-effect-in-budget-allocation",
+    "online-strategy-updating",
+    "allocation-failure-taxonomy",
+    "difficulty-as-resource-demand",
+    "internal-allocation-policy",
+    "r-3-bench",
+    "multiple-choice-knapsack-over-budget-levels",
+    "matched-single-problem-response-curves",
+    "per-model-budget-calibration",
+    "problem-bookkeeping-commands-focus-problem-shelve-problem",
+    "strategy-a-enforced-initial-coverage",
+    "strategy-b-coverage-plus-verification-gate",
+    "terminus-2-agent-harness",
+    "harbor",
+    "omni-math",
+    "mathnet",
+    "livecodebench-pro",
+    "reasoning-gym",
+    "epoch-capabilities-index",
+    "deepseek-v4-pro",
+    "deepseek-v4-chat",
+    "deepseek-v4-reasoner",
+    "qwen3-7-max",
+    "glm-5-2",
+    "hy-3",
+    "gpt-5-5",
+    "claude-opus-4-8"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "shared-budget-across-a-task-suite",
+    "gap-ratio",
+    "difficulty-adaptive-compute-allocation"
+  ],
   "schema_version": 1,
   "slug": "resource-rational-reasoning",
   "topics": [

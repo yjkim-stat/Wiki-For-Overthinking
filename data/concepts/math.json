@@ -1,9 +1,11 @@
 {
   "aliases": [
     "MATH500",
-    "MATH-500"
+    "MATH-500",
+    "Hendrycks MATH",
+    "MATH dataset"
   ],
-  "definition": "The MATH competition-mathematics dataset, used in the archive both directly (e.g. 'Between Underthinking and Overthinking' evaluates on MATH and GSM8K to show reasoning models overthink easy questions and underthink hard ones) and via its curated 500-problem subset MATH-500/MATH500 used by most other archived test-time-compute papers. Note: the wiki tracks this dataset family under three separate, unmerged spellings.",
+  "definition": "The 12,500-problem competition-mathematics dataset of Hendrycks et al., used in this archive far more often as a training corpus and a probe set than as a test set -- reinforcement-learning runs train on its lighteval split, and steering and probing work samples a few hundred problems from it to collect hidden states. Where it appears as an evaluation it is usually the held-out Hendrycks-MATH set rather than the full corpus. Sources are inconsistent about the name: 'MATH' sometimes denotes this dataset and sometimes a composite maths benchmark a paper assembled from MATH500 and AIME sets, so a number attributed to 'MATH' needs its source checked.",
   "evidence": [
     {
       "id": "arxiv:2607.28166",
@@ -16,6 +18,12 @@
       "kind": "paper",
       "note": "Assigns a per-prompt sampling budget for best-of-N test-time scaling with a hand-written two-stage fuzzy controller over nine prompt- and model-side signals, trading 1.4-14.5% fewer samples for accuracy changes between -1.8 and +0.5 points against a selector-matched fixed N = 8 baseline.",
       "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling"
+    },
+    {
+      "id": "arxiv:2608.20256",
+      "kind": "paper",
+      "note": "Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.",
+      "title": "Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation"
     },
     {
       "id": "local:6afb006d68240134",
@@ -98,7 +106,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-08-21T03:41:11Z",
   "name": "MATH",
   "related": [
     "early-exit",
@@ -148,6 +156,38 @@
     "phi-3-medium-4k-instruct",
     "qwen2-5-1-5b-instruct",
     "sciq",
+    "adaptive-test-time-compute-allocation",
+    "routing-collapse",
+    "reasoning-mode-routing-token",
+    "per-mode-reward-surface",
+    "hard-per-mode-token-cap",
+    "advantage-balance-term",
+    "temporal-discounting-of-sequence-reward",
+    "normalization-amplification-in-grpo",
+    "token-mean-loss-aggregation",
+    "accuracy-length-pareto-frontier",
+    "difficulty-heterogeneity-as-a-precondition-for-routing",
+    "verbosity-compensation",
+    "routing-entropy",
+    "three-mode-self-routing-grpo",
+    "grpo",
+    "rlvr",
+    "forced-rollout-warmup",
+    "mixture-of-experts-load-balancing",
+    "dapo",
+    "dr-grpo",
+    "grpo-lead",
+    "grpo-lambda",
+    "adaptthink",
+    "autothink",
+    "arm",
+    "thinkless",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "countdown",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1",
     "overthinking",
     "underthinking",
     "reasoning-length-vs-correctness-tradeoff",
@@ -163,7 +203,6 @@
     "mode-collapse",
     "accuracy-efficiency-tradeoff",
     "test-time-compute",
-    "autothink",
     "multi-stage-reinforcement-learning",
     "grpo-style-policy-optimisation",
     "batch-level-reward-balancing",
@@ -171,7 +210,6 @@
     "ellipsis-prompt-think-n-n",
     "minerva",
     "olympiadbench",
-    "aime-2024",
     "amc23",
     "gpqa",
     "livecodebench",
@@ -193,7 +231,6 @@
     "adaptive-reasoning-format-selection",
     "format-collapse",
     "token-budget",
-    "grpo",
     "ada-grpo",
     "supervised-fine-tuning",
     "long-cot-short-cot-direct-answer-code-reasoning-formats",
@@ -202,7 +239,6 @@
     "aqua-rat",
     "commonsenseqa",
     "openbookqa",
-    "aime-2025",
     "bbh",
     "strategyqa",
     "compute-optimal-sampling",
@@ -282,8 +318,6 @@
     "over-exploration-of-alternatives",
     "shorterbetter",
     "sample-optimal-length-sol",
-    "rlvr",
-    "deepseek-r1-distill-qwen-1-5b",
     "deepseek-r1-distill-qwen-7b",
     "o1-pruner",
     "qwen2-5-instruct",
@@ -317,8 +351,7 @@
     "gpqa-diamond"
   ],
   "related_authored": [
-    "math-500",
-    "gsm8k"
+    "math500"
   ],
   "schema_version": 1,
   "slug": "math",

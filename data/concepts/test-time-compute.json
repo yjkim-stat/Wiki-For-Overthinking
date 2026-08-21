@@ -5,7 +5,7 @@
     "Test-Time Compute",
     "test-time compute"
   ],
-  "definition": "The compute a model spends at inference time -- extra reasoning tokens, parallel samples, or search -- as opposed to compute spent during training. 'Diversity Matters' finds test-time-compute methods that work for LLM reasoning mostly fail to transfer to vision-language-model accuracy gains; Sequential Reward Filtering proves standard best-of-n sampling is a suboptimal way to spend it and proposes a reward-filtered sequential alternative with better guarantees. Note: overlaps heavily with the archive's separately-tracked 'test-time compute scaling' and 'test-time scaling' entries -- not merged.",
+  "definition": "The compute a model spends at inference -- extra reasoning tokens, parallel samples, search, or tool calls -- as opposed to compute spent in training. What the archive's sources have converged on is that it is a quantity to be allocated rather than increased: frontier models now expose it as a user-controllable budget, spending the maximum uniformly is both expensive and sometimes actively harmful (the 'over-thinking penalty', where extra inference compute lowers accuracy or merely costs more than a cheaper configuration would), and later work treats the choice of how much to spend jointly with the choice of which model to spend it on, learned online as a contextual bandit. Its cost is also not confined to the generator: sources measuring it end to end charge the controller, verifier or compressor that decides the budget against the budget itself. Note: this archive tracks 'test-time compute scaling' and 'test-time scaling' as separate entries covering the same ground; they are not merged.",
   "evidence": [
     {
       "id": "title:0bc5d9b198744bed",
@@ -93,7 +93,9 @@
   ],
   "related_authored": [
     "test-time-compute-scaling",
-    "test-time-scaling"
+    "test-time-scaling",
+    "adaptive-test-time-compute",
+    "over-thinking-penalty"
   ],
   "schema_version": 1,
   "slug": "test-time-compute",

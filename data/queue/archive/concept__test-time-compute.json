@@ -3,8 +3,24 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
+        "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "An empirical study showing that test-time-compute methods effective for LLM reasoning mostly fail to transfer to vision-language models unless prediction diversity is present, and proposes an entropy-based selection method that works better in multi-model ensembles.",
         "title": "Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
+        "title": "Statistical Early Stopping for Reasoning Models",
         "topics": [
           "overthinking"
         ]
@@ -19,10 +35,10 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T12:27:49Z",
-  "created_at": "2026-08-20T12:27:00Z",
-  "instructions": "Write the wiki definition for 'test-time compute'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
-  "item_id": "test-time compute",
+  "completed_at": "2026-08-21T03:51:33Z",
+  "created_at": "2026-08-21T03:48:50Z",
+  "instructions": "Revise the wiki definition for 'Test-Time Compute'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    The compute a model spends at inference time -- extra reasoning tokens, parallel samples, or search -- as opposed to compute spent during training. 'Diversity Matters' finds test-time-compute methods that work for LLM reasoning mostly fail to transfer to vision-language-model accuracy gains; Sequential Reward Filtering proves standard best-of-n sampling is a suboptimal way to spend it and proposes a reward-filtered sequential alternative with better guarantees. Note: overlaps heavily with the archive's separately-tracked 'test-time compute scaling' and 'test-time scaling' entries -- not merged.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Test-Time Compute",
   "kind": "concept",
   "language": "en",
   "output_schema": {
@@ -30,25 +46,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
-    "name": "test-time compute",
-    "source_count": 2
+    "name": "Test-Time Compute",
+    "previous_definition": "The compute a model spends at inference time -- extra reasoning tokens, parallel samples, or search -- as opposed to compute spent during training. 'Diversity Matters' finds test-time-compute methods that work for LLM reasoning mostly fail to transfer to vision-language-model accuracy gains; Sequential Reward Filtering proves standard best-of-n sampling is a suboptimal way to spend it and proposes a reward-filtered sequential alternative with better guarantees. Note: overlaps heavily with the archive's separately-tracked 'test-time compute scaling' and 'test-time scaling' entries -- not merged.",
+    "source_count": 4
   },
   "result": {
     "aliases": [
       "test-time compute scaling",
-      "test-time scaling"
+      "test-time scaling",
+      "Test-Time Compute",
+      "test-time compute"
     ],
-    "definition": "The compute a model spends at inference time -- extra reasoning tokens, parallel samples, or search -- as opposed to compute spent during training. 'Diversity Matters' finds test-time-compute methods that work for LLM reasoning mostly fail to transfer to vision-language-model accuracy gains; Sequential Reward Filtering proves standard best-of-n sampling is a suboptimal way to spend it and proposes a reward-filtered sequential alternative with better guarantees. Note: overlaps heavily with the archive's separately-tracked 'test-time compute scaling' and 'test-time scaling' entries -- not merged.",
+    "definition": "The compute a model spends at inference -- extra reasoning tokens, parallel samples, search, or tool calls -- as opposed to compute spent in training. What the archive's sources have converged on is that it is a quantity to be allocated rather than increased: frontier models now expose it as a user-controllable budget, spending the maximum uniformly is both expensive and sometimes actively harmful (the 'over-thinking penalty', where extra inference compute lowers accuracy or merely costs more than a cheaper configuration would), and later work treats the choice of how much to spend jointly with the choice of which model to spend it on, learned online as a contextual bandit. Its cost is also not confined to the generator: sources measuring it end to end charge the controller, verifier or compressor that decides the budget against the budget itself. Note: this archive tracks 'test-time compute scaling' and 'test-time scaling' as separate entries covering the same ground; they are not merged.",
     "kind": "concept",
     "related": [
-      "test-time compute scaling",
-      "test-time scaling"
+      "test-time-compute-scaling",
+      "test-time-scaling",
+      "adaptive test-time compute",
+      "over-thinking penalty"
     ]
   },
   "task_id": "concept__test-time-compute",

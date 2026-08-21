@@ -3,8 +3,24 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.",
+        "title": "Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "ARES trains multimodal reasoning models to spend exploration effort in proportion to problem difficulty, using sliding-window token entropy as the signal for when and how much to explore.",
         "title": "ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DR2Seg splits reasoning segmentation into a description stage and a referring-segmentation stage and rewards the model when a shorter self-contained description still yields the right mask, cutting reasoning length while raising gIoU.",
+        "title": "DR$^2$Seg: Decomposed Two-Stage Rollouts for Efficient Reasoning Segmentation in Multimodal Large Language Models",
         "topics": [
           "overthinking"
         ]
@@ -16,11 +32,27 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "GFPO samples a larger group of rollouts per problem during RL training and updates only on the top-k by length or by reward-per-token, converting extra training-time compute into shorter responses at inference.",
+        "title": "Sample More to Think Less: Group Filtered Policy Optimization for Concise Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ShorterBetter takes the length of the shortest correct response in a sampled group as a per-problem target and rewards the model for matching it, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B.",
+        "title": "ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-21T01:50:06Z",
-  "created_at": "2026-08-21T01:32:11Z",
+  "completed_at": "2026-08-21T03:44:48Z",
+  "created_at": "2026-08-21T03:01:17Z",
   "instructions": "Write the wiki definition for 'RLVR'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "RLVR",
   "kind": "concept",
@@ -30,22 +62,27 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "RLVR",
-    "source_count": 2
+    "source_count": 6
   },
   "result": {
     "aliases": [
-      "Reinforcement Learning with Verifiable Rewards"
+      "Reinforcement Learning with Verifiable Rewards",
+      "reinforcement learning with verifiable rewards"
     ],
-    "definition": "RLVR is the standard abbreviation for Reinforcement Learning with Verifiable Rewards, RL training whose reward is computed by a programmatic checker rather than a learned model. Its two sources here use it as the training loop being made more efficient: ARES reshapes per-problem exploration effort via sliding-window token entropy, and QuRL runs the RLVR rollout phase with an INT8/FP8 quantized actor for 20-80% faster rollout.",
-    "kind": "concept",
-    "related": []
+    "definition": "Reinforcement learning in which the reward is a programmatic check of the final answer rather than a learned preference model, and the dominant post-training recipe among the reasoning models this archive tracks. Sources here treat it as the cause of the problem as often as the cure: it applies one maximum response length uniformly to every training sample, which wastes compute on long incorrect traces early and blocks the chains hard problems need later, and one paper argues it functions mainly as an elicitation mechanism, improving pass@k at small k while staying bounded by the base model's latent capability at large k. Its requirement that answers be checkable is also what confines most of this archive's evidence to mathematics, code and multiple-choice science.",
+    "kind": "method",
+    "related": [
+      "GRPO",
+      "verifiable reward",
+      "pass@k"
+    ]
   },
   "task_id": "concept__rlvr",
   "task_version": 1,

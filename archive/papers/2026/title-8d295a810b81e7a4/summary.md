@@ -44,7 +44,7 @@ _not recorded_
 
 - **Concepts**: diversity collapse in parallel sampling, mode-conditioning, reasoning modes, gradient clustering for unsupervised mode discovery
 - **Methods**: mode-conditioning, gradient clustering
-- **Datasets**: OpenThoughts, NuminaMath
+- **Datasets**: [OpenThoughts](../../../../wiki/datasets/openthoughts.md), NuminaMath
 
 Tags: `test-time-scaling`, `diversity`, `parallel-sampling`, `mode-conditioning`
 

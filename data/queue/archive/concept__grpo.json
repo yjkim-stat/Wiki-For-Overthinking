@@ -35,6 +35,22 @@
       },
       {
         "kind": "paper",
+        "note": "Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.",
+        "title": "Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.",
+        "title": "Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "CoSMo restructures reasoning chains by merging redundant segments and splitting logical gaps, then trains with RL against a segment-count budget rather than a token budget.",
         "title": "Short Chains, Deep Thoughts: Balancing Reasoning Efficiency and Intra-Segment Capability via Split-Merge Optimization",
         "topics": [
@@ -115,6 +131,14 @@
       },
       {
         "kind": "paper",
+        "note": "Trains an adaptive reasoning model in two stages -- SFT on simple problems presented in both concise and verbose phrasings, then GRPO with a custom reward -- so that its choice between explicit reasoning and a direct answer tracks actual task difficulty rather than how wordy the question is.",
+        "title": "When Simple Problems Wear Complex Costumes: Improving Efficiency in LRM's Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Defines the Minimal Sufficient CoT — the shortest reasoning prefix at which the model's confidence in the ground-truth answer crosses a difficulty-adaptive threshold — and trains on it via supervised fine-tuning plus a GRPO stage whose reward penalises both over- and under-thinking, so reasoning length is calibrated continuously rather than by discrete modes.",
         "title": "SuCo: Sufficiency-guided Continuous Adaptive Reasoning",
         "topics": [
@@ -136,11 +160,19 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "PixelThink regulates the length of a multimodal LLM's reasoning chain in reasoning segmentation by conditioning a GRPO reward on an externally estimated task difficulty and the model's own uncertainty, cutting reasoning tokens roughly in half while slightly improving mask accuracy.",
+        "title": "Don't Overthink with Pixels: Efficient Reasoning for Segmentation",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-21T01:21:16Z",
-  "created_at": "2026-08-21T01:05:42Z",
+  "completed_at": "2026-08-21T03:44:47Z",
+  "created_at": "2026-08-21T03:01:17Z",
   "instructions": "Write the wiki definition for 'GRPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GRPO",
   "kind": "concept",
@@ -150,25 +182,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "GRPO",
-    "source_count": 17
+    "source_count": 21
   },
   "result": {
-    "aliases": [],
-    "definition": "In these sources GRPO is the default RL post-training algorithm for reasoning models: rollouts are sampled in a group per prompt and each one's advantage is its reward normalised against that group, with no learned critic. Almost every paper here treats it as a backbone to modify rather than a subject in itself — Ada-GRPO (ARM), S-GRPO, WS-GRPO, SmartThinker, TRACE-adjacent reward work, TwT and CoSMo all keep the update and change the reward, the rollout group or the stopping rule, while QLPO and GFPO change only which sampled rollouts enter the update. Two sources diagnose it as a cause of overthinking rather than a neutral tool: WS-GRPO argues the group-relative advantage rewards longer deliberation because more steps give more chances at a relative gain, and DRPO shows that bolting a length penalty onto GRPO can drive a correct-but-long rollout's advantage negative, which is why naive length penalties cost accuracy. The term is used loosely across the archive — sometimes the specific algorithm, sometimes any group-relative RLVR recipe. Note: the archive tracks this under three unmerged entries — GRPO, Group-Relative Policy Optimization and GRPO (Group Relative Policy Optimization) — which are the same algorithm.",
+    "aliases": [
+      "Group Relative Policy Optimization",
+      "Group-Relative Policy Optimization"
+    ],
+    "definition": "The reinforcement-learning algorithm almost every training-side method in this archive is built on: it samples a group of G completions per prompt and replaces PPO's value network with an advantage obtained by normalising each completion's reward within its own group. Sources use it less as an object of study than as the substrate they modify -- length penalties, reflection rewards, entropy shaping, difficulty-aware weighting and rollout resampling are all described as changes to its reward, its advantage or its group composition rather than to its update. Two of its details recur as problems here: the within-group standard-deviation normalisation amplifies tiny reward differences when a group is unmixed, and sequence-mean loss aggregation under-weights the tokens of long rollouts, so papers that shape length routinely disable one or both.",
     "kind": "method",
     "related": [
-      "Group-Relative Policy Optimization",
-      "GRPO (Group Relative Policy Optimization)",
-      "group relative advantage",
-      "DRPO (Decoupled Reward Policy Optimization)",
-      "GFPO",
+      "PPO",
+      "DAPO",
       "RLVR"
     ]
   },

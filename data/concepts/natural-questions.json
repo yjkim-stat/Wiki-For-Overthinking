@@ -1,7 +1,15 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "NQ"
+  ],
+  "definition": "An open-domain question-answering dataset of real search queries, used in this archive as a retrieval-QA workload rather than as a reasoning benchmark. One source pairs it with HotpotQA as the two query sets for measuring per-query latency and energy in edge RAG; another places it with CRAG on the out-of-distribution side of a split whose in-distribution half is HotpotQA and HaluEval. Its single-hop character against HotpotQA's multi-hop one is what both uses rely on.",
   "evidence": [
+    {
+      "id": "arxiv:2608.19535",
+      "kind": "paper",
+      "note": "Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.",
+      "title": "From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG"
+    },
     {
       "id": "title:0bf980e6919c2982",
       "kind": "paper",
@@ -11,9 +19,39 @@
   ],
   "first_seen": "2026-08-21T00:49:09Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T00:49:10Z",
+  "last_seen": "2026-08-21T03:41:11Z",
   "name": "Natural Questions",
   "related": [
+    "net-benefit-versus-gross-speedup",
+    "compressor-overhead-on-the-same-device",
+    "adaptive-operating-region-between-two-knees",
+    "quality-knee",
+    "energy-knee",
+    "amortization-of-a-fixed-per-query-cost",
+    "stage-level-cost-attribution",
+    "telemetry-informed-runtime-control",
+    "hard-versus-soft-context-compression",
+    "extractive-versus-abstractive-compression",
+    "workload-conditioned-policy",
+    "llmlingua-2",
+    "retrieval-augmented-generation",
+    "context-compression",
+    "ragmark",
+    "hydra",
+    "flashrag",
+    "faiss-indexflatl2",
+    "tegrastats-telemetry",
+    "recomp",
+    "metis",
+    "hotpotqa",
+    "english-wikipedia-2018-flashrag-sentence-split",
+    "llama-3-2-1b",
+    "llama-3-2-3b",
+    "llama-3-1-8b",
+    "qwen2-5-1-5b",
+    "qwen2-5-3b",
+    "qwen2-5-7b",
+    "e5-base-v2",
     "overthinking",
     "structural-redundancy",
     "reasoning-segment",
@@ -27,11 +65,13 @@
     "structure-aligned-reinforcement-learning",
     "grpo",
     "supervised-fine-tuning",
-    "hotpotqa",
     "halueval",
     "crag"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "hotpotqa",
+    "retrieval-augmented-generation"
+  ],
   "schema_version": 1,
   "slug": "natural-questions",
   "topics": [

@@ -9,7 +9,7 @@ Supervising the intermediate steps of a reasoning chain rather than only its fin
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Chain-of-thought monitorability](chain-of-thought-monitorability.md), [Confidence Calibration](confidence-calibration.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [MMMU](../datasets/mmmu.md), [Preference Optimization](../methods/preference-optimization.md), [process reward model](process-reward-model.md)
+**Related**: [Chain-of-thought monitorability](chain-of-thought-monitorability.md), [Confidence Calibration](confidence-calibration.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [MMMU](../datasets/mmmu.md), [Preference Optimization](../methods/preference-optimization.md), [process reward model](../methods/process-reward-model.md)
 
 ## Appears in
 

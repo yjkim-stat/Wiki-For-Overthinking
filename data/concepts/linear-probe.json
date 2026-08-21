@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "linear probing"
+    "linear probing",
+    "activation probe"
   ],
-  "definition": "",
+  "definition": "A linear classifier -- logistic regression in the sources here -- fitted to a model's hidden-state activations to predict a property of the generation that the text does not yet show. The two archived uses are a non-convergence study, where a probe on the 3,584-dimensional hidden state at token 150 predicts whether an AIME generation will terminate or loop to the ceiling and beats a behavioural baseline built from entropy statistics and repeated n-grams, and hallucination detection, where probing scores sit far above perplexity and verbalized-certainty detectors. Both sources are explicit about what it does not establish: a probe shows predictive information is present in the hidden state, not that the state causes the outcome, which would need activation patching.",
   "evidence": [
     {
       "id": "local:34cecfd6f28ba72b",
@@ -44,7 +45,9 @@
     "activation-steering-vector-addition-subtraction"
   ],
   "related_authored": [
-    "activation-steering"
+    "activation-steering",
+    "activation-patching",
+    "hidden-state"
   ],
   "schema_version": 1,
   "slug": "linear-probe",

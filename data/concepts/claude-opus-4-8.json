@@ -1,7 +1,16 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Claude Opus 4.8",
+    "Opus-4.8"
+  ],
+  "definition": "A proprietary Anthropic reasoning model, present in this archive only as an evaluated frontier system accessed through its API. The two sources use it for different things: a shared-budget benchmark reports it as the best-allocating of six flagship models, reaching a Gap Ratio of 0.00% in the agentic mathematics cell at strong budget pressure and 2.84% on abstract reasoning, and a study of reasoning-effort pricing treats the effort parameter and its billed thinking tokens as the unit of purchase. Neither source has access to its weights or its hidden reasoning trace, so everything recorded about it here is behaviour under an API contract.",
   "evidence": [
+    {
+      "id": "arxiv:2608.16033",
+      "kind": "paper",
+      "note": "A benchmark that puts six problems of mixed difficulty under one shared computation budget and measures the gap between what a model solves problem-by-problem and what it solves when it must decide how to divide the budget.",
+      "title": "$R^3$-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets"
+    },
     {
       "id": "arxiv:2608.16956",
       "kind": "paper",
@@ -10,10 +19,44 @@
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
-  "name": "Claude Opus 4.8",
+  "kind": "model",
+  "last_seen": "2026-08-21T03:41:11Z",
+  "name": "Claude-Opus-4.8",
   "related": [
+    "resource-rational-reasoning",
+    "shared-budget-across-a-task-suite",
+    "opportunity-cost-between-concurrent-tasks",
+    "demonstrated-competence-versus-realized-allocation",
+    "response-curve-oracle",
+    "equal-allocation-replay",
+    "gap-ratio",
+    "relative-budget-pressure",
+    "presentation-order-effect-in-budget-allocation",
+    "online-strategy-updating",
+    "allocation-failure-taxonomy",
+    "difficulty-as-resource-demand",
+    "internal-allocation-policy",
+    "r-3-bench",
+    "multiple-choice-knapsack-over-budget-levels",
+    "matched-single-problem-response-curves",
+    "per-model-budget-calibration",
+    "problem-bookkeeping-commands-focus-problem-shelve-problem",
+    "strategy-a-enforced-initial-coverage",
+    "strategy-b-coverage-plus-verification-gate",
+    "terminus-2-agent-harness",
+    "harbor",
+    "omni-math",
+    "mathnet",
+    "livecodebench-pro",
+    "reasoning-gym",
+    "epoch-capabilities-index",
+    "deepseek-v4-pro",
+    "deepseek-v4-chat",
+    "deepseek-v4-reasoner",
+    "qwen3-7-max",
+    "glm-5-2",
+    "hy-3",
+    "gpt-5-5",
     "api-contract-as-the-unit-of-purchase",
     "reasoning-effort-parameter",
     "omission-semantics",
@@ -44,7 +87,11 @@
     "aime-2025-preliminary-freshness-diagnostic-only",
     "headlines-sinha-and-khandait-2020-used-only-for-the-19-contract-probes"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "reasoning-effort",
+    "gap-ratio",
+    "gpt-5-5"
+  ],
   "schema_version": 1,
   "slug": "claude-opus-4-8",
   "topics": [

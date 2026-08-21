@@ -9,7 +9,7 @@ Neither source describes T5-Large directly; it is used as a backbone model for e
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Confidence Thresholding](confidence-thresholding.md), [Early Exit](early-exit.md), [Llama-3-8B](llama-3-8b.md), [Risk Control](../concepts/risk-control.md), [SST-2](../datasets/sst-2.md)
+**Related**: [Confidence Thresholding](confidence-thresholding.md), [Early Exit](early-exit.md), [Llama-3-8B](../models/llama-3-8b.md), [Risk Control](../concepts/risk-control.md), [SST-2](../datasets/sst-2.md)
 
 ## Appears in
 

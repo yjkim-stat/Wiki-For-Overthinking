@@ -1,0 +1,78 @@
+{
+  "concepts": [
+    "hidden chain-of-thought as a model asset",
+    "reasoning replay surface",
+    "reasoning continuity across tool calls",
+    "near-verbatim CoT extraction",
+    "prompt injection through tool responses",
+    "online fidelity proxy signals",
+    "reasoning-token count as a side channel",
+    "CoT summary as a leakage channel",
+    "universal injection trajectory",
+    "adaptive attacker",
+    "defence in depth for reasoning traces",
+    "language switching in reasoning traces",
+    "self-correction in reasoning traces"
+  ],
+  "contributions": [
+    "Identifies the reasoning replay surface between tool calls: reasoning items must persist across tool calls within a turn, so a hidden CoT that is discarded between user turns remains reachable inside one.",
+    "Develops EchoCoT, a multi-step tool-calling extraction attack that uses API-returned reasoning-token counts and optional CoT summaries as online fidelity signals, with no access to parameters, gradients or logits.",
+    "Automates injection-trajectory design with an LLM optimizer over an Inject-Reflect-Distill loop, producing one universal trajectory per target model that transfers to unseen datasets.",
+    "Measures near-verbatim recovery on three open-source LRMs (up to 66.4% ASR@90, single traces past 20K tokens at Token-EM 0.999) and estimates high-fidelity recovery on five frontier proprietary models, including a 33,463-token extraction.",
+    "Evaluates practical defences and shows that removing the attacker's fidelity signals is insufficient: a defensive system prompt cuts mean ASR@90 to 5.0% but an adaptive attacker recovers to 9.7%, and only removing the retained reasoning state eliminates the attack.",
+    "Documents that extracted frontier traces contain self-talk, exploration, self-correction, simulated web searches and language switching that do not appear in the models' visible output."
+  ],
+  "datasets": [
+    "OpenThoughts",
+    "MATH-500",
+    "JEEBench",
+    "LiveCodeBench"
+  ],
+  "generated_at": "2026-08-21T03:39:35Z",
+  "generated_by": "queue",
+  "limitations": "Stated: for frontier proprietary models the ground-truth CoTs and their tokenizers are unavailable, so all fidelity numbers there are proxy estimates from reported length, summary recall and entailment rather than measurements -- the qualitative signs (language switching, self-talk) are offered as corroboration; API and compute budget limits meant a single run per sample, so no run-to-run variability is quantified anywhere; and only practical defences are evaluated, with more fundamental ones such as post-training safety alignment left to future work. Beyond those, ASR is reported at Token-EM thresholds against a target CoT that is itself one sample from a stochastic decoder at temperature 1.0, so 'the' hidden CoT is not a fixed object; the open-source results depend on treating a model's own unattacked inference trace as ground truth. The optimization and test sets come from one corpus (OpenThoughts, 100 questions per source) with transfer tested on 100-question samples of three datasets. K is fixed at 3 with only two steps searched, and the cumulative-ASR curve is still rising at step 3, so the reported rates are lower bounds under this budget rather than a ceiling. The frontier evaluation is 400 questions total across four sets and reports length and semantic proxies only; Opus-4.6 provides summaries for just 31.5% of questions, so its row rests on a different and smaller evidence base than the Gemini rows. The defence evaluation is 100 samples per configuration and the adaptive attacker is given one re-optimization pass, so the gap between 5.0% and 9.7% is a lower bound on what a determined attacker recovers.",
+  "method": "The paper identifies a reasoning replay surface that tool calling opens: reasoning items must be preserved across tool calls to maintain reasoning continuity, so within a single user-assistant turn the hidden CoT stays in context even though it is discarded between turns. EchoCoT exploits this with a multi-step tool-calling pipeline. The attacker supplies the target question together with a scratchpad tool the model is asked to archive its reasoning into; the tool argument is observable, so each archival is an extracted CoT candidate. The model's first archival is typically compressed and polished, so the attacker returns further tool responses that reject the archive and press for a more complete reproduction, and after at most K steps (K = 3 here, the last step fixed to accept and elicit the final answer) selects the best candidate. Because the true CoT is not observable, fidelity is estimated online from two signals the API itself returns: the reported reasoning-token count gives Length Error, the relative difference between candidate and target token counts, and the optional compressed CoT summary gives Summary Token Recall, the fraction of summary tokens covered by the candidate. Candidate selection minimises Length Error. To avoid hand-writing injections, an LLM optimizer searches for a single universal injection trajectory per target model through an Inject-Reflect-Distill loop: it generates each step's injection conditioned on the previous steps and their fidelity scores, diagnoses the batch-level outcome across five aspects, and distills reusable lessons into an experience file carried across batches. Two objectives are defined, both two-level so length fidelity is optimised first: Length-Guided Optimization uses Length Error alone, and Length and Text-Guided Optimization adds Summary Token Recall when a summary is available. Length fidelity is prioritised because the dominant failure mode is under-extraction. Evaluation reports tool invocation rate, Answer Match Rate (whether the answer produced under attack matches the model's standard first-turn answer, judged by GPT-5-Nano), Length Error, textual metrics against the ground-truth CoT (Token F1, ROUGE-L, Token-EM) and Attack Success Rate at thresholds: ASR@x counts a sample successful only when Length Error is at most 1 - x/100 and Token-EM at least x/100, with samples lacking a tool invocation counted as failures. Against proprietary models whose true CoTs are unavailable, fidelity is estimated from Length Error, Summary Token Recall and an Entailment Score over atomic claims in the provided summary.",
+  "methods": [
+    "EchoCoT",
+    "Length-Guided Optimization (LGO)",
+    "Length and Text-Guided Optimization (LTGO)",
+    "Inject-Reflect-Distill",
+    "scratchpad tool archival",
+    "REP",
+    "CoT Synthesis",
+    "Direct Prompting",
+    "Stolen Thoughts",
+    "GEPA",
+    "ExpeL"
+  ],
+  "models": [
+    "DeepSeek-V4-Flash",
+    "Qwen3.5-Plus",
+    "GLM-5.2",
+    "Gemini-2.5",
+    "Gemini-3.1",
+    "Gemini-3.5",
+    "Sonnet-4.6",
+    "Opus-4.6",
+    "o4-mini",
+    "GPT-5-Nano"
+  ],
+  "one_liner": "A security study showing that the hidden chain-of-thought of a black-box reasoning model can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must be retained across tool calls within a turn.",
+  "paper_id": "arxiv:2608.20055",
+  "problem": "Frontier providers treat internal chain-of-thought as a protected asset and do not expose it, and reasoning items are dropped from the conversation context between user turns, so a completed turn's hidden trace cannot be recovered by ordinary multi-turn interaction. Prior work asks what sensitive information leaks *through* a CoT, or reconstructs a plausible trace post hoc from the question, answer and summary; a concurrent attack replays provider-returned encrypted reasoning blocks across compatible decoder models, which depends on an architecture-specific property and was patched after disclosure. Whether the hidden CoT can be extracted near-verbatim from the target model itself, through its own public API, was unexamined.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "TANGENTIAL as a contribution: this is a security paper about extracting hidden reasoning traces, and it says nothing about the accuracy/efficiency tradeoff, about when a model should stop, or about any method for controlling reasoning length. It was collected on 'reasoning trace' rather than on anything the topic is about, and should be read as adjacent literature. Two things in it are nonetheless usable here. First, it reports reasoning-token counts for current frontier models on ordinary reasoning questions -- targets of 18,568 and 18,119 tokens on Gemini variants, 14,974 on Opus-4.6, and a 32,948-token target at high reasoning level -- which is a rare external datapoint on how long frontier hidden traces actually run, since the archive's length figures otherwise come from open-weight models. Second, its manual inspection of extracted frontier traces finds extensive self-talk, exploration, self-correction and language switching that 'generally would not appear in the model's standard output'. Every behavioural analysis in this archive reads visible traces from open-weight models, and this is indirect evidence that the hidden traces of proprietary models contain the same reflection and backtracking behaviours those analyses study -- with the strong caveat that the extraction is adversarially induced and its fidelity on proprietary models is estimated rather than measured, so it cannot support a quantitative claim about how much."
+  },
+  "results": "Three open-source targets with accessible CoTs (DeepSeek-V4-Flash, Qwen3.5-Plus, GLM-5.2) on an OpenThoughts split of 540 optimization and 360 test questions across nine sources. Tool invocation exceeds 92.2% and Answer Match Rate stays 84.2-93.0%, so the extraction interaction largely preserves the reasoning that produced the answer. Existing methods reach near-zero near-verbatim success: on DeepSeek-V4-Flash, REP achieves ASR@90 of 0.3% and both Direct Prompting and CoT Synthesis 0.0% at every threshold. EchoCoT-LTGO reaches 46.1% ASR@99, 61.9% ASR@95 and 66.4% ASR@90 on the same target, 22.8/27.5/30.8% on Qwen3.5-Plus and 31.1/39.4/41.9% on GLM-5.2. Even the manually written trajectory reaches up to 23.9% ASR@99, so the attack design rather than the optimization carries most of the effect. One illustrated extraction reproduces a 21,106-token target CoT as 21,109 tokens at Token-EM 0.999, with three of 1,132 lines differing only in notation (LaTeX against Unicode). Optimized trajectories transfer to unseen datasets without re-optimization: on DeepSeek-V4-Flash the OpenThoughts-optimized trajectory reaches ASR@90 of 80% on MATH500, 71% on JEEBench and 64% on LiveCodeBench, higher on the first two than on the in-domain test set. Extraction degrades with length but does not stop: ASR@90 is 59-86% for target CoTs under 16K tokens and 32% beyond, with successful extractions past 20K. Multi-step interaction is necessary -- ASR@90 is zero at the first tool call across all three models and only emerges at the second. Failure is under-extraction rather than refusal: no refusals were observed, and length mismatch accounts for 71.8-84.2% of failures, with overly short extraction the largest single category at 45.6-64.0%. On five frontier proprietary models (Gemini-2.5, Gemini-3.1, Gemini-3.5, Sonnet-4.6, Opus-4.6), tool invocation is 95-100% and extracted traces come close to reported target lengths -- 23,429 against 18,568 tokens on Gemini-2.5, 17,645 against 18,119 on Gemini-3.5, 12,750 against 14,974 on Opus-4.6 -- with Length Error at most 0.1 for 36.5% of Gemini-2.5 and 32.0% of Gemini-3.1 samples and Entailment Score against the provided summary between 0.850 and 0.994 across all five. Raising Gemini-2.5's reasoning level and output limit to 64K yields a 33,463-token extraction against a 32,948-token target. Manual inspection of extracted frontier traces finds behaviour absent from standard output: extensive self-talk, exploration and self-correction ('Yes!', 'Correct!', 'Wait, is this true?'), simulated Google searches, and language switching into Chinese, Japanese and Russian during recall. Targeting o4-mini also returned system-prompt content matching a publicly reported API system prompt, so the leakage is not confined to CoT. On defences (Table 6, 100 OpenThoughts test samples), removing the reasoning state after each tool call drops mean ASR@90 to 0.0% and is the idealized upper bound, confirming that retained reasoning is what the attack replays, but it is impractical because tool use depends on that continuity. Among practical defences a defensive system prompt is the strongest, cutting mean ASR@90 from 46.0% to 5.0% -- but an adaptive attacker that re-optimizes against the defended model recovers to 9.7% mean and 29.0% on DeepSeek. Removing the reasoning-token count alone is weaker still (14.7% mean, rising to 30.3% adaptively, because total billing usage remains observable and can be differenced). Complete length removal holds mean ASR@90 at 12.0-15.0% and length obfuscation at 13.0-17.0% depending on perturbation range.",
+  "schema_version": 1,
+  "tags": [
+    "security",
+    "prompt injection",
+    "chain-of-thought",
+    "model extraction",
+    "tool use",
+    "reasoning traces",
+    "defence evaluation"
+  ]
+}

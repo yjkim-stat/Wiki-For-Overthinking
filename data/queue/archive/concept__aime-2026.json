@@ -3,6 +3,22 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "A controlled re-evaluation of entropy-based chain-of-thought compression showing that low- and high-entropy selection never beats random pruning once a random baseline is included, and that the one apparent exception on math benchmarks is caused by numeric tokens rather than by entropy.",
+        "title": "Demystifying Entropy-based Selection for Chain-of-Thought Compression in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A framework paper that formalizes test-time scaling as budgeted inference over a model's implicit prefix tree, splits it into three structural regimes (single-trajectory, leaf-level, prefix-level), replaces scalar repeated-sampling metrics with a discovery-stability profile that Pass@k and its relatives are coordinates of, specifies exact-replay versus distributional reproducibility, and releases 1,948,821 full reasoning traces with token-level alternatives and two verifier signals.",
+        "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Introduces Gambit, an inference algorithm that formulates test-time reasoning as thought-level beam search, periodically pruning weak reasoning traces and branching new ones from high-quality prefixes to concentrate a fixed hardware budget on the most promising partial reasoning.",
         "title": "Thought-Level Beam Search for Reasoning",
         "topics": [
@@ -16,12 +32,20 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "A training-free controller for parallel reasoning that probes each branch every 500 tokens for a tentative answer distribution, averages recent probes into a 'temporal confidence' score, and uses that one signal to prune, retire, fork and globally stop branches.",
+        "title": "ParaTempo: Efficient Parallel Reasoning via Temporal Confidence",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-20T13:55:15Z",
-  "created_at": "2026-08-20T13:53:53Z",
-  "instructions": "Write the wiki definition for 'AIME 2026'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-21T03:44:00Z",
+  "created_at": "2026-08-21T02:03:43Z",
+  "instructions": "Revise the wiki definition for 'AIME 2026'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Referenced in the archive's sources as a sitting of the American Invitational Mathematics Examination named alongside AIME 2024/2025 evaluation results in Gambit's thought-level beam search and the on-policy-distillation study. The sources do not say why this year specifically is named (rather than 2024/2025), so nothing further about its construction or scope can be stated from them.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AIME 2026",
   "kind": "concept",
   "language": "en",
@@ -30,22 +54,27 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "AIME 2026",
-    "source_count": 2
+    "previous_definition": "Referenced in the archive's sources as a sitting of the American Invitational Mathematics Examination named alongside AIME 2024/2025 evaluation results in Gambit's thought-level beam search and the on-policy-distillation study. The sources do not say why this year specifically is named (rather than 2024/2025), so nothing further about its construction or scope can be stated from them.",
+    "source_count": 5
   },
   "result": {
-    "aliases": [],
-    "definition": "Referenced in the archive's sources as a sitting of the American Invitational Mathematics Examination named alongside AIME 2024/2025 evaluation results in Gambit's thought-level beam search and the on-policy-distillation study. The sources do not say why this year specifically is named (rather than 2024/2025), so nothing further about its construction or scope can be stated from them.",
+    "aliases": [
+      "AIME2026",
+      "AIME 26"
+    ],
+    "definition": "The 2026 sitting of the American Invitational Mathematics Examination, 30 problems, used in this archive as the freshness control: it was administered after the training cutoffs of the models tested against it, so papers use it to check whether a result on AIME 2024 or 2025 could be contamination. That role is what its sources actually rely on it for -- a reasoning-effort pricing study measures on 30 AIME 2026 items precisely because the answers cannot have been memorised, and diagnoses rather than excludes contamination on the earlier sittings by comparing billed output tokens at matched indices. Being a different sitting, it is a different benchmark from AIME 2024 and AIME 2025 and is not merged with them.",
     "kind": "dataset",
     "related": [
       "AIME 2025",
-      "AIME 2024"
+      "AIME 2024",
+      "benchmark contamination"
     ]
   },
   "task_id": "concept__aime-2026",

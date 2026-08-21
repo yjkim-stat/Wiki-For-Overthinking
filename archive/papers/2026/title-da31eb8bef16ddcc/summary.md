@@ -42,7 +42,7 @@ _not recorded_
 ## Entities
 
 - **Concepts**: contextual coherence between chain-of-thought steps, domain-agnostic process reward modeling, test-time scaling via verifier-weighted voting
-- **Methods**: ContextPRM, process reward model, weighted voting
+- **Methods**: ContextPRM, [process reward model](../../../../wiki/methods/process-reward-model.md), weighted voting
 - **Datasets**: MMLU-Pro (nine non-mathematical domains, including law, history, philosophy)
 
 Tags: `process-reward-model`, `test-time-scaling`, `best-of-n`, `weighted-voting`

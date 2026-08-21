@@ -43,7 +43,7 @@ The authors state three: reward hacking, where the model relocates reasoning aft
 ## Entities
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Adaptive Thinking, Thinking Mode Switching, [Reward Shaping](../../../../wiki/concepts/reward-shaping.md), Mode Collapse, [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), [Test-Time Compute](../../../../wiki/concepts/test-time-compute.md)
-- **Methods**: AutoThink, multi-stage reinforcement learning, GRPO-style policy optimisation, batch-level reward balancing, length-aware reward modulation, ellipsis prompt ('<think>\n...\n')
+- **Methods**: [AutoThink](../../../../wiki/methods/autothink.md), multi-stage reinforcement learning, GRPO-style policy optimisation, batch-level reward balancing, length-aware reward modulation, ellipsis prompt ('<think>\n...\n')
 - **Datasets**: [MATH](../../../../wiki/datasets/math.md), [Minerva Math](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AMC23](../../../../wiki/datasets/amc23.md), [GPQA](../../../../wiki/datasets/gpqa.md), [MMLU](../../../../wiki/datasets/mmlu.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `overthinking`, `adaptive-reasoning`, `reinforcement-learning`, `reward-shaping`, `token-efficiency`, `r1-distill`, `math-reasoning`, `test-time-compute`

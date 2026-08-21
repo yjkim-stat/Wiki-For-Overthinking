@@ -1,0 +1,147 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-16033.pdf"
+  },
+  "completed_at": "2026-08-21T03:36:23Z",
+  "created_at": "2026-08-21T02:26:55Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.16033",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "In cognitive science, resource rationality asks how an agent should allocate limited computation to maximize expected value. Most reasoning and agent benchmarks use independent per-task budgets; existing shared-budget studies do not calibrate suite performance against the same model's demonstrated single-problem competence. We introduce $R^3$-Bench, which evaluates six-problem suites under shared budgets across mathematics, competitive programming, and abstract reasoning in tool-free and agentic settings. Matched single-problem response curves define an offline empirical oracle over observed successes. Across 72 main-table cells for six models, the oracle mean matches or exceeds the contest mean in all cells and is strictly higher in 71. Under moderate tool-free pressure, equal-allocation replay also exceeds contest performance for four of six models. Trajectory diagnostics reveal limited strategy updating and pressure-dependent failure patterns. In a three-model diagnostic under strong agentic pressure, at least one fixed scheduler exceeds the contest mean in six of nine cells, but no policy dominates across domains. These results expose a persistent gap between demonstrated competence and shared-budget realization.",
+    "authors": [
+      "Peisong Wang",
+      "Zhiwei Ma",
+      "Bowen Liu",
+      "Feixue Liu",
+      "Aochuan Chen",
+      "Chenyi Zi",
+      "Hongchuan Zeng",
+      "Yuhan Li",
+      "Jia Li"
+    ],
+    "categories": [
+      "cs.CL"
+    ],
+    "contested_with": "",
+    "matched_keywords": [
+      "shared budget",
+      "resource-rational"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.16033",
+    "published": "",
+    "scores": {
+      "overthinking": 0.6667
+    },
+    "title": "$R^3$-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets",
+    "url": "https://arxiv.org/abs/2608.16033",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "resource-rational reasoning",
+      "shared budget across a task suite",
+      "opportunity cost between concurrent tasks",
+      "demonstrated competence versus realized allocation",
+      "response-curve oracle",
+      "equal-allocation replay",
+      "Gap Ratio",
+      "relative budget pressure",
+      "presentation-order effect in budget allocation",
+      "online strategy updating",
+      "allocation failure taxonomy",
+      "difficulty as resource demand",
+      "internal allocation policy"
+    ],
+    "contributions": [
+      "Formulates resource-rational reasoning as shared-budget task-suite evaluation and introduces R^3-Bench over three domains in tool-free and agentic settings.",
+      "Constructs a same-model response-curve oracle and an equal-allocation replay from matched single-problem runs, so the shared-budget shortfall is measured against the model's own demonstrated competence rather than against a ceiling nobody reached.",
+      "Shows the shortfall is broad (71 of 72 cells) and is not predicted by a general-capability composite over fifty-plus benchmarks.",
+      "Diagnoses the shortfall as pressure-dependent: budget spent elsewhere under strong pressure, abandonment after partial progress under moderate pressure, with spending tracking presentation position rather than problem worth.",
+      "Tests two fixed online schedulers and finds domain-dependent gains with no policy dominating, arguing that an internal allocation policy rather than an external directive is what is missing."
+    ],
+    "datasets": [
+      "R^3-Bench",
+      "Omni-MATH",
+      "MathNet",
+      "LiveCodeBench Pro",
+      "Reasoning Gym",
+      "Epoch Capabilities Index"
+    ],
+    "limitations": "The paper has no limitations section; these are the reader's. The oracle is offline and built from the same model's observed isolated successes on a fixed grid with five runs per level, so it is an empirical best-allocation reference and not an achievable policy -- Delta_RR is headroom, and nothing here shows a deployable method reaching it. Difficulty is defined by reference-model output length, which is a resource-demand proxy rather than an independent difficulty measure and is therefore partly circular with the quantity being studied. Contests are fixed at six problems with a fixed 3/2/1 mixture and only two pressure levels, so the shape of the gap in suite size and composition is uncharacterized. Correctness is binary full credit, so a model that makes real progress on the Hard problem and does not finish scores identically to one that never opened it, which likely inflates the measured cost of 'stopped after partial progress'. Cause attribution and the strategy-update annotation are rubric judgements over trajectories, and the paper reports shares rather than inter-annotator agreement. Six flagship models appear in the main table out of eight benchmarked, with the two remaining DeepSeek variants in an appendix. The agentic results depend on one harness (Terminus-2 on Harbor) and on the action-counting rules, and free bookkeeping commands mean the action budget is not the model's total work. The online-scheduling study is three models, one setting and one pressure level, and its own finding is that no fixed directive generalizes. No wall-clock or monetary cost is reported anywhere, so 'resource' throughout means output tokens or counted actions and not the thing a deployment pays for.",
+    "method": "R^3-Bench builds 50 six-problem contests per domain over three domains: mathematics (Omni-MATH, MathNet), competitive programming (LiveCodeBench Pro) and abstract reasoning (Reasoning Gym), 300 problems per domain. Difficulty is stratified by resource demand rather than post-hoc accuracy: the average unbudgeted output length of three reference models (DeepSeek V4 Pro, GLM-5.2, GPT-5.5) labels the shortest 150 problems Easy, the next 100 Medium and the remaining 50 Hard. Every contest holds three Easy, two Medium and one Hard, a fixed mixture so suite composition cannot confound comparisons, and difficulty tiers appear in no prompt. Presentation order is randomized independently of difficulty. Two settings share the problem pools, tiers, parser and grader and differ only in runtime and budget unit: tool-free reasoning budgets output tokens (passed as max_tokens and stated in the prompt as one shared allowance), and the agentic setting budgets counted tool actions in a Terminus-2 harness on Harbor, with two free bookkeeping commands (focus_problem, shelve_problem) that attribute actions to problems without consuming budget and a runtime reminder so the agent acts against a visible balance. The budget is calibrated per model rather than set absolutely: R_inf is the model's own mean resource use on completed unbudgeted contests, and the contest budget is rho * R_inf with rho = 0.2 (strong pressure) and rho = 0.8 (moderate), so every model is evaluated under the same relative pressure rather than the same absolute limit. Scoring is binary full credit per problem; the primary outcome is the contest score, average correct answers per six-problem suite. Two references are constructed from the same model's isolated runs on a fixed grid of budget levels with five runs per level, giving a per-problem response curve: equal-allocation replay asks whether each problem has an observed success whose realized cost fits within one sixth of the contest budget, and the response-curve oracle solves a multiple-choice knapsack over budget levels (including a zero option) subject to the same total budget, maximizing expected correct answers. The oracle is an offline empirical diagnostic over observed successes, not an executable policy. Delta_RR = Oracle - Contest and Gap Ratio = Delta_RR / Oracle. Each oracle-selected miss is assigned one primary cause from a rubric (never attempted, attempted too late, stopped after partial progress, spent budget elsewhere, misread tool feedback, wrong format or incomplete finalization, genuinely unsolved), and trajectories are annotated for whether the model makes a substantive strategy update in response to new observation and whether that update is resource-rational.",
+    "methods": [
+      "R^3-Bench",
+      "multiple-choice knapsack over budget levels",
+      "matched single-problem response curves",
+      "per-model budget calibration",
+      "problem bookkeeping commands (focus_problem, shelve_problem)",
+      "Strategy A (enforced initial coverage)",
+      "Strategy B (coverage plus verification gate)",
+      "Terminus-2 agent harness",
+      "Harbor"
+    ],
+    "models": [
+      "DeepSeek-V4-Pro",
+      "DeepSeek-V4-Chat",
+      "DeepSeek-V4-Reasoner",
+      "Qwen3.7-Max",
+      "GLM-5.2",
+      "Hy-3",
+      "GPT-5.5",
+      "Claude-Opus-4.8"
+    ],
+    "one_liner": "A benchmark that puts six problems of mixed difficulty under one shared computation budget and measures the gap between what a model solves problem-by-problem and what it solves when it must decide how to divide the budget.",
+    "problem": "Reasoning and agent benchmarks budget each task in isolation, so the cross-problem allocation question never arises: a model may spend its full allowance on every problem without regard to the others. Real workloads are not like that -- concurrent agents share finite API quotas and inference capacity, so computation spent on one task is taken from another. Existing shared-budget studies do not calibrate suite performance against the same model's demonstrated single-problem competence, so they cannot separate 'the model cannot solve this' from 'the model could solve this and spent the budget elsewhere'.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "This is the archive's most direct measurement of the claim that thinking effort tracks presentation rather than difficulty, and it is made under a design that rules out the usual alternative explanation. Because the oracle is built from each model's own isolated successes, the 71-of-72 shortfall cannot be read as a capability limit: these are problems the model demonstrably solves when the budget is its own. What it adds beyond the archive's existing position-order result is the causal decomposition -- under strong pressure the dominant failure is 'spent budget elsewhere' (up to 95%), under moderate pressure it becomes 'stopped after partial progress' (up to 67%), so overthinking and underthinking here are two faces of one misallocation and which face shows depends on how tight the budget is. It also removes two candidate explanations the archive could not previously exclude: a general-capability composite over fifty-plus benchmarks does not predict Gap Ratio (models within 3 ECI points differ by up to 21 points, orderings invert), and a context-length control puts the long-prompt artifact at about 1.1 points on average. Finally it bounds the external-fix strategy: two fixed schedulers beat the model in six of nine cells but none dominates, and the pattern is by domain rather than model -- scheduling helps where runtime feedback is informative (Code) and hurts where shallow checks consume budget without signalling value (Math, abstract reasoning). That is evidence for the archive's position that the deficit is in the signal allocation is conditioned on, not in the ability to allocate."
+    },
+    "results": "Across the 72 model-setting-pressure-domain cells of the main table (six flagship models), the oracle matches or exceeds the contest score in all 72 and is strictly higher in 71. In tool-free reasoning the oracle beats the contest for all six models at both pressures, mean gap 1.16 correct answers across the 12 model-pressure pairs. Equal allocation -- a fixed uniform split, no intelligence in it -- beats the model's own allocation for four of six models at rho = 0.8 (DeepSeek-V4-Pro, Qwen3.7-Max, GLM-5.2, Claude-Opus-4.8). Gap Ratios in Table 2 span 0.00% (Claude-Opus-4.8, agentic, Math, rho = 0.2) to 82.47% (GPT-5.5, tool-free, AR, rho = 0.2), with Hy-3 worst overall in the agentic setting (81.48% on AR at rho = 0.8). The agentic setting has a lower Gap Ratio than tool-free in 27 of 36 matched comparisons and raising rho from 0.2 to 0.8 lowers it in 23 of 36, so interactive feedback and looser budgets both help and neither closes the gap. Position, not worth, drives spending: presentation order is randomized independently of difficulty, yet position 6 has lower accuracy than position 1 in all 12 tool-free model-pressure series, and under strong pressure the first position absorbs 20.5-52.9% of attributed output against 16.9-23.5% under moderate pressure, with five of six models concentrating more on early positions at rho = 0.2 (Qwen the exception). Online adaptation is limited: DS-Pro, Qwen, GLM and Opus make substantive strategy updates in only 38.5-63.4% of equal-domain macro trajectories, and Hy-3 and GPT-5.5 make none. Failure causes shift with pressure rather than disappearing: at rho = 0.2 the dominant cause is 'spent budget elsewhere' (42% GLM, 95% Hy, 66% GPT, 59% Opus), while Qwen is dominated by 'attempted too late' (40%); at rho = 0.8 the dominant cause becomes 'stopped after partial progress' (67% DS-Pro, 38% GLM, 38% Hy, 55% GPT) -- the model abandons a problem it has already solved in isolation. Because the oracle selects only problems whose observed isolated cost fits the shared budget, both categories are under-investment rather than capability limits. The gap is not explained by general capability: against the Epoch Capabilities Index, a composite over fifty-plus benchmarks, four model pairs within 3 ECI points differ by 9.6-21.0 percentage points in mean absolute Gap Ratio and six pairs more than 4 points apart differ by 12.0-19.2 points -- the same spread -- and orderings invert, with the highest-ECI model holding the largest tool-free Math Gap Ratio at rho = 0.2 (43.75%) while a mid-ranked model holds the smallest (4.32%). A three-model online-scheduling diagnostic (agentic, rho = 0.2) with two fixed interventions -- Strategy A enforces a focused probe of every visible problem before a second paid step on any one, Strategy B adds a verification gate limiting repeated paid checks on a stable candidate -- beats the contest reference in six of nine model-domain cells, but no policy dominates: contest reference, A and B each take the best non-oracle score in three rows. The regularity is by domain, not by model: Code improves under both interventions for every model, while Math and AR are model dependent and scheduling sometimes hurts, which the authors attribute to compilation and tests making Code probes informative while shallow checks in Math and AR consume budget without indicating where more reasoning pays. Hy-3's best non-oracle scores stay far below the oracle in all three domains, so external scheduling does not substitute for the model's own ability to interpret progress. A context-length control on two models across both settings and all three domains (all six problems shown, one designated for solution) finds point-estimated losses of at most 5 percentage points in nine of twelve cells, mean 1.1 points, so the gap is not an artifact of longer context.",
+    "tags": [
+      "resource rationality",
+      "shared budget",
+      "test-time compute allocation",
+      "benchmark",
+      "agentic reasoning",
+      "underthinking",
+      "overthinking",
+      "scheduling"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-16033",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}
