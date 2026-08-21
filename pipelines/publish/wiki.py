@@ -21,7 +21,7 @@ from ..common.config import Config
 from ..common.log import get
 from ..common.paths import Layout
 from ..common.schema import Concept, utcnow
-from ..common.store import RecordStore, write_json, write_text
+from ..common.store import RecordStore, read_json, write_json, write_text
 from ..enrich import findings
 from ..enrich.concepts import KINDS, slug_for
 from . import graph_page, load_template, rel_link, render_template
@@ -445,14 +445,19 @@ def build_graph(
             )
 
     path = cfg.layout.wiki_meta / "graph.json"
-    write_json(
-        path,
-        {
-            "generated_at": utcnow(),
-            "nodes": sorted(nodes, key=lambda n: n["id"]),
-            "edges": sorted(edges, key=lambda e: (e["source"], e["target"], e["type"])),
-        },
-    )
+    graph = {
+        "generated_at": utcnow(),
+        "nodes": sorted(nodes, key=lambda n: n["id"]),
+        "edges": sorted(edges, key=lambda e: (e["source"], e["target"], e["type"])),
+    }
+    # Left alone when only the stamp would move. See `unchanged_but_for`.
+    existing = read_json(path)
+    if isinstance(existing, dict) and existing:
+        if {k: v for k, v in existing.items() if k != "generated_at"} == {
+            k: v for k, v in graph.items() if k != "generated_at"
+        }:
+            return path
+    write_json(path, graph)
     return path
 
 

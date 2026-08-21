@@ -67,6 +67,22 @@ def render_template(template: str, values: dict[str, str]) -> str:
     return output
 
 
+def unchanged_but_for(existing: str, fresh: str, volatile: re.Pattern) -> bool:
+    """Whether two renderings differ only in a field that restamps itself.
+
+    `render` regenerates every artifact from `data/` on every pass, and two of
+    them carry the time they were generated. Rewriting a file whose only change
+    is that stamp puts it in every diff for ever, which is how a real change
+    stops being visible — the failure note 0036 fixed for records, in a tracked
+    generated file.
+
+    Comparing with the stamp masked out lets the stamp go on meaning something:
+    written only when the drawing actually moved, it says when the graph last
+    changed rather than when somebody last ran a command.
+    """
+    return volatile.sub("", existing) == volatile.sub("", fresh)
+
+
 def rel_link(from_file: Path, to_file: Path) -> str:
     """Relative link from one generated file to another, POSIX-style."""
     return os.path.relpath(to_file, from_file.parent).replace(os.sep, "/")

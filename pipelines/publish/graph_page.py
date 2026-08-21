@@ -29,6 +29,8 @@ same picture, byte for byte.
 
 from __future__ import annotations
 
+import re
+
 import hashlib
 import html
 import math
@@ -38,6 +40,7 @@ from ..common.config import Config
 from ..common.log import get
 from ..common.schema import utcnow
 from ..common.store import read_json, write_text
+from . import unchanged_but_for
 from . import load_template, render_template
 
 _LOG = get(__name__)
@@ -268,6 +271,10 @@ def _edge_styles(edges: list[dict]) -> set[str]:
     return styles
 
 
+#: The one part of the page that moves on every render.
+_FOOTER_STAMP = re.compile(r"Generated \d{4}-\d{2}-\d{2}T[\d:]+Z")
+
+
 def _legend(present: set[str], edges: set[str] | None = None) -> str:
     order = ["topic", "concept", "method", "dataset", "model"]  # LOCAL: model
     marks = {
@@ -379,6 +386,12 @@ def build(cfg: Config) -> Path | None:
     )
 
     target = cfg.layout.wiki / "graph.html"
+    # Same rule as `graph.json`: a page whose only change is the stamp in its
+    # footer is not a change, and rewriting it puts the drawing in every diff.
+    if target.exists():
+        existing = target.read_text(encoding="utf-8")
+        if unchanged_but_for(existing, page, _FOOTER_STAMP):
+            return target
     write_text(target, page)
     _LOG.info("wiki map: %d node(s), %d edge(s)", len(nodes), len(edges))
     return target
