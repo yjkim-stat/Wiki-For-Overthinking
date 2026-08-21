@@ -149,6 +149,17 @@ Rules:
 """.strip()
 
 
+# LOCAL: `models` — see docs/LOCAL-DELTAS.md
+_MODELS_RULE = (
+    "Answer `models` explicitly, even when the answer is `[]`. List the "
+    "checkpoints the work trains, evaluates or analyses, named as the paper "
+    "names them — a base model, a released model, a judge. A paper that "
+    "evaluates none returns an empty list, and that is a real answer: the "
+    "archive holds several. Leaving it out looks identical to that in the "
+    "record, and nothing afterwards can tell the two apart."
+)
+
+
 _READ_FROM_RULE = (
     "Then set `read_from`: 'document' if you opened the file, 'abstract' if you "
     "did not and worked from the payload. Say which you actually did. A reading "
@@ -221,7 +232,8 @@ def paper_instructions(
         f"{document}"
         "It matched these tracked topics; `relevance` must contain one entry "
         "per slug, stating what this paper changes for that topic:\n"
-        f"{lens}\n\n" + _SHARED_RULES.format(language=language)
+        f"{lens}\n\n" + _MODELS_RULE + "\n\n"
+        + _SHARED_RULES.format(language=language)
     )
 
 
@@ -253,6 +265,7 @@ def local_pdf_instructions(topics: list[dict], language: str = "en") -> str:
         "empty rather than forcing a fit:\n"
         f"{lens}\n\n"
         "`relevance` must have one entry per slug you listed in `topics`.\n\n"
+        f"{_MODELS_RULE}\n\n"
         f"{_READ_FROM_RULE}\n\n" + _SHARED_RULES.format(language=language)
     )
 

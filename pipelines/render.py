@@ -508,6 +508,36 @@ def stale_findings(cfg: Config) -> list[dict]:
     return sorted(stale, key=lambda row: row["established_against"] - row["sources_now"])
 
 
+def readings_without_models(cfg: Config) -> list[str]:
+    """Paper readings that named no model, which may or may not be a defect.
+
+    LOCAL: `models` — see docs/LOCAL-DELTAS.md.
+
+    `models` is optional and should stay optional: a paper that evaluates no
+    checkpoint answers with an empty list, and requiring a non-empty one would
+    force a guess where the honest answer is silence. That is the reasoning that
+    keeps `results` optional too.
+
+    The cost is that an omitted list and a genuine "none" produce **identical
+    records**, so the archive cannot tell a reading that answered from one that
+    did not. It happened to nine consecutive readings before anybody noticed,
+    and it was the second time this field had gone missing quietly.
+
+    Counting them is not an accusation. It is a number in the one place this
+    archive already looks for rot, and a count that stays flat while readings
+    accumulate says the prompt is being followed; a count that tracks them says
+    it is not.
+    """
+    store = RecordStore(cfg.layout)
+    return sorted(
+        summary.paper_id
+        for summary in (
+            store.load_paper_summary(paper.id) for paper in store.iter_papers()
+        )
+        if summary is not None and not summary.models
+    )
+
+
 def report_staleness(cfg: Config) -> dict[str, int]:
     """Count what has been outgrown, and say so. Never rewrites anything.
 
@@ -549,10 +579,20 @@ def report_staleness(cfg: Config) -> dict[str, int]:
     if len(settled) > 10:
         _LOG.warning("... and %d more finding(s) their subject has outgrown", len(settled) - 10)
 
+    # LOCAL: `models` — see docs/LOCAL-DELTAS.md
+    silent = readings_without_models(cfg)
+    if silent:
+        _LOG.info(
+            "%d reading(s) name no model; empty is a valid answer, absent is "
+            "indistinguishable from it",
+            len(silent),
+        )
+
     return {
         "definitions": len(definitions),
         "analysis": len(analysis),
         "findings": len(settled),
+        "readings_without_models": len(silent),  # LOCAL
     }
 
 

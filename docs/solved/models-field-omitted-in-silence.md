@@ -1,6 +1,7 @@
 # A paper reading can omit `models` and nothing notices
 
-**Status**: open, not acted on.
+**Status**: solved 2026-08-21 by **options 2 and 3** — see [Resolution](#resolution)
+at the foot of this file and [note 0097](../commit/0097-a-field-the-prompt-never-mentions.md).
 **Found**: 2026-08-13, by making the mistake — nine consecutive readings.
 
 ## The defect
@@ -50,3 +51,36 @@ the code asserts one.
 
 Nine readings, repaired by `scripts/backfill_summary_models.py` from the source
 documents. See `docs/commit/0061`.
+
+---
+
+## Resolution
+
+**Options 2 and 3, which this document said compose.** The prompt names the
+field, and the render counts the readings that answered nothing. Commit
+`fix(llm): name the models field in the prompt a reader follows`, note
+[0097](../commit/0097-a-field-the-prompt-never-mentions.md).
+
+**Option 1 was not taken.** This document's own objection to it stands: a
+warning in a render log nobody reads is only marginally better than nothing, and
+the render already emits stale warnings that are routinely ignored. The count
+goes in the `stale` block instead, which is the one place the archive already
+looks for rot and where a number that moves is meant to be read.
+
+**The contract was left alone, deliberately.** This document says the archive
+should decide whether an omitted `models` is a defect or a permitted answer
+before the code asserts one, and that decision is not the code's to make. It was
+tried: requiring the *key* while still accepting `[]` — the shape `read_from`
+uses in [note 0044](../commit/0044-a-reading-says-what-it-was-based-on.md), where
+an empty answer is real but silence is refused. It works, and it takes down **59
+tests across eight files**, every one a fixture that simply did not bother.
+
+That number is worth keeping rather than the change: it is the measurement of
+how easy the field is to omit, which is what this document is about. If the
+group decides absence is a defect, the validator is four lines and the fixtures
+are the cost.
+
+**A gap in the first attempt, caught by its own test.** Only
+`paper_instructions` was fixed. A hand-filed PDF goes through
+`local_pdf_instructions`, produces a paper reading against the same schema, and
+was still never told about the field. Both prompts carry it now.

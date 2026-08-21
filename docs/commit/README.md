@@ -114,3 +114,4 @@ reference for everything built before the practice existed.
 | 0067 | [A note says when its own prose is behind](0067-a-note-says-when-its-own-prose-is-behind.md) | feature | Staleness was reported to whoever ran the render, not to whoever reads the note weeks later |
 | 0095 | [A render is not an edit, in the wiki either](0095-a-render-is-not-an-edit-in-the-wiki-either.md) | fix | Two tracked artifacts restamped themselves every pass — the defect 0036 fixed for records, one directory across |
 | 0096 | [A task says when its record is contested](0096-a-task-says-when-its-record-is-contested.md) | fix | The conflict was reported to whoever ran the render, not to whoever was about to read the paper |
+| 0097 | [A field the prompt never mentions](0097-a-field-the-prompt-never-mentions.md) | fix | It was in the schema and never in the instructions, and the instructions are what a reader follows |

@@ -524,5 +524,11 @@ class StalenessTests(unittest.TestCase):
         self._note("## Notes\n\nMine.\n\n<!-- analysis-sources: 4 -->")
         result = render.run(self.cfg, skip_queueing=True)
         self.assertEqual(
-            result["stale"], {"definitions": 1, "analysis": 1, "findings": 0}
+            result["stale"],
+            {
+                "definitions": 1,
+                "analysis": 1,
+                "findings": 0,
+                "readings_without_models": 0,  # LOCAL
+            },
         )
