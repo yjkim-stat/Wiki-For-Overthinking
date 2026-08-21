@@ -219,21 +219,21 @@ class RelevanceKeyTests(unittest.TestCase):
         self.assertEqual(validate_result("paper", self._paper({"other": "why"})), [])
 
     def test_an_unknown_slug_is_rejected(self):
-        errors = validate_result("paper", self._paper({"other": "why"}), ["test-topic"])
+        errors = validate_result("paper", self._paper({"other": "why"}), {"topics": ["test-topic"]})
         self.assertTrue(any("other" in e for e in errors))
 
     def test_a_missing_entry_is_reported_too(self):
-        errors = validate_result("paper", self._paper({"other": "why"}), ["test-topic"])
+        errors = validate_result("paper", self._paper({"other": "why"}), {"topics": ["test-topic"]})
         self.assertTrue(any("missing an entry for 'test-topic'" in e for e in errors))
 
     def test_an_exact_match_is_accepted(self):
         self.assertEqual(
-            validate_result("paper", self._paper({"test-topic": "why"}), ["test-topic"]),
+            validate_result("paper", self._paper({"test-topic": "why"}), {"topics": ["test-topic"]}),
             [],
         )
 
     def test_a_blank_entry_is_rejected(self):
-        errors = validate_result("paper", self._paper({"test-topic": "  "}), ["test-topic"])
+        errors = validate_result("paper", self._paper({"test-topic": "  "}), {"topics": ["test-topic"]})
         self.assertTrue(any("is empty" in e for e in errors))
 
     def test_a_hand_filed_pdf_is_not_required_to_cover_its_own_answer(self):
@@ -243,24 +243,22 @@ class RelevanceKeyTests(unittest.TestCase):
         there is nothing settled here to require coverage against.
         """
         self.assertEqual(
-            validate_result("paper", self._paper({}, topics=["b"]), ["a", "b", "c"]), []
+            validate_result("paper", self._paper({}, topics=["b"]), {"topics": ["a", "b", "c"]}), []
         )
 
     def test_a_hand_filed_pdf_may_name_a_slug_that_turns_out_not_to_exist(self):
         self.assertEqual(
-            validate_result("paper", self._paper({}, topics=["nope"]), ["a", "b"]), []
+            validate_result("paper", self._paper({}, topics=["nope"]), {"topics": ["a", "b"]}), []
         )
 
     def test_a_hand_filed_pdf_belonging_nowhere_needs_no_relevance(self):
         self.assertEqual(
-            validate_result("paper", self._paper({}, topics=[]), ["a", "b", "c"]), []
+            validate_result("paper", self._paper({}, topics=[]), {"topics": ["a", "b", "c"]}), []
         )
 
     def test_a_stray_relevance_key_is_still_wrong_on_a_hand_filed_pdf(self):
         """It renders nowhere, whoever chose the topics."""
-        errors = validate_result(
-            "paper", self._paper({"c": "why"}, topics=["b"]), ["a", "b", "c"]
-        )
+        errors = validate_result("paper", self._paper({"c": "why"}, topics=["b"]), {"topics": ["a", "b", "c"]})
         self.assertTrue(any("'c'" in e for e in errors))
 
 
