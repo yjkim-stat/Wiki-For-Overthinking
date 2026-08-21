@@ -137,6 +137,29 @@ conferences:
     max_lookups: 100
     acl_anthology_url: "https://aclanthology.org"
 
+  # The ACL Anthology's own event pages. One request per venue-year returns the
+  # whole programme with abstracts already in it, so a paper is scored on the
+  # evidence a reader would have and nothing needs fetching afterwards — the
+  # only source here that does that. It applies to any venue carrying an
+  # `anthology_key` below, and to no other.
+  anthology:
+    enabled: true
+    base_url: "https://aclanthology.org"
+    # Years to read when the caller does not pass a date. A venue may pin its
+    # own with `anthology_years`.
+    years: [2026, 2025]
+    # Which volumes count as the venue. Empty means its own tracks plus
+    # Findings -- `acl-long`, `acl-short`, `findings-acl` and so on. An event
+    # page also lists every co-located workshop, and a workshop paper is
+    # published at the workshop rather than at the conference, so those are
+    # opt-in. What is left out is named in the run's log, never dropped
+    # silently. Set e.g. ["acl-long", "findings-acl"] to narrow further.
+    volumes: []
+    # An event page is 4-19 MB and grows each year. This refuses one that has
+    # become absurd rather than parsing it.
+    max_bytes: 33554432
+    min_request_interval_s: 3.0
+
   # Venues tracked by default. `dblp_key`, `openreview_prefix` and
   # `virtual_host` are used by the matching collector; leave one blank to skip
   # that collector for the venue. `name` is what ends up in the archive, so use
@@ -168,14 +191,15 @@ conferences:
       dblp_key: "ICML"
       virtual_host: "icml.cc"
       virtual_years: [2026, 2025]
-    # ACL has no OpenReview instance and no confs.cc virtual programme, so it
-    # is reached through DBLP and Semantic Scholar only. The ACL Anthology URL
-    # under `abstracts` above is what fills in the abstract DBLP does not
-    # carry, which matters more here than for the other venues: without it an
-    # ACL paper is scored on its title alone.
+    # ACL has no OpenReview instance and no confs.cc virtual programme. Its
+    # primary path is `anthology_key` — the Anthology's own event page, which
+    # carries abstracts, so an ACL paper is scored on the same evidence as one
+    # from a programme page rather than on its title alone. DBLP stays as the
+    # fallback for what the Anthology has not published yet.
     - name: ACL
       openreview_prefix: ""
       dblp_key: "ACL"
+      anthology_key: "acl"
     - name: AISTATS
       openreview_prefix: ""
       dblp_key: "AISTATS"

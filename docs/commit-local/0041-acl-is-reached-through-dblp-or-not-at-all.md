@@ -75,3 +75,21 @@ None for the code. For this deployment, the next collection run queries one
 more venue, and ACL papers that clear scoring will begin arriving with
 `venue: ACL`. Nothing already in `data/` is revisited — `seen.sqlite` has not
 been touched, so an ACL paper already held under its arXiv id stays as it is.
+
+## Correction (0043)
+
+**The unresolved item above is resolved, and the venue entry this note
+describes has changed.** This note said ACL arrives through DBLP and Semantic
+Scholar only, and that the `conferences.abstracts` Anthology lookup fills the
+abstract DBLP omits. That was true of the code at the time.
+
+[0043](0043-the-upstream-that-is-behind-us.md) took an Anthology *collector*
+from `src`, and the ACL entry now carries `anthology_key: "acl"`. The
+Anthology's own event page is the primary path: it returns a whole
+venue-year's programme with abstracts already in it, so an ACL paper no longer
+depends on a post-hoc lookup and no longer depends on DBLP being reachable —
+which it was not on the day this note was written. `dblp_key` stays as the
+fallback for what the Anthology has not published yet.
+
+Everything else here still holds, including why `openreview_prefix` and
+`virtual_host` are blank.

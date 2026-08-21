@@ -18,13 +18,38 @@ developed in, and the archive lives here too. A delta below is therefore not
 code.
 
 > **This deployment: the paragraph above is not true here.** This checkout has
-> a `src` remote — `Recipe-for-Research-Team-Management-with-Claude`, the
-> repository the paragraph above is written from — and pulls version updates
-> from it. **Never push to `src`; `origin` is where this deployment works.**
-> Everything below is therefore live: it is the list to re-check on every merge
-> from `src`, and the deltas it names arrived here with the code rather than
-> being written here. This deployment's own deltas are appended at the end of
-> the table, and its notes are in `commit-local/` from 0033 on.
+> a `src` remote and pulls version updates from it. **Never push to `src`;
+> `origin` is where this deployment works.** Everything below is therefore
+> live: it is the list to re-check on every merge from `src`, and the deltas it
+> names arrived here with the code rather than being written here. This
+> deployment's own deltas are appended at the end of the table, and its notes
+> are in `commit-local/` from 0033 on.
+>
+> **`src` was repointed on 2026-08-22** from
+> `Recipe-for-Research-Team-Management-with-Claude` to
+> `Wiki-For-Any`, which shares no history with this repository —
+> `git merge` needs `--allow-unrelated-histories`.
+>
+> **And `src` is now behind this checkout, so the merge recipe below must not
+> be run as written.** `Wiki-For-Any` is this pipeline re-published as a
+> generic template: for most files the entire difference is the deletion of
+> the word `LOCAL:` from a comment. Its tree carries 20 `LOCAL` marks against
+> our 59, lacks the `model` entity kind, and lacks the arXiv PDF-URL
+> derivation from [commit-local/0039](commit-local/0039-a-url-the-identifier-already-implies.md).
+> A wholesale `git checkout src/main -- pipelines/` would silently revert all
+> three.
+>
+> **Establish the direction before every merge, not the contents.** Two
+> commands answer it:
+>
+> ```bash
+> git diff --stat HEAD src/main -- pipelines/     # 20 files of stripped comments, or real changes?
+> grep -rn LOCAL pipelines/ | wc -l               # against the same count on src/main
+> ```
+>
+> When `src` is behind, take only the files that are genuinely new and wire
+> them by hand — see [commit-local/0043](commit-local/0043-the-upstream-that-is-behind-us.md),
+> which took one collector out of a 20-file diff.
 
 The register survives that change of status for one reason: **these files are
 still written as a general template, and a general template gets improved by
