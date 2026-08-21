@@ -88,7 +88,9 @@ def _queue_and_summarizer(cfg: Config, max_pending=_UNSET):
     return queue, get_summarizer(cfg.settings, enqueue=queue.enqueue)
 
 
-def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> dict[str, int]:
+def queue_missing_summaries(
+    cfg: Config, max_pending=_UNSET, contested: dict[str, str] | None = None
+) -> dict[str, int]:
     """File a task for any stored record that still has no summary.
 
     Collection queues a task when it first sees an item, but a task can be lost
@@ -129,7 +131,13 @@ def queue_missing_summaries(cfg: Config, max_pending=_UNSET) -> dict[str, int]:
             continue
         # LOCAL: hand-filed papers go to the uncapped queue.
         who = hand_summarizer if paper.is_local else summarizer  # LOCAL
-        if who.summarize_paper(paper, context, cfg.language) is None:
+        # A record sharing an identifier with another is one a reader must look
+        # at before reading it. The conflict is known here because `render` has
+        # just reconciled, and carrying it onto the task puts it in front of the
+        # person who acts rather than the person who ran the command.
+        if who.summarize_paper(
+            paper, context, cfg.language, (contested or {}).get(paper.id, "")
+        ) is None:
             unread += 1
 
     for video in store.iter_videos():
@@ -592,7 +600,11 @@ def run(
         if not skip_queueing:
             # LOCAL: hold back part of the cap so definition tasks are not
             # crowded out; the remainder is released below.
-            summaries = queue_missing_summaries(cfg, queue_share.summary_cap(cfg))
+            summaries = queue_missing_summaries(
+                cfg,
+                queue_share.summary_cap(cfg),
+                (result.get("identifiers") or {}).get("contested"),
+            )
             result["summaries_queued"] = summaries["queued"]
             result["summaries_refreshed"] = summaries["refreshed"]
             result["summaries_unread"] = summaries["unread"]
@@ -623,7 +635,9 @@ def run(
             # rather than double-counting (note 0054). `unread` is replaced
             # rather than summed — it is a snapshot of the backlog, not a total.
             if "summaries_queued" in result:
-                more = queue_missing_summaries(cfg)
+                more = queue_missing_summaries(
+                    cfg, contested=(result.get("identifiers") or {}).get("contested")
+                )
                 result["summaries_queued"] += more["queued"]
                 result["summaries_refreshed"] += more["refreshed"]
                 result["summaries_unread"] = more["unread"]

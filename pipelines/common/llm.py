@@ -157,6 +157,35 @@ _READ_FROM_RULE = (
 )
 
 
+def _contested_warning(paper_id: str, other: str) -> str:
+    """Said on the task, because that is where somebody is about to act.
+
+    Two records claiming one identifier is reported by every render, to whoever
+    ran it. The person who then drains the queue is often not that person and is
+    always looking somewhere else — and reading this paper can be exactly the
+    wrong move, because the archive would gain a second summary of one paper and
+    count it twice in every entity that cites it.
+
+    A warning rather than a refusal, because the reading is not always wrong. If
+    neither record has been read, reading either is fine: a merge carries the
+    summary to whichever record survives. It is wrong only when the other record
+    has one already, and the reader can check that from here.
+    """
+    if not other:
+        return ""
+    return (
+        "\n\n---\n\n"
+        f"**Stop and check before reading this.** `{paper_id}` and `{other}` "
+        "claim the same identifier: they are probably one paper held as two "
+        "records.\n\n"
+        f"If `{other}` has already been read, **do not read this one** — the "
+        "archive would gain a second summary of one paper and count it twice in "
+        "every entity that cites it. Leave the task and say so.\n\n"
+        "Either way somebody has to decide which record survives:\n\n"
+        "    python3 -m pipelines.enrich.dedupe merge <survivor> <absorbed> --dry-run\n"
+    )
+
+
 def paper_instructions(
     topics: list[dict], language: str = "en", *, has_pdf: bool = False
 ) -> str:
@@ -307,7 +336,11 @@ class Summarizer(Protocol):
     name: str
 
     def summarize_paper(
-        self, paper: Paper, topics: list[dict], language: str
+        self,
+        paper: Paper,
+        topics: list[dict],
+        language: str,
+        contested_with: str = "",
     ) -> PaperSummary | None: ...
 
     def summarize_video(
@@ -339,7 +372,11 @@ class QueueSummarizer:
         self._enqueue = enqueue
 
     def summarize_paper(
-        self, paper: Paper, topics: list[dict], language: str
+        self,
+        paper: Paper,
+        topics: list[dict],
+        language: str,
+        contested_with: str = "",
     ) -> PaperSummary | None:
         # A hand-filed PDF is still a paper task — same kind, same appliers,
         # same archive page. Only the prompt, the extra schema fields and the
@@ -355,7 +392,7 @@ class QueueSummarizer:
                 local_pdf_instructions(topics, language)
                 if local
                 else paper_instructions(topics, language, has_pdf=has_document)
-            ),
+            ) + _contested_warning(paper.id, contested_with),
             output_schema=_paper_schema(local=local, has_document=has_document),
             # Whatever a paper's provenance, if a document is on disk the
             # reader is told where it is. A fetched PDF and a hand-filed one
@@ -364,6 +401,7 @@ class QueueSummarizer:
                 {"pdf_path": paper.local_path} if paper.local_path else None
             ),
             payload={
+                "contested_with": contested_with,
                 "title": paper.title,
                 "authors": paper.authors,
                 "abstract": paper.abstract,
@@ -452,7 +490,7 @@ class AnthropicSummarizer:
             "`summarize.backend: queue` in config/settings.yaml."
         )
 
-    def summarize_paper(self, paper, topics, language):  # noqa: D102
+    def summarize_paper(self, paper, topics, language, contested_with=""):  # noqa: D102
         self._unavailable()
 
     def summarize_video(self, video, transcript, topics, language):  # noqa: D102
@@ -477,7 +515,7 @@ class OllamaSummarizer:
             "`summarize.backend: queue` in config/settings.yaml."
         )
 
-    def summarize_paper(self, paper, topics, language):  # noqa: D102
+    def summarize_paper(self, paper, topics, language, contested_with=""):  # noqa: D102
         self._unavailable()
 
     def summarize_video(self, video, transcript, topics, language):  # noqa: D102

@@ -205,8 +205,12 @@ def reconcile_identifiers(cfg) -> dict[str, int]:
     repository is most careful never to make quietly.
     """
     store = RecordStore(cfg.layout)
-    counts = {"registered": 0, "papers": 0, "conflicts": 0}
+    counts: dict = {"registered": 0, "papers": 0, "conflicts": 0}
     examples: list[str] = []
+    # Which records are in a conflict, not just how many conflicts there are.
+    # The count told an operator; this tells the queue, which is where somebody
+    # is about to act on one of them.
+    contested: dict[str, str] = {}
 
     with SeenStore(cfg.layout.seen_db) as seen:
         for paper in store.iter_papers():
@@ -222,6 +226,8 @@ def reconcile_identifiers(cfg) -> dict[str, int]:
                     added += 1
                 elif holder != paper.id:
                     counts["conflicts"] += 1
+                    contested[paper.id] = holder
+                    contested[holder] = paper.id
                     if len(examples) < 10:
                         examples.append(f"{key}: {holder} and {paper.id}")
             if added:
@@ -243,6 +249,7 @@ def reconcile_identifiers(cfg) -> dict[str, int]:
         )
         for example in examples:
             _LOG.warning("  duplicate  %s", example)
+    counts["contested"] = contested
     return counts
 
 
