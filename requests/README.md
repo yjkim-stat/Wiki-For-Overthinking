@@ -4,13 +4,17 @@ Ask this archive for a change by leaving a markdown file here, in `pending/`.
 
 ```markdown
 ---
-kind: paper | correction | topic | question | other
+kind: paper | correction | topic | question | merge | other
 from: your name or address
 subject: one line
 ---
 
 What you are asking for, and why.
 ```
+
+`merge` is for "these two records are the same paper". Name both ids and say
+which should survive and why — the archive cannot decide that, because the two
+usually hold different halves of one paper.
 
 **Nothing here happens on its own.** A person reads every file and decides;
 there is no category that is approved automatically, however harmless it looks.

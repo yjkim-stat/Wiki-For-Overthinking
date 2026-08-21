@@ -537,6 +537,8 @@ python3 -m pipelines.enrich.synthesis list        # questions spanning more read
 python3 -m pipelines.enrich.lookup list           # narrow questions needing a look outside
 python3 -m pipelines.duplicates                   # concept slugs that may be one entity, read-only
 python3 -m pipelines.digest                       # write what tonight did into archive/daily/
+python3 -m pipelines.enrich.dedupe conflicts      # identifiers two records both claim
+python3 -m pipelines.enrich.dedupe merge <keep> <fold> --dry-run
 python3 -m pipelines.migrate status               # which roots, and what each channel carries
 python3 -m pipelines.serve                        # read-only Q&A on loopback for others on this host
 python3 -m pipelines.requests list                # what people have asked the archive to change
