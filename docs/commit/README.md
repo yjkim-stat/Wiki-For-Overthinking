@@ -121,3 +121,4 @@ reference for everything built before the practice existed.
 | 0100 | [A schedule that leaves the other jobs alone](0100-a-schedule-that-leaves-the-other-jobs-alone.md) | feature | Install the cron entry without disturbing anybody else's |
 | 0101 | [DBLP is off by default](0101-dblp-is-off-by-default.md) | config | The reason a comment gives has to be one that is still true when somebody reads it |
 | 0102 | [A framework that names nobody's deployment](0102-a-framework-that-names-nobodys-deployment.md) | docs | A trigger ID belongs to an account, not to a tree that gets cloned |
+| 0103 | [The proceedings index that brings its own abstracts](0103-the-proceedings-index-that-brings-its-own-abstracts.md) | feature | One request returns the programme with abstracts in it; an event is not only its conference |

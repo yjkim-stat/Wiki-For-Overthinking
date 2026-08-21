@@ -87,7 +87,7 @@ rejected against a narrow archive — that is the filter working.
 ## How it works
 
 ```
-arXiv (API · listing) · OpenReview · Semantic Scholar · DBLP · venue programmes
+arXiv (API · listing) · Semantic Scholar · ACL Anthology · venue programmes · OpenReview · DBLP
                       · curated weekly lists · YouTube · inbox/
                       │
                 collect ─► score ─► deduplicate ─► data/

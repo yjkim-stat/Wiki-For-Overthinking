@@ -21,7 +21,7 @@ from __future__ import annotations
 import os
 from datetime import date
 
-from . import virtual_site
+from . import anthology, virtual_site
 from ..common.config import Config, Topic
 from ..common.http import Client, HTTPError, from_settings
 from ..common.log import get
@@ -404,6 +404,22 @@ def collect(
         else:
             # Last, so a record that already carries an abstract from one of
             # the indexes above keeps it.
+            for paper in found:
+                collected.setdefault(paper.id, paper)
+
+        # The Anthology, on the same once-for-all-topics footing and for the
+        # same reason. It runs after the programme pages because its entries
+        # carry abstracts: `setdefault` keeps whichever record arrived first,
+        # and arriving late with a fuller record would waste it. Anything the
+        # earlier indexes already have keeps what it has; anything they missed
+        # arrives here complete.
+        try:
+            found = anthology.collect(cfg, topics, wanted, since, client, errors)
+        except Exception as exc:  # noqa: BLE001 - one index must not sink the run
+            _LOG.exception("anthology collector raised")
+            if errors is not None:
+                errors.append(f"anthology: {exc}")
+        else:
             for paper in found:
                 collected.setdefault(paper.id, paper)
 

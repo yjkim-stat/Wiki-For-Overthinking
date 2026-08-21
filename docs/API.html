@@ -296,6 +296,7 @@
     <tr><td>Semantic Scholar</td><td><code>api.semanticscholar.org</code></td><td>JSON</td><td>optional key</td><td>1 s</td></tr>
     <tr><td>OpenReview</td><td><code>api2.openreview.net</code></td><td>JSON</td><td>none</td><td>1 s</td></tr>
     <tr><td>DBLP</td><td><code>dblp.org</code></td><td>JSON</td><td>none</td><td>1 s</td></tr>
+    <tr><td>ACL Anthology</td><td><code>aclanthology.org</code></td><td>HTML</td><td>none</td><td>3 s</td></tr>
     <tr><td>Venue programmes</td><td><code>icml.cc</code>, <code>neurips.cc</code>, <code>iclr.cc</code></td><td>HTML</td><td>none</td><td>1 s</td></tr>
     <tr><td>YouTube</td><td><code>youtube.com</code></td><td>Atom XML</td><td>none</td><td>1 s</td></tr>
     <tr><td>PDF fetch</td><td>wherever <code>pdf_url</code> points</td><td>binary</td><td>none</td><td>5 s</td></tr>
@@ -455,6 +456,39 @@ Header: x-api-key: $SEMANTIC_SCHOLAR_API_KEY   ← optional</code></pre>
   title words only and has no abstract field, so records from here arrive
   abstract-less and are queried one venue and one term at a time — at most four
   terms per venue, to keep a run bounded.
+</p>
+
+<h3>ACL Anthology</h3>
+<p class="src">pipelines/collect/anthology.py</p>
+
+<pre><code>GET https://aclanthology.org/events/naacl-2024/</code></pre>
+
+<p>
+  The proceedings index for the <code>*ACL</code> venues, and the only source
+  here that returns <strong>titles, authors and abstracts in a single
+  request</strong>. One venue-year is one page, so a paper is scored on the same
+  evidence a reader would have and nothing needs fetching afterwards — the
+  opposite of the arXiv listing, which can score only a title and then spends a
+  request per match on the abstract it lacks.
+</p>
+
+<p>
+  Two properties of the markup matter. Attributes are served
+  <strong>unquoted</strong> (<code>href=/2024.acl-long.1/</code>), and letters
+  whose case must survive are wrapped mid-word in
+  <code>acl-fixed-case</code> spans — so <code>InsCL:</code> arrives as three
+  elements, and stripping tags to spaces would turn it into
+  <code>I ns CL :</code>.
+</p>
+
+<p>
+  An event is not only its conference: the page lists the main tracks, Findings
+  and every co-located workshop, and NAACL 2024 carries roughly eight hundred
+  workshop papers against 958 of the venue's own. A workshop paper is published
+  at the workshop, so the default keeps the venue's tracks and Findings and
+  <em>names in the log</em> what it left out. A venue takes part by carrying an
+  <code>anthology_key</code>; the identifier yields the DOI directly, as
+  <code>10.18653/v1/&lt;id&gt;</code>.
 </p>
 
 <h3>Conference programme pages</h3>

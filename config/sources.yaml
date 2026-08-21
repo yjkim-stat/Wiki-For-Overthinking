@@ -104,6 +104,28 @@ conferences:
   dblp:
     enabled: false
     api_url: "https://dblp.org/search/publ/api"
+  # The ACL Anthology, for the *ACL venues. One request per venue-year returns
+  # the whole programme *with abstracts already in it*, so a paper is scored on
+  # the same evidence a reader would have and no follow-up fetch is needed.
+  # A venue takes part by carrying an `anthology_key` below.
+  anthology:
+    enabled: true
+    base_url: "https://aclanthology.org"
+    # Years to read when the caller does not pass a date. A venue may pin its
+    # own with `anthology_years`.
+    years: [2026, 2025]
+    # Which volumes count as the venue. Empty means its own tracks plus
+    # Findings -- `acl-long`, `acl-short`, `findings-acl` and so on. An event
+    # page also lists every co-located workshop, and a workshop paper is
+    # published at the workshop rather than at the conference, so those are
+    # opt-in. What is left out is named in the run's log, never dropped
+    # silently. Set e.g. ["acl-long", "findings-acl"] to narrow further.
+    volumes: []
+    # An event page is 4-19 MB and grows each year. This refuses one that has
+    # become absurd rather than parsing it.
+    max_bytes: 33554432
+    min_request_interval_s: 3.0
+
   # The venues' own programme pages, e.g. https://icml.cc/virtual/2026/papers.html.
   # Authoritative on what was accepted, and available the day the programme goes
   # up rather than when an index gets round to it. Only venues carrying a
@@ -168,12 +190,15 @@ conferences:
     - name: ACL
       openreview_prefix: ""
       dblp_key: "ACL"
+      anthology_key: "acl"
     - name: EMNLP
       openreview_prefix: ""
       dblp_key: "EMNLP"
+      anthology_key: "emnlp"
     - name: NAACL
       openreview_prefix: ""
       dblp_key: "NAACL"
+      anthology_key: "naacl"
     - name: COLM
       openreview_prefix: "colmweb.org"
       dblp_key: ""
