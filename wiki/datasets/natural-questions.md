@@ -13,7 +13,7 @@ An open-domain question-answering dataset of real search queries, used in this a
 
 ## Appears in
 
-- [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](../../archive/papers/unknown/arxiv-2608-19535/summary.md) — Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.
+- [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](../../archive/papers/2026/arxiv-2608-19535/summary.md) — Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.
 - [Short Chains, Deep Thoughts: Balancing Reasoning Efficiency and Intra-Segment Capability via Split-Merge Optimization](../../archive/papers/2026/title-0bf980e6919c2982/summary.md) — CoSMo restructures reasoning chains by merging redundant segments and splitting logical gaps, then trains with RL against a segment-count budget rather than a token budget.
 
 <!-- auto:end -->

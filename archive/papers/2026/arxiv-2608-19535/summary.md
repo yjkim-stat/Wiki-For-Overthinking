@@ -4,10 +4,10 @@
 
 - **Authors**: Zlatan Feric, Amir Taherin, Yanzhi Wang, David Kaeli
 - **Venue**: cs.AI
-- **Published**: unknown
+- **Published**: 2026-08-20
 - **Source**: arxiv
 - **Link**: <https://arxiv.org/abs/2608.19535>
-- **PDF**: <https://arxiv.org/pdf/2608.19535>
+- **PDF**: <https://arxiv.org/pdf/2608.19535v1>
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 

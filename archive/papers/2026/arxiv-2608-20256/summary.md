@@ -4,10 +4,10 @@
 
 - **Authors**: Gijs Kassenaar, Zhao Yang, Vincent François-Lavet
 - **Venue**: cs.AI
-- **Published**: unknown
+- **Published**: 2026-08-20
 - **Source**: arxiv
 - **Link**: <https://arxiv.org/abs/2608.20256>
-- **PDF**: <https://arxiv.org/pdf/2608.20256>
+- **PDF**: <https://arxiv.org/pdf/2608.20256v1>
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.73
 

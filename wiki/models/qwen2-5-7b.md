@@ -14,7 +14,7 @@ Alibaba's 7B Qwen2.5 checkpoint, the most frequently used mid-scale backbone in 
 ## Appears in
 
 - [Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth](../../archive/papers/2026/arxiv-2608-18222/summary.md) — Shows that whether a recurrent-depth reasoner is helped or harmed by extra test-time iterations is predicted by a measurable dynamical property of its trained update map (settling, marginal, or drifting), proves a sufficient condition for the decoded answer to be frozen under further iteration, and demonstrates that a single terminal fixed-point loss term moves the regime and the depth behaviour together in both directions.
-- [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](../../archive/papers/unknown/arxiv-2608-19535/summary.md) — Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.
+- [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](../../archive/papers/2026/arxiv-2608-19535/summary.md) — Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.
 
 <!-- auto:end -->
 

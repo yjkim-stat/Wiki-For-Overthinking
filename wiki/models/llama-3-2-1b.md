@@ -14,7 +14,7 @@ Meta's 1B-parameter Llama 3.2 checkpoint, used in this archive as the smallest b
 ## Appears in
 
 - [Penelope: Localized Latent Recurrence for Efficient Structured Reasoning](../../archive/papers/2026/arxiv-2607-25915/summary.md) — Penelope confines latent reasoning recurrence to a five-layer slice of a decoder-only Transformer, refining a fixed-size boundary memory K times instead of re-running the whole decoder or emitting a chain-of-thought trace.
-- [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](../../archive/papers/unknown/arxiv-2608-19535/summary.md) — Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.
+- [From Retrieved Context to Runtime Control: Adaptive Compression for Edge-based RAG](../../archive/papers/2026/arxiv-2608-19535/summary.md) — Measures retrieval-augmented generation stage by stage on an edge SoC and shows that context compression pays only inside a bounded rate window, because the compressor runs on the same chip and its own latency and energy must be subtracted from the savings.
 
 <!-- auto:end -->
 

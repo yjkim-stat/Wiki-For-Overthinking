@@ -4,10 +4,10 @@
 
 - **Authors**: Yiting Qu, Ziqing Yang, Chi Cui, Ye Leng, Junjie Chu, Yang Zhang
 - **Venue**: cs.CR
-- **Published**: unknown
+- **Published**: 2026-08-20
 - **Source**: arxiv
 - **Link**: <https://arxiv.org/abs/2608.20055>
-- **PDF**: <https://arxiv.org/pdf/2608.20055>
+- **PDF**: <https://arxiv.org/pdf/2608.20055v1>
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.57
 

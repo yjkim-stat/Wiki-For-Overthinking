@@ -12,7 +12,7 @@ A corpus of reasoning questions with traces, used in this archive in two unrelat
 
 ## Appears in
 
-- [EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models](../../archive/papers/unknown/arxiv-2608-20055/summary.md) — A security study showing that the hidden chain-of-thought of a black-box reasoning model can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must be retained across tool calls within a turn.
+- [EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models](../../archive/papers/2026/arxiv-2608-20055/summary.md) — A security study showing that the hidden chain-of-thought of a black-box reasoning model can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must be retained across tool calls within a turn.
 - [Mode-conditioning unlocks superior test-time compute scaling](../../archive/papers/2026/title-8d295a810b81e7a4/summary.md) — Fixes diversity collapse in parallel test-time sampling for reasoning models by explicitly conditioning generation on distinct reasoning modes, either given as labels or discovered by clustering.
 
 <!-- auto:end -->
