@@ -13,6 +13,8 @@ analysis survives indefinitely.
 
 from __future__ import annotations
 
+import re
+
 from pathlib import Path
 
 from ..common.config import Config
@@ -62,9 +64,58 @@ def _preserved_tail(path: Path, end_marker: str) -> str:
     return text[index + len(end_marker) :].lstrip("\n") or DEFAULT_MANUAL_SECTION
 
 
-def _write_note(cfg: Config, path: Path, title: str, auto_body: str) -> Path:
+ANALYSIS_SOURCES = re.compile(r"<!--\s*analysis-sources:\s*(\d+)\s*-->")
+
+
+def _outgrown_notice(tail: str, sources_now: int) -> list[str]:
+    """A warning about the prose below, placed where the prose is.
+
+    Analysis under `auto:end` can declare what it was written against, and
+    `render` reports when the evidence has passed it. A log line is a poor place
+    for that: the person who needs it is whoever is *reading the note*, and they
+    will never see the run that mentioned it.
+
+    So it is said here, at the foot of the generated block — immediately above
+    the prose it is about, and inside the only part of the file this code is
+    allowed to write. The prose itself is not touched, reworded or marked up.
+    Nothing can revise it but its author.
+    """
+    match = ANALYSIS_SOURCES.search(tail)
+    if match is None:
+        return []
+    written_for = int(match.group(1))
+    if sources_now == written_for:
+        return []
+    if sources_now > written_for:
+        said = (
+            f"was written against {written_for} source(s); there are now "
+            f"{sources_now}"
+        )
+    else:
+        # The other direction, which `render.stale_analysis` also reports since
+        # note 0090: either the author miscounted, or evidence the prose relies
+        # on has gone. The second is the worse one and looks identical here.
+        said = (
+            f"claims {written_for} source(s); this note now holds "
+            f"{sources_now}"
+        )
+    return [
+        "",
+        f"> **The analysis below {said}.** It may still be right — nothing here "
+        "has read it. Revise it, or update its `analysis-sources` marker to say "
+        "it was checked.",
+    ]
+
+
+def _write_note(
+    cfg: Config, path: Path, title: str, auto_body: str, sources_now: int = 0
+) -> Path:
     begin, end = _markers(cfg)
     tail = _preserved_tail(path, end)
+    if sources_now:
+        auto_body = auto_body.rstrip() + "\n".join(
+            _outgrown_notice(tail, sources_now)
+        )
     template = load_template(cfg.layout.template_dirs, "wiki", "note.md")
     content = render_template(
         template,
@@ -175,7 +226,9 @@ def write_concept_note(
     if checked:
         body += ["", "## Checked against", ""] + _reference_lines(checked)
 
-    return _write_note(cfg, page, concept.name, "\n".join(body))
+    return _write_note(
+        cfg, page, concept.name, "\n".join(body), len(concept.evidence)
+    )
 
 
 def _references_for(settled: list, store: RecordStore) -> list:

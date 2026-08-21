@@ -279,6 +279,13 @@ ending with a declared source count:
 Update the number when you revise the section. Prose that does not depend on the
 evidence count should leave the marker out.
 
+**A section that has been outgrown says so in its own note**, in a line at the
+foot of the generated block, immediately above the prose it is about. The prose
+is never touched — only its author revises it — but a reader who arrives at the
+note meets the caveat rather than having to have seen the render that mentioned
+it. Updating the marker clears the line, and saying "checked, still right" is a
+real answer.
+
 **Record what gets settled.** When a conversation establishes something — a
 decision the group takes, or a judgement reached across several sources — write
 it down as it happens:
