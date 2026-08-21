@@ -168,6 +168,14 @@ conferences:
       dblp_key: "ICML"
       virtual_host: "icml.cc"
       virtual_years: [2026, 2025]
+    # ACL has no OpenReview instance and no confs.cc virtual programme, so it
+    # is reached through DBLP and Semantic Scholar only. The ACL Anthology URL
+    # under `abstracts` above is what fills in the abstract DBLP does not
+    # carry, which matters more here than for the other venues: without it an
+    # ACL paper is scored on its title alone.
+    - name: ACL
+      openreview_prefix: ""
+      dblp_key: "ACL"
     - name: AISTATS
       openreview_prefix: ""
       dblp_key: "AISTATS"
