@@ -1,5 +1,8 @@
 # A keyword that contains another scores the same words twice
 
+**Status:** solved 2026-08-21 by **option 4** — see [Resolution](#resolution) at
+the foot of this file and [note 0098](../commit/0098-a-redundancy-the-author-has-to-see.md).
+
 Four tracked keyword pairs have one term as a substring of the other, so a
 single occurrence in a title matches both and contributes twice to the score.
 
@@ -74,3 +77,41 @@ not. This is that gap, with four live instances.
 decision about whether an intentional pair should be expressible — an
 `allow_overlap` flag, or simply a comment in the topic file — before it can be
 written as a hard failure rather than a warning.
+
+---
+
+## Resolution
+
+**Option 4, as this document leaned.** `config.overlapping_keywords` reports the
+pairs, `run_daily` says them before it collects, and a test pins the set found in
+`config/topics/`. Commit `feat(config): report keyword pairs that score the same
+words twice`, note [0098](../commit/0098-a-redundancy-the-author-has-to-see.md).
+
+The scorer is untouched, which is option 3 rejected for the reason given here:
+span bookkeeping would go into a function whose whole value is that it can be
+read in one sitting.
+
+**The four pairs are recorded, not resolved.** Which term to drop is an
+editorial decision about what a topic tracks — the short one has broader recall,
+the long one is presumably there to weight a specific phrase higher — and
+`CLAUDE.md` reserves that decision. The test carries the four as a baseline, so a
+**fifth cannot appear without failing the suite**, and removing one is part of
+the same edit as the topic file.
+
+**The `allow_overlap` question this document raised did not need answering.** It
+was framed as a prerequisite for writing the check as a hard failure rather than
+a warning. A pinned baseline is a hard failure that needs no such flag: an
+intentional pair is expressed by being in the list, and the comment above it says
+it is unresolved rather than approved. If the group later wants a pair marked
+intended in the topic file itself, that is a smaller change from here.
+
+**It uses the scorer's own matcher, not a substring test.** The reproduce script
+in this document uses `a in b`, which agrees on all four live pairs and would
+also flag `ate` inside `state` — a pair the scorer never double-counts, because
+`common/text.py` matches on word boundaries. A check disagreeing with the scorer
+about what an occurrence is would report pairs that cost nothing and miss pairs
+that do.
+
+This closes the gap [note 0017](../commit/0017-keywords-match-regular-plurals.md)
+named when it made keywords match plurals: *"a redundancy check belongs in the
+test suite or a config check; it is not there yet."*

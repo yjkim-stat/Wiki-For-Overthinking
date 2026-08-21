@@ -135,6 +135,15 @@ def run(
         )
         return {"papers": 0, "videos": 0, "queued": 0, "errors": ["no topics defined"]}
 
+    # Said at the start of a run, where somebody who has just edited a topic
+    # file will see it. A pair like this inflates a score without ever turning a
+    # rejection into an acceptance, so nothing downstream will complain.
+    for slug, short, long in config_mod.overlapping_keywords(topics):
+        _LOG.warning(
+            "topic '%s': %r occurs inside %r, so one match scores twice",
+            slug, short, long,
+        )
+
     sources = sources or ["arxiv", "conferences", "curated", "youtube", "local", "github"]
     today = date.today()
     since = today - timedelta(days=max(1, days))
