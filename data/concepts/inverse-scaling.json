@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "inverse scaling"
+  ],
   "definition": "A finding, or a task designed to produce one, where a model performs worse as it is given more of some resource -- more parameters, or more test-time reasoning -- rather than better. The archive holds two distinct sources under this name: 'Inverse Scaling in Test-Time Compute' constructs tasks where letting large reasoning models think longer degrades accuracy or safety-relevant behavior; the original 'Inverse Scaling: When Bigger Isn't Better' (Inverse Scaling Prize) instead reports 11 tasks where accuracy declines with model parameter count, an unrelated axis of scaling.",
   "evidence": [
+    {
+      "id": "arxiv:2608.21840",
+      "kind": "paper",
+      "note": "A controlled synthetic study finding that mixing stable spectral state-space operators through a learned router fails to beat a single-expert baseline on regime-switching time series, with more experts making it worse, routing collapsing to one expert, and apparent MSE gains on chaotic data coming from variance suppression that destroys the attractor.",
+      "title": "More Experts, Worse Dynamics: Inverse Scaling and Spectral Bias in Mixture-of-Experts State-Space Models"
+    },
     {
       "id": "local:018eb3ee241c1a69",
       "kind": "paper",
@@ -17,9 +25,23 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:24:12Z",
-  "name": "inverse scaling",
+  "last_seen": "2026-08-26T02:14:28Z",
+  "name": "Inverse Scaling",
   "related": [
+    "mixture-of-experts",
+    "routing-collapse",
+    "expert-specialization",
+    "spectral-state-space-models",
+    "operator-interpolation",
+    "phase-space-reconstruction",
+    "metric-fidelity-mismatch",
+    "gated-multi-stability-gms",
+    "spectral-state-space-model",
+    "soft-routing",
+    "oracle-routing-ablation",
+    "frozen-expert-ablation",
+    "delay-coordinate-embedding",
+    "synthetic-three-regime-sequence-mackey-glass-chaotic-tau-17-stable-oscillatory-n",
     "test-time-compute-scaling",
     "overthinking",
     "controlled-vs-natural-overthinking",

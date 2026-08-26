@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ChainPrune merges semantically equivalent steps from 16 sampled reasoning paths into a tree, picks Pareto-dominant short paths as DPO preference data, and fine-tunes with an added NLL term, cutting tokens 28.1% and reasoning steps 26.8% on two R1-distilled models without losing accuracy.",
+        "title": "ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
+        "title": "How Far Are We from Optimal Reasoning Efficiency?",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-26T02:18:13Z",
+  "created_at": "2026-08-26T02:14:29Z",
+  "instructions": "Write the wiki definition for 'SimPO'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "SimPO",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "SimPO",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "SimPO is a preference-optimisation objective used in the archive as an alternative to DPO when training reasoning models toward shorter correct traces. Its relevance here is a documented failure mode rather than its formulation: ChainPrune reports that in the short-chosen setting, where the preferred and rejected responses are sampled from the same reference model and differ mainly in length, the narrow distribution and small edit distance between them lead margin-based objectives including SimPO and DPO into reward synchronization collapse -- rather than raising the preferred response relative to the rejected one, the model lowers the probability of both, degrading performance across benchmarks. ChainPrune attributes this to gradient entanglement and counters it with an added negative-log-likelihood term, which on identical training data lifts DAST's AIME24 accuracy from 0.5375 under SimPO to 0.5833.",
+    "kind": "method",
+    "related": [
+      "Direct Preference Optimization",
+      "Gradient Entanglement",
+      "Reward Synchronization Collapse"
+    ]
+  },
+  "task_id": "concept__simpo",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

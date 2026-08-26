@@ -9,7 +9,7 @@ A proprietary Anthropic reasoning model, present in this archive only as an eval
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [deepseek-v4-pro](deepseek-v4-pro.md), [GLM-5.2](glm-5-2.md), [Omni-MATH](../datasets/omni-math.md), [reasoning effort](../concepts/reasoning-effort.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md)
+**Related**: [deepseek-v4-pro](deepseek-v4-pro.md), [GLM-5.2](glm-5-2.md), [GPT-5.5](gpt-5-5.md), [Omni-MATH](../datasets/omni-math.md), [reasoning effort](../concepts/reasoning-effort.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md)
 
 ## Appears in
 

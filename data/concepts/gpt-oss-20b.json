@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "GPT-OSS"
+    "GPT-OSS",
+    "gpt-oss-20b"
   ],
   "definition": "GPT-OSS-20B is a language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. ParaTempo uses it, with Qwen3.5-35B-A3B, as a backbone for training-free parallel reasoning: on GPT-OSS-20B mean latency falls 32.2% (129.7s to 88.0s) and tokens 18.1%, but accuracy falls from self-consistency's 71.8% to 68.0%, and on HMMT26 the model is the paper's worst cell at 5.3 points below SC@16 -- a larger efficiency gain and a larger accuracy cost than on the Qwen backbone. FROST prunes attention-marked sentence-level reasoning outliers from chains of thought produced by GPT-OSS-20B and Phi-4-Reasoning, reporting a 69.68% average token reduction and 26.70% average accuracy gain over the base model across GSM8K, MATH500, AIME24 and Minerva. Both treat it as an off-the-shelf reasoning model whose chain of thought is long enough to be worth cutting; neither reports its architecture or training.",
   "evidence": [
@@ -11,6 +12,12 @@
       "title": "ParaTempo: Efficient Parallel Reasoning via Temporal Confidence"
     },
     {
+      "id": "arxiv:2608.22191",
+      "kind": "paper",
+      "note": "Risa reads the MoE router's expert-selection trace as a behavioral fingerprint of what a software agent is doing, using it to push sibling actions away from recently repeated computation during exploration and toward peer agreement once a patch is being written, then to arbitrate among completed attempts without an external judge or test execution.",
+      "title": "Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents"
+    },
+    {
       "id": "title:e2cdfd631cb4eda0",
       "kind": "paper",
       "note": "FROST uses attention weights to identify and prune sentence-level 'reasoning outliers' from a reasoning model's chain of thought, reporting an average 69.68% token reduction and 26.70% accuracy gain over the base model on four maths benchmarks.",
@@ -19,7 +26,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "method",
-  "last_seen": "2026-08-21T03:00:11Z",
+  "last_seen": "2026-08-26T02:14:28Z",
   "name": "GPT-OSS-20B",
   "related": [
     "temporal-confidence",
@@ -47,6 +54,24 @@
     "hmmt-november-2025",
     "hmmt-february-2026",
     "gpqa-diamond",
+    "test-time-scaling",
+    "moe-routing-traces",
+    "behavioral-role-fingerprinting",
+    "stagnation-detection",
+    "repetition-score",
+    "decision-tokens",
+    "token-surprisal",
+    "best-of-n-selection",
+    "exploration-commitment-tradeoff",
+    "risa-routing-informed-steering-and-arbitration",
+    "weighted-jaccard-routing-similarity",
+    "role-centroid-classification",
+    "decision-token-agreement-arbitration",
+    "text-consensus-jaccard-over-diff-line-pairs",
+    "uniform-sampling-baseline",
+    "swe-bench-verified-496-498-eligible-tasks-per-condition-500-task-full-benchmark",
+    "gpt-oss-120b",
+    "qwen3-6-35b-a3b",
     "reasoning-outliers",
     "efficient-reasoning",
     "chain-of-thought-pruning",

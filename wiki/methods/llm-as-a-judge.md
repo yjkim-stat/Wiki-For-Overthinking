@@ -7,14 +7,15 @@ In both archived sources an LLM is prompted to score or label another model's ou
 - **Kind**: method
 - **Also called**: LLM-as-a-judge
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [Overthinking](../concepts/overthinking.md), [process reward model](process-reward-model.md), [Self-Consistency](self-consistency.md), [vLLM](vllm.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAST](dast.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [process reward model](process-reward-model.md), [Reasoning Step Segmentation](reasoning-step-segmentation.md), [Redundant Reasoning Steps](../concepts/redundant-reasoning-steps.md), [Self-Consistency](self-consistency.md), [SimPO](simpo.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [vLLM](vllm.md)
 
 ## Appears in
 
 - [Reasoning Jury: Multi-Model Consensus for Evaluating Reasoning Traces](../../archive/papers/2026/arxiv-2608-12585/summary.md) — Replaces the single LLM judge of a long reasoning trace with a panel of jurors that first judge independently and then reach consensus through a blind moderator's deliberation or a consolidation pass, letting cheap open-weight models beat frontier single judges at step-level defect localization for a fraction of the dollar cost.
 - [BiasTrace: Linking Reasoning Behaviours to Biased Outputs in LLMs](../../archive/papers/2026/arxiv-2608-14161/summary.md) — Introduces BiasTrace, a six-label annotation scheme for reasoning behaviours in bias-sensitive traces, and finds that overthinking (repeated second-guessing or revisiting the same options more than three times) is the strongest behavioural predictor of stereotype-aligned answers on BBQ, then uses the scheme to filter samples at inference time.
+- [ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning](../../archive/papers/2026/arxiv-2608-21860/summary.md) — ChainPrune merges semantically equivalent steps from 16 sampled reasoning paths into a tree, picks Pareto-dominant short paths as DPO preference data, and fine-tunes with an added NLL term, cutting tokens 28.1% and reasoning steps 26.8% on two R1-distilled models without losing accuracy.
 
 <!-- auto:end -->
 

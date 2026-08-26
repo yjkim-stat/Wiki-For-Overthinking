@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ChainPrune merges semantically equivalent steps from 16 sampled reasoning paths into a tree, picks Pareto-dominant short paths as DPO preference data, and fine-tunes with an added NLL term, cutting tokens 28.1% and reasoning steps 26.8% on two R1-distilled models without losing accuracy.",
+        "title": "ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
+        "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-26T02:18:12Z",
+  "created_at": "2026-08-26T02:14:29Z",
+  "instructions": "Write the wiki definition for 'Redundant Reasoning Steps'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Redundant Reasoning Steps",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Redundant Reasoning Steps",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "redundancy",
+      "reasoning redundancy"
+    ],
+    "definition": "Redundant reasoning steps are steps in a chain of thought that repeat work already done or verify an already-settled result, counted as steps rather than as tokens. The archive's sources treat this as a quantity distinct from length: ChainPrune has three LLM judges score MATH500 traces on faulty reasoning, invalid reflection and redundant steps separately from token count, finding 132 redundant steps for the base DeepSeek-R1-Distill-Qwen-7B against 45 under joint token-and-step optimisation, a 65.9% reduction, while noting that rewarding token count alone can cut tokens and leave step-level redundancy intact. Self-Braking Tuning attacks the same quantity from inside the model, training a large reasoning model to detect and stop its own redundant steps and reporting up to 60% token savings at comparable accuracy on maths benchmarks. Both therefore treat redundancy as something a model can in principle recognise, and neither identifies it with emitting more tokens.",
+    "kind": "concept",
+    "related": [
+      "Pseudo-Conciseness",
+      "Chain Length",
+      "Process Efficiency"
+    ]
+  },
+  "task_id": "concept__redundant-reasoning-steps",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

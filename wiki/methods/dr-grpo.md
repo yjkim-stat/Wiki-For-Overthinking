@@ -9,7 +9,7 @@ The archive's sources name Dr. GRPO only as a GRPO variant used as a training ba
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AutoThink](autothink.md), [CommonsenseQA](../datasets/commonsenseqa.md), [DAPO](dapo.md), [DeepSeek-R1-Distill-Qwen-1.5B](deepseek-r1-distill-qwen-1-5b.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Length Penalty](../concepts/length-penalty.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Reasoning Collapse](../concepts/reasoning-collapse.md), [RLVR](rlvr.md), [Thinkless](thinkless.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AutoThink](autothink.md), [CommonsenseQA](../datasets/commonsenseqa.md), [DAPO](dapo.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [Length Penalty](../concepts/length-penalty.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Reasoning Collapse](../concepts/reasoning-collapse.md), [RLVR](rlvr.md), [routing collapse](../concepts/routing-collapse.md), [Thinkless](thinkless.md)
 
 ## Appears in
 

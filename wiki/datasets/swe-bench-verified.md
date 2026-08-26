@@ -8,7 +8,7 @@ A curated, human-verified subset of SWE-bench (real GitHub issue-resolution task
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [deepseek-v4-flash](../models/deepseek-v4-flash.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GAIA](gaia.md), [GPQA-Diamond](gpqa-diamond.md), [HMMT 2025](hmmt-2025.md), [LiveCodeBench-v6](livecodebench-v6.md), [Overthinking](../concepts/overthinking.md), [Pass@1](../concepts/pass-1.md), [pass@K](../concepts/pass-k.md), [reasoning effort](../concepts/reasoning-effort.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md)
+**Related**: [best-of-n selection](../methods/best-of-n-selection.md), [deepseek-v4-flash](../models/deepseek-v4-flash.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GAIA](gaia.md), [GPQA-Diamond](gpqa-diamond.md), [HMMT 2025](hmmt-2025.md), [LiveCodeBench-v6](livecodebench-v6.md), [Overthinking](../concepts/overthinking.md), [Pass@1](../concepts/pass-1.md), [pass@K](../concepts/pass-k.md), [reasoning effort](../concepts/reasoning-effort.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md)
 
 ## Appears in
 

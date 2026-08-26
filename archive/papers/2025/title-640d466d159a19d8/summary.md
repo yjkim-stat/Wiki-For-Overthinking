@@ -44,7 +44,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), semantic efficiency, information bias, information gain, entropy-based stopping
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), semantic efficiency, information bias, [information gain](../../../../wiki/concepts/information-gain.md), entropy-based stopping
 - **Methods**: InfoBias metric, InfoGain metric, Adaptive Think (entropy-based adaptive stopping)
 - **Datasets**: six benchmark tasks spanning diverse reasoning types and difficulty levels (unnamed in the abstract)
 

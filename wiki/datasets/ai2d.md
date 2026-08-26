@@ -8,7 +8,7 @@ The archive cannot define AI2D from its own sources: both papers that mention it
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [GQA](gqa.md), [Latent reasoning](../concepts/latent-reasoning.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [MMStar](mmstar.md), [OlympiadBench](olympiadbench.md)
+**Related**: [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [GQA](gqa.md), [Latent reasoning](../concepts/latent-reasoning.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [MMStar](mmstar.md), [OlympiadBench](olympiadbench.md)
 
 ## Appears in
 

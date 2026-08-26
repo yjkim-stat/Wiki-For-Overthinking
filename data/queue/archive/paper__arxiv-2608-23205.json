@@ -1,0 +1,134 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-23205.pdf"
+  },
+  "completed_at": "2026-08-26T02:10:15Z",
+  "created_at": "2026-08-26T02:05:32Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.23205",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models (LRMs) have revolutionized reasoning in LLMs, and the increasing public availability of reasoning traces creates valuable opportunities to study model behavior not only at the surface level but also at the granularity of individual reasoning steps. However, understanding the types of thinking employed during reasoning - which offers critical insights into models' reasoning patterns and enables actionable applications - remains underexplored. To address this gap, we introduce a framework for automatic annotation of reasoning steps through the lens of Bloom's Taxonomy, which classifies thinking into six cognitive levels, such as Remembering, Applying and Evaluating. Using this framework, we perform a large-scale analysis across models and datasets, revealing both similarities and differences in thinking patterns across models and tasks. Moreover, we demonstrate that thinking-type information derived from reasoning traces correlates with correctness, paving the way for improved reasoning. Our findings establish a fine-grained framework for analyzing thinking patterns in LRMs and provide actionable insights for enhancing reasoning quality.",
+    "authors": [
+      "Maria-Eleni Zoumpoulidi",
+      "Georgios Paraskevopoulos",
+      "Alexandros Potamianos"
+    ],
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.23205v1",
+    "published": "2026-08-24",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy",
+    "url": "https://arxiv.org/abs/2608.23205",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "Overthinking",
+      "Reasoning Trace Analysis",
+      "Bloom's Taxonomy",
+      "Cognitive Profiling",
+      "Step-Level Annotation",
+      "Reasoning Step Segmentation",
+      "Transition Matrix Features",
+      "Internal vs Output Reasoning",
+      "Back-Loaded Verification",
+      "LLM-as-Annotator"
+    ],
+    "contributions": [
+      "An automatic pipeline that segments reasoning traces into cognitive steps and labels each with a Bloom's Taxonomy level, validated against two human annotators at Cohen's Kappa 0.917 and 0.913.",
+      "A cross-model comparison showing Applying dominates mathematical reasoning (26.9%-44.2%) while Creating is essentially absent (<1.0%) in all seven models.",
+      "A quantified contrast between internal reasoning traces and final output CoTs: Evaluating falls from 18.8% to 5.4% and outputs compress into recall plus execution.",
+      "Evidence that cognitive composition shifts with task difficulty and domain, while back-loaded verification persists across all of them.",
+      "A correctness model over Bloom-level proportions and transitions in which total token count is the single strongest predictor of incorrectness and evaluating<->analyzing oscillation is the strongest structural negative."
+    ],
+    "datasets": [
+      "GSM8K (1,319)",
+      "GSM-hard (1,319)",
+      "MATH500 (500)",
+      "BBH Formal Fallacies (250)",
+      "BBH Hyperbaton (250)"
+    ],
+    "limitations": "Stated: the work analyses structural patterns but does not enforce or shape them to improve reasoning; the task set could be broader. Noticed by the reader: (a) all correctness findings are correlational on a balanced observational set -- nothing intervenes on trace length or on transition structure, so 'longer traces predict incorrectness' is compatible with hard problems producing both; (b) the headline AUC gain is 0.676 vs 0.613 on a balanced task where chance is 0.500, so both models are weak and the structural features add about 0.063 AUC while accuracy moves 0.008 and F1 0.001 -- the framework's predictive value is much smaller in the operating-point metrics than the AUC comparison suggests; (c) the labels come from a single LLM annotator, and the Kappa validation covers labelling only, on 100 samples, with segmentation checked qualitatively on 50 samples by one author, so segmentation error is unquantified even though every downstream proportion and transition depends on where the boundaries fall; (d) Bloom's Taxonomy was designed for educational objectives, and its transfer to model reasoning steps is assumed rather than argued; (e) the main analysis is three math datasets plus 250 samples each of two BBH tasks; (f) provider default settings differ across models -- Phi-4-Reasoning runs with a detailed system prompt the others do not have, which is a plausible confound for its outlying Remembering share.",
+    "method": "A three-stage pipeline. (1) Zero-shot CoT generation, storing internal reasoning traces and final responses separately, using each provider's default settings. (2) Annotation by Llama-3.3-70B-Instruct, prompted to segment a trace into discrete cognitive steps, assign a Bloom level (Remembering, Understanding, Applying, Analyzing, Evaluating, Creating) and justify the label; LLM segmentation is chosen over sentence-level splitting because one cognitive function can span several sentences. (3) Analysis of level shares, temporal position within the trace, and level-to-level transitions. Reliability: two annotators independently labelled 100 samples (1,633 steps) drawn uniformly across all models and datasets; Cohen's Kappa is 0.8928 between the humans, 0.9173 and 0.9132 between the LLM and each human. Segmentation quality was checked only qualitatively, on 50 samples by one author. For the correctness study, each model x dataset cell is balanced by correctness (9,132 samples total) and an L1-regularised logistic regression is fitted on 43 standardised features -- total token count, six Bloom-level token proportions, and the flattened 6x6 transition matrix normalised by transition count -- evaluated by nested cross-validation (5-fold outer, 3-fold inner).",
+    "methods": [
+      "Bloom's Taxonomy annotation pipeline",
+      "LLM-based trace segmentation",
+      "L1-regularised logistic regression",
+      "Nested cross-validation",
+      "Cohen's Kappa agreement"
+    ],
+    "models": [
+      "DeepSeek-R1",
+      "DeepSeek-R1-Distill-Llama-8B",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "Qwen3-30B-A3B-Thinking-2507",
+      "Qwen3-4B-Thinking-2507",
+      "Phi-4-Reasoning",
+      "Llama-3.3-70B-Instruct"
+    ],
+    "one_liner": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
+    "problem": "Step-level analyses of reasoning traces have asked what process occurs at each step (Schoenfeld episodes, taxonomies of reasoning moves). The complementary question -- what type of thinking, or cognitive function, a step performs -- has not been operationalised, so there is no vocabulary for saying how a model's deliberation is composed rather than merely how long it is.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Gives the trace-based measurement family a structural vocabulary and, more usefully, a calibration of how much length alone is worth. On a correctness-balanced set of 9,132 traces, token count alone predicts correctness at AUC 0.613 and is the single strongest feature in the full model -- negatively signed. Adding six Bloom proportions and a 36-entry transition matrix moves AUC to 0.676 but accuracy only 0.623 -> 0.631. So the archive can say from this that length is the dominant readable signal in a trace and that structure adds a real but small amount, on this task and this operationalisation. The negative-coefficient pattern is a candidate structural signature for the wasted-loop case the archive records: evaluating->analyzing and analyzing->evaluating both predict incorrectness, i.e. traces that oscillate between assessing and decomposing without converging -- which is what a self-verification loop looks like at the level of cognitive function rather than of tokens. The internal-versus-output contrast (Evaluating 18.8% -> 5.4%) also bears on which artefact an intensity metric should be computed over: the deliberation and the emitted solution have different compositions, so a metric read off the output CoT is not measuring the same object as one read off the thinking trace. All of it is correlational -- no intervention on length is run."
+    },
+    "results": "Level coverage across seven models (internal traces only): Applying is the largest or near-largest share everywhere, 26.9%-44.2%; Creating is below 1.0% in every model. Phi-4-Reasoning is the outlier, with Remembering at 28.4% against 9.0%-13.5% for the others, and the lowest Applying at 26.9%. Internal traces versus output CoTs, pooled: thinking traces spread across Applying 33.9%, Understanding 21.0%, Evaluating 18.8%, Analyzing 12.7%; outputs collapse to Remembering 27.8% and Applying 44.9%, with Evaluating falling 18.8% -> 5.4%. Across difficulty, the Applying plateau is ~0.47 on GSM8K, ~0.40 on GSM-hard, and decays most steeply on MATH500, where Analyzing instead stays elevated at ~0.18-0.20. Across domains, BBH Formal Fallacies is Analyzing- and Understanding-heavy while mathematics is Applying-heavy; back-loaded Evaluating is common to all. Correctness model: total token count carries the largest coefficient of any feature and it is negative (-0.4373), so longer traces predict incorrectness more strongly than any structural feature predicts correctness. The strongest positive coefficients are the transitions applying->evaluating (+0.1769) and remembering->understanding (+0.1290); the negative side is dominated by evaluating<->analyzing oscillation (evaluating->analyzing -0.1271, analyzing->evaluating -0.1236). The full 43-feature model reaches AUC 0.676 +/- 0.012 against 0.613 +/- 0.008 for a length-only baseline, with much smaller gains in accuracy (0.631 vs 0.623) and F1 (0.667 vs 0.666).",
+    "tags": [
+      "overthinking",
+      "reasoning traces",
+      "bloom taxonomy",
+      "step-level annotation",
+      "cognitive profiling",
+      "correctness prediction",
+      "trace structure",
+      "verification"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-23205",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

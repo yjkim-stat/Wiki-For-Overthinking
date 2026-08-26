@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
+        "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Risa reads the MoE router's expert-selection trace as a behavioral fingerprint of what a software agent is doing, using it to push sibling actions away from recently repeated computation during exploration and toward peer agreement once a patch is being written, then to arbitrate among completed attempts without an external judge or test execution.",
+        "title": "Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-26T02:18:13Z",
+  "created_at": "2026-08-26T02:14:29Z",
+  "instructions": "Write the wiki definition for 'best-of-n selection'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "best-of-n selection",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "best-of-n selection",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "best-of-N",
+      "BoN"
+    ],
+    "definition": "Best-of-N selection samples several complete attempts at a problem and picks one to submit, so its whole difficulty is the choosing rule when there is no verifier and no canonical answer to match. The archive's sources are both about that rule rather than about the sampling. Consilience picks the rollout whose confidence starts low and ends high, introduced to fix a failure mode where maximising confidence alone favours confidently wrong answers on hard problems. Risa selects among software-agent patches by agreement of their MoE routing traces at informative positions, matching text-consensus selection on SWE-bench Verified without any answer-string matching (48.2% against 48.0% macro-average on gpt-oss; exact McNemar p = 1.000 against text consensus on Qwen3.6). Risa also marks the headroom the rule leaves: its four-attempt oracle reaches 60.9% against 48.3% for the best selector, so most of the complementary coverage in a pool goes unselected.",
+    "kind": "method",
+    "related": [
+      "Self-Consistency",
+      "Verifier-Free Selection",
+      "Test-Time Scaling"
+    ]
+  },
+  "task_id": "concept__best-of-n-selection",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

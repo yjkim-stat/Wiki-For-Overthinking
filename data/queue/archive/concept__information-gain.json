@@ -1,0 +1,59 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ParallelWorld is a verifier-guided tree search over simulated future observations for embodied reasoning: from a restorable simulator state it expands several candidate camera and physical actions in parallel, prunes branches with a verifier agent under a branch-width schedule, and answers from the top-ranked root-to-leaf route.",
+        "title": "ParallelWorld: Test-Time Scaling for Embodied Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Uses information-theoretic metrics (InfoBias, InfoGain) to show that longer reasoning chains in LRMs grow less informative and more divergent from an ideal path, and introduces an entropy-based stopping rule that cuts token usage while preserving accuracy.",
+        "title": "Think or Not? Exploring Thinking Efficiency in Large Reasoning Models via an Information-Theoretic Lens",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-26T02:18:13Z",
+  "created_at": "2026-08-26T02:14:29Z",
+  "instructions": "Write the wiki definition for 'Information Gain'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Information Gain",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Information Gain",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "InfoGain"
+    ],
+    "definition": "Information gain names how much a further step of computation adds to what is already known, and the archive's two sources use it at very different levels of rigour. Think or Not? defines it as an information-theoretic quantity, InfoGain, paired with InfoBias, and uses it to show that longer reasoning chains grow progressively less informative and diverge from an ideal path, then derives an entropy-based stopping rule that cuts tokens while preserving accuracy. ParallelWorld uses the phrase loosely for what its verifier agent is asked to prefer when pruning branches -- the paths judged most informative about the task -- with no formal quantity computed and the judgement left to a prompted model. A reader should treat the first as a metric and the second as a description of an objective.",
+    "kind": "concept",
+    "related": [
+      "Marginal Utility",
+      "Entropy-Based Stopping",
+      "Diminishing Returns"
+    ]
+  },
+  "task_id": "concept__information-gain",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

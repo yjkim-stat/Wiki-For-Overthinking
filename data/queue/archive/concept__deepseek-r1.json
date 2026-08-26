@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.",
+        "title": "Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ChainPrune merges semantically equivalent steps from 16 sampled reasoning paths into a tree, picks Pareto-dominant short paths as DPO preference data, and fine-tunes with an added NLL term, cutting tokens 28.1% and reasoning steps 26.8% on two R1-distilled models without losing accuracy.",
+        "title": "ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
+        "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-26T02:18:13Z",
+  "created_at": "2026-08-26T02:14:29Z",
+  "instructions": "Write the wiki definition for 'DeepSeek-R1'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DeepSeek-R1",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "DeepSeek-R1",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "R1"
+    ],
+    "definition": "DeepSeek-R1 is one of the two models the archive's sources name, alongside OpenAI's o1, as opening the line of large reasoning models that produce long explicit chains of thought before answering, and it is the origin of the distilled Qwen and Llama checkpoints most of the archive's length-reduction work fine-tunes. It appears in three roles across the sources: as the historical reference for the paradigm whose cost is overthinking, as the parent of the distillations that stand in for it experimentally, and as a subject of measurement in its own right -- the Bloom's Taxonomy profiling reports it spending 32.9% of reasoning steps on Applying and 18.6% on Evaluating, the highest evaluative share among R1-family models profiled, with Creating at 0.2%. It also serves as one of three judge models in ChainPrune's reasoning-quality panel.",
+    "kind": "model",
+    "related": [
+      "o1",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "Long Chain-of-Thought"
+    ]
+  },
+  "task_id": "concept__deepseek-r1",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

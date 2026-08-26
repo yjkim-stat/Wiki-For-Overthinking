@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Models an LLM reasoning service as a Stackelberg game in which the provider sets a per-token price and a default reasoning-token budget while the user may keep the default, customize it, or exit, and shows the provider's optimal default sits above the budget the user would choose.",
       "title": "Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services"
+    },
+    {
+      "id": "arxiv:2608.23205",
+      "kind": "paper",
+      "note": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
+      "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "method",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-08-26T02:14:28Z",
   "name": "DeepSeek-R1-Distill-Llama-8B",
   "related": [
     "overthinking",
@@ -65,7 +71,32 @@
     "vllm",
     "gpqa-diamond",
     "gsm8k-500-sampled-test-items",
-    "hmmt-2025"
+    "hmmt-2025",
+    "reasoning-trace-analysis",
+    "bloom-s-taxonomy",
+    "cognitive-profiling",
+    "step-level-annotation",
+    "reasoning-step-segmentation",
+    "transition-matrix-features",
+    "internal-vs-output-reasoning",
+    "back-loaded-verification",
+    "llm-as-annotator",
+    "bloom-s-taxonomy-annotation-pipeline",
+    "llm-based-trace-segmentation",
+    "l1-regularised-logistic-regression",
+    "nested-cross-validation",
+    "cohen-s-kappa-agreement",
+    "gsm8k-1-319",
+    "gsm-hard-1-319",
+    "math500-500",
+    "bbh-formal-fallacies-250",
+    "bbh-hyperbaton-250",
+    "deepseek-r1",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-30b-a3b-thinking-2507",
+    "qwen3-4b-thinking-2507",
+    "phi-4-reasoning",
+    "llama-3-3-70b-instruct"
   ],
   "related_authored": [
     "distillation",

@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ChainPrune merges semantically equivalent steps from 16 sampled reasoning paths into a tree, picks Pareto-dominant short paths as DPO preference data, and fine-tunes with an added NLL term, cutting tokens 28.1% and reasoning steps 26.8% on two R1-distilled models without losing accuracy.",
+        "title": "ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.",
+        "title": "Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-26T02:18:13Z",
+  "created_at": "2026-08-26T02:14:29Z",
+  "instructions": "Write the wiki definition for 'DAST'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DAST",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "DAST",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "DAST is a length-reduction method for large reasoning models that scores a dynamic token budget per problem and trains on ranked contrastive pairs built from that score, placing it in the single-model optimisation half of the archive's survey taxonomy rather than the multi-model collaboration half. It appears in the archive mainly as a baseline. ChainPrune reproduces it because the original is not available to run, reporting 0.5330 for the published figure against 0.5375 for the reproduction on AIME24 with DeepSeek-R1-Distill-Qwen-7B -- both below the 0.5479 base model, so the token savings come at an accuracy cost. That same comparison shows the method's loss is not intrinsic to its data: swapping its SimPO objective for DPO with an added NLL term raises it to 0.5833 on identical training data.",
+    "kind": "method",
+    "related": [
+      "Kimi-1.5 length reward",
+      "Length Penalty Reward",
+      "Pseudo-Conciseness"
+    ]
+  },
+  "task_id": "concept__dast",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

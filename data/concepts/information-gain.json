@@ -1,7 +1,16 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "information gain",
+    "InfoGain"
+  ],
+  "definition": "Information gain names how much a further step of computation adds to what is already known, and the archive's two sources use it at very different levels of rigour. Think or Not? defines it as an information-theoretic quantity, InfoGain, paired with InfoBias, and uses it to show that longer reasoning chains grow progressively less informative and diverge from an ideal path, then derives an entropy-based stopping rule that cuts tokens while preserving accuracy. ParallelWorld uses the phrase loosely for what its verifier agent is asked to prefer when pruning branches -- the paths judged most informative about the task -- with no formal quantity computed and the judgement left to a prompted model. A reader should treat the first as a metric and the second as a description of an objective.",
   "evidence": [
+    {
+      "id": "arxiv:2608.22971",
+      "kind": "paper",
+      "note": "ParallelWorld is a verifier-guided tree search over simulated future observations for embodied reasoning: from a restorable simulator state it expands several candidate camera and physical actions in parallel, prunes branches with a verifier agent under a branch-width schedule, and answers from the top-ranked root-to-leaf route.",
+      "title": "ParallelWorld: Test-Time Scaling for Embodied Reasoning"
+    },
     {
       "id": "title:640d466d159a19d8",
       "kind": "paper",
@@ -11,9 +20,24 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "concept",
-  "last_seen": "2026-08-20T12:15:21Z",
-  "name": "information gain",
+  "last_seen": "2026-08-26T02:14:28Z",
+  "name": "Information Gain",
   "related": [
+    "test-time-scaling",
+    "embodied-reasoning",
+    "active-perception",
+    "verifier-guided-tree-search",
+    "branch-width-schedule",
+    "confidence-based-stopping",
+    "prospective-simulation",
+    "parallelworld",
+    "prospective-world-expansion",
+    "top-1-route-answering",
+    "active-exploration",
+    "passive-single-view",
+    "esi-bench-10-task-categories-28-of-29-subcategories-evaluated",
+    "gpt-5-4",
+    "gpt-5-5",
     "overthinking",
     "semantic-efficiency",
     "information-bias",
@@ -23,7 +47,11 @@
     "adaptive-think-entropy-based-adaptive-stopping",
     "six-benchmark-tasks-spanning-diverse-reasoning-types-and-difficulty-levels-unnam"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "marginal-utility",
+    "entropy-based-stopping",
+    "diminishing-returns"
+  ],
   "schema_version": 1,
   "slug": "information-gain",
   "topics": [

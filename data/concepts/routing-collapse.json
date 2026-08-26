@@ -1,17 +1,27 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Routing Collapse",
+    "expert collapse",
+    "representation collapse"
+  ],
+  "definition": "Routing collapse is the failure of a learned router to spread work across the experts or modes it selects from: instead of specialising, it sends the overwhelming majority of inputs to one of them, so added capacity buys nothing. The archive's two sources use the term at different levels and only one measures it. In the operator-level mixture-of-experts state-space study it is measured directly -- with K = 4 experts and explicit regime boundaries between chaotic, oscillatory and noise segments, the router routes nearly all timesteps to a single expert, this survives annealing the supervised warmup signal to zero, and only transient deviations appear at regime transitions; the consequence is that K = 4 and K = 8 have higher error and higher seed variance than a single expert. The adaptive-reasoning source instead avoids a router altogether, learning a mode token end-to-end inside GRPO, so it treats routing collapse as a hazard of the design rather than something it measures.",
   "evidence": [
     {
       "id": "arxiv:2608.20256",
       "kind": "paper",
       "note": "Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.",
       "title": "Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation"
+    },
+    {
+      "id": "arxiv:2608.21840",
+      "kind": "paper",
+      "note": "A controlled synthetic study finding that mixing stable spectral state-space operators through a learned router fails to beat a single-expert baseline on regime-switching time series, with more experts making it worse, routing collapsing to one expert, and apparent MSE gains on chaotic data coming from variance suppression that destroys the attractor.",
+      "title": "More Experts, Worse Dynamics: Inverse Scaling and Spectral Bias in Mixture-of-Experts State-Space Models"
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:41:11Z",
+  "last_seen": "2026-08-26T02:14:28Z",
   "name": "routing collapse",
   "related": [
     "adaptive-test-time-compute-allocation",
@@ -46,9 +56,28 @@
     "aime-2025",
     "countdown",
     "deepseek-r1-distill-qwen-1-5b",
-    "deepseek-r1"
+    "deepseek-r1",
+    "inverse-scaling",
+    "mixture-of-experts",
+    "expert-specialization",
+    "spectral-state-space-models",
+    "operator-interpolation",
+    "phase-space-reconstruction",
+    "metric-fidelity-mismatch",
+    "gated-multi-stability-gms",
+    "spectral-state-space-model",
+    "soft-routing",
+    "oracle-routing-ablation",
+    "frozen-expert-ablation",
+    "delay-coordinate-embedding",
+    "synthetic-three-regime-sequence-mackey-glass-chaotic-tau-17-stable-oscillatory-n"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "adaptive-reasoning",
+    "mixture-of-experts",
+    "expert-specialization",
+    "llm-routing"
+  ],
   "schema_version": 1,
   "slug": "routing-collapse",
   "topics": [

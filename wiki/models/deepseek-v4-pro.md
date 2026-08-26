@@ -9,7 +9,7 @@ DeepSeek's largest V4 reasoning model, used in this archive as a frontier refere
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Claude-Opus-4.8](claude-opus-4-8.md), [deepseek-v4-flash](deepseek-v4-flash.md), [GAIA](../datasets/gaia.md), [GLM-5.2](glm-5-2.md), [Omni-MATH](../datasets/omni-math.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
+**Related**: [Claude-Opus-4.8](claude-opus-4-8.md), [deepseek-v4-flash](deepseek-v4-flash.md), [GAIA](../datasets/gaia.md), [GLM-5.2](glm-5-2.md), [GPT-5.5](gpt-5-5.md), [Omni-MATH](../datasets/omni-math.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
 
 ## Appears in
 

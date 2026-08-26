@@ -1,17 +1,27 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Best-of-N Selection",
+    "best-of-N",
+    "BoN"
+  ],
+  "definition": "Best-of-N selection samples several complete attempts at a problem and picks one to submit, so its whole difficulty is the choosing rule when there is no verifier and no canonical answer to match. The archive's sources are both about that rule rather than about the sampling. Consilience picks the rollout whose confidence starts low and ends high, introduced to fix a failure mode where maximising confidence alone favours confidently wrong answers on hard problems. Risa selects among software-agent patches by agreement of their MoE routing traces at informative positions, matching text-consensus selection on SWE-bench Verified without any answer-string matching (48.2% against 48.0% macro-average on gpt-oss; exact McNemar p = 1.000 against text consensus on Qwen3.6). Risa also marks the headroom the rule leaves: its four-attempt oracle reaches 60.9% against 48.3% for the best selector, so most of the complementary coverage in a pool goes unselected.",
   "evidence": [
     {
       "id": "arxiv:2608.09898",
       "kind": "paper",
       "note": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
       "title": "Consilience for Verifier-Free Test-Time Scaling"
+    },
+    {
+      "id": "arxiv:2608.22191",
+      "kind": "paper",
+      "note": "Risa reads the MoE router's expert-selection trace as a behavioral fingerprint of what a software agent is doing, using it to push sibling actions away from recently repeated computation during exploration and toward peer agreement once a patch is being written, then to arbitrate among completed attempts without an external judge or test execution.",
+      "title": "Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents"
     }
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "method",
-  "last_seen": "2026-08-20T12:10:00Z",
+  "last_seen": "2026-08-26T02:14:28Z",
   "name": "best-of-n selection",
   "related": [
     "temporal-confidence-asymmetry-low-initial-high-final-confidence",
@@ -27,9 +37,32 @@
     "livecodebench-v6",
     "hmmt-2025",
     "gpqa-diamond",
-    "swe-bench-verified"
+    "swe-bench-verified",
+    "test-time-scaling",
+    "moe-routing-traces",
+    "behavioral-role-fingerprinting",
+    "stagnation-detection",
+    "repetition-score",
+    "decision-tokens",
+    "token-surprisal",
+    "self-consistency",
+    "exploration-commitment-tradeoff",
+    "risa-routing-informed-steering-and-arbitration",
+    "weighted-jaccard-routing-similarity",
+    "role-centroid-classification",
+    "decision-token-agreement-arbitration",
+    "text-consensus-jaccard-over-diff-line-pairs",
+    "uniform-sampling-baseline",
+    "swe-bench-verified-496-498-eligible-tasks-per-condition-500-task-full-benchmark",
+    "gpt-oss-20b",
+    "gpt-oss-120b",
+    "qwen3-6-35b-a3b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-consistency",
+    "verifier-free-selection",
+    "test-time-scaling"
+  ],
   "schema_version": 1,
   "slug": "best-of-n-selection",
   "topics": [

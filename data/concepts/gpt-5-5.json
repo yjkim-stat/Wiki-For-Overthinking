@@ -1,17 +1,23 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "GPT-5.5 is a proprietary model that appears in the archive only as an instrument or a subject of evaluation, never described. ParallelWorld uses it as the verifier agent that scores and prunes candidate exploration branches, paired with GPT-5.4 as the answer agent; because both are closed, the paper's gains cannot be separated from backbone capability and cannot be reproduced without API access. R3-Bench evaluates it under a shared computation budget across six problems of mixed difficulty. Neither source reports its architecture, size, training or release details, so the archive holds no description of the model itself -- only records of what it was used for.",
   "evidence": [
     {
       "id": "arxiv:2608.16033",
       "kind": "paper",
       "note": "A benchmark that puts six problems of mixed difficulty under one shared computation budget and measures the gap between what a model solves problem-by-problem and what it solves when it must decide how to divide the budget.",
       "title": "$R^3$-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets"
+    },
+    {
+      "id": "arxiv:2608.22971",
+      "kind": "paper",
+      "note": "ParallelWorld is a verifier-guided tree search over simulated future observations for embodied reasoning: from a restorable simulator state it expands several candidate camera and physical actions in parallel, prunes branches with a verifier agent under a branch-width schedule, and answers from the top-ranked root-to-leaf route.",
+      "title": "ParallelWorld: Test-Time Scaling for Embodied Reasoning"
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "model",
-  "last_seen": "2026-08-21T03:41:11Z",
+  "last_seen": "2026-08-26T02:14:28Z",
   "name": "GPT-5.5",
   "related": [
     "resource-rational-reasoning",
@@ -47,9 +53,27 @@
     "qwen3-7-max",
     "glm-5-2",
     "hy-3",
-    "claude-opus-4-8"
+    "claude-opus-4-8",
+    "test-time-scaling",
+    "embodied-reasoning",
+    "active-perception",
+    "verifier-guided-tree-search",
+    "branch-width-schedule",
+    "information-gain",
+    "confidence-based-stopping",
+    "prospective-simulation",
+    "parallelworld",
+    "prospective-world-expansion",
+    "top-1-route-answering",
+    "active-exploration",
+    "passive-single-view",
+    "esi-bench-10-task-categories-28-of-29-subcategories-evaluated",
+    "gpt-5-4"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gpt-5-4",
+    "verifier-agent"
+  ],
   "schema_version": 1,
   "slug": "gpt-5-5",
   "topics": [

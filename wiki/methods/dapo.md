@@ -8,7 +8,7 @@ No archived paper is about DAPO; it is named only in passing, and always as a GR
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AutoThink](autothink.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DeepSeek-R1-Distill-Qwen-1.5B](deepseek-r1-distill-qwen-1-5b.md), [Dr. GRPO](dr-grpo.md), [GFPO](gfpo.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-Instruct](qwen2-5-instruct.md), [RLVR](rlvr.md), [S-GRPO](s-grpo.md), [Thinkless](thinkless.md)
+**Related**: [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AutoThink](autothink.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [Dr. GRPO](dr-grpo.md), [GFPO](gfpo.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-Instruct](qwen2-5-instruct.md), [RLVR](rlvr.md), [routing collapse](../concepts/routing-collapse.md), [S-GRPO](s-grpo.md), [Thinkless](thinkless.md)
 
 ## Appears in
 

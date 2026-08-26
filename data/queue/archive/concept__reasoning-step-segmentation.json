@@ -1,0 +1,60 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Replaces the single LLM judge of a long reasoning trace with a panel of jurors that first judge independently and then reach consensus through a blind moderator's deliberation or a consolidation pass, letting cheap open-weight models beat frontier single judges at step-level defect localization for a fraction of the dollar cost.",
+        "title": "Reasoning Jury: Multi-Model Consensus for Evaluating Reasoning Traces",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
+        "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-26T02:18:12Z",
+  "created_at": "2026-08-26T02:14:29Z",
+  "instructions": "Write the wiki definition for 'Reasoning Step Segmentation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Reasoning Step Segmentation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Reasoning Step Segmentation",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "step segmentation",
+      "trace segmentation"
+    ],
+    "definition": "Reasoning step segmentation is the act of cutting a continuous reasoning trace into discrete units before anything is counted or judged, and it determines what every downstream step-level statistic means. The Bloom's Taxonomy profiling work prompts Llama-3.3-70B-Instruct to segment and label in one pass, arguing explicitly against sentence-level splitting because a single cognitive function can span several sentences and rigid splitting would fragment it -- a stated trade-off of annotation uniformity against semantic fidelity. That paper also shows how weakly the choice is usually validated: its Cohen's Kappa agreement of 0.917 and 0.913 against two human annotators covers labelling only, while segmentation was checked qualitatively on 50 samples by one author, even though every level proportion and transition it reports depends on where the boundaries fell. Reasoning Jury operates at the same granularity for a different purpose, localising defects step by step with a panel of jurors rather than one judge.",
+    "kind": "method",
+    "related": [
+      "Chain Length",
+      "LLM-as-a-Judge",
+      "Step-Level Annotation"
+    ]
+  },
+  "task_id": "concept__reasoning-step-segmentation",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

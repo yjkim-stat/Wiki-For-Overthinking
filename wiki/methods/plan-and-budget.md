@@ -9,7 +9,7 @@ A test-time-compute method that decomposes a query into sub-questions and alloca
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [A*-Thought](a-thought.md), [Ada-R1](ada-r1.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [Budget Forcing](budget-forcing.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [DEER](deer.md), [DRP](drp.md), [Early Exit](early-exit.md), [Laser](laser.md), [LC-R1](lc-r1.md), [Manifold Steering](manifold-steering.md), [NOWAIT](nowait.md), [Overthinking](../concepts/overthinking.md), [S-GRPO](s-grpo.md), [SEAL](seal.md), [SelfBudgeter](selfbudgeter.md), [SPIRIT](spirit.md), [Thinkless](thinkless.md), [TokenSkip](tokenskip.md), [underthinking](../concepts/underthinking.md), [VeriThinker](verithinker.md)
+**Related**: [A*-Thought](a-thought.md), [Ada-R1](ada-r1.md), [adaptive reasoning](../concepts/adaptive-reasoning.md), [Budget Forcing](budget-forcing.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [DAST](dast.md), [DEER](deer.md), [DRP](drp.md), [Early Exit](early-exit.md), [Laser](laser.md), [LC-R1](lc-r1.md), [Manifold Steering](manifold-steering.md), [NOWAIT](nowait.md), [Overthinking](../concepts/overthinking.md), [S-GRPO](s-grpo.md), [SEAL](seal.md), [SelfBudgeter](selfbudgeter.md), [SPIRIT](spirit.md), [Thinkless](thinkless.md), [TokenSkip](tokenskip.md), [underthinking](../concepts/underthinking.md), [VeriThinker](verithinker.md)
 
 ## Appears in
 

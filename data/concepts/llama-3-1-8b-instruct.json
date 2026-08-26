@@ -1,7 +1,16 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Llama-3.1-8B-Instruct",
+    "LLaMA-3.1-8B"
+  ],
+  "definition": "LLaMA-3.1-8B-Instruct is an open-weight instruction-tuned model that the archive's sources use as a baseline or a backbone rather than study. FIRE uses it as the strongest supervised fine-tuned baseline its two sub-2B agents are compared against, losing to FIRE on human preference at win rates of 0.86 to 0.93 across four criteria, and cites the 8B class as the monolithic alternative whose roughly 16GB peak VRAM its sequential 1.7B agents cut to about 4GB. Heima uses the family as the backbone whose textual chain-of-thought stages are replaced by single latent thinking tokens. Neither source reports capability figures for the model outside those specific comparisons.",
   "evidence": [
+    {
+      "id": "arxiv:2608.23152",
+      "kind": "paper",
+      "note": "FIRE splits counterspeech generation into two sub-2B Qwen3-1.7B agents -- one that classifies the hate category, names the target group, writes a reasoning trace and triggers a web search for evidence, one that writes the reply -- with specialization coming from a contrastively-trained 22M retrieval encoder over annotated examples rather than from fine-tuning.",
+      "title": "Counter with Evidence! A Multi-Agent Memory Efficient Reasoning Framework for Hate Category Informed Counterspeech Generation"
+    },
     {
       "id": "title:725397e20ebf1509",
       "kind": "paper",
@@ -10,10 +19,27 @@
     }
   ],
   "first_seen": "2026-08-21T00:56:47Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:56:47Z",
-  "name": "Llama-3.1-8B-Instruct",
+  "kind": "model",
+  "last_seen": "2026-08-26T02:14:28Z",
+  "name": "LLaMA-3.1-8B-Instruct",
   "related": [
+    "multi-agent-decomposition",
+    "retrieval-memory",
+    "supervised-contrastive-learning",
+    "evidence-grounding",
+    "counterspeech-generation",
+    "hate-category-taxonomy",
+    "tool-augmented-generation",
+    "fire-factuality-informed-multi-agent-reasoning-framework",
+    "supervised-contrastive-encoder-training",
+    "top-k-type-level-retrieval",
+    "web-search-tool-invocation",
+    "coarl",
+    "hippro",
+    "dialogpt",
+    "gps",
+    "factualcs-4-784-instances-introduced-here",
+    "qwen3-1-7b",
     "chain-of-thought-compression",
     "latent-reasoning",
     "hidden-thinking-tokens",
@@ -34,7 +60,10 @@
     "ai2d",
     "hallusionbench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-1-7b",
+    "supervised-fine-tuning-baseline"
+  ],
   "schema_version": 1,
   "slug": "llama-3-1-8b-instruct",
   "topics": [

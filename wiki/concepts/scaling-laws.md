@@ -9,7 +9,7 @@ Scaling laws here cover two different senses: the first source's proposed consta
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 1
 
-**Related**: [inverse scaling](inverse-scaling.md)
+**Related**: [Inverse Scaling](inverse-scaling.md)
 
 ## Appears in
 

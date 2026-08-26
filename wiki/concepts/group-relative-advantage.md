@@ -9,7 +9,7 @@ The mechanism inside GRPO rather than a name for it: each sampled rollout's adva
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Score (AES)](accuracy-efficiency-score-aes.md), [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Efficient Reasoning](efficient-reasoning.md), [GFPO](../methods/gfpo.md), [GPQA](../datasets/gpqa.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [Length reward](length-reward.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [OlympiadBench](../datasets/olympiadbench.md), [Omni-MATH](../datasets/omni-math.md), [Overthinking](overthinking.md), [Phi-4-reasoning](../methods/phi-4-reasoning.md), [RLOO](../methods/rloo.md), [RLVR](../methods/rlvr.md)
+**Related**: [Accuracy-Efficiency Score (AES)](accuracy-efficiency-score-aes.md), [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Efficient Reasoning](efficient-reasoning.md), [GFPO](../methods/gfpo.md), [GPQA](../datasets/gpqa.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [Length reward](length-reward.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [OlympiadBench](../datasets/olympiadbench.md), [Omni-MATH](../datasets/omni-math.md), [Overthinking](overthinking.md), [Phi-4-Reasoning](../methods/phi-4-reasoning.md), [RLOO](../methods/rloo.md), [RLVR](../methods/rlvr.md)
 
 ## Appears in
 

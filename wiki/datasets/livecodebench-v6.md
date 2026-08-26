@@ -9,7 +9,7 @@ The sixth release window of LiveCodeBench, used in the archive as a free-form co
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [CommonsenseQA](commonsenseqa.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [HMMT 2025](hmmt-2025.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU-STEM](mmlu-stem.md), [Overthinking](../concepts/overthinking.md), [Pass@1](../concepts/pass-1.md), [s1K-1.1](s1k-1-1.md), [StrategyQA](strategyqa.md), [SWE-bench Verified](swe-bench-verified.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
+**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [best-of-n selection](../methods/best-of-n-selection.md), [CommonsenseQA](commonsenseqa.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [HMMT 2025](hmmt-2025.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU-STEM](mmlu-stem.md), [Overthinking](../concepts/overthinking.md), [Pass@1](../concepts/pass-1.md), [s1K-1.1](s1k-1-1.md), [StrategyQA](strategyqa.md), [SWE-bench Verified](swe-bench-verified.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
 
 ## Appears in
 
