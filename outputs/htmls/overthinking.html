@@ -662,13 +662,13 @@
           <tbody>
             <tr>
               <td><span class="k-green">① 필요량 사전 확정</span><br><span class="ref">OptimalThinkingBench, LLMThinkBench</span></td>
-              <td><span class="em">문항</span><br><span class="ref">평가 전 확정된 필요량</span></td>
+              <td><span class="em">문항</span><br><span class="ref">평가 전에 확정된 필요량</span></td>
               <td>기초 산술 → 필요량 낮게 고정<br>1,456 대부분을 초과로 계상</td>
               <td>같은 기준 적용<br>312도 초과로 계상 — <span class="k-rose">정당한 길이와 구분 없음</span></td>
             </tr>
             <tr>
-              <td><span class="k-blue">② 필요량 re-run 실측</span><br><span class="ref">Zhou, Oladri, Wang, Fan</span></td>
-              <td><span class="em">같은 모델의 다른 예산</span><br><span class="ref">re-run으로 응답곡선 확보</span></td>
+              <td><span class="k-blue">② 필요량 사후 실측</span><br><span class="ref">Zhou, Oladri, Wang, Fan</span></td>
+              <td><span class="em">같은 모델의 다른 예산</span><br><span class="ref">평가 중 re-run으로 응답곡선 확보</span></td>
               <td>이 문항을 500토큰부터 재실행<br>정답 유지 시 → 초과 <span class="k-rose">확정</span></td>
               <td>동일 절차<br>짧은 예산에서 정답이 무너지면 → 초과 <span class="k-green">아님</span></td>
             </tr>
@@ -793,7 +793,7 @@
 
     <!-- P2 갈래 ② 상세 -->
     <section class="slide">
-      <div class="eyebrow blue"><span>●</span> Family ② · 필요량 re-run 실측</div>
+      <div class="eyebrow blue"><span>●</span> Family ② · 필요량 사후 실측</div>
       <h1 class="stitle">예산을 바꾼 re-run</h1>
       <div class="body" style="height:520px;">
         <div class="lead">기준선을 <span class="em">실측으로 확보</span>하는 갈래. re-run 대상이 방법을 가름.</div>
@@ -836,7 +836,7 @@
         <div>Wang, P., Ma, Z., Liu, B., Liu, F., Chen, A., Zi, C., Zeng, H., Li, Y., &amp; Li, J. (2026). <i>R³-Bench: LLMs struggle with resource-rational reasoning under shared budgets</i>. arXiv:2608.16033. <a href="https://arxiv.org/abs/2608.16033">(link)</a></div>
         <div>Fan, C., Cheng, Y., Li, M., Liang, Y., Zhou, T., &amp; Feizi, S. (2026). <i>Thinking hard, not smart: Reasoning models fail to ration test-time compute across questions</i>. arXiv:2608.07968. <a href="https://arxiv.org/abs/2608.07968">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ② · 필요량 re-run 실측</div><div class="pg">17 / 33</div></div>
+      <div class="foot"><div>Family ② · 필요량 사후 실측</div><div class="pg">17 / 33</div></div>
     </section>
 
     <!-- P2 갈래 ③ 상세 -->
