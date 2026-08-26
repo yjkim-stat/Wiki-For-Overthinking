@@ -651,22 +651,22 @@
       <div class="eyebrow blue"><span>●</span> Related Work</div>
       <h1 class="stitle">측정의 세 갈래</h1>
       <div class="body" style="height:450px;">
-        <div class="lead">오버씽킹은 <span class="em">counterfactual</span> 주장이다 — “덜 생각했어도 결과가 같았을까”. 한 번 돌려서는 견줄 대상이 없으니, 선행 연구는 셋 중 한 방법으로 그 문제를 피해 갔다.</div>
+        <div class="lead">오버씽킹을 재려면 <span class="em">얼마나 생각했어야 했는가</span>라는 기준선이 있어야 한다. 한 번 돌려서는 그 값이 나오지 않으므로, <span class="em">기준선을 어디서 얻는가</span>가 선행 연구를 셋으로 가른다.</div>
         <div class="g3" style="flex:1;min-height:0;">
           <div class="card green" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--green);">① 벤치마크가 정해 둔다</div>
-            <div class="card-t" style="font-size:20px;margin-bottom:12px;">짧은 정답 경로가 있는 문제만 쓴다</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">8개 샘플이 전부 맞히거나(OTB), 정답 알고리즘이 알려져 있거나(LLMThinkBench). <span style="color:var(--green);font-weight:700;">비교 대상을 문제 쪽에 미리 심는 갈래.</span></div>
-            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 증인이 평가 대상 모델이 아니다</div>
+            <div class="card-k" style="color:var(--green);">① 필요량을 미리 정해 둔다</div>
+            <div class="card-t" style="font-size:20px;margin-bottom:12px;">얼마가 필요한지를 과제 설계에 박아 둔다</div>
+            <div class="card-n" style="font-size:17px;margin-bottom:12px;">8개 샘플이 전부 맞으면 그 문항의 필요량은 0에 가깝고(OTB), 정렬·합산은 알려진 알고리즘이 상한을 준다(LLMThinkBench). <span style="color:var(--green);font-weight:700;">한 번만 돌려도 초과분이 나오는 갈래.</span></div>
+            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 필요량을 알 수 있는 과제로만 잴 수 있다</div>
             <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
               OptimalThinkingBench <span class="ref">(Aggarwal 외, 2025)</span><br>
               LLMThinkBench <span class="ref">(Srivastava 외, 2026)</span>
             </div>
           </div>
           <div class="card blue" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--blue);">② 다시 돌려서 만든다</div>
-            <div class="card-t" style="font-size:20px;margin-bottom:12px;">같은 문제를 다른 예산에서 실제로 다시 돌린다</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">예산을 500토큰씩 올려 가며 다시 돌리거나, 여러 문제가 한 예산을 나눠 쓰게 한다. <span style="color:var(--blue);font-weight:700;">견줄 대상을 가장 직접 만드는 갈래.</span></div>
+            <div class="card-k" style="color:var(--blue);">② 필요량을 다시 돌려서 찾는다</div>
+            <div class="card-t" style="font-size:20px;margin-bottom:12px;">필요량을 예산을 바꿔 가며 실측한다</div>
+            <div class="card-n" style="font-size:17px;margin-bottom:12px;">예산을 500토큰씩 올려 한계 이득이 0이 되는 지점을 찾거나, 무제한 정확도의 95%에 닿는 최소 예산을 잡는다. <span style="color:var(--blue);font-weight:700;">어떤 과제에도 쓸 수 있는 갈래.</span></div>
             <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 문제당 수십 회 실행, 사후에만</div>
             <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
               When More Thinking Hurts <span class="ref">(Zhou 외, 2026)</span><br>
@@ -676,10 +676,10 @@
             </div>
           </div>
           <div class="card rose" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--rose);">③ 트레이스만 보고 짐작한다</div>
-            <div class="card-t" style="font-size:20px;margin-bottom:12px;">견줄 대상 없이 대리 지표만 읽는다</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">반복된 결론을 세거나, 활성값에서 상관 신호를 찾거나, LLM 판정자에게 점수를 매기게 한다.</div>
-            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 정답 기준이 없고, 검증에 쓴 대리 지표의 오차를 물려받는다</div>
+            <div class="card-k" style="color:var(--rose);">③ 필요량을 묻지 않는다</div>
+            <div class="card-t" style="font-size:20px;margin-bottom:12px;">얼마가 필요했는지 대신 트레이스의 모양을 읽는다</div>
+            <div class="card-n" style="font-size:17px;margin-bottom:12px;">반복된 결론을 세거나, 활성값에서 상관 신호를 찾거나, LLM 판정자에게 점수를 매기게 한다. <span style="color:var(--rose);font-weight:700;">한 번 실행으로 끝나는 갈래.</span></div>
+            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 기준선이 없어 무엇에 맞춰 검증할지도 각자 정한다</div>
             <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
               Do NOT Think That Much <span class="ref">(2025)</span><br>
               Funnel of Thoughts <span class="ref">(Park 외, 2026)</span><br>
@@ -707,10 +707,10 @@
 
     <!-- P2 갈래 ① 상세 -->
     <section class="slide">
-      <div class="eyebrow green"><span>●</span> Family ① · 벤치마크가 정해 둔다</div>
-      <h1 class="stitle">짧은 경로가 있음을 미리 확인해 둔다</h1>
+      <div class="eyebrow green"><span>●</span> Family ① · 필요량을 미리 정해 둔다</div>
+      <h1 class="stitle">필요량은 문제를 만들 때 정해진다</h1>
       <div class="body" style="height:560px;">
-        <div class="lead">쉬운 문제를 고르는 것이 목적이 아니다. <span class="em">짧은 정답 경로가 존재한다는 증인</span>을 문제에 미리 붙여 두면, 갈래 ②가 재실행으로 사던 비교 대상을 <span class="em">공짜로 얻는다.</span></div>
+        <div class="lead">쉬운 문제를 모으는 것이 목적이 아니다. <span class="em">얼마나 생각해야 하는지를 문제 쪽에 박아 두면</span>, 갈래 ②가 재실행으로 사던 기준선을 <span class="em">평가 전에 이미 갖고 시작한다.</span></div>
         <svg class="fig" viewBox="0 0 1432 250" role="img" aria-label="갈래 ①과 ②가 같은 비교를 언제 치르는지 대조한 그림">
         <text x="506" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#8A93A3" letter-spacing="1">벤치마크를 만들 때</text>
         <text x="1157" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#8A93A3" letter-spacing="1">평가할 때</text>
@@ -719,52 +719,53 @@
         <text x="85" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#4A8F6E">갈래 ①</text>
         <text x="85" y="103" text-anchor="middle" font-size="15" fill="#4A8F6E">정해 둔다</text>
         <rect x="196" y="48" width="620" height="76" rx="10" fill="#EFF7F2" stroke="#BFDECB"/>
-        <text x="506" y="79" text-anchor="middle" font-size="18" font-weight="700" fill="#384150">짧은 정답 경로가 있는 문제만 채택한다</text>
+        <text x="506" y="79" text-anchor="middle" font-size="18" font-weight="700" fill="#384150">필요량이 정해지는 문항만 채택한다</text>
         <text x="506" y="104" text-anchor="middle" font-size="15" fill="#6B7484">8개 샘플이 전부 맞히거나 · 정답 알고리즘이 이미 알려져 있거나</text>
         <path d="M824 86 H 884" stroke="#BFDECB" stroke-width="2" fill="none"/>
         <path d="M878 81 l 7 5 l -7 5" stroke="#BFDECB" stroke-width="2" fill="none"/>
         <rect x="892" y="48" width="530" height="76" rx="10" fill="#EFF7F2" stroke="#BFDECB"/>
         <text x="1157" y="79" text-anchor="middle" font-size="18" font-weight="700" fill="#384150">평가는 한 번만 돌린다</text>
-        <text x="1157" y="104" text-anchor="middle" font-size="15" fill="#6B7484">그 위로 쓴 토큰이 곧 초과분</text>
+        <text x="1157" y="104" text-anchor="middle" font-size="15" fill="#6B7484">쓴 토큰에서 필요량을 빼면 곧 초과분</text>
         
         <rect x="10" y="158" width="150" height="76" rx="10" fill="#EEF4FA" stroke="#C3D6EA"/>
         <text x="85" y="189" text-anchor="middle" font-size="17" font-weight="700" fill="#4A7BB0">갈래 ②</text>
         <text x="85" y="213" text-anchor="middle" font-size="15" fill="#4A7BB0">다시 돌린다</text>
         <rect x="196" y="158" width="620" height="76" rx="10" fill="#EEF4FA" stroke="#C3D6EA"/>
         <text x="506" y="189" text-anchor="middle" font-size="18" font-weight="700" fill="#384150">문제는 있는 그대로 쓴다</text>
-        <text x="506" y="214" text-anchor="middle" font-size="15" fill="#6B7484">고르는 단계에서 하는 일이 없다</text>
+        <text x="506" y="214" text-anchor="middle" font-size="15" fill="#6B7484">필요량은 아직 모르는 채로 둔다</text>
         <path d="M824 196 H 884" stroke="#C3D6EA" stroke-width="2" fill="none"/>
         <path d="M878 191 l 7 5 l -7 5" stroke="#C3D6EA" stroke-width="2" fill="none"/>
         <rect x="892" y="158" width="530" height="76" rx="10" fill="#EEF4FA" stroke="#C3D6EA"/>
         <text x="1157" y="189" text-anchor="middle" font-size="18" font-weight="700" fill="#384150">예산을 바꿔 가며 수십 번 돌린다</text>
-        <text x="1157" y="214" text-anchor="middle" font-size="15" fill="#6B7484">문제당 32회 (Zhou 외, 2026)</text>
+        <text x="1157" y="214" text-anchor="middle" font-size="15" fill="#6B7484">거기서 비로소 필요량이 나온다 — 문제당 32회 (Zhou 외, 2026)</text>
       </svg>
         <div class="g2" style="margin-top:16px;">
           <div class="card green">
-            <div class="card-k" style="color:var(--green);">증인 · 실증형 — OptimalThinkingBench</div>
-            <div class="card-n" style="font-size:17px;">별도 모델에서 <span class="em">k = 8</span> 샘플을 뽑아 <span class="em">8개가 전부</span> 기준 답과 맞을 때만 채택. 원문: “100% 일치 요구가 <span class="em">긴 추론이 필요 없을 만큼</span> 쉬운 문제임을 보장한다.”</div>
+            <div class="card-k" style="color:var(--green);">필요량을 재서 안다 — OptimalThinkingBench</div>
+            <div class="card-n" style="font-size:17px;">별도 모델에서 <span class="em">k = 8</span> 샘플을 뽑아 <span class="em">8개가 전부</span> 기준 답과 맞을 때만 채택 — 원문: “100% 일치 요구가 <span class="em">긴 추론이 필요 없을 만큼</span> 쉬운 문제임을 보장한다.” 그래서 이 문항들의 <span class="em">필요량은 생각 토큰 0</span>으로 놓인다.</div>
           </div>
           <div class="card amber">
-            <div class="card-k" style="color:var(--amber);">증인 · 구성형 — LLMThinkBench</div>
-            <div class="card-n" style="font-size:17px;">14개 과제가 모두 <span class="mono">f : X → Y</span> 결정적 함수이고 복잡도가 <span class="mono">O(n) · O(n log n) · O(n²)</span>로 <span class="em">알려져 있다</span> — 필요한 작업량의 상한이 정해져 있다.</div>
+            <div class="card-k" style="color:var(--amber);">필요량을 계산해서 안다 — LLMThinkBench</div>
+            <div class="card-n" style="font-size:17px;">14개 과제가 모두 <span class="mono">f : X → Y</span> 결정적 함수이고 복잡도가 <span class="mono">O(n) · O(n log n) · O(n²)</span>로 <span class="em">알려져 있다</span> — 재지 않아도 <span class="em">필요 작업량의 상한이 수학적으로 정해진다.</span></div>
           </div>
         </div>
         <div class="card rose" style="margin-top:14px;">
-          <div class="card-t" style="font-size:19px;">대가 · <span class="k-rose">증인은 평가 대상이 아니다</span> — 짧게 맞힌 것은 필터를 돌린 <span class="em">다른 모델</span>이다. 이 갈래가 말할 수 있는 것은 “<span class="em">이 문제는</span> 긴 추론이 필요 없다”이지 “<span class="em">이 모델이</span> 짧게 풀 수 있었다”가 아니다.</div>
+          <div class="card-t" style="font-size:19px;margin-bottom:8px;">대가 · <span class="k-rose">필요량을 알 수 있는 과제로만 잴 수 있다</span> — 그래서 쉬운 쪽으로 몰린다. <span class="em">OptimalThinkingBench는 어려운 쪽을 맡는 UnderthinkingBench를 짝지어 이 편향을 상쇄하고</span>, LLMThinkBench는 상쇄하지 않는다.</div>
+          <div class="card-n" style="font-size:17px;color:var(--ink-mid);">필요량을 확인한 것이 <span class="em">평가 대상이 아닌 다른 모델</span>이라는 문제도 남는다 — 이 갈래가 말할 수 있는 것은 “이 문제는 긴 추론이 필요 없다”이지 “이 모델이 짧게 풀 수 있었다”가 아니다.</div>
         </div>
       </div>
       <div class="cite">
         <div>Aggarwal, P., Kim, S., Lanchantin, J., Welleck, S., Weston, J., Kulikov, I., &amp; Saha, S. (2025). <i>OptimalThinkingBench: Evaluating over and underthinking in LLMs</i>. arXiv:2508.13141. <a href="https://arxiv.org/abs/2508.13141">(link)</a></div>
         <div>Srivastava, G., Hussain, A., Srinivasan, S., &amp; Wang, X. (2026). <i>Do LLMs overthink basic math reasoning? Benchmarking the accuracy-efficiency tradeoff in language models</i> [Preprint]. arXiv:2507.04023. <a href="https://arxiv.org/abs/2507.04023">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ① · 벤치마크가 정해 둔다</div><div class="pg">15 / 33</div></div>
+      <div class="foot"><div>Family ① · 필요량을 미리 정해 둔다</div><div class="pg">15 / 33</div></div>
     </section>
 
     <section class="slide">
-      <div class="eyebrow green"><span>●</span> Family ① · 벤치마크가 정해 둔다</div>
+      <div class="eyebrow green"><span>●</span> Family ① · 필요량을 미리 정해 둔다</div>
       <h1 class="stitle">두 벤치마크, 두 정규화</h1>
       <div class="body" style="height:560px;">
-        <div class="lead">증인을 심는 방식이 다르면 지표도 달라진다. 둘 다 <span class="em">조화평균</span>으로 마무리하지만, <span class="em">무엇으로 정규화하는가</span>에서 갈린다.</div>
+        <div class="lead">필요량을 정하는 방식이 다르면 지표도 달라진다. 둘 다 <span class="em">조화평균</span>으로 마무리하지만, <span class="em">무엇으로 정규화하는가</span>에서 갈린다.</div>
         <div class="g2" style="flex:1;min-height:0;">
           <div class="card green" style="display:flex;flex-direction:column;">
             <div class="card-k" style="color:var(--green);">OptimalThinkingBench <span class="ref">Aggarwal 외, 2025 · 33개 모델</span></div>
@@ -800,15 +801,15 @@
         <div>Aggarwal, P., Kim, S., Lanchantin, J., Welleck, S., Weston, J., Kulikov, I., &amp; Saha, S. (2025). <i>OptimalThinkingBench: Evaluating over and underthinking in LLMs</i>. arXiv:2508.13141. <a href="https://arxiv.org/abs/2508.13141">(link)</a></div>
         <div>Srivastava, G., Hussain, A., Srinivasan, S., &amp; Wang, X. (2026). <i>Do LLMs overthink basic math reasoning? Benchmarking the accuracy-efficiency tradeoff in language models</i> [Preprint]. arXiv:2507.04023. <a href="https://arxiv.org/abs/2507.04023">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ① · 벤치마크가 정해 둔다</div><div class="pg">16 / 33</div></div>
+      <div class="foot"><div>Family ① · 필요량을 미리 정해 둔다</div><div class="pg">16 / 33</div></div>
     </section>
 
     <!-- P2 갈래 ② 상세 -->
     <section class="slide">
-      <div class="eyebrow blue"><span>●</span> Family ② · 다시 돌려서 만든다</div>
+      <div class="eyebrow blue"><span>●</span> Family ② · 필요량을 다시 돌려서 찾는다</div>
       <h1 class="stitle">다른 예산에서 다시 돌린다</h1>
       <div class="body" style="height:520px;">
-        <div class="lead">“덜 생각했다면”을 <span class="em">실제로 만들어 보는</span> 갈래다. 무엇을 다시 돌리느냐가 방법을 가른다.</div>
+        <div class="lead">기준선을 <span class="em">실제로 재서 얻는</span> 갈래다. 무엇을 다시 돌리느냐가 방법을 가른다.</div>
         <table class="t" style="font-size:17px;">
           <thead><tr>
             <th style="width:23%;">연구</th><th style="width:29%;">무엇을 다시 돌리나</th>
@@ -838,7 +839,7 @@
           </tbody>
         </table>
         <div class="card blue" style="margin-top:14px;">
-          <div class="card-t" style="font-size:20px;">견줄 대상을 <span class="k-blue">가정하지 않고 만든다</span> — 대신 값이 실행 횟수로 치러진다. 그래서 이 갈래는 언제나 <span class="em">사후</span>다.</div>
+          <div class="card-t" style="font-size:20px;">필요량을 <span class="k-blue">가정하지 않고 실측한다</span> — 대신 값이 실행 횟수로 치러진다. 그래서 이 갈래는 언제나 <span class="em">사후</span>다.</div>
         </div>
       </div>
       <div class="cite">
@@ -848,15 +849,15 @@
         <div>Wang, P., Ma, Z., Liu, B., Liu, F., Chen, A., Zi, C., Zeng, H., Li, Y., &amp; Li, J. (2026). <i>R³-Bench: LLMs struggle with resource-rational reasoning under shared budgets</i>. arXiv:2608.16033. <a href="https://arxiv.org/abs/2608.16033">(link)</a></div>
         <div>Fan, C., Cheng, Y., Li, M., Liang, Y., Zhou, T., &amp; Feizi, S. (2026). <i>Thinking hard, not smart: Reasoning models fail to ration test-time compute across questions</i>. arXiv:2608.07968. <a href="https://arxiv.org/abs/2608.07968">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ② · 다시 돌려서 만든다</div><div class="pg">17 / 33</div></div>
+      <div class="foot"><div>Family ② · 필요량을 다시 돌려서 찾는다</div><div class="pg">17 / 33</div></div>
     </section>
 
     <!-- P2 갈래 ③ 상세 -->
     <section class="slide">
-      <div class="eyebrow rose"><span>●</span> Family ③ · 트레이스만 보고 짐작한다</div>
-      <h1 class="stitle">견줄 대상 없이 대리 지표만 읽는다</h1>
+      <div class="eyebrow rose"><span>●</span> Family ③ · 필요량을 묻지 않는다</div>
+      <h1 class="stitle">기준선 없이 트레이스만 읽는다</h1>
       <div class="body" style="height:520px;">
-        <div class="lead">한 번만 돌리면 되니 싸다. 대신 <span class="em">무엇을 대리로 삼느냐</span>에서 셋으로 갈린다.</div>
+        <div class="lead">기준선을 포기하는 대신 한 번만 돌리면 된다. <span class="em">무엇을 대리로 삼느냐</span>에서 다시 셋으로 갈린다.</div>
         <div class="g3" style="flex:1;min-height:0;">
           <div class="card amber" style="display:flex;flex-direction:column;">
             <div class="card-k" style="color:var(--amber);">A · 구조를 센다</div>
@@ -878,7 +879,7 @@
           </div>
         </div>
         <div class="card plain" style="border-color:var(--gray-edge);margin-top:14px;">
-          <div class="card-t" style="font-size:20px;">셋 다 <span class="em">정답 기준이 없다</span> — 그래서 각자 다른 것에 맞춰 검증된다. 같은 표적에 맞춘 것이 하나도 없다는 것이 다음 쪽의 문제다.</div>
+          <div class="card-t" style="font-size:20px;">셋 다 <span class="em">기준선이 없다</span> — 그래서 무엇에 맞춰 검증할지도 각자 정한다. 같은 표적에 맞춘 것이 하나도 없다는 것이 다음 쪽의 문제다.</div>
         </div>
       </div>
       <div class="cite">
@@ -888,7 +889,7 @@
         <div><i>Mitigating overthinking in large reasoning models via manifold steering</i>. (2025). NeurIPS 2025.</div>
         <div>Cuadron, A., Li, D., Ma, W., Wang, X., Wang, Y., Zhuang, S., Liu, S., Schroeder, L. G., Xia, T., Mao, H., Thumiger, N., Desai, A., Stoica, I., Klimovic, A., Neubig, G., &amp; Gonzalez, J. E. (2025). <i>The danger of overthinking: Examining the reasoning-action dilemma in agentic tasks</i>. ICML 2025. arXiv:2502.08235. <a href="https://arxiv.org/abs/2502.08235">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ③ · 트레이스만 보고 짐작한다</div><div class="pg">18 / 33</div></div>
+      <div class="foot"><div>Family ③ · 필요량을 묻지 않는다</div><div class="pg">18 / 33</div></div>
     </section>
 
 
