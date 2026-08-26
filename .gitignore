@@ -274,3 +274,10 @@ requests/pending/
 # Worktrees created for parallel agent sessions. Each is a checkout of this same
 # repository; committing one would embed a repo inside itself.
 .claude/worktrees/
+
+# Figure crops taken from published papers, and the standalone deck that carries
+# them inlined as data: URIs. Excluded for the same reason as data/pdfs/ above --
+# this repository is public and the source documents are not ours to redistribute.
+# outputs/htmls/FIGURES.md records which paper each crop came from.
+outputs/htmls/figures/
+outputs/htmls/overthinking-standalone.html
