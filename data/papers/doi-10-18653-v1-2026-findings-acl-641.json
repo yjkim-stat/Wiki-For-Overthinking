@@ -1,0 +1,35 @@
+{
+  "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) and Reinforcement Learning from Internal Feedback (RLIF) often fail to benefit from test-time compute due to entropy collapse and the resulting loss of reasoning diversity. We show that this collapse is driven not by uniform entropy decay, but by premature overconfidence at a small number of structurally critical decision points. Based on a token-level analysis of GRPO-style policy optimization, we propose SCOPE (Structural Collapse-aware Optimization via Partial Entropy control), which assigns each generated token a redistribution score and applies selective KL regularization to only the top ∼ 5% of tokens under this score. Across model scales and architectures on math reasoning benchmarks, SCOPE consistently improves performance under both RLVR and RLIF settings, demonstrating that targeted entropy control at a vanishingly small subset of tokens is sufficient to sustain reasoning diversity and effective test-time scaling.",
+  "arxiv_id": "",
+  "authors": [
+    "Jaeeun Jang",
+    "Hansle Lee",
+    "Sangmin Kim"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.641",
+  "first_seen": "2026-08-26T22:03:57Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.641",
+  "last_seen": "2026-08-26T22:03:57Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test-time compute",
+    "test time scaling"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.641.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.641",
+  "title": "A Few Bad Apples Spoil the Bunch: Preventing Global Entropy Collapse Driven by a Small Set of Tokens in LLM Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.641/",
+  "venue": "ACL",
+  "year": 2026
+}

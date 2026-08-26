@@ -1,0 +1,39 @@
+{
+  "abstract": "Improving the exploration of reasoning is essential for advancing Large Language Models’ (LLMs) problem-solving performance. Current methods primarily rely on output-level stochasticity, which decode within fixed reasoning patterns of LLM and suffer from insufficient exploration. In this paper, we introduce adjusting attention temperature to directly modulate the model’s internal focus during reasoning, which enables a dynamic shift between exploratory and focused processing. We reveal that moderate adjustments preserve LLM’s reasoning capability while producing problem hardness-dependent benefits: higher temperatures facilitate solving complex tasks by encouraging wider exploration, whereas lower temperatures mitigate overthinking on simpler problems. Leveraging this insight, we propose a two-stage inference strategy: first, attention temperature scaling modulates the LLM’s reasoning patterns to diversify the reasoning traces; then, a difficulty-aware aggregation scheme is introduced to effectively identify the most reliable solution from the generated candidates. Extensive evaluations show that our method improves Pass@10 by 6.78–14.20% and aggregation accuracy by 9.74% across 7 reasoning benchmarks.",
+  "arxiv_id": "",
+  "authors": [
+    "Zhiyuan Yu",
+    "Shijian Xiao",
+    "Cam-Tu Nguyen",
+    "Zhangyue Yin",
+    "Lekai Xing",
+    "Wenzhong Li",
+    "Sanglu Lu"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.200",
+  "first_seen": "2026-08-26T22:03:53Z",
+  "id": "doi:10.18653/v1/2026.acl-long.200",
+  "last_seen": "2026-08-26T22:03:53Z",
+  "local_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-200.pdf",
+  "matched_keywords": [
+    "overthinking",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.200.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.200",
+  "title": "Thermometer of Thoughts: Enhancing LLM’s Exploration via Attention Temperature Modulation",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.200/",
+  "venue": "ACL",
+  "year": 2026
+}

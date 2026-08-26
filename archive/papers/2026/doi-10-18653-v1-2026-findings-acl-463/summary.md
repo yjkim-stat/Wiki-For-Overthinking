@@ -1,0 +1,25 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Conflicts Make Large Reasoning Models Vulnerable to Attacks
+
+- **Authors**: Honghao Liu, Chengjin Xu, Xuhui Jiang, Cehao Yang, Shengming Yin, Zhengwu Ma, Lionel Ni, Jian Guo
+- **Venue**: ACL
+- **Published**: unknown
+- **Source**: anthology
+- **Link**: <https://aclanthology.org/2026.findings-acl.463/>
+- **PDF**: <https://aclanthology.org/2026.findings-acl.463.pdf>
+- **DOI**: 10.18653/v1/2026.findings-acl.463
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+Large Reasoning Models (LRMs) have achieved remarkable performance across diverse domains, yet their decision-making under conflicting objectives remains insufficiently understood. This work investigates how LRMs respond to harmful queries when confronted with two categories of conflicts: internal conflicts that pit alignment values against each other and dilemmas, which impose mutually contradictory choices, including sacrificial, duress, agent-centered, and social forms. Using over 1,300 prompts across five benchmarks, we evaluate three representative LRMs - Llama-3.1-Nemotron-8B, QwQ-32B, and DeepSeek R1 - and find that conflicts significantly increase attack success rates, even under single-round non-narrative queries without sophisticated auto-attack techniques. Our findings reveal through layerwise and neuron-level analyses that safety-related and functional representations shift and overlap under conflict, interfering with safety-aligned behavior. This study highlights the need for deeper alignment strategies to ensure the robustness and trustworthiness of next-generation reasoning models. Our code is available at https://github.com/DataArcTech/ConflictHarm. Warning: This paper contains inappropriate, offensive and harmful content.
+
+---
+
+Record id: `doi:10.18653/v1/2026.findings-acl.463`

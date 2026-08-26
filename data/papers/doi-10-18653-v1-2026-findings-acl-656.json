@@ -1,0 +1,37 @@
+{
+  "abstract": "Parallel scaling has emerged as a powerful paradigm to enhance reasoning capabilities in large language models (LLMs) by generating multiple Chain-of-Thought (CoT) traces simultaneously. However, this approach introduces significant computational inefficiency due to inter-trace redundancy—our analysis reveals that over 80% of parallel reasoning traces yield identical final answers, representing substantial wasted computation. To address this critical efficiency bottleneck, we propose DeepPrune, a novel framework that enables efficient parallel scaling through dynamic pruning. Our method features a specialized judge model trained with oversampling techniques to accurately predict answer equivalence from partial reasoning traces, achieving 0.7072 AUROC on equivalence prediction across unseen reasoning models. This is combined with an online greedy clustering algorithm that dynamically prunes redundant paths while preserving answer diversity. Comprehensive evaluations across three challenging benchmarks (AIME 2024, AIME 2025, and GPQA) and multiple reasoning models demonstrate that DeepPrune achieves remarkable token reduction ranging from 65.73% to 88.50% compared to conventional consensus sampling, while maintaining competitive accuracy within 3.4 percentage points. Our work establishes a new standard for efficient parallel reasoning, making high-performance reasoning more efficient. Our code and data are here: https://github.com/THU-KEG/DeepPrune/",
+  "arxiv_id": "",
+  "authors": [
+    "Shangqing Tu",
+    "Yaxuan Li",
+    "Yushi Bai",
+    "Lei Hou",
+    "Juanzi Li"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.656",
+  "first_seen": "2026-08-26T22:03:57Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.656",
+  "last_seen": "2026-08-26T22:03:57Z",
+  "local_path": "",
+  "matched_keywords": [
+    "parallel reasoning",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.656.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.656",
+  "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.656/",
+  "venue": "ACL",
+  "year": 2026
+}

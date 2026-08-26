@@ -1,0 +1,35 @@
+{
+  "abstract": "Machine unlearning has gained increasing attention in recent years, as a promising technique to selectively remove unwanted privacy or copyrighted information from Large Language Models that are trained on a massive scale of human data. However, the emergence of Large Reasoning Models (LRMs), which emphasize long chain-of-thought (CoT) reasoning to address complex questions, presents a dilemma to unlearning: existing methods either struggle to completely eliminate undesired knowledge from the CoT traces or degrade the reasoning performances due to the interference with the reasoning process. To this end, we introduce Counterfactual Unlearning through iterative Preference Optimization (CiPO), a novel framework that redefines unlearning as the targeted intervention of the CoT reasoning in LRMs. More specifically, given a desired unlearning target answer, CiPO instructs LRMs to generate a logically valid counterfactual reasoning trace for preference tuning. As the LRM adjusts to the counterfactual trace, CiPO iteratively updates the preference learning data to increase the discrepancy from the original model. This iterative loop ensures both desirable unlearning and smooth optimization, effectively mitigating the dilemma. Experiments on challenging benchmarks demonstrate that CiPO excels at unlearning, completely removing knowledge from both the intermediate CoT steps and the final answer, while preserving the reasoning abilities of LRMs.",
+  "arxiv_id": "",
+  "authors": [
+    "Junyi Li",
+    "Yongqiang Chen",
+    "Ningning Ding"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.143",
+  "first_seen": "2026-08-26T22:03:53Z",
+  "id": "doi:10.18653/v1/2026.acl-long.143",
+  "last_seen": "2026-08-26T22:03:53Z",
+  "local_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-143.pdf",
+  "matched_keywords": [
+    "large reasoning model",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.143.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.143",
+  "title": "CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.143/",
+  "venue": "ACL",
+  "year": 2026
+}

@@ -5,7 +5,10 @@
 - **Authors**: Yi Hu, Jiaqi Gu, Ruxin Wang, Zijun Yao, Hao Peng, Xiaobao Wu, Jianhui Chen, Muhan Zhang, Liangming Pan
 - **Venue**: preprint
 - **Published**: 2026-01-01
-- **Source**: local
+- **Source**: local+anthology
+- **Link**: <https://aclanthology.org/2026.acl-long.889/>
+- **PDF**: <https://aclanthology.org/2026.acl-long.889.pdf>
+- **DOI**: 10.18653/v1/2026.acl-long.889
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
@@ -51,7 +54,7 @@ Tags: `survey`, `mechanistic-interpretability`, `large-reasoning-models`, `overt
 
 ## Abstract
 
-Reinforcement learning (RL) has catalyzed the emergence of Large Reasoning Models (LRMs) that have pushed reasoning capabilities to new heights. While their performance has garnered significant excitement, exploring the internal mechanisms driving these behaviors has become an equally critical research frontier. This paper provides a comprehensive survey of the mechanistic understanding of LRMs, organizing recent findings into three core dimensions: 1) training dynamics, 2) reasoning mechanisms, and 3) unintended behaviors. By synthesizing these insights, we aim to bridge the gap between black-box performance and mechanistic transparency. Finally, we discuss underexplored challenges to outline a roadmap for future mechanistic studies, including the need for applied interpretability, improved methodologies, and a unified theoretical framework.
+Reinforcement learning (RL) has catalyzed the emergence of Large Reasoning Models (LRMs) that have pushed reasoning capabilities to new heights. While their performance has garnered significant excitement, exploring the internal mechanisms driving these behaviors has become an equally critical research frontier. This paper provides a comprehensive survey of the mechanistic understanding of LRMs, organizing recent findings into three core dimensions: 1) training dynamics, 2) reasoning mechanisms, and 3) unintended behaviors. By synthesizing these insights, we aim to bridge the gap between black-box performance and mechanistic transparency. Finally, we discuss under-explored challenges to outline a roadmap for future mechanistic studies, including the need for applied interpretability, improved methodologies, and a unified theoretical framework.
 
 ---
 

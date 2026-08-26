@@ -1,0 +1,42 @@
+{
+  "abstract": "LLMs can solve complex tasks by generating long, multi-step reasoning chains. Test-time scaling (TTS) can further improve LLM performance by sampling multiple variants of intermediate reasoning steps, verifying their correctness, and strategically choosing the best steps for continuation. However, existing verification approaches, such as Process Reward Models (PRMs), are computationally expensive, limited to specific domains, and require large-scale human or model-generated annotations. We propose a lightweight alternative for step-level reasoning verification based on probing the internal states of LLMs. We train a transformer-based probe that uses the internal states of the frozen LLM to estimate the credibility of its reasoning steps during generation. Annotation can be generated either by another larger LLM (e.g., DeepSeek-R1) or in a self-supervised manner by the original model itself. The probes are both effective and lightweight, containing fewer than 10M parameters. Across multiple domains, including mathematics, planning, and general knowledge question answering, our probes match or even exceed the performance of PRMs that are up to 810× larger. Our findings suggest that the internal states of LLMs encode their confidence in reasoning processes and can serve as reliable signals for reasoning step verification, offering a promising direction towards scalable and generalizable TTS and introspective LLMs.",
+  "arxiv_id": "",
+  "authors": [
+    "Jingwei Ni",
+    "Ekaterina Fadeeva",
+    "Tianyi Wu",
+    "Mubashara Akhtar",
+    "Jiaheng Zhang",
+    "Elliott Ash",
+    "Markus Leippold",
+    "Timothy Baldwin",
+    "See-Kiong Ng",
+    "Artem Shelmanov",
+    "Mrinmaya Sachan"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.536",
+  "first_seen": "2026-08-26T22:03:53Z",
+  "id": "doi:10.18653/v1/2026.acl-long.536",
+  "last_seen": "2026-08-26T22:03:53Z",
+  "local_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-536.pdf",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.536.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.536",
+  "title": "ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.536/",
+  "venue": "ACL",
+  "year": 2026
+}

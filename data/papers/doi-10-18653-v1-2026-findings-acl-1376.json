@@ -1,0 +1,38 @@
+{
+  "abstract": "Test-Time Scaling (TTS) has emerged as an effective paradigm for improving the reasoning performance of large language models (LLMs). However, existing methods — most notably majority voting and heuristic token-level scoring — treat reasoning traces or tokens equally, thereby being susceptible to substantial variations in trajectory quality and localized logical failures. In this work, we introduce Chronos, a lightweight and plug-and-play chronological reasoning scorer that models each trajectory as a time series. Specifically, Chronos learns to capture trajectory features of token probabilities, assigns quality scores accordingly, and employs a weighted voting mechanism. Extensive evaluations on both in-domain and out-of-domain benchmarks demonstrate that Chronos consistently delivers substantial gains across a variety of models, with negligible computational overhead. Notably, Chronos@128 achieves relative improvements of 34.21% over Pass@1 and 22.70% over Maj@128 on HMMT25 using Qwen3-4B-Thinking-2507, highlighting its effectiveness.",
+  "arxiv_id": "",
+  "authors": [
+    "Kai Zhang",
+    "Jiayi Liao",
+    "Chengpeng Li",
+    "Ziyuan Xie",
+    "Sihang Li",
+    "Xiang Wang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.1376",
+  "first_seen": "2026-08-26T22:03:59Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1376",
+  "last_seen": "2026-08-26T22:03:59Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.1376.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.1376",
+  "title": "Chronos: Learning Temporal Dynamics of Reasoning Chains for Test-Time Scaling",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.1376/",
+  "venue": "ACL",
+  "year": 2026
+}

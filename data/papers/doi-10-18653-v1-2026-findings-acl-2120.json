@@ -1,0 +1,36 @@
+{
+  "abstract": "Test-time scaling improves the inference performance of Large Language Models (LLMs) but also incurs substantial computational costs. Although recent studies have reduced token consumption through dynamic self-consistency, they remain constrained by the high latency of sequential requests. In this paper, we propose SeerSC, a dynamic self-consistency framework that simultaneously improves token efficiency and latency by integrating System 1 and System 2 reasoning. Specifically, we utilize the rapid System 1 to compute the answer entropy for given queries. This score is then used to evaluate the potential of samples for scaling, enabling dynamic self-consistency under System 2. Benefiting from the advance and accurate estimation provided by System 1, the proposed method can reduce token usage while simultaneously achieving a significant decrease in latency through parallel generation. It outperforms existing methods, achieving up to a 47% reduction in token consumption and a 43% reduction in inference latency without significant performance loss.",
+  "arxiv_id": "",
+  "authors": [
+    "Shiyu Ji",
+    "Yixuan Wang",
+    "Yijun Liu",
+    "Qingfu Zhu",
+    "Wanxiang Che"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.2120",
+  "first_seen": "2026-08-26T22:04:00Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.2120",
+  "last_seen": "2026-08-26T22:04:00Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.2120.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.2120",
+  "title": "Seer Self-Consistency: Advance Budget Estimation for Adaptive Test-Time Scaling",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.2120/",
+  "venue": "ACL",
+  "year": 2026
+}

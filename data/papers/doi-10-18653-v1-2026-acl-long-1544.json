@@ -1,0 +1,35 @@
+{
+  "abstract": "Test-time scaling evaluates reasoning LLMs by sampling multiple outputs per prompt, but ranking models in this regime remains underexplored. We formalize dense benchmark ranking under test-time scaling and introduce Scorio, a library that implements statistical ranking methods such as paired-comparison models, item response theory (IRT) models, voting rules, and graph- and spectral-based methods. Across 20 reasoning models on four Olympiad-style math benchmarks (AIME’24, AIME’25, HMMT’25, and BrUMO’25; up to N = 80 trials), most full-trial rankings agree closely with the Bayesian gold standard Bayes_𝒰@80 (mean Kendall’s τ_b = 0.93–0.95), and 19–34 methods recover exactly the same ordering. In the single-trial regime, the best methods reach τ_b ≈ 0.86.Using greedy decoding as an empirical prior (Bayes_R₀@N) reduces variance at N = 1 by 16–52%, but can bias rankings when greedy and stochastic sampling disagree. These results identify reliable ranking methods for both high- and low-budget test-time scaling. We release Scorio as an open-source library at https://github.com/mohsenhariri/scorio.",
+  "arxiv_id": "",
+  "authors": [
+    "Mohsen Hariri",
+    "Michael Hinczewski",
+    "Jing Ma",
+    "Vipin Chaudhary"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.1544",
+  "first_seen": "2026-08-26T22:03:55Z",
+  "id": "doi:10.18653/v1/2026.acl-long.1544",
+  "last_seen": "2026-08-26T22:03:55Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.1544.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.1544",
+  "title": "Ranking Reasoning LLMs under Test-Time Scaling",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.1544/",
+  "venue": "ACL",
+  "year": 2026
+}

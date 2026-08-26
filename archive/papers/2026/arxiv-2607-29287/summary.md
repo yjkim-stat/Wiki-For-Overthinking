@@ -3,11 +3,12 @@
 # Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation
 
 - **Authors**: Yongshi Ye, Biao Fu, Chongxuan Huang, Yidong Chen, Xiaodong Shi
-- **Venue**: cs.CL
+- **Venue**: ACL
 - **Published**: 2026-07-31
-- **Source**: arxiv
-- **Link**: <https://arxiv.org/abs/2607.29287>
-- **PDF**: <https://arxiv.org/pdf/2607.29287v1>
+- **Source**: arxiv+anthology
+- **Link**: <https://aclanthology.org/2026.acl-long.1400/>
+- **PDF**: <https://aclanthology.org/2026.acl-long.1400.pdf>
+- **DOI**: 10.18653/v1/2026.acl-long.1400
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.70
 

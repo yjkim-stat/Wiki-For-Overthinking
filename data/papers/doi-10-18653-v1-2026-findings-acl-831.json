@@ -1,0 +1,45 @@
+{
+  "abstract": "Reasoning-capable large language models (LLMs) achieve strong performance on complex tasks but often exhibit overthinking after distillation, generating unnecessarily long chain-of-thought (CoT) reasoning even for simple inputs and incurring high inference cost. However, naively shortening reasoning length can degrade reasoning accuracy, as concise reasoning may be insufficient for certain inputs and lacks explicit supervision. We propose Auto Long-Short Reasoning (AutoL2S), a distillation framework that empowers non-reasoning LLMs to think thoroughly but only when necessary. AutoL2S first learns a lightweight switching token with verified long-short CoTs to enable instance-wise long-short reasoning selection. Then it leverages long-short reasoning rollouts induced by switching tokens within a GRPO-style loss to improve reasoning efficiency while maintaining accuracy. Experiments demonstrate that AutoL2S effectively reduces reasoning length up to 71% with minimal accuracy loss, yielding markedly better trade-off in token length and inference time while preserving accuracy. The code is available at https://github.com/amandaluof/AutoL2S.",
+  "arxiv_id": "",
+  "authors": [
+    "Feng Luo",
+    "Yu-Neng Chuang",
+    "Guanchu Wang",
+    "Hoang Anh Duy Le",
+    "Shaochen Zhong",
+    "Hongyi Liu",
+    "Jiayi Yuan",
+    "Yang Sui",
+    "Vladimir Braverman",
+    "Vipin Chaudhary",
+    "Xia Hu"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.831",
+  "first_seen": "2026-08-26T22:03:58Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.831",
+  "last_seen": "2026-08-26T22:03:58Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "reasoning length",
+    "reasoning efficiency",
+    "concise reasoning"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.831.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.831",
+  "title": "AutoL2S: Auto Long-Short Reasoning for Efficient Large Language Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.831/",
+  "venue": "ACL",
+  "year": 2026
+}

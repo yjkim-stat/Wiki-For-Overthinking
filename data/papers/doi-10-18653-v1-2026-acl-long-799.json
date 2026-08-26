@@ -1,0 +1,39 @@
+{
+  "abstract": "Chain-of-thought (CoT) reasoning improves large language model performance on complex tasks, but often produces excessively long and inefficient reasoning traces. Existing methods shorten CoTs using length penalties or global entropy reduction, implicitly assuming that low uncertainty is desirable throughout reasoning. We show instead that reasoning efficiency is governed by the trajectory of uncertainty. CoTs with dominant downward entropy trends are substantially shorter. Motivated by this insight, we propose Entropy Trend Reward (ETR), a trajectory-aware objective that encourages progressive uncertainty reduction while allowing limited local exploration. We integrate ETR into Group Relative Policy Optimization (GRPO) and evaluate it across multiple reasoning models and challenging benchmarks. ETR consistently achieves a superior accuracy–efficiency trade-off, improving DeepSeek-R1-Distill-7B by +9.9% accuracy while reducing CoT length by 67% across four benchmarks.",
+  "arxiv_id": "",
+  "authors": [
+    "Xuan Xiong",
+    "Huan Liu",
+    "Li Gu",
+    "Zhixiang Chi",
+    "Yue Qiu",
+    "Yuanhao YU",
+    "Yang Wang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.799",
+  "first_seen": "2026-08-26T22:03:54Z",
+  "id": "doi:10.18653/v1/2026.acl-long.799",
+  "last_seen": "2026-08-26T22:03:54Z",
+  "local_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-799.pdf",
+  "matched_keywords": [
+    "reasoning efficiency",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.799.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.799",
+  "title": "ETR: Entropy Trend Reward for Efficient Chain-of-Thought Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.799/",
+  "venue": "ACL",
+  "year": 2026
+}

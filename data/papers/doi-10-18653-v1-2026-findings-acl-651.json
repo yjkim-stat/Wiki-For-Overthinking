@@ -1,0 +1,40 @@
+{
+  "abstract": "Test-time scaling improves the reasoning performance of large language models but often results in token-inefficient overthinking, where models continue reasoning beyond what is necessary for a correct answer. Existing dynamic early-exit methods typically rely on single-step confidence signals, which are often unreliable for detecting reasoning convergence in multi-step settings. To mitigate this limitation, we propose TRACE, a training-free framework for efficient test-time scaling that determines when to terminate reasoning based on temporal aggregation of multi-step evidence rather than instantaneous signals. TRACE detects reasoning convergence over time by aggregating two complementary signals across recent reasoning steps: answer consistency, capturing the persistence of predicted answers, and confidence trajectory, modeling the temporal evolution of model confidence. Benefiting from these two factors, TRACE can accurately determine whether the reasoning process has converged, thereby promptly halting inference and effectively avoiding redundant reasoning steps. Extensive experiments on multiple challenging benchmarks show that TRACE reduces reasoning token usage by 25–30% on average while maintaining accuracy within 1–2% of full-length reasoning, consistently outperforming existing dynamic reasoning methods.",
+  "arxiv_id": "",
+  "authors": [
+    "Jiakun Li",
+    "Xingwei He",
+    "Kefan Li",
+    "Hongzheng Chai",
+    "Hongyue Yu",
+    "Yuan Yuan"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.651",
+  "first_seen": "2026-08-26T22:03:57Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.651",
+  "last_seen": "2026-08-26T22:03:57Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "test time scaling",
+    "reasoning token",
+    "early exit"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.651.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.6667
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.651",
+  "title": "Efficient Test-Time Scaling via Temporal Reasoning Aggregation",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.651/",
+  "venue": "ACL",
+  "year": 2026
+}

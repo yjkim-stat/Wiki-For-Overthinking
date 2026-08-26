@@ -1,0 +1,41 @@
+{
+  "abstract": "Large Reasoning Models (LRMs) have revolutionized complex problem-solving, yet they exhibit a pervasive “overthinking”, generating unnecessarily long reasoning chains. While current solutions improve token efficiency, they often sacrifice fine-grained control or risk disrupting the logical integrity of the reasoning process. To address this, we introduce Stepwise Adaptive Thinking (SAT), a framework that performs step-level, difficulty-aware pruning while preserving the core reasoning structure. SAT formulates reasoning as a Finite-State Machine (FSM) with distinct thinking modes (SLOW, NORMAL, FAST, SKIP). It navigates these states dynamically using a lightweight Process Reward Model (PRM), compressing easy steps while preserving depth for hard ones. Experiments across 9 LRMs and 7 benchmarks show that SAT achieves up to 40% reduction in reasoning tokens while generally maintaining or improving accuracy. Code is available at https://github.com/byxw13/SAT_Code.",
+  "arxiv_id": "",
+  "authors": [
+    "Weiyang Huang",
+    "Xuefeng Bai",
+    "Kehai Chen",
+    "Xinyang Chen",
+    "Yibin Chen",
+    "Weili Guan",
+    "Min Zhang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.2009",
+  "first_seen": "2026-08-26T22:03:56Z",
+  "id": "doi:10.18653/v1/2026.acl-long.2009",
+  "last_seen": "2026-08-26T22:03:56Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "large reasoning model",
+    "reasoning token",
+    "adaptive thinking"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.2009.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.6667
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.2009",
+  "title": "SAT: Balancing Reasoning Accuracy and Efficiency with Stepwise Adaptive Thinking",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.2009/",
+  "venue": "ACL",
+  "year": 2026
+}

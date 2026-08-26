@@ -1,0 +1,40 @@
+{
+  "abstract": "Reasoning-enhanced large language models rely on intermediate reasoning signals to solve complex, multi-step tasks, making reasoning behavior a valuable form of intellectual property. Meanwhile, knowledge distillation enables an adversary to replicate this behavior in a realistic black-box setting by repeatedly querying a deployed model on a target domain and training a local student to imitate its outputs, including reasoning traces. Existing LLM watermarks primarily operate on surface text and decoding-time token biases, and thus fail to provide reliable attribution of reasoning behavior once it is transferred through knowledge distillation. ReasMark entangles the watermark with the target-domain input distribution by selecting watermark tokens from high-frequency prompts, so distillation queries naturally activate it. It then embeds the watermark by score-conditioned losses that create a detectable reasoning-length gap for black-box verification. Comprehensive experiments across multiple LLMs, datasets, and distillation settings demonstrate that ReasMark consistently outperforms existing baselines while preserving task utility.",
+  "arxiv_id": "",
+  "authors": [
+    "Peizhuo Lv",
+    "Ruihua Zhou",
+    "Yunpeng Li",
+    "Ruigang Liang",
+    "Xingshuo Han",
+    "XiaoFeng Wang",
+    "Wei Dong",
+    "Yuling Liu"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.2185",
+  "first_seen": "2026-08-26T22:03:56Z",
+  "id": "doi:10.18653/v1/2026.acl-long.2185",
+  "last_seen": "2026-08-26T22:03:56Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning length",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.2185.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.2185",
+  "title": "ReasMark: A Robust Watermark for Attributing LLM Reasoning Under Knowledge Distillation Attacks",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.2185/",
+  "venue": "ACL",
+  "year": 2026
+}

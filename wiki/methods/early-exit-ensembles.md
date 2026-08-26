@@ -13,8 +13,8 @@ In both sources an early-exit ensemble is a network whose intermediate exit head
 
 ## Appears in
 
-- QUTE: Quantifying Uncertainty in TinyML models with Early-exit-assisted ensembles for model-monitoring — QUTE is an early-exit-assisted ensemble architecture that quantifies predictive uncertainty in KB-sized TinyML classifiers within a single forward pass, for on-device monitoring without labels.
-- TinyTTA: Efficient Test-time Adaptation via Early-exit Ensembles on Edge Devices — Makes test-time adaptation to distribution shift feasible on microcontrollers by adapting only early-exit heads in a self-ensemble instead of backpropagating through the whole network, and ships an MCU runtime that executes it.
+- [QUTE: Quantifying Uncertainty in TinyML models with Early-exit-assisted ensembles for model-monitoring](../../archive/papers/2025/title-53c7cfefc569f403/summary.md) — QUTE is an early-exit-assisted ensemble architecture that quantifies predictive uncertainty in KB-sized TinyML classifiers within a single forward pass, for on-device monitoring without labels.
+- [TinyTTA: Efficient Test-time Adaptation via Early-exit Ensembles on Edge Devices](../../archive/papers/2024/title-bf8bc6d3bbf1c242/summary.md) — Makes test-time adaptation to distribution shift feasible on microcontrollers by adapting only early-exit heads in a self-ensemble instead of backpropagating through the whole network, and ships an MCU runtime that executes it.
 
 <!-- auto:end -->
 

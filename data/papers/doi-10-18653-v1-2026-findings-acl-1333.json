@@ -1,0 +1,40 @@
+{
+  "abstract": "Large language models (LLMs) achieve strong reasoning performance by allocating substantial computation at inference time, often generating long and verbose reasoning traces. While recent work on efficient reasoning reduces this overhead through length-based rewards or pruning, many approaches are post-trained under a much shorter context window than base-model training, a factor whose effect has not been systematically isolated. We first show that short-context post-training alone, using standard GRPO without any length-aware objective, already induces substantial reasoning compression—but at the cost of increasingly unstable training dynamics and accuracy degradation. To address this, we propose Step-level Advantage Selection (SAS), which operates at the reasoning-step level and assigns a zero advantage to low-confidence steps in correct rollouts and to high-confidence steps in verifier-failed rollouts, where failures often arise from truncation or verifier issues rather than incorrect reasoning. Across diverse mathematical and general reasoning benchmarks, SAS reduces average reasoning length by over 30% while improving Pass@1 accuracy by 3.79 points over the strongest length-aware baseline, yielding a better accuracy–efficiency trade-off.",
+  "arxiv_id": "",
+  "authors": [
+    "Han Wang",
+    "Xiaodong Yu",
+    "Jialian Wu",
+    "Jiang Liu",
+    "Ximeng Sun",
+    "Mohit Bansal",
+    "Zicheng Liu"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.1333",
+  "first_seen": "2026-08-26T22:03:59Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1333",
+  "last_seen": "2026-08-26T22:03:59Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning length",
+    "efficient reasoning",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.1333.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.625
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.1333",
+  "title": "Stabilizing Efficient Reasoning with Step-Level Advantage Selection",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.1333/",
+  "venue": "ACL",
+  "year": 2026
+}

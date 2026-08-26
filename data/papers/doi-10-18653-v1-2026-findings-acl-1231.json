@@ -1,0 +1,41 @@
+{
+  "abstract": "Large Reasoning Models (LRMs) often suffer from overthinking, a phenomenon in which redundant reasoning steps are generated after a correct solution has already been reached. Existing early reasoning exit methods primarily rely on output-level heuristics or trained probing models to skip redundant reasoning steps, thereby mitigating overthinking. However, these approaches typically require additional rollout computation or externally labeled datasets. In this paper, we propose NEAT, a Neuron-based Early reAsoning exiT framework that monitors neuron-level activation dynamics to enable training-free early exits, without introducing any additional test-time computation. NEAT identifies exit-associated neurons and tracks their activation patterns during reasoning to dynamically trigger early exit or suppress reflection, thereby reducing unnecessary reasoning while preserving solution quality. Experiments on four reasoning benchmarks across six models with different scales and architectures show that, for each model, NEAT achieves an average token reduction of 22% to 28% when averaged over the four benchmarks, while maintaining accuracy.",
+  "arxiv_id": "",
+  "authors": [
+    "Kang Liu",
+    "YongKang Liu",
+    "Xiaocui Yang",
+    "Peidong Wang",
+    "Wen Zhang",
+    "Shi Feng",
+    "Yifei Zhang",
+    "Daling Wang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.1231",
+  "first_seen": "2026-08-26T22:03:58Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1231",
+  "last_seen": "2026-08-26T22:03:58Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "large reasoning model",
+    "early exit"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.1231.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.7
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.1231",
+  "title": "NEAT: Neuron-Based Early Exit for Large Reasoning Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.1231/",
+  "venue": "ACL",
+  "year": 2026
+}

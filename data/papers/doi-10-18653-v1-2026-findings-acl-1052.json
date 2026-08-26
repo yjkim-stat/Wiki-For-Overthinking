@@ -1,0 +1,38 @@
+{
+  "abstract": "Retrieval-augmented generation (RAG) substantially extends the knowledge boundary of large language models. However, it still faces two major challenges when handling complex reasoning tasks: low context utilization and frequent hallucinations. To address these issues, we propose Self-Correcting RAG, a unified framework that reformulates retrieval and generation as constrained optimization and path planning. On the input side, we move beyond traditional greedy retrieval and, for the first time, formalize context selection as a multi-dimensional multiple-choice knapsack problem (MMKP), thereby maximizing information density and removing redundancy under a strict token budget. On the output side, we introduce a natural language inference (NLI)-guided Monte Carlo Tree Search (MCTS) mechanism, which leverages test-time compute to dynamically explore reasoning trajectories and validate the faithfulness of generated answers. Experiments on six open-domain and multi-hop QA datasets demonstrate that our method significantly improves reasoning accuracy on complex queries while effectively reducing hallucinations, outperforming strong existing baselines. Our code is available at https://github.com/xjiacs/Self-Correcting-RAG .",
+  "arxiv_id": "",
+  "authors": [
+    "Shijia Xu",
+    "Zhou Wu",
+    "Xiaolong Jia",
+    "Yu Wang",
+    "Kai Liu",
+    "April Xiaowen Dong"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.1052",
+  "first_seen": "2026-08-26T22:03:58Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1052",
+  "last_seen": "2026-08-26T22:03:58Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test-time compute",
+    "token budget"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.1052.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.1052",
+  "title": "Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.1052/",
+  "venue": "ACL",
+  "year": 2026
+}

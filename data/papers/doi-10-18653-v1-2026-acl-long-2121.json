@@ -1,0 +1,39 @@
+{
+  "abstract": "Large Language Models (LLMs) have recently advanced the field of Automated Theorem Proving (ATP), attaining substantial performance gains through widely adopted test-time scaling strategies, notably reflective Chain-of-Thought (CoT) reasoning and increased sampling passes. However, they both introduce significant computational overhead for inference. Moreover, existing cost analyses typically regulate only the number of sampling passes, while neglecting the substantial disparities in sampling costs introduced by different scaling strategies. In this paper, we systematically compare the efficiency of different test-time scaling strategies for ATP models and demonstrate the inefficiency of the current state-of-the-art (SOTA) open-source approaches. We then investigate approaches to significantly reduce token usage and sample passes while maintaining the original performance. Specifically, we propose two complementary methods that can be integrated into a unified EconRL pipeline for amplified benefits: (1) a dynamic Chain-of-Thought (CoT) switching mechanism designed to mitigate unnecessary token consumption, and (2) Diverse parallel-scaled reinforcement learning (RL) with trainable prefixes to enhance pass rates under constrained sampling passes. Experiments on miniF2F and ProofNet demonstrate that our EconProver-GD achieves comparable performance to baseline methods with only 12% of the computational cost. This work provides actionable insights for deploying lightweight ATP models without sacrificing performance.",
+  "arxiv_id": "",
+  "authors": [
+    "Mukai Li",
+    "Linfeng Song",
+    "Zhenwen Liang",
+    "Jiahao Xu",
+    "Shansan Gong",
+    "Qi Liu",
+    "Haitao Mi",
+    "Dong Yu"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.2121",
+  "first_seen": "2026-08-26T22:03:56Z",
+  "id": "doi:10.18653/v1/2026.acl-long.2121",
+  "last_seen": "2026-08-26T22:03:56Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.2121.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.2121",
+  "title": "EconProver: Towards More Economical Test-Time Scaling for Automated Theorem Proving",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.2121/",
+  "venue": "ACL",
+  "year": 2026
+}

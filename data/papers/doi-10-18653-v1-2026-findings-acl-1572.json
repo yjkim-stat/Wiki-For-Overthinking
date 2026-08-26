@@ -1,0 +1,41 @@
+{
+  "abstract": "Large language models (LLMs) often hallucinate in question answering (QA) tasks due to a lack of factual knowledge. While integrating knowledge graphs (KGs) with LLMs has alleviated this issue, existing methods suffer from poor generalization or low reasoning efficiency, and critically, they overlook the learning and reuse of reasoning paths from past experiences. To address these challenges, we introduce Thought-Action Graph (TAG), a structured repository of reasoning experiences. TAG decomposes successful LLM-KG interaction trajectories into fine-grained semantic operators, which are stored in TAG constructed by the thought layer and action layer. Building upon TAG, we propose a novel KGQA paradigm — TAG-Reasoning (TAGR). TAGR first retrieves and assembles reasoning blueprints from TAG, and then guides LLM to efficiently execute on KG according to them. Through this approach, TAGR transforms the computationally expensive online exploration process of LLMs into an offline process of TAG retrieval and assembly. Experimental results on multiple KGQA benchmarks demonstrate that TAGR significantly outperforms state-of-the-art methods across key metrics, while drastically reducing the number of LLM calls and generated tokens. This work opens new avenues for building continual learning, efficient, and faithful KGQA systems.",
+  "arxiv_id": "",
+  "authors": [
+    "Zhixiao Qi",
+    "Feng Huang",
+    "Yunqi Zhang",
+    "Shijie Zhang",
+    "Qingqing Sun",
+    "Yongfeng Huang",
+    "Minghu Jiang",
+    "Shuai Chen",
+    "Tianyi Zhang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.1572",
+  "first_seen": "2026-08-26T22:03:59Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1572",
+  "last_seen": "2026-08-26T22:03:59Z",
+  "local_path": "",
+  "matched_keywords": [
+    "efficient reasoning",
+    "reasoning efficiency"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.1572.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.1572",
+  "title": "Thought-Action Graph Reasoning: Faithful and Efficient Reasoning of Large Language Models via Reusing Past Experience",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.1572/",
+  "venue": "ACL",
+  "year": 2026
+}

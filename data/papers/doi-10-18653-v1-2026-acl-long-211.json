@@ -1,0 +1,39 @@
+{
+  "abstract": "As large language models (LLMs) increasingly tackle complex reasoning tasks, test-time scaling has become critical for enhancing capabilities. However, in agentic scenarios with frequent tool calls, the traditional generation-length-based definition breaks down: tool latency decouples inference time from generation length. We propose Timely Machine, redefining test-time as wall-clock time, where models dynamically adjust strategies based on time budgets. We introduce Timely-Eval, a benchmark spanning high-frequency tool calls, low-frequency tool calls, and time-constrained reasoning. By varying tool latency, we find smaller models excel with fast feedback through more interactions, while larger models dominate high-latency settings via superior interaction quality. Moreover, existing models fail to adapt reasoning to time budgets. We propose Timely-RL to address this gap. After cold-start supervised fine-tuning, we use reinforcement learning to enhance temporal planning. Timely-RL improves time budget awareness and consistently boosts performance across Timely-Eval. We hope our work offers a new perspective on test-time scaling for the agentic era.",
+  "arxiv_id": "",
+  "authors": [
+    "Yichuan Ma",
+    "Linyang Li",
+    "Yongkang Chen",
+    "Peiji Li",
+    "Xiaozhe Li",
+    "Qipeng Guo",
+    "Dahua Lin",
+    "Kai Chen"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.211",
+  "first_seen": "2026-08-26T22:03:53Z",
+  "id": "doi:10.18653/v1/2026.acl-long.211",
+  "last_seen": "2026-08-26T22:03:53Z",
+  "local_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-211.pdf",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.211.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.211",
+  "title": "Timely Machine: Awareness of Time Makes Test-Time Scaling Agentic",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.211/",
+  "venue": "ACL",
+  "year": 2026
+}

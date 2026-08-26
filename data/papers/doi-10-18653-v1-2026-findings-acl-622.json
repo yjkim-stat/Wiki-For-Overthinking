@@ -1,0 +1,39 @@
+{
+  "abstract": "The reasoning capabilities of large language models (LLMs) have improved substantially through increased test-time computation, typically in the form of intermediate tokens known as chain-of-thought (CoT). However, CoT often becomes unnecessarily long, increasing computation costs without improving accuracy and sometimes even degrading performance, a phenomenon known as “overthinking”. We propose a multi-stage efficient reasoning method that combines supervised fine-tuning—via rejection sampling or reasoning trace reformatting—with reinforcement learning using an adaptive length penalty. We introduce a lightweight reward function that penalizes tokens generated after the first correct answer, encouraging the model to perform self-verification only when beneficial. We conduct a holistic evaluation across seven diverse reasoning tasks, analyzing the accuracy–response length trade-off. Our approach reduces response length by an average of 28% for 8B models and 40% for 32B models, while incurring only minor performance drops of 1.6 and 2.5 points, respectively. Despite its conceptual simplicity, it achieves a better trade-off than more complex state-of-the-art efficient reasoning methods, scoring 76.6 on the area under the Overthinking-Adjusted Accuracy curve (AUCOAA)—5 points above the base model and 2.5 points above the second-best approach.",
+  "arxiv_id": "",
+  "authors": [
+    "Nathanaël Carraz Rakotonirina",
+    "Ren Pang",
+    "Neha Anna John",
+    "Michael Bohlke-Schneider",
+    "Momchil Hardalov"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.622",
+  "first_seen": "2026-08-26T22:03:57Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.622",
+  "last_seen": "2026-08-26T22:03:57Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "efficient reasoning",
+    "adaptive reasoning",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.622.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.6667
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.622",
+  "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.622/",
+  "venue": "ACL",
+  "year": 2026
+}

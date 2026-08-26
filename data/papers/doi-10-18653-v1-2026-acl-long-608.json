@@ -1,0 +1,36 @@
+{
+  "abstract": "For Large Language Models (LLMs) to be reliably deployed, models must effectively know when not to answer: abstain. Reasoning models, in particular, have gained attention for impressive performance on complex tasks. However, reasoning models have been shown to have worse abstention abilities. Taking the vulnerabilities of reasoning models into account, we propose our Query Misalignment Framework. Hallucinations resulting in failed abstention can be reinterpreted as LLMs answering the wrong question (rather than answering a question incorrectly). Based on this framework, we develop a new class of state-of-the-art abstention methods called Trace Inversion. First, we generate the reasoning trace of a model. Based on only the trace, we then reconstruct the most likely query that the model responded to. Finally, we compare the initial query with the reconstructed query. Low similarity score between the initial query and reconstructed query suggests that the model likely answered the question incorrectly and is flagged to abstain. Extensive experiments demonstrate that Trace Inversion effectively boosts abstention performance in four frontier LLMs across nine abstention QA datasets, beating competitive baselines in 33 out of 36 settings. The code is available at this https://anonymous.4open.science/r/trace-inversion-08BB/.",
+  "arxiv_id": "",
+  "authors": [
+    "Abinitha Gourabathina",
+    "Inkit Padhi",
+    "Manish Nagireddy",
+    "Subhajit Chaudhury",
+    "Prasanna Sattigeri"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.608",
+  "first_seen": "2026-08-26T22:03:53Z",
+  "id": "doi:10.18653/v1/2026.acl-long.608",
+  "last_seen": "2026-08-26T22:03:53Z",
+  "local_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-608.pdf",
+  "matched_keywords": [
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.608.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.608",
+  "title": "Answering the Wrong Question: Reasoning Trace Inversion for Abstention in LLMs",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.608/",
+  "venue": "ACL",
+  "year": 2026
+}

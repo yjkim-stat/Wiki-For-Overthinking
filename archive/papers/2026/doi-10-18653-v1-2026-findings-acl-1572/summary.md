@@ -1,0 +1,25 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Thought-Action Graph Reasoning: Faithful and Efficient Reasoning of Large Language Models via Reusing Past Experience
+
+- **Authors**: Zhixiao Qi, Feng Huang, Yunqi Zhang, Shijie Zhang, Qingqing Sun, Yongfeng Huang, Minghu Jiang, Shuai Chen, Tianyi Zhang
+- **Venue**: ACL
+- **Published**: unknown
+- **Source**: anthology
+- **Link**: <https://aclanthology.org/2026.findings-acl.1572/>
+- **PDF**: <https://aclanthology.org/2026.findings-acl.1572.pdf>
+- **DOI**: 10.18653/v1/2026.findings-acl.1572
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.57
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+Large language models (LLMs) often hallucinate in question answering (QA) tasks due to a lack of factual knowledge. While integrating knowledge graphs (KGs) with LLMs has alleviated this issue, existing methods suffer from poor generalization or low reasoning efficiency, and critically, they overlook the learning and reuse of reasoning paths from past experiences. To address these challenges, we introduce Thought-Action Graph (TAG), a structured repository of reasoning experiences. TAG decomposes successful LLM-KG interaction trajectories into fine-grained semantic operators, which are stored in TAG constructed by the thought layer and action layer. Building upon TAG, we propose a novel KGQA paradigm — TAG-Reasoning (TAGR). TAGR first retrieves and assembles reasoning blueprints from TAG, and then guides LLM to efficiently execute on KG according to them. Through this approach, TAGR transforms the computationally expensive online exploration process of LLMs into an offline process of TAG retrieval and assembly. Experimental results on multiple KGQA benchmarks demonstrate that TAGR significantly outperforms state-of-the-art methods across key metrics, while drastically reducing the number of LLM calls and generated tokens. This work opens new avenues for building continual learning, efficient, and faithful KGQA systems.
+
+---
+
+Record id: `doi:10.18653/v1/2026.findings-acl.1572`

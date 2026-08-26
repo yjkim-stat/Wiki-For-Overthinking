@@ -1,0 +1,38 @@
+{
+  "abstract": "Large Reasoning Models (LRMs) allocate substantial inference-time compute to Chain-of-Thought (CoT) reasoning, improving performance on mathematics, scientific QA, and tool usage. However, this introduces overthinking: LRMs often reach a correct intermediate solution, continue reasoning, and overwrite it with an incorrect answer. We first demonstrate that oracle stopping—where we inject lt;/think gt; at every sentence boundary and select the best stopping point in hindsight—improves average accuracy by 8% while reducing thinking tokens by 72%, exposing substantial overthinking. Motivated by this finding, we propose ThinkBrake, which monitors the log-probability margin between the top continuation token and lt;/think gt; at sentence boundaries, stopping reasoning when this margin narrows. ThinkBrake requires no training and achieves favorable accuracy–efficiency trade-offs across math, scientific QA, and tool usage benchmarks, reducing thinking token usage by up to 30%. Furthermore, we provide theoretical analysis showing that ThinkBrake is equivalent to test-time realignment with a reward bonus for the lt;/think gt; token.",
+  "arxiv_id": "",
+  "authors": [
+    "Sangjun Song",
+    "Minjae Oh",
+    "Seungkyu Lee",
+    "Sungmin Jo",
+    "Yohan Jo"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.1095",
+  "first_seen": "2026-08-26T22:03:58Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1095",
+  "last_seen": "2026-08-26T22:03:58Z",
+  "local_path": "",
+  "matched_keywords": [
+    "overthinking",
+    "large reasoning model",
+    "efficient reasoning"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.1095.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.625
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.1095",
+  "title": "ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.1095/",
+  "venue": "ACL",
+  "year": 2026
+}

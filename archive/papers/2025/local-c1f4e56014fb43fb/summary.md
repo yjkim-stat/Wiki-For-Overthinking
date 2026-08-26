@@ -5,7 +5,10 @@
 - **Authors**: Gaurav Srivastava, Aafiya Hussain, Sriram Srinivasan, Xuan Wang
 - **Venue**: preprint
 - **Published**: 2025-01-01
-- **Source**: local
+- **Source**: local+anthology
+- **Link**: <https://aclanthology.org/2026.findings-acl.1285/>
+- **PDF**: <https://aclanthology.org/2026.findings-acl.1285.pdf>
+- **DOI**: 10.18653/v1/2026.findings-acl.1285
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
@@ -51,7 +54,7 @@ Tags: `overthinking`, `reasoning models`, `accuracy-efficiency tradeoff`, `chain
 
 ## Abstract
 
-Large language models (LLMs) achieve impressive performance on complex mathematical benchmarks yet sometimes fail on basic math reasoning while generating unnecessarily verbose responses. In this paper, we present LLMThinkBench, a systematic benchmark and comprehensive empirical study to evaluate the efficiency of reasoning in LLMs, focusing on the fundamental tradeoff between accuracy and overthinking. First, we formalize the accuracy-verbosity tradeoff. Second, we introduce the Overthinking Score, a harmonic-mean metric combining accuracy and token-efficiency for holistic model evaluation. Third, we establish an evaluation protocol with dynamically-generated data across 14 basic math tasks. Fourth, we conduct a large-scale empirical study evaluating 53 LLMs, including reasoning and quantized variants across different reasoning budgets. Fifth, we release LLMThinkBench as an open-source Python package and public leaderboard for reproducibility. Our findings reveal: 1) model performance on complex benchmarks does not translate directly to basic math reasoning; 2) reasoning models generate ~18x more tokens while sometimes achieving lower accuracy and exhibit catastrophic collapse when tokens are constrained, dropping by up to ~36%; 3) the accuracy-verbosity relationship is non-monotonic with extended reasoning budgets yielding diminishing returns (GPT-5/o-series models show zero accuracy gain from low -> medium -> high reasoning effort). Our findings challenge the assumption that longer reasoning in LLMs necessarily improves mathematical reasoning.
+Large language models (LLMs) achieve impressive performance on complex mathematical benchmarks yet sometimes fail on basic math reasoning while generating unnecessarily verbose responses. In this paper, we present LLMThinkBench, a systematic benchmark and comprehensive empirical study to evaluate the efficiency of reasoning in LLMs, focusing on the fundamental tradeoff between accuracy and overthinking. First, we formalize the accuracy-verbosity tradeoff. Second, we introduce the Overthinking Score, a harmonic-mean metric combining accuracy and token-efficiency for holistic model evaluation. Third, we establish an evaluation protocol with dynamically-generated data across 14 basic math tasks. Fourth, we conduct a large-scale empirical study evaluating 53 LLMs, including reasoning and quantized variants across different reasoning budgets. Fifth, we release LLMThinkBench as an open-source Python package and public leaderboard for reproducibility. Our findings reveal: 1) model performance on complex benchmarks does not translate directly to basic math reasoning; 2) reasoning models generate ∼18× more tokens while sometimes achieving lower accuracy and exhibit catastrophic collapse when tokens are constrained, dropping by up to ∼36%; 3) the accuracy-verbosity relationship is non-monotonic with extended reasoning budgets yielding diminishing returns (GPT-5/o-series models show zero accuracy gain from low → medium → high reasoning effort). Our findings challenge the assumption that longer reasoning in LLMs necessarily improves mathematical reasoning. Our public leaderboard is available at https://ctrl-gaurav.github.io/LLMThinkBench/. Our open-source Python package is available at https://pypi.org/project/llmthinkbench/, and the codebase can be found at https://github.com/ctrl-gaurav/LLMThinkBench for easy and reproducible evaluation.
 
 ---
 

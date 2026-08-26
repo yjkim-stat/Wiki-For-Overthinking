@@ -1,0 +1,39 @@
+{
+  "abstract": "Large reasoning models (LRMs) that generate long chains of thought now perform well on multi-step math, science, and coding tasks. However, their behavior is still unstable and hard to interpret, and existing analysis tools struggle with such long, structured reasoning traces. We introduce Step-Saliency, which pools attention–gradient scores into step-to-step maps along the question–thinking–summary trajectory. Across several models, Step-Saliency reveals two recurring information-flow failures: Shallow Lock-in, where shallow layers over-focus on the current step and barely use earlier context, and Deep Decay, where deep layers gradually lose saliency on the thinking segment and the summary increasingly attends to itself and the last few steps. Motivated by these patterns, we propose StepFlow, a saliency-inspired test-time intervention that adjusts shallow saliency patterns measured by Step-Saliency via Odds-Equal Bridge and adds a small step-level residual in deep layers via Step Momentum Injection. StepFlow improves accuracy on math, science, and coding tasks across multiple LRMs without retraining, indicating that repairing information flow can recover part of their missing reasoning performance.",
+  "arxiv_id": "",
+  "authors": [
+    "Xiaoyu Xu",
+    "Yulan Pan",
+    "Xiaosong Yuan",
+    "Zhihong Shen",
+    "Minghao Su",
+    "Yuanhao Su",
+    "Xiaofeng Zhang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.1212",
+  "first_seen": "2026-08-26T22:03:54Z",
+  "id": "doi:10.18653/v1/2026.acl-long.1212",
+  "last_seen": "2026-08-26T22:03:54Z",
+  "local_path": "",
+  "matched_keywords": [
+    "large reasoning model",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.1212.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.1212",
+  "title": "Reasoning Fails Where Step Flow Breaks",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.1212/",
+  "venue": "ACL",
+  "year": 2026
+}

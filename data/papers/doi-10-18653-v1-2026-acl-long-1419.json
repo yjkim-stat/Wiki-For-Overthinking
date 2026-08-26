@@ -1,0 +1,34 @@
+{
+  "abstract": "Large language models solve complex tasks by generating long reasoning chains, achieving higher accuracy at the cost of increased computational cost and reduced ability to isolate functionally relevant reasoning. Prior work on compact reasoning shortens such chains through probabilistic sampling, heuristics, or supervision from frontier models, but offers limited insight into whether models internally encode token-level functional importance for answer generation. We address this gap diagnostically and propose greedy pruning, a likelihood-preserving deletion procedure that iteratively removes reasoning tokens whose removal minimally degrades model likelihood under a specified objective, yielding length-controlled reasoning chains. We evaluate pruned reasoning in a distillation framework and show that students trained on pruned chains outperform a frontier-model–supervised compression baseline at matched reasoning lengths. Finally, our analysis reveals systematic pruning patterns and shows that attention scores can predict greedy pruning ranks, further suggesting that models encode a nontrivial functional importance structure over reasoning tokens.",
+  "arxiv_id": "",
+  "authors": [
+    "Janvijay Singh",
+    "Dilek Hakkani-Tür"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.1419",
+  "first_seen": "2026-08-26T22:03:55Z",
+  "id": "doi:10.18653/v1/2026.acl-long.1419",
+  "last_seen": "2026-08-26T22:03:55Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning length",
+    "reasoning token"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.1419.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.1419",
+  "title": "Do LLMs Encode Functional Importance of Reasoning Tokens ?",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.1419/",
+  "venue": "ACL",
+  "year": 2026
+}

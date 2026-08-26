@@ -1,0 +1,41 @@
+{
+  "abstract": "Large Reasoning Models (LRMs) have achieved remarkable success on complex tasks by generating detailed Chain-of-Thought (CoT) reasoning. However, they tend to apply a uniform, computation-intensive deep reasoning strategy to all problems, leading to unnecessary overhead on simple tasks. This significantly hinders their efficiency in real-world applications. While existing methods have improved reasoning efficiency to some extent, they still face critical challenges such as conflicting objectives, limited adaptability. To address these limitations, we propose AdaMix, an adaptive reasoning framework via decoupled optimization. To mitigate optimization conflicts, AdaMix first constructs two specialized adapters: an efficiency-oriented short adapter and an accuracy-oriented long adapter. It then incorporates a difficulty-aware routing model that assesses problem complexity to predict a reasoning intensity coefficient. This coefficient is used to dynamically interpolate a mixed adapter from the two base adapters, enabling fine-grained reasoning control. Our experiment demonstrates that our AdaMix reduces the average response length of DeepSeek-R1-Distill-Qwen-7B by 54.9% while improving accuracy by up to 4.8% on five mathematical datasets, thus indicating a favorable accuracy-efficiency trade-off.",
+  "arxiv_id": "",
+  "authors": [
+    "Hao Luo",
+    "Xiao Yan",
+    "Xinyan Li",
+    "Qiming Zeng",
+    "Yuhao Lin",
+    "Shanshan Feng",
+    "Hao Wang",
+    "Jiawei Jiang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.1864",
+  "first_seen": "2026-08-26T22:03:55Z",
+  "id": "doi:10.18653/v1/2026.acl-long.1864",
+  "last_seen": "2026-08-26T22:03:55Z",
+  "local_path": "",
+  "matched_keywords": [
+    "large reasoning model",
+    "reasoning efficiency",
+    "adaptive reasoning"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.1864.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.1864",
+  "title": "AdaMix: Adaptive Mixing for Short and Long Reasoning Adapters",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.1864/",
+  "venue": "ACL",
+  "year": 2026
+}

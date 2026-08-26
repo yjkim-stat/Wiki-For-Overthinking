@@ -1,0 +1,40 @@
+{
+  "abstract": "A practical approach to activate long chain-of-thoughts reasoning ability in large language models is to perform supervised fine-tuning on instruction datasets synthesized by strong large reasoning models, offering a cost-effective alternative to reinforcement learning. However, large-scale instruction sets incur significant training overhead, while effective strategies for automatic data selection still remain unexplored. We propose Select2Reason, a novel and efficient instruction-tuning data selection framework for long-CoT reasoning. From the perspective of emergence of rethinking behaviors like self-correction and backtracking, we investigate metrics that may determine the quality of long-CoT instructions. Select2Reason leverages a difficulty-aware reward model to estimate the learning value of questions and jointly incorporates a reasoning trace length-based heuristic through a weighted scheme for ranking to prioritize high-utility examples. Empirical results on OpenR1-Math-220k demonstrate that fine-tuning LLM on only 10% of the data selected by our method achieves performance competitive with or superior to full-data tuning and open-source baseline across nine competition-level mathematical benchmarks and four broader reasoning tasks. Further experiments highlight the scalability in varying data size, efficiency during inference, and adaptability to other instruction pools of Select2Reason with minimal cost.",
+  "arxiv_id": "",
+  "authors": [
+    "Cehao Yang",
+    "Xueyuan Lin",
+    "Xiaojun Wu",
+    "Chengjin Xu",
+    "Xuhui Jiang",
+    "Honghao Liu",
+    "Hui Xiong",
+    "Jian Guo"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.331",
+  "first_seen": "2026-08-26T22:03:57Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.331",
+  "last_seen": "2026-08-26T22:03:57Z",
+  "local_path": "",
+  "matched_keywords": [
+    "large reasoning model",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.331.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.331",
+  "title": "Select2Reason: Efficient Instruction-Tuning Data Selection for Long-CoT Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.331/",
+  "venue": "ACL",
+  "year": 2026
+}

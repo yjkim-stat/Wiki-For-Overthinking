@@ -1,0 +1,25 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# MetaScale: Test-Time Scaling with Evolving Meta-Thoughts
+
+- **Authors**: Qin Liu, Wenxuan Zhou, Nan Xu, James Y. Huang, Fei Wang, Sheng Zhang, Hoifung Poon, Muhao Chen
+- **Venue**: ACL
+- **Published**: unknown
+- **Source**: anthology
+- **Link**: <https://aclanthology.org/2026.findings-acl.574/>
+- **PDF**: <https://aclanthology.org/2026.findings-acl.574.pdf>
+- **DOI**: 10.18653/v1/2026.findings-acl.574
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.57
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+One critical challenge for large language models (LLMs) in making complex reasoning is their reliance on matching reasoning patterns from training data, instead of proactively selecting the most appropriate cognitive strategy to solve a given task. Existing approaches impose fixed cognitive structures that enhance performance in specific tasks but lack adaptability across diverse scenarios. To address this limitation, we introduce MetaScale, a test-time scaling framework based on meta-thoughts, i.e., adaptive thinking strategies tailored to each task. MetaScale initializes a pool of candidate meta-thoughts, then iteratively selects and evaluates them using a multi-armed bandit algorithm with upper confidence bound selection, guided by a reward model. To further enhance adaptability, a genetic algorithm evolves high-reward meta-thoughts, refining and extending the strategy pool over time. By dynamically proposing and optimizing meta-thoughts at inference time, MetaScale improves both accuracy and generalization across a wide range of tasks. Experimental results demonstrate that MetaScale consistently outperforms standard inference approaches, achieving an 11% performance gain in win rate on Arena-Hard with GPT-4o, improving from 82.14% to 93.14% against GPT-4. Notably, MetaScale scales more effectively with increasing sampling budgets and produces more structured, expert-level responses.
+
+---
+
+Record id: `doi:10.18653/v1/2026.findings-acl.574`

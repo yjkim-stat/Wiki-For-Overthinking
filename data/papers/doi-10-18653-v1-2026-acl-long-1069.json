@@ -1,0 +1,34 @@
+{
+  "abstract": "Assessing the reliability of Large Language Models (LLMs) by confidence elicitation is a prominent approach to AI safety in high-stakes applications, such as healthcare and finance. Existing methods either require expensive computational overhead or suffer from poor calibration, making them impractical and unreliable for real-world deployment. In this work, we propose GrACE, a Generative Approach to Confidence Elicitation that enables scalable and reliable confidence elicitation for LLMs. GrACE adopts a novel mechanism in which the model expresses confidence by the similarity between the last hidden state and the embedding of a special token appended to the vocabulary, in real-time. We fine-tune the model for calibrating the confidence with targets associated with accuracy. Extensive experiments show that the confidence produced by GrACE achieves the best discriminative capacity and calibration on open-ended generation tasks without resorting to additional sampling or an auxiliary model. Moreover, we propose two confidence-based strategies for test-time scaling with GrACE, which not only improve the accuracy of the final decision but also significantly reduce the number of required samples, highlighting its potential as a practical solution for deploying LLMs with reliable, on-the-fly confidence estimation. The code is available at: https://github.com/petezone/Grace.",
+  "arxiv_id": "",
+  "authors": [
+    "Zhaohan Zhang",
+    "Ziquan Liu",
+    "Ioannis Patras"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.1069",
+  "first_seen": "2026-08-26T22:03:54Z",
+  "id": "doi:10.18653/v1/2026.acl-long.1069",
+  "last_seen": "2026-08-26T22:03:54Z",
+  "local_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-1069.pdf",
+  "matched_keywords": [
+    "test time scaling"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.1069.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.1069",
+  "title": "GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.1069/",
+  "venue": "ACL",
+  "year": 2026
+}

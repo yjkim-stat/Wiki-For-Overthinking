@@ -1,0 +1,44 @@
+{
+  "abstract": "Large Reasoning Models (LRMs) have demonstrated strong performance by producing extended Chain-of-Thought (CoT) traces before answering. However, this paradigm often induces over-reasoning: redundant calculations and circular self-verification that increase computational cost without improving outcomes. Existing evaluations largely emphasize final accuracy or coarse token counts, and lack automated tools to separate essential logic from structural redundancy. We introduce CoTJudger, a graph-driven framework that quantifies reasoning efficiency by converting free-form CoTs into directed dependency graphs and extracting the Shortest Effective Path (SEP) needed to reach a correct solution. This yields an interpretable efficiency signal – how much of a CoT is necessary versus structurally redundant – that is comparable across models and tasks. Evaluating 21 LRMs, CoTJudger reveals pervasive redundancy and surfaces recurring failure modes, including verification obsession and compensatory redundancy. These results provide a practical metric for disentangling reasoning ability from computational waste, enabling more targeted evaluation and diagnosis of LRM efficiency.",
+  "arxiv_id": "",
+  "authors": [
+    "Siyi Li",
+    "Jiajun Shi",
+    "Shiwen Ni",
+    "Ge Zhang",
+    "Shuaimin Li",
+    "Shijian Wang",
+    "Zhoufutu Wen",
+    "Yizhi LI",
+    "Hamid Alinejad-Rokny",
+    "Jiaheng Liu",
+    "Min Yang",
+    "Wenhao Huang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.2077",
+  "first_seen": "2026-08-26T22:04:00Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.2077",
+  "last_seen": "2026-08-26T22:04:00Z",
+  "local_path": "",
+  "matched_keywords": [
+    "large reasoning model",
+    "reasoning efficiency"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.2077.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.2077",
+  "title": "CoTJudger: A Graph-Driven Framework for Automatic Evaluation of Chain-of-Thought Efficiency and Redundancy in LRMs",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.2077/",
+  "venue": "ACL",
+  "year": 2026
+}

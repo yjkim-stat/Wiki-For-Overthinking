@@ -13,8 +13,8 @@ Committing to a prediction as soon as a confidence score crosses a fixed cutoff,
 
 ## Appears in
 
-- Rethinking Calibration for Early-Exit Neural Networks — Argues that confidence calibration is the wrong objective for early-exit image classifiers and replaces it with Early-Exit Failure Prediction, a criterion that also accounts for whether later layers could fix the prediction.
-- Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability — UAT replaces the static confidence threshold in early-exit deep networks with a multi-armed bandit that adapts the threshold online and unsupervised, reporting 1.70-2.10x speedup at under 2% performance drop.
+- [Rethinking Calibration for Early-Exit Neural Networks](../../archive/papers/2026/title-14e8a3607202d3e2/summary.md) — Argues that confidence calibration is the wrong objective for early-exit image classifiers and replaces it with Early-Exit Failure Prediction, a criterion that also accounts for whether later layers could fix the prediction.
+- [Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability](../../archive/papers/2025/title-c65d4659ec08b51c/summary.md) — UAT replaces the static confidence threshold in early-exit deep networks with a multi-armed bandit that adapts the threshold online and unsupervised, reporting 1.70-2.10x speedup at under 2% performance drop.
 
 <!-- auto:end -->
 

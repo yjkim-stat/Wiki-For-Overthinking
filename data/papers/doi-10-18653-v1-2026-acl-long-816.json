@@ -1,0 +1,39 @@
+{
+  "abstract": "Large reasoning models (LRMs) achieve strong performance by externalizing explicit reasoning traces before producing the answer, yet suffer from overthinking challenge that allocates uniformly heavy computation to queries of varying difficulty. While proprietary models mitigate this via opaque routing, open-source LRMs still lack an efficient mechanism to internalize adaptive reasoning due to both expensive training cost and limited disclosure of training recipes. In response, we introduce RPO (Root-token Policy Optimization), a framework that enables LRMs to self-determine when to reason by training only the initial root token (e.g., whether to invoke the think tag) via group relative reward and group-wise advantages. By focusing on this pivotal branching point, RPO drastically reduces training overhead and VRAM usage. Across multiple model families and scales, RPO learns difficulty-aware adaptive thinking at just 2% of the training compute of prior adaptive-reasoning methods.",
+  "arxiv_id": "",
+  "authors": [
+    "Taehyeon Kim",
+    "Hyunsoo Lee",
+    "Youngsoo Jang",
+    "Moontae Lee"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.acl-long.816",
+  "first_seen": "2026-08-26T22:03:54Z",
+  "id": "doi:10.18653/v1/2026.acl-long.816",
+  "last_seen": "2026-08-26T22:03:54Z",
+  "local_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-816.pdf",
+  "matched_keywords": [
+    "overthinking",
+    "large reasoning model",
+    "adaptive reasoning",
+    "adaptive thinking",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.acl-long.816.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.7
+  },
+  "source": "anthology",
+  "source_id": "2026.acl-long.816",
+  "title": "Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.acl-long.816/",
+  "venue": "ACL",
+  "year": 2026
+}

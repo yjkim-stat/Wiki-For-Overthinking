@@ -1,0 +1,43 @@
+{
+  "abstract": "Language model (LM) evaluators that generate chain-of-thought (CoT) reasoning are widely used for the assessment of LM responses. Simultaneously, increasing LMs’ “thinking” time through scaling test-time compute has proven to be an effective technique for solving challenging problems in domains such as math and code. This raises a natural question: can an LM’s evaluation capability also be improved by scaling test-time compute? To answer this, we investigate employing reasoning models - LMs that natively generate long CoT reasoning - as evaluators. We explore scaling evaluation-time compute by using reasoning models to evaluate both the overall candidate response (i.e., outcome evaluation) and the individual reasoning steps within it (i.e., process evaluation). We observe that evaluator performance improves monotonically with the number of reasoning tokens generated, mirroring trends seen in LM reasoning. Furthermore, we use these more accurate evaluators to rerank multiple generations, and demonstrate that spending more compute at evaluation time can be as effective as increasing compute during generation for improving an LM’s problem-solving performance.",
+  "arxiv_id": "",
+  "authors": [
+    "Seungone Kim",
+    "Ian Wu",
+    "Jinu Lee",
+    "Xiang Yue",
+    "Seongyun Lee",
+    "Minkyeong Moon",
+    "Carolin Lawrence",
+    "Kiril Gashteovski",
+    "Julia Hockenmaier",
+    "Graham Neubig",
+    "Sean Welleck"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.2102",
+  "first_seen": "2026-08-26T22:04:00Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.2102",
+  "last_seen": "2026-08-26T22:04:00Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test-time compute",
+    "reasoning token"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.2102.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.2102",
+  "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.2102/",
+  "venue": "ACL",
+  "year": 2026
+}

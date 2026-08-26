@@ -1,0 +1,44 @@
+{
+  "abstract": "Large Language Models (LLMs) have made strong progress in reasoning. To enhance the reasoning performance, a common inference-time approach is tree-based search, which decomposes the reasoning process into multiple steps, expands multiple reasoning paths, and uses reward models to prune and select candidates. However, based on our exploration, the simple decomposition may lead to suboptimal searching efficiency: while planning is generally harder, it is the execution errors that are more likely to propagate to later steps. This indicates that planning and execution play different roles in reasoning and should be treated differently during tree-based search. Given this, to enhance the searching efficiency, we propose a dual-phase test-time scaling framework that separates reasoning into planning and execution, and performs search over each phase independently. To further refine the algorithm, we also introduce a dynamic budget allocation mechanism that adaptively redistributes sampling effort based on reward feedback, allowing early stopping on confident steps and reallocation of computation to more challenging steps. Experiments on both math reasoning and code generation benchmarks demonstrate that our approach consistently improves accuracy while reducing redundant computation.",
+  "arxiv_id": "",
+  "authors": [
+    "Yingqian Cui",
+    "Zhenwei Dai",
+    "Pengfei He",
+    "Bing He",
+    "Hui Liu",
+    "Zhan Shi",
+    "Xianfeng Tang",
+    "Jingying Zeng",
+    "Suhang Wang",
+    "Yue Xing",
+    "Jiliang Tang",
+    "Benoit Dumoulin"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.511",
+  "first_seen": "2026-08-26T22:03:57Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.511",
+  "last_seen": "2026-08-26T22:03:57Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling",
+    "early stopping"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.511.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.4
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.511",
+  "title": "A Reward-Guided Dual-Phase Framework for Adaptive Inference-Time Reasoning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.511/",
+  "venue": "ACL",
+  "year": 2026
+}

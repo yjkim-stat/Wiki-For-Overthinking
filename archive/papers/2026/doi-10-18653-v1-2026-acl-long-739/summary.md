@@ -1,0 +1,25 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence
+
+- **Authors**: Amirhosein Ghasemabadi, Keith G. Mills, Baochun Li, Di Niu
+- **Venue**: ACL
+- **Published**: unknown
+- **Source**: anthology
+- **Link**: <https://aclanthology.org/2026.acl-long.739/>
+- **PDF**: <https://aclanthology.org/2026.acl-long.739.pdf>
+- **DOI**: 10.18653/v1/2026.acl-long.739
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+Test-Time Scaling (TTS) methods for enhancing Large Language Model (LLM) reasoning often incur substantial inference costs, due to reliance on long chain-of-thought (CoT) generation, self-consistency sampling methods, or searching under Process Reward Models (PRMs). This paper introduces Guided by Gut (GG), an efficient self-guided TTS framework that enables LLMs to perform step-by-step reasoning at a low cost, without any reward models or verifiers. GG performs a lightweight tree search guided solely by intrinsic confidence signals of the LLM at each reasoning step and improves the reliability of such internal confidence signals by reinforcement learning. Empirical evaluations on challenging mathematical reasoning benchmarks demonstrate that GG enables smaller models (e.g., 1.5B-7B parameters) to achieve accuracy matching or surpassing significantly larger models (e.g., 32B–70B parameters), while reducing GPU memory usage by up to 10×. Compared to TTS with PRMs, GG achieves comparable accuracy with 8× faster inference speeds and 4–5× lower memory usage. Additionally, GG reduces KV cache memory usage by approximately 50% compared to Best-of-N sampling, facilitating more efficient and practical deployment of TTS techniques.
+
+---
+
+Record id: `doi:10.18653/v1/2026.acl-long.739`

@@ -1,0 +1,38 @@
+{
+  "abstract": "Scaling training compute, measured in FLOPs, has long been shown to improve the accuracy of large language models, yet training remains resource-intensive. Prior work shows that increasing test-time compute (TTC)—for example through iterative sampling—can allow smaller models to rival or surpass much larger ones at lower overall cost. We introduce TTC-aware training, where an intermediate checkpoint and a corresponding TTC configuration can together match or exceed the accuracy of a fully trained model while requiring substantially fewer training FLOPs. Building on this insight, we propose an early stopping algorithm that jointly selects a checkpoint and TTC configuration to minimize training compute without sacrificing accuracy. To make this practical, we develop an efficient TTC evaluation method that avoids exhaustive search, and we formalize a break-even bound that identifies when increased inference compute compensates for reduced training compute. Experiments demonstrate up to 92% reductions in training FLOPs while maintaining and sometimes remarkably improving accuracy. These results highlight a new perspective for balancing training and inference compute in model development, enabling faster deployment cycles and more frequent model refreshes.",
+  "arxiv_id": "",
+  "authors": [
+    "Hossam Amer",
+    "Maryam Dialameh",
+    "Hossein Rajabzadeh",
+    "Walid Ahmed",
+    "Weiwei Zhang",
+    "Yang Liu"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.1766",
+  "first_seen": "2026-08-26T22:03:59Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1766",
+  "last_seen": "2026-08-26T22:03:59Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test-time compute",
+    "early stopping"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.1766.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.6667
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.1766",
+  "title": "FLOP-Efficient Training: Early Stopping Based on Test-Time Compute Awareness",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.1766/",
+  "venue": "ACL",
+  "year": 2026
+}

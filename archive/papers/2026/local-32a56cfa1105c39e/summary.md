@@ -5,7 +5,10 @@
 - **Authors**: Shu Zhou, Rui Ling, Junan Chen, Xin Wang, Tao Fan, Hao Wang
 - **Venue**: preprint
 - **Published**: 2026-01-01
-- **Source**: local
+- **Source**: local+anthology
+- **Link**: <https://aclanthology.org/2026.findings-acl.1199/>
+- **PDF**: <https://aclanthology.org/2026.findings-acl.1199.pdf>
+- **DOI**: 10.18653/v1/2026.findings-acl.1199
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.67
 

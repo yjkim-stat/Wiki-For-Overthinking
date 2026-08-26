@@ -1,0 +1,36 @@
+{
+  "abstract": "Large Language Models (LLMs) can enhance reasoning capabilities through test-time scaling by generating multiple traces. However, the combination of lengthy reasoning traces with multiple sampling introduces substantial computation and high end-to-end latency. Prior work on accelerating this process has relied on similarity-based or confidence-based pruning, but these signals do not reliably indicate trace quality. To address these limitations, we propose STEP: Step-level Trace Evaluation and Pruning, a novel pruning framework that evaluates reasoning steps using hidden states and dynamically prunes unpromising traces during generation. We train a lightweight step scorer to estimate trace quality, and design a GPU memory-aware pruning strategy that triggers pruning as the GPU memory is saturated by KV cache to reduce end-to-end latency. Experiments across challenging reasoning benchmarks demonstrate that STEP reduces end-to-end inference latency by 45%–70% on average compared to self-consistency while also improving reasoning accuracy.",
+  "arxiv_id": "",
+  "authors": [
+    "Zhixiang Liang",
+    "Beichen Huang",
+    "Zheng Wang",
+    "Minjia Zhang"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2026.findings-acl.1336",
+  "first_seen": "2026-08-26T22:03:59Z",
+  "id": "doi:10.18653/v1/2026.findings-acl.1336",
+  "last_seen": "2026-08-26T22:03:59Z",
+  "local_path": "",
+  "matched_keywords": [
+    "test time scaling",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://aclanthology.org/2026.findings-acl.1336.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5714
+  },
+  "source": "anthology",
+  "source_id": "2026.findings-acl.1336",
+  "title": "Hidden States as Early Signals: Step-level Trace Evaluation and Pruning for Efficient Test-Time Scaling",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2026.findings-acl.1336/",
+  "venue": "ACL",
+  "year": 2026
+}

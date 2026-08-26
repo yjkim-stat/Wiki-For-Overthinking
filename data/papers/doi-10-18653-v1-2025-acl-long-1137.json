@@ -1,0 +1,35 @@
+{
+  "abstract": "Chain-of-Thought (CoT) reasoning enables Large Language Models (LLMs) to solve complex reasoning tasks by generating intermediate reasoning steps. However, most existing approaches focus on hard token decoding, which constrains reasoning within the discrete vocabulary space and may not always be optimal. While recent efforts explore continuous-space reasoning, they often require full-model fine-tuning and suffer from catastrophic forgetting, limiting their applicability to state-of-the-art LLMs that already perform well in zero-shot settings with a proper instruction. To address this challenge, we propose a novel approach for continuous-space reasoning that does not require modifying the LLM. Specifically, we employ a lightweight fixed assistant model to speculatively generate instance-specific soft thought tokens as the initial chain of thoughts, which are then mapped into the LLM’s representation space via a trainable projection module. Experimental results on five reasoning benchmarks demonstrate that our method enhances LLM reasoning performance through supervised, parameter-efficient fine-tuning. Source code is available at https://github.com/xuyige/SoftCoT.",
+  "arxiv_id": "",
+  "authors": [
+    "Yige Xu",
+    "Xu Guo",
+    "Zhiwei Zeng",
+    "Chunyan Miao"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2025.acl-long.1137",
+  "first_seen": "2026-08-26T22:04:07Z",
+  "id": "doi:10.18653/v1/2025.acl-long.1137",
+  "last_seen": "2026-08-26T22:04:07Z",
+  "local_path": "",
+  "matched_keywords": [
+    "efficient reasoning"
+  ],
+  "pdf_url": "https://aclanthology.org/2025.acl-long.1137.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2025.acl-long.1137",
+  "title": "SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2025.acl-long.1137/",
+  "venue": "ACL",
+  "year": 2025
+}

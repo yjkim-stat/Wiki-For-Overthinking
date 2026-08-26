@@ -1,0 +1,37 @@
+{
+  "abstract": "When using agent-task datasets to enhance agent capabilities for Large Language Models (LLMs), current methodologies often treat all tokens within a sample equally. However, we argue that tokens serving different roles—specifically, reasoning tokens versus boilerplate tokens (e.g., those governing output format)—differ significantly in importance and learning complexity, necessitating their disentanglement and distinct treatment. To address this, we propose a novel Shuffle-Aware Discriminator (SHAD) for adaptive token discrimination. SHAD classifies tokens by exploiting predictability differences observed after shuffling input-output combinations across samples: boilerplate tokens, due to their repetitive nature among samples, maintain predictability, whereas reasoning tokens do not. Using SHAD, we propose the Reasoning-highlighted Fine-Tuning (RFT) method, which adaptively emphasizes reasoning tokens during fine-tuning, yielding notable performance gains over common Supervised Fine-Tuning (SFT).",
+  "arxiv_id": "",
+  "authors": [
+    "Ziang Ye",
+    "Zhenru Zhang",
+    "Yang Zhang",
+    "Jianxin Ma",
+    "Junyang Lin",
+    "Fuli Feng"
+  ],
+  "categories": [],
+  "doi": "10.18653/v1/2025.findings-acl.1078",
+  "first_seen": "2026-08-26T22:04:10Z",
+  "id": "doi:10.18653/v1/2025.findings-acl.1078",
+  "last_seen": "2026-08-26T22:04:10Z",
+  "local_path": "",
+  "matched_keywords": [
+    "reasoning token"
+  ],
+  "pdf_url": "https://aclanthology.org/2025.findings-acl.1078.pdf",
+  "published": "",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "anthology",
+  "source_id": "2025.findings-acl.1078",
+  "title": "Disentangling Reasoning Tokens and Boilerplate Tokens For Language Model Fine-tuning",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "https://aclanthology.org/2025.findings-acl.1078/",
+  "venue": "ACL",
+  "year": 2025
+}
