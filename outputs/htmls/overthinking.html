@@ -260,7 +260,7 @@
       <div class="eyebrow blue"><span>●</span> Background</div>
       <h1 class="stitle">Test-time scaling의 등장</h1>
       <div class="body">
-        <div class="lead">o1 <span class="ref">(Jaech 외, 2024)</span> · DeepSeek-R1 <span class="ref">(Guo 외, 2025)</span> — 모델 크기 대신 <span class="em">답하기 전 사고 시간</span>을 늘리는 노선.</div>
+        <div class="lead">o1 <span class="ref">(Jaech 외, 2024)</span>, DeepSeek-R1 <span class="ref">(Guo 외, 2025)</span><br>모델 크기 대신 <span class="em">답하기 전 사고 시간</span>을 늘리는 노선.</div>
         <svg class="fig" viewBox="0 0 1432 330" role="img"
              aria-label="학습 시점 스케일링과 추론 시점 스케일링의 대비, 그리고 이 발표가 묻는 질문">
           <rect x="0" y="10" width="640" height="180" rx="16" fill="#F5F6F9" stroke="#E4E8EE" stroke-width="1.5"/>
@@ -278,7 +278,7 @@
           <text x="770" y="170" font-size="19" fill="#384150">답의 길이가 <tspan font-weight="700">성능을 여는 손잡이</tspan>가 된다</text>
 
           <rect x="0" y="212" width="1432" height="106" rx="14" fill="#EDF5F1" stroke="#CCE3D8" stroke-width="1.5"/>
-          <text x="30" y="252" font-size="20" fill="#384150">선행 연구가 관찰한 것: 추론 토큰을 늘리면 <tspan font-weight="700" fill="#5C9A7C">일반적으로 성능·견고성 향상</tspan> — 파라미터를 키우는 것보다 나을 수 있다 <tspan font-size="17" fill="#9AA3B0">(Snell 외, 2024)</tspan></text>
+          <text x="30" y="252" font-size="20" fill="#384150">선행 연구의 관찰: 추론 토큰을 늘리면 <tspan font-weight="700" fill="#5C9A7C">일반적으로 성능·견고성 향상</tspan> — 파라미터 확대보다 우위 가능 <tspan font-size="17" fill="#9AA3B0">(Snell 외, 2024)</tspan></text>
           <text x="30" y="290" font-size="20" fill="#384150">이 발표의 질문: <tspan font-weight="800" fill="#C4788A">그 곡선은 어디까지 오르나.</tspan> 그리고 그 지점을 넘기면 어떻게 되나.</text>
           <text x="30" y="312" font-size="15" fill="#9AA3B0">위 정리와 인용 목록은 Gema 외(2025) 서론을 따랐다. o1·R1·Snell 원문은 아카이브가 보유하지 않는다.</text>
         </svg>
@@ -294,7 +294,7 @@
       <div class="eyebrow blue"><span>●</span> Three Threads</div>
       <h1 class="stitle">길어진 생성의 세 가지 결말</h1>
       <div class="body" style="height:520px;">
-        <div class="lead">오버씽킹 = 한 generation이 필요 이상으로 길어지는 현상. 결말은 <span class="em">두 번의 분기</span>로 결정 · 모든 generation은 <span class="em">정확히 한 갈래</span>에 귀속.</div>
+        <div class="lead">오버씽킹 = 한 generation이 필요 이상으로 길어지는 현상. 결말은 <span class="em">두 번의 분기</span>로 결정<br>모든 generation은 <span class="em">정확히 한 갈래</span>에 귀속.</div>
         <svg class="fig" viewBox="0 0 1432 300" role="img"
              aria-label="초과 길이에서 시작해 생성이 종료되는지, 종료된다면 추가 토큰의 한계 이득이 0인지 음수인지로 갈라지는 결정 트리">
           <rect x="0" y="118" width="150" height="54" rx="10" fill="#F5F6F9" stroke="#E4E8EE" stroke-width="1.5"/>
@@ -335,7 +335,7 @@
           <text x="722" y="260" font-size="16" fill="#9AA3B0">Oladri Table 2·3</text>
         </svg>
         <div class="card plain" style="border-color:var(--gray-edge);margin-top:12px;">
-          <div class="card-t">두 질문의 답이 갈래를 결정 — <span class="k-amber">③</span>은 종료 부재로 marginal utility 정의 불가, <span class="k-blue">①</span>·<span class="k-rose">②</span>는 부호로 분기. <span class="em">중복 없음.</span></div>
+          <div class="card-t">두 질문의 답이 갈래를 결정 — <span class="k-amber">③</span>은 종료 부재로 marginal utility 정의 불가, <span class="k-blue">①</span>과 <span class="k-rose">②</span>는 부호로 분기. <span class="em">중복 없음.</span></div>
           <div class="card-n" style="font-size:16px;margin-top:8px;">Zhou Table 1 — 12K까지 ①, 이후 한 구간이 ②. 동일 모델도 예산 구간별로 갈래 상이. 트리는 본 발표의 정리이며 원 논문들의 공유 분류가 아님.</div>
         </div>
       </div>
@@ -354,7 +354,7 @@
       <div class="eyebrow blue"><span>●</span> What It Looks Like</div>
       <h1 class="stitle">낭비의 실제 모습</h1>
       <div class="body">
-        <div class="lead">세 갈래의 실제 출력 사례 — <span class="em">846 ÷ 18</span> · <span class="em">Max([12,45,23,89,34])</span>.</div>
+        <div class="lead">세 갈래의 실제 출력 사례<br><span class="em">846 ÷ 18</span>, <span class="em">Max([12,45,23,89,34])</span></div>
         <div class="figwrap">
           <img src="figures/ltb-fig3.png" alt="네 가지 추론 패턴 사례: 극단적 오버씽킹, 정지 실패, 정당한 추론, 자기모순 루프">
           <div class="figsrc">Srivastava 외 (2026) Figure 3 원문 인용 — 네 사례 모두 실제 모델 출력. 갈래 표기는 본 발표의 부기.</div>
@@ -362,7 +362,7 @@
         <div class="g4" style="margin-top:18px;">
           <div class="card blue" style="padding:13px 16px;">
             <div class="card-k" style="color:var(--blue);margin-bottom:5px;">(a) 갈래 ① 포화</div>
-            <div class="card-n" style="font-size:17px;">846÷18 — Phi-4 47토큰 vs Phi-4-reasoning <span class="em">1,456토큰</span> · <span class="k-rose">31배 · 이득 없음</span></div>
+            <div class="card-n" style="font-size:17px;">846÷18 — Phi-4 47토큰 vs Phi-4-reasoning <span class="em">1,456토큰</span><br><span class="k-rose">31배, 이득 없음</span></div>
           </div>
           <div class="card amber" style="padding:13px 16px;">
             <div class="card-k" style="color:var(--amber);margin-bottom:5px;">(b) 갈래 ③ 미종료</div>
@@ -602,24 +602,24 @@
             <tr>
               <td><span class="k-blue">① 포화</span><br><span class="ref">종료 · 이득 ≈ 0</span></td>
               <td>Gemini·GPT-5·O-시리즈 모두 예산을 올려도 평평하고, 12K 이후로는 내려간다. 하락은 <span class="em">잡음이 아니다</span> (95% CI [−1.4, −0.4])</td>
-              <td>꺾이는 지점이 <span class="em">문제마다 다르다</span> — 미리 아는 방법은 없다</td>
+              <td>꺾이는 지점이 <span class="em">문제마다 다르다</span> — 사전 판별 방법 부재</td>
             </tr>
             <tr>
               <td><span class="k-rose">② 역효과</span><br><span class="ref">종료 · 이득 &lt; 0</span></td>
-              <td>미끼가 섞이면 토큰이 늘수록 정확도가 <span class="em">내려간다</span>. 에이전트에서는 생각이 행동을 밀어내며 해결률이 떨어진다</td>
-              <td>어떤 과제가 역전을 일으키는지 <span class="em">사전에 판별할 규칙</span>이 없다. 에이전트 근거는 <span class="em">한 편</span>이고 지표가 LLM 판정이다</td>
+              <td>미끼가 섞이면 토큰이 늘수록 정확도가 <span class="em">내려간다</span>. agent에서는 내부 추론이 행동을 밀어내며 해결률 하락</td>
+              <td>어떤 과제가 역전을 일으키는지 <span class="em">사전에 판별할 규칙</span>이 없다. 에이전트 근거는 <span class="em">한 편</span>이고 지표는 LLM judge</td>
             </tr>
             <tr>
               <td><span class="k-amber">③ 미종료</span><br><span class="ref">종료하지 않음</span></td>
-              <td>AIME에서 43.5%가 상한까지 종료 표시를 내지 못하고, 그 집단의 정확도는 11.5%다. 난이도로는 설명되지 않는다</td>
-              <td>일찍 끝냈다면 맞혔을지는 <span class="em">실험되지 않았다</span> — 개입 실험이 없다</td>
+              <td>AIME 43.5%가 상한까지 종료 표시 미출력, 해당 집단 정확도 11.5%. 난이도로 미설명</td>
+              <td>조기 종료 시 정답 여부 <span class="em">미실험</span> — 개입 실험 부재</td>
             </tr>
           </tbody>
         </table>
         <div class="g2" style="margin-top:18px;">
           <div class="card green" style="padding:16px 20px;">
             <div class="card-k" style="color:var(--green);">합의된 것</div>
-            <div class="card-t" style="font-size:20px;">현상 <span class="em">실재 · 잡음 아님 · 프런티어 모델에서도 관측</span></div>
+            <div class="card-t" style="font-size:20px;">현상 <span class="em">실재</span><br><span class="em">잡음 아님</span><br><span class="em">프런티어 모델에서도 관측</span></div>
           </div>
           <div class="card rose" style="padding:16px 20px;">
             <div class="card-k" style="color:var(--rose);">다음 문제</div>
@@ -654,9 +654,9 @@
         <div class="lead">측정의 전제 = <span class="em">얼마나 생각했어야 했는가</span>라는 기준선. 1회 실행으로는 산출 불가 → <span class="em">기준선의 출처</span>가 선행 연구를 셋으로 가름.</div>
         <div class="g3" style="flex:1;min-height:0;">
           <div class="card green" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--green);">① 필요량을 미리 정해 둔다</div>
+            <div class="card-k" style="color:var(--green);">① 필요량 사전 확정</div>
             <div class="card-t" style="font-size:20px;margin-bottom:12px;">필요량을 task design에 고정</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">8/8 정답 시 해당 문항 필요량 ≈ 0 (OTB) · 정렬·합산은 알려진 알고리즘이 상한 제공 (LLMThinkBench). <span style="color:var(--green);font-weight:700;">1회 실행으로 초과분 산출.</span></div>
+            <div class="card-n" style="font-size:17px;margin-bottom:12px;">8/8 정답 시 해당 문항 필요량 ≈ 0 (OTB)<br>정렬·합산은 알려진 알고리즘이 상한 제공 (LLMThinkBench). <span style="color:var(--green);font-weight:700;">1회 실행으로 초과분 산출.</span></div>
             <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 필요량 산출 가능한 과제에 한정</div>
             <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
               OptimalThinkingBench <span class="ref">(Aggarwal 외, 2025)</span><br>
@@ -664,10 +664,10 @@
             </div>
           </div>
           <div class="card blue" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--blue);">② 필요량을 다시 돌려서 찾는다</div>
+            <div class="card-k" style="color:var(--blue);">② 필요량 re-run 실측</div>
             <div class="card-t" style="font-size:20px;margin-bottom:12px;">필요량을 예산 변경 re-run으로 실측</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">예산 500토큰 단위 상향 → marginal utility = 0 지점 탐색 · 무제한 정확도 95% 도달 최소 예산 산출. <span style="color:var(--blue);font-weight:700;">과제 제약 없음.</span></div>
-            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 문항당 수십 회 실행 · 사후 분석 한정</div>
+            <div class="card-n" style="font-size:17px;margin-bottom:12px;">예산 500토큰 단위 상향 → marginal utility = 0 지점 탐색<br>무제한 정확도 95% 도달 최소 예산 산출. <span style="color:var(--blue);font-weight:700;">과제 제약 없음.</span></div>
+            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 문항당 수십 회 실행<br>사후 분석 한정</div>
             <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
               When More Thinking Hurts <span class="ref">(Zhou 외, 2026)</span><br>
               Token Budget Saturation <span class="ref">(Oladri 외, 2026)</span><br>
@@ -676,9 +676,9 @@
             </div>
           </div>
           <div class="card rose" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--rose);">③ 필요량을 묻지 않는다</div>
+            <div class="card-k" style="color:var(--rose);">③ 필요량 미확정</div>
             <div class="card-t" style="font-size:20px;margin-bottom:12px;">필요량 대신 trace의 형태를 판독</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">반복 결론 계수 · 활성값의 상관 신호 · LLM judge 점수. <span style="color:var(--rose);font-weight:700;">1회 실행으로 종료.</span></div>
+            <div class="card-n" style="font-size:17px;margin-bottom:12px;">반복 결론 계수<br>활성값의 상관 신호<br>LLM judge 점수. <span style="color:var(--rose);font-weight:700;">1회 실행으로 종료.</span></div>
             <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 기준선 부재 → 검증 표적도 연구마다 상이</div>
             <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
               Do NOT Think That Much <span class="ref">(2025)</span><br>
@@ -707,7 +707,7 @@
 
     <!-- P2 갈래 ① 상세 -->
     <section class="slide">
-      <div class="eyebrow green"><span>●</span> Family ① · 필요량을 미리 정해 둔다</div>
+      <div class="eyebrow green"><span>●</span> Family ① · 필요량 사전 확정</div>
       <h1 class="stitle">Task design 단계의 기준선 확정</h1>
       <div class="body" style="height:560px;">
         <div class="lead">목적은 쉬운 문항 수집이 아님. <span class="em">필요량을 task design에 고정</span> → 갈래 ②가 re-run으로 얻는 기준선을 <span class="em">평가 전에 확보.</span></div>
@@ -717,7 +717,7 @@
         
         <rect x="10" y="48" width="150" height="76" rx="10" fill="#EFF7F2" stroke="#BFDECB"/>
         <text x="85" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#4A8F6E">갈래 ①</text>
-        <text x="85" y="103" text-anchor="middle" font-size="15" fill="#4A8F6E">정해 둔다</text>
+        <text x="85" y="103" text-anchor="middle" font-size="15" fill="#4A8F6E">사전 확정</text>
         <rect x="196" y="48" width="620" height="76" rx="10" fill="#EFF7F2" stroke="#BFDECB"/>
         <text x="506" y="79" text-anchor="middle" font-size="18" font-weight="700" fill="#384150">필요량이 확정되는 문항만 채택</text>
         <text x="506" y="104" text-anchor="middle" font-size="15" fill="#6B7484">8/8 정답 · 또는 정답 알고리즘 기지(旣知)</text>
@@ -746,7 +746,7 @@
           </div>
           <div class="card amber">
             <div class="card-k" style="color:var(--amber);">필요량 확정 · 계산형 — LLMThinkBench</div>
-            <div class="card-n" style="font-size:17px;">14개 과제 전부 <span class="mono">f : X → Y</span> 결정적 함수 · 복잡도 <span class="mono">O(n) · O(n log n) · O(n²)</span> <span class="em">기지</span> → 실측 없이 <span class="em">필요 작업량의 상한이 수학적으로 확정.</span></div>
+            <div class="card-n" style="font-size:17px;">14개 과제 전부 <span class="mono">f : X → Y</span> 결정적 함수<br>복잡도 <span class="mono">O(n), O(n log n), O(n²)</span> <span class="em">기지</span> → 실측 없이 <span class="em">필요 작업량의 상한이 수학적으로 확정.</span></div>
           </div>
         </div>
         <div class="card rose" style="margin-top:14px;">
@@ -758,18 +758,18 @@
         <div>Aggarwal, P., Kim, S., Lanchantin, J., Welleck, S., Weston, J., Kulikov, I., &amp; Saha, S. (2025). <i>OptimalThinkingBench: Evaluating over and underthinking in LLMs</i>. arXiv:2508.13141. <a href="https://arxiv.org/abs/2508.13141">(link)</a></div>
         <div>Srivastava, G., Hussain, A., Srinivasan, S., &amp; Wang, X. (2026). <i>Do LLMs overthink basic math reasoning? Benchmarking the accuracy-efficiency tradeoff in language models</i> [Preprint]. arXiv:2507.04023. <a href="https://arxiv.org/abs/2507.04023">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ① · 필요량을 미리 정해 둔다</div><div class="pg">15 / 33</div></div>
+      <div class="foot"><div>Family ① · 필요량 사전 확정</div><div class="pg">15 / 33</div></div>
     </section>
 
     <section class="slide">
-      <div class="eyebrow green"><span>●</span> Family ① · 필요량을 미리 정해 둔다</div>
+      <div class="eyebrow green"><span>●</span> Family ① · 필요량 사전 확정</div>
       <h1 class="stitle">두 벤치마크, 두 정규화</h1>
       <div class="body" style="height:560px;">
         <div class="lead">필요량 확정 방식의 차이 → 지표의 차이. 둘 다 <span class="em">조화평균</span>으로 종결, <span class="em">normalizer</span>에서 분기.</div>
         <div class="g2" style="flex:1;min-height:0;">
           <div class="card green" style="display:flex;flex-direction:column;">
             <div class="card-k" style="color:var(--green);">OptimalThinkingBench <span class="ref">Aggarwal 외, 2025 · 33개 모델</span></div>
-            <div class="card-n" style="font-size:17px;margin-bottom:10px;">구성 — OvT-General <span class="em">1,327문항</span> 합성 후 8/8 필터 · OvT-Math <span class="em">133문항</span> MATH Level 1–2 원형 사용.</div>
+            <div class="card-n" style="font-size:17px;margin-bottom:10px;">구성<br>OvT-General <span class="em">1,327문항</span> — 합성 후 8/8 필터<br>OvT-Math <span class="em">133문항</span> — MATH Level 1–2 원형 사용</div>
             <div class="card plain" style="border-color:var(--green-edge);padding:12px 14px;margin-bottom:10px;">
               <div class="mono" style="font-size:15px;line-height:1.85;color:var(--ink);">
                 OAA<sub>t</sub> &nbsp;&nbsp;= 생각 토큰 &lt; t 인 응답만 정답 인정<br>
@@ -782,14 +782,14 @@
           </div>
           <div class="card amber" style="display:flex;flex-direction:column;">
             <div class="card-k" style="color:var(--amber);">LLMThinkBench <span class="ref">Srivastava 외, 2026 · 53개 모델</span></div>
-            <div class="card-n" style="font-size:17px;margin-bottom:10px;">구성 — <span class="em">결정적 산술 과제 14종</span>(정렬 · 합 · 중앙값 …). 문항은 매 실행 신규 생성 → 고정 문제지 없음.</div>
+            <div class="card-n" style="font-size:17px;margin-bottom:10px;">구성<br><span class="em">결정적 산술 과제 14종</span>(정렬, 합, 중앙값 …)<br>문항은 매 실행 신규 생성 → 고정 문제지 없음</div>
             <div class="card plain" style="border-color:var(--amber-edge);padding:12px 14px;margin-bottom:10px;">
               <div class="mono" style="font-size:15px;line-height:1.85;color:var(--ink);">
                 E<sub>t</sub> = 1 − (T̄ − T<sub>min</sub>) / (T<sub>max</sub> − T<sub>min</sub>)<br>
                 O &nbsp;= 2 · A · E<sub>t</sub> / (A + E<sub>t</sub>)
               </div>
             </div>
-            <div class="card-n" style="font-size:17px;">정확도 90% · 효율 10% → <span class="mono em">O = 0.18</span> &nbsp;/&nbsp; 60% · 60% → <span class="mono em">O = 0.60</span><br><span class="k-rose" style="font-weight:600;">대가 · 결정적 산술 외 영역으로의 일반화 미보장</span></div>
+            <div class="card-n" style="font-size:17px;">정확도 90%, 효율 10% → <span class="mono em">O = 0.18</span><br>정확도 60%, 효율 60% → <span class="mono em">O = 0.60</span><br><span class="k-rose" style="font-weight:600;">대가 · 결정적 산술 외 영역으로의 일반화 미보장</span></div>
             <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">Normalizer · <span class="k-rose">평가 집합 전체의 T<sub>min</sub>, T<sub>max</sub></span></div>
           </div>
         </div>
@@ -801,12 +801,12 @@
         <div>Aggarwal, P., Kim, S., Lanchantin, J., Welleck, S., Weston, J., Kulikov, I., &amp; Saha, S. (2025). <i>OptimalThinkingBench: Evaluating over and underthinking in LLMs</i>. arXiv:2508.13141. <a href="https://arxiv.org/abs/2508.13141">(link)</a></div>
         <div>Srivastava, G., Hussain, A., Srinivasan, S., &amp; Wang, X. (2026). <i>Do LLMs overthink basic math reasoning? Benchmarking the accuracy-efficiency tradeoff in language models</i> [Preprint]. arXiv:2507.04023. <a href="https://arxiv.org/abs/2507.04023">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ① · 필요량을 미리 정해 둔다</div><div class="pg">16 / 33</div></div>
+      <div class="foot"><div>Family ① · 필요량 사전 확정</div><div class="pg">16 / 33</div></div>
     </section>
 
     <!-- P2 갈래 ② 상세 -->
     <section class="slide">
-      <div class="eyebrow blue"><span>●</span> Family ② · 필요량을 다시 돌려서 찾는다</div>
+      <div class="eyebrow blue"><span>●</span> Family ② · 필요량 re-run 실측</div>
       <h1 class="stitle">예산을 바꾼 re-run</h1>
       <div class="body" style="height:520px;">
         <div class="lead">기준선을 <span class="em">실측으로 확보</span>하는 갈래. re-run 대상이 방법을 가름.</div>
@@ -821,21 +821,21 @@
                 <td><span class="mono">MU(t) = Acc(t+500) − Acc(t)</span><br><span class="mono">flip ratio = 음/양</span></td>
                 <td>문제당 32회 실행</td></tr>
             <tr><td>Token Budget Saturation <span class="ref">Oladri 외, 2026</span></td>
-                <td>예산을 강제하며 올린다</td>
+                <td>예산 강제 상향</td>
                 <td><span class="mono em">B*</span> — 무제한 정확도의 95%에 닿는 최소 예산</td>
-                <td>상한 밖은 보지 못한다</td></tr>
+                <td>상한 외 구간 관측 불가</td></tr>
             <tr><td>Inverse Scaling <span class="ref">Gema 외, 2025</span></td>
                 <td>같은 과제를 <span class="em">강제 예산 / 자연</span> 두 조건에서</td>
                 <td>조건별 스케일링 방향 (↑ ↓ →)</td>
-                <td>역전을 유도할 과제를 설계해야 한다</td></tr>
+                <td>역전 유도 과제 설계 필요</td></tr>
             <tr><td>R³-Bench <span class="ref">Wang 외, 2026</span></td>
                 <td>6문제를 한 예산에, <span class="em">그리고 같은 문제를 단독으로도</span></td>
                 <td>단독 응답곡선으로 만든 <span class="em">오라클과의 격차</span></td>
-                <td>단독 실행을 따로 다 돌려야 한다</td></tr>
+                <td>단독 실행 전량 별도 수행</td></tr>
             <tr><td>Thinking Hard, Not Smart <span class="ref">Fan 외, 2026</span></td>
                 <td>N문제 시험 + <span class="em">균등 분배 기준선</span></td>
                 <td>위치·난이도·배점과의 부분 Spearman</td>
-                <td>기준선이 문항 간 간섭까지 제거한다</td></tr>
+                <td>기준선이 문항 간 간섭까지 제거</td></tr>
           </tbody>
         </table>
         <div class="card blue" style="margin-top:14px;">
@@ -849,30 +849,30 @@
         <div>Wang, P., Ma, Z., Liu, B., Liu, F., Chen, A., Zi, C., Zeng, H., Li, Y., &amp; Li, J. (2026). <i>R³-Bench: LLMs struggle with resource-rational reasoning under shared budgets</i>. arXiv:2608.16033. <a href="https://arxiv.org/abs/2608.16033">(link)</a></div>
         <div>Fan, C., Cheng, Y., Li, M., Liang, Y., Zhou, T., &amp; Feizi, S. (2026). <i>Thinking hard, not smart: Reasoning models fail to ration test-time compute across questions</i>. arXiv:2608.07968. <a href="https://arxiv.org/abs/2608.07968">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ② · 필요량을 다시 돌려서 찾는다</div><div class="pg">17 / 33</div></div>
+      <div class="foot"><div>Family ② · 필요량 re-run 실측</div><div class="pg">17 / 33</div></div>
     </section>
 
     <!-- P2 갈래 ③ 상세 -->
     <section class="slide">
-      <div class="eyebrow rose"><span>●</span> Family ③ · 필요량을 묻지 않는다</div>
+      <div class="eyebrow rose"><span>●</span> Family ③ · 필요량 미확정</div>
       <h1 class="stitle">기준선 없는 trace proxy</h1>
       <div class="body" style="height:520px;">
         <div class="lead">기준선 포기 → 1회 실행으로 종료. <span class="em">proxy의 선택</span>에서 다시 셋으로 분기.</div>
         <div class="g3" style="flex:1;min-height:0;">
           <div class="card amber" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--amber);">A · 구조를 센다</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;"><span class="em">Do NOT Think That Much</span> <span class="ref">2025</span><br>추가 계산의 답 변경 여부(결과 효율) · 사슬 내 중복 비율(과정 효율)을 <span class="em">분리 측정</span></div>
-            <div class="card-n" style="font-size:17px;"><span class="em">Funnel of Thoughts</span> <span class="ref">Park 외, 2026</span><br>“Wait · Actually · perhaps” 등 <span class="em">주저 표현 밀도</span>. 115K 궤적 기반 · 추가 비용 없는 어휘 신호</div>
+            <div class="card-k" style="color:var(--amber);">A · 구조 계수</div>
+            <div class="card-n" style="font-size:17px;margin-bottom:12px;"><span class="em">Do NOT Think That Much</span> <span class="ref">2025</span><br>추가 계산의 답 변경 여부(결과 효율)<br>사슬 내 중복 비율(과정 효율)<br><span class="em">두 값을 분리 측정</span></div>
+            <div class="card-n" style="font-size:17px;"><span class="em">Funnel of Thoughts</span> <span class="ref">Park 외, 2026</span><br>“Wait · Actually · perhaps” 등 <span class="em">주저 표현 밀도</span>. 115K 궤적 기반<br>추가 비용 없는 어휘 신호</div>
             <div class="card-n" style="font-size:16px;margin-top:auto;color:var(--rose);">대가 · 중복의 정의를 <span class="em">가정</span></div>
           </div>
           <div class="card violet" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--violet);">B · 내부 상태를 읽는다</div>
+            <div class="card-k" style="color:var(--violet);">B · 내부 상태 판독</div>
             <div class="card-n" style="font-size:17px;margin-bottom:12px;"><span class="em">Think Deep, Not Just Long</span> <span class="ref">2026</span><br>DTR — 출력 토큰 중 <span class="em">후반 층에서 여전히 수정 중인</span> 비율</div>
             <div class="card-n" style="font-size:17px;"><span class="em">Manifold Steering</span> <span class="ref">2025</span><br>오버씽킹을 활성 공간의 <span class="em">저차원 방향</span>으로 규정</div>
             <div class="card-n" style="font-size:16px;margin-top:auto;color:var(--rose);">대가 · 검증에 쓴 <span class="em">타 지표의 오차</span> 승계</div>
           </div>
           <div class="card rose" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--rose);">C · 판정자에게 묻는다</div>
+            <div class="card-k" style="color:var(--rose);">C · judge 질의</div>
             <div class="card-n" style="font-size:17px;margin-bottom:12px;"><span class="em">The Danger of Overthinking</span> <span class="ref">Cuadron 외, 2025</span><br>LLM judge <span class="mono em">0–10</span>. 궤적에서 성공·실패 정보 제거 후 채점</div>
             <div class="card-n" style="font-size:17px;">전문가 4인 × 궤적 20개 대조 — <span class="em">Spearman 0.800</span></div>
             <div class="card-n" style="font-size:16px;margin-top:auto;color:var(--rose);">대가 · <span class="em">재현 가능한 계산 아님</span></div>
@@ -889,7 +889,7 @@
         <div><i>Mitigating overthinking in large reasoning models via manifold steering</i>. (2025). NeurIPS 2025.</div>
         <div>Cuadron, A., Li, D., Ma, W., Wang, X., Wang, Y., Zhuang, S., Liu, S., Schroeder, L. G., Xia, T., Mao, H., Thumiger, N., Desai, A., Stoica, I., Klimovic, A., Neubig, G., &amp; Gonzalez, J. E. (2025). <i>The danger of overthinking: Examining the reasoning-action dilemma in agentic tasks</i>. ICML 2025. arXiv:2502.08235. <a href="https://arxiv.org/abs/2502.08235">(link)</a></div>
       </div>
-      <div class="foot"><div>Family ③ · 필요량을 묻지 않는다</div><div class="pg">18 / 33</div></div>
+      <div class="foot"><div>Family ③ · 필요량 미확정</div><div class="pg">18 / 33</div></div>
     </section>
 
 
@@ -898,7 +898,7 @@
       <div class="eyebrow green"><span>●</span> Measuring Intensity</div>
       <h1 class="stitle">강도를 재려는 시도들</h1>
       <div class="body" style="height:566px;">
-        <div class="lead">다음 질문 — <span class="em">강도는 얼마인가</span>. 세 갈래의 답이 모두 존재, 그러나 <span class="k-rose">단위·범위 불일치.</span></div>
+        <div class="lead">다음 질문 — <span class="em">강도는 얼마인가</span>. 세 갈래의 답이 모두 존재<br>그러나 <span class="k-rose">단위와 범위가 불일치.</span></div>
         <svg class="fig" viewBox="0 0 1432 424" role="img" aria-label="다섯 지표가 서로 다른 눈금과 범위를 가진다">
           <text x="0" y="46" font-size="19" font-weight="700" fill="#384150">Overthinking Score</text>
           <text x="0" y="70" font-size="15" fill="#9AA3B0">Srivastava 외 (2026)</text>
@@ -928,7 +928,7 @@
         </svg>
         <div class="card rose" style="margin-top:14px;">
           <div class="card-t">“A가 B보다 오버씽킹” = 아직 <span class="k-rose">모델이 아니라 지표에 관한 진술</span>. 공통 척도 필요 — 후보는 다음 쪽부터.</div>
-          <div class="card-n" style="font-size:16px;margin-top:8px;">OptimalThinkingBench 33개 모델 · LLMThinkBench 53개 모델 평가. 모델 집합이 겹침에도 상호 지표 미보고.</div>
+          <div class="card-n" style="font-size:16px;margin-top:8px;">OptimalThinkingBench 33개 모델, LLMThinkBench 53개 모델 평가.<br>모델 집합이 겹침에도 상호 지표 미보고.</div>
         </div>
       </div>
       <div class="cite">
@@ -1035,7 +1035,7 @@
             <tr><td>임계값이 맞바꾸는 것</td><td>재현율 ↔ 오탐</td><td class="em">정확도 ↔ 토큰 비용</td></tr>
             <tr><td>곡선의 두 축</td><td>FPR, TPR — 둘 다 성능</td><td class="em">t, OAA<sub>t</sub> — x축이 비용</td></tr>
             <tr><td>넓이의 뜻</td><td>양성이 음성보다 높게 매겨질 확률</td><td>예산 구간에서의 평균 정확도</td></tr>
-            <tr><td>상한을 정해야 하나</td><td>아니오 — FPR은 0–1로 닫혀 있다</td><td><span class="k-rose">예 — t<sub>max</sub> 를 사람이 정한다</span></td></tr>
+            <tr><td>상한을 정해야 하나</td><td>아니오 — FPR은 0–1 폐구간</td><td><span class="k-rose">예 — t<sub>max</sub> 를 사람이 지정</span></td></tr>
           </tbody>
         </table>
         <div class="card rose" style="margin-top:16px;">
@@ -1107,7 +1107,7 @@
                aria-label="같은 모델이 임계값에 따라 20에서 80 퍼센트로 읽힌다. f 는 임계값 타우에서 측정되는 성능이고, AUC는 b 빼기 a 분의 1 곱하기 a에서 b까지 f 타우 d 타우이다.">
             <text x="0" y="30" font-size="15" font-weight="800" fill="#C4788A" letter-spacing="0.05em">문제</text>
             <text x="152" y="32" font-size="21" fill="#384150">같은 모델이 <tspan font-weight="800" fill="#C4788A">20% 로도 80% 로도</tspan> 읽힌다. Q3(오답)은 어디서 잘라도 세지 않고, Q5는 1,400을 넘겨야 비로소 세진다.</text>
-            <text x="152" y="62" font-size="19" fill="#6B7484">t 를 작게 잡으면 대부분의 사고형 모델이 0점이 되고, 크게 잡으면 과대생각을 벌하지 못한다 <tspan font-size="16" fill="#9AA3B0">— 원 논문의 문제 제기</tspan></text>
+            <text x="152" y="62" font-size="19" fill="#6B7484">t 가 작으면 대부분의 thinking 모델이 0점, 크면 과대생각 미처벌 <tspan font-size="16" fill="#9AA3B0">— 원 논문의 문제 제기</tspan></text>
 
             <line x1="0" y1="86" x2="1384" y2="86" stroke="#D3E0EF" stroke-width="1.5"/>
 
@@ -1187,7 +1187,7 @@
           <div class="card blue" style="padding:16px 20px;">
             <div class="card-k" style="color:var(--blue);">AUC_OAA</div>
             <div class="card-t" style="font-size:21px;">A <span class="mono">32.0</span> · B <span class="mono">26.0</span></div>
-            <div class="card-n" style="font-size:17px;margin-top:6px;">t 선택이 소거 — <span class="em">단일 수치 · 단일 순서</span></div>
+            <div class="card-n" style="font-size:17px;margin-top:6px;">t 선택이 소거<br><span class="em">단일 수치, 단일 순서</span></div>
           </div>
           <div class="card rose" style="padding:16px 20px;">
             <div class="card-k" style="color:var(--rose);">둘의 간극</div>
@@ -1293,7 +1293,7 @@
           <text x="880" y="176" font-size="20" font-weight="700" fill="#C4788A">여기서 걸러진다.</text>
           <text x="880" y="240" font-size="20" fill="#9AA3B0">33개 모델 중 1위 o3 71.1% ·</text>
           <text x="880" y="270" font-size="20" fill="#9AA3B0">오픈웨이트 1위 GPT-OSS-120B 68.3%</text>
-          <text x="0" y="326" font-size="15" fill="#9AA3B0">등고선은 조화평균 H(x, y) = 2xy/(x+y)를 이 발표에서 그린 것으로, 개별 모델의 좌표는 표시하지 않았다.</text>
+          <text x="0" y="326" font-size="15" fill="#9AA3B0">등고선은 조화평균 H(x, y) = 2xy/(x+y)의 본 발표 작도. 개별 모델 좌표는 미표시.</text>
         </svg>
       </div>
       <div class="cite">
@@ -1307,7 +1307,7 @@
       <div class="eyebrow blue"><span>●</span> The Metric in Use</div>
       <h1 class="stitle">33개 모델 일괄 평가</h1>
       <div class="body">
-        <div class="lead">정의된 지표의 적용 결과 — <span class="em">thinking · non-thinking 모델을 동일 표에</span> 배치.</div>
+        <div class="lead">정의된 지표의 적용 결과 — <span class="em">thinking / non-thinking 모델을 동일 표에</span> 배치.</div>
         <div class="figwrap">
           <img src="figures/otb-tab1.png" alt="33개 모델의 F1otb, OverthinkingBench 정확도·토큰·AUC_OAA, UnderthinkingBench 정확도·토큰 표">
           <div class="figsrc">Aggarwal 외 (2025) Table 1 원문 인용 — 네 묶음(개방·폐쇄 × 비사고·사고)마다 최고값을 굵게.</div>
@@ -1329,7 +1329,7 @@
       <div class="eyebrow green"><span>●</span> Related Work · Taxonomy</div>
       <h1 class="stitle">선행 연구의 분류 체계</h1>
       <div class="body">
-        <div class="lead">Yue 외(2025) 서베이 — efficient reasoning을 <span class="em">단일 모델</span> · <span class="em">모델 협업</span>으로 이분, 하위 8갈래.</div>
+        <div class="lead">Yue 외(2025) 서베이 — efficient reasoning을 <span class="em">단일 모델</span>과 <span class="em">모델 협업</span>으로 이분<br>하위 8갈래.</div>
         <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:26px;flex:1;min-height:0;">
           <div class="figwrap">
             <img src="figures/survey-fig2.png" alt="효율적 R1 계열 대형추론모델 연구의 분류 체계 트리">
@@ -1378,7 +1378,7 @@
         </div>
         <div class="g2" style="margin-top:12px;">
           <div class="card rose" style="padding:14px 20px;">
-            <div class="card-t" style="font-size:19px;">6개 방법·모델 조합 중 <span class="k-rose">2개</span>는 <span class="mono">F1<sup>otb</sup></span>가 기본 모델보다 낮아졌다</div>
+            <div class="card-t" style="font-size:19px;">방법 × 모델 6개 조합 중 <span class="k-rose">2개</span>는 <span class="mono">F1<sup>otb</sup></span>가 기본 모델 대비 하락</div>
           </div>
           <div class="card green" style="padding:14px 20px;">
             <div class="card-t" style="font-size:19px;"><span class="k-green">AdaptThink</span>만 두 벤치마크 동시 개선 <span class="ref">(38.3, +13.8)</span></div>
@@ -1424,7 +1424,7 @@
         </div>
         <ul class="b sm" style="margin-top:20px;">
           <li>Qwen3-4B <span class="mono em">48.05 → 55.41</span>, DeepSeek-Qwen-7B <span class="mono em">21.60 → 34.15</span> — 수학 데이터로만 학습하고 OTB로 일반화를 봤다</li>
-          <li>L1-Max는 정확도 87.22%인데 AUC_OAA가 <span class="k-rose">1.11</span>이다 — 평균 0.9k 토큰이 상한 1,000에 거의 닿아 있다. <span class="em">t<sub>max</sub> 를 조금만 옮겨도 이 숫자는 크게 달라진다</span></li>
+          <li>L1-Max는 정확도 87.22%인데 AUC_OAA가 <span class="k-rose">1.11</span>이다 — 평균 0.9k 토큰이 상한 1,000에 거의 닿아 있다. <span class="em">t<sub>max</sub> 를 조금만 옮겨도 이 수치는 크게 변동</span></li>
         </ul>
       </div>
       <div class="cite">
