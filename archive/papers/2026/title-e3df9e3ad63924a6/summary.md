@@ -43,7 +43,7 @@ The authors state that premature exit can occur when the confidence gate is over
 
 ## Entities
 
-- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), early exit, [confidence-based stopping](../../../../wiki/concepts/confidence-based-stopping.md), reasoning depth vs efficiency tradeoff, vision-language-action models, error propagation in multi-step reasoning
+- **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), early exit, confidence-based stopping, reasoning depth vs efficiency tradeoff, vision-language-action models, error propagation in multi-step reasoning
 - **Methods**: AVA-VLA, latent reasoning, reinforcement-learning denoising, confidence-gated early exit, explicit chain-of-thought VLA (baseline), FLOWER (baseline)
 - **Datasets**: LIBERO, [LIBERO-Long](../../../../wiki/datasets/libero-long.md), CALVIN ABC->D
 

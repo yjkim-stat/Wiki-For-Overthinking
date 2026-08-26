@@ -66,6 +66,7 @@
       }
     ]
   },
+  "completed_at": "2026-08-26T03:34:53Z",
   "created_at": "2026-08-21T16:25:47Z",
   "instructions": "오버씽킹 지표들은 서로 순위가 일치하는가? OptimalThinkingBench(33개 모델, F1^otb = 조화평균(AUC_OAA, UnderthinkingBench 정확도))와 LLMThinkBench(53개 모델, Overthinking Score = 조화평균(정확도, 정규화 토큰효율))는 모델 집합이 겹치는데 서로의 지표를 보고하지 않는다. 겹치는 모델들에서 두 순위가 일치하는지 확인하고, 불일치가 있다면 그것이 (a) 벤치마크 난이도 구성의 차이인지 -- OverthinkingBench는 8/8 모델 합의로 '쉬움'을 정의하고 LLMThinkBench는 결정적 기초 산술 14과제를 쓴다 -- (b) 집계 함수의 차이인지, (c) 토큰 정규화 방식의 차이인지(AUC_OAA는 t_max=1000에서 절단, E_t는 min-max 정규화) 판정할 것. 여기에 flip ratio(When More Thinking Hurts), B*(Token Budget Saturation), REG(How Far Are We)를 같은 모델에 적용할 수 있는지도 함께 볼 것. 답이 '순위가 대체로 일치한다'면 지표 난립은 표기 문제이고, '일치하지 않는다'면 이 문헌의 모든 모델 간 비교 주장은 지표에 상대적이다.\n\nThe evidence below is every archived record this question was filed against — readings, entity definitions and settled findings. Answer from those, and from the archive around them if you need to look.\n\n**If they settle it**, write one sentence somebody could disagree with, and say in `rationale` what settled it. Name the papers it rests on in `papers`; they are checked against the archive, so cite what is there rather than what you remember.\n\n**If they do not**, leave `statement` empty and say in `unresolved` what is missing and what would settle it. That is a real answer and it is recorded as one. A statement hedged until it cannot be argued with is worse than an honest open question, because nothing later can tell the two apart.\n\nWrite in en. Return one JSON object matching the schema exactly, with no prose around it.",
   "item_id": "q:e968206b0a0cb6fd",
@@ -93,6 +94,27 @@
   "payload": {
     "evidence_count": 9,
     "question": "오버씽킹 지표들은 서로 순위가 일치하는가? OptimalThinkingBench(33개 모델, F1^otb = 조화평균(AUC_OAA, UnderthinkingBench 정확도))와 LLMThinkBench(53개 모델, Overthinking Score = 조화평균(정확도, 정규화 토큰효율))는 모델 집합이 겹치는데 서로의 지표를 보고하지 않는다. 겹치는 모델들에서 두 순위가 일치하는지 확인하고, 불일치가 있다면 그것이 (a) 벤치마크 난이도 구성의 차이인지 -- OverthinkingBench는 8/8 모델 합의로 '쉬움'을 정의하고 LLMThinkBench는 결정적 기초 산술 14과제를 쓴다 -- (b) 집계 함수의 차이인지, (c) 토큰 정규화 방식의 차이인지(AUC_OAA는 t_max=1000에서 절단, E_t는 min-max 정규화) 판정할 것. 여기에 flip ratio(When More Thinking Hurts), B*(Token Budget Saturation), REG(How Far Are We)를 같은 모델에 적용할 수 있는지도 함께 볼 것. 답이 '순위가 대체로 일치한다'면 지표 난립은 표기 문제이고, '일치하지 않는다'면 이 문헌의 모든 모델 간 비교 주장은 지표에 상대적이다."
+  },
+  "result": {
+    "concepts": [
+      "Overthinking",
+      "AUC_OAA",
+      "Overthinking Score (harmonic-mean accuracy-efficiency metric)",
+      "token efficiency normalization",
+      "Reasoning Trace Length"
+    ],
+    "kind": "fact",
+    "papers": [
+      "local:49199e3b0f694ee1",
+      "local:c1f4e56014fb43fb"
+    ],
+    "references": [],
+    "statement": "",
+    "supersedes": "",
+    "topics": [
+      "overthinking"
+    ],
+    "unresolved": "The comparison the question asks for cannot be run on the archive's materials, and the reason is structural rather than a gap in effort.\n\nWHAT WAS DONE. OptimalThinkingBench Table 6 (33 models) and LLMThinkBench Table 2 (53 models) were matched by model name. Eleven names appear in both. Four of them are the Qwen3 family, which OptimalThinkingBench evaluates twice -- once in thinking and once in non-thinking mode -- while LLMThinkBench nowhere states which mode it used (section 4.2 lists only families and parameter counts). That leaves seven models that can be paired unambiguously: Llama-3.1-8B, Llama-3.3-70B, Qwen2.5-7B, Qwen2.5-72B, Qwen2.5-Math-7B, GPT-4o, GPT-4.1.\n\nOn those seven the rankings agree closely: Spearman(F1^otb, Overthinking Score) = +0.937, Spearman(AUC_OAA, Overthinking Score) = +0.847.\n\nWHY THAT AGREEMENT ANSWERS NOTHING. All seven are non-thinking models, and on non-thinking models both metrics provably collapse to plain accuracy.\n\n- OptimalThinkingBench side: a non-thinking model emits 0 thinking tokens, so the indicator I(ThinkTokens < t) is 1 for every t and AUC_OAA equals OverthinkingBench accuracy identically. Table 6 shows this directly -- Llama-4-Scout 95.0/95.0, Qwen2.5-7B 93.6/93.6, GPT-4o 95.3/95.3.\n- LLMThinkBench side: E_t = 1 - (T_bar - T_min)/(T_max - T_min) is normalised over the whole evaluated set, whose T_min = 89.4 (Phi-3-mini-128k) and T_max = 6780.7 (Phi-4-reasoning-plus). The seven overlap models emit 286.9-411.7 tokens, giving E_t between 0.9518 and 0.9705 -- a spread of 0.019 against an accuracy spread of 0.410, so roughly 4.5%. Recomputing O = 2*A*E_t/(A+E_t) from those numbers reproduces every published Overthinking Score to within 0.003, confirming the mechanism rather than assuming it.\n\nSo on the overlap set both metrics are monotone functions of accuracy, and Spearman(Overthinking Score, LLMThinkBench accuracy) = +0.991 on the same seven. The +0.937 measures agreement about accuracy, not about overthinking.\n\nWHERE THE METRICS COULD DISAGREE, THERE IS NO OVERLAP. OptimalThinkingBench's thinking models are Magistral-Small, the R1 distillations, DeepScaleR, R1-0528-Qwen3-8B, Hunyuan-A13B, GPT-OSS-20B/120B, Sonnet-4 and o3. LLMThinkBench's reasoning models are the Phi-4-reasoning variants, Gemini-2.5-flash and Qwen3. The intersection is Qwen3 alone -- and its mode is unstated. Pairing LLMThinkBench's four Qwen3 scores against OptimalThinkingBench's non-thinking rows gives Spearman +0.800; against the thinking rows, +0.200. On n = 4 neither number carries weight, but the swing shows the answer is not robust to the one undocumented choice.\n\nWHAT WOULD SETTLE IT. Any one of: (1) LLMThinkBench stating the Qwen3 inference mode, which would make four thinking-model pairs available -- still too few, but a start; (2) either benchmark reporting the other's metric on a shared set that includes at least ten thinking models; (3) running OptimalThinkingBench's public code (github.com/facebookresearch/RAM, projects/otb) over LLMThinkBench's reasoning models, or the reverse via the released llmthinkbench package. Option (3) is the only one available to this archive without new publications, and it needs inference budget rather than reading.\n\nThe sub-questions about flip ratio, B* and REG were not reached: they inherit the same obstacle, since none of the three is reported on any model that appears in both benchmarks.\n\nA correction to the question as filed: it states that OverthinkingBench defines 'easy' by 8/8 model consensus. Per section 2.1 the filter samples k = 8 responses from a single separate LLM and keeps an item only if all eight match the reference answer produced by the generator LLM; it applies to OvT-General (1,327 items) alone, while OvT-Math (133 items) is MATH Levels 1-2 taken unfiltered."
   },
   "task_id": "synthesis__q-e968206b0a0cb6fd",
   "task_version": 1,

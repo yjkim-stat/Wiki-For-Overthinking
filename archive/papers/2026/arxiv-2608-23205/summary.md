@@ -45,7 +45,7 @@ Stated: the work analyses structural patterns but does not enforce or shape them
 
 ## Entities
 
-- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Reasoning Trace Analysis, Bloom's Taxonomy, Cognitive Profiling, Step-Level Annotation, [Reasoning Step Segmentation](../../../../wiki/concepts/reasoning-step-segmentation.md), Transition Matrix Features, Internal vs Output Reasoning, Back-Loaded Verification, LLM-as-Annotator
+- **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Reasoning Trace Analysis, Bloom's Taxonomy, Cognitive Profiling, Step-Level Annotation, Reasoning Step Segmentation, Transition Matrix Features, Internal vs Output Reasoning, Back-Loaded Verification, LLM-as-Annotator
 - **Methods**: Bloom's Taxonomy annotation pipeline, LLM-based trace segmentation, L1-regularised logistic regression, Nested cross-validation, Cohen's Kappa agreement
 - **Datasets**: GSM8K (1,319), GSM-hard (1,319), MATH500 (500), BBH Formal Fallacies (250), BBH Hyperbaton (250)
 

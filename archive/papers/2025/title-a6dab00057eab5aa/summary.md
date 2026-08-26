@@ -44,7 +44,7 @@ The authors note the design assumes problem complexity has clear, estimable patt
 ## Entities
 
 - **Concepts**: [Adaptive Reasoning](../../../../wiki/concepts/adaptive-reasoning.md), Long-CoT vs Short-CoT, Model Merging, Bi-Level Preference Optimization, Reasoning Length Reduction, Problem-Difficulty Estimation
-- **Methods**: [Ada-R1](../../../../wiki/methods/ada-r1.md), Hybrid-CoT, [model merging](../../../../wiki/methods/model-merging.md), bi-level preference optimization, DPO-style preference training, [DeepSeek-R1-Distill-Qwen-7B](../../../../wiki/methods/deepseek-r1-distill-qwen-7b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../../../../wiki/methods/deepseek-r1-distill-qwen-1-5b.md), CoT-Valve (baseline), O1-Pruner (baseline)
+- **Methods**: [Ada-R1](../../../../wiki/methods/ada-r1.md), Hybrid-CoT, [model merging](../../../../wiki/methods/model-merging.md), bi-level preference optimization, DPO-style preference training, [DeepSeek-R1-Distill-Qwen-7B](../../../../wiki/methods/deepseek-r1-distill-qwen-7b.md), DeepSeek-R1-Distill-Qwen-1.5B, CoT-Valve (baseline), O1-Pruner (baseline)
 - **Datasets**: [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [Minerva Math](../../../../wiki/datasets/minerva.md)
 
 Tags: `adaptive-reasoning`, `long-cot`, `short-cot`, `model-merging`, `preference-optimization`, `reasoning-length`, `math-reasoning`

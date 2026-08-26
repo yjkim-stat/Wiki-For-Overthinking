@@ -44,7 +44,7 @@ Stated: each retained world must be expanded over the executable action space, s
 
 ## Entities
 
-- **Concepts**: [Test-Time Scaling](../../../../wiki/concepts/test-time-scaling.md), Embodied Reasoning, Active Perception, Verifier-Guided Tree Search, Branch Width Schedule, [Information Gain](../../../../wiki/concepts/information-gain.md), [Confidence-Based Stopping](../../../../wiki/concepts/confidence-based-stopping.md), Prospective Simulation
+- **Concepts**: [Test-Time Scaling](../../../../wiki/concepts/test-time-scaling.md), Embodied Reasoning, Active Perception, Verifier-Guided Tree Search, Branch Width Schedule, [Information Gain](../../../../wiki/concepts/information-gain.md), Confidence-Based Stopping, Prospective Simulation
 - **Methods**: ParallelWorld, Verifier-guided tree search, Prospective world expansion, Top-1 route answering, Active Exploration, Passive Single-View
 - **Datasets**: ESI-Bench (10 task categories, 28 of 29 subcategories evaluated)
 
