@@ -125,3 +125,20 @@ the reading", and lists turning it off as a rejected alternative. As of
 [0040](0040-the-cloud-routine-is-turned-off.md). The local cron job described
 above is unchanged and is now the only scheduled writer to this repository;
 reading happens only when somebody opens a session.
+
+## Correction (0044)
+
+Two statements above stopped being true, and one was never true.
+
+- **"local `master` tracks `origin/main`, so the push is `git push origin
+  master:main`."** The local branch was renamed to `main` after this note was
+  written, so the script's `BRANCH=master` pushed a ref that no longer exists.
+- **The checkout root.** The script was installed with
+  `ROOT=/home/yjkim/wiki-overthinkg`, a path that has never existed here. This
+  note does not name the root, so it is not wrong — but it is the note somebody
+  would read while looking for it.
+- **The job had not run once.** Every crontab line redirects into a log
+  directory that did not exist, so the shell failed before exec and each
+  script's own `mkdir -p "$LOGDIR"` never ran.
+
+See [`0044`](0044-three-cron-jobs-that-never-started.md).
