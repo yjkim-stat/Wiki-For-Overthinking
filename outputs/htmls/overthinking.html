@@ -446,7 +446,7 @@
           </svg>
           <div class="figwrap" style="justify-content:center;">
             <img src="figures/wmth-tab1.png" alt="구간별 증가폭과 예산별 정확도를 담은 원문 표">
-            <div class="figsrc">Zhou 외 (2026) Table 1 원문 인용 — 왼쪽 그림은 이 표의 (b) 열을 옮겨 그린 것이며, 가로축 간격은 균등하지 않다.</div>
+            <div class="figsrc">Zhou 외 (2026) Table 1 원문 인용 — 왼쪽 그림은 이 표의 (b) 열이며, 0.5K의 28.2%만 표 캡션(“Baseline accuracy at 500 tokens is 28.2% (R1)”)에서 왔다. 가로축 간격은 균등하지 않다.</div>
           </div>
         </div>
         <ul class="b sm" style="margin-top:16px;">
@@ -898,7 +898,7 @@
       <h1 class="stitle">강도를 재려는 시도들</h1>
       <div class="body" style="height:566px;">
         <div class="lead">현상이 확인되었으니 다음 질문은 <span class="em">얼마나 심한가</span>다. 세 갈래가 각자 답을 내놓았는데 — <span class="k-rose">단위도 범위도 제각각이다.</span></div>
-        <svg class="fig" viewBox="0 0 1432 400" role="img" aria-label="다섯 지표가 서로 다른 눈금과 범위를 가진다">
+        <svg class="fig" viewBox="0 0 1432 424" role="img" aria-label="다섯 지표가 서로 다른 눈금과 범위를 가진다">
           <text x="0" y="46" font-size="19" font-weight="700" fill="#384150">Overthinking Score</text>
           <text x="0" y="70" font-size="15" fill="#9AA3B0">Srivastava 외 (2026)</text>
           <line x1="380" y1="52" x2="1000" y2="52" stroke="#5C9A7C" stroke-width="5" stroke-linecap="round"/>
@@ -1274,7 +1274,7 @@
         <div class="card plain" style="border-color:var(--gray-edge);background:#FAFBFC;margin-bottom:16px;">
           <div class="mono" style="font-size:20px;line-height:1.7;color:var(--ink);">F1<sup>otb</sup> = harmonic_mean( AUC_OAA , UnderthinkingBench 정확도 )</div>
         </div>
-        <svg class="fig" viewBox="0 0 1432 300" role="img" aria-label="조화평균 등고선: 한 축이 낮으면 전체 점수가 낮게 유지된다">
+        <svg class="fig" viewBox="0 0 1432 330" role="img" aria-label="조화평균 등고선: 한 축이 낮으면 전체 점수가 낮게 유지된다">
           <line x1="120" y1="270" x2="800" y2="270" stroke="#D6DCE4" stroke-width="2"/>
           <line x1="120" y1="270" x2="120" y2="20" stroke="#D6DCE4" stroke-width="2"/>
           <text x="460" y="298" text-anchor="middle" font-size="19" fill="#6B7484">AUC_OAA →</text>
@@ -1292,7 +1292,7 @@
           <text x="880" y="176" font-size="20" font-weight="700" fill="#C4788A">여기서 걸러진다.</text>
           <text x="880" y="240" font-size="20" fill="#9AA3B0">33개 모델 중 1위 o3 71.1% ·</text>
           <text x="880" y="270" font-size="20" fill="#9AA3B0">오픈웨이트 1위 GPT-OSS-120B 68.3%</text>
-          <text x="0" y="298" font-size="15" fill="#9AA3B0">등고선은 조화평균 H(x, y) = 2xy/(x+y)를 이 발표에서 그린 것으로, 개별 모델의 좌표는 표시하지 않았다.</text>
+          <text x="0" y="326" font-size="15" fill="#9AA3B0">등고선은 조화평균 H(x, y) = 2xy/(x+y)를 이 발표에서 그린 것으로, 개별 모델의 좌표는 표시하지 않았다.</text>
         </svg>
       </div>
       <div class="cite">
@@ -1398,7 +1398,7 @@
         <div class="lead">같은 논문이 <span class="em">난이도로 라우팅하는 최신 라우터</span>와 <span class="em">정답을 아는 오라클 라우터</span>를 같은 표에 올렸다.</div>
         <div class="figwrap">
           <img src="figures/otb-tab3.png" alt="Qwen3 기본, 비사고, 학습된 라우터, 오라클 라우터의 비교 표">
-          <div class="figsrc">Aggarwal 외 (2025) Table 3 원문 인용 — Qwen3 24.3 → 학습된 라우터 46.9 (+20.4) → 오라클 라우터 61.2.</div>
+          <div class="figsrc">Aggarwal 외 (2025) Table 3 원문 인용 — 24.3 → 46.9 → 61.2. 표의 (+20.4%)는 46.9−24.3이 아니라 <b>모델별 이득의 평균</b>이다(Table 8: 1.7B +10.9 · 8B +24.6 · 32B +24.7 · 235B +21.3, 각 모델의 더 나은 기준선 대비).</div>
         </div>
         <ul class="b" style="margin-top:20px;">
           <li>라우팅은 <span class="em">실제로 크게 개선한다</span> — 그러나 오라클까지는 아직 <span class="mono em">14.3점</span>이 남아 있다</li>
