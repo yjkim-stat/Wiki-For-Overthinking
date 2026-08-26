@@ -648,59 +648,46 @@
 
     <!-- 06 측정의 세 갈래 -->
     <section class="slide">
-      <div class="eyebrow blue"><span>●</span> Related Work</div>
-      <h1 class="stitle">측정의 세 갈래</h1>
-      <div class="body" style="height:450px;">
-        <div class="lead">측정의 전제 = <span class="em">얼마나 생각했어야 했는가</span>라는 기준선. 1회 실행으로는 산출 불가 → <span class="em">기준선의 출처</span>가 선행 연구를 셋으로 가름.</div>
-        <div class="g3" style="flex:1;min-height:0;">
-          <div class="card green" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--green);">① 필요량 사전 확정</div>
-            <div class="card-t" style="font-size:20px;margin-bottom:12px;">필요량을 task design에 고정</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">8/8 정답 시 해당 문항 필요량 ≈ 0 (OTB)<br>정렬·합산은 알려진 알고리즘이 상한 제공 (LLMThinkBench). <span style="color:var(--green);font-weight:700;">1회 실행으로 초과분 산출.</span></div>
-            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 필요량 산출 가능한 과제에 한정</div>
-            <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
-              OptimalThinkingBench <span class="ref">(Aggarwal 외, 2025)</span><br>
-              LLMThinkBench <span class="ref">(Srivastava 외, 2026)</span>
-            </div>
-          </div>
-          <div class="card blue" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--blue);">② 필요량 re-run 실측</div>
-            <div class="card-t" style="font-size:20px;margin-bottom:12px;">필요량을 예산 변경 re-run으로 실측</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">예산 500토큰 단위 상향 → marginal utility = 0 지점 탐색<br>무제한 정확도 95% 도달 최소 예산 산출. <span style="color:var(--blue);font-weight:700;">과제 제약 없음.</span></div>
-            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 문항당 수십 회 실행<br>사후 분석 한정</div>
-            <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
-              When More Thinking Hurts <span class="ref">(Zhou 외, 2026)</span><br>
-              Token Budget Saturation <span class="ref">(Oladri 외, 2026)</span><br>
-              R³-Bench <span class="ref">(Wang 외, 2026)</span><br>
-              Thinking Hard, Not Smart <span class="ref">(Fan 외, 2026)</span>
-            </div>
-          </div>
-          <div class="card rose" style="display:flex;flex-direction:column;">
-            <div class="card-k" style="color:var(--rose);">③ 필요량 미확정</div>
-            <div class="card-t" style="font-size:20px;margin-bottom:12px;">필요량 대신 trace의 형태를 판독</div>
-            <div class="card-n" style="font-size:17px;margin-bottom:12px;">반복 결론 계수<br>활성값의 상관 신호<br>LLM judge 점수. <span style="color:var(--rose);font-weight:700;">1회 실행으로 종료.</span></div>
-            <div class="card-n" style="font-size:17px;color:var(--rose);font-weight:600;margin-bottom:12px;">대가 · 기준선 부재 → 검증 표적도 연구마다 상이</div>
-            <div class="card-n" style="font-size:17px;margin-top:auto;color:var(--ink);">
-              Do NOT Think That Much <span class="ref">(2025)</span><br>
-              Funnel of Thoughts <span class="ref">(Park 외, 2026)</span><br>
-              Think Deep, Not Just Long <span class="ref">(2026)</span><br>
-              The Danger of Overthinking <span class="ref">(Cuadron 외, 2025)</span>
-            </div>
-          </div>
+      <div class="eyebrow"><span>●</span> Related Work</div>
+      <h1 class="stitle">같은 응답, 세 갈래의 다른 판정</h1>
+      <div class="body" style="height:604px;">
+        <div class="lead">세 갈래는 같은 응답을 <span class="em">서로 다른 것에 견준다.</span><br>무엇에 견주는가가 무엇을 오버씽킹이라 부르는가를 결정.</div>
+        <table class="t" style="font-size:17px;margin-top:4px;">
+          <thead><tr>
+            <th style="width:21%;">갈래</th>
+            <th style="width:17%;">무엇에 견주나</th>
+            <th style="width:31%;background:var(--rose-fill);">사례 A · Division<br><span style="text-transform:none;font-weight:600;">Phi-4 47 → reasoning <b>1,456</b>토큰 (31×), 정답</span></th>
+            <th style="width:31%;background:var(--green-fill);">사례 B · Complex Sort<br><span style="text-transform:none;font-weight:600;">Phi-4 89 → reasoning <b>312</b>토큰 (3.5×), 정답</span></th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="k-green">① 필요량 사전 확정</span><br><span class="ref">OptimalThinkingBench, LLMThinkBench</span></td>
+              <td><span class="em">문항</span><br><span class="ref">평가 전 확정된 필요량</span></td>
+              <td>기초 산술 → 필요량 낮게 고정<br>1,456 대부분을 초과로 계상</td>
+              <td>같은 기준 적용<br>312도 초과로 계상 — <span class="k-rose">정당한 길이와 구분 없음</span></td>
+            </tr>
+            <tr>
+              <td><span class="k-blue">② 필요량 re-run 실측</span><br><span class="ref">Zhou, Oladri, Wang, Fan</span></td>
+              <td><span class="em">같은 모델의 다른 예산</span><br><span class="ref">re-run으로 응답곡선 확보</span></td>
+              <td>이 문항을 500토큰부터 재실행<br>정답 유지 시 → 초과 <span class="k-rose">확정</span></td>
+              <td>동일 절차<br>짧은 예산에서 정답이 무너지면 → 초과 <span class="k-green">아님</span></td>
+            </tr>
+            <tr>
+              <td><span class="k-rose">③ 필요량 미확정</span><br><span class="ref">Park, Cuadron 외</span></td>
+              <td><span class="em">없음</span><br><span class="ref">trace의 형태만 판독</span></td>
+              <td>3중 검증 = 중복<br>→ 오버씽킹</td>
+              <td>단계 분해 = 비중복<br>→ 정상 — <span class="k-amber">위 두 판정은 사람이 읽은 것</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="card rose" style="margin-top:14px;">
+          <div class="card-t" style="font-size:19px;margin-bottom:6px;">같은 모델, 둘 다 정답, 둘 다 기준선보다 김 — <span class="k-rose">차이는 312가 값을 했다는 것 하나.</span></div>
+          <div class="card-n" style="font-size:17px;color:var(--ink-mid);">① 구분 못 함 — 대가는 <b>정확도</b><br>② 증거로 구분 — 대가는 <b>실행 횟수</b><br>③ 판독으로 구분 — 대가는 <b>“중복”을 무엇으로 잡느냐</b>. 위 판정은 저자가 손으로 읽은 것이고, 자동 지표(주저 표현 밀도 등)가 같은 결론에 이른다는 보장은 없다</div>
         </div>
       </div>
       <div class="cite">
-        <div>Aggarwal, P., Kim, S., Lanchantin, J., Welleck, S., Weston, J., Kulikov, I., &amp; Saha, S. (2025). <i>OptimalThinkingBench: Evaluating over and underthinking in LLMs</i>. arXiv:2508.13141. <a href="https://arxiv.org/abs/2508.13141">(link)</a></div>
         <div>Srivastava, G., Hussain, A., Srinivasan, S., &amp; Wang, X. (2026). <i>Do LLMs overthink basic math reasoning? Benchmarking the accuracy-efficiency tradeoff in language models</i> [Preprint]. arXiv:2507.04023. <a href="https://arxiv.org/abs/2507.04023">(link)</a></div>
-        <div>Zhou, S., Ling, R., Chen, J., Wang, X., Fan, T., &amp; Wang, H. (2026). <i>When more thinking hurts: Overthinking in LLM test-time compute scaling</i>. arXiv:2604.10739. <a href="https://arxiv.org/abs/2604.10739">(link)</a></div>
-        <div>Oladri, R., Jawahar, N., &amp; Mohamed, A. (2026). <i>Token budget saturation and mechanistic early detection of reasoning non-convergence in chain-of-thought models</i>. arXiv:2607.21433. <a href="https://arxiv.org/abs/2607.21433">(link)</a></div>
-        <div>Park, C., Han, S., Yoon, J., Hong, S., &amp; Lim, H. (2026). <i>Funnel of thoughts: Efficient test-time scaling via early voting and rollout pruning</i>. arXiv:2608.15065. <a href="https://arxiv.org/abs/2608.15065">(link)</a></div>
-        <div><i>Do NOT think that much for 2+3=? On the overthinking of long reasoning models</i>. (2025). ICML 2025.</div>
-        <div><i>Think deep, not just long: Measuring LLM reasoning effort via deep-thinking tokens</i>. (2026). ICML 2026.</div>
-        <div><i>Mitigating overthinking in large reasoning models via manifold steering</i>. (2025). NeurIPS 2025.</div>
-        <div>Cuadron, A., Li, D., Ma, W., Wang, X., Wang, Y., Zhuang, S., Liu, S., Schroeder, L. G., Xia, T., Mao, H., Thumiger, N., Desai, A., Stoica, I., Klimovic, A., Neubig, G., &amp; Gonzalez, J. E. (2025). <i>The danger of overthinking: Examining the reasoning-action dilemma in agentic tasks</i>. ICML 2025. arXiv:2502.08235. <a href="https://arxiv.org/abs/2502.08235">(link)</a></div>
-        <div>Wang, P., Ma, Z., Liu, B., Liu, F., Chen, A., Zi, C., Zeng, H., Li, Y., &amp; Li, J. (2026). <i>R³-Bench: LLMs struggle with resource-rational reasoning under shared budgets</i>. arXiv:2608.16033. <a href="https://arxiv.org/abs/2608.16033">(link)</a></div>
-        <div>Fan, C., Cheng, Y., Li, M., Liang, Y., Zhou, T., &amp; Feizi, S. (2026). <i>Thinking hard, not smart: Reasoning models fail to ration test-time compute across questions</i>. arXiv:2608.07968. <a href="https://arxiv.org/abs/2608.07968">(link)</a></div>
+        <div>두 사례는 위 논문 Table 3의 실측이며, 색 분류도 원문의 것이다 — Division은 빨강 “Triple verification, no benefit”, Complex Sort는 노랑 “Helpful decomposition (justified)”. 갈래별 판정은 각 방법의 정의를 이 두 사례에 적용한 것으로, 원 논문들이 이 사례를 함께 다룬 것은 아니다.</div>
       </div>
       <div class="foot"><div>Related Work</div><div class="pg">14 / 33</div></div>
     </section>
