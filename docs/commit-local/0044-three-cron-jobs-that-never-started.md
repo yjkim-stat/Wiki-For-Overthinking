@@ -102,3 +102,15 @@ None for anyone who pulls this repository — the script is not in it and every
 path named here is specific to this host. For this deployment: collection
 resumes nightly, and the steady state `0040` describes returns, a queue that
 grows until somebody reads it.
+
+## Correction (0045)
+
+**"Nothing was disabled. The three jobs stay scheduled."** That held for one
+day. `ra-lrm-daily.sh` was stopped on 2026-08-26: creating its log directory
+turned its failure from invisible into a nightly `FATAL: root missing`, and
+since neither of its two paths exists on this machine there is nothing to point
+it at. The line is commented, not deleted.
+
+`w-mem-daily.sh` is still scheduled and still misconfigured, as described above.
+
+See [`0045`](0045-the-job-with-nothing-to-run-against.md).
