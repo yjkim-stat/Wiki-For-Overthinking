@@ -1,0 +1,109 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2025-acl-long-1452.pdf"
+  },
+  "completed_at": "2026-08-27T22:48:27Z",
+  "created_at": "2026-08-27T13:56:46Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2025.acl-long.1452",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Chart generation aims to generate code to produce charts satisfying the desired visual properties, e.g., texts, layout, color, and type. It has great potential to empower the automatic professional report generation in financial analysis, research presentation, education, and healthcare. In this work, we build a vision-language model (VLM) based multi-agent framework for effective automatic chart generation. Generating high-quality charts requires both strong visual design skills and precise coding capabilities that embed the desired visual properties into code. Such a complex multi-modal reasoning process is difficult for direct prompting of VLMs. To resolve these challenges, we propose METAL, a multi-agent framework that decomposes the task of chart generation into the iterative collaboration among specialized agents. METAL achieves a 5.2% improvement in the F1 score over the current best result in the chart generation task. Additionally, METAL improves chart generation performance by 11.33% over Direct Prompting with LLaMA-3.2-11B.Furthermore, the METAL framework exhibits the phenomenon of test-time scaling: its performance increases monotonically as the logarithm of computational budget grows from 512 to 8192 tokens.",
+    "authors": [
+      "Bingxuan Li",
+      "Yiwei Wang",
+      "Jiuxiang Gu",
+      "Kai-Wei Chang",
+      "Nanyun Peng"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2025.acl-long.1452.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "METAL: A Multi-Agent Framework for Chart Generation with Test-Time Scaling",
+    "url": "https://aclanthology.org/2025.acl-long.1452/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "multi-agent test-time refinement",
+      "modality-tailored critique (visual vs. code)",
+      "multi-criteria verifier with dynamic threshold",
+      "log-linear test-time scaling"
+    ],
+    "contributions": [
+      "METAL, a four-agent (Generation/Visual Critique/Code Critique/Revision) test-time-scaling framework for chart-to-code generation, outperforming direct prompting, hint-enhanced prompting, and Best-of-N",
+      "empirical evidence of test-time scaling in a multi-agent, cross-modal (visually-grounded code generation) setting, with F1 improving near-linearly in the log of compute budget from 2^9 to 2^13 tokens",
+      "an ablation showing that separating visual and code critique into distinct specialized agents (rather than one unified critique agent) is necessary for effective self-correction, avoiding context dilution and mismatched per-modality feedback requirements"
+    ],
+    "datasets": [
+      "ChartMIMIC (1,000 figure/instruction/code triplets, 18 regular + 4 advanced chart types)"
+    ],
+    "limitations": "METAL is built on VLMs and requires extensive prompt engineering; even the best-performing prompts identified may not be optimal, and further prompt refinement could improve results further. Automatic evaluation metrics (adopted from prior work for fairness) have inherent imperfections and may not capture every detail of chart-visual fidelity. METAL has higher computational cost than direct prompting due to its multi-agent iterative refinement loop, and the paper explicitly leaves optimizing this cost to future work; due to limited resources the test-time-scaling experiments were not extended beyond a 2^13-token budget, so whether the near-linear log-compute scaling trend continues at larger budgets is untested.",
+    "method": "METAL splits chart-to-code generation across four specialized agents: a Generation Agent produces initial Python code from the reference chart; a Visual Critique Agent renders the generated code and compares the rendered chart against the reference to identify visual discrepancies; a Code Critique Agent reviews the generated code itself and suggests specific line-level improvements; a Revision Agent integrates both critiques to update the code. These run in an iterative loop, re-rendering and re-critiquing after each revision, until a heuristic multi-criteria verifier (three metrics: color, text, overall structure) confirms the rendered chart meets quality thresholds or a maximum iteration count T_max is reached. Evaluated on ChartMIMIC (1,000 human-curated figure/instruction/code triplets across 18 regular + 4 advanced chart types, 191 subcategories) with GPT-4o and LLaMA 3.2-11B as base VLMs, against Direct Prompting, Hint-Enhanced Prompting, and Best-of-N (n=5) baselines, measuring F1 on text/type/color/layout chart elements.",
+    "methods": [
+      "multi-agent iterative refinement",
+      "Direct Prompting / Hint-Enhanced Prompting / Best-of-N (baselines)",
+      "multi-criteria heuristic verifier"
+    ],
+    "models": [
+      "GPT-4o",
+      "LLaMA 3.2-11B"
+    ],
+    "one_liner": "METAL decomposes chart-to-code generation into four specialized VLM agents (Generation, Visual Critique, Code Critique, Revision) that iteratively refine the code until a multi-criteria verifier passes, beating direct prompting, hint-enhanced prompting, and Best-of-N by 5.2-11.3 F1 points, with performance rising near-linearly in the log of test-time compute budget from 2^9 to 2^13 tokens.",
+    "problem": "Generating chart-reproducing code from a reference chart image requires jointly strong visual design understanding and precise coding ability; direct VLM prompting (even with GPT-4o) frequently fails to accurately reproduce structure, color, and text properties, and existing test-time approaches (Best-of-N, hint-enhanced prompting) do not substantially improve on direct prompting for this visually-grounded code generation task.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Relevant as a positive test-time-scaling case study outside single-model text reasoning: it demonstrates the same log-linear compute-vs-performance scaling pattern the overthinking literature examines, but in a multi-agent, cross-modal (chart-to-code) setting, and explicitly names higher inference cost as an acknowledged, unaddressed limitation. Its ablation isolating which architectural choice (separate vs. merged critique) drives the scaling benefit is methodologically relevant to understanding when 'more test-time compute' translates into real accuracy gains versus wasted iteration, a central question for overthinking mitigation."
+    },
+    "results": "METAL (n=5 iterations) achieves 51.78% average F1 with LLaMA 3.2-11B (vs. 40.45% direct prompting, 41.33% hint-enhanced, 43.13% Best-of-N -- an 11.33% improvement over direct prompting) and 86.46% average F1 with GPT-4o (vs. 81.26% direct, 81.12% hint-enhanced, 82.32% Best-of-N -- a 5.2% improvement over direct prompting and the current best result). Gains are largest on Text and Layout metrics for both base models. Test-time scaling: F1 rises near-monotonically and near-linearly in the log of the compute budget as it grows from 2^9 to 2^13 tokens, for both base models across all four metrics (Figure 3), attributed to the iterative multi-agent refinement compounding error corrections across rounds. Ablations (GPT-4o base) show both critique agents are necessary: using only the visual critique agent (METAL_V) reaches 84.31% average F1, only the code critique agent (METAL_C) reaches 82.96%, and merging both critiques into a single unified agent (METAL_S) reaches only 80.86% -- below either single-modality ablation -- versus 86.46% for the full separate-critique design, a 5.6% improvement attributed to modality-tailored (rather than merged) critique avoiding information dilution from an overloaded context and addressing visual (spatial/color) and code (syntax/logic) critique's differing requirements separately. A modular-system ablation removing self-decision-making and code-execution ability (replacing the agentic loop with a fixed one-shot self-revision pipeline) causes a 4.51% average performance drop versus full METAL, isolating the agentic (not just iterative) design as contributing meaningfully. Performance gains from 5 compute recurrences are largest on easy-difficulty charts (13.99% GPT-4o / 5.3% LLaMA) and shrink on hard charts (4.62% GPT-4o / 5.0% LLaMA), though gains remain positive across all difficulty levels for both models.",
+    "tags": [
+      "test-time-scaling",
+      "multi-agent",
+      "chart-generation",
+      "self-correction",
+      "vision-language-model"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2025-acl-long-1452",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

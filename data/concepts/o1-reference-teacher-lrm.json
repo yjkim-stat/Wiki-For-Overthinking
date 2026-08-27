@@ -1,0 +1,49 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.acl-industry.85",
+      "kind": "paper",
+      "note": "Introduces the Long CoT Collection, a 100K-example dataset built by having short-CoT LLMs (GPT-4o) generate o1-style long reasoning traces from a 1K seed of teacher-annotated reasoning flow and thought-budget targets, showing it is a stronger RL cold-start than the base model (2-3x larger RLVR gains) and offers built-in controllability over thought budget to address overthinking.",
+      "title": "One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "o1 (reference teacher LRM)",
+  "related": [
+    "thought-budget",
+    "reasoning-flow-outline-driven-long-cot-generation",
+    "rl-cold-start-instability",
+    "reasoning-trigger-phrases-aha-moments",
+    "reasoning-flow-guided-step-by-step-long-cot-generation",
+    "domain-and-thought-budget-matched-demonstration-retrieval",
+    "correctness-filtering-gpt-4o-validated",
+    "grpo-with-length-answer-format-reward-rlvr",
+    "long-cot-collection-new-100k-instances-three-thought-budget-variants-at-100-50-2",
+    "magpie-reasoning-v1-150k-source-questions",
+    "math500",
+    "aime-2024",
+    "gpqa-diamond",
+    "mmlu-pro",
+    "numinamath-rl-training-questions",
+    "gpt-4o-short-cot-generator",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-0-5b",
+    "o1-mini",
+    "r1",
+    "qwq-32b",
+    "sky-t1",
+    "bespoke-7b",
+    "openthinker-7b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "o1-reference-teacher-lrm",
+  "topics": [
+    "overthinking"
+  ]
+}

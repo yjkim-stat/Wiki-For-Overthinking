@@ -9,7 +9,7 @@ The archive cannot define ARC-Challenge from its own sources: the two papers tha
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [C4](../methods/c4.md), [Chain-of-Thought Distillation](../methods/chain-of-thought-distillation.md), [CommonsenseQA](commonsenseqa.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Out-of-Distribution Generalization](../concepts/out-of-distribution-generalization.md), [StrategyQA](strategyqa.md), [SVAMP](svamp.md)
+**Related**: [ARC-C](arc-c.md), [C4](../methods/c4.md), [Chain-of-Thought Distillation](../methods/chain-of-thought-distillation.md), [CommonsenseQA](commonsenseqa.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [OK-VQA](ok-vqa.md), [Out-of-Distribution Generalization](../concepts/out-of-distribution-generalization.md), [StrategyQA](strategyqa.md), [SVAMP](svamp.md)
 
 ## Appears in
 

@@ -42,7 +42,7 @@ The abstract does not report where or by how much extended sequential scaling st
 
 ## Entities
 
-- **Concepts**: asymmetric verification, sequential vs. parallel test-time scaling, budget forcing
+- **Concepts**: asymmetric verification, [sequential vs. parallel test-time scaling](../../../../wiki/concepts/sequential-vs-parallel-test-time-scaling.md), budget forcing
 - **Methods**: [budget forcing](../../../../wiki/methods/budget-forcing.md), asymmetric verification, parallel test-time scaling (verify-and-select)
 - **Datasets**: [BrowseComp](../../../../wiki/datasets/browsecomp.md), [GAIA](../../../../wiki/datasets/gaia.md), xbench-DeepSearch
 

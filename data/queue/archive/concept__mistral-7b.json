@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Shows that whether a recurrent-depth reasoner is helped or harmed by extra test-time iterations is predicted by a measurable dynamical property of its trained update map (settling, marginal, or drifting), proves a sufficient condition for the decoded answer to be frozen under further iteration, and demonstrates that a single terminal fixed-point loss term moves the regime and the depth behaviour together in both directions.",
+        "title": "Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TISER (Temporal Self-Reflective Prompting) extends chain-of-thought into a four-stage test-time-scaling pipeline -- reasoning, explicit timeline construction, iterative self-reflection, then answer generation -- for temporal reasoning, and fine-tuning smaller open models (Mistral-7B, Qwen2.5-7B) on TISER-formatted synthetic traces lets them match or beat GPT-4o on in-domain and out-of-distribution temporal reasoning benchmarks.",
+        "title": "Learning to Reason Over Time: Timeline Self-Reflection for Improved Temporal Reasoning in Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-27T23:01:21Z",
+  "created_at": "2026-08-27T22:59:03Z",
+  "instructions": "Write the wiki definition for 'Mistral 7B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Mistral 7B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Mistral 7B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "An open-weight LLM used across sources as an evaluation subject: as one of the base models fine-tuned with TISER's temporal self-reflection pipeline, and (per another archived source) as a comparison point in a study of when extra test-time iterations help versus harm a recurrent-depth reasoner, based on a measurable dynamical property (settling, marginal, or drifting) of the model's trained update map.",
+    "kind": "model",
+    "related": [
+      "TISER",
+      "Think Shallow, Solve Deep"
+    ]
+  },
+  "task_id": "concept__mistral-7b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

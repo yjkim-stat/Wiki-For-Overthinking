@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "BIG-Bench Extra Hard"
+  ],
+  "definition": "A general many-hop reasoning benchmark used as one of several evaluation suites for test-time-compute methods; sources use it to compare recursion operators (GROW/PRUNE/BRANCH) and difficulty-aware entropy-shaping methods against a single-pass baseline. Sources do not define its construction beyond naming it a harder benchmark than BIG-Bench Hard.",
   "evidence": [
     {
       "id": "arxiv:2608.23956",
@@ -71,7 +73,10 @@
     "gsm8k",
     "virl39k"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "recursive-agentic-reasoning",
+    "ares"
+  ],
   "schema_version": 1,
   "slug": "bbeh",
   "topics": [

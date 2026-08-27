@@ -1,0 +1,57 @@
+{
+  "concepts": [
+    "skill-dependent compute-optimal scaling",
+    "data-hungry vs. capacity-hungry skill",
+    "aggregate performance estimator (APE) vs. skill-specific compute optimum",
+    "IsoFLOP curve"
+  ],
+  "contributions": [
+    "empirical evidence, across 9 compute scales and 19 datasets in two splits, that compute-optimal scaling behavior is skill-dependent: knowledge QA is capacity-hungry while code generation is data-hungry, diverging systematically from the standard aggregate-loss-based compute optimum",
+    "a demonstration that this skill-dependence is not purely an artifact of the pretraining datamix's skill-relevant data proportion, but reflects a more fundamental difference in how compressible each skill's underlying content is",
+    "a finding that skill-specific compute optima can be aligned via a specific datamix ratio (~2.1x more code than knowledge data), and that no single validation set captures a genuinely multi-skill-balanced optimum on its own",
+    "an empirical demonstration that the choice of validation set used to fit standard compute-optimal scaling laws can bias the estimated optimal parameter count by up to ~50% at small compute scales and over 10% even at the largest scales tested"
+  ],
+  "datasets": [
+    "TriviaQA",
+    "Natural Questions (NQ)",
+    "SQuAD",
+    "MMLU",
+    "RepoBench",
+    "SWE-bench",
+    "BigCodeBench",
+    "CAT-LM",
+    "CrossCodeEval",
+    "MultiPL-E",
+    "HumanEval",
+    "MBXP",
+    "MBPP",
+    "FineWeb / FineWeb-Edu (validation)",
+    "The Stack (validation)"
+  ],
+  "generated_at": "2026-08-27T23:03:43Z",
+  "generated_by": "queue",
+  "limitations": "The datamix ablation analysis (Section 4.2) and part of the validation-set-alignment analysis (Section 4.3) were conducted only at the lowest compute scale (6x10^18 FLOPs) represented in the paper's IsoFLOP curves, due to the prohibitive cost of training over 1,000 models at higher compute scales; whether the same skill-dependent patterns hold as strongly at larger scales is not directly tested for these specific analyses. The hypothesis and held-out splits are limited in size, particularly for knowledge QA benchmarks that are large, knowledge-QA-specific, isolated from reasoning skills, and sufficiently low-noise at low compute scales -- the authors state these splits would ideally be larger. The hypothesis that non-Python programming languages are underrepresented and harder to compress (explaining a larger code/knowledge gap for Python-only splits) could not be rigorously validated on the held-out split, since the hypothesis/held-out splits were not constructed with programming-language coverage in mind. The paper explicitly leaves open what other skills might be fundamentally different from code and knowledge, and how compression relates to skill and reasoning more broadly, framing code only as an imperfect proxy for 'reasoning skills' rather than reasoning itself.",
+  "method": "Trains models between 40M and 8B parameters across 9 compute scales (6x10^18 to 3x10^21 FLOPs) on a canonical pretraining datamix (58.4% knowledge-heavy documents, 19.9% code, 21.7% other), fitting IsoFLOP curves and skill-specific compute optima (COs) via degree-2 polynomial fits per compute scale, for two skills -- knowledge-based QA and code generation (used as a proxy for reasoning skills) -- each measured on 19 held-out/hypothesis-split datasets (e.g. TriviaQA, NQ, SQuAD, MMLU for knowledge; RepoBench, BigCodeBench, HumanEval, MBPP for code). Compares skill-specific COs to the standard aggregate-performance-estimator (APE) CO from Dubey et al. 2024. To test whether skill-dependence is an artifact of the datamix rather than a fundamental property, retrains 16 additional models per skill at the smallest compute scale (6x10^18 FLOPs) across artificially up/down-sampled knowledge (22%-85%) and code (11%-84%) proportions, and separately investigates (a) whether the two skills' COs can be aligned by choosing a datamix ratio, and (b) how much the estimated optimal parameter count varies depending on which validation set (FineWeb, FineWeb-Edu, The Stack) is used.",
+  "methods": [
+    "IsoFLOP curve fitting (degree-2 polynomial per compute scale)",
+    "skill-specific compute optimum (CO) estimation",
+    "aggregate performance estimator (APE) scaling-law comparison"
+  ],
+  "models": [],
+  "one_liner": "Shows that compute-optimal scaling (the optimal trade-off between parameter count and training tokens) is skill-dependent -- knowledge-based QA is capacity-hungry while code generation is data-hungry -- a fundamental difference that persists even after controlling for the proportion of skill-relevant pretraining data, and demonstrates that a misspecified validation set can bias the estimated compute-optimal parameter count by up to 50%.",
+  "paper_id": "doi:10.18653/v1/2025.findings-acl.688",
+  "problem": "Standard compute-optimal scaling laws select the optimal parameter count and dataset size using aggregate performance estimators (validation-set loss averaged over all content), implicitly assuming one universal compute-optimal trade-off, but it was unknown whether the true compute optimum differs by skill (e.g. knowledge recall vs. code generation) and whether standard aggregate-loss-based scaling-law fitting could be systematically biased if it does.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Not directly relevant beyond the shared keyword 'compute-optimal': this is a training-time scaling-law study of how model size and training-token count should trade off for different pretraining skills (knowledge QA vs. code), unconnected to inference-time reasoning length, test-time compute, or the accuracy/efficiency tradeoff of LLM reasoning traces that the topic tracks. Its methodological point -- that a single aggregate metric can obscure sharply different optimal behavior across sub-skills -- is conceptually adjacent to the topic's broader concern that a single scalar (like average accuracy vs. token count) can obscure per-question or per-difficulty-level differences in when more compute actually helps, but the paper itself makes no claim about reasoning or inference-time behavior."
+  },
+  "results": "Across all compute scales and all datasets in both the hypothesis and held-out splits, knowledge QA is capacity-hungry (prefers more parameters than the APE optimum, especially at lower compute scales) while code is data-hungry (prefers more training tokens) -- a consistent, generalizable pattern visualized as opposite-signed parameter-count residual distributions (Figure 1c). This difference persists even after controlling for the proportion of skill-relevant data in the datamix: as the proportion of skill-relevant data increases, both skills become more capacity-hungry, but knowledge QA's capacity-hunger grows substantially faster than code's, and knowledge requires more parameters than code at every matched proportion of skill-relevant data tested -- interpreted as knowledge being fundamentally harder to compress (requiring more capacity to memorize facts) than code. Restricting code datasets to only Python (a higher-resource language) versus a broader multilingual code mix increases the code/knowledge capacity-hunger gap, suggesting programming-language rarity affects compressibility, though this was not rigorously validated due to hypothesis/held-out split construction limits. The two skills' compute optima CAN be aligned by choosing a specific datamix ratio: at approximately 2.1x more code data than knowledge data, the optimal parameter counts for code and knowledge converge, and validation loss on FineWeb/FineWeb-Edu/The Stack all closely track either the average knowledge or average code curve (no validation set shows a mixed, U-shaped pattern), implying single-skill-representative validation sets do not capture a true multi-skill-aligned optimum on their own. Choice of validation set substantially affects the estimated compute-optimal parameter count: at the smallest compute scale (6x10^18 FLOPs), optimal parameter count varies by nearly 50% across different validation sets and by over 30% across different datamix ratios for a single validation set; at larger scales the discrepancy shrinks but still exceeds 10% for the three largest compute scales tested (up to 3x10^21 FLOPs).",
+  "schema_version": 1,
+  "tags": [
+    "compute-optimal",
+    "scaling-laws",
+    "pretraining",
+    "data-mixing",
+    "skill-dependent-scaling"
+  ]
+}

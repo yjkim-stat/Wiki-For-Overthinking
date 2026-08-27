@@ -1,0 +1,52 @@
+{
+  "concepts": [
+    "attention sink",
+    "bounded (constant) cost per new token",
+    "intermediate reasoning token importance decay",
+    "truncated backpropagation for long RL rollouts"
+  ],
+  "contributions": [
+    "an empirical observation that intermediate reasoning tokens receive low attention once used, while the prefix (attention sinks, task instructions) and the most recent tokens receive most attention",
+    "Prefix Sliding, a training-free, drop-in method giving constant per-token generation cost by retaining only the prefix and a sliding window, implemented with a custom FlashAttention kernel matching plain sliding-window-attention speed",
+    "a truncated-backpropagation RL training recipe enabling GRPO rollouts beyond 100,000 tokens at fixed memory, achieving higher reward than full-attention training at equal budget and comparable performance to full backpropagation when controlling for sequence length"
+  ],
+  "datasets": [
+    "AIME25",
+    "GPQA Diamond",
+    "MATH500",
+    "LiveCodeBench (LCB) v5",
+    "HealthBench"
+  ],
+  "generated_at": "2026-08-27T22:38:01Z",
+  "generated_by": "queue",
+  "limitations": "On LiveCodeBench, a window smaller than 16,384 tokens fails to match full attention -- inspecting samples shows the model sometimes reasons about code via long comment blocks before writing the implementation, so with a small window the start of the code implementation can move outside the window by the time it resumes coding; the paper suggests RL training with Prefix Sliding would likely adapt this commenting behavior. Benefit is limited for short generations, since the sliding-window 'warm-up phase' (before the window has filled) still behaves like full attention -- demonstrated on HealthBench, where average generations (~2086 tokens) rarely trigger sliding with a 2048-token window, yielding little speedup. Agentic/multi-turn use raises unresolved issues: reading large external content (e.g. a webpage) that exceeds the window risks losing information, and how to handle future user turns relative to prefix/window boundaries is left open. Comparisons are restricted to methods that (1) work on existing pretrained transformers out of the box and (2) have bounded cost per new token, excluding alternative subquadratic architectures (RNNs, SSMs) that would require training from scratch to compare fairly. Experiments scale up to hundreds of thousands of tokens and 7B-parameter models; further scaling is left to future work.",
+  "method": "Motivated by an attention-probability analysis (Qwen3-1.7B on an AIME25 trace) showing high attention to the first few tokens (prefix, acting as attention sinks) and the most recent ~1000 tokens, but low attention to intermediate reasoning tokens once their sub-result has been used, Prefix Sliding keeps only two things in memory during generation: a fixed prefix (system instructions, tools, task prompt) and a sliding window of the most recent tokens, discarding everything else -- capping total memory and making per-token cost constant regardless of how long the model has already reasoned. It requires no training to apply to an existing pretrained model (using 'Continue PE', reusing cached RoPE-embedded representations rather than reapplying positions after eviction) and implements a custom two-level-filtering FlashAttention kernel (intra-tile masking plus inter-tile skipping of blocks entirely outside the allowed prefix/window region) matching standard sliding-window-attention kernel speed. For RL training with GRPO on rollouts up to hundreds of thousands of tokens, truncated backpropagation (using 4x the sliding-window size of trailing tokens for near-accurate gradients, verified via KL divergence against full backpropagation) avoids out-of-memory errors from naive backprop through long generations.",
+  "methods": [
+    "Prefix Sliding (prefix + sliding-window attention)",
+    "Continue PE (reused RoPE positions on eviction)",
+    "GRPO reinforcement learning",
+    "truncated backpropagation",
+    "Last-k / summarization (comparison baselines)"
+  ],
+  "models": [
+    "Qwen3-1.7B",
+    "Qwen3 (7B, RL-trained)"
+  ],
+  "one_liner": "Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.",
+  "paper_id": "arxiv:2608.26070",
+  "problem": "Test-time scaling by letting models reason longer is limited by full attention's requirement to keep the entire growing reasoning trace in memory, making the cost of each new token grow linearly with sequence length and long thinking prohibitively expensive; whether most of that retained context is actually needed was unexamined.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly relevant, though orthogonal to most mitigation approaches in the topic: rather than trying to make a model reason less (shorter traces), it makes the cost of reasoning constant per token regardless of trace length, which reframes 'overthinking' as a cost problem that can be addressed architecturally at the inference layer instead of only by training or prompting the model to think less. Its finding that intermediate reasoning tokens lose importance once their result is used is direct architectural evidence for the same waste that length-penalty and early-stopping approaches address from the generation-policy side, and its LiveCodeBench failure case (long comment-based 'thinking under the hood') is a concrete instance of a reasoning trace doing real, spread-out work that a short window would discard."
+  },
+  "results": "Without any training, Prefix Sliding matches full-attention accuracy on AIME25, GPQA Diamond and MATH500 while running 3x faster (measured by average thinking time per sample), because it can generate more tokens in the same wall-clock time, not because each token is individually better. Generation speed stays roughly constant (~5,000-7,000 tok/s) for Prefix Sliding from 8K to 520K-token sequences, while full attention drops from ~7,500 to ~100 tok/s over the same range. With RL training (GRPO) at near-equal memory budgets (8,192 max tokens for full attention vs. an 8,192 sliding window for Prefix Sliding), Prefix Sliding reaches reasoning traces up to ~104K tokens (vs. full attention capped near 8K) and achieves substantially higher reward over 200 training steps. A 7B model trained with RL under an 8,192-token window and a 4x truncated-backpropagation multiplier performs comparably to full-attention training when controlling for sequence length. Ablations against three alternatives (Last-k token retention, periodic summarization, plain sliding window with no prefix) show Prefix Sliding gives the best accuracy-per-thinking-time trade-off on AIME25: plain sliding window loses key task information and degrades quickly; Last-k and summarization reprocess tokens twice (on eviction and on window change) and add extra hyperparameters/overhead. Prefix Sliding adds only one new hyperparameter (window size).",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "attention",
+    "efficient-reasoning",
+    "reinforcement-learning",
+    "long-context",
+    "kv-cache"
+  ]
+}

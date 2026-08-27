@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Critical Path Latency"
+    "Critical Path Latency",
+    "longest-token-path latency"
   ],
-  "definition": "",
+  "definition": "The wall-clock cost of a reasoning trace measured as the length of its longest sequential (non-parallelizable) token path, rather than its total token count -- so a trace whose branches run concurrently can have a critical path much shorter than its total length. Both sources use this as the metric that parallel-reasoning training methods are optimized to reduce, distinct from raw token count.",
   "evidence": [
     {
       "id": "arxiv:2608.24658",
@@ -65,7 +66,12 @@
     "minerva",
     "olympiadbench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "parason",
+    "threadweaver",
+    "subtask-parallelism",
+    "trial-parallelism"
+  ],
   "schema_version": 1,
   "slug": "critical-path-latency",
   "topics": [

@@ -1,0 +1,59 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A security study showing that the hidden chain-of-thought of a black-box reasoning model can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must be retained across tool calls within a turn.",
+        "title": "EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Systematically compares 8 prompting strategies under equal sampling budget for majority-vote test-time scaling across 6 LLMs x 6 benchmarks, finding plain Chain-of-Thought eventually dominates every more elaborate strategy as sampling time N grows -- because CoT has more easy/fewer hard questions and a flatter wrong-answer distribution -- and shows combining per-question difficulty-adaptive scaling with per-question optimal-strategy selection lifts GSM8K accuracy from 86.0% to 97.4% (Majority@10) and MATH-500 from 15.2% to 61.0%.",
+        "title": "Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-27T23:01:20Z",
+  "created_at": "2026-08-27T22:59:03Z",
+  "instructions": "Write the wiki definition for 'Direct Prompting'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Direct Prompting",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Direct Prompting",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "direct answering",
+      "no-CoT prompting"
+    ],
+    "definition": "Prompting an LLM to answer a question directly without any explicit reasoning steps, used across sources as the zero-extra-compute baseline against which chain-of-thought and other test-time-scaling prompting strategies are measured. Sources note it can sometimes outperform CoT on questions that do not actually require reasoning (an overthinking symptom), and it is the fastest-recovering strategy the EchoCoT security study exploits via ordinary API tool-calling.",
+    "kind": "method",
+    "related": [
+      "chain-of-thought baseline",
+      "Rethinking the Role of Prompting Strategies"
+    ]
+  },
+  "task_id": "concept__direct-prompting",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

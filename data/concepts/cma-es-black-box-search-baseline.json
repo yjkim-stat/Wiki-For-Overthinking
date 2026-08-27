@@ -1,0 +1,37 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.25583",
+      "kind": "paper",
+      "note": "GRIP fuses a reasoning model and an instruction (non-thinking) model of identical architecture by learning a separate sigmoid-controlled interpolation ratio per module (attention, FFN, embedding/LM-head), trained with an RL reward that favors correct and concise responses while keeping both source models frozen, cutting Qwen3-4B-Thinking's average generation length 27.0% while slightly improving average accuracy.",
+      "title": "GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "CMA-ES (black-box search baseline)",
+  "related": [
+    "module-wise-sigmoid-controlled-parameter-fusion",
+    "reward-guided-interpolation-vs-fixed-ratio-merging",
+    "correctness-gated-length-penalized-rl-reward",
+    "module-wise-sigmoid-parameterized-model-interpolation",
+    "grpo-style-rl-with-clip-higher-kl-free-modifications-from-dapo",
+    "deepscaler-preview-training",
+    "aime-2025",
+    "math500",
+    "gsm8k",
+    "gpqa-d",
+    "livecodebench",
+    "qwen3-4b-thinking-2507",
+    "qwen3-4b-instruct-2507"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "cma-es-black-box-search-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

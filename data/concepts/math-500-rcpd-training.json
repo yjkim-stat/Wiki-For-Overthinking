@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1239",
+      "kind": "paper",
+      "note": "Identifies a two-stage 'Reasoning Dynamics' structure in LRM chains-of-thought -- a Pre-RCP Active Reasoning stage where thinking length and content length compensate for each other, followed by a Post-RCP Converged Reasoning stage where the semantic trajectory has stabilized and further thinking is redundant -- defines the boundary as the instance-specific Reasoning Completion Point (RCP), and builds RCPD, an online detector (monitoring the rank of the </think> token) that truncates post-RCP overthinking, cutting tokens up to 44% while preserving or improving accuracy-per-token across four models and three benchmarks.",
+      "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "MATH-500 (RCPD training)",
+  "related": [
+    "thinking-content-compensation",
+    "semantic-path-convergence",
+    "reasoning-completion-point-rcp",
+    "cognitive-inertia-post-rcp-rationalization",
+    "reasoning-completion-point-detector-rcpd",
+    "rank-of-think-as-an-online-convergence-signature",
+    "stepwise-truncation-protocol",
+    "pca-based-semantic-trajectory-analysis",
+    "kl-divergence-convergence-residual",
+    "distill-to-detect-pipeline-decision-tree",
+    "full-reasoning-no-think-budget-force-deer-baselines",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-d",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-30b-a3b",
+    "deepseek-r1-distill-8b",
+    "qwen3-embedding-model-semantic-probe"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "math-500-rcpd-training",
+  "topics": [
+    "overthinking"
+  ]
+}

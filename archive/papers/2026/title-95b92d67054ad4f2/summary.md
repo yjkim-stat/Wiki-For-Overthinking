@@ -45,7 +45,7 @@ The authors cite budget limits that excluded broader teacher coverage, hardware 
 
 - **Concepts**: Chain-of-Thought Distillation, Data-Centric Benchmarking, Teacher-Student Capacity Gap, [Out-of-Distribution Generalization](../../../../wiki/concepts/out-of-distribution-generalization.md), Rationale Augmentation
 - **Methods**: DC-CoT, [chain-of-thought distillation](../../../../wiki/methods/chain-of-thought-distillation.md), reverse thinking, answer augmentation, question rephrasing, teacher-correctness filtering, student-error filtering, LLM-as-a-judge selection, length-based mixing, teacher-based mixing
-- **Datasets**: [StrategyQA](../../../../wiki/datasets/strategyqa.md), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), ANLI, Date Understanding, WebArena, Visual-CoT, OK-VQA, CLEVR
+- **Datasets**: [StrategyQA](../../../../wiki/datasets/strategyqa.md), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), ANLI, Date Understanding, WebArena, Visual-CoT, [OK-VQA](../../../../wiki/datasets/ok-vqa.md), CLEVR
 
 Tags: `cot-distillation`, `benchmark`, `data-centric`, `knowledge-distillation`, `small-models`, `ood-generalization`
 

@@ -1,0 +1,71 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.acl-long.232",
+      "kind": "paper",
+      "note": "Systematically shows that o1-like models (QwQ, R1, LIMO, and R1-Distill variants) do not actually possess consistent sequential test-time scaling: correct solutions are on average shorter than incorrect ones on the same questions, accuracy does not consistently improve (and sometimes inverse-scales) with solution length, and this traces to a failure of self-revision (models rarely fix wrong answers and sometimes break correct ones) -- leading to Shortest Majority Vote, a parallel-scaling method weighting majority-vote clusters by inverse-log solution length, which significantly outperforms both plain Majority Vote and a shortest-solution-only heuristic.",
+      "title": "Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?"
+    },
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1197",
+      "kind": "paper",
+      "note": "SafeChain systematically evaluates 13 large reasoning models' safety on StrongReject/WildJailbreak, finding no model is safe on both, that unsafe responses are consistently longer than safe ones, that safety improves within a model family as it scales but long-CoT fine-tuning itself does not inherently improve safety over the base instruction-tuned model, and that training-free decoding strategies controlling thought length (ZeroThink most effectively) improve safety without training -- motivating a new CoT-style safety training dataset that preserves reasoning performance while improving safety.",
+      "title": "SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "QwQ",
+  "related": [
+    "inverse-scaling-with-chain-of-thought-length",
+    "self-revision-failure-successful-vs-failed-revision-rate",
+    "sequential-vs-parallel-test-time-scaling",
+    "shortest-majority-vote-length-discounted-majority-voting",
+    "forced-continued-reasoning-wait-alternatively-prompted-revision",
+    "sequential-scaling-self-revision",
+    "parallel-scaling-majority-vote",
+    "shortest-majority-vote",
+    "math500",
+    "aime-aimo-validation-set-90-questions",
+    "omni-math-500-question-sample",
+    "gpqa-diamond-198-questions",
+    "deepseek-r1-r1-671b",
+    "r1-distill-qwen-32b",
+    "r1-distill-qwen-14b",
+    "r1-distill-qwen-1-5b",
+    "limo",
+    "thought-answer-safety-decomposition",
+    "zerothink-lessthink-morethink-decoding-time-thought-length-control",
+    "safety-vs-reasoning-length-correlation",
+    "cot-style-safety-alignment-data",
+    "zerothink-lessthink-morethink-decoding-strategies",
+    "llama-guard-safety-evaluation",
+    "pairwise-llm-as-judge-safety-comparison",
+    "safechain-data-construction-sample-then-filter-via-llama-guard",
+    "strongreject",
+    "wildjailbreak",
+    "xstest",
+    "gsm8k",
+    "aime-2024",
+    "humaneval",
+    "mbpp",
+    "livecodebench-v5",
+    "safechain-new-40-000-instruction-response-pairs",
+    "deepseek-r1-series-1-5b-to-671b-r1",
+    "skywork-o1",
+    "sky-t1",
+    "gemini-thinking",
+    "kimi-k1-5",
+    "claude-3-7-sonnet",
+    "llama-3-3-70b-instruct-base-model-comparison"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "qwq",
+  "topics": [
+    "overthinking"
+  ]
+}

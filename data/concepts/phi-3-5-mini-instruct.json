@@ -1,0 +1,49 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.acl-long.1356",
+      "kind": "paper",
+      "note": "Systematically compares 8 prompting strategies under equal sampling budget for majority-vote test-time scaling across 6 LLMs x 6 benchmarks, finding plain Chain-of-Thought eventually dominates every more elaborate strategy as sampling time N grows -- because CoT has more easy/fewer hard questions and a flatter wrong-answer distribution -- and shows combining per-question difficulty-adaptive scaling with per-question optimal-strategy selection lifts GSM8K accuracy from 86.0% to 97.4% (Majority@10) and MATH-500 from 15.2% to 61.0%.",
+      "title": "Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "Phi-3.5-mini-Instruct",
+  "related": [
+    "easy-moderate-hard-question-defined-via-answer-probability-structure-under-major",
+    "test-time-scaling-law-for-majority-voting",
+    "o-1-gaussian-approximation-scaling-predictor",
+    "adaptive-difficulty-aware-scaling",
+    "dynamic-per-question-strategy-selection",
+    "direct-prompting",
+    "chain-of-thought-cot",
+    "least-to-most-prompting",
+    "tree-of-thoughts",
+    "self-refine",
+    "step-back-prompting",
+    "analogous-prompting",
+    "multi-agent-debate",
+    "majority-voting-self-consistency",
+    "gsm8k",
+    "gsm-hard",
+    "math500",
+    "mmlu-high-school-biology-chemistry-physics",
+    "gpqa",
+    "aime",
+    "qwen2-5-7b-instruct",
+    "llama-3-8b-instruct",
+    "glm-4-9b-chat",
+    "gemini-1-5-flash",
+    "gpt-4o-mini"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "phi-3-5-mini-instruct",
+  "topics": [
+    "overthinking"
+  ]
+}

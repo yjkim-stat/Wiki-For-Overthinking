@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.688",
+      "kind": "paper",
+      "note": "Shows that compute-optimal scaling (the optimal trade-off between parameter count and training tokens) is skill-dependent -- knowledge-based QA is capacity-hungry while code generation is data-hungry -- a fundamental difference that persists even after controlling for the proportion of skill-relevant pretraining data, and demonstrates that a misspecified validation set can bias the estimated compute-optimal parameter count by up to 50%.",
+      "title": "Compute Optimal Scaling of Skills: Knowledge vs Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "SQuAD",
+  "related": [
+    "skill-dependent-compute-optimal-scaling",
+    "data-hungry-vs-capacity-hungry-skill",
+    "aggregate-performance-estimator-ape-vs-skill-specific-compute-optimum",
+    "isoflop-curve",
+    "isoflop-curve-fitting-degree-2-polynomial-per-compute-scale",
+    "skill-specific-compute-optimum-co-estimation",
+    "aggregate-performance-estimator-ape-scaling-law-comparison",
+    "triviaqa",
+    "natural-questions-nq",
+    "mmlu",
+    "repobench",
+    "swe-bench",
+    "bigcodebench",
+    "cat-lm",
+    "crosscodeeval",
+    "multipl-e",
+    "humaneval",
+    "mbxp",
+    "mbpp",
+    "fineweb-fineweb-edu-validation",
+    "the-stack-validation"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "squad",
+  "topics": [
+    "overthinking"
+  ]
+}

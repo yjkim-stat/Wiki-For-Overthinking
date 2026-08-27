@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1289",
+      "kind": "paper",
+      "note": "Shows current LLMs already possess a latent capacity for concise reasoning -- shorter correct paths exist within their own stochastic output distribution -- and that self-training (fine-tuning on the model's own best-of-N and few-shot-conditioned concise samples, FS-BoN) reliably elicits this capacity, cutting output length 30% on average across five model families on GSM8K/MATH with preserved accuracy, far outperforming zero-shot 'be concise' prompting and training on externally-sourced concise data.",
+      "title": "Self-Training Elicits Concise Reasoning in Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "sample augmentation",
+  "related": [
+    "latent-concise-reasoning-capacity",
+    "few-shot-conditioned-best-of-n-sampling-fs-bon",
+    "self-training-vs-externally-sourced-concise-supervision",
+    "adaptive-length-reduction-by-question-difficulty",
+    "naive-best-of-n-bon-self-sampling-fine-tuning",
+    "few-shot-conditioned-sampling-fs",
+    "few-shot-conditioned-best-of-n-fs-bon",
+    "rational-metareasoning-comparison-baseline",
+    "gsm8k",
+    "math-math500-for-evaluation",
+    "mmlu-pro-business-chemistry-physics-subsets-generalization-check",
+    "llama-3-2-3b",
+    "llama-3-2-1b",
+    "llama-3-1-8b",
+    "gemma-2-2b",
+    "qwen2-5-3b",
+    "qwen2-5-math-1-5b",
+    "deepseekmath-7b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "sample-augmentation",
+  "topics": [
+    "overthinking"
+  ]
+}

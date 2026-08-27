@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1212",
+      "kind": "paper",
+      "note": "Step-Saliency pools token-level attention-gradient saliency into step-to-step maps across a reasoning trace's question/thinking/summary structure, revealing two depth-wise information-flow failures in incorrect outputs -- Shallow Lock-in (shallow layers over-focus on the current step, ignoring earlier context) and Deep Decay (deep layers lose connection to the thinking segment, with the summary attending mainly to itself) -- and fixes both with StepFlow, a training-free single-pass decoding intervention that improves accuracy by up to 11.8 points across six LRM backbones and six benchmarks.",
+      "title": "Reasoning Fails Where Step Flow Breaks"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "Deep Decay",
+  "related": [
+    "step-saliency-step-to-step-pooled-attention-gradient-diagnostic",
+    "shallow-lock-in",
+    "odds-equal-bridge-oeb",
+    "step-momentum-injection-smi",
+    "step-saliency-attention-gradient-step-to-step-pooling",
+    "plan-and-solve-ps-hint-infer-budget-forcing-s1-attention-intervention-activation",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "math500",
+    "gpqa-diamond",
+    "livecodebench",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-14b",
+    "deepseek-r1-distill-qwen-32b",
+    "gpt-oss-20b-low-medium",
+    "qwq-32b-preview"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "deep-decay",
+  "topics": [
+    "overthinking"
+  ]
+}

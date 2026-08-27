@@ -1,7 +1,8 @@
 {
   "aliases": [
     "LiveCodeBench v6",
-    "LiveCodeBench-v6"
+    "LiveCodeBench-v6",
+    "LiveCodeBench(v6)"
   ],
   "definition": "The sixth release window of LiveCodeBench, used in the archive as a free-form competitive-programming set on which test-time-scaling and length-calibration methods are checked outside mathematics. Consilience is the only source reporting numbers on it: with n = 64 sampled completions its reasoning-isolated variant raises GPT-OSS-120B to 69.7% against Pass@1's 65.7% and self-certainty's degraded 64.5%, and Qwen to 60.4-60.9% against 55.3%, with the gain concentrated on hard problems (AUROC 0.61-0.62 for separating correct completions, versus 0.47-0.50 for mean confidence) and neutral on easy ones. SuCo folds it into an eight-benchmark average without a per-set figure, and Lightning OPD 2.0 names both v5 and v6 as evaluation sets but reports only a v5 number (63.0%), so the archive's version labelling is inconsistent and no v6 token-count or length figure is recorded anywhere.",
   "evidence": [
@@ -12,6 +13,12 @@
       "title": "Consilience for Verifier-Free Test-Time Scaling"
     },
     {
+      "id": "doi:10.18653/v1/2026.acl-long.1047",
+      "kind": "paper",
+      "note": "Identifies 'length shift' -- reasoning models progressively generate longer responses on already-correctly-solved (zero-gradient) training queries during RLVR, because reasoning-word emission learned for hard problems generalizes indiscriminately to easy ones -- and fixes it with Dynamic Outlier Truncation (DOT), a training-time RL intervention that truncates only the statistical outlier-length tail of all-correct rollout groups (affecting <0.5% of responses) while leaving hard queries unconstrained, cutting AIME-24 token usage 78% while increasing accuracy over the initial policy and beating prior efficient-reasoning methods.",
+      "title": "Anti-Length Shift: Dynamic Outlier Truncation for Training Efficient Reasoning Models"
+    },
+    {
       "id": "title:b37859867120f044",
       "kind": "paper",
       "note": "Defines the Minimal Sufficient CoT — the shortest reasoning prefix at which the model's confidence in the ground-truth answer crosses a difficulty-adaptive threshold — and trains on it via supervised fine-tuning plus a GRPO stage whose reward penalises both over- and under-thinking, so reasoning length is calibrated continuously rather than by discrete modes.",
@@ -20,7 +27,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-08-27T23:27:33Z",
   "name": "LiveCodeBench-v6",
   "related": [
     "temporal-confidence-asymmetry-low-initial-high-final-confidence",
@@ -37,6 +44,24 @@
     "hmmt-2025",
     "gpqa-diamond",
     "swe-bench-verified",
+    "length-shift-distributional-response-length-growth-on-zero-gradient-queries",
+    "dynamic-outlier-truncation-dot",
+    "cross-difficulty-policy-interference",
+    "reasoning-word-over-triggering",
+    "kl-cov-regularization",
+    "predictive-dynamic-sampling",
+    "grpo",
+    "overthink-dast-o1-pruner-lc-r1-laser-de-adaptthink-dler-r1-siri-baselines",
+    "deepscaler-preview-training",
+    "aime-2024",
+    "aime-2025",
+    "amc-amc-22-23",
+    "math500",
+    "humaneval",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b",
+    "qwen2-5-7b-instruct-analysis",
     "minimal-sufficient-cot",
     "reasoning-sufficiency",
     "continuous-adaptive-reasoning",
@@ -50,14 +75,11 @@
     "minimal-sufficient-cot-msc",
     "msc-aligned-fine-tuning-mft",
     "sufficiency-aware-policy-optimization-sapo",
-    "grpo",
     "dynamic-complexity-pool",
     "percentile-based-complexity-estimation",
     "problem-adaptive-sufficiency-threshold",
     "gsm8k",
-    "math500",
     "amc23",
-    "aime-2025",
     "mbpp",
     "mmlu-stem",
     "strategyqa",

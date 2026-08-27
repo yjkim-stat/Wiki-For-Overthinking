@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "A benchmark of multi-step, tool-using agent tasks used in the archive to evaluate deep-search / web-research LLM agents: the asymmetric-verification deep-search paper and WebThinker's autonomous web-search-and-report-drafting loop both evaluate on it. Note: unrelated to the archive's separately-collected paper literally titled 'GAIA: A Data Flywheel System for Training GUI Test-Time Scaling Critic Models', which names its own, different GUI-agent critic system 'GAIA' -- a name collision between two distinct things both called GAIA.",
+  "definition": "A general-assistant benchmark dominated by web-search tasks, used across sources to evaluate agent harnesses and search-agent test-time-scaling/voting methods, including causal-intervention-based harness orchestration, retrieval-grounded voting, sequential-vs-parallel deep-search compute allocation, and deep-research agents that interleave search with reasoning and report drafting.",
   "evidence": [
     {
       "id": "arxiv:2607.25825",
@@ -95,7 +95,11 @@
     "hle",
     "glaive"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "retrieval-grounded-voting-rgv",
+    "webthinker",
+    "chill-harness"
+  ],
   "schema_version": 1,
   "slug": "gaia",
   "topics": [

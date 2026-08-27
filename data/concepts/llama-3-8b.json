@@ -1,10 +1,17 @@
 {
   "aliases": [
     "Llama3-8B",
-    "Llama-3.1-8B"
+    "Llama-3.1-8B",
+    "LLaMA3-8B"
   ],
   "definition": "Meta's 8B-parameter Llama 3 checkpoint, used in this archive as a mid-scale general backbone rather than as a reasoning model: it appears in scaling sweeps alongside Pythia, Mistral-7B and the Llemma pair, in fast/slow-thinking comparisons, and as the largest generator in an edge RAG study where it accounts for roughly 90% of per-query latency and 91% of GPU energy. Sources treat it as the point where generation cost dominates everything else in a pipeline, which is what makes prompt-shortening worth its own overhead there and not at 1B.",
   "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1078",
+      "kind": "paper",
+      "note": "SHAD automatically separates a training sample's tokens into 'reasoning' (sample-specific, hard to predict) versus 'boilerplate' (repetitive, format/template) tokens by fine-tuning on a small shuffled-input-output subset and comparing per-token loss before/after, and the resulting Reasoning-highlighted Fine-Tuning (RFT) -- which adaptively up-weights reasoning tokens during agent SFT -- outperforms SFT, regex-based weighting, and two other token-differentiation baselines on held-in and held-out agent benchmarks.",
+      "title": "Disentangling Reasoning Tokens and Boilerplate Tokens For Language Model Fine-tuning"
+    },
     {
       "id": "title:49c61dced5ecc63a",
       "kind": "paper",
@@ -20,9 +27,28 @@
   ],
   "first_seen": "2026-08-21T03:00:11Z",
   "kind": "model",
-  "last_seen": "2026-08-21T03:00:11Z",
+  "last_seen": "2026-08-27T22:59:02Z",
   "name": "Llama-3-8B",
   "related": [
+    "reasoning-tokens-vs-boilerplate-tokens",
+    "shuffle-aware-token-predictability-discrimination",
+    "adaptive-softmax-based-loss-re-weighting",
+    "reasoning-highlighted-fine-tuning",
+    "shuffle-aware-discriminator-shad",
+    "reasoning-highlighted-fine-tuning-rft",
+    "regex-based-token-weighting-baseline",
+    "rho-1-reference-model-noise-masking-baseline",
+    "rewardft-dpo-based-token-level-reward-baseline",
+    "toolbench",
+    "apigen",
+    "sharegpt-general-data",
+    "stabletoolbench",
+    "bfcl",
+    "t-eval",
+    "nexus",
+    "llama-3-1-8b",
+    "llama-3-2-3b-generalization-check",
+    "qwen-generalization-check",
     "reasoning-effort",
     "implicit-reward-hacking",
     "explicit-reward-hacking",

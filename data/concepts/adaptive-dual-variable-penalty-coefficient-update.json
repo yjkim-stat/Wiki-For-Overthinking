@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.129",
+      "kind": "paper",
+      "note": "LEASH formulates reasoning-length control as a constrained RL optimization (maximize task reward subject to an expected-length constraint) solved via a Lagrangian primal-dual method with a one-sided length penalty, letting the penalty coefficient lambda self-tighten or self-relax based on real-time constraint violation rather than requiring manual tuning, and reduces average reasoning length by up to 62.7% (1.5B model) or 26.2% (4B model) while maintaining or improving accuracy on in-domain math and out-of-domain (GPQA, MMLU-Pro) benchmarks, outperforming fixed-penalty and prior length-control baselines.",
+      "title": "LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "adaptive dual-variable (penalty coefficient) update",
+  "related": [
+    "length-control-as-constrained-optimization",
+    "lagrangian-primal-dual-rl",
+    "one-sided-length-penalty",
+    "lagrangian-primal-dual-optimization",
+    "dapo-base-rl-algorithm",
+    "one-sided-length-penalized-reward",
+    "l1-qwen-1-5b-max-extra-thinkprune-laser-de-baselines",
+    "dapo-math-17k-filtered-training-subset-3-939-instances",
+    "aime-2024",
+    "aime-2025",
+    "hmmt25",
+    "amc23",
+    "gpqa",
+    "mmlu-pro",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-4b-thinking-2507"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "adaptive-dual-variable-penalty-coefficient-update",
+  "topics": [
+    "overthinking"
+  ]
+}

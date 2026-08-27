@@ -6,12 +6,13 @@ GQA entered this wiki through papers that share vocabulary with the tracked topi
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 1
+- **Sources**: 2
 
-**Related**: [AI2D](ai2d.md), [ImageNet-1K](imagenet-1k.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [OlympiadBench](olympiadbench.md), [POPE](pope.md)
+**Related**: [AI2D](ai2d.md), [ImageNet-1K](imagenet-1k.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [OK-VQA](ok-vqa.md), [OlympiadBench](olympiadbench.md), [POPE](pope.md)
 
 ## Appears in
 
+- [FREE: Fast and Robust Vision Language Models with Early Exits](../../archive/papers/2025/doi-10-18653-v1-2025-findings-acl-1209/summary.md) — FREE adds GAN-based early exits to frozen-backbone Vision-Language Models -- an exit transformer (generator) trained to mimic the final layer's representations, discriminated against by a frozen final-layer classifier reused as the exit classifier -- addressing both 'overthinking' (unnecessary computation on easy tokens) and a newly named 'mid-crisis' (intermediate-layer accuracy dip from searching for irrelevant features), giving >1.51x inference speedup with comparable accuracy and outperforming four prior early-exit baselines on captioning, VQA and visual dialogue.
 - [Real-Time Visual Attribution Streaming in Thinking Model](../../archive/papers/2026/title-503ded235751878b/summary.md) — vStream trains a lightweight linear estimator to predict counterfactual ablation effects of image regions from cached attention features, so a multimodal reasoning model's visual grounding can be displayed while it reasons rather than recomputed afterwards, at 0.024 s per 10 tokens against 1.9-2.8 s for causal baselines.
 
 <!-- auto:end -->

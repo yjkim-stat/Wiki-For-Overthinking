@@ -12,9 +12,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Introduces GeoVQA, a task requiring multi-hop visual question answering that combines image content with external geographic commonsense knowledge, and a framework that adaptively retrieves and prunes only the knowledge clues relevant to each reasoning step (via a multi-criteria RL-trained verifier) rather than retrieving all clues up front, evaluated on a new 41,329-QA-pair dataset (GVQA) where it beats ten VQA/retrieval-augmented baselines.
+
+## Problem
+
+Answering complex geographic questions about an image (e.g. inferring the depicted activity, location-specific customs, or transportation) requires background geographic knowledge that is not present in the image or question text; retrieving all potentially relevant k-hop knowledge clues up front grows exponentially with reasoning-chain length, is computationally expensive, and introduces noise that misleads the reasoning direction.
+
+## Contributions
+
+- GeoVQA, a new task requiring multi-hop reasoning over both image content and external geographic commonsense knowledge
+- an adaptive retrieval-and-pruning framework that retrieves only step-relevant knowledge clues (rather than all clues up front) via an RL-trained multi-criteria verifier, reducing computational cost and noise
+- GVQA, a new 41,329-QA-pair, 29,871-image dataset for evaluating GeoVQA, on which the method outperforms ten VQA/retrieval-augmented baselines
+
+## Method
+
+A three-step framework: (1) analyze the input image via multi-modal retrieval augmentation (retrieving similar images/metadata with cross-validation and majority voting) to produce a unified textual description rather than crossing modalities; (2) decompose the question into one-hop sub-questions (categorized by content type: place name, place type, properties, activities, situations, qualities, spatial relations), and for each reasoning step dynamically retrieve only the geographic knowledge clues relevant to that step from external sources (DBpedia, OpenStreetMap, GPT-4o), using a multi-criteria verifier (relevance via a BERT-BM25 hybrid score, and correctness via an LLM-based judgment) to prune noisy/incorrect clues and build a commonsense reasoning tree; the retrieval-and-pruning policy is trained via reinforcement learning (PPO with GAE, warm-started on LLAMA3-8B) using the verifier's scores as reward; (3) generate the final answer from the pruned reasoning chain combined with the question via a transformer-based decoder with attention over the chain. Constructs GVQA, a 41,329-QA-pair, 29,871-image dataset spanning 2-4-hop factual and flexible questions, and evaluates against ten baselines (CogVLM, InstructBLIP, CiVQA, LAMOC, IRCoT, FLARE, Hypergraph Transformer, LATS, MORE, GPT-4o) on ROUGE/METEOR/BERTScore/F1, plus human evaluation and a 6-component ablation.
+
+## Results
+
+The proposed method achieves the best score on every automatic metric against all ten baselines, e.g. ROUGE-L 33.2 vs. the next-best 28.1 (Hypergraph Transformer) and 26.8 (CogVLM); F1 78.9 vs. next-best 72.5 (InstructBLIP). Human evaluation (500 sampled cases, 3+ raters each) shows the model rated highest on grammatical correctness (7.81), language fluency (8.56), answer relevance (7.49) and factual accuracy (8.11) versus CogVLM and InstructBLIP. Ablations show removing adaptive pruning or multi-factor validation causes the largest metric drops (up to ~7.2 points on ROUGE-4) and substantially increases computational cost; replacing iterative (step-by-step) retrieval with one-time retrieval degrades ROUGE by more than 4.88%; removing reinforcement learning, image retrieval, or knowledge-base retrieval each degrade performance by 4-6 points across metrics. A trade-off-parameter sweep finds the best balance at value-loss coefficient and reward-weighting factor both at 0.5 and relevance-score weight at 0.3.
+
+## Limitations
+
+Case-study analysis of failure modes identifies mainly grammatical errors (word form, verb tense) in generated answers as the model's residual weakness, explicitly deferred to future work; no formal, separately labeled Limitations section is present in the retrieved pages, and no discussion of dataset language coverage (appears English-only), image/knowledge-source bias, or computational cost of the RL-trained retrieval pipeline relative to non-adaptive baselines is given beyond the ablation showing one-time retrieval is worse.
+
+## Why it matters here
+
+- **overthinking**: Largely off-topic: this is a multi-modal (image + geographic knowledge) question-answering task and dataset paper, not about LLM reasoning-trace length or the accuracy/efficiency tradeoff of test-time reasoning. Its one point of methodological overlap is the general principle of adaptively retrieving/computing only what a given reasoning step needs rather than doing everything up front (here, pruning irrelevant knowledge clues per step to cut computational cost), which parallels -- at a system-design level, not a token-generation level -- the same 'match effort to the step's actual need' idea that motivates overthinking mitigation.
+
+## Entities
+
+- **Concepts**: adaptive step-wise knowledge retrieval, multi-criteria clue verification and pruning, commonsense reasoning tree, multi-hop geographic reasoning
+- **Methods**: multi-modal retrieval augmentation, PPO with Generalized Advantage Estimation (RL-trained retrieval policy), BERT-BM25 hybrid relevance scoring, multi-criteria clue verification (relevance + correctness)
+- **Datasets**: GVQA (new, 41,329 QA pairs, 29,871 images)
+
+Tags: `visual-question-answering`, `adaptive-retrieval`, `multi-hop-reasoning`, `knowledge-augmentation`
 
 ## Abstract
 

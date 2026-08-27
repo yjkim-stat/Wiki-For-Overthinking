@@ -1,0 +1,49 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1197",
+      "kind": "paper",
+      "note": "SafeChain systematically evaluates 13 large reasoning models' safety on StrongReject/WildJailbreak, finding no model is safe on both, that unsafe responses are consistently longer than safe ones, that safety improves within a model family as it scales but long-CoT fine-tuning itself does not inherently improve safety over the base instruction-tuned model, and that training-free decoding strategies controlling thought length (ZeroThink most effectively) improve safety without training -- motivating a new CoT-style safety training dataset that preserves reasoning performance while improving safety.",
+      "title": "SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "SafeChain data construction (sample-then-filter via Llama-Guard)",
+  "related": [
+    "thought-answer-safety-decomposition",
+    "zerothink-lessthink-morethink-decoding-time-thought-length-control",
+    "safety-vs-reasoning-length-correlation",
+    "cot-style-safety-alignment-data",
+    "zerothink-lessthink-morethink-decoding-strategies",
+    "llama-guard-safety-evaluation",
+    "pairwise-llm-as-judge-safety-comparison",
+    "strongreject",
+    "wildjailbreak",
+    "xstest",
+    "gsm8k",
+    "math500",
+    "aime-2024",
+    "humaneval",
+    "mbpp",
+    "livecodebench-v5",
+    "safechain-new-40-000-instruction-response-pairs",
+    "deepseek-r1-series-1-5b-to-671b-r1",
+    "skywork-o1",
+    "qwq",
+    "sky-t1",
+    "gemini-thinking",
+    "kimi-k1-5",
+    "claude-3-7-sonnet",
+    "llama-3-3-70b-instruct-base-model-comparison"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "safechain-data-construction-sample-then-filter-via-llama-guard",
+  "topics": [
+    "overthinking"
+  ]
+}

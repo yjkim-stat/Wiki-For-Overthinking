@@ -8,7 +8,7 @@ A large, broad-domain multiple-choice science-question dataset used as a source 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AdaptThink](../methods/adaptthink.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AIME 2026](aime-2026.md), [BBEH](bbeh.md), [BBH](bbh.md), [BBH (Big Bench Hard)](bbh-big-bench-hard.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [DAPO-Math-17K](dapo-math-17k.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [HLE](hle.md), [HMMT 2025](hmmt-2025.md), [LC-R1](../methods/lc-r1.md), [MMLU-Pro](mmlu-pro.md), [Omni-MATH](omni-math.md), [OverthinkingBench](overthinkingbench.md), [Self-Certainty](../concepts/self-certainty.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [TokenSkip](../methods/tokenskip.md)
+**Related**: [AdaptThink](../methods/adaptthink.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AIME 2026](aime-2026.md), [BBEH](bbeh.md), [BBH](bbh.md), [BBH (Big Bench Hard)](bbh-big-bench-hard.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [DAPO-Math-17K](dapo-math-17k.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [HLE](hle.md), [HMMT 2025](hmmt-2025.md), [LC-R1](../methods/lc-r1.md), [MMLU-Pro](mmlu-pro.md), [MuSiQue](musique.md), [Omni-MATH](omni-math.md), [OverthinkingBench](overthinkingbench.md), [Self-Certainty](../concepts/self-certainty.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [TokenSkip](../methods/tokenskip.md)
 
 ## Appears in
 

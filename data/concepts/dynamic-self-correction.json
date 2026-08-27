@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A model's capacity to detect that its own reasoning has drifted -- toward an unproductive path, or toward harmful/overly-cautious content -- and correct course mid-trace rather than continuing along the flawed trajectory. Sources apply the term in two different contexts: pruning-and-aggregating reasoning trees to correct exploration mid-search, and adversarial chain-of-thought training that teaches a model to recover from a 'snowball effect' where small reasoning deviations compound into harmful compliance or over-refusal.",
   "evidence": [
     {
       "id": "title:57409f1a78ab75d8",
@@ -16,7 +16,7 @@
     }
   ],
   "first_seen": "2026-08-20T12:15:21Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-27T13:56:46Z",
   "name": "dynamic self-correction",
   "related": [
@@ -28,7 +28,11 @@
     "adversarial-chain-of-thought-tuning",
     "preference-self-correction-training-pairs"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "forest-of-thought",
+    "advchain",
+    "snowball-effect"
+  ],
   "schema_version": 1,
   "slug": "dynamic-self-correction",
   "topics": [

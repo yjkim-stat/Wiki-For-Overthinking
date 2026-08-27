@@ -1,0 +1,56 @@
+{
+  "concepts": [
+    "temporal redundancy (CoT)",
+    "spatial redundancy (numerical precision)",
+    "Dewey-inspired reasoning-phase segmentation",
+    "phase-aware progressive quantization",
+    "unified confidence score (local dynamics + progression regularizer)",
+    "coordinated (jointly-scheduled) termination"
+  ],
+  "contributions": [
+    "the first training-free framework (to the authors' knowledge) that jointly optimizes temporal and spatial redundancy in CoT reasoning through coordinated, phase-aware scheduling, rather than treating them as independent optimization targets",
+    "a five-phase reasoning segmentation grounded in Dewey's reflective-thinking model, empirically shown (via PRM reward analysis) to exhibit heterogeneous quantization sensitivity, motivating dynamic rather than static precision allocation",
+    "a unified confidence score combining a responsive local (first-order surprisal-difference) signal with a progression-aware regularizer, used to jointly gate both precision adjustment and termination decisions -- avoiding the cascading-error risk of independently optimizing precision and stopping time",
+    "empirical results across two models and four reasoning benchmarks showing up to 11.3x composite efficiency gain and 2.3-4.7x measured wall-clock latency speedup while retaining 80-99% of original accuracy, outperforming static quantization, a naive adaptive-precision baseline (PMPD), and training-free early-termination baselines (S1 length-control, NoThinking) on the accuracy-efficiency Pareto frontier"
+  ],
+  "datasets": [
+    "MATH-500",
+    "AIME-120",
+    "AMC-23",
+    "GPQA-Diamond-MC",
+    "GSM8K (appendix)",
+    "MMLU (appendix)"
+  ],
+  "generated_at": "2026-08-27T23:20:15Z",
+  "generated_by": "queue",
+  "limitations": "The adaptive precision- and confidence-tracking mechanism introduces a minor computational overhead during the decision-making process itself, partially offsetting the efficiency gains from reduced inference cost (though the paper's own measured latency results still show a net large speedup). Experiments were conducted only on English-language reasoning tasks; the generalizability of the identified temporal and spatial redundancy patterns to other languages with different information densities has not yet been established.",
+  "method": "Motivated by an empirical analysis on MATH-500 showing (a) a substantial fraction of reasoning steps could be eliminated without affecting final-answer quality, and (b) most tasks tolerate dramatic precision reduction (BF16 down to 4-bit, sometimes 3-bit) with negligible accuracy loss, ASTRO segments each reasoning trace into five cognitive phases adapted from John Dewey's reflective-thinking model: Problem Definition (PD), Problem Formulation (PF), Solution Computation (SC), Solution Verification (SV), and Conclusion Formation (CF), identified at thought-transition points marked by linguistic split-indicators ('Wait', 'Wait', 'Alternatively') and classified via a lightweight Random Forest text classifier over sparse discriminative lexical features (trained on GPT-labeled, PRM-scored segments). A reward-model sensitivity analysis (Qwen2.5-Math-PRM-7B) confirms phases have heterogeneous quantization sensitivity (e.g. Problem Decomposition is highly bit-width-sensitive while Solution Consolidation is robust even at 3-bit). Phase-Aware Progressive Quantization uses an Any-Precision-quantized single model (avoiding the memory overhead of maintaining separate precision copies) with a principled linear scheduler that adjusts precision at each step based on a comparison between instantaneous confidence C(t) and a phase-conditioned reference confidence C(Phi_t), incrementing/decrementing/holding bit-width accordingly within [p_min, p_max] -- yielding non-monotonic but stable precision trajectories rather than a brittle one-way high-to-low switch. Coordinated Termination combines a Local Confidence Dynamics signal (delta_Ht, a first-order temporal difference in per-step pointwise surprisal of the realized split-token choice, more responsive to sudden confidence consolidation than global trend estimators) with a progression-aware regularizer (log2(t)) into a Unified Confidence Score C(t) = omega*delta_Ht + (1-omega)*log2(t); reasoning terminates once C(t) exceeds a phase-dependent threshold tau_phi_t AND a minimum step count t_min has elapsed, after which a completion indicator ('Okay, I think I have finished thinking') is injected for coherent closure. Evaluated on DeepSeek-R1-Distill-Qwen-7B and Qwen3-8B across MATH-500, AIME-120, AMC-23, and GPQA-Diamond-MC (plus GSM8K/MMLU in the appendix), against static uniform 4-bit/3-bit quantization, PMPD (a naive high-to-low precision-switching adaptive baseline), and two training-free early-termination baselines (S1 length-control, NoThinking), using a composite efficiency metric (combining token-count reduction and average bit-width reduction) plus separately measured per-task wall-clock latency.",
+  "methods": [
+    "Any-Precision quantization",
+    "phase-aware progressive quantization",
+    "Random Forest reasoning-phase classifier",
+    "coordinated confidence-based termination",
+    "PMPD / S1 length-control / NoThinking (baselines)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "Qwen3-8B",
+    "Qwen2.5-Math-PRM-7B (reward model for phase sensitivity analysis)"
+  ],
+  "one_liner": "ASTRO is a training-free framework that jointly exploits temporal redundancy (unnecessary reasoning steps once confidence stabilizes) and spatial redundancy (reasoning phases that tolerate lower numerical precision), segmenting a trace into five Dewey-inspired cognitive phases and coordinating phase-aware progressive quantization with confidence-based early termination, achieving up to 11.3x composite efficiency gains and 2.3-4.7x measured latency speedups while retaining 80-99% of original accuracy across two models and four reasoning benchmarks.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.1130",
+  "problem": "Chain-of-Thought reasoning in LLMs contains two largely unaddressed, intrinsically coupled forms of computational redundancy -- temporal redundancy (reasoning steps that become unnecessary once the model reaches sufficient internal confidence) and spatial redundancy (specific computations that could run at reduced numerical precision without hurting output quality) -- and existing efficiency techniques treat reasoning as generic text or optimize only one dimension in isolation (uniform quantization, or confidence-based early exit alone), failing to exploit the heterogeneous, phase-dependent computational demands of the reasoning process, and aggressive optimization of either dimension independently risks destabilizing the other (e.g. aggressive quantization introducing noise that corrupts confidence estimation for termination decisions).",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly relevant as a dual-lever efficiency method: its temporal-redundancy component is a standard confidence-based overthinking-mitigation mechanism (stopping once reasoning steps become unnecessary), but its novel contribution is explicitly coupling this with spatial (precision) redundancy and showing the two must be jointly, not independently, scheduled -- aggressive quantization corrupts the confidence signal that termination decisions rely on, and the PMPD baseline's 11.2% accuracy collapse from a naive one-way precision switch is direct empirical evidence of exactly this cascading-error risk. This is a structurally distinct overthinking-adjacent lever from the topic's usual focus (reducing token count alone), since it shows that *how precisely* each token is computed, not just *how many* tokens are generated, is a second, coupled dimension of reasoning-time waste."
+  },
+  "results": "ASTRO achieves the best composite efficiency-accuracy trade-off across every dataset and both models tested, occupying the Pareto frontier in each case. On MATH-500, ASTRO retains over 97% of original accuracy on both models (99.3% DeepSeek-R1, 97.1% Qwen3) while delivering 4.9-5.5x composite efficiency, versus PMPD's one-way high-to-low precision switch causing a severe 11.2% accuracy drop on DeepSeek-R1 at similar bit-width -- confirming that a brittle, non-adaptive precision schedule is unsuited to complex tasks, while ASTRO's phase-aware allocation (higher precision for critical initial phases, progressively reduced thereafter) avoids this collapse. On the harder AIME-120 and AMC-23 contest-level benchmarks, ASTRO's advantage grows: 6.4x speedup on AIME-120 while retaining 85.1%/80.3% of original accuracy for DeepSeek-R1/Qwen3, and 6.1-7.4x efficiency gains with competitive accuracy on AMC-23, outperforming baselines that incur much larger accuracy degradation at similar or lower efficiency. On GPQA-Diamond-MC (general scientific QA, testing broader applicability beyond math), ASTRO delivers its most striking efficiency gains in the whole table: 11.3x on DeepSeek-R1 (retaining 90.1% accuracy) and 6.3x on Qwen3 (retaining 95.7% accuracy) -- versus PMPD at similar bit-width achieving both lower accuracy and lower overall efficiency, and versus S1-length-control/NoThinking, which can only reduce temporal cost while remaining spatially inefficient (full-precision decoding throughout), capping their efficiency ratio at 1.1-1.5x. Measured (not just composite-metric) per-task wall-clock latency confirms real speedups of 2.3-4.7x across datasets on DeepSeek-R1-Distill-Qwen-7B, with ASTRO simultaneously achieving lower latency AND higher accuracy than static 3-bit quantization at comparable or better bit-width -- e.g. on AIME-120, ASTRO reaches 60.0s/10127 tokens versus 3-bit's 61.4s/12481 tokens, at higher accuracy (0.383 vs. 0.217). Ablations (Table 2, MATH-500) show the unified-confidence-weight omega trades off length against accuracy monotonically (omega=0: 0.896 accuracy/3161 tokens; omega=1: 0.908 accuracy/3101 tokens, with omega=0.8 near-peaking at 0.926/3218), and that excessively large omega (over-sensitivity to instantaneous entropy changes) risks premature truncation; reducing the minimum reasoning window t_min progressively degrades both token count and accuracy, confirming t_min guards against early exits at suboptimal points due to precision-induced confidence-signal noise.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "quantization",
+    "efficient-reasoning",
+    "early-termination",
+    "training-free"
+  ]
+}

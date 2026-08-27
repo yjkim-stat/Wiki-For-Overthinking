@@ -1,0 +1,120 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2025-findings-acl-1289.pdf"
+  },
+  "completed_at": "2026-08-27T22:57:34Z",
+  "created_at": "2026-08-27T13:56:48Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2025.findings-acl.1289",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Chain-of-thought (CoT) reasoning has enabled large language models (LLMs) to utilize additional computation through intermediate tokens to solve complex tasks. However, we posit that typical reasoning traces contain many redundant tokens, incurring extraneous inference costs. Upon examination of the output distribution of current LLMs, we find evidence on their latent ability to reason more concisely, relative to their default behavior. To elicit this capability, we propose simple fine-tuning methods which leverage self-generated concise reasoning paths obtained by best-of-N sampling and few-shot conditioning, in task-specific settings. Our combined method achieves a 30% reduction in output tokens on average, across five model families on GSM8K and MATH, while maintaining average accuracy. By exploiting the fundamental stochasticity and in-context learning capabilities of LLMs, our self-training approach robustly elicits concise reasoning on a wide range of models, including those with extensive post-training.",
+    "authors": [
+      "Tergel Munkhbat",
+      "Namgyu Ho",
+      "Seo Hyun Kim",
+      "Yongjin Yang",
+      "Yujin Kim",
+      "Se-Young Yun"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "concise reasoning",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2025.findings-acl.1289.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Self-Training Elicits Concise Reasoning in Large Language Models",
+    "url": "https://aclanthology.org/2025.findings-acl.1289/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "latent concise-reasoning capacity",
+      "few-shot conditioned Best-of-N sampling (FS-BoN)",
+      "self-training (vs. externally-sourced concise supervision)",
+      "adaptive length reduction by question difficulty"
+    ],
+    "contributions": [
+      "empirical evidence, via the distribution of stochastically-sampled correct reasoning-path lengths, that current LLMs already possess a latent capacity to reason more concisely than their default average output length",
+      "a demonstration that existing zero-shot concise-prompting methods are inconsistent across model families and typically trade length reduction for accuracy loss, especially on task-specialized models",
+      "FS-BoN, a self-training method combining few-shot conditioning and best-of-N self-sampling to elicit and distill concise reasoning back into the model, achieving 30% average output-length reduction with preserved accuracy across five model families -- a 2.4x improvement over a prior iterative fine-tuning baseline -- and adaptively allocating more reasoning length to harder questions"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH (MATH500 for evaluation)",
+      "MMLU-Pro (business/chemistry/physics subsets, generalization check)"
+    ],
+    "limitations": "No separate Limitations section is present in the retrieved pages of this paper. The Discussion section notes as an open issue that incorrect reasoning paths in the fine-tuned model's test-time outputs remain longer than correct ones (since only correct paths are used as training targets), suggesting a need for future work on terminating incorrect reasoning paths early to further reduce redundant inference overhead -- explicitly left as future work rather than addressed by the current method.",
+    "method": "First establishes, via kernel-density analysis of 16 stochastically sampled reasoning paths per GSM8K/MATH question across five model families (Llama-3.2-3B, Gemma-2-2B, Qwen2.5-3B, Qwen2.5-Math-1.5B, DeepSeekMath-7B), that models' own output distributions already contain substantial probability mass at path lengths shorter than their average ('default') length -- e.g. DeepSeekMath-7B finds a correct, under-half-length solution in 8.37% of samples -- evidencing a latent capacity for concise reasoning. Reassesses four zero-shot concise-prompting methods (Be Concise, Estimated Budget, Fixed Budget, four hand-crafted prompts) and finds all either give negligible length reduction or trade meaningful length reduction for a significant accuracy drop, and that task-specialized models (e.g. math-finetuned Qwen2.5-Math) are especially unresponsive to such prompting. Proposes a self-training pipeline instead: (1) naive Best-of-N (BoN) -- sample N reasoning paths per training question, keep the shortest correct one as fine-tuning data; (2) Few-shot conditioned sampling (FS) -- prepend concise few-shot exemplars (from human annotation, GPT-4o, or the model's own self-generated concise samples) when sampling training data, found more sample-efficient than BoN (log-linear relationship between N and length reduction in BoN, versus FS achieving more reduction with a single sample per question than BoN with N=256); (3) FS-BoN, combining both (few-shot-conditioned BoN sampling); (4) sample augmentation, adding N naive-BoN samples to the FS/FS-BoN pool per question to recover coverage on very hard/very easy questions and boost accuracy. Standard supervised fine-tuning is then applied to distill the resulting concise self-generated data back into the model, avoiding any inference-time overhead from BoN/few-shot at deployment. Compared against zero-shot prompting baselines, fine-tuning on externally-sourced concise data (Direct Answer, Human CoT, GPT-4o CoT), and Rational Metareasoning (an iterative expert-iteration baseline using a length-accuracy utility reward).",
+    "methods": [
+      "naive Best-of-N (BoN) self-sampling fine-tuning",
+      "few-shot conditioned sampling (FS)",
+      "few-shot conditioned Best-of-N (FS-BoN)",
+      "sample augmentation",
+      "Rational Metareasoning (comparison baseline)"
+    ],
+    "models": [
+      "Llama-3.2-3B",
+      "Llama-3.2-1B",
+      "Llama-3.1-8B",
+      "Gemma-2-2B",
+      "Qwen2.5-3B",
+      "Qwen2.5-Math-1.5B",
+      "DeepSeekMath-7B"
+    ],
+    "one_liner": "Shows current LLMs already possess a latent capacity for concise reasoning -- shorter correct paths exist within their own stochastic output distribution -- and that self-training (fine-tuning on the model's own best-of-N and few-shot-conditioned concise samples, FS-BoN) reliably elicits this capacity, cutting output length 30% on average across five model families on GSM8K/MATH with preserved accuracy, far outperforming zero-shot 'be concise' prompting and training on externally-sourced concise data.",
+    "problem": "Typical chain-of-thought reasoning traces from current LLMs contain many redundant tokens (verbose explanations, repeated instructions, unnecessary confirmations) that incur extraneous inference cost, and it is unclear whether models can be reliably made to reason more concisely without hurting accuracy, given that zero-shot prompting methods for concise reasoning are known to be inconsistent in effect.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly central to the topic: it provides direct evidence for the core overthinking premise -- that models' default reasoning traces contain substantial redundancy relative to what the model itself is capable of producing -- and offers a rigorously evaluated, accuracy-preserving mitigation (self-training on the model's own concise samples) that outperforms both zero-shot prompting (the most common lightweight mitigation) and training on externally-sourced concise supervision. Its finding that token reduction is naturally adaptive to question difficulty once concise reasoning is elicited via self-training (unlike the model's original, difficulty-insensitive default behavior) is a strong complement to explicit budget-forcing approaches like TALE, which impose adaptivity externally rather than eliciting it as a latent property."
+    },
+    "results": "Averaged across five models on GSM8K and MATH, FS-BoN achieves 97.0% relative accuracy at 64.25% relative length (a 30% average length reduction, a 2.4x improvement in the reduction achieved by the prior Rational Metareasoning baseline at comparable accuracy), and a budget-matched FS-GPT4o-BoN variant (8 paths each from few-shot and default distributions, matching Rational Metareasoning's generation budget) still reaches 97.44% relative accuracy at 67.15% relative length, the best length reduction among generation-budget-matched self-training methods. Naive BoN fine-tuning is effective but sample-inefficient: length reduction from BoN plateaus around 12% on average at N=16 and shows diminishing returns as N grows further (log-linear relationship). Few-shot conditioning is dramatically more sample-efficient: FS-Human elicits more length reduction with just 8-shot conditioning than naive BoN sampling with N=256. Fine-tuning on externally-sourced concise data (Human CoT, GPT-4o CoT) achieves large length reductions but at severe accuracy cost (e.g. Human CoT: 83.82% relative accuracy at 54.95% relative length) -- falling below the Pareto frontier traced by the self-training methods, confirming self-generated training data better preserves accuracy than externally-sourced concise supervision. Token reduction is adaptive to question difficulty: on MATH's five difficulty levels, easier questions (levels 1-2) see 20-40% length reduction while harder questions see less, closing a gap between the original models' inability to tailor reasoning length to problem complexity. The length-reduction benefit transfers cleanly through fine-tuning (strong correlation between training-data length and resulting test-time output length, Figure 7), generalizes out-of-domain (10-12% length reduction with minimal accuracy loss on out-of-domain math problems when trained on one dataset and tested on another), and generalizes to a broader reasoning domain (MMLU-Pro business/chemistry/physics subsets), where the method achieves both accuracy improvement (+16.51% average) and length reduction (26.82% average) -- over 3x better length-reduction efficiency than naive BoN. A model-scale study (Llama-3.2-1B/3B, Llama-3.1-8B) shows length reduction increases with model size while accuracy preservation does not show a strong scale-dependence, and FS-GPT4o-BoN achieves the largest reduction across all scales, especially at 8B. Measured wall-clock latency is reduced 15.38-52.94% and memory usage 2.50-6.26% across two models after fine-tuning with the method.",
+    "tags": [
+      "overthinking",
+      "concise-reasoning",
+      "self-training",
+      "chain-of-thought",
+      "best-of-n"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2025-findings-acl-1289",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

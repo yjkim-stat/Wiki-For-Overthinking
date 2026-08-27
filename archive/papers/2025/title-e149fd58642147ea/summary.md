@@ -43,7 +43,7 @@ Not stated in the fetched abstract beyond the six benchmark datasets tested; the
 ## Entities
 
 - **Concepts**: formulate-then-solve via LLM-guided search, Monte Carlo Tree Search for test-time scaling, prompt/uncertainty backpropagation in search
-- **Methods**: Monte Carlo Tree Search (MCTS), LLM-guided search, test-time scaling
+- **Methods**: [Monte Carlo Tree Search (MCTS)](../../../../wiki/methods/monte-carlo-tree-search-mcts.md), LLM-guided search, test-time scaling
 - **Datasets**: _none recorded_
 
 Tags: `test-time-scaling`, `optimization`, `monte-carlo-tree-search`, `training-free`

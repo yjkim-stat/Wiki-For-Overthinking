@@ -46,7 +46,7 @@ Stated: 77 scenarios is small and limits statistical power; only open-weight mod
 ## Entities
 
 - **Concepts**: [Chain-of-thought faithfulness](../../../../wiki/concepts/chain-of-thought-faithfulness.md), [Chain-of-thought monitorability](../../../../wiki/concepts/chain-of-thought-monitorability.md), Faithfulness-safety tension, Action-commit token, Representation steering, Refusal direction, Reasoning trace tampering, Self-reflection tokens as a resistance signal
-- **Methods**: Targeted Reasoning Replacement (TRR), Difference-of-means probing, Activation-addition representation steering with per-token renormalization, Attention-mask ablation, Hint-based faithfulness evaluation (comparison baseline), [QwQ-32B](../../../../wiki/methods/qwq-32b.md), DeepSeek-R1-Distill-Llama-70B, [Qwen3-8B](../../../../wiki/methods/qwen3-8b.md), Qwen3-32B, Ministral-3-14B-Reasoning, [gpt-oss-120b](../../../../wiki/methods/gpt-oss-120b.md), MiniMax-M2-230B
+- **Methods**: Targeted Reasoning Replacement (TRR), Difference-of-means probing, Activation-addition representation steering with per-token renormalization, Attention-mask ablation, Hint-based faithfulness evaluation (comparison baseline), [QwQ-32B](../../../../wiki/methods/qwq-32b.md), DeepSeek-R1-Distill-Llama-70B, [Qwen3-8B](../../../../wiki/methods/qwen3-8b.md), Qwen3-32B, Ministral-3-14B-Reasoning, gpt-oss-120b, MiniMax-M2-230B
 - **Datasets**: HazMart (77 scenarios, 11 harm categories), [MMLU](../../../../wiki/datasets/mmlu.md)
 
 Tags: `faithfulness`, `cot-monitoring`, `ai-safety`, `representation-steering`, `mechanistic-interpretability`, `agentic-evaluation`, `reasoning-traces`

@@ -1,0 +1,34 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.acl-short.50",
+      "kind": "paper",
+      "note": "Extends test-time-scaling evaluation from the zero-risk (always-answer) setting to selective question answering by extracting confidence scores (summed log-probability of answer tokens) during reasoning, finding compute budget and confidence threshold jointly determine accuracy, that test-time scaling increases confidence separation between correct and incorrect answers for R1-32B (but not for s1-32B), and proposing risk-weighted utility functions (Jeopardy Odds, High-Stakes Odds) under which R1-32B's test-time-scaling advantage over s1-32B, invisible in the standard always-answer setting, becomes clearly visible.",
+      "title": "Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "DeepSeek-R1-32B",
+  "related": [
+    "selective-question-answering",
+    "confidence-threshold-selection-function",
+    "risk-weighted-utility-function-exam-jeopardy-high-stakes-odds",
+    "test-time-compute-budget-vs-confidence-calibration",
+    "budget-forcing-compute-budget-enforcement",
+    "risk-weighted-utility-evaluation-exam-jeopardy-high-stakes-odds",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "s1-32b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "deepseek-r1-32b",
+  "topics": [
+    "overthinking"
+  ]
+}

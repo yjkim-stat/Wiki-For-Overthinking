@@ -46,7 +46,7 @@ The paper states its own limitations at length. Single model: everything is Deep
 
 ## Entities
 
-- **Concepts**: Token Budget Saturation, Budget Forcing, Reasoning Non-Convergence, Bimodal Convergence Pattern, Minimum Sufficient Budget, Early-Exit Inference, Adaptive Compute Allocation, Linear Probing of Hidden States, Repetition Loop Failure Mode, [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md)
+- **Concepts**: Token Budget Saturation, Budget Forcing, Reasoning Non-Convergence, Bimodal Convergence Pattern, Minimum Sufficient Budget, [Early-Exit Inference](../../../../wiki/concepts/early-exit-inference.md), Adaptive Compute Allocation, Linear Probing of Hidden States, Repetition Loop Failure Mode, [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md)
 - **Methods**: budget forcing via a token-counting LogitsProcessor that forces </think>, minimum sufficient budget B* with bootstrap CIs, linear probing of hidden-state activations (logistic regression), behavioral baseline probe on entropy and repetition statistics, layer sweep across all 28 transformer layers, checkpoint position sweep (50-300 tokens), paired and sweep-level permutation tests, 5-fold stratified cross-validation with AUC-ROC, point-biserial correlation against difficulty proxy, contamination check on post-cutoff data
 - **Datasets**: GSM8K (200 problems from test split, seed 42), MATH-500 (200 problems from test split, seed 42), AIME 1983-2024 (200 problems sampled from the 933-problem HuggingFace dataset, seed 42), AIME 2025 (all 30 problems, contamination check)
 

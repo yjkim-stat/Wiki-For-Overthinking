@@ -1,0 +1,142 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-1296.pdf"
+  },
+  "completed_at": "2026-08-27T23:27:24Z",
+  "created_at": "2026-08-27T22:59:02Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.1296",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Recent Large Reasoning Models (LRMs) have achieved remarkable progress, yet their evaluation still relies on a narrow paradigm: evaluating one question at a time. This single-question setup suffers from two major limitations: (1) vulnerability to data contamination and diminishing difficulty, forcing costly creation of new questions with significant human effort, (2) failure to evaluate models under multi-context pressure, a key requirement for real-world deployment. To bridge this gap, we present REST (Reasoning Evaluation through Simultaneous Testing), a stress-testing framework that exposes LRMs to multiple problems simultaneously. Beyond basic reasoning, REST evaluates two under-tested capabilities: contextual priority allocation and robustness against contextual interference. Our evaluation of more than 30 advanced reasoning models on 9 reasoning benchmarks reveals several striking findings: Even state-of-the-art (SOTA) models such as DeepSeek-R1 exhibit substantial performance degradation under stress testing, challenging the prevailing assumption that “LLMs are multi-problem solvers”. Crucially, REST demonstrates stronger discriminative power than existing benchmarks, revealing performance gaps among models that exhibit similar, near-ceiling performance under traditional evaluation. Some key insights emerge from our analysis: (1) the “overthinking trap” is a critical factor contributing to the performance degradation; (2) models trained with the “Long2Short” technique preserve more of their single-problem accuracy under REST, outperforming their standard-trained counterparts. These results establish REST as a cost-efficient, future-proof evaluation paradigm while reducing reliance on continuous human annotation. Code is available at https://github.com/opendatalab/REST.",
+    "authors": [
+      "Zhuoshi Pan",
+      "Qizhi Pei",
+      "Yu Li",
+      "Zinan Tang",
+      "QiYao Sun",
+      "H. Vicky Zhao",
+      "Conghui He",
+      "Lijun Wu"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "large reasoning model"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.1296.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once",
+    "url": "https://aclanthology.org/2026.acl-long.1296/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "question concatenation stress testing",
+      "adaptive reasoning effort allocation",
+      "question position bias",
+      "attention drift (to prior distractor reasoning)",
+      "overthinking trap (REST-specific)",
+      "Long2Short training robustness"
+    ],
+    "contributions": [
+      "REST, a stress-testing evaluation framework that transforms any existing single-question reasoning benchmark into a more challenging multi-question variant via cyclic-indexed question concatenation, requiring no new question creation or human annotation effort",
+      "a large-scale evaluation of 30+ LRMs (1.5B-671B, open and proprietary) across 9 reasoning benchmarks, revealing that even SOTA models exhibit substantial performance degradation under multi-question stress, challenging the assumption that strong single-question LRMs are general multi-problem solvers",
+      "evidence that REST sharply increases benchmark discriminative power, revealing large performance gaps among models with near-identical, near-ceiling single-question accuracy, and that downstream post-training on single-question tasks does not reliably transfer robustness to multi-question settings",
+      "a mechanistic diagnosis, via error-type categorization, question-position analysis, and quantitative attention-allocation measurement, identifying the 'overthinking trap' (attention drift toward a model's own prior reasoning traces rather than the current question) as a primary cause of REST performance degradation, and demonstrating that Long2Short-trained (concise-reasoning) models are substantially more robust to this stress"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH500",
+      "AMC23",
+      "AIME24",
+      "AIME25",
+      "GPQA-Diamond",
+      "LiveCodeBench (v5)",
+      "ARC-C",
+      "BBH"
+    ],
+    "limitations": "REST is primarily empirical and exploratory, serving as a controlled proxy for increasing reasoning load that may not fully match real-world multi-context task structures. It slightly increases evaluation cost, since multi-problem prompts generally require longer reasoning sequences and thus more computational overhead, though the paper's appendix analysis found the latency increase not significant and acceptable. The current evaluation focuses exclusively on textual reasoning tasks; since REST's core concatenation mechanism is inherently modality-agnostic, it could naturally extend to multimodal reasoning scenarios (e.g. simultaneously processing multiple charts or diagrams), but this extension is left to future work.",
+    "method": "REST transforms an existing benchmark Q = {q_1,...,q_N} into stressed prompt sets by concatenating s consecutive questions (with cyclic indexing so every question appears exactly s times across all prompts and exactly once in each of the s possible positions, guaranteeing fair question coverage) into a single instruction, instructing the model to answer each sub-question with its own boxed/code-block answer; the stress level s is varied per benchmark by difficulty (s in {1,3,6,9,12} for simple benchmarks like GSM8K/ARC-C/BBH; {1,3,5,7,9} for medium ones like MATH500/AMC23; {1,2,3,4,5} for hard ones like AIME24/25, GPQA-Diamond, LiveCodeBench). Evaluates 30+ LRMs (1.5B to 671B parameters, including proprietary o3-mini/o4-mini/Gemini-2.5-Flash-Thinking) across 9 reasoning benchmarks, reporting Single (original) and Stress (REST, averaged across stress levels >1) accuracy. To diagnose the cause of degradation, manually categorizes failures into six types (Output Truncation, Endless Repetition, Format Violation, Question Omission, Summary Error, Reasoning Error) across four representative models on AIME24; measures per-question-position reasoning-token allocation and accuracy via a position heatmap; and quantifies attention drift by computing, for the tokens generating the answer to the last question Q_N, the fraction of attention mass (averaged over layers/heads/generated tokens) allocated to relevant content (Q_N and its own reasoning) versus distractor content (earlier questions Q_<N and their reasoning traces A_<N).",
+    "methods": [
+      "REST (cyclic-indexed question concatenation)",
+      "six-category error taxonomy",
+      "attention-allocation quantification (relevant vs. distractor content)",
+      "Long2Short training (comparison)"
+    ],
+    "models": [
+      "DeepSeek-R1",
+      "DeepSeek-R1-Distill-Qwen (1.5B/7B/32B)",
+      "DeepScaleR-1.5B",
+      "L1-Qwen-1.5B-Max",
+      "Qwen2.5-Math-1.5B/7B-Instruct",
+      "Efficient-R1-7B",
+      "Nemotron-Nano-8B",
+      "AReaL-boba (RL/SFT variants, 7B/32B)",
+      "Light-R1 (7B/32B-DS)",
+      "OpenR1-Qwen-7B",
+      "OpenThinker2-7B",
+      "Qwen2.5-7B-Instruct",
+      "Qwen3-8B/32B",
+      "Qwen-QwQ-32B",
+      "GPT-OSS-20B/120B",
+      "Qwen3-30B-A3B",
+      "O3-mini",
+      "O4-mini",
+      "Gemini-2.5-Flash-Thinking"
+    ],
+    "one_liner": "REST (Reasoning Evaluation through Simultaneous Testing) concatenates multiple questions from an existing benchmark into a single prompt to stress-test LRMs' multi-context reasoning; across 30+ models and 9 benchmarks it finds even SOTA models like DeepSeek-R1 degrade substantially (e.g. -31.6% on AIME25), that the 'overthinking trap' is a primary cause, that Long2Short-trained models are more robust, and that REST reveals sharp performance gaps among models that look identical under traditional single-question evaluation.",
+    "problem": "Standard LRM evaluation presents one question at a time, which (1) is vulnerable to data contamination and diminishing discriminative power as models approach near-ceiling accuracy on widely-used benchmarks, forcing a costly, human-effort-intensive cycle of continuously creating new, harder benchmarks, and (2) fails to evaluate models under multi-context pressure -- reasoning across multiple simultaneous queries -- a requirement of real-world deployment scenarios (batched conversation turns, multi-bug code review, multi-criteria compliance audits) that existing multi-question-prompting studies have only tested on simple tasks (text classification, commonsense QA), not reasoning-intensive ones.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly central to the topic and explicitly names the 'overthinking trap' as a primary driver of a large-scale, systematically measured failure mode: it provides quantitative, attention-level evidence (not just accuracy curves) that overthinking -- generating unnecessarily long, redundant reasoning traces -- causally hurts models specifically because that redundant reasoning becomes attentional noise a later part of the same generation must compete against, which is a distinct mechanistic angle from most of this archive's other overthinking accounts (which focus on wasted tokens within a single question, not interference across multiple questions in one context). Its finding that Long2Short-trained (efficient-reasoning) models are more robust under this specific stress test is an unusually direct, large-scale (30+ model) empirical validation that overthinking mitigation has real downstream benefits beyond the single-question benchmarks it is normally evaluated on."
+    },
+    "results": "LRMs handle several simple questions robustly (DeepSeek-R1-Distill-Qwen-7B's GSM8K accuracy drops only 0.43% under REST) but this robustness collapses on harder benchmarks: even DeepSeek-R1 suffers a 29.1% accuracy drop on AIME24 and 31.6% on AIME25 under REST, and smaller models degrade more sharply (R1-7B's AIME24 accuracy falls from 54.17% single to 16.53% under stress). REST substantially amplifies discriminative power among models that look near-identical under single-question evaluation: on MATH500, DeepSeek-R1-Distill-Qwen-7B (93.0% single) and DeepSeek-R1-Distill-Qwen-32B (94.6% single) differ by only 1.6 points, but under REST the 7B model plummets to 66.75% while the 32B model retains 88.97%, a 22.22-point gap invisible in standard evaluation; the same pattern holds for models fine-tuned on the same base (AReaL-boba-RL-7B and Light-R1-7B-DS both start from R1-7B and score slightly higher than it single-question, but both degrade to a similar or worse level under REST -- 60.77% and 61.73% versus R1-7B's 66.75% -- showing downstream post-training on single-question tasks does not transfer robustness to multi-question settings, and can even exacerbate degradation at higher stress levels). Error analysis (six-category taxonomy, AIME24) shows performance drops are NOT primarily due to models exceeding the maximum output token length (Output Truncation is a minor cause for most models tested); for strong models like DeepSeek-R1, Question Omission (overlooking later questions, a 'question position bias') and Reasoning Error together account for 42.00% of failures, while for weaker models like Light-R1-7B, Endless Repetition and Output Truncation dominate (48.90% combined) -- reflecting that smaller models' limited capacity is more exposed by REST's stress. No Format Violation errors occur for any of the four analyzed models, confirming degradation stems from genuine reasoning limitations rather than prompt-format artifacts. Question-position analysis (heatmaps across model sizes/benchmarks) confirms questions appearing earlier in a stressed prompt consistently achieve higher accuracy than later ones, and models allocate a disproportionately large share of their token budget to earlier questions, leaving insufficient reasoning capacity for later ones ('adaptive reasoning effort allocation' -- present in high-performing models like GPT-OSS-120B, which allocates tokens evenly and uses fewer tokens per question on average -- is identified as a critical factor for strong REST performance, in contrast to low-performing models like R1-7B). Topic-grouped versus random question concatenation makes negligible difference (<0.6 points across four models on MATH500), ruling out topical relatedness/interference as the driver of degradation. Attention-drift analysis quantitatively confirms the 'overthinking trap': post-trained models with sharper REST degradation devote more attention, when answering the final question, to their own prior (irrelevant) reasoning traces rather than to the current question -- e.g. AReaL-boba-RL-7B (65.0% relative accuracy drop) allocates 27.2% attention to distractor prior reasoning versus only 52.2% to the relevant current-question content, while Qwen3-8B (40.6% relative drop, notably less degradation) allocates only 2.1% attention to prior reasoning while maintaining 63.2% on relevant content -- directly linking the overthinking phenomenon (unnecessarily long, redundant reasoning) to REST's observed performance collapse via a measurable attentional mechanism. Models trained with the 'Long2Short' technique (introducing a length-reward term to promote concise, efficient reasoning) show markedly better REST robustness: L1-Qwen-1.5B-Max surpasses the untrained R1-1.5B by a 44.71-point accuracy margin at stress level s=9 on MATH500, and error analysis confirms Long2Short training mitigates not only length-related failures but also broader reasoning-degradation patterns under multi-question stress.",
+    "tags": [
+      "overthinking",
+      "benchmark",
+      "stress-testing",
+      "multi-question-reasoning",
+      "attention-analysis"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-1296",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

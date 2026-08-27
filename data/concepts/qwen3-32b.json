@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
       "title": "Risky Business: Measuring The Faithfulness-Safety Tension"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1080",
+      "kind": "paper",
+      "note": "DTSR (Dynamic Thought Sufficiency in Reasoning) is a training-free early-exit framework where the model itself, at each reflection signal ('Wait', 'Alternatively', etc.), evaluates from a third-person perspective whether its own chain-of-thought so far is sufficient to answer, exiting once a self-assessed sufficiency score crosses a threshold, cutting reasoning length 28.9-34.9% with near-zero accuracy loss across Qwen3-8B/14B/32B and five benchmarks, outperforming NoThinking, NOWAIT, and DEER while also cutting inference latency 25-40% (unlike DEER, which reduces length but increases latency).",
+      "title": "When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T23:27:33Z",
   "name": "Qwen3-32B",
   "related": [
     "chain-of-thought-faithfulness",
@@ -34,7 +40,23 @@
     "gpt-oss-120b",
     "minimax-m2-230b",
     "hazmart-77-scenarios-11-harm-categories",
-    "mmlu"
+    "mmlu",
+    "reflection-signal-wait-alternatively-but-triggered-exit-cue",
+    "thought-sufficiency-check",
+    "third-person-self-evaluation-vs-first-person",
+    "optimal-early-exit-point",
+    "lrm-overconfidence",
+    "dynamic-thought-sufficiency-in-reasoning-dtsr",
+    "reflection-signal-monitoring",
+    "third-person-thought-sufficiency-check",
+    "nothinking-nowait-deer-baselines",
+    "gsm8k",
+    "math500",
+    "amc23",
+    "olympiadbench",
+    "gpqa-diamond",
+    "livecodebench",
+    "qwen3-14b"
   ],
   "related_authored": [],
   "schema_version": 1,

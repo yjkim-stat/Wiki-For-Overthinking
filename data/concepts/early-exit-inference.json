@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "early-exit inference"
+    "early-exit inference",
+    "early exit"
   ],
-  "definition": "",
+  "definition": "Terminating a model's generation or a network's forward pass once a stopping condition is met, rather than always running to a fixed length or depth. Sources apply the term across two different settings: chain-of-thought models terminating (or failing to terminate, looping until a token ceiling) depending on problem difficulty, and layer-wise early exit in non-text architectures (Visual AutoRegressive image generation) where high-frequency detail only emerges in later stages, requiring the exit condition to be redesigned rather than reused from standard early-exit assumptions.",
   "evidence": [
     {
       "id": "arxiv:2607.21433",
@@ -18,7 +19,7 @@
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-08-27T13:56:46Z",
   "name": "Early-Exit Inference",
   "related": [
@@ -52,7 +53,11 @@
     "wavelet-domain-frequency-consistency-loss",
     "imagenet-256x256"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "token-budget-saturation-and-mechanistic-early-detection-of-reasoning-non-converg",
+    "freqexit",
+    "budget-exhausted-output-truncation-recovery"
+  ],
   "schema_version": 1,
   "slug": "early-exit-inference",
   "topics": [

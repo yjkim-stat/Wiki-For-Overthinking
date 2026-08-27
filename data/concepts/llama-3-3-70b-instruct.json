@@ -1,17 +1,25 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "LLaMA 3.3 70B Instruct"
+  ],
+  "definition": "An open-weight instruction-tuned model used across sources both as an evaluation subject in the POBs preference/opinion/belief test-time-compute study, and (per another archived source) as the model used to segment and label LRM reasoning traces by Bloom's Taxonomy cognitive level in a reasoning-trace cognitive-profiling study.",
   "evidence": [
     {
       "id": "arxiv:2608.23205",
       "kind": "paper",
       "note": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
       "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy"
+    },
+    {
+      "id": "doi:10.18653/v1/2025.acl-industry.45",
+      "kind": "paper",
+      "note": "Introduces POBs, a 20-topic Likert-scale benchmark for LLM preferences/opinions/beliefs on controversial topics, finding models consistently lean progressive-collectivist (with newer versions more strongly and less consistently so), and that adding reasoning or self-reflection prompting gives only limited improvement to reliability, neutrality, or consistency.",
+      "title": "Think Again! The Effect of Test-Time Compute on Preferences, Opinions, and Beliefs of Large Language Models"
     }
   ],
   "first_seen": "2026-08-26T02:14:28Z",
   "kind": "model",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-27T22:59:02Z",
   "name": "Llama-3.3-70B-Instruct",
   "related": [
     "overthinking",
@@ -40,9 +48,30 @@
     "deepseek-r1-distill-qwen-1-5b",
     "qwen3-30b-a3b-thinking-2507",
     "qwen3-4b-thinking-2507",
-    "phi-4-reasoning"
+    "phi-4-reasoning",
+    "non-neutrality-index-nni",
+    "topical-consistency-index-tci",
+    "reliability-response-consistency-under-repeated-sampling",
+    "opinion-self-report-underestimation",
+    "direct-reasoning-self-reflection-prompting-comparison",
+    "hierarchical-clustering-of-topic-correlations",
+    "likert-scale-polarity-scoring",
+    "pobs-new-20-topics",
+    "declarative-pobs-new-self-report-companion-survey",
+    "deepseek-2-5",
+    "deepseek-3",
+    "gpt-4-turbo",
+    "gpt-4o",
+    "granite-3-8b-instruct",
+    "granite-3-2-8b-instruct",
+    "llama-3-2-3b-instruct",
+    "mistral-large",
+    "qwen-2-5-72b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "think-again-pobs",
+    "cognitive-profiling-of-lrms-reasoning-traces-using-bloom-s-taxonomy"
+  ],
   "schema_version": 1,
   "slug": "llama-3-3-70b-instruct",
   "topics": [

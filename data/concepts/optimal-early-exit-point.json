@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1080",
+      "kind": "paper",
+      "note": "DTSR (Dynamic Thought Sufficiency in Reasoning) is a training-free early-exit framework where the model itself, at each reflection signal ('Wait', 'Alternatively', etc.), evaluates from a third-person perspective whether its own chain-of-thought so far is sufficient to answer, exiting once a self-assessed sufficiency score crosses a threshold, cutting reasoning length 28.9-34.9% with near-zero accuracy loss across Qwen3-8B/14B/32B and five benchmarks, outperforming NoThinking, NOWAIT, and DEER while also cutting inference latency 25-40% (unlike DEER, which reduces length but increases latency).",
+      "title": "When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "optimal early-exit point",
+  "related": [
+    "reflection-signal-wait-alternatively-but-triggered-exit-cue",
+    "thought-sufficiency-check",
+    "third-person-self-evaluation-vs-first-person",
+    "lrm-overconfidence",
+    "dynamic-thought-sufficiency-in-reasoning-dtsr",
+    "reflection-signal-monitoring",
+    "third-person-thought-sufficiency-check",
+    "nothinking-nowait-deer-baselines",
+    "gsm8k",
+    "math500",
+    "amc23",
+    "olympiadbench",
+    "gpqa-diamond",
+    "livecodebench",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-32b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "optimal-early-exit-point",
+  "topics": [
+    "overthinking"
+  ]
+}

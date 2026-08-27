@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-industry.152",
+      "kind": "paper",
+      "note": "CAT (Confidence-Adaptive Thinking) uses self-certainty -- the KL divergence of a reasoning trajectory's per-token predictive distribution from uniform, an intrinsic model signal requiring no external labels -- to build preference pairs and a confidence-weighted preference-optimization loss (CWPO) that compresses reasoning on problems the model is confident about while preserving deliberation on uncertain ones, beating three efficient-reasoning baselines (OverThink, DAST, ConCISE) on accuracy-at-compression across three LRMs and three benchmarks.",
+      "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "self-certainty (KL divergence from uniform, path-level confidence measure)",
+  "related": [
+    "conciseness-pairs-deliberation-pairs",
+    "confidence-weighted-preference-optimization-cwpo",
+    "dynamic-pruning-of-preference-pairs",
+    "calibration-ratio-confidence-normalized-by-length",
+    "confidence-adaptive-thinking-cat",
+    "self-certainty-path-level-kl-divergence-confidence",
+    "confidence-aware-preference-labeling-capl",
+    "confidence-weighted-preference-optimization-cwpo-simpo-and-dpo-based",
+    "overthink-dast-concise-baselines",
+    "lora-fine-tuning",
+    "math-2-000-training-questions",
+    "math500",
+    "aime-2024",
+    "gpqa",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-8b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "self-certainty-kl-divergence-from-uniform-path-level-confidence-measure",
+  "topics": [
+    "overthinking"
+  ]
+}

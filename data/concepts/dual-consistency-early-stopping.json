@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1128",
+      "kind": "paper",
+      "note": "Discovers 'The First is The Best' -- across five reasoning benchmarks and multiple LRMs, a model's first-generated solution is optimal in up to 93.7% of cases, because reasoning errors form a self-propagating forest structure (Forest of Errors, FoE) that grows faster and larger in subsequent solutions than in the first -- then proposes RED (Refine First, Discard Subs), which entropy-triggers negative-prompt intervention only on the first solution's root-error-prone segments and prunes all subsequent solutions via a dual-consistency early-stop check, improving accuracy up to 19.0% while cutting tokens 37.7-70.4% across six backbones and five benchmarks.",
+      "title": "FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "dual-consistency early stopping",
+  "related": [
+    "the-first-is-the-best",
+    "forest-of-errors-foe",
+    "root-error-node-parent-child-dependency",
+    "fake-correction-refusal-to-correct",
+    "entropy-and-entropy-variance-triggered-intervention",
+    "forest-of-errors-foe-modeling",
+    "entropy-and-entropy-variance-triggered-classifier-free-guidance-intervention",
+    "deer-think-or-not-alphaone-dast-rl-lp-grpo-s-grpo-baselines",
+    "aime-2024",
+    "aime-2025",
+    "math500",
+    "gsm8k",
+    "gpqa-diamond",
+    "bespoke-stratos-17k-bs-17k-subset-foe-analysis",
+    "qwen3-8b-thinking",
+    "qwen3-32b-thinking",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-llama-70b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "dual-consistency-early-stopping",
+  "topics": [
+    "overthinking"
+  ]
+}

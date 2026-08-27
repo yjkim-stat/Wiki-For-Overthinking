@@ -1,0 +1,53 @@
+{
+  "concepts": [
+    "length control as constrained optimization",
+    "Lagrangian primal-dual RL",
+    "one-sided length penalty",
+    "adaptive dual-variable (penalty coefficient) update"
+  ],
+  "contributions": [
+    "a formalization of reasoning-length control as a constrained optimization problem (maximize task reward subject to an expected-length constraint), solved via a Lagrangian primal-dual method that adaptively tightens or relaxes the length penalty based on real-time constraint satisfaction, rather than relying on a fixed or manually-tuned penalty coefficient",
+    "a one-sided penalized, clipped reward formulation that avoids incentivizing degenerately short responses (a failure mode of naive two-sided length penalties) while still discouraging over-length generations",
+    "empirical results across two model scales (1.5B, 4B) showing LEASH achieves a substantially better efficiency-accuracy trade-off than fixed-penalty (LEASH-C) and prior length-control baselines (L1, THINKPRUNE, LASER-DE) on in-domain math benchmarks, with robust out-of-domain generalization to GPQA and MMLU-Pro",
+    "a behavioral analysis showing LEASH-trained models reduce redundant self-verification and explicit step-by-step planning markers while retaining core reflective and summarization structures, rather than suppressing reasoning wholesale"
+  ],
+  "datasets": [
+    "DAPO-MATH-17k (filtered training subset, 3,939 instances)",
+    "AIME24",
+    "AIME25",
+    "HMMT25",
+    "AMC23",
+    "GPQA",
+    "MMLU-Pro"
+  ],
+  "generated_at": "2026-08-27T23:26:16Z",
+  "generated_by": "queue",
+  "limitations": "The study uses two compact backbones (1.5B and 4B parameters) and standard benchmarks to keep compute modest and results reproducible, and the authors explicitly frame the limitations as primarily about scope: scaling LEASH to larger models and to multi-turn/tool-use settings to test broader generality is left for future work. The target length L_t is currently a single, manually-chosen, fixed task-level hyperparameter (recommended via one of two heuristics -- anchoring on a fraction of the base model's average response length, or anchoring directly on a deployment token/latency budget); replacing this fixed target with a learned or scheduled target that adapts to per-instance task difficulty and latency budgets, enabling fully automatic token allocation without sacrificing accuracy, is identified as important future work, along with exploring richer reward formulations and lightweight auto-tuning of lambda for further stability.",
+  "method": "Formulates length control as a constrained optimization problem: maximize expected task reward J_R(theta) subject to an expected-length constraint J_P(theta) <= 0, where J_P is the average relative deviation of generation length L(y) from a target length L_t. Solves this via the Lagrangian method, alternating primal (policy) and dual (penalty-coefficient lambda) updates to find a saddle point: the policy update maximizes an augmented reward r'(x,y) = r(x,y) - lambda*(L(y)/L_t - 1) using PPO/DAPO-style policy gradient, while the dual update adjusts lambda via gradient ascent on the constraint-violation estimate, increasing lambda when average length exceeds the target (tightening the penalty) and decreasing it when length is below target (relaxing the penalty), clipped to [lambda_min, lambda_max]. To prevent the penalty term from creating a perverse incentive for degenerately short responses (when L(y) << L_t, a naive two-sided penalty becomes a large positive bonus), LEASH uses a one-sided penalized reward r''(x,y) = r(x,y) - lambda*max(0, L(y)/L_t - 1), penalizing only over-length generations, further clipped to [-1,1] to prevent extreme rewards from destabilizing gradients. Built on the DAPO algorithm (with dynamic sampling and overlong-penalty techniques disabled to isolate LEASH's own mechanism), trained on a filtered subset (3,939 instances) of DAPO-MATH-17k on DeepSeek-R1-Distill-Qwen-1.5B and Qwen3-4B-Thinking-2507, evaluated on AIME24, AIME25, HMMT25, AMC23 (in-domain math) and GPQA, MMLU-Pro (out-of-domain, general reasoning), against the original (unconstrained) base checkpoints, a constant-penalty variant (LEASH-C, fixed lambda), and prior length-control baselines (L1-Qwen-1.5B-Max/Extra, THINKPRUNE, LASER-DE).",
+  "methods": [
+    "Lagrangian primal-dual optimization",
+    "DAPO (base RL algorithm)",
+    "one-sided length-penalized reward",
+    "L1-Qwen-1.5B-Max/Extra / THINKPRUNE / LASER-DE (baselines)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "Qwen3-4B-Thinking-2507"
+  ],
+  "one_liner": "LEASH formulates reasoning-length control as a constrained RL optimization (maximize task reward subject to an expected-length constraint) solved via a Lagrangian primal-dual method with a one-sided length penalty, letting the penalty coefficient lambda self-tighten or self-relax based on real-time constraint violation rather than requiring manual tuning, and reduces average reasoning length by up to 62.7% (1.5B model) or 26.2% (4B model) while maintaining or improving accuracy on in-domain math and out-of-domain (GPQA, MMLU-Pro) benchmarks, outperforming fixed-penalty and prior length-control baselines.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.129",
+  "problem": "RL-trained large reasoning models produce unnecessarily lengthy reasoning traces (token over-expansion, redundant self-reflection), and existing length-control approaches -- truncation-based CoT compression (fixed generation budgets, early termination) or RL-based length-aware objectives with fixed/manually-tuned penalty coefficients -- either cut off essential intermediate steps (hurting accuracy) or cannot adapt to the model's evolving reasoning ability and reward distribution during training, causing unstable trade-offs: over-penalization suppresses necessary reasoning while under-penalization fails to constrain verbosity.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly central to the topic and a strong methodological contribution to the training-time (RL reward-shaping) branch of overthinking mitigation: it explicitly targets the same over-penalization/under-penalization instability problem that plagues fixed-length-penalty RL methods, framing the fix as a constrained-optimization/Lagrangian-duality problem rather than a hand-tuned heuristic. Its behavioral keyword analysis -- showing rethink-related markers decline then rebound to a nonzero floor, distinct from plan-related markers which decline monotonically -- is a fine-grained empirical signal for exactly which reasoning behaviors get compressed versus preserved under length control, complementary to this archive's other training-time methods (DOT, GRIP, CAT) and useful for calibrating how aggressive a length constraint can be before it starts removing genuinely necessary reflection rather than redundant verbosity."
+  },
+  "results": "On DeepSeek-R1-Distill-Qwen-1.5B (target L_t=4k), LEASH reduces average generation length by 62.7% (11,103 -> 4,230 tokens averaged across AIME24/25, HMMT25, AMC) while improving accuracy by +0.8 points, substantially outperforming L1-Qwen-1.5B-Max/Extra (-1.1/-1.6 accuracy, -81.6%/-83.7% tokens -- larger token reduction but at an accuracy cost), THINKPRUNE (-1.7 accuracy, -65.9% tokens), LASER-DE (-1.6 accuracy, -57.8% tokens), and its own fixed-penalty ablation LEASH-C (+1.5 accuracy but only -53.2% tokens, i.e. less compression than the adaptive variant at similar or better accuracy). On Qwen3-4B-Thinking-2507 (target L_t=12k), LEASH-4B achieves a 26.2% length reduction while maintaining 74.6% average accuracy (only 1.0 point below the 75.5% base model), and the constant-penalty LEASH-C-4B variant achieves less compression (-18.4%) at a larger accuracy cost (-2.1 points) -- demonstrating the adaptive dual-update variant consistently outperforms the fixed-penalty variant across model scales. Tightening the target length further (L_t=8k) still achieves about 29% token reduction with only minor performance degradation, showing robustness across different length-budget settings. Out-of-domain generalization (GPQA, MMLU-Pro) shows LEASH-4B (L_t=12k) improves average accuracy by +1.3 points while reducing generation length 16.9%, suggesting moderate length constraints can enhance focus and consistency in reasoning rather than merely degrading capability; the more aggressive L_t=8k setting still achieves roughly 29% average token reduction with only minor performance degradation, demonstrating robustness across both in- and out-of-domain evaluation settings. Training-dynamics analysis (1.5B, L_t=4k) shows LEASH's adaptive lambda rises early in training (as generations initially exceed the target, intensifying the penalty), peaks around step 150, then progressively decays toward zero by ~step 450 as the model's average length converges near the target -- while LEASH-C's fixed lambda produces a smoother but less adaptive control signal, converging more slowly and settling at a higher token plateau than the adaptive variant, despite both ultimately reaching near-100% constraint-satisfaction rates. Behavioral analysis (keyword-frequency tracking across RL iterations on AIME24/25) shows average response length steadily decreases from 16.9K to 6.2K tokens over training; rethink-related keywords ('recheck', 're-evaluate') decrease from 9.38 to 3.62 frequency before a slight rebound to 3.69 (interpreted as the model reducing excessive self-verification while preserving necessary reflective mechanisms rather than eliminating reflection entirely); plan-related keywords ('First', 'Second', 'Step') continuously decline from 30.53 to 9.16 (explicit step-by-step planning replaced by more implicit, compact procedural reasoning); summary-related keywords decline sharply then slightly rebound and stabilize, indicating the model retains essential structural conclusions while reducing redundant restatement.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "reinforcement-learning",
+    "length-control",
+    "constrained-optimization",
+    "reward-shaping"
+  ]
+}

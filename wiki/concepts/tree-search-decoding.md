@@ -9,7 +9,7 @@ Tree-search decoding explores a branching space of partial reasoning continuatio
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [best-of-N](../methods/best-of-n.md), [Compute-optimal inference](compute-optimal-inference.md), [GSM8K](../datasets/gsm8k.md), [Majority Voting](../methods/majority-voting.md), [MATH500](../datasets/math500.md), [mathematical reasoning benchmarks](mathematical-reasoning-benchmarks.md), [MBPP](../datasets/mbpp.md), [Monte Carlo Tree Search](../methods/monte-carlo-tree-search.md), [process reward model](../methods/process-reward-model.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-Time Scaling](test-time-scaling.md), [weighted voting](weighted-voting.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [best-of-N](../methods/best-of-n.md), [Compute-optimal inference](compute-optimal-inference.md), [GSM8K](../datasets/gsm8k.md), [Majority Voting](../methods/majority-voting.md), [majority voting / self-consistency](../methods/majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [mathematical reasoning benchmarks](mathematical-reasoning-benchmarks.md), [MBPP](../datasets/mbpp.md), [Monte Carlo Tree Search](../methods/monte-carlo-tree-search.md), [process reward model](../methods/process-reward-model.md), [Test-Time Compute Scaling](test-time-compute-scaling.md), [Test-Time Scaling](test-time-scaling.md), [weighted voting](weighted-voting.md)
 
 ## Appears in
 

@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1047",
+      "kind": "paper",
+      "note": "Identifies 'length shift' -- reasoning models progressively generate longer responses on already-correctly-solved (zero-gradient) training queries during RLVR, because reasoning-word emission learned for hard problems generalizes indiscriminately to easy ones -- and fixes it with Dynamic Outlier Truncation (DOT), a training-time RL intervention that truncates only the statistical outlier-length tail of all-correct rollout groups (affecting <0.5% of responses) while leaving hard queries unconstrained, cutting AIME-24 token usage 78% while increasing accuracy over the initial policy and beating prior efficient-reasoning methods.",
+      "title": "Anti-Length Shift: Dynamic Outlier Truncation for Training Efficient Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "AMC (AMC-22/23)",
+  "related": [
+    "length-shift-distributional-response-length-growth-on-zero-gradient-queries",
+    "dynamic-outlier-truncation-dot",
+    "cross-difficulty-policy-interference",
+    "reasoning-word-over-triggering",
+    "kl-cov-regularization",
+    "predictive-dynamic-sampling",
+    "grpo",
+    "overthink-dast-o1-pruner-lc-r1-laser-de-adaptthink-dler-r1-siri-baselines",
+    "deepscaler-preview-training",
+    "aime-2024",
+    "aime-2025",
+    "math500",
+    "humaneval",
+    "livecodebench-v6",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b",
+    "qwen2-5-7b-instruct-analysis"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "amc-amc-22-23",
+  "topics": [
+    "overthinking"
+  ]
+}

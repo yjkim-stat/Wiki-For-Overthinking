@@ -9,7 +9,7 @@ A test-time-compute strategy that samples N candidate solutions independently an
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 8
 
-**Related**: [best-of-N](best-of-n.md), [Best-of-N (BoN) sampling](best-of-n-bon-sampling.md), [GSM8K](../datasets/gsm8k.md), [Majority Voting](majority-voting.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [rejection sampling](rejection-sampling.md), [SciQ](../datasets/sciq.md), [Self-Consistency](self-consistency.md), [Sequential revision](../concepts/sequential-revision.md), [speculative decoding](speculative-decoding.md), [Test-Time Compute](../concepts/test-time-compute.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
+**Related**: [best-of-N](best-of-n.md), [Best-of-N (BoN) sampling](best-of-n-bon-sampling.md), [GSM8K](../datasets/gsm8k.md), [Majority Voting](majority-voting.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-1.5B-Instruct](../models/qwen2-5-1-5b-instruct.md), [rejection sampling](rejection-sampling.md), [SciQ](../datasets/sciq.md), [Self-Consistency](self-consistency.md), [Sequential revision](../concepts/sequential-revision.md), [speculative decoding](speculative-decoding.md), [Test-Time Compute](../concepts/test-time-compute.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

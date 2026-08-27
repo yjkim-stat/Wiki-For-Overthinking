@@ -1,0 +1,65 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1080",
+      "kind": "paper",
+      "note": "DTSR (Dynamic Thought Sufficiency in Reasoning) is a training-free early-exit framework where the model itself, at each reflection signal ('Wait', 'Alternatively', etc.), evaluates from a third-person perspective whether its own chain-of-thought so far is sufficient to answer, exiting once a self-assessed sufficiency score crosses a threshold, cutting reasoning length 28.9-34.9% with near-zero accuracy loss across Qwen3-8B/14B/32B and five benchmarks, outperforming NoThinking, NOWAIT, and DEER while also cutting inference latency 25-40% (unlike DEER, which reduces length but increases latency).",
+      "title": "When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1239",
+      "kind": "paper",
+      "note": "Identifies a two-stage 'Reasoning Dynamics' structure in LRM chains-of-thought -- a Pre-RCP Active Reasoning stage where thinking length and content length compensate for each other, followed by a Post-RCP Converged Reasoning stage where the semantic trajectory has stabilized and further thinking is redundant -- defines the boundary as the instance-specific Reasoning Completion Point (RCP), and builds RCPD, an online detector (monitoring the rank of the </think> token) that truncates post-RCP overthinking, cutting tokens up to 44% while preserving or improving accuracy-per-token across four models and three benchmarks.",
+      "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "Qwen3-14B",
+  "related": [
+    "reflection-signal-wait-alternatively-but-triggered-exit-cue",
+    "thought-sufficiency-check",
+    "third-person-self-evaluation-vs-first-person",
+    "optimal-early-exit-point",
+    "lrm-overconfidence",
+    "dynamic-thought-sufficiency-in-reasoning-dtsr",
+    "reflection-signal-monitoring",
+    "third-person-thought-sufficiency-check",
+    "nothinking-nowait-deer-baselines",
+    "gsm8k",
+    "math500",
+    "amc23",
+    "olympiadbench",
+    "gpqa-diamond",
+    "livecodebench",
+    "qwen3-8b",
+    "qwen3-32b",
+    "thinking-content-compensation",
+    "semantic-path-convergence",
+    "reasoning-completion-point-rcp",
+    "cognitive-inertia-post-rcp-rationalization",
+    "reasoning-completion-point-detector-rcpd",
+    "rank-of-think-as-an-online-convergence-signature",
+    "stepwise-truncation-protocol",
+    "pca-based-semantic-trajectory-analysis",
+    "kl-divergence-convergence-residual",
+    "distill-to-detect-pipeline-decision-tree",
+    "full-reasoning-no-think-budget-force-deer-baselines",
+    "math-500-rcpd-training",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-d",
+    "qwen3-30b-a3b",
+    "deepseek-r1-distill-8b",
+    "qwen3-embedding-model-semantic-probe"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "qwen3-14b",
+  "topics": [
+    "overthinking"
+  ]
+}

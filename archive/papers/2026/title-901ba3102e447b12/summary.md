@@ -42,7 +42,7 @@ Not stated in the fetched abstract; no numeric benchmark results were retrievabl
 
 ## Entities
 
-- **Concepts**: snowball effect (compounding reasoning drift), adversarial chain-of-thought tuning, dynamic self-correction
+- **Concepts**: snowball effect (compounding reasoning drift), adversarial chain-of-thought tuning, [dynamic self-correction](../../../../wiki/concepts/dynamic-self-correction.md)
 - **Methods**: adversarial chain-of-thought tuning, preference/self-correction training pairs
 - **Datasets**: _none recorded_
 

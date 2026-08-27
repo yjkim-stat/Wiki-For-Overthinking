@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1256",
+      "kind": "paper",
+      "note": "REFRAIN is a training-free framework that halts CoT reasoning by detecting 'reflective redundancy' -- a step that is both reflective (matches a self-check/strategy-shift/uncertainty/retrospective trigger vocabulary) and semantically redundant (adds no new content beyond a provisional answer) -- with the stopping threshold adaptively tuned per-difficulty by a sliding-window UCB bandit rewarded on answer-likelihood minus a length penalty, reducing token usage 20-55% while matching or exceeding vanilla CoT accuracy across two model families and four benchmarks, outperforming five other early-stopping baselines and several fixed-threshold ablations.",
+      "title": "Stop When Enough: Adaptive Early-Stopping for Chain-of-Thought Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "Sliding-Window Upper Confidence Bound (SW-UCB) bandit",
+  "related": [
+    "reflective-redundancy-reflective-semantically-redundant-step",
+    "two-stage-stop-discriminator",
+    "sliding-window-upper-confidence-bound-sw-ucb-adaptive-thresholding",
+    "answer-only-length-normalized-likelihood-reward",
+    "when-to-stop-as-a-test-time-scaling-axis",
+    "two-stage-reflective-redundancy-stop-discriminator",
+    "no-thinking-deer-halt-cot-alphaone-cot-valve-deepconf-baselines",
+    "gsm8k",
+    "math500",
+    "commonsenseqa-csqa",
+    "gpqa-diamond",
+    "qwen3-8b",
+    "gpt-oss-20b",
+    "acemath-7b-reward-model-ablation",
+    "qwen2-5-math-prm-7b-ablation",
+    "skywork-reward-v2-8b-ablation"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "sliding-window-upper-confidence-bound-sw-ucb-bandit",
+  "topics": [
+    "overthinking"
+  ]
+}

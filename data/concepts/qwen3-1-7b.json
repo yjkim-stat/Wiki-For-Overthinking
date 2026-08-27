@@ -1,17 +1,29 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A small open-weight model used across sources as an efficient-agent backbone: split into two specialized sub-2B agents in a memory-efficient counterspeech-generation framework (per another archived source), and as the model whose per-token generation cost Prefix Sliding's attention-probability motivating analysis is measured on.",
   "evidence": [
     {
       "id": "arxiv:2608.23152",
       "kind": "paper",
       "note": "FIRE splits counterspeech generation into two sub-2B Qwen3-1.7B agents -- one that classifies the hate category, names the target group, writes a reasoning trace and triggers a web search for evidence, one that writes the reply -- with specialization coming from a contrastively-trained 22M retrieval encoder over annotated examples rather than from fine-tuning.",
       "title": "Counter with Evidence! A Multi-Agent Memory Efficient Reasoning Framework for Hate Category Informed Counterspeech Generation"
+    },
+    {
+      "id": "arxiv:2608.26070",
+      "kind": "paper",
+      "note": "Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.",
+      "title": "Prefix Sliding for efficient test-time scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1058",
+      "kind": "paper",
+      "note": "MUR (Momentum Uncertainty guided Reasoning) is a training-free, orthogonal-to-existing-TTS method that recursively aggregates step-level uncertainty into a momentum term (proven to act as a low-pass filter emphasizing recent steps) and selectively applies test-time-scaling compute only to steps whose uncertainty exceeds this momentum by a tunable threshold, cutting thinking-token budgets by over 45% on average while improving accuracy 0.33-3.46% across four benchmarks, three Qwen3 model sizes, and four test-time-scaling backends.",
+      "title": "MUR: Momentum Uncertainty guided Reasoning for Large Language Models"
     }
   ],
   "first_seen": "2026-08-26T02:14:28Z",
   "kind": "model",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-27T23:27:33Z",
   "name": "Qwen3-1.7B",
   "related": [
     "multi-agent-decomposition",
@@ -30,9 +42,43 @@
     "dialogpt",
     "gps",
     "factualcs-4-784-instances-introduced-here",
-    "llama-3-1-8b-instruct"
+    "llama-3-1-8b-instruct",
+    "attention-sink",
+    "bounded-constant-cost-per-new-token",
+    "intermediate-reasoning-token-importance-decay",
+    "truncated-backpropagation-for-long-rl-rollouts",
+    "prefix-sliding-prefix-sliding-window-attention",
+    "continue-pe-reused-rope-positions-on-eviction",
+    "grpo-reinforcement-learning",
+    "truncated-backpropagation",
+    "last-k-summarization-comparison-baselines",
+    "aime-2025",
+    "gpqa-diamond",
+    "math500",
+    "livecodebench-lcb-v5",
+    "healthbench",
+    "qwen3-7b-rl-trained",
+    "momentum-uncertainty-exponentially-weighted-step-level-uncertainty-aggregate",
+    "low-pass-filter-property-of-momentum-uncertainty",
+    "gamma-control-tunable-step-scaling-threshold",
+    "step-level-uncertainty-average-negative-log-likelihood",
+    "adaptive-selective-test-time-scaling",
+    "momentum-uncertainty-guided-reasoning-mur",
+    "gamma-control",
+    "guided-search-best-of-n",
+    "llm-as-a-critic",
+    "phi-decoding",
+    "thinking-mode",
+    "average-uncertainty-baseline",
+    "smart-baseline",
+    "aime-2024",
+    "qwen3-4b",
+    "qwen3-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "prefix-sliding",
+    "counter-with-evidence"
+  ],
   "schema_version": 1,
   "slug": "qwen3-1-7b",
   "topics": [

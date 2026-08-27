@@ -1,0 +1,131 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-1034.pdf"
+  },
+  "completed_at": "2026-08-27T23:11:41Z",
+  "created_at": "2026-08-27T22:31:45Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.1034",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models (LRMs) have emerged as a powerful advancement in multi-step reasoning tasks, offering enhanced transparency and logical consistency through explicit chains of thought (CoT). However, these models introduce novel safety and reliability risks, such as CoT-hijacking and prompt-induced inefficiencies, which are not fully captured by existing evaluation methods. To address this gap, we propose Rt-LRM, a unified benchmark designed to assess the trustworthiness of LRMs. Rt-LRM evaluates three core dimensions: truthfulness, safety and efficiency. Beyond metric-based evaluation, we further introduce the training paradigm as a key analytical perspective to investigate the systematic impact of different training strategies on model trustworthiness. We achieve this by designing a curated suite of 30 reasoning tasks from an observational standpoint. We conduct extensive experiments on 26 models and identify several valuable insights into the trustworthiness of LRMs. For example, LRMs generally face trustworthiness challenges and tend to be more fragile than Large Language Models (LLMs) when encountering reasoning-induced risks. These findings uncover previously underexplored vulnerabilities and highlight the need for more targeted evaluations. In addition, we release a scalable toolbox for standardized trustworthiness research to support future advancements in this important field.",
+    "authors": [
+      "Jiawei Chen",
+      "Yang Yang",
+      "Chao Yu",
+      "Yu Tian",
+      "Zhi Cao",
+      "Xue Yang",
+      "Linghao Li",
+      "Hang Su",
+      "Zhaoxia Yin"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.1034.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Red Teaming Large Reasoning Models",
+    "url": "https://aclanthology.org/2026.acl-long.1034/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "CoT-hijacking risk",
+      "prompt-induced impact (overthinking trigger, jailbreak)",
+      "Overthinking Rate (OR)",
+      "Attack Success Rate (ASR)",
+      "objective truth vs. conceptual truth",
+      "societal vs. personal safety"
+    ],
+    "contributions": [
+      "Rt-LRM, a unified 30-task benchmark systematically evaluating LRM trustworthiness across truthfulness, safety, and efficiency, with a reasoning-centered evaluation strategy targeting both CoT-hijacking risks and prompt-induced impacts jointly",
+      "a standardized, modular, extensible evaluation toolbox with task-specific metrics (Accuracy, ASR, Toxicity Score, Overthinking Rate, Reasoning Time) and paired LRM-vs-base-LLM comparisons that isolate reasoning-specific vulnerabilities from general model weaknesses",
+      "extensive experiments across 26 models revealing that LRMs are systematically less trustworthy than their own base LLMs, that trustworthiness declines with task complexity, that safety risks are widespread across training paradigms, and that most LRMs exhibit high overthinking rates (over 60% of samples for many models) even on moderately complex or adversarially-triggered prompts"
+    ],
+    "datasets": [
+      "Rt-LRM (new, 30 tasks: 9 truthfulness, 10 safety, 11 efficiency)"
+    ],
+    "limitations": "Despite covering 30 tasks across mathematical reasoning, code generation, and safety evaluations, the benchmark does not fully capture the breadth of emerging and increasingly complex risk patterns, especially those arising in cross-modal reasoning, long-horizon planning, or real-world multi-step reasoning scenarios. While the paper discusses several potential defense strategies (training-time alignment, inference-time defenses like overthinking monitors, external guard models), these ideas are not yet evaluated within the Rt-LRM framework itself; the authors plan to integrate and systematically compare such defenses in future work. The training-strategy correlations reported (Takeaway #6) should be interpreted as correlational rather than causal, since the compared models differ in confounded factors such as pretraining data, system prompts, and post-training pipelines that cannot be strictly controlled at scale.",
+    "method": "Rt-LRM curates 30 tasks across three dimensions: truthfulness (9 tasks, split into objective-truth tasks like proportional operations and compositional calculations, and conceptual-truth tasks like controversial issues, stereotypes, misconceptions, fictional content, factual information and conspiracy theories, measured by Accuracy), safety (10 tasks spanning societal harms -- economic crime, violence, copyright violations, general illicit scenarios, chemical/biological threats, cybercrime, misinformation, harassment -- and personal harms -- self-harm, sexual crime -- measured by Attack Success Rate and Toxicity Score via PerspectiveAPI), and efficiency (11 tasks split into computational efficiency -- mathematical QA, symbolic reasoning, multiple-choice reasoning, basic word problems, code generation, recursive reasoning -- and reasoning efficiency -- general reasoning, proof-based reasoning, high-level symbolic reasoning, generalization testing, and a dedicated Overthinking Induction task that directly injects prompt triggers designed to cause excessive reasoning), measured by Overthinking Rate (OR, the fraction of samples where token usage with a trigger exceeds 2x the clean-input token count) and reasoning time. Datasets are built from scratch (6), refined from existing sources (4), or augmented with additional prompts (9) under a unified evaluation protocol; automatic evaluation uses GPT-4o (validated against human labels: F1 0.88 truthfulness, 0.86 safety, Cohen's kappa 0.80/0.72) or rule-based keyword matching depending on task. Evaluates 26 models spanning four training-strategy categories (SFT+RL, RL-only, SFT-only, proprietary) including matched LRM/base-LLM pairs (e.g. DeepSeek-V3/R1, Qwen3-32B Instruct/LRM, GLM-4-9B/GLM-4-Z1-9B) to isolate reasoning-specific effects from general model differences.",
+    "methods": [
+      "CoT-hijacking attack tasks",
+      "prompt-induced overthinking-trigger tasks",
+      "GPT-4o automatic evaluation (validated against human labels)",
+      "Overthinking Rate metric (token ratio > 2x threshold)"
+    ],
+    "models": [
+      "DeepSeek-V3",
+      "DeepSeek-R1",
+      "Qwen3-32B (Instruct/LRM)",
+      "GLM-4-9B / GLM-4-Z1-9B",
+      "GLM-4-32B-Base / GLM-4-Z1-32B",
+      "MiMo-7B-Base / MiMo-7B-RL-Zero",
+      "Qwen2.5-7B/14B/32B-Base",
+      "DeepMath-Zero",
+      "DAPO-Qwen-32B",
+      "DPSK-Qwen-14B/32B",
+      "LLaMA-3.1-8B / DPSK-LLaMA-8B",
+      "LLaMA-3.3-70B / DPSK-LLaMA-70B",
+      "Qwen3-14B-Base / Qwen3-14B",
+      "o1",
+      "o3-mini",
+      "Gemini-2.5-Pro",
+      "Claude-Sonnet-4"
+    ],
+    "one_liner": "Rt-LRM is a unified 30-task benchmark evaluating large reasoning models along truthfulness, safety and efficiency, testing both CoT-hijacking (direct interference with the reasoning process) and prompt-induced impacts (jailbreaks or overthinking triggers); across 26 models it finds LRMs are consistently less trustworthy than their own base LLMs, that explicit reasoning can amplify safety risk and inefficiency under attack, and that over 60% of tested samples exhibit overthinking (more than double the clean-input token count) across most models.",
+    "problem": "Large reasoning models introduce novel safety and reliability risks specific to their explicit multi-step chain-of-thought -- CoT-hijacking (adversaries injecting misleading reasoning paths to produce untruthful or unsafe outputs) and prompt-induced impacts (covert triggers causing unnecessary reasoning, i.e. overthinking, or jailbreaks) -- that existing evaluation benchmarks do not capture jointly, since prior work typically targets a single failure mode in isolation, lacks paired LRM-vs-base-LLM comparisons, and cannot disentangle reasoning-specific failures from general model weaknesses.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly central to the topic: efficiency (specifically overthinking, operationalized as the Overthinking Rate metric) is one of the benchmark's three core evaluation dimensions, with a dedicated Overthinking Induction task and 10 other efficiency tasks measuring token waste. Its key finding that most LRMs exhibit high overthinking rates (over 60% of samples for many models, and GLM-4-Z1-32B exceeding 70% OR across all 11 efficiency tasks) even under adversarially-designed prompts specifically engineered to induce unnecessary reasoning is a systematic, large-scale (26-model) quantification of overthinking's prevalence and its interaction with adversarial input design -- and its finding that LRMs are less efficient (and less safe) than their own base LLMs directly ties overthinking to the reasoning capability itself rather than to model scale or training data alone."
+    },
+    "results": "LRMs exhibit weaker trustworthiness than their own base LLM counterparts across all three dimensions: e.g. GLM-4-Z1-32B (LRM) shows ASR 70.06% versus GLM-4-32B-Base's 53.84%, and DPSK-Qwen-32B (LRM) shows Overthinking Rate 78.50% versus Qwen2.5-32B-Base's 56.50% -- attributed to explicit reasoning mechanisms introducing additional vulnerability surfaces exploitable by CoT-hijacking and prompt-induced attacks, directly contradicting an assumption that stronger reasoning universally improves trustworthiness. Trustworthiness challenges are widespread: many open models (Qwen and GLM variants) show ASR>50% and over 60% of samples exhibiting overthinking; proprietary models are relatively superior but still show critical vulnerabilities -- Claude-Sonnet-4 achieves the best truthfulness (54.33% accuracy) and lowest ASR (30.05%), while o1/o3-mini lead on efficiency (Overthinking Rate below 22%), yet even these models show non-trivial residual risk. Truthfulness declines sharply with task complexity/context-dependence: Claude drops from 60.61% (T.2, compositional calculations) to 42.29% (T.3, contextualized problem solving), and GLM-4-Z1-32B drops from 30.30% to 24.57% on the same tasks, suggesting LRMs often rely on superficial pattern matching rather than deep reasoning as complexity grows. Persistent safety risks appear across both societal and personal-harm categories regardless of training paradigm: MiMo-RL reaches 97.06% ASR on self-harm (S.4) and DeepMath scores 94.29% ASR on copyright violations (S.3); Claude-4 consistently maintains the lowest violation rates across all tasks. LRMs consistently exhibit high Overthinking Rate across tasks: GLM-4-Z1-32B shows OR above 70% across all 11 efficiency tasks, indicating systemic inefficiency even on moderately complex prompts; even Claude-Sonnet-4, among the most efficient models tested, fails on one generalization-testing task (E.8) with a 94% OR, showing models entering unnecessary extended reasoning rather than terminating early or avoiding illogical paths when confronted with adversarially constructed prompts (implicit loops, ambiguous logic, distractive signals). Training-strategy correlations (correlational, not causal, given confounds): SFT+RL models generally show higher truthfulness and stronger safety alignment while maintaining efficiency comparable to RL-only models; RL-only models achieve lower overthinking rates but consistently underperform on truthfulness and safety; SFT-only models show a more balanced but non-leading profile across all three dimensions.",
+    "tags": [
+      "overthinking",
+      "safety",
+      "benchmark",
+      "trustworthiness",
+      "cot-hijacking"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-1034",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

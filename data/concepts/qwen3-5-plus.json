@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Qwen3.5-Plus"
+  ],
+  "definition": "A model used as an annotator LRM in the TRACE safety benchmark's construction (labeling safety of prompts/traces/responses and extracting supporting evidence), and, in a separate security study, as an example of a black-box reasoning model whose hidden chain-of-thought can be recovered near-verbatim through ordinary API tool-calling because reasoning state must persist across tool calls within a turn.",
   "evidence": [
     {
       "id": "arxiv:2608.20055",
@@ -81,7 +83,10 @@
     "polyguard-0-5b-8b",
     "yufeng-xguard-0-6b-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "trace",
+    "echocot"
+  ],
   "schema_version": 1,
   "slug": "qwen3-5-plus",
   "topics": [

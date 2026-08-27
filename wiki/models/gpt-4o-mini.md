@@ -1,0 +1,24 @@
+# GPT-4o-mini
+
+<!-- auto:begin -->
+
+A closed-source LLM used across sources as both an evaluated model and a data-generation/judging tool: tested as a test-time-scaling subject (found to suffer the largest accuracy drop among models tested when a token budget is imposed too tightly, attributed to its smaller parameter count), and used as the reasoning-LLM budget estimator and as an LLM judge/generator in other papers' pipelines.
+
+- **Kind**: model
+- **Topics**: [overthinking](../topics/overthinking.md)
+- **Sources**: 4
+
+**Related**: [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [Direct Prompting](../methods/direct-prompting.md), [Gemini 3 Flash Preview](gemini-3-flash-preview.md), [GPQA](../datasets/gpqa.md), [GPT-4o](gpt-4o.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](../methods/gpt-oss-20b.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [majority voting / self-consistency](../methods/majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [o3-mini](o3-mini.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [Qwen2.5-Math-7B-Instruct](qwen2-5-math-7b-instruct.md), [self-refine](../methods/self-refine.md)
+
+## Appears in
+
+- [Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory](../../archive/papers/2025/doi-10-18653-v1-2025-acl-long-1356/summary.md) — Systematically compares 8 prompting strategies under equal sampling budget for majority-vote test-time scaling across 6 LLMs x 6 benchmarks, finding plain Chain-of-Thought eventually dominates every more elaborate strategy as sampling time N grows -- because CoT has more easy/fewer hard questions and a flatter wrong-answer distribution -- and shows combining per-question difficulty-adaptive scaling with per-question optimal-strategy selection lifts GSM8K accuracy from 86.0% to 97.4% (Majority@10) and MATH-500 from 15.2% to 61.0%.
+- [Linguistic Generalizability of Test-Time Scaling in Mathematical Reasoning](../../archive/papers/2025/doi-10-18653-v1-2025-acl-long-699/summary.md) — Under a FLOPs-matched budget across three test-time scaling methods (Outcome Reward Modeling, Process Reward Modeling, Budget Forcing) on a new 55-language competition-math benchmark (MCLM), all three methods yield large gains in English (e.g. Budget Forcing +20 points on AIME) but only ~1.9-2 points average gain across other languages, and reward-model-guided scaling (ORM) matches or beats reasoning-trace-length scaling (Budget Forcing) once FLOPs are equalized -- with more test-time compute also increasing cross-lingual performance variance rather than reducing it.
+- [Token-Budget-Aware LLM Reasoning](../../archive/papers/2025/doi-10-18653-v1-2025-findings-acl-1274/summary.md) — TALE (Token-Budget-Aware LLM rEasoning) identifies that reasoning LLMs will follow a token budget stated in the prompt but that the effective budget must be chosen carefully -- too small a budget triggers 'token elasticity' where the model gives up complying and produces even longer output than an unconstrained baseline -- and offers two implementations, zero-shot budget estimation-and-prompting (TALE-EP, 67% token reduction with <3% accuracy loss) and post-training internalization (TALE-PT, ~50% reduction via SFT or DPO), both found via a binary-search 'optimal budget' procedure motivated by an 'implicit monotonicity assumption' verified on 90.91% of sampled GSM8K problems.
+- [Thinking with Reasoning Skills: Fewer Tokens, More Accuracy](../../archive/papers/2026/doi-10-18653-v1-2026-acl-industry-154/summary.md) — Thinking with Reasoning Skills (TRS) is a training-free, black-box-compatible framework that offline-distills long deliberation trajectories (successes and failures) into compact, retrievable 'skill cards' (Trigger/Do/Avoid/Check/Risk), retrieves and injects the most relevant cards into a new query's prompt at inference time instead of forcing the model to re-derive solution logic from scratch, and empirically reduces reasoning tokens while matching or improving accuracy versus standard CoT across multiple LLMs on math and coding benchmarks -- with gains growing on harder problems, unlike budget-forcing baselines (TALE, Chain-of-Draft) which collapse below baseline accuracy as difficulty increases.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

@@ -1,7 +1,13 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A knowledge-based visual question answering benchmark used to evaluate vision-language model efficiency methods, including FREE's GAN-based early-exit framework (evaluated unsupervised on OK-VQA alongside VQAv2/GQA/VizWiz) as part of demonstrating that early exits can mitigate overthinking and mid-crisis in frozen-backbone VLMs.",
   "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1209",
+      "kind": "paper",
+      "note": "FREE adds GAN-based early exits to frozen-backbone Vision-Language Models -- an exit transformer (generator) trained to mimic the final layer's representations, discriminated against by a frozen final-layer classifier reused as the exit classifier -- addressing both 'overthinking' (unnecessary computation on easy tokens) and a newly named 'mid-crisis' (intermediate-layer accuracy dip from searching for irrelevant features), giving >1.51x inference speedup with comparable accuracy and outperforming four prior early-exit baselines on captioning, VQA and visual dialogue.",
+      "title": "FREE: Fast and Robust Vision Language Models with Early Exits"
+    },
     {
       "id": "title:95b92d67054ad4f2",
       "kind": "paper",
@@ -11,9 +17,28 @@
   ],
   "first_seen": "2026-08-21T00:56:47Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T00:56:47Z",
+  "last_seen": "2026-08-27T22:59:02Z",
   "name": "OK-VQA",
   "related": [
+    "overthinking-unnecessary-computation-vlm-early-exit-context",
+    "mid-crisis-intermediate-layer-accuracy-dip-in-frozen-backbone-vlms",
+    "gan-based-exit-transformer-training",
+    "frozen-final-layer-classifier-reuse",
+    "gan-based-adversarial-exit-training",
+    "early-exit-input-adaptive-inference",
+    "knowledge-distillation-unsupervised-exit-training",
+    "capfilt-synthetic-label-generation",
+    "deeblip-pabee-blip-leeblip-mue-baseline-early-exit-methods",
+    "coco-captioning",
+    "nocaps",
+    "vqav2",
+    "gqa",
+    "vizwiz",
+    "visdial",
+    "blip-2-vit-g-opt-2-7b",
+    "blip-2-vit-g-flant5-xl",
+    "minigpt-appendix",
+    "instructblip-appendix",
     "chain-of-thought-distillation",
     "data-centric-benchmarking",
     "teacher-student-capacity-gap",
@@ -39,7 +64,9 @@
     "visual-cot",
     "clevr"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "free"
+  ],
   "schema_version": 1,
   "slug": "ok-vqa",
   "topics": [

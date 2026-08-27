@@ -1,0 +1,61 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1296",
+      "kind": "paper",
+      "note": "REST (Reasoning Evaluation through Simultaneous Testing) concatenates multiple questions from an existing benchmark into a single prompt to stress-test LRMs' multi-context reasoning; across 30+ models and 9 benchmarks it finds even SOTA models like DeepSeek-R1 degrade substantially (e.g. -31.6% on AIME25), that the 'overthinking trap' is a primary cause, that Long2Short-trained models are more robust, and that REST reveals sharp performance gaps among models that look identical under traditional single-question evaluation.",
+      "title": "REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "Gemini-2.5-Flash-Thinking",
+  "related": [
+    "question-concatenation-stress-testing",
+    "adaptive-reasoning-effort-allocation",
+    "question-position-bias",
+    "attention-drift-to-prior-distractor-reasoning",
+    "overthinking-trap-rest-specific",
+    "long2short-training-robustness",
+    "rest-cyclic-indexed-question-concatenation",
+    "six-category-error-taxonomy",
+    "attention-allocation-quantification-relevant-vs-distractor-content",
+    "long2short-training-comparison",
+    "gsm8k",
+    "math500",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "livecodebench-v5",
+    "arc-c",
+    "bbh",
+    "deepseek-r1",
+    "deepseek-r1-distill-qwen-1-5b-7b-32b",
+    "deepscaler-1-5b",
+    "l1-qwen-1-5b-max",
+    "qwen2-5-math-1-5b-7b-instruct",
+    "efficient-r1-7b",
+    "nemotron-nano-8b",
+    "areal-boba-rl-sft-variants-7b-32b",
+    "light-r1-7b-32b-ds",
+    "openr1-qwen-7b",
+    "openthinker2-7b",
+    "qwen2-5-7b-instruct",
+    "qwen3-8b-32b",
+    "qwen-qwq-32b",
+    "gpt-oss-20b-120b",
+    "qwen3-30b-a3b",
+    "o3-mini",
+    "o4-mini"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "gemini-2-5-flash-thinking",
+  "topics": [
+    "overthinking"
+  ]
+}

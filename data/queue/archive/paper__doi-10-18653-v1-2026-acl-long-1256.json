@@ -1,0 +1,119 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-1256.pdf"
+  },
+  "completed_at": "2026-08-27T23:25:13Z",
+  "created_at": "2026-08-27T22:59:02Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.1256",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Chain-of-Thought (CoT) reasoning has driven recent gains of large language models (LLMs) on reasoning-intensive tasks by externalizing intermediate steps. However, excessive or redundant reasoning — so-called overthinking — can increase inference costs and lead LLMs toward incorrect conclusions. In this paper, we present REFRAIN ( ̲REFlective- ̲Redundancy for ̲Adaptive ̲INference), a training-free framework that adaptively determines when to stop reasoning to mitigate overthinking. REFRAIN integrates a two-stage stop discriminator to identify reflective yet redundant reasoning and a sliding-window Upper Confidence Bound (SW-UCB) multi-armed bandit controller to dynamically adjust stopping thresholds according to problem difficulty without supervision or fine-tuning. Across four representative benchmarks and two model families, REFRAIN reduces token usage by 20-55% while maintaining or improving accuracy compared to standard CoT prompting. Extensive ablation and robustness analyses demonstrate its stability across models, scorers, and prompt variations. In summary, our findings highlight when-to-stop as a new and practical axis of test-time scaling — enabling models to reason not just more, but just enough.",
+    "authors": [
+      "Renliang Sun",
+      "Wei Cheng",
+      "Dawei Li",
+      "Haifeng Chen",
+      "Wei Wang"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "test time scaling",
+      "early stopping"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.1256.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.625
+    },
+    "title": "Stop When Enough: Adaptive Early-Stopping for Chain-of-Thought Reasoning",
+    "url": "https://aclanthology.org/2026.acl-long.1256/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "reflective redundancy (reflective + semantically redundant step)",
+      "two-stage stop discriminator",
+      "Sliding-Window Upper Confidence Bound (SW-UCB) adaptive thresholding",
+      "answer-only length-normalized likelihood reward",
+      "when-to-stop as a test-time-scaling axis"
+    ],
+    "contributions": [
+      "identification of reflective redundancy as the actionable, operational signal underlying overthinking, formalized via a two-stage discriminator combining a reflection-trigger vocabulary with a semantic-similarity redundancy scorer",
+      "a training-free adaptive-thresholding algorithm (SW-UCB bandit) that dynamically balances exploration and exploitation of candidate stopping thresholds during reasoning, without fine-tuning or external supervision, adapting to per-task difficulty",
+      "consistent accuracy-efficiency gains (20-55% fewer tokens at comparable or better accuracy) across two model families and four diverse reasoning benchmarks, with extensive ablations (trigger-vocabulary completeness, alternative stopping heuristics, reward-signal choice, wall-clock overhead) establishing when-to-stop as a practical, generalizable, and largely overhead-free axis of test-time scaling"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH-500",
+      "CommonsenseQA (CSQA)",
+      "GPQA-Diamond"
+    ],
+    "limitations": "REFRAIN relies on observable step-by-step reasoning during inference, requiring the model to expose or stream intermediate reasoning traces so the system can determine when to stop -- an assumption common across most test-time overthinking-mitigation and adaptive-compute methods (stopping rules, reflection loops, debate-style reasoning), but one that makes REFRAIN, like similar methods, inapplicable to closed-source APIs that return only final answers without step-by-step access; it remains applicable to any setting with partial reasoning signals or token-level outputs available, including open-source and step-streaming models. The gap between token reduction and wall-clock latency reduction (e.g. 54% fewer tokens but only 40% less latency) arises because early stopping breaks the single long decoding run into segments, forcing re-tokenization/re-entry that prevents full KV-cache amortization -- an overhead intrinsic to segmented decoding in current LLM serving stacks, more pronounced for MoE backbones like gpt-oss-20B due to added per-segment expert-routing cost.",
+    "method": "REFRAIN integrates two components. (1) A two-stage stop discriminator triggers at reasoning step n only if the step is both reflective (matches a consolidated four-category trigger vocabulary -- self-check, strategy-shift, uncertainty expression, retrospective revision -- built from prior CoT-reflection studies) and follows a provisional answer cue (preventing premature triggers early in the trace), AND is semantically redundant relative to all prior steps (measured as the maximum cosine similarity, via a sentence encoder, between the current step's embedding and all previous steps' embeddings, exceeding a threshold tau) -- distinguishing productive reflection (new semantic content after a provisional answer) from redundant repetition (no new insight). (2) Since a uniform fixed threshold tau cannot capture varying task difficulty, tau is instead adaptively selected online from a discrete candidate set via a Sliding-Window Upper Confidence Bound (SW-UCB) multi-armed bandit: each candidate threshold is an 'arm,' rewarded via R = Score(y|x) - lambda*(L/L_bar) -- the length-normalized geometric-mean answer likelihood (measured only on the final boxed-answer tokens, to avoid confounding from stylistic variance in the reasoning trace) minus a length penalty relative to the running mean output length -- with UCB balancing exploration (trying different thresholds) against exploitation (reusing thresholds with high recent reward) over a sliding window of recent rewards per arm. REFRAIN operates entirely at test time, training-free and supervision-free, and does not suppress all reflective behavior -- only reflection that adds no new semantic insight after a provisional answer has been proposed. Evaluated on Qwen3-8B and gpt-oss-20B across GSM8K, MATH-500, CSQA, and GPQA-Diamond against No-thinking, DEER, HALT-CoT, AlphaOne (training-free baselines) and CoT-Valve, Deepconf (fine-tuning/search-based baselines), plus four alternative early-stopping heuristics (entropy-based, probability-based, trigger-word-gated probability-based, random-threshold) and external reward-model/PRM-based reward variants.",
+    "methods": [
+      "Sliding-Window Upper Confidence Bound (SW-UCB) bandit",
+      "two-stage reflective-redundancy stop discriminator",
+      "answer-only length-normalized likelihood reward",
+      "No-thinking / DEER / HALT-CoT / AlphaOne / CoT-Valve / Deepconf (baselines)"
+    ],
+    "models": [
+      "Qwen3-8B",
+      "gpt-oss-20B",
+      "AceMath-7B (reward model, ablation)",
+      "Qwen2.5-MATH-PRM-7B (ablation)",
+      "Skywork-Reward-V2-8B (ablation)"
+    ],
+    "one_liner": "REFRAIN is a training-free framework that halts CoT reasoning by detecting 'reflective redundancy' -- a step that is both reflective (matches a self-check/strategy-shift/uncertainty/retrospective trigger vocabulary) and semantically redundant (adds no new content beyond a provisional answer) -- with the stopping threshold adaptively tuned per-difficulty by a sliding-window UCB bandit rewarded on answer-likelihood minus a length penalty, reducing token usage 20-55% while matching or exceeding vanilla CoT accuracy across two model families and four benchmarks, outperforming five other early-stopping baselines and several fixed-threshold ablations.",
+    "problem": "Excessive or redundant chain-of-thought reasoning (overthinking) increases inference cost and can steer models toward incorrect conclusions, but existing mitigation methods either require additional fine-tuning/search (CoT-Valve, Deepconf) or rely on manually-designed, fixed heuristics/thresholds (HALT-CoT, entropy-based stopping) that do not adapt to per-task or per-instance reasoning difficulty, making the core unaddressed challenge not merely stopping earlier, but automatically and efficiently determining an optimal stopping threshold that adapts reasoning depth to each problem's actual difficulty, without supervision or fine-tuning.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly central to the topic, explicitly framed around overthinking mitigation, and unusually rigorous in isolating which piece of the mechanism actually matters via a five-way ablation of stopping heuristics: it shows that neither raw entropy thresholds nor trigger-word matching alone suffice, and that only the combination of reflection-cue detection, semantic-redundancy scoring, and adaptively-tuned (not fixed) thresholds achieves a favorable trade-off -- a clean methodological complement to DTSR's reflection-signal early-exit and MUR's momentum-uncertainty gating already in this archive, sharing the core insight that not all self-reflection is redundant and naive suppression of reflective tokens (as in the NOWAIT baseline critiqued elsewhere in this archive) removes genuinely useful reasoning along with the wasteful kind. Its explicit measurement of the gap between token savings and wall-clock latency savings is also a useful empirical caution for the topic's broader claims about efficiency gains, since segmented-decoding overhead means token-count reduction alone can overstate real-world speedup."
+    },
+    "results": "Across both models and all four benchmarks, REFRAIN attains vanilla-level or higher Pass@1 while consuming 20-55% fewer tokens, delivering the best accuracy-efficiency balance among training-free methods and remaining competitive against the fine-tuned baselines. On Qwen3-8B, REFRAIN matches vanilla accuracy on GSM8K and MATH-500 while cutting token usage ~40% and ~39% respectively, slightly surpasses vanilla on CSQA with a 55% token reduction, and improves GPQA-Diamond accuracy (+6.66pp) with ~21% fewer tokens. On gpt-oss-20B, REFRAIN improves Pass@1 over vanilla on GSM8K (+2.73), MATH-500 (+3.40), and GPQA-Diamond (+7.07) while maintaining comparable accuracy on CSQA, with token savings of ~45%, ~35%, ~45%, and ~35% respectively across the four benchmarks -- consistent cross-model trends the paper interprets as evidence the approach is architecture-agnostic. Compared to other baselines: No-thinking uses the fewest tokens but visibly lowers Pass@1, especially on the harder MATH-500 and GPQA-Diamond; DEER performs noticeably worse than vanilla on GSM8K/MATH-500 with Qwen3; CoT-Valve underperforms on GPQA-Diamond with gpt-oss; HALT-CoT preserves accuracy but saves few tokens; AlphaOne's token usage often remains close to vanilla (especially on Qwen3) and additionally requires multiple full reasoning generations to estimate its token budget in advance; Deepconf is inconsistent across benchmarks (e.g. underperforming on GPQA-Diamond with gpt-oss). Ablation of the trigger vocabulary (Leave-One-Category-Out on MATH-500, Qwen3-8B) shows removing self-check or strategy-shift triggers causes a notable Pass@1 drop, while removing uncertainty or retrospective triggers has only minor effects, and expanding the vocabulary (synonym augmentation or a wholly new category, both GPT-5-generated and validity-filtered) yields no further improvement -- indicating the four categories already capture the essential reflective behaviors with sufficient coverage. Comparing SW-UCB against four alternative early-stopping heuristics on MATH-500 (Qwen3-8B) shows fixed-threshold entropy-based stopping performs very poorly (Pass@1 63.40 vs. vanilla's 91.40), purely probabilistic stopping severely harms accuracy (68.60) despite reducing tokens, trigger-word-gated probabilistic stopping partially mitigates this but still falls well short of REFRAIN (83.20 vs. REFRAIN's 91.20), and random threshold selection yields moderate but suboptimal accuracy (88.40) -- confirming that trigger words, the semantic redundancy scorer, and UCB-based adaptive threshold selection are jointly necessary for a stable, favorable accuracy-efficiency trade-off. Replacing the answer-only-likelihood reward signal with external reward models (AceMath-7B RM, Qwen2.5-MATH-PRM-7B, Skywork-Reward-V2-8B) shows the PRM achieves similar Pass@1 to the likelihood-based reward while the general RM slightly underperforms, and both require an additional forward pass (extra computation) that the training-free, supervision-free likelihood signal avoids -- establishing answer-only likelihood as a practical default. Wall-clock evaluation confirms token savings translate into real speedups despite segmented-decoding overhead from interrupting and re-entering generation (breaking full KV-cache amortization): REFRAIN reduces inference time ~40% on Qwen3-8B/CSQA (vs. 54% token reduction) and ~28% on gpt-oss-20B/GSM8K (vs. 45% token reduction), with auxiliary-component overhead (sentence-encoder similarity scoring, UCB updates) accounting for under 1% of total inference time.",
+    "tags": [
+      "overthinking",
+      "early-stopping",
+      "test-time-scaling",
+      "training-free",
+      "adaptive-thresholding"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-1256",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

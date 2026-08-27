@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Deriving a mathematical relationship between a training-compute quantity and a resulting loss or optimal-configuration value from empirical measurements across scales. Sources apply this to two training-compute allocation questions: the optimal ratio of quantization-aware training to full-precision training as a function of total compute, and reconciling the Kaplan and Chinchilla compute-optimal scaling laws by correcting for confounds (last-layer compute cost, warmup duration, optimizer tuning) in how each was originally fit.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

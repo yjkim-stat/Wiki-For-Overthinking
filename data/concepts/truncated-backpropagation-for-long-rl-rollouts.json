@@ -1,0 +1,39 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "arxiv:2608.26070",
+      "kind": "paper",
+      "note": "Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.",
+      "title": "Prefix Sliding for efficient test-time scaling"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "concept",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "truncated backpropagation for long RL rollouts",
+  "related": [
+    "attention-sink",
+    "bounded-constant-cost-per-new-token",
+    "intermediate-reasoning-token-importance-decay",
+    "prefix-sliding-prefix-sliding-window-attention",
+    "continue-pe-reused-rope-positions-on-eviction",
+    "grpo-reinforcement-learning",
+    "truncated-backpropagation",
+    "last-k-summarization-comparison-baselines",
+    "aime-2025",
+    "gpqa-diamond",
+    "math500",
+    "livecodebench-lcb-v5",
+    "healthbench",
+    "qwen3-1-7b",
+    "qwen3-7b-rl-trained"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "truncated-backpropagation-for-long-rl-rollouts",
+  "topics": [
+    "overthinking"
+  ]
+}

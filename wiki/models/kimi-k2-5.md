@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A model used as an annotator LRM (labeling safety judgments and extracting supporting evidence) in the TRACE benchmark's construction, and as one of the evaluated generator models in a retrieval-grounded-voting study of multi-turn search agents.
 
 - **Kind**: model
-- **Also called**: KIMI-K2.5
+- **Also called**: KIMI-K2.5, Kimi-K2.5
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [BrowseComp](../datasets/browsecomp.md), [GAIA](../datasets/gaia.md), [Gemma-4-E4B](gemma-4-e4b.md), [gpt-oss-120b](../methods/gpt-oss-120b.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Qwen3-8B](../methods/qwen3-8b.md)
+**Related**: [BrowseComp](../datasets/browsecomp.md), [GAIA](../datasets/gaia.md), [Gemma-4-E4B](gemma-4-e4b.md), [gpt-oss-120b](gpt-oss-120b.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Qwen3-8B](../methods/qwen3-8b.md)
 
 ## Appears in
 

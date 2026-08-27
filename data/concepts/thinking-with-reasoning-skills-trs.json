@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-industry.154",
+      "kind": "paper",
+      "note": "Thinking with Reasoning Skills (TRS) is a training-free, black-box-compatible framework that offline-distills long deliberation trajectories (successes and failures) into compact, retrievable 'skill cards' (Trigger/Do/Avoid/Check/Risk), retrieves and injects the most relevant cards into a new query's prompt at inference time instead of forcing the model to re-derive solution logic from scratch, and empirically reduces reasoning tokens while matching or improving accuracy versus standard CoT across multiple LLMs on math and coding benchmarks -- with gains growing on harder problems, unlike budget-forcing baselines (TALE, Chain-of-Draft) which collapse below baseline accuracy as difficulty increases.",
+      "title": "Thinking with Reasoning Skills: Fewer Tokens, More Accuracy"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "Thinking with Reasoning Skills (TRS)",
+  "related": [
+    "skill-card-trigger-do-avoid-check-risk",
+    "offline-distillation-of-reasoning-experience-vs-online-reasoning-from-scratch",
+    "reusable-procedural-skill-retrieval",
+    "difficulty-sliced-evaluation-baseline-thinking-token-threshold",
+    "structured-skill-card-distillation-trigger-do-avoid-check-risk-schema",
+    "bm25-dense-bge-m3-faiss-hybrid-retrieval",
+    "tale-ep-chain-of-draft-nowait-baselines",
+    "deepmath-103k-93k-library-construction-10k-held-out",
+    "nemotron-competitive-programming-v1-26-6k-training-1k-held-out",
+    "aops-derived-contest-math-library-7-616-problems-evaluated-on-aime-2024-2025-202",
+    "gpt-oss-120b",
+    "gpt-oss-20b",
+    "gemini-3-flash-preview",
+    "gpt-4o-mini",
+    "doubao-seed-1-8-pro-math",
+    "doubao-seed-2-0-pro-coding"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "thinking-with-reasoning-skills-trs",
+  "topics": [
+    "overthinking"
+  ]
+}

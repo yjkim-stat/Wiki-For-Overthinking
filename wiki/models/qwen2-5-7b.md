@@ -7,13 +7,15 @@ Alibaba's 7B Qwen2.5 checkpoint, the most frequently used mid-scale backbone in 
 - **Kind**: model
 - **Also called**: Qwen2.5-7B, Qwen2.5-7B-Instruct, Qwen2.5-7B-Math
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 1
+- **Sources**: 3
 
-**Related**: [DeepSeek-R1-Distill-Qwen-7B](../methods/deepseek-r1-distill-qwen-7b.md), [Llama-3-8B](llama-3-8b.md)
+**Related**: [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [DeepSeek-R1-Distill-Qwen-7B](../methods/deepseek-r1-distill-qwen-7b.md), [GPT-4o](gpt-4o.md), [Llama-3.1-8B](llama-3-1-8b.md), [Llama-3-8B](llama-3-8b.md), [LoRA fine-tuning](../methods/lora-fine-tuning.md), [Mistral 7B](mistral-7b.md)
 
 ## Appears in
 
 - [Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth](../../archive/papers/2026/arxiv-2608-18222/summary.md) — Shows that whether a recurrent-depth reasoner is helped or harmed by extra test-time iterations is predicted by a measurable dynamical property of its trained update map (settling, marginal, or drifting), proves a sufficient condition for the decoded answer to be frozen under further iteration, and demonstrates that a single terminal fixed-point loss term moves the regime and the depth behaviour together in both directions.
+- [On Generalization across Measurement Systems: LLMs Entail More Test-Time Compute for Underrepresented Cultures](../../archive/papers/2025/doi-10-18653-v1-2025-acl-long-1032/summary.md) — LLMs default to Western measurement systems (USD, kilometers, kilograms) reflecting their training-data culture, suffer significant accuracy drops when queried in a non-default system (currency, length, or weight), and while chain-of-thought/sequential reasoning stabilizes large models' accuracy back toward the default level, it increases test-time compute by 180-300% -- disproportionately burdening users whose cultural context is not the default.
+- [Learning to Reason Over Time: Timeline Self-Reflection for Improved Temporal Reasoning in Language Models](../../archive/papers/2025/doi-10-18653-v1-2025-acl-long-1358/summary.md) — TISER (Temporal Self-Reflective Prompting) extends chain-of-thought into a four-stage test-time-scaling pipeline -- reasoning, explicit timeline construction, iterative self-reflection, then answer generation -- for temporal reasoning, and fine-tuning smaller open models (Mistral-7B, Qwen2.5-7B) on TISER-formatted synthetic traces lets them match or beat GPT-4o on in-domain and out-of-distribution temporal reasoning benchmarks.
 
 <!-- auto:end -->
 

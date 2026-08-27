@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The single-pass chain-of-thought generation against which test-time-scaling and adaptive-reasoning methods are compared: one model call producing one reasoning trace and one answer, with no recursion, resampling, or per-task configuration search. Sources use it as the zero-extra-compute reference point that recursion operators (GROW/PRUNE/BRANCH) and adaptive plugins (e.g. picking prompt format, temperature, and step count per task) are measured against.
 
 - **Kind**: method
-- **Also called**: Chain-of-Thought (baseline)
+- **Also called**: Chain-of-Thought (baseline), CoT baseline, single-pass CoT
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [BBEH](../datasets/bbeh.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA](../datasets/gpqa.md), [HLE](../datasets/hle.md), [Omni-MATH](../datasets/omni-math.md), [SuperGPQA](../datasets/supergpqa.md), [TruthfulQA](../datasets/truthfulqa.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [BBEH](../datasets/bbeh.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA](../datasets/gpqa.md), [HLE](../datasets/hle.md), [LogiQA](../datasets/logiqa.md), [MuSiQue](../datasets/musique.md), [Omni-MATH](../datasets/omni-math.md), [SuperGPQA](../datasets/supergpqa.md), [TruthfulQA](../datasets/truthfulqa.md)
 
 ## Appears in
 

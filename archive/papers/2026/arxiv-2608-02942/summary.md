@@ -47,7 +47,7 @@ Stated: the outcome-consistency guarantee covers target construction under the f
 ## Entities
 
 - **Concepts**: Few-step distillation, On-policy vs off-policy state distribution, Parallel token release / tokens per forward, Outcome consistency under joint commitment, State-dependent compression horizon, Certainty forcing to a release threshold, Quality-constrained AUP
-- **Methods**: OPTD (on-policy transition distillation), consistency-guided adaptive compression / joint outcome verification, set-bottleneck (max-hinge) certainty forcing, frozen-teacher KL anchor, confidence Multi-Block threshold decoding, LoRA fine-tuning, baselines: LLaDA, Fast-dLLM, D2F, dParallel, d3LLM, TAD-Q, TAD-S
+- **Methods**: OPTD (on-policy transition distillation), consistency-guided adaptive compression / joint outcome verification, set-bottleneck (max-hinge) certainty forcing, frozen-teacher KL anchor, confidence Multi-Block threshold decoding, [LoRA fine-tuning](../../../../wiki/methods/lora-fine-tuning.md), baselines: LLaDA, Fast-dLLM, D2F, dParallel, d3LLM, TAD-Q, TAD-S
 - **Datasets**: GSM8K (5-shot), MATH-500 (4-shot), MBPP (3-shot, 500 problems), HumanEval (0-shot)
 
 Tags: `diffusion-language-models`, `few-step-distillation`, `parallel-decoding`, `on-policy-distillation`, `inference-efficiency`, `llada`

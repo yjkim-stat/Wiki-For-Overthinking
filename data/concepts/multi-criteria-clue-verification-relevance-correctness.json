@@ -1,0 +1,36 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.acl-long.1239",
+      "kind": "paper",
+      "note": "Introduces GeoVQA, a task requiring multi-hop visual question answering that combines image content with external geographic commonsense knowledge, and a framework that adaptively retrieves and prunes only the knowledge clues relevant to each reasoning step (via a multi-criteria RL-trained verifier) rather than retrieving all clues up front, evaluated on a new 41,329-QA-pair dataset (GVQA) where it beats ten VQA/retrieval-augmented baselines.",
+      "title": "Answering Complex Geographic Questions by Adaptive Reasoning with Visual Context and External Commonsense Knowledge"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "multi-criteria clue verification (relevance + correctness)",
+  "related": [
+    "adaptive-step-wise-knowledge-retrieval",
+    "multi-criteria-clue-verification-and-pruning",
+    "commonsense-reasoning-tree",
+    "multi-hop-geographic-reasoning",
+    "multi-modal-retrieval-augmentation",
+    "ppo-with-generalized-advantage-estimation-rl-trained-retrieval-policy",
+    "bert-bm25-hybrid-relevance-scoring",
+    "gvqa-new-41-329-qa-pairs-29-871-images",
+    "llama3-8b-policy-network",
+    "gpt-4o-used-for-retrieval-augmentation-and-as-a-baseline",
+    "cogvlm",
+    "instructblip"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "multi-criteria-clue-verification-relevance-correctness",
+  "topics": [
+    "overthinking"
+  ]
+}

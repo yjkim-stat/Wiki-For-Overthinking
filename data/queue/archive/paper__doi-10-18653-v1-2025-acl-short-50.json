@@ -1,0 +1,110 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2025-acl-short-50.pdf"
+  },
+  "completed_at": "2026-08-27T22:52:31Z",
+  "created_at": "2026-08-27T13:56:48Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2025.acl-short.50",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Scaling the test-time compute of large language models has demonstrated impressive performance on reasoning benchmarks. However, existing evaluations of test-time scaling make the strong assumption that a reasoning system should always give an answer to any question provided. This overlooks concerns about whether a model is confident in its answer, and whether it is appropriate to always provide a response. To address these concerns, we extract confidence scores during reasoning for thresholding model responses. We find that increasing compute budget at inference time not only helps models answer more questions correctly, but also increases confidence in correct responses. We then extend the current paradigm of zero-risk responses during evaluation by considering settings with non-zero levels of response risk, and suggest a recipe for reporting evaluations under these settings.",
+    "authors": [
+      "William Jurayj",
+      "Jeffrey Cheng",
+      "Benjamin Van Durme"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test-time compute",
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2025.acl-short.50.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering",
+    "url": "https://aclanthology.org/2025.acl-short.50/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "selective question answering",
+      "confidence threshold (selection function)",
+      "risk-weighted utility function (Exam / Jeopardy / High-Stakes Odds)",
+      "test-time compute budget vs. confidence calibration"
+    ],
+    "contributions": [
+      "the first evaluation of LLM test-time compute scaling specifically for selective question answering, showing increasing compute budget helps models better distinguish correct from incorrect answers via confidence",
+      "a framework of risk-weighted utility functions (Exam/Jeopardy/High-Stakes Odds) for evaluating test-time-scaling systems under non-zero response risk, rather than only the conventional always-answer setting",
+      "a demonstration that this reveals model differences invisible under standard evaluation: R1-32B calibrates confidence far better with added test-time compute than s1-32B despite comparable raw accuracy scaling, and this advantage only shows up once incorrect answers are penalized"
+    ],
+    "datasets": [
+      "AIME 2024",
+      "AIME 2025",
+      "GPQA-diamond"
+    ],
+    "limitations": "The confidence-estimation method (summed log-probability of the model's own answer tokens after thinking) is not necessarily the optimal way to estimate model confidence, and may not generalize to question/task types the model has not seen. The chain-of-thought scaling method used (budget forcing, via Muennighoff et al. 2025) may itself diminish performance by abruptly truncating chains of thought and pushing the model outside its training distribution -- the paper notes concurrent work has introduced more elegant compute-budget-control methods. The utility function used does not incorporate compute cost itself (e.g. energy/hardware cost of longer reasoning), which the authors note is a real omission since encouraging higher confidence thresholds could otherwise be read as implicitly encouraging more energy consumption. Evaluation is restricted to English-language questions and answers, potentially missing model capabilities or weaknesses in lower-resource languages or multilingual settings.",
+    "method": "Evaluates Deepseek-R1-32B and s1-32B on AIME 2024/2025 (and GPQA-diamond, in the appendix) at token compute budgets from 500 to 8000, strictly enforced via budget forcing (force-appending 'Wait' if the model tries to stop early, force-appending the end-of-thinking delimiter at the budget). Defines a selection function parameterized by a confidence threshold (the summed log-probability of the answer's tokens): the model answers only if its confidence exceeds the threshold, else abstains. Reports accuracy of answered questions (not all questions) across the joint (compute budget x confidence threshold) surface. Introduces a utility-function framework with three risk settings: Exam Odds (r_t=0, no penalty for wrong answers, i.e. the standard zero-risk setting), Jeopardy Odds (r_t=-1, an incorrect answer costs as much as a correct one gains), and High-Stakes Odds (r_t=-20, incorrect answers are heavily penalized) -- computing model utility (not just accuracy) across the same compute-budget/confidence-threshold surface under each setting.",
+    "methods": [
+      "budget forcing (compute-budget enforcement)",
+      "confidence-threshold selection function",
+      "risk-weighted utility evaluation (Exam/Jeopardy/High-Stakes Odds)"
+    ],
+    "models": [
+      "DeepSeek-R1-32B",
+      "s1-32B"
+    ],
+    "one_liner": "Extends test-time-scaling evaluation from the zero-risk (always-answer) setting to selective question answering by extracting confidence scores (summed log-probability of answer tokens) during reasoning, finding compute budget and confidence threshold jointly determine accuracy, that test-time scaling increases confidence separation between correct and incorrect answers for R1-32B (but not for s1-32B), and proposing risk-weighted utility functions (Jeopardy Odds, High-Stakes Odds) under which R1-32B's test-time-scaling advantage over s1-32B, invisible in the standard always-answer setting, becomes clearly visible.",
+    "problem": "Existing test-time-scaling evaluations always require the model to answer every question, ignoring that in many real-world settings incorrect answers carry a cost, so a model should sometimes abstain rather than guess; whether test-time scaling helps a model calibrate its confidence enough to know when not to answer -- and how that changes model rankings -- was unstudied.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant and methodologically important for the topic: it argues the standard way test-time scaling is evaluated (always answer, no abstention) hides whether a model actually knows when it has reasoned enough to be confident -- exactly the calibration question underlying overthinking (does the model know it should stop?) and underthinking (does it know it needs to keep going?). Its finding that two models with near-identical raw accuracy-vs-compute curves (R1-32B, s1-32B) differ sharply in whether added reasoning actually improves confidence calibration is direct evidence that 'more compute' and 'better-calibrated stopping' are separate properties, and its risk-weighted utility framework offers a concrete alternative evaluation protocol for overthinking-mitigation methods that goes beyond plain accuracy-vs-length curves."
+    },
+    "results": "At confidence threshold 0 (the conventional always-answer evaluation), R1-32B and s1-32B scale comparably with compute budget (both roughly linear rises in accuracy from ~0 to ~0.5-0.55 as budget grows 500->8000). At a moderate threshold (0.5), more frequent abstention yields higher accuracy on answered questions for both models, though the curves are noisier/non-monotonic, especially for s1-32B. At a high threshold (0.95), small amounts of test-time compute deliver very high accuracy (both models approach ~1.0 accuracy on the few questions they do answer at low budgets), while further compute mainly increases the answer rate (more questions answered) rather than accuracy. As compute budget increases, R1-32B's average confidence in its correct answers rises even as more correct answers are discovered, and its confidence trajectories for correct versus incorrect answers separate increasingly cleanly over the course of reasoning -- but this confidence-separation property is not universal: s1-32B does not separate correct from incorrect answers by confidence nearly as well as R1-32B does, despite scaling comparably in raw accuracy. Under the risk-neutral Exam Odds setting the two models look similar, but under Jeopardy Odds (equal cost/reward), selective answering at a high (0.95) confidence threshold dramatically improves utility for both models, and R1-32B substantially outperforms s1-32B at larger compute budgets in this setting -- a gap the standard Exam Odds evaluation entirely misses. The same pattern (R1-32B's confidence-calibration advantage becoming visible only once risk is priced in) is replicated on GPQA-diamond in the appendix for both Jeopardy and High-Stakes Odds.",
+    "tags": [
+      "overthinking",
+      "test-time-scaling",
+      "selective-question-answering",
+      "confidence-calibration",
+      "budget-forcing"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2025-acl-short-50",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

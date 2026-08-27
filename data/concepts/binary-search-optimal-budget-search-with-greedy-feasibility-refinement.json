@@ -1,0 +1,39 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1274",
+      "kind": "paper",
+      "note": "TALE (Token-Budget-Aware LLM rEasoning) identifies that reasoning LLMs will follow a token budget stated in the prompt but that the effective budget must be chosen carefully -- too small a budget triggers 'token elasticity' where the model gives up complying and produces even longer output than an unconstrained baseline -- and offers two implementations, zero-shot budget estimation-and-prompting (TALE-EP, 67% token reduction with <3% accuracy loss) and post-training internalization (TALE-PT, ~50% reduction via SFT or DPO), both found via a binary-search 'optimal budget' procedure motivated by an 'implicit monotonicity assumption' verified on 90.91% of sampled GSM8K problems.",
+      "title": "Token-Budget-Aware LLM Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "binary-search optimal budget search (with greedy feasibility refinement)",
+  "related": [
+    "token-elasticity-budget-constraint-non-compliance-rebound",
+    "implicit-monotonicity-assumption",
+    "token-budget-aware-prompting",
+    "budget-aware-post-training-internalization",
+    "token-budget-aware-cot-prompting",
+    "tale-ep-zero-shot-budget-estimation-and-prompting",
+    "tale-pt-sft-based-and-dpo-based-post-training-internalization",
+    "gsm8k",
+    "gsm8k-zero",
+    "mathbench-arithmetic-middle-high-college",
+    "gpt-4o",
+    "gpt-4o-mini",
+    "yi-lightning",
+    "o3-mini",
+    "llama-3-1-8b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "binary-search-optimal-budget-search-with-greedy-feasibility-refinement",
+  "topics": [
+    "overthinking"
+  ]
+}

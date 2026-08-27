@@ -1,12 +1,18 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A benchmark for evaluating web-browsing/search LLM agents, used by sources to test test-time-scaling and voting methods for multi-turn search agents. One source treats it as a noisy open-web-retrieval setting where voting gains are largest; another uses it to study sequential vs. parallel test-time compute allocation with a cheap verifier.",
   "evidence": [
     {
       "id": "arxiv:2608.24024",
       "kind": "paper",
       "note": "Identifies copy-inflation -- retrieved documents in a search agent's context systematically inflate the token log-probabilities of copied tokens -- as the reason logprob-based confidence voting (DeepConf) fails on multi-turn search agents, and fixes it with Retrieval-Grounded Voting (RGV), which weights each rollout by lexical overlap between its answer and the documents it retrieved instead of by internal confidence.",
       "title": "Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding"
+    },
+    {
+      "id": "arxiv:2608.25277",
+      "kind": "paper",
+      "note": "Routed Graph Handoff (RGH) uses a lightweight LLM router to pick, per delegation, between a typed dependency-graph message and natural-language prose for multi-agent LLM handoffs, matching or beating NL-only on every one of four benchmarks while cutting token cost 2-3x.",
+      "title": "Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation"
     },
     {
       "id": "title:711c479b500244c5",
@@ -17,7 +23,7 @@
   ],
   "first_seen": "2026-08-20T12:20:08Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T13:56:46Z",
+  "last_seen": "2026-08-27T22:59:02Z",
   "name": "BrowseComp",
   "related": [
     "copy-inflation",
@@ -37,13 +43,29 @@
     "kimi-k2-5",
     "tongyi-deepresearch",
     "qwen3-32b-judge",
+    "structure-flexibility-tradeoff",
+    "handoff-format-selection",
+    "typed-dependency-graph-for-multi-agent-delegation",
+    "inter-agent-misalignment",
+    "typed-dependency-graph-dag-message-schema",
+    "llm-based-per-task-format-router",
+    "constrained-decoding",
+    "tau-bench-tau-retail-tau-airline",
+    "bfcl-v3",
+    "appworld",
+    "claude-sonnet-4-5",
+    "gpt-5-mini",
+    "nova-pro",
     "asymmetric-verification",
     "sequential-vs-parallel-test-time-scaling",
     "budget-forcing",
     "parallel-test-time-scaling-verify-and-select",
     "xbench-deepsearch"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "retrieval-grounded-voting-rgv",
+    "deepconf"
+  ],
   "schema_version": 1,
   "slug": "browsecomp",
   "topics": [

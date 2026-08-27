@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-A benchmark of multi-step, tool-using agent tasks used in the archive to evaluate deep-search / web-research LLM agents: the asymmetric-verification deep-search paper and WebThinker's autonomous web-search-and-report-drafting loop both evaluate on it. Note: unrelated to the archive's separately-collected paper literally titled 'GAIA: A Data Flywheel System for Training GUI Test-Time Scaling Critic Models', which names its own, different GUI-agent critic system 'GAIA' -- a name collision between two distinct things both called GAIA.
+A general-assistant benchmark dominated by web-search tasks, used across sources to evaluate agent harnesses and search-agent test-time-scaling/voting methods, including causal-intervention-based harness orchestration, retrieval-grounded voting, sequential-vs-parallel deep-search compute allocation, and deep-research agents that interleave search with reasoning and report drafting.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [BrowseComp](browsecomp.md), [Budget Forcing](../methods/budget-forcing.md), [deepseek-v4-flash](../models/deepseek-v4-flash.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA](gpqa.md), [gpt-oss-120b](../methods/gpt-oss-120b.md), [HLE](hle.md), [Kimi-K2.5](../models/kimi-k2-5.md), [SWE-bench Verified](swe-bench-verified.md)
+**Related**: [BrowseComp](browsecomp.md), [Budget Forcing](../methods/budget-forcing.md), [deepseek-v4-flash](../models/deepseek-v4-flash.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA](gpqa.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [HLE](hle.md), [Kimi-K2.5](../models/kimi-k2-5.md), [sequential vs. parallel test-time scaling](../concepts/sequential-vs-parallel-test-time-scaling.md), [SWE-bench Verified](swe-bench-verified.md)
 
 ## Appears in
 

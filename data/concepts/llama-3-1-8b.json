@@ -1,0 +1,98 @@
+{
+  "aliases": [
+    "Llama 3.1 8B",
+    "LLaMA3.1-8B",
+    "Llama-3.1-8B-Instruct"
+  ],
+  "definition": "An open-weight instruction-tuned model used across sources as an evaluation subject for cross-lingual test-time-scaling fairness (showing a significant accuracy drop and 180-300% extra reasoning cost when queried in a non-default measurement system), as the backbone for SHAD's reasoning/boilerplate token-disentanglement fine-tuning method, and as one of five model families used to demonstrate the latent capacity for concise reasoning that self-training (FS-BoN) elicits.",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.acl-long.1032",
+      "kind": "paper",
+      "note": "LLMs default to Western measurement systems (USD, kilometers, kilograms) reflecting their training-data culture, suffer significant accuracy drops when queried in a non-default system (currency, length, or weight), and while chain-of-thought/sequential reasoning stabilizes large models' accuracy back toward the default level, it increases test-time compute by 180-300% -- disproportionately burdening users whose cultural context is not the default.",
+      "title": "On Generalization across Measurement Systems: LLMs Entail More Test-Time Compute for Underrepresented Cultures"
+    },
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1078",
+      "kind": "paper",
+      "note": "SHAD automatically separates a training sample's tokens into 'reasoning' (sample-specific, hard to predict) versus 'boilerplate' (repetitive, format/template) tokens by fine-tuning on a small shuffled-input-output subset and comparing per-token loss before/after, and the resulting Reasoning-highlighted Fine-Tuning (RFT) -- which adaptively up-weights reasoning tokens during agent SFT -- outperforms SFT, regex-based weighting, and two other token-differentiation baselines on held-in and held-out agent benchmarks.",
+      "title": "Disentangling Reasoning Tokens and Boilerplate Tokens For Language Model Fine-tuning"
+    },
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1289",
+      "kind": "paper",
+      "note": "Shows current LLMs already possess a latent capacity for concise reasoning -- shorter correct paths exist within their own stochastic output distribution -- and that self-training (fine-tuning on the model's own best-of-N and few-shot-conditioned concise samples, FS-BoN) reliably elicits this capacity, cutting output length 30% on average across five model families on GSM8K/MATH with preserved accuracy, far outperforming zero-shot 'be concise' prompting and training on externally-sourced concise data.",
+      "title": "Self-Training Elicits Concise Reasoning in Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "Llama-3.1-8B",
+  "related": [
+    "measurement-system-default-bias",
+    "cross-system-factual-generalization",
+    "multi-hop-reasoning-for-unit-currency-conversion",
+    "reasoning-induced-cost-inequity",
+    "sequential-single-hop-prompting",
+    "chain-of-thought-prompting",
+    "inverse-mean-absolute-percentage-deviation-mapd",
+    "wilcoxon-signed-rank-test",
+    "fiscal-data-world-bank-gdp-per-capita-148-countries-112-currencies",
+    "city-distances-simplemaps-derived-4-countries",
+    "food-prices-per-weight-world-food-program-via-hdx-76-countries",
+    "qwen2-5-72b",
+    "qwen2-5-7b",
+    "llama-3-3-70b",
+    "llama-3-1-72b",
+    "aya-expanse-32b",
+    "aya-expanse-8b",
+    "reasoning-tokens-vs-boilerplate-tokens",
+    "shuffle-aware-token-predictability-discrimination",
+    "adaptive-softmax-based-loss-re-weighting",
+    "reasoning-highlighted-fine-tuning",
+    "shuffle-aware-discriminator-shad",
+    "reasoning-highlighted-fine-tuning-rft",
+    "regex-based-token-weighting-baseline",
+    "rho-1-reference-model-noise-masking-baseline",
+    "rewardft-dpo-based-token-level-reward-baseline",
+    "toolbench",
+    "apigen",
+    "sharegpt-general-data",
+    "stabletoolbench",
+    "bfcl",
+    "t-eval",
+    "nexus",
+    "llama-3-8b",
+    "llama-3-2-3b-generalization-check",
+    "qwen-generalization-check",
+    "latent-concise-reasoning-capacity",
+    "few-shot-conditioned-best-of-n-sampling-fs-bon",
+    "self-training-vs-externally-sourced-concise-supervision",
+    "adaptive-length-reduction-by-question-difficulty",
+    "naive-best-of-n-bon-self-sampling-fine-tuning",
+    "few-shot-conditioned-sampling-fs",
+    "few-shot-conditioned-best-of-n-fs-bon",
+    "sample-augmentation",
+    "rational-metareasoning-comparison-baseline",
+    "gsm8k",
+    "math-math500-for-evaluation",
+    "mmlu-pro-business-chemistry-physics-subsets-generalization-check",
+    "llama-3-2-3b",
+    "llama-3-2-1b",
+    "gemma-2-2b",
+    "qwen2-5-3b",
+    "qwen2-5-math-1-5b",
+    "deepseekmath-7b"
+  ],
+  "related_authored": [
+    "on-generalization-across-measurement-systems",
+    "disentangling-reasoning-tokens-and-boilerplate-tokens",
+    "self-training-elicits-concise-reasoning"
+  ],
+  "schema_version": 1,
+  "slug": "llama-3-1-8b",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-demo-70.pdf"
+  },
+  "completed_at": "2026-08-27T23:05:30Z",
+  "created_at": "2026-08-27T22:31:45Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-demo.70",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-time compute (TTC) scaling has emerged as a powerful paradigm for improving large language model (LLM) reasoning by allocating additional compute during inference, e.g., via multi-sample generation and verifier-based reranking. Existing TTC scaling strategies and reasoning scorers remain fragmented, evaluated under inconsistent protocols, and are rarely analyzed through the lens of quality-cost trade-offs. We introduce ThinkBooster, a unified framework for seamless test-time compute scaling of LLM reasoning, which consists of (i) a modular Python library implementing state-of-the-art TTC scaling strategy and scorer families, (ii) a benchmark that jointly evaluates performance and computational efficiency, and (iii) a deployable OpenAI-compatible proxy service that enables drop-in integration of adaptive reasoning into real-world applications. We further provide a demo visual debugger for inspecting the reasoning trajectories, intermediate selection decisions, and alternative reasoning paths. Empirical results on mathematical and coding tasks reveal the performance-compute trade-offs of TTC scaling strategies and scoring methods and demonstrate that ThinkBooster provides practical gains in real-world tasks. The code is available online under an MIT license.",
+    "authors": [
+      "Vladislav Smirnov",
+      "Quang-Chieu Nguyen",
+      "Sergey Senichev",
+      "Minh Ngoc Ta",
+      "Ekaterina Fadeeva",
+      "Artem Vazhentsev",
+      "Daria Galimzianova",
+      "Nikolai Rozanov",
+      "Viktor Mazanov",
+      "Jingwei Ni",
+      "Tianyi Wu",
+      "Igor Kiselev",
+      "Mrinmaya Sachan",
+      "Iryna Gurevych",
+      "Preslav Nakov",
+      "Timothy Baldwin",
+      "Artem Shelmanov"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test-time compute",
+      "test time scaling",
+      "adaptive reasoning"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-demo.70.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.625
+    },
+    "title": "ThinkBooster: A Unified Framework for Seamless Test-Time Scaling of LLM Reasoning",
+    "url": "https://aclanthology.org/2026.acl-demo.70/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "test-time compute (TTC) scaling",
+      "joint TFLOPs-and-token compute accounting",
+      "process reward model (PRM) vs. uncertainty-based scoring",
+      "white-box vs. black-box TTC strategy access level"
+    ],
+    "contributions": [
+      "a unified, modular Python library implementing 9 state-of-the-art TTC scaling strategies and 4 scorer families behind a consistent API, spanning both structured system-prompted CoT and native unstructured LRM thinking",
+      "an OpenAI-compatible proxy endpoint gateway that applies TTC scaling transparently to any compatible LLM deployment without requiring changes to downstream application code",
+      "a joint performance-and-compute benchmark (theoretical TFLOPs plus token counts) across 9 math/coding/scientific datasets, plus a visual debugger for inspecting reasoning trajectories and scoring decisions",
+      "a pilot empirical study finding PRM scorers dominate on in-domain math tasks but lightweight domain-agnostic uncertainty scorers are competitive or superior on out-of-domain coding tasks, and that beam search frequently underperforms cheaper strategies (Best-of-N, self-consistency) despite higher compute cost"
+    ],
+    "datasets": [
+      "MATH-500",
+      "OlympiadBench",
+      "GaoKao23EN",
+      "AIME-2024",
+      "AIME-2025",
+      "GPQA-Diamond",
+      "HumanEval+",
+      "MBPP+",
+      "KernelBench"
+    ],
+    "limitations": "Several ThinkBooster components depend on deployment-specific capabilities: dynamic, uncertainty-driven strategies requiring white-box signals (logits, hidden states) or prefill-style continuation are only available for open-weight or self-hosted LLMs, and only a black-box subset (Best-of-N, majority voting, extended thinking with optional logits, LLM-as-judge scoring) works against fully-hosted closed commercial APIs. Reliable reasoning-step-boundary extraction remains challenging for large reasoning models with native, unstructured 'thinking' traces, which can affect online scoring and early-stopping decisions. The empirical pilot study focuses on a relatively narrow task range (primarily math, coding, and graduate-level scientific QA), so the observed quality-cost trade-offs may not generalize to other settings such as long-context question answering, open-ended generation, or tool-augmented agents. Reported compute costs are theoretical TFLOPs rather than measured wall-clock latency, since real latency is highly sensitive to batching, KV-cache reuse, hardware, and provider-side serving optimizations (e.g. vLLM prefix caching) -- a full wall-clock study under fixed serving conditions is explicitly left to future work, though the benchmark does expose wall-clock measurement as a per-request log field.",
+    "method": "ThinkBooster provides three components: (1) a modular Python library implementing 9 TTC scaling strategies (Best-of-N, majority voting, beam search/tree-of-thought, extended thinking, dynamic exploration/MUR, DeepConf online/offline, Phi-decoding, uncertainty CoT) spanning offline/online, black-box/white-box, and prefill-dependent variants, plus 4 scorer families (process reward models, self-verification via the same LLM, uncertainty/confidence scores from the LM-Polygraph library, and ReProbes -- a supervised regressor over LLM internal states) with reasoning-step boundary extraction for both system-prompted structured CoT and native unstructured LRM thinking (e.g. DeepSeek-R1/Qwen3's <think> tags); (2) a deployable OpenAI-compatible proxy endpoint gateway that applies TTC scaling transparently in front of any OpenAI-compatible LLM backend, requiring no changes to downstream application code, configurable via URL/API parameters for compute budget, strategy, and scorer; (3) a benchmark with joint TFLOPs-and-token compute accounting (theoretical FLOPs following Hoffmann et al. 2022, computing prompt-processing FLOPs once with KV-cache-reuse-aware generation-cost tracking) across 9 bundled math/coding/scientific datasets (MATH-500, OlympiadBench, GaoKao23EN, AIME-2024/2025, GPQA-Diamond, HumanEval+, MBPP+, KernelBench), plus a visual debugger for inspecting reasoning trajectories, step-level scores, and pruned candidate paths. Pilot experiments run three LLMs (Qwen2.5-Math-7B-Instruct non-thinking, Qwen3-8B native-thinking, GPT-OSS-120B large-thinking) across strategy-scorer combinations, plotting accuracy improvement versus relative compute cost.",
+    "methods": [
+      "Best-of-N",
+      "majority voting / self-consistency",
+      "beam search (tree-of-thought)",
+      "extended thinking (budget forcing)",
+      "dynamic exploration (MUR)",
+      "DeepConf (online/offline)",
+      "Phi-decoding",
+      "uncertainty CoT",
+      "process reward models (PRM)",
+      "ReProbes (internal-state regressor)"
+    ],
+    "models": [
+      "Qwen2.5-Math-7B-Instruct",
+      "Qwen3-8B",
+      "GPT-OSS-120B",
+      "Qwen3-30B-A3B (usage example)"
+    ],
+    "one_liner": "ThinkBooster is a unified, open-source framework (Python library + OpenAI-compatible proxy endpoint + visual debugger) implementing 9 test-time-compute scaling strategies and 4 scorer families under a joint TFLOPs-and-tokens compute-accounting benchmark, whose pilot study finds PRM scorers dominate on math while lightweight uncertainty scorers are surprisingly competitive on (out-of-domain-for-PRM) coding tasks, and that beam search often underperforms best-of-N and even self-consistency despite costing more compute.",
+    "problem": "Test-time-compute (TTC) scaling research is highly fragmented: methods are evaluated under inconsistent experimental protocols (different model configurations, structured vs. unstructured CoT, compute budgets), most published work presents only one proposed method against a limited baseline set, studies focus on accuracy gains while overlooking computational cost/latency trade-offs, and released code is typically proof-of-concept only, lacking efficiency and practical-deployment support -- making it difficult to identify which TTC methods actually offer the best performance-compute trade-off or to deploy them in real applications.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly central to the topic as infrastructure: it is a standardized, joint performance-and-compute benchmark and toolkit spanning nearly the entire space of test-time-scaling strategies and scorers this archive tracks (Best-of-N, beam search, self-consistency, PRMs, uncertainty-based dynamic scaling), addressing exactly the methodological fragmentation and 'accuracy reported without cost' problem the overthinking literature struggles with. Its finding that beam search -- a strategy that spends more compute -- often underperforms cheaper strategies, and that a domain-mismatched PRM can be beaten by a cheap, domain-agnostic uncertainty scorer, are concrete, benchmarked instances of the core overthinking claim that more test-time compute does not reliably buy better outcomes, now measurable on a common accuracy-vs-TFLOPs axis across methods."
+    },
+    "results": "On mathematical benchmarks (Qwen2.5-Math-7B, aggregated over MATH-500/OlympiadBench/GaoKao23EN), PRM-based scoring achieves the best results, and beam search paired with a PRM scorer reaches the highest absolute accuracy among all strategy-scorer combinations tested. On coding (Qwen3-8B, HumanEval-Plus), PRMs do NOT consistently outperform lightweight uncertainty-based scorers -- the uncertainty scorer combined with the dynamic MUR strategy substantially surpasses all baselines including PRM-based methods, attributed to the PRM being trained predominantly on mathematical data and overfitting to that domain, while uncertainty-based scorers are domain-agnostic and generalize better to code (an out-of-distribution setting for the math-trained PRM). Across strategies generally, beam search often underperforms Best-of-N and even plain self-consistency despite requiring substantially more compute; dynamic TTC scaling (MUR) is a more compute-efficient alternative to beam search and delivers the strongest coding results, though on math it still lags behind Best-of-N even when combined with PRMs. Uncertainty-based scorers are highlighted as a robust, competitive, near-zero-overhead, domain-independent signal for both scoring and dynamic compute-allocation, though the authors note this reveals a clear gap: coding-specific PRMs remain largely unexplored. In a real-world CUDA-kernel-optimization case study (GPT-OSS-120B on KernelBench), Offline Best-of-N guided by a PRM achieves 5% fewer syntax errors and a 4-percentage-point higher overall correctness rate than raw CoT, though with a slightly lower compilation rate (PRM tends to select more sophisticated but occasionally failure-prone code) -- demonstrating a measurable practical gain from TTC scaling on a real deployment task, not just benchmark datasets.",
+    "tags": [
+      "test-time-scaling",
+      "benchmark",
+      "open-source-framework",
+      "compute-accounting",
+      "process-reward-model"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-demo-70",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

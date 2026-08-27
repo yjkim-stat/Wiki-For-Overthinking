@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Deriving a mathematical relationship between a training-compute quantity and a resulting loss or optimal-configuration value from empirical measurements across scales. Sources apply this to two training-compute allocation questions: the optimal ratio of quantization-aware training to full-precision training as a function of total compute, and reconciling the Kaplan and Chinchilla compute-optimal scaling laws by correcting for confounds (last-layer compute cost, warmup duration, optimizer tuning) in how each was originally fit.",
   "evidence": [
     {
       "id": "title:19ebd4d7f589cbd8",
@@ -31,7 +31,10 @@
     "openwebtext2",
     "refinedweb"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "compute-optimal-quantization-aware-training",
+    "resolving-discrepancies-in-compute-optimal-scaling-of-language-models"
+  ],
   "schema_version": 1,
   "slug": "scaling-law-fitting",
   "topics": [

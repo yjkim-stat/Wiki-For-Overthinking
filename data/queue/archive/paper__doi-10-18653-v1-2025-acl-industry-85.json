@@ -1,0 +1,130 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2025-acl-industry-85.pdf"
+  },
+  "completed_at": "2026-08-27T22:39:59Z",
+  "created_at": "2026-08-27T13:56:46Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2025.acl-industry.85",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "With the release of R1, a publicly available large reasoning model (LRM), researchers commonly train new LRMs by training language models on R1’s long chain-of-thought (CoT) inferences. While prior works show that LRMs’ capabilities can be reproduced through direct distillation, the continued reliance on the existing models (e.g., R1) remains a critical limitation in advancing the field.As a first step toward independent LRM development, this paper explores the possibility of constructing a long CoT dataset with LLMs that are not trained for inference-time scaling.To this end, we present the Long CoT Collection, a dataset of 100K CoT rationales annotated using existing short CoT LLMs. We develop a pipeline that induces o1’s novel reasoning strategies into short CoT LLMs, enabling them to think longer and introducing controllability over the thought budget to better manage the overthinking problem.Our extensive analyses validate that our dataset achieves quality comparable to—or slightly below—R1. Furthermore, our experiments demonstrate that training on our dataset not only strengthens general reasoning skills, but also provides a strong foundation for reinforcement learning—models initialized on our data achieve 2-3x larger gains with RLVR. We make the codes, datasets, and models publicly available at LINK.",
+    "authors": [
+      "Hyungjoo Chae",
+      "Dongjin Kang",
+      "Jihyuk Kim",
+      "Beong-woo Kwak",
+      "Sunghyun Park",
+      "Haeju Park",
+      "Jinyoung Yeo",
+      "Moontae Lee",
+      "Kyungjae Lee"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "large reasoning model"
+    ],
+    "pdf_url": "https://aclanthology.org/2025.acl-industry.85.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL",
+    "url": "https://aclanthology.org/2025.acl-industry.85/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "thought budget",
+      "reasoning flow (outline-driven long CoT generation)",
+      "RL cold-start instability",
+      "reasoning trigger phrases ('Aha' moments)"
+    ],
+    "contributions": [
+      "the Long CoT Collection, a 100K-example dataset generated by short-CoT LLMs (not distilled from a long-reasoning model's raw output) via a reasoning-flow-guided, step-by-step generation pipeline",
+      "a demonstration that this dataset is a reliable, 2-3x more effective RL cold-start than the base model on MATH500/GPQA under RLVR, addressing sparse-reward instability",
+      "built-in controllability over the target thought budget during dataset construction, offered as a mechanism for managing overthinking (generating an unnecessarily large number of tokens for simple problems), with an empirical showing that reducing budget too aggressively (25%) both shortens and degrades reasoning quality"
+    ],
+    "datasets": [
+      "Long CoT Collection (new, 100K instances, three thought-budget variants at 100%/50%/25%)",
+      "Magpie-Reasoning-V1-150K (source questions)",
+      "MATH500",
+      "AIME2024",
+      "GPQA Diamond",
+      "MMLU-Pro",
+      "NuminaMATH (RL training questions)"
+    ],
+    "limitations": "The construction pipeline was validated only using o1 as the single reference teacher LRM; extending it to other partially-disclosed-reasoning LRMs is left to future work. Phase 2 (the RL cold-start experiment) uses only a 0.5B model due to GPU resource constraints (16 A100 40GB GPUs), so whether the 2-3x RLVR gain holds at larger scales is untested, even though Phase 1 SFT experiments use 7-8B models. The pipeline is validated on math and general reasoning benchmarks (MATH500, AIME2024, GPQA Diamond, MMLU-Pro); the paper explicitly flags applying it to expert/specialized domains as future work.",
+    "method": "First collects a 1K seed dataset by manually gathering o1's reference reasoning flow (an outline sequence of reasoning steps) and thought budget (thought-token count, from the OpenAI API's total-minus-response token difference) for questions from the magpie-reasoning-V1 dataset. Then, for 100K new questions, retrieves the most relevant seed demonstration by domain match and thought-budget match, has GPT-4o (a short-CoT LLM) generate an analogous reasoning-flow outline for the new question guided by the retrieved demonstration, then generates the long CoT rationale step-by-step (one rationale per outline step, conditioned on prior rationales and the next outline step), and finally filters out rationales that reach a wrong final answer (validated by GPT-4o against the ground-truth answer), keeping 76% of generated instances. The retrieval/generation pipeline is thought-budget-controllable: constructing three dataset variants at 100%, 50% and 25% of the reference thought budget by constraining the number of reasoning outlines used.",
+    "methods": [
+      "reasoning-flow-guided step-by-step long CoT generation",
+      "domain- and thought-budget-matched demonstration retrieval",
+      "correctness filtering (GPT-4o-validated)",
+      "GRPO with length/answer/format reward (RLVR)"
+    ],
+    "models": [
+      "GPT-4o (short-CoT generator)",
+      "o1 (reference teacher LRM)",
+      "Llama-3.1-8B-Instruct",
+      "Qwen2.5-7B-Instruct",
+      "Qwen2.5-0.5B",
+      "o1-mini",
+      "R1",
+      "QwQ-32B",
+      "Sky-T1",
+      "Bespoke-7B",
+      "OpenThinker-7B"
+    ],
+    "one_liner": "Introduces the Long CoT Collection, a 100K-example dataset built by having short-CoT LLMs (GPT-4o) generate o1-style long reasoning traces from a 1K seed of teacher-annotated reasoning flow and thought-budget targets, showing it is a stronger RL cold-start than the base model (2-3x larger RLVR gains) and offers built-in controllability over thought budget to address overthinking.",
+    "problem": "Building open long-CoT SFT datasets to cold-start RL training of large reasoning models has relied on directly distilling completions from an existing closed long-reasoning model (o1) or its open replica (R1), leaving the actual mechanism for constructing such data from scratch unclear and keeping the field dependent on existing LRMs.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant and self-identified: the paper explicitly names overthinking ('generating an unnecessarily large number of tokens for simple problems') as a major LRM issue and positions the dataset's thought-budget controllability as a mechanism to address it -- the 25%-budget ablation (Table 2) is direct evidence that cutting thought budget too aggressively during training data construction degrades downstream reasoning quality, a concrete data point on the cost side of the length-vs-accuracy tradeoff that overthinking mitigation methods must navigate, here approached from the data-construction stage rather than inference-time control."
+    },
+    "results": "Head-to-head comparison (o3-mini as judge, 100 questions with correct R1 answers) shows the collection's rationales win on Reasoning Flow quality (63% win vs. 37% for R1) but lose on Strategy (41% win vs. 51% for R1, 8% tie) and mostly tie/lose on Correctness (9% win, 75% tie, 16% lose vs. R1) -- described as 'competitive' with R1 despite being generated by a short-CoT model. Best-of-N sampling (Pass@N, N=1..32) on MATH500 and AIME2024 shows models SFT'd on the collection (Llama-3.1-8B-LC, Qwen2.5-7B-LC) improve over their un-tuned base models across N, with Qwen2.5-7B-LC's advantage growing at large N (16, 32) while the base Qwen2.5-7B-Instruct's performance saturates -- interpreted as the collection enabling more diverse response exploration useful for RL. On GPQA Diamond and MMLU-Pro, models trained on the collection show gains, e.g. Qwen2.5-7B-LC's GPQA Diamond (44.5) slightly exceeds Bespoke-7B (a simpler R1-distillation replica, 38.9) using open weights and open data; Llama-3.1-8B-LC improves over its base (43.7 to 44.5 on MMLU-Pro). The main RL result: initializing a Qwen2.5-0.5B policy by SFT on the Long CoT Collection before RLVR (GRPO with length/answer/format rewards) yields 2-3x larger accuracy gains from RLVR than starting RL directly from the base Qwen2.5-0.5B, on both MATH500 (+13.3pp vs. +5.4pp) and GPQA (+11.5pp vs. +5.6pp) -- addressing the RL cold-start instability problem. Thought-budget analysis shows the collection's reasoning-trigger phrase usage (e.g. 'Let's,' 'Wait,' 'Verify-') sits between GPT-4o's minimal use and DeepSeek-R1's extensive use, and reducing the target thought budget to 25% degrades downstream MATH500 accuracy (66.6 -> 60.7 -> 57.6 across 100%/50%/25% budget variants) and produces confusing rationales when the outline count is cut too aggressively relative to content.",
+    "tags": [
+      "overthinking",
+      "long-cot-dataset",
+      "thought-budget",
+      "rl-cold-start",
+      "distillation"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2025-acl-industry-85",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

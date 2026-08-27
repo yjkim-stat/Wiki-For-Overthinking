@@ -1,0 +1,56 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.",
+        "title": "Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reflection Steering is a training-free activation-space intervention that isolates reflection-associated computation from general reasoning via PCA-purified, orthogonalized steering directions calibrated per layer, cutting thinking tokens by 16.9% on average across six model-benchmark settings with accuracy statistically equivalent to the raw model.",
+        "title": "Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-27T23:01:23Z",
+  "created_at": "2026-08-27T22:59:03Z",
+  "instructions": "Write the wiki definition for 'Qwen3-30B-A3B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen3-30B-A3B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Qwen3-30B-A3B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "An open-weight (mixture-of-experts) reasoning model used across sources as an evaluation/generator subject: named among frontier models compared for parallel-reasoning behavior in Parason, and as one of the three model-benchmark settings (alongside Qwen3-8B and QwQ-32B) on which Reflection Steering's training-free activation-space intervention is evaluated, reducing thinking tokens 16.9% on average without harming accuracy.",
+    "kind": "model",
+    "related": [
+      "Parason",
+      "Reflection Steering"
+    ]
+  },
+  "task_id": "concept__qwen3-30b-a3b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

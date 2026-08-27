@@ -8,7 +8,7 @@ None of the three sources describe TruthfulQA directly; it appears as one of the
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [GPQA](gpqa.md), [GSM8K](gsm8k.md), [MATH](math.md), [SPIRIT](../methods/spirit.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [ARC-C](arc-c.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [GPQA](gpqa.md), [GSM8K](gsm8k.md), [GSM8K (appendix)](gsm8k-appendix.md), [LogiQA](logiqa.md), [MATH](math.md), [SPIRIT](../methods/spirit.md)
 
 ## Appears in
 

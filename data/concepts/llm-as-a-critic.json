@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1058",
+      "kind": "paper",
+      "note": "MUR (Momentum Uncertainty guided Reasoning) is a training-free, orthogonal-to-existing-TTS method that recursively aggregates step-level uncertainty into a momentum term (proven to act as a low-pass filter emphasizing recent steps) and selectively applies test-time-scaling compute only to steps whose uncertainty exceeds this momentum by a tunable threshold, cutting thinking-token budgets by over 45% on average while improving accuracy 0.33-3.46% across four benchmarks, three Qwen3 model sizes, and four test-time-scaling backends.",
+      "title": "MUR: Momentum Uncertainty guided Reasoning for Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "LLM-as-a-Critic",
+  "related": [
+    "momentum-uncertainty-exponentially-weighted-step-level-uncertainty-aggregate",
+    "low-pass-filter-property-of-momentum-uncertainty",
+    "gamma-control-tunable-step-scaling-threshold",
+    "step-level-uncertainty-average-negative-log-likelihood",
+    "adaptive-selective-test-time-scaling",
+    "momentum-uncertainty-guided-reasoning-mur",
+    "gamma-control",
+    "guided-search-best-of-n",
+    "phi-decoding",
+    "thinking-mode",
+    "average-uncertainty-baseline",
+    "smart-baseline",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "qwen3-1-7b",
+    "qwen3-4b",
+    "qwen3-8b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "llm-as-a-critic",
+  "topics": [
+    "overthinking"
+  ]
+}

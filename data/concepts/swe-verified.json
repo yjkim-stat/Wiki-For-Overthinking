@@ -1,0 +1,48 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1253",
+      "kind": "paper",
+      "note": "PaCoRe (Parallel Coordinated Reasoning) decouples test-time compute scaling from a fixed context window by running rounds of massively parallel reasoning trajectories, compacting each trajectory's conclusion into a short message, and RL-training the model to synthesize (not just vote on) these messages into better subsequent exploration -- letting an 8B model reach 94.5% on HMMT 2025 by scaling effective test-time compute to ~2 million tokens, surpassing GPT-5's 93.2%.",
+      "title": "PaCoRe: Learning to Scale Test-Time Compute with Parallel Coordinated Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "SWE-Verified",
+  "related": [
+    "parallel-coordinated-reasoning-pacore",
+    "reasoning-solipsism",
+    "message-compaction-context-bounded-synthesis",
+    "reasoning-synthesis",
+    "emergent-correctness-rate",
+    "parallel-coordinated-reasoning-message-passing-multi-round-parallel-exploration",
+    "outcome-based-reinforcement-learning-ppo-with-gae",
+    "message-compaction-trajectory-to-conclusion-extraction",
+    "self-consistency-majority-voting-comparison-baseline",
+    "aime-2025",
+    "hmmt-2025",
+    "imoanswerbench",
+    "apex",
+    "livecodebench-2408-2505",
+    "humanity-s-last-exam-text-subset",
+    "multichallenge",
+    "pacore-8b-qwen3-8b-base-initialized",
+    "rlvr-8b-starting-checkpoint",
+    "qwen3-1-7b-pacore",
+    "gpt-5",
+    "qwen3-235b-a22b-thinking-2507",
+    "glm-4-6",
+    "deepseek-v3-1-terminus",
+    "kimi-k2-thinking"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "swe-verified",
+  "topics": [
+    "overthinking"
+  ]
+}

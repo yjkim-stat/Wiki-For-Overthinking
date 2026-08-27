@@ -8,7 +8,7 @@ Whether a model's visible reasoning trace is the real support for the answer it 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Chain-of-thought monitorability](chain-of-thought-monitorability.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](../methods/gpt-oss-120b.md), [MMLU](../datasets/mmlu.md), [Qwen3-8B](../methods/qwen3-8b.md), [QwQ-32B](../methods/qwq-32b.md)
+**Related**: [Chain-of-thought monitorability](chain-of-thought-monitorability.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [MMLU](../datasets/mmlu.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-8B](../methods/qwen3-8b.md), [QwQ-32B](../methods/qwq-32b.md)
 
 ## Appears in
 

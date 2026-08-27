@@ -1,0 +1,122 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-1212.pdf"
+  },
+  "completed_at": "2026-08-27T23:21:39Z",
+  "created_at": "2026-08-27T22:59:02Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.1212",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large reasoning models (LRMs) that generate long chains of thought now perform well on multi-step math, science, and coding tasks. However, their behavior is still unstable and hard to interpret, and existing analysis tools struggle with such long, structured reasoning traces. We introduce Step-Saliency, which pools attention–gradient scores into step-to-step maps along the question–thinking–summary trajectory. Across several models, Step-Saliency reveals two recurring information-flow failures: Shallow Lock-in, where shallow layers over-focus on the current step and barely use earlier context, and Deep Decay, where deep layers gradually lose saliency on the thinking segment and the summary increasingly attends to itself and the last few steps. Motivated by these patterns, we propose StepFlow, a saliency-inspired test-time intervention that adjusts shallow saliency patterns measured by Step-Saliency via Odds-Equal Bridge and adds a small step-level residual in deep layers via Step Momentum Injection. StepFlow improves accuracy on math, science, and coding tasks across multiple LRMs without retraining, indicating that repairing information flow can recover part of their missing reasoning performance.",
+    "authors": [
+      "Xiaoyu Xu",
+      "Yulan Pan",
+      "Xiaosong Yuan",
+      "Zhihong Shen",
+      "Minghao Su",
+      "Yuanhao Su",
+      "Xiaofeng Zhang"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.1212.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "Reasoning Fails Where Step Flow Breaks",
+    "url": "https://aclanthology.org/2026.acl-long.1212/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "Step-Saliency (step-to-step pooled attention-gradient diagnostic)",
+      "Shallow Lock-in",
+      "Deep Decay",
+      "Odds-Equal Bridge (OEB)",
+      "Step Momentum Injection (SMI)"
+    ],
+    "contributions": [
+      "Step-Saliency, a step-level diagnostic that pools token-level attention-gradient saliency into a compact question-to-thinking-to-summary step-to-step map, making long reasoning traces interpretable at the step level rather than the noisy token level",
+      "identification of two recurring depth-wise information-flow failure patterns that reliably separate correct from incorrect reasoning traces across multiple LRMs: Shallow Lock-in (over-focus on the current step in shallow layers) and Deep Decay (loss of connection to the thinking segment, and increasing summary self-focus, in deep layers)",
+      "StepFlow, a training-free, single-pass test-time intervention combining Odds-Equal Bridge (shallow-layer attention-mass floor toward a bridge region) and Step Momentum Injection (deep-layer step-level residual carrying forward prior-step content), improving accuracy across math, science, and coding benchmarks and multiple LRM backbones without retraining, with gains concentrated on harder problems and information-propagation (not conceptual) error types"
+    ],
+    "datasets": [
+      "AIME24",
+      "AIME25",
+      "AMC23",
+      "MATH-500",
+      "GPQA-Diamond",
+      "LiveCodeBench"
+    ],
+    "limitations": "StepFlow assumes a shallow/deep layer split that is model-specific and currently chosen via a small held-out split rather than a fully automatic method; the layer-coverage study suggests a broad sweet spot exists but the paper does not provide an automatic way to pick these ranges. StepFlow is one concrete, saliency-inspired intervention design (a logit-level bridge adjustment and a value-space residual injection); other designs such as head-level steering or alternative value-space projections are not explored, though they could in principle be analyzed within the same Step-Saliency framework. The error-type taxonomy shows StepFlow primarily corrects information-propagation errors (72%) rather than conceptual ones (10-14%), and this finer-grained breakdown, along with extension to benchmarks beyond AIME, is left to future work. The causal link between the diagnosed saliency patterns (Shallow Lock-in, Deep Decay) and the observed accuracy improvements, while supported by three forms of specificity (complementary component effects, layer-band-specific optimal performance, and disproportionate correction of propagation errors), remains suggestive rather than formally proven. Whether StepFlow's corrected failures are best characterized as 'memory' or 'reasoning' errors is left as an open question, since disentangling the two currently relies on external annotations rather than model-internal definitions.",
+    "method": "Computes token-level saliency via an attention-gradient-product influence score (absolute value of attention weight times the gradient of the token-level loss with respect to that attention weight, averaged over heads), then pools these scores into step-to-step blocks by segmenting each generation trace into a question segment, a multi-step thinking segment (each step a contiguous token span), and a summary segment, and mean-pooling saliency within each (step_i, step_j) block -- yielding a compact, depth-collapsed Step-Saliency map comparable across layers and traces. Applying this to several LRMs on paired correct/incorrect traces for identical prompts reveals two recurring depth-wise patterns in error cases: Shallow Lock-in (in shallow layers, most saliency mass concentrates in a narrow band around the current thinking step and its immediate neighbors, with saliency on the question and earlier steps strongly suppressed -- 'the model attends mainly to what it just wrote') and Deep Decay (in deep layers, saliency on the thinking segment fades faster for error traces than correct ones, and the summary token block becomes increasingly self-focused, retaining only a thin connection to the full reasoning chain). Guided by these patterns, proposes StepFlow, a two-component test-time intervention requiring no retraining or backpropagation: (1) Odds-Equal Bridge (OEB), applied to shallow layers, enforces (via a KL-projection-derived group-wise logit shift) a soft lower bound on the attention mass allocated to a 'bridge' region (the question, when generating thinking steps; the thinking segment, when generating the summary) whenever that mass falls below a threshold, preventing influence from collapsing entirely onto the current segment; (2) Step Momentum Injection (SMI), applied to deep layers, treats deep layers as a leaky integrator by computing a step-level momentum vector (the mean deep-layer value-projection output over a completed thinking step) and injecting it as a small residual into the hidden state at the start of the next step, preserving a connection to earlier reasoning content that would otherwise decay. Evaluated on DeepSeek-R1-Distill-Qwen (7B/14B/32B), GPT-OSS-20B (low/medium reasoning effort), and QwQ-32B-Preview across six benchmarks (AIME24, AIME25, AMC23, MATH-500, GPQA-Diamond, LiveCodeBench), against prompt-only (Plan-and-Solve, Hint-Infer), decode-level (Budget Forcing/S1), and internal-intervention baselines (attention intervention, activation steering).",
+    "methods": [
+      "Step-Saliency (attention-gradient step-to-step pooling)",
+      "Odds-Equal Bridge (OEB)",
+      "Step Momentum Injection (SMI)",
+      "Plan-and-Solve (PS+) / Hint-Infer / Budget Forcing (S1) / Attention Intervention / Activation Steering (baselines)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-14B",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "GPT-OSS-20B (low/medium)",
+      "QwQ-32B-Preview"
+    ],
+    "one_liner": "Step-Saliency pools token-level attention-gradient saliency into step-to-step maps across a reasoning trace's question/thinking/summary structure, revealing two depth-wise information-flow failures in incorrect outputs -- Shallow Lock-in (shallow layers over-focus on the current step, ignoring earlier context) and Deep Decay (deep layers lose connection to the thinking segment, with the summary attending mainly to itself) -- and fixes both with StepFlow, a training-free single-pass decoding intervention that improves accuracy by up to 11.8 points across six LRM backbones and six benchmarks.",
+    "problem": "Large reasoning models produce long, structured chains of thought but remain unstable and hard to interpret, exhibiting persistent failure modes (unfaithful reasoning, overconfident hallucination, brittleness on compositional tasks); when a model makes a mistake there is no clear way to attribute the final error to its internal reasoning trace, because existing diagnostics (raw attention weights, token-level gradient saliency) are either not faithful indicators of what actually drives predictions, or too dense, local and noisy to summarize step-to-step dependence across a long reasoning trace.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Tangential rather than central: this paper targets accuracy failures caused by information loss across a reasoning trace's depth (attention collapsing onto the current step, or the summary losing its link to the full chain), not excess reasoning length or wasted computation on easy problems -- StepFlow does not shorten traces and is evaluated purely on accuracy, not token count. It is nonetheless a relevant mechanistic complement to this archive's overthinking-mechanism papers (e.g. NeuReasoner's Mixture of Neurons, the FoE/RED paper's error-propagation forest): where those explain why reasoning traces contain wasted or actively harmful computation, this paper explains a distinct failure mode -- reasoning traces losing track of earlier context as depth increases -- that could equally well produce either overthinking-style redundant re-derivation (to recover lost context) or outright wrong answers, depending on whether the model manages to recover."
+    },
+    "results": "StepFlow consistently improves accuracy over the unmodified backbone and outperforms all five baselines across all six benchmarks and all six model configurations tested, with the largest gains on competition-style problems requiring long reasoning chains -- e.g. +11.8 points on AIME25 for DeepSeek-R1-Distill-Qwen-32B (54.9->66.7) and +9.5 points on LiveCodeBench for GPT-OSS-20B medium (70.0->79.5). Manual categorization of the 60 AIME24/25 problems where baselines failed but StepFlow succeeded shows arithmetic carry-forward errors (34%) and premise forgetting (38%) together account for 72% of StepFlow's corrections -- precisely the categories where cross-step information propagation matters -- while conceptual errors (10-14%) are rarely fixed, supporting the interpretation that StepFlow repairs information flow rather than the model's underlying knowledge. Aggregated Step-Saliency analysis over AIME25 error cases (post- vs. pre-intervention) confirms StepFlow's mechanistic effect matches its diagnostic motivation: shallow thinking self-intensity consistently decreases and deep summary self-intensity consistently decreases across backbones, while shallow question-to-thinking mass increases -- shallow layers rely less on just-written content and use the question more; deep layers retain a stronger link from the thinking segment into the summary. An ablation (GPT-OSS-20B medium) shows OEB alone helps on all three tested benchmarks, SMI alone helps somewhat more (especially on GPQA-D and LiveCodeBench), and combining both (full StepFlow) gives the largest gains (e.g. LiveCodeBench: 70.0 baseline -> 74.5 OEB-only -> 75.8 SMI-only -> 79.5 combined) -- matching the diagnosis that shallow layers need less lock-in on the current step while deep layers need a stronger link from thinking to summary, i.e. the two components address distinct, complementary failure modes. Layer-coverage analysis shows the best gains come from activating OEB/SMI only on the bottom/top quarter of layers respectively, with broader coverage (a third or half) giving slightly smaller but still above-baseline gains. Breaking LiveCodeBench down by difficulty shows StepFlow adds only a few extra solved cases on easy items (already near ceiling) but larger jumps on medium (+13.8 points) and hard (+14.2 points) items, indicating StepFlow is most helpful precisely when the model must carry a longer, more fragile reasoning chain. A compute-normalized comparison against longer generation and self-consistency (SC) at matched budgets shows StepFlow achieves 5.7x the accuracy gain of longer generation at the same ~1.35x compute overhead, and matching StepFlow's accuracy via self-consistency alone requires k=8 (~8.0x compute) versus StepFlow's ~1.35x; StepFlow also composes with SC (StepFlow+SC(k=2) at ~2.7x compute outperforms SC(k=4) at ~4.0x compute), indicating the two address orthogonal failure modes.",
+    "tags": [
+      "mechanistic-interpretability",
+      "reasoning-trace-analysis",
+      "information-flow",
+      "attention",
+      "training-free"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-1212",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "mechanistic interpretation"
+  ],
+  "definition": "Analyzing a model's internal activations or weights -- rather than only its inputs/outputs -- to explain a behavior. Sources apply it in two ways relevant to overthinking: identifying that overthinking corresponds to a low-dimensional manifold in activation space that can be steered to cut output tokens without hurting accuracy, and identifying which weight components (e.g. final-layer MLP projections) are load-bearing for reasoning versus for knowledge memorization when a reasoning model is compressed.",
   "evidence": [
     {
       "id": "title:b4ba27743c499d8d",
@@ -36,7 +38,10 @@
     "pruning",
     "deepseek-r1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "mitigating-overthinking-in-large-reasoning-models-via-manifold-steering",
+    "when-reasoning-meets-compression"
+  ],
   "schema_version": 1,
   "slug": "mechanistic-interpretability-analysis",
   "topics": [

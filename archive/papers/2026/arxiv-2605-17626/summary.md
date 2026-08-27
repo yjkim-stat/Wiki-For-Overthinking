@@ -45,7 +45,7 @@ DTV requires direct control over the decoding loop (boundary stops, rollback, co
 ## Entities
 
 - **Concepts**: decoding-time verification, structural-boundary verification, structure-aware rollback with escalation, feedback via prompt augmentation, process-level (step-level) verifier signal
-- **Methods**: Decoding Time Verification (DTV), self-refine, [best-of-N](../../../../wiki/methods/best-of-n.md), S* (compile-driven self-debug)
+- **Methods**: Decoding Time Verification (DTV), [self-refine](../../../../wiki/methods/self-refine.md), [best-of-N](../../../../wiki/methods/best-of-n.md), S* (compile-driven self-debug)
 - **Datasets**: CodeNet (C source, 300 programs), TypeWeaver (JS source, 150 self-bundled programs)
 
 Tags: `test-time-scaling`, `code-translation`, `verifier-guided-decoding`, `rollback`, `token-efficiency`

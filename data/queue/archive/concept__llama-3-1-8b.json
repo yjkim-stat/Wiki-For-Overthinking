@@ -1,0 +1,67 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "LLMs default to Western measurement systems (USD, kilometers, kilograms) reflecting their training-data culture, suffer significant accuracy drops when queried in a non-default system (currency, length, or weight), and while chain-of-thought/sequential reasoning stabilizes large models' accuracy back toward the default level, it increases test-time compute by 180-300% -- disproportionately burdening users whose cultural context is not the default.",
+        "title": "On Generalization across Measurement Systems: LLMs Entail More Test-Time Compute for Underrepresented Cultures",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SHAD automatically separates a training sample's tokens into 'reasoning' (sample-specific, hard to predict) versus 'boilerplate' (repetitive, format/template) tokens by fine-tuning on a small shuffled-input-output subset and comparing per-token loss before/after, and the resulting Reasoning-highlighted Fine-Tuning (RFT) -- which adaptively up-weights reasoning tokens during agent SFT -- outperforms SFT, regex-based weighting, and two other token-differentiation baselines on held-in and held-out agent benchmarks.",
+        "title": "Disentangling Reasoning Tokens and Boilerplate Tokens For Language Model Fine-tuning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows current LLMs already possess a latent capacity for concise reasoning -- shorter correct paths exist within their own stochastic output distribution -- and that self-training (fine-tuning on the model's own best-of-N and few-shot-conditioned concise samples, FS-BoN) reliably elicits this capacity, cutting output length 30% on average across five model families on GSM8K/MATH with preserved accuracy, far outperforming zero-shot 'be concise' prompting and training on externally-sourced concise data.",
+        "title": "Self-Training Elicits Concise Reasoning in Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-27T23:01:21Z",
+  "created_at": "2026-08-27T22:59:03Z",
+  "instructions": "Write the wiki definition for 'Llama-3.1-8B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Llama-3.1-8B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Llama-3.1-8B",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [
+      "Llama-3.1-8B-Instruct"
+    ],
+    "definition": "An open-weight instruction-tuned model used across sources as an evaluation subject for cross-lingual test-time-scaling fairness (showing a significant accuracy drop and 180-300% extra reasoning cost when queried in a non-default measurement system), as the backbone for SHAD's reasoning/boilerplate token-disentanglement fine-tuning method, and as one of five model families used to demonstrate the latent capacity for concise reasoning that self-training (FS-BoN) elicits.",
+    "kind": "model",
+    "related": [
+      "On Generalization across Measurement Systems",
+      "Disentangling Reasoning Tokens and Boilerplate Tokens",
+      "Self-Training Elicits Concise Reasoning"
+    ]
+  },
+  "task_id": "concept__llama-3-1-8b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

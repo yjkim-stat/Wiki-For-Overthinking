@@ -1,17 +1,23 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "An open-weight instruction-tuned model used as an evaluation subject for adaptive test-time-scaling sample-budget allocation (per another archived source, a fuzzy-controller-based per-prompt sampling budget for best-of-N) and as one of the base models on which Marco-o1 v2's MCTS-constructed CoT data and CoT-aware post-training methods are shown to reduce 'formalistic long-time thinking' (a distillation-induced failure to internalize reasoning logic).",
   "evidence": [
     {
       "id": "arxiv:2608.03961",
       "kind": "paper",
       "note": "Assigns a per-prompt sampling budget for best-of-N test-time scaling with a hand-written two-stage fuzzy controller over nine prompt- and model-side signals, trading 1.4-14.5% fewer samples for accuracy changes between -1.8 and +0.5 points against a selector-matched fixed N = 8 baseline.",
       "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2025.acl-long.1145",
+      "kind": "paper",
+      "note": "Marco-o1 v2 identifies 'formalistic long-time thinking' -- distilled small models mechanically replicating a large reasoning model's surface reasoning patterns (content repetition, over-reflection) without internalizing the underlying logic, often producing no final answer at all -- and fixes it by generating CoT training data from scratch via MCTS plus three CoT-aware post-training techniques (thought-length balance, fine-grained/masking-based DPO, joint SFT+DPO loss).",
+      "title": "Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T22:59:02Z",
   "name": "Qwen2.5-1.5B-Instruct",
   "related": [
     "test-time-scaling",
@@ -31,9 +37,31 @@
     "phi-3-medium-4k-instruct",
     "gsm8k",
     "math",
-    "sciq"
+    "sciq",
+    "formalistic-long-time-thinking-bias-inheritance-from-distillation",
+    "mcts-based-tree-cot-data-construction",
+    "thought-node-typed-reasoning-step-role",
+    "thoughts-length-balance",
+    "masking-based-fine-grained-dpo",
+    "joint-sft-dpo-post-training-objective",
+    "monte-carlo-tree-search-mcts-based-cot-data-construction",
+    "conservative-dpo-cdpo",
+    "masking-based-dpo",
+    "joint-sft-dpo-loss",
+    "aime",
+    "blocksworld",
+    "multi-if",
+    "llama-3-1-8b-instruct",
+    "llama-3-2-1b-instruct",
+    "qwen2-5-7b-instruct",
+    "qwen2-5-72b-instruct-data-generation",
+    "llama3-1-70b-instruct-data-generation",
+    "sky-t1-comparison-baseline"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "interpretable-adaptive-sampling-for-llm-test-time-scaling",
+    "marco-o1-v2"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-1-5b-instruct",
   "topics": [

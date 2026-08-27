@@ -12,9 +12,44 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.57
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Systematically compares 8 prompting strategies under equal sampling budget for majority-vote test-time scaling across 6 LLMs x 6 benchmarks, finding plain Chain-of-Thought eventually dominates every more elaborate strategy as sampling time N grows -- because CoT has more easy/fewer hard questions and a flatter wrong-answer distribution -- and shows combining per-question difficulty-adaptive scaling with per-question optimal-strategy selection lifts GSM8K accuracy from 86.0% to 97.4% (Majority@10) and MATH-500 from 15.2% to 61.0%.
+
+## Problem
+
+Many reasoning prompting strategies (Tree-of-Thoughts, Self-Refine, Multi-Agent Debate, etc.) report higher pass@1 accuracy than plain Chain-of-Thought, but it was unstudied whether that advantage survives when strategies are compared under an equal test-time-scaling budget (equal sampling time or equal inference cost) via majority voting, rather than at N=1.
+
+## Contributions
+
+- a systematic comparison of 8 prompting strategies under equal sampling-time and equal inference-cost budgets across 6 LLMs x 6 benchmarks, finding plain CoT eventually dominates as test-time scaling (via majority voting) grows
+- a theoretical account (with proofs) of why: CoT has more easy and fewer hard questions than other strategies, and a flatter (more uniform) wrong-answer distribution, both of which make majority voting converge faster and more reliably for CoT
+- an O(1)-complexity closed-form predictor of majority-voting scaling accuracy at arbitrary N from a small number of low-N samples, usable as a practical test-time scaling law
+- two scaling-improvement methods -- adaptively skipping further scaling on judged-hard questions, and dynamically selecting the best-per-question prompting strategy -- that substantially improve accuracy when combined (e.g. GSM8K Majority@10: 86.0% to 97.4%; MATH-500: 15.2% to 61.0%; AIME majority@100: ~30% to 75.7%)
+
+## Method
+
+Formalizes majority-vote test-time scaling for 8 prompting strategies split into non-iterative (Direct Prompting, CoT, Least-to-Most, Step-Back Prompting, Analogous Prompting -- sampled N times, then majority vote) and iterative (Tree-of-Thoughts, Self-Refine, Multi-Agent Debate -- run for N rounds, take the final round's result) categories, tested on 4 open-source LLMs (Qwen2.5-7B, LLaMA-3-8B, GLM-4-9B, Phi-3.5-mini) and 2 closed-source (Gemini-1.5-Flash, GPT-4o-mini) across 6 benchmarks (GSM8K, GSM-Hard, MATH-500, MMLU-high-school biology/chemistry/physics, later extended to GPQA and AIME), under both a fixed sampling-time budget N and a fixed inference-cost budget O (weighted sum of prompt and completion tokens). Proves theorems (via multinomial-distribution asymptotics) characterizing how a strategy's per-question accuracy trend with N depends on whether the question is 'easy' (a single dominant probable answer), 'moderate' (several equally probable answers, one correct), or 'hard' (no correct answer among the dominant probable ones) for that strategy -- easy-question accuracy provably converges to 1, hard-question accuracy provably declines to 0, as N grows. Derives a closed-form, O(1)-complexity Gaussian approximation to predict a strategy's scaling accuracy at any N from only ~40 low-N samples, enabling selection of the best strategy P*_N without exhaustive large-N evaluation. Proposes two scaling-improvement methods: (1) Adaptive -- have the LLM judge whether a question is hard and, if so, stop scaling (answer once) rather than wasting budget on a question whose accuracy would decline with more sampling; (2) Dynamic -- have the LLM choose, per question, which of the 8 strategies to use, rather than fixing one strategy for the whole benchmark.
+
+## Results
+
+Under both fixed-N and fixed-cost-O budgets, CoT is the best-performing prompting strategy 'most of the time' as N grows, on all six models and most benchmarks -- about 80% of the model-benchmark scaling curves conform to CoT eventually dominating, even when CoT's pass@1 (N=1) accuracy is lower than a more complex strategy's. The theoretical analysis (Theorems 1-4, Table 1-3) confirms two mechanisms: CoT has a higher proportion of 'easy' questions and lower proportion of 'hard' questions than competing strategies for every LLM tested (e.g. on Qwen2.5-7B-Instruct, CoT: 88.1% easy/11.6% hard vs. DiP: 86.3%/13.4%, SBP: 84.7%/12.8%), and CoT's wrong-answer distribution is closer to uniform (lower KL divergence to uniform in 4 of 6 LLMs tested) meaning its errors are less concentrated on any single wrong answer, so voting corrects them faster as N grows. The O(1)-complexity Gaussian-approximation predictor, validated on LLaMA-3-8B-Instruct/GSM8K using only 40 samples, predicts scaling accuracy with error dropping below 1% once N>=10, and correctly identifies the true best strategy P*_N for every tested N in {1,3,5,10,20,...,1000} (Table 4). The Adaptive method (skip further scaling on LLM-judged-hard questions) closely tracks an oracle upper bound and improves performance over vanilla scaling for all 5 non-iterative strategies, though the LLM's self-judged difficulty underperforms the oracle since models tend to over-believe a question is easy, especially for complex strategies (SBP, AnP). The Dynamic method (LLM picks the best strategy per question) nearly matches CoT's accuracy alone (since the LLM selects CoT for 99.7% of questions) but an oracle-strategy-selection upper bound shows large additional headroom, since 'oracle' per-question-best-strategy accuracy does not decline with scaling the way any single fixed strategy's hard-question accuracy does. Combining Adaptive and Dynamic (with oracles as upper bound) yields the largest gains: Majority@10 rises from 86.0% to 97.4% on GSM8K and from 15.2% to 61.0% on MATH-500 for LLaMA-3-8B-Instruct. Extended experiments on GPQA and AIME confirm generality; the combined method raises AIME accuracy from just over 30% (majority@100) to 75.7%.
+
+## Limitations
+
+The paper focuses on majority voting as the scaling mechanism and explicitly does not test more complex scaling approaches such as Monte Carlo Tree Search. The finding that CoT dominates as scaling grows does not hold universally for every LLM/benchmark pair -- about 20% of tested configurations deviate from the trend, and the paper notes this depends on dataset composition (a benchmark specifically curated with hard questions for a given strategy would show that strategy's performance continuously declining with scaling rather than dominating). The proposed Adaptive and Dynamic improvement methods, while theoretically motivated and empirically validated against oracles, are noted by the authors to not be fully realized by LLMs alone in practice -- the LLM's self-assessment of question difficulty and self-selection of the optimal strategy underperform their oracle upper bounds, motivating future work on more practicable methods to close this gap.
+
+## Why it matters here
+
+- **overthinking**: Directly central to the topic: this is a rigorous, theory-backed study of when spending more test-time compute helps versus hurts, showing that a fixed prompting/scaling strategy's accuracy provably declines with more sampling on 'hard' questions (more compute making things worse, a core overthinking-adjacent phenomenon) while easy-question accuracy provably converges to 1 -- and that per-question difficulty-adaptive stopping plus per-question strategy selection substantially outperforms any single fixed strategy scaled uniformly. Its practical O(1) scaling-law predictor and its finding that complex, seemingly-stronger prompting strategies (ToT, Self-Refine, MAD) are eventually beaten by simple CoT under equal budget is a strong, quantified caution against assuming more elaborate reasoning scaffolding is worth its added inference cost.
+
+## Entities
+
+- **Concepts**: easy / moderate / hard question (defined via answer-probability structure under majority voting), test-time-scaling law for majority voting, O(1) Gaussian-approximation scaling predictor, adaptive (difficulty-aware) scaling, dynamic (per-question) strategy selection
+- **Methods**: [Direct Prompting](../../../../wiki/methods/direct-prompting.md), Chain-of-Thought (CoT), Least-to-Most prompting, Tree-of-Thoughts, [Self-Refine](../../../../wiki/methods/self-refine.md), Step-Back Prompting, Analogous Prompting, Multi-Agent Debate, [majority voting / self-consistency](../../../../wiki/methods/majority-voting-self-consistency.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [GSM-Hard](../../../../wiki/datasets/gsm-hard.md), [MATH-500](../../../../wiki/datasets/math500.md), MMLU (high-school biology/chemistry/physics), [GPQA](../../../../wiki/datasets/gpqa.md), [AIME](../../../../wiki/datasets/aime.md)
+
+Tags: `test-time-scaling`, `prompting-strategies`, `majority-voting`, `chain-of-thought`, `scaling-law`
 
 ## Abstract
 

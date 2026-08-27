@@ -43,7 +43,7 @@ _not recorded_
 ## Entities
 
 - **Concepts**: [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), process reward model (PRM) signals, weighted signal aggregation
-- **Methods**: weighted aggregation of LLM and PRM signals, process reward model (PRM) scoring, self-consistency / majority voting
+- **Methods**: weighted aggregation of LLM and PRM signals, process reward model (PRM) scoring, [self-consistency / majority voting](../../../../wiki/methods/self-consistency-majority-voting.md)
 - **Datasets**: _none recorded_
 
 Tags: `test-time-scaling`, `prm`, `aggregation`, `efficiency`, `response-selection`

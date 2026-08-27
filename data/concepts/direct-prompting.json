@@ -1,17 +1,26 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "direct answering",
+    "no-CoT prompting"
+  ],
+  "definition": "Prompting an LLM to answer a question directly without any explicit reasoning steps, used across sources as the zero-extra-compute baseline against which chain-of-thought and other test-time-scaling prompting strategies are measured. Sources note it can sometimes outperform CoT on questions that do not actually require reasoning (an overthinking symptom), and it is the fastest-recovering strategy the EchoCoT security study exploits via ordinary API tool-calling.",
   "evidence": [
     {
       "id": "arxiv:2608.20055",
       "kind": "paper",
       "note": "A security study showing that the hidden chain-of-thought of a black-box reasoning model can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must be retained across tool calls within a turn.",
       "title": "EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2025.acl-long.1356",
+      "kind": "paper",
+      "note": "Systematically compares 8 prompting strategies under equal sampling budget for majority-vote test-time scaling across 6 LLMs x 6 benchmarks, finding plain Chain-of-Thought eventually dominates every more elaborate strategy as sampling time N grows -- because CoT has more easy/fewer hard questions and a flatter wrong-answer distribution -- and shows combining per-question difficulty-adaptive scaling with per-question optimal-strategy selection lifts GSM8K accuracy from 86.0% to 97.4% (Majority@10) and MATH-500 from 15.2% to 61.0%.",
+      "title": "Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory"
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "method",
-  "last_seen": "2026-08-21T03:41:11Z",
+  "last_seen": "2026-08-27T22:59:02Z",
   "name": "Direct Prompting",
   "related": [
     "hidden-chain-of-thought-as-a-model-asset",
@@ -50,9 +59,36 @@
     "sonnet-4-6",
     "opus-4-6",
     "o4-mini",
-    "gpt-5-nano"
+    "gpt-5-nano",
+    "easy-moderate-hard-question-defined-via-answer-probability-structure-under-major",
+    "test-time-scaling-law-for-majority-voting",
+    "o-1-gaussian-approximation-scaling-predictor",
+    "adaptive-difficulty-aware-scaling",
+    "dynamic-per-question-strategy-selection",
+    "chain-of-thought-cot",
+    "least-to-most-prompting",
+    "tree-of-thoughts",
+    "self-refine",
+    "step-back-prompting",
+    "analogous-prompting",
+    "multi-agent-debate",
+    "majority-voting-self-consistency",
+    "gsm8k",
+    "gsm-hard",
+    "mmlu-high-school-biology-chemistry-physics",
+    "gpqa",
+    "aime",
+    "qwen2-5-7b-instruct",
+    "llama-3-8b-instruct",
+    "glm-4-9b-chat",
+    "phi-3-5-mini-instruct",
+    "gemini-1-5-flash",
+    "gpt-4o-mini"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "chain-of-thought-baseline",
+    "rethinking-the-role-of-prompting-strategies"
+  ],
   "schema_version": 1,
   "slug": "direct-prompting",
   "topics": [

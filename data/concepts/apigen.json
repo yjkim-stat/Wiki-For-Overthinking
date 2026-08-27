@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1078",
+      "kind": "paper",
+      "note": "SHAD automatically separates a training sample's tokens into 'reasoning' (sample-specific, hard to predict) versus 'boilerplate' (repetitive, format/template) tokens by fine-tuning on a small shuffled-input-output subset and comparing per-token loss before/after, and the resulting Reasoning-highlighted Fine-Tuning (RFT) -- which adaptively up-weights reasoning tokens during agent SFT -- outperforms SFT, regex-based weighting, and two other token-differentiation baselines on held-in and held-out agent benchmarks.",
+      "title": "Disentangling Reasoning Tokens and Boilerplate Tokens For Language Model Fine-tuning"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "APIGen",
+  "related": [
+    "reasoning-tokens-vs-boilerplate-tokens",
+    "shuffle-aware-token-predictability-discrimination",
+    "adaptive-softmax-based-loss-re-weighting",
+    "reasoning-highlighted-fine-tuning",
+    "shuffle-aware-discriminator-shad",
+    "reasoning-highlighted-fine-tuning-rft",
+    "regex-based-token-weighting-baseline",
+    "rho-1-reference-model-noise-masking-baseline",
+    "rewardft-dpo-based-token-level-reward-baseline",
+    "toolbench",
+    "sharegpt-general-data",
+    "stabletoolbench",
+    "bfcl",
+    "t-eval",
+    "nexus",
+    "llama-3-8b",
+    "llama-3-1-8b",
+    "llama-3-2-3b-generalization-check",
+    "qwen-generalization-check"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "apigen",
+  "topics": [
+    "overthinking"
+  ]
+}

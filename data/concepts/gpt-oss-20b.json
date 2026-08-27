@@ -1,7 +1,8 @@
 {
   "aliases": [
     "GPT-OSS",
-    "gpt-oss-20b"
+    "gpt-oss-20b",
+    "gpt-oss-20B"
   ],
   "definition": "GPT-OSS-20B is a language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. ParaTempo uses it, with Qwen3.5-35B-A3B, as a backbone for training-free parallel reasoning: on GPT-OSS-20B mean latency falls 32.2% (129.7s to 88.0s) and tokens 18.1%, but accuracy falls from self-consistency's 71.8% to 68.0%, and on HMMT26 the model is the paper's worst cell at 5.3 points below SC@16 -- a larger efficiency gain and a larger accuracy cost than on the Qwen backbone. FROST prunes attention-marked sentence-level reasoning outliers from chains of thought produced by GPT-OSS-20B and Phi-4-Reasoning, reporting a 69.68% average token reduction and 26.70% average accuracy gain over the base model across GSM8K, MATH500, AIME24 and Minerva. Both treat it as an off-the-shelf reasoning model whose chain of thought is long enough to be worth cutting; neither reports its architecture or training.",
   "evidence": [
@@ -18,6 +19,18 @@
       "title": "Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents"
     },
     {
+      "id": "doi:10.18653/v1/2026.acl-industry.154",
+      "kind": "paper",
+      "note": "Thinking with Reasoning Skills (TRS) is a training-free, black-box-compatible framework that offline-distills long deliberation trajectories (successes and failures) into compact, retrievable 'skill cards' (Trigger/Do/Avoid/Check/Risk), retrieves and injects the most relevant cards into a new query's prompt at inference time instead of forcing the model to re-derive solution logic from scratch, and empirically reduces reasoning tokens while matching or improving accuracy versus standard CoT across multiple LLMs on math and coding benchmarks -- with gains growing on harder problems, unlike budget-forcing baselines (TALE, Chain-of-Draft) which collapse below baseline accuracy as difficulty increases.",
+      "title": "Thinking with Reasoning Skills: Fewer Tokens, More Accuracy"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1256",
+      "kind": "paper",
+      "note": "REFRAIN is a training-free framework that halts CoT reasoning by detecting 'reflective redundancy' -- a step that is both reflective (matches a self-check/strategy-shift/uncertainty/retrospective trigger vocabulary) and semantically redundant (adds no new content beyond a provisional answer) -- with the stopping threshold adaptively tuned per-difficulty by a sliding-window UCB bandit rewarded on answer-likelihood minus a length penalty, reducing token usage 20-55% while matching or exceeding vanilla CoT accuracy across two model families and four benchmarks, outperforming five other early-stopping baselines and several fixed-threshold ablations.",
+      "title": "Stop When Enough: Adaptive Early-Stopping for Chain-of-Thought Reasoning"
+    },
+    {
       "id": "title:e2cdfd631cb4eda0",
       "kind": "paper",
       "note": "FROST uses attention weights to identify and prune sentence-level 'reasoning outliers' from a reasoning model's chain of thought, reporting an average 69.68% token reduction and 26.70% accuracy gain over the base model on four maths benchmarks.",
@@ -26,7 +39,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "method",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-27T23:27:33Z",
   "name": "GPT-OSS-20B",
   "related": [
     "temporal-confidence",
@@ -72,6 +85,36 @@
     "swe-bench-verified-496-498-eligible-tasks-per-condition-500-task-full-benchmark",
     "gpt-oss-120b",
     "qwen3-6-35b-a3b",
+    "skill-card-trigger-do-avoid-check-risk",
+    "offline-distillation-of-reasoning-experience-vs-online-reasoning-from-scratch",
+    "reusable-procedural-skill-retrieval",
+    "difficulty-sliced-evaluation-baseline-thinking-token-threshold",
+    "thinking-with-reasoning-skills-trs",
+    "structured-skill-card-distillation-trigger-do-avoid-check-risk-schema",
+    "bm25-dense-bge-m3-faiss-hybrid-retrieval",
+    "tale-ep-chain-of-draft-nowait-baselines",
+    "deepmath-103k-93k-library-construction-10k-held-out",
+    "nemotron-competitive-programming-v1-26-6k-training-1k-held-out",
+    "aops-derived-contest-math-library-7-616-problems-evaluated-on-aime-2024-2025-202",
+    "gemini-3-flash-preview",
+    "gpt-4o-mini",
+    "doubao-seed-1-8-pro-math",
+    "doubao-seed-2-0-pro-coding",
+    "reflective-redundancy-reflective-semantically-redundant-step",
+    "two-stage-stop-discriminator",
+    "sliding-window-upper-confidence-bound-sw-ucb-adaptive-thresholding",
+    "answer-only-length-normalized-likelihood-reward",
+    "when-to-stop-as-a-test-time-scaling-axis",
+    "sliding-window-upper-confidence-bound-sw-ucb-bandit",
+    "two-stage-reflective-redundancy-stop-discriminator",
+    "no-thinking-deer-halt-cot-alphaone-cot-valve-deepconf-baselines",
+    "gsm8k",
+    "math500",
+    "commonsenseqa-csqa",
+    "qwen3-8b",
+    "acemath-7b-reward-model-ablation",
+    "qwen2-5-math-prm-7b-ablation",
+    "skywork-reward-v2-8b-ablation",
     "reasoning-outliers",
     "efficient-reasoning",
     "chain-of-thought-pruning",
@@ -85,8 +128,6 @@
     "selfbudgeter",
     "thinkless",
     "phi-4-reasoning",
-    "gsm8k",
-    "math500",
     "aime-2024",
     "minerva"
   ],

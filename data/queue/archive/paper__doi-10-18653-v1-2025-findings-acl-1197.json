@@ -1,0 +1,130 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2025-findings-acl-1197.pdf"
+  },
+  "completed_at": "2026-08-27T22:54:33Z",
+  "created_at": "2026-08-27T13:56:48Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2025.findings-acl.1197",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Emerging large reasoning models (LRMs), such as DeepSeek-R1 models, leverage long chain-of-thought (CoT) reasoning to generate structured intermediate steps, enhancing their reasoning capabilities. However, long CoT does not inherently guarantee safe outputs, potentially leading to harmful consequences such as the introduction of security vulnerabilities in code or the spread of misinformation. Current research on large language model (LLM) safety usually focuses on short-answer responses, overlooking the long CoT style outputs of LRMs. To bridge this gap, we conduct a systematic study of LRM safety. First, we investigate safety evaluators calibrated against human annotations. Using our newly developed metrics, we thoroughly assess the safety of 13 state-of-the-art LRMs on StrongReject and WildJailbreak datasets. Our results show that LRMs are not safe compared to their reasoning advance. Further, we perform a fine-grained analysis of the reasoning trace and final answer. We find that three decoding strategies-ZeroThink, LessThink, and MoreThink-can improve model safety without additional training. However, these strategies either use constrained reasoning traces or incur high inference costs. To better strengthen LRM safety, we introduce SafeChain, the first-of-its-kind safety training dataset in CoT style. We fine-tune two LRMs with SafeChain, showing that it not only enhances model safety but also preserves performance across 6 reasoning benchmarks.",
+    "authors": [
+      "Fengqing Jiang",
+      "Zhangchen Xu",
+      "Yuetai Li",
+      "Luyao Niu",
+      "Zhen Xiang",
+      "Bo Li",
+      "Bill Yuchen Lin",
+      "Radha Poovendran"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2025.findings-acl.1197.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities",
+    "url": "https://aclanthology.org/2025.findings-acl.1197/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "thought/answer safety decomposition",
+      "ZeroThink / LessThink / MoreThink (decoding-time thought-length control)",
+      "safety-vs-reasoning-length correlation",
+      "CoT-style safety alignment data"
+    ],
+    "contributions": [
+      "a calibration study identifying Llama-Guard as the most human-aligned safety evaluator for long-CoT LRM outputs among four candidates tested",
+      "a comprehensive safety evaluation of 13 state-of-the-art LRMs showing none is safe across both StrongReject and WildJailbreak, that unsafe responses are systematically longer than safe ones, and that long-CoT fine-tuning does not inherently improve safety over the base instruction-tuned model",
+      "a fine-grained thought/answer decomposition showing unsafe reasoning thoughts strongly predict unsafe final answers, and three training-free decoding strategies (ZeroThink, LessThink, MoreThink) that each improve safety by controlling thought length, with distinct trade-offs (reasoning-capability loss vs. inference cost)",
+      "SafeChain, the first CoT-style safety-alignment training dataset, which improves LRM safety while preserving math/coding performance across six benchmarks, unlike a comparably-sized non-CoT safety dataset baseline that causes over-refusal and reasoning-performance degradation"
+    ],
+    "datasets": [
+      "StrongReject",
+      "WildJailbreak",
+      "XSTest",
+      "GSM8K",
+      "MATH-500",
+      "AIME24",
+      "HumanEval",
+      "MBPP",
+      "LiveCodeBench (v5)",
+      "SAFECHAIN (new, 40,000 instruction-response pairs)"
+    ],
+    "limitations": "No explicit Limitations section is present in the retrieved pages of this paper (unusual for the venue's requirements, but not visible in the excerpted content), so no author-stated limitations are available to report; the paper's Conclusion frames extending SafeChain to multilingual settings and further refining long-CoT safety evaluation methods as future work.",
+    "method": "First runs a pilot study comparing four safety evaluators (Llama-Guard, Refusal String Matching, OpenAI Moderation API, HarmBench-trained LLM judge, StrongReject rubric-based LLM judge) against 360 human-annotated query-response pairs, finding Llama-Guard has the best accuracy/F1/PCC and adopting it as the evaluator for the rest of the study. Evaluates 13 LRMs (DeepSeek-R1 series from 1.5B to 671B, Skywork-o1, QwQ, Sky-T1, Gemini-Thinking, Kimi-k1.5, plus Claude-3.7-Sonnet) on StrongReject (policy-violating prompts) and WildJailbreak (adversarially generated jailbreak prompts) under greedy and non-deterministic sampling, using three metrics: Safe@1 (fraction of K sampled responses that are safe), Safe@K (all K safe), ConsSafe@K (majority-vote safe). Runs a fine-grained analysis decomposing DeepSeek-R1 responses into thought (y_CoT) and final answer (y_ans) segments, safety-evaluating each separately. Tests three training-free decoding strategies to control thought length: ZeroThink (force an empty thought, `<think></think>`), LessThink (force a short thought prefix), and MoreThink (force continued reasoning via Muennighoff et al.'s minimum-forcing, replacing the end-of-thinking delimiter up to 10 times or 10,000 tokens). Constructs SafeChain, a new CoT-style safety-alignment dataset: samples 50,000 WildJailbreak instructions (including harmless/adversarial-harmless prompts to preserve helpfulness), generates 5 responses per instruction with R1-70B, filters via Llama-Guard to keep only instructions where all 5 responses are safe, and randomly selects one safe response per remaining instruction, yielding 40,000 instruction-response pairs at ~$200 total API cost; fine-tunes R1-7B and R1-8B on SafeChain versus a WildJailbreak-40K (WJ-40K) baseline (same instructions, safe responses generated by GPT-3.5) and evaluates math (GSM8K, MATH-500, AIME24), coding (HumanEval, MBPP, LiveCodeBench), safety (StrongReject, WildJailbreak) and exaggerated-safety/over-refusal (XSTest) benchmarks.",
+    "methods": [
+      "ZeroThink / LessThink / MoreThink decoding strategies",
+      "Llama-Guard safety evaluation",
+      "pairwise LLM-as-judge safety comparison",
+      "SafeChain data construction (sample-then-filter via Llama-Guard)"
+    ],
+    "models": [
+      "DeepSeek-R1 series (1.5B to 671B / R1)",
+      "Skywork-o1",
+      "QwQ",
+      "Sky-T1",
+      "Gemini-Thinking",
+      "Kimi-k1.5",
+      "Claude-3.7-Sonnet",
+      "Llama-3.3-70B-Instruct (base-model comparison)"
+    ],
+    "one_liner": "SafeChain systematically evaluates 13 large reasoning models' safety on StrongReject/WildJailbreak, finding no model is safe on both, that unsafe responses are consistently longer than safe ones, that safety improves within a model family as it scales but long-CoT fine-tuning itself does not inherently improve safety over the base instruction-tuned model, and that training-free decoding strategies controlling thought length (ZeroThink most effectively) improve safety without training -- motivating a new CoT-style safety training dataset that preserves reasoning performance while improving safety.",
+    "problem": "Long chain-of-thought reasoning in large reasoning models (LRMs) does not inherently guarantee safe outputs -- the final answer can look safe while intermediate reasoning contains harmful content -- yet existing LLM safety research and evaluation methods focus on short-answer responses and it was unknown whether standard safety evaluators work reliably on long CoT traces, whether longer/more elaborate reasoning helps or hurts safety, and how to improve LRM safety without sacrificing reasoning capability.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant with a specific, quantified finding: unsafe responses are consistently longer than safe ones across every model tested, and a training-free 'think less' intervention (ZeroThink, forcing no reasoning at all) improves safety more effectively than either the default long-CoT setup or forced longer reasoning (MoreThink) in most cases -- a concrete case where more reasoning correlates with worse (not better) outcomes on a dimension other than accuracy. The paper's finding that long-CoT fine-tuning does not inherently improve model quality (here safety) versus the base instruction-tuned model, and that the model's own reasoning trace can 'talk itself into' an unsafe answer even when the eventual thought contains reflection, both extend the overthinking literature's core claim -- that longer reasoning traces are not uniformly beneficial -- from accuracy specifically to safety as a second axis where the same pathology appears."
+    },
+    "results": "No evaluated LRM is safe on both StrongReject and WildJailbreak simultaneously (Table 4); Claude-3.7-Sonnet and Kimi-k1.5, which set external safety filters, likely have their safety performance overestimated by the evaluation. Within the DeepSeek-R1 family, safety improves monotonically with model scale from R1-1.5B (Safe@1 19.2% on StrongReject greedy) to R1-70B/R1 (Safe@1 55.3%/84.7%). Unsafe responses are consistently longer (more response tokens) than safe ones across models (histogram analysis on R1-7B/8B, Figure 2). Comparing R1-70B to its own pretrained base Llama-3.3-70B-Instruct via pairwise LLM-judge evaluation, R1-70B loses (is judged less safe) in 45.7% of cases versus Llama-3-Instruct and wins only 32.3% -- direct evidence that fine-tuning with long CoT does not inherently enhance, and can degrade, safety relative to the base instruction-tuned model. Fine-grained thought/answer decomposition shows safe thoughts do not always lead to safe answers (only 41.1%/49.0% of StrongReject/WildJailbreak examples have both safe thought and safe answer) and unsafe thoughts are strongly predictive of unsafe answers (34.8%/36.5% of cases), though the model's reflection/self-correction can sometimes recover a safe answer from an unsafe thought. Safety degrades as sampling temperature increases (Safe@K for R1-7B drops from ~30% to <20% as temperature rises to 1.2), while top-p/top-k settings have little effect. All three decoding-length-control strategies improve safety over the default long-CoT setup without any training, with ZeroThink (no thinking at all) most effective (e.g. R1-7B StrongReject Safe@1 rising from 36.4% default to 99.7% with ZeroThink), LessThink close behind, and MoreThink (forced continued reasoning) also improving safety -- attributed to the model using extended context to reflect on and correct an initially risky reasoning trajectory -- though both ZeroThink/LessThink sacrifice CoT's reasoning benefits and MoreThink incurs high inference cost. SafeChain fine-tuning improves safety over the vanilla (untrained) R1-7B/8B baseline (e.g. R1-7B StrongReject Safe@1 36.4%->53.4%, WildJailbreak 48.8%->62.8%) while preserving math/coding performance across all tested benchmarks, unlike the WJ-40K baseline, which achieves the highest raw safety scores but causes over-refusal (higher XSTest refusal rate) and substantial coding-performance degradation (R1-7B LiveCodeBench: 39.3%->14.5% under WJ-40K vs. 39.3%->39.6% under SafeChain).",
+    "tags": [
+      "overthinking",
+      "safety",
+      "long-chain-of-thought",
+      "reasoning-trace-analysis",
+      "safety-alignment-data"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2025-findings-acl-1197",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

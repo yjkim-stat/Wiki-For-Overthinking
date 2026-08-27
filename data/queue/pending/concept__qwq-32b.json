@@ -1,0 +1,63 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reflection Steering is a training-free activation-space intervention that isolates reflection-associated computation from general reasoning via PCA-purified, orthogonalized steering directions calibrated per layer, cutting thinking tokens by 16.9% on average across six model-benchmark settings with accuracy statistically equivalent to the raw model.",
+        "title": "Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces the Long CoT Collection, a 100K-example dataset built by having short-CoT LLMs (GPT-4o) generate o1-style long reasoning traces from a 1K seed of teacher-annotated reasoning flow and thought-budget targets, showing it is a stronger RL cold-start than the base model (2-3x larger RLVR gains) and offers built-in controllability over thought budget to address overthinking.",
+        "title": "One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.",
+        "title": "A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-27T23:01:46Z",
+  "instructions": "Revise the wiki definition for 'QwQ-32B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    QwQ-32B is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight models on HazMart and finds it the best on both axes at 74.7-75.3% chain-of-thought faithfulness and 73.7-73.9% safe action, and it is the only model the paper takes to the mechanistic stage: two anti-correlated (cosine about -0.45) residual-stream directions at the Layer 44 attention output, peaking at the action-commit token, with 5-fold AUROC 0.94 for safety and 0.78 for faithfulness; steering them moves untampered trace length from a median 808 tokens to 742 (-8%) at alpha = +3 on the safety direction and 1,019 (+26%) at -3. A*-Thought uses it as one of three 32B backbones for compressed-reasoning fine-tuning, reporting 2.39x the accuracy of a fine-tuned QwQ-32B under a 512-token budget. Neither paper says anything about how the model itself was built.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "QwQ-32B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "QwQ-32B",
+    "previous_definition": "QwQ-32B is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight models on HazMart and finds it the best on both axes at 74.7-75.3% chain-of-thought faithfulness and 73.7-73.9% safe action, and it is the only model the paper takes to the mechanistic stage: two anti-correlated (cosine about -0.45) residual-stream directions at the Layer 44 attention output, peaking at the action-commit token, with 5-fold AUROC 0.94 for safety and 0.78 for faithfulness; steering them moves untampered trace length from a median 808 tokens to 742 (-8%) at alpha = +3 on the safety direction and 1,019 (+26%) at -3. A*-Thought uses it as one of three 32B backbones for compressed-reasoning fine-tuning, reporting 2.39x the accuracy of a fine-tuned QwQ-32B under a 512-token budget. Neither paper says anything about how the model itself was built.",
+    "source_count": 4
+  },
+  "task_id": "concept__qwq-32b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

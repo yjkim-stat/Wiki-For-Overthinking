@@ -1,0 +1,118 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2025-acl-long-232.pdf"
+  },
+  "completed_at": "2026-08-27T22:49:23Z",
+  "created_at": "2026-08-27T13:56:46Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2025.acl-long.232",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "The advent of test-time scaling in large language models (LLMs), exemplified by OpenAI’s o1 series, has advanced reasoning capabilities by scaling computational resource allocation during inference. While successors like QwQ, Deepseek-R1 (R1) and LIMO replicate these advancements, whether these models truly possess test-time scaling capabilities remains underexplored. This study found that longer CoTs of these o1-like models do not consistently enhance accuracy; in fact, correct solutions are often shorter than incorrect ones for the same questions. Further investigation shows this phenomenon is closely related to models’ self-revision capabilities - longer CoTs contain more self-revisions, which often lead to performance degradation. We then compare sequential and parallel scaling strategies on QwQ, R1 and LIMO, finding that parallel scaling achieves better coverage and scalability. Based on these insights, we propose “Shortest Majority Vote”, a method that combines parallel scaling strategies with CoT length characteristics, significantly improving models’ test-time scalability compared to conventional majority voting approaches.",
+    "authors": [
+      "Zhiyuan Zeng",
+      "Qinyuan Cheng",
+      "Zhangyue Yin",
+      "Yunhua Zhou",
+      "Xipeng Qiu"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2025.acl-long.232.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?",
+    "url": "https://aclanthology.org/2025.acl-long.232/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "inverse scaling with chain-of-thought length",
+      "self-revision failure (successful- vs. failed-revision rate)",
+      "sequential vs. parallel test-time scaling",
+      "Shortest Majority Vote (length-discounted majority voting)"
+    ],
+    "contributions": [
+      "systematic evidence across five o1-like models and four benchmarks that longer chain-of-thought does not consistently improve, and sometimes inversely correlates with, accuracy -- correct solutions are on average shorter than incorrect ones on matched questions",
+      "identification of insufficient self-revision capability (low wrong-to-correct conversion rate, comparable or higher correct-to-wrong conversion rate for weaker models) as the primary mechanistic cause of failed sequential scaling",
+      "a direct comparison showing parallel scaling achieves better coverage and scalability than sequential self-revision at matched compute for o1-like models",
+      "Shortest Majority Vote, a parallel-scaling method that weights majority-vote answer clusters by count divided by log-mean-solution-length, significantly outperforming conventional Majority Vote and a naive shortest-solution heuristic"
+    ],
+    "datasets": [
+      "MATH-500",
+      "AIME (AIMO validation set, 90 questions)",
+      "Omni-MATH (500-question sample)",
+      "GPQA-diamond (198 questions)"
+    ],
+    "limitations": "Evaluation on the full R1-671b model was limited to the initial length/accuracy analysis (Figures 1-2) due to its considerable inference cost; all subsequent revision/scaling experiments used the smaller distilled R1 variants instead. The experimental framework is limited to static model checkpoints; the authors explicitly flag that test-time scaling behavior under dynamic (e.g. RL-training-time-evolving) checkpoints is unstudied and left to future work. Shortest Majority Vote may have limited applicability to models with genuinely strong sequential-scaling capability (were one to exist), since it assumes shorter solutions are a useful signal -- though the authors note solution length remains valuable as a guidance signal for candidate selection even in that case, and suggest a 'Longest Majority Vote' variant as a fallback.",
+    "method": "Samples each of five o1-like models (QwQ, R1-671b, R1-Distill-32b/14b/1.5b, LIMO) five times per question across four benchmarks (MATH-500, AIME, Omni-MATH, GPQA-diamond), sorts the five same-question solutions by length into five rank groups, and compares length and accuracy across groups. Separately measures, for each question with both correct and incorrect sampled solutions, whether correct solutions are shorter or longer on average. To probe why, counts self-revision markers ('Wait', 'Alternatively') as a proxy for solution length growth, and force-prompts models to continue reasoning for up to 40 additional steps (using the higher-probability of 'Wait'/'Alternatively' as the continuation cue) on AIME, tracking accuracy, solution length, and the proportion of wrong-to-correct versus correct-to-wrong answer flips across revision steps, plus the proportion of revisions that simply retain the original (possibly wrong) answer. Compares sequential scaling (iterative self-revision) against parallel scaling (10 independently sampled solutions, majority vote) on coverage (pass@k) and accuracy for R1-Distill-32b and QwQ. Proposes Shortest Majority Vote: within each majority-vote answer cluster i (count c_i, mean solution length l_i), score s_i = c_i / log(l_i), and select the cluster with the highest score as the final answer -- log-discounting length so long solutions do not simply dominate purely on token count, motivated by the empirical log-linear relationship between performance and compute.",
+    "methods": [
+      "forced continued-reasoning ('Wait'/'Alternatively' prompted revision)",
+      "sequential scaling (self-revision)",
+      "parallel scaling (majority vote)",
+      "Shortest Majority Vote"
+    ],
+    "models": [
+      "QwQ",
+      "DeepSeek-R1 (R1-671b)",
+      "R1-Distill-Qwen-32b",
+      "R1-Distill-Qwen-14b",
+      "R1-Distill-Qwen-1.5b",
+      "LIMO"
+    ],
+    "one_liner": "Systematically shows that o1-like models (QwQ, R1, LIMO, and R1-Distill variants) do not actually possess consistent sequential test-time scaling: correct solutions are on average shorter than incorrect ones on the same questions, accuracy does not consistently improve (and sometimes inverse-scales) with solution length, and this traces to a failure of self-revision (models rarely fix wrong answers and sometimes break correct ones) -- leading to Shortest Majority Vote, a parallel-scaling method weighting majority-vote clusters by inverse-log solution length, which significantly outperforms both plain Majority Vote and a shortest-solution-only heuristic.",
+    "problem": "Whether o1-like reasoning models genuinely possess test-time scaling capability -- performance that reliably improves as the chain-of-thought is allowed to grow longer -- remained unverified, despite widespread assumption that longer CoT inherently yields better reasoning.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly central to the topic and one of its strongest empirical anchors: it provides systematic, multi-model, multi-benchmark evidence that longer reasoning traces in o1-like models do not reliably improve accuracy and can inverse-scale, with a clear mechanistic account (self-revision failing to fix errors, and for the weakest models actively breaking correct answers more often than it fixes wrong ones) -- directly explaining a major form of overthinking as a self-revision-capability deficit rather than a pure length problem. Its practical fix, Shortest Majority Vote, is a concrete, immediately-applicable inference-time method that uses solution length itself as a signal to counteract this failure mode."
+    },
+    "results": "The longest-solution group is on average roughly twice as long as the shortest-solution group across all models/benchmarks, but accuracy across the five length-ranked groups shows no consistent improvement, and for AIME and Omni-MATH specifically an inverse-scaling pattern appears (accuracy decreases as solution length increases). Across all model sizes and datasets, average correct-solution length is consistently shorter than average incorrect-solution length on the same questions; this length gap is larger for weaker models (QwQ, R1-Distill-1.5b) than for the strongest model (R1-671b). Solution length correlates strongly (near-linearly) with the frequency of self-correction markers ('Wait'), confirming length growth is driven by self-revision. Forced continued-reasoning experiments (up to 40 extra steps on AIME) show solution length grows almost linearly with steps (nearly tripling by step 40), while accuracy of QwQ and R1-Distill-1.5b decreases monotonically with more revision steps; R1-Distill-32b/14b and LIMO show initial improvement that plateaus/oscillates after ~10 steps. The successful-revision rate (wrong-to-correct) stays below 10% for all five models throughout revision, while the failed-revision rate (correct-to-wrong) is comparable or, for QwQ and R1-Distill-1.5b, higher than the successful-revision rate -- directly explaining why forcing more revision hurts these two models. When the model's original answer is wrong, it simply retains that wrong answer in 32-72% of revisions (R1-Distill-32b 72%, R1-14b 70%, R1-1.5b 58%, LIMO 54%, QwQ 32%), showing self-revision mostly fails to correct errors rather than actively worsening them, except for the two weakest sequential-scalers. Comparing scaling strategies: parallel scaling (10 samples, majority vote) achieves substantially higher coverage (pass@k) than sequential scaling (40-step self-revision) at matched token budget for both R1-Distill-32b and QwQ, and sequential revision's computational cost is higher for the same token count since it attends over a longer context. Shortest Majority Vote significantly outperforms both plain Majority Vote and a naive 'always pick shortest solution' heuristic across R1-Distill-32b/14b/1.5b, QwQ and LIMO on both AIME and GPQA, at both 2 and 16 sampled solutions (e.g. AIME, 16 solutions: R1-Distill-1.5b 40.00% MV -> 42.20% Shortest MV; QwQ 51.33% MV -> 62.25% Shortest MV; LIMO 68.88% MV -> 70.00% Shortest MV); a log-length weighting outperforms sqrt/linear/square alternatives, which are shown to be unstable and sometimes degrade performance versus plain Majority Vote.",
+    "tags": [
+      "overthinking",
+      "test-time-scaling",
+      "self-revision",
+      "inverse-scaling",
+      "majority-voting"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2025-acl-long-232",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

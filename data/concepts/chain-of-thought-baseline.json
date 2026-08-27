@@ -1,8 +1,10 @@
 {
   "aliases": [
-    "Chain-of-Thought (baseline)"
+    "Chain-of-Thought (baseline)",
+    "CoT baseline",
+    "single-pass CoT"
   ],
-  "definition": "",
+  "definition": "The single-pass chain-of-thought generation against which test-time-scaling and adaptive-reasoning methods are compared: one model call producing one reasoning trace and one answer, with no recursion, resampling, or per-task configuration search. Sources use it as the zero-extra-compute reference point that recursion operators (GROW/PRUNE/BRANCH) and adaptive plugins (e.g. picking prompt format, temperature, and step count per task) are measured against.",
   "evidence": [
     {
       "id": "arxiv:2608.23956",
@@ -60,7 +62,10 @@
     "mmlu-chem",
     "medexqa"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "recursive-agentic-reasoning",
+    "adareasoner"
+  ],
   "schema_version": 1,
   "slug": "chain-of-thought-baseline",
   "topics": [

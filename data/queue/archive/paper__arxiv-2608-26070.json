@@ -1,0 +1,136 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-26070.pdf"
+  },
+  "completed_at": "2026-08-27T22:38:01Z",
+  "created_at": "2026-08-27T13:56:46Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.26070",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-time scaling uses extra test-time compute to improve performance, such as letting language models reason longer when solving a problem. As models keep the entire reasoning trace in memory via full attention, hard tasks that need long thinking can be prohibitively expensive. However, we find most intermediate reasoning tokens lose importance as the model continues reasoning. This calls into question whether retaining them is worth the cost. Based on this insight, we propose Prefix Sliding, which discards tokens during reasoning that are not part of the prefix or the window of the last few thousand tokens. The prefix has key instructions and tools available to the model, while the most recent tokens are the current reasoning the model is working on. This caps the total memory requirement regardless of how long the model reasons, allowing for efficient long-horizon test-time scaling. Without training, Prefix Sliding can make existing models 3x faster while maintaining performance. Training with Prefix Sliding using reinforcement learning can achieve better performance by enabling scaling to reasoning traces beyond a hundred thousand tokens. Ablations show Prefix Sliding outperforms summarizing intermediate tokens or vanilla sliding window. Our code is at https://github.com/Muennighoff/prefix-sliding",
+    "authors": [
+      "Niklas Muennighoff",
+      "Zhengyang Wang",
+      "Zeyi Chen",
+      "Weijia Shi",
+      "Binyuan Hui",
+      "John Yang",
+      "Dapeng Jiang",
+      "Mika Senghaas",
+      "Fares Obeid",
+      "Johannes Hagemann",
+      "Sami Jaghouar",
+      "Ludwig Schmidt",
+      "Percy Liang",
+      "Jason Wei",
+      "Andrew Y. Ng",
+      "Luke Zettlemoyer",
+      "Yejin Choi",
+      "Mike Lewis"
+    ],
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "contested_with": "",
+    "matched_keywords": [
+      "test-time compute",
+      "test time scaling",
+      "reasoning token",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.26070v1",
+    "published": "2026-08-26",
+    "scores": {
+      "overthinking": 0.6667
+    },
+    "title": "Prefix Sliding for efficient test-time scaling",
+    "url": "https://arxiv.org/abs/2608.26070",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "attention sink",
+      "bounded (constant) cost per new token",
+      "intermediate reasoning token importance decay",
+      "truncated backpropagation for long RL rollouts"
+    ],
+    "contributions": [
+      "an empirical observation that intermediate reasoning tokens receive low attention once used, while the prefix (attention sinks, task instructions) and the most recent tokens receive most attention",
+      "Prefix Sliding, a training-free, drop-in method giving constant per-token generation cost by retaining only the prefix and a sliding window, implemented with a custom FlashAttention kernel matching plain sliding-window-attention speed",
+      "a truncated-backpropagation RL training recipe enabling GRPO rollouts beyond 100,000 tokens at fixed memory, achieving higher reward than full-attention training at equal budget and comparable performance to full backpropagation when controlling for sequence length"
+    ],
+    "datasets": [
+      "AIME25",
+      "GPQA Diamond",
+      "MATH500",
+      "LiveCodeBench (LCB) v5",
+      "HealthBench"
+    ],
+    "limitations": "On LiveCodeBench, a window smaller than 16,384 tokens fails to match full attention -- inspecting samples shows the model sometimes reasons about code via long comment blocks before writing the implementation, so with a small window the start of the code implementation can move outside the window by the time it resumes coding; the paper suggests RL training with Prefix Sliding would likely adapt this commenting behavior. Benefit is limited for short generations, since the sliding-window 'warm-up phase' (before the window has filled) still behaves like full attention -- demonstrated on HealthBench, where average generations (~2086 tokens) rarely trigger sliding with a 2048-token window, yielding little speedup. Agentic/multi-turn use raises unresolved issues: reading large external content (e.g. a webpage) that exceeds the window risks losing information, and how to handle future user turns relative to prefix/window boundaries is left open. Comparisons are restricted to methods that (1) work on existing pretrained transformers out of the box and (2) have bounded cost per new token, excluding alternative subquadratic architectures (RNNs, SSMs) that would require training from scratch to compare fairly. Experiments scale up to hundreds of thousands of tokens and 7B-parameter models; further scaling is left to future work.",
+    "method": "Motivated by an attention-probability analysis (Qwen3-1.7B on an AIME25 trace) showing high attention to the first few tokens (prefix, acting as attention sinks) and the most recent ~1000 tokens, but low attention to intermediate reasoning tokens once their sub-result has been used, Prefix Sliding keeps only two things in memory during generation: a fixed prefix (system instructions, tools, task prompt) and a sliding window of the most recent tokens, discarding everything else -- capping total memory and making per-token cost constant regardless of how long the model has already reasoned. It requires no training to apply to an existing pretrained model (using 'Continue PE', reusing cached RoPE-embedded representations rather than reapplying positions after eviction) and implements a custom two-level-filtering FlashAttention kernel (intra-tile masking plus inter-tile skipping of blocks entirely outside the allowed prefix/window region) matching standard sliding-window-attention kernel speed. For RL training with GRPO on rollouts up to hundreds of thousands of tokens, truncated backpropagation (using 4x the sliding-window size of trailing tokens for near-accurate gradients, verified via KL divergence against full backpropagation) avoids out-of-memory errors from naive backprop through long generations.",
+    "methods": [
+      "Prefix Sliding (prefix + sliding-window attention)",
+      "Continue PE (reused RoPE positions on eviction)",
+      "GRPO reinforcement learning",
+      "truncated backpropagation",
+      "Last-k / summarization (comparison baselines)"
+    ],
+    "models": [
+      "Qwen3-1.7B",
+      "Qwen3 (7B, RL-trained)"
+    ],
+    "one_liner": "Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.",
+    "problem": "Test-time scaling by letting models reason longer is limited by full attention's requirement to keep the entire growing reasoning trace in memory, making the cost of each new token grow linearly with sequence length and long thinking prohibitively expensive; whether most of that retained context is actually needed was unexamined.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant, though orthogonal to most mitigation approaches in the topic: rather than trying to make a model reason less (shorter traces), it makes the cost of reasoning constant per token regardless of trace length, which reframes 'overthinking' as a cost problem that can be addressed architecturally at the inference layer instead of only by training or prompting the model to think less. Its finding that intermediate reasoning tokens lose importance once their result is used is direct architectural evidence for the same waste that length-penalty and early-stopping approaches address from the generation-policy side, and its LiveCodeBench failure case (long comment-based 'thinking under the hood') is a concrete instance of a reasoning trace doing real, spread-out work that a short window would discard."
+    },
+    "results": "Without any training, Prefix Sliding matches full-attention accuracy on AIME25, GPQA Diamond and MATH500 while running 3x faster (measured by average thinking time per sample), because it can generate more tokens in the same wall-clock time, not because each token is individually better. Generation speed stays roughly constant (~5,000-7,000 tok/s) for Prefix Sliding from 8K to 520K-token sequences, while full attention drops from ~7,500 to ~100 tok/s over the same range. With RL training (GRPO) at near-equal memory budgets (8,192 max tokens for full attention vs. an 8,192 sliding window for Prefix Sliding), Prefix Sliding reaches reasoning traces up to ~104K tokens (vs. full attention capped near 8K) and achieves substantially higher reward over 200 training steps. A 7B model trained with RL under an 8,192-token window and a 4x truncated-backpropagation multiplier performs comparably to full-attention training when controlling for sequence length. Ablations against three alternatives (Last-k token retention, periodic summarization, plain sliding window with no prefix) show Prefix Sliding gives the best accuracy-per-thinking-time trade-off on AIME25: plain sliding window loses key task information and degrades quickly; Last-k and summarization reprocess tokens twice (on eviction and on window change) and add extra hyperparameters/overhead. Prefix Sliding adds only one new hyperparameter (window size).",
+    "tags": [
+      "test-time-scaling",
+      "attention",
+      "efficient-reasoning",
+      "reinforcement-learning",
+      "long-context",
+      "kv-cache"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-26070",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

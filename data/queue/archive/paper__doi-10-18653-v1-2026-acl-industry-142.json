@@ -1,0 +1,112 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-industry-142.pdf"
+  },
+  "completed_at": "2026-08-27T23:06:25Z",
+  "created_at": "2026-08-27T22:31:45Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-industry.142",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Advanced reasoning typically requires Chain-of-Thought prompting, which is accurate but incurs prohibitive latency and substantial test-time inference costs. The standard alternative, fine-tuning smaller models, often sacrifices interpretability while introducing significant resource and operational overhead. To address these limitations, we introduce Prompt-Level Distillation (PLD). We extract explicit reasoning patterns from a Teacher model and organize them into a structured list of expressive instructions for the Student model’s System Prompt. Evaluated using Gemma-3 4B, PLD improved Macro F1 scores on StereoSet (57% to 90.0%) and Contract-NLI (67% to 83%), while increasing LogiQA accuracy to 70%. Similar results on Mistral Small 3.1 demonstrate cross-architecture generalizability, enabling these compact models to match frontier performance with negligible latency overhead. These expressive instructions render the decision-making process transparent, allowing for full human verification of logic, making this approach ideal for regulated industries such as law, finance, and content moderation, as well as high-volume use cases and edge devices.",
+    "authors": [
+      "Sanket Badhe",
+      "Deep Shah"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "efficient reasoning"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-industry.142.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Prompt-Level Distillation: A Non-Parametric Alternative to Model Fine-Tuning for Efficient Reasoning",
+    "url": "https://aclanthology.org/2026.acl-industry.142/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "Prompt-Level Distillation (PLD)",
+      "non-parametric reasoning transfer",
+      "closed-loop conflict resolution",
+      "semantic clustering of extracted instructions (DBSCAN)"
+    ],
+    "contributions": [
+      "Prompt-Level Distillation (PLD), a non-parametric framework that transfers a teacher model's reasoning capability into a student model's system prompt rather than into its weights, avoiding retraining/maintenance debt and parameter updates entirely",
+      "a modular four-phase pipeline (supervised instruction extraction, DBSCAN-based clustering synthesis, closed-loop conflict resolution against training failures, zero-shot inference) that produces a portable, human-verifiable library of reasoning heuristics",
+      "empirical demonstration that PLD lets compact models (Gemma-3 4B, Mistral Small 3.1 24B) match or exceed a frontier teacher model's own zero-shot accuracy on logic-intensive classification tasks (Contract-NLI, StereoSet, LogiQA), while running at zero-shot inference speed and cost across two distinct model architectures/families"
+    ],
+    "datasets": [
+      "Contract-NLI",
+      "StereoSet",
+      "LogiQA"
+    ],
+    "limitations": "The evaluation focuses on reasoning-intensive classification tasks with complex, static decision boundaries (e.g. regulatory compliance); PLD may be limited on tasks requiring dynamic, runtime computation (e.g. complex arithmetic or symbolic proofs) where reasoning cannot be fully externalized into a concise static instruction summary but instead genuinely requires generating intermediate tokens at inference time. The framework does not explicitly model the scaling limits of the system prompt itself -- as task complexity grows, the consolidated instruction set may grow large enough to exceed the effective context window or induce prompt-processing latency, potentially requiring further compression techniques not explored in this work. Because the teacher model can hallucinate or amplify biases present in the training data during instruction extraction (a particular risk on the StereoSet bias-measurement dataset), practitioners must verify that the consolidated instruction set does not itself encode discriminatory logic, since the student model follows these instructions faithfully.",
+    "method": "PLD operates in four phases. (1) Supervised Instruction Extraction: for each labeled training example, a teacher model (Gemini 3 Flash, thinking mode) is prompted to simultaneously reason toward the ground-truth label and abstract that specific reasoning process into a generalized natural-language instruction (removing entity-specific details while preserving the causal logic). (2) Clustering Logic Synthesis: the resulting per-example micro-instructions are embedded (Gemini Embedding) and grouped via DBSCAN (density-based clustering, chosen over K-means because it isolates non-generalizable noise points rather than forcing every instruction into a cluster), and each dense cluster is consolidated by an LLM (Gemini 3 Pro) into one unified instruction. (3) Closed-Loop Conflict Resolution: the student model is run with the current consolidated instruction set on the training data, failure cases (where the model followed the instructions but reached the wrong label) are isolated, and a Conflict Resolution Model (same as the teacher) analyzes these failures plus successful examples to generate an updated, refined instruction set -- repeated until the validation error rate converges. (4) Inference: the fully refined instruction set is injected as the student's system prompt for zero-shot deployment, requiring no parameter updates and no retrieval of external documents at inference time. Evaluated on Contract-NLI (document-level legal entailment, 3-class), StereoSet (stereotypical-bias domain classification, comparatively simple), and LogiQA (complex deductive/conditional/disjunctive logical reasoning from expert exams), with Gemma-3 4B and Mistral Small 3.1 24B as students and Gemini 2 Flash and Gemini 3 Flash also evaluated, against zero-shot, few-shot (k=5), LoRA fine-tuning, and TextGrad (an automatic-prompt-optimization baseline).",
+    "methods": [
+      "Prompt-Level Distillation (supervised extraction + DBSCAN clustering + closed-loop conflict resolution)",
+      "TextGrad (automatic prompt optimization baseline)",
+      "LoRA fine-tuning (baseline)",
+      "Knowledge Distillation (comparison paradigm)"
+    ],
+    "models": [
+      "Gemma-3 4B",
+      "Mistral Small 3.1 24B",
+      "Gemini 2 Flash",
+      "Gemini 3 Flash (teacher)",
+      "Gemini 3 Pro (cluster synthesis / conflict resolution)"
+    ],
+    "one_liner": "Prompt-Level Distillation (PLD) transfers a teacher model's reasoning heuristics into a compact student model's system prompt -- via supervised instruction extraction, DBSCAN clustering into a conflict-free instruction set, and a closed-loop conflict-resolution refinement against training failures -- letting Gemma-3 4B and Mistral Small 3.1 match frontier-model (Gemini 3 Flash) accuracy on logic-heavy classification tasks at zero-shot inference speed and no parameter updates.",
+    "problem": "Chain-of-Thought prompting gives accurate reasoning but at prohibitive per-query latency and cost from generating long verbose traces; the standard alternative, fine-tuning a smaller student model via Knowledge Distillation, sacrifices interpretability, requires costly retraining whenever the teacher model improves or domain logic shifts, needs thousands of curated examples, and often fails to transfer genuine reasoning ability (only imitating surface style) rather than the underlying logic.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant as an alternative-lever mitigation: rather than shortening a reasoning trace at inference time or training a model to think less, PLD eliminates runtime chain-of-thought generation entirely for a class of tasks by pre-compiling the teacher's reasoning logic into a static, reusable prompt -- explicitly framed by the authors as decoupling reasoning depth from computational cost and as an alternative to the latency/cost overhead CoT imposes. Its explicit limitation (tasks needing genuine dynamic/runtime computation cannot be fully externalized this way) delineates where inference-time reasoning-length reduction approaches remain necessary versus where prompt-level externalization can substitute for them outright."
+    },
+    "results": "PLD's fully refined ('Post-Conflict') prompt outperforms zero-shot, few-shot, fine-tuning, and TextGrad across all three benchmarks and all four models tested. On StereoSet, Gemma-3 4B's macro-F1 rises from 0.57 (zero-shot) to 0.90 (+0.33 absolute). On Contract-NLI, Gemma-3 4B rises from 0.67 to 0.83 macro-F1, and Mistral Small 3.1 from 0.71 to 0.78. On LogiQA, Gemma-3 4B's accuracy rises from 0.67 to 0.70 and Gemini 2 Flash from 0.64 to 0.67. Crucially, PLD closes most of the performance gap between compact student models and the more powerful teacher (Gemini 3 Flash) -- e.g. on Contract-NLI, Gemini 3 Flash zero-shot reaches 0.77 macro-F1 while PLD-distilled Gemma-3 4B reaches 0.83, i.e. the compact model matches or exceeds the frontier teacher's own zero-shot baseline on this task -- while Gemma-3 4B is reported as roughly 25x cheaper and 80x faster than Gemini-3 Flash (per the paper's cost/latency appendices). The closed-loop conflict-resolution phase (Phase 3) contributes a further +2.5% macro-F1 on the structurally complex Contract-NLI dataset beyond the clustered-but-unrefined instruction set, converging after 2 iterations there, but yields negligible additional gain on the simpler StereoSet task (converging after 1 iteration) -- indicating iterative conflict refinement matters most for tasks with intricate, overlapping edge cases rather than simple classification. Applying the PLD-style extraction-and-consolidation process to the teacher model itself (Gemini 3 Flash) also improves its own Contract-NLI macro-F1 (from a 0.77 zero-shot baseline to 0.86), showing the technique benefits even a frontier model by explicitly externalizing latent reasoning it does not otherwise apply.",
+    "tags": [
+      "overthinking",
+      "distillation",
+      "prompt-engineering",
+      "efficient-reasoning",
+      "chain-of-thought"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-industry-142",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

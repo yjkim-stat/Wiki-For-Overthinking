@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Analyzing a model's internal activations or weights -- rather than only its inputs/outputs -- to explain a behavior. Sources apply it in two ways relevant to overthinking: identifying that overthinking corresponds to a low-dimensional manifold in activation space that can be steered to cut output tokens without hurting accuracy, and identifying which weight components (e.g. final-layer MLP projections) are load-bearing for reasoning versus for knowledge memorization when a reasoning model is compressed.
 
 - **Kind**: method
+- **Also called**: mechanistic interpretation
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

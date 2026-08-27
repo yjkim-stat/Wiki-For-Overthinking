@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1069",
+      "kind": "paper",
+      "note": "GrACE teaches an LLM to output a discriminative, calibrated confidence score during generation itself -- via the similarity between the last hidden state and a learned embedding for a special <CNF> token, trained against k-fold-binned accuracy targets -- eliminating the separate evaluation stage post-generation methods require, and uses this on-the-fly confidence to weight self-consistency voting and drive early-stopping, improving test-time-scaling accuracy by up to 3.3% while cutting required samples by more than half in many cases.",
+      "title": "GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-27T23:27:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-27T23:27:33Z",
+  "name": "special-token confidence readout (<CNF>)",
+  "related": [
+    "generative-confidence-elicitation-genconf",
+    "k-fold-binned-calibration-target",
+    "confidence-weighted-self-consistency",
+    "confidence-thresholded-early-stopping",
+    "generative-confidence-elicitation-special-token-similarity-readout",
+    "k-fold-binned-calibration-target-construction",
+    "lora-fine-tuning",
+    "grace-sc-confidence-weighted-self-consistency",
+    "grace-es-confidence-thresholded-early-stopping",
+    "seq-likelihood-platt-scaling-p-true-verbal-apricot-actcab-baselines",
+    "triviaqa",
+    "sciq",
+    "mathqa",
+    "arc-challenge-arc-c",
+    "phi3-3-8b",
+    "llama2-7b",
+    "llama3-1-8b-instruct",
+    "qwen2-5-7b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "special-token-confidence-readout-cnf",
+  "topics": [
+    "overthinking"
+  ]
+}

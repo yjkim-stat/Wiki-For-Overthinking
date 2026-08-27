@@ -12,9 +12,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.57
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Extends test-time-scaling evaluation from the zero-risk (always-answer) setting to selective question answering by extracting confidence scores (summed log-probability of answer tokens) during reasoning, finding compute budget and confidence threshold jointly determine accuracy, that test-time scaling increases confidence separation between correct and incorrect answers for R1-32B (but not for s1-32B), and proposing risk-weighted utility functions (Jeopardy Odds, High-Stakes Odds) under which R1-32B's test-time-scaling advantage over s1-32B, invisible in the standard always-answer setting, becomes clearly visible.
+
+## Problem
+
+Existing test-time-scaling evaluations always require the model to answer every question, ignoring that in many real-world settings incorrect answers carry a cost, so a model should sometimes abstain rather than guess; whether test-time scaling helps a model calibrate its confidence enough to know when not to answer -- and how that changes model rankings -- was unstudied.
+
+## Contributions
+
+- the first evaluation of LLM test-time compute scaling specifically for selective question answering, showing increasing compute budget helps models better distinguish correct from incorrect answers via confidence
+- a framework of risk-weighted utility functions (Exam/Jeopardy/High-Stakes Odds) for evaluating test-time-scaling systems under non-zero response risk, rather than only the conventional always-answer setting
+- a demonstration that this reveals model differences invisible under standard evaluation: R1-32B calibrates confidence far better with added test-time compute than s1-32B despite comparable raw accuracy scaling, and this advantage only shows up once incorrect answers are penalized
+
+## Method
+
+Evaluates Deepseek-R1-32B and s1-32B on AIME 2024/2025 (and GPQA-diamond, in the appendix) at token compute budgets from 500 to 8000, strictly enforced via budget forcing (force-appending 'Wait' if the model tries to stop early, force-appending the end-of-thinking delimiter at the budget). Defines a selection function parameterized by a confidence threshold (the summed log-probability of the answer's tokens): the model answers only if its confidence exceeds the threshold, else abstains. Reports accuracy of answered questions (not all questions) across the joint (compute budget x confidence threshold) surface. Introduces a utility-function framework with three risk settings: Exam Odds (r_t=0, no penalty for wrong answers, i.e. the standard zero-risk setting), Jeopardy Odds (r_t=-1, an incorrect answer costs as much as a correct one gains), and High-Stakes Odds (r_t=-20, incorrect answers are heavily penalized) -- computing model utility (not just accuracy) across the same compute-budget/confidence-threshold surface under each setting.
+
+## Results
+
+At confidence threshold 0 (the conventional always-answer evaluation), R1-32B and s1-32B scale comparably with compute budget (both roughly linear rises in accuracy from ~0 to ~0.5-0.55 as budget grows 500->8000). At a moderate threshold (0.5), more frequent abstention yields higher accuracy on answered questions for both models, though the curves are noisier/non-monotonic, especially for s1-32B. At a high threshold (0.95), small amounts of test-time compute deliver very high accuracy (both models approach ~1.0 accuracy on the few questions they do answer at low budgets), while further compute mainly increases the answer rate (more questions answered) rather than accuracy. As compute budget increases, R1-32B's average confidence in its correct answers rises even as more correct answers are discovered, and its confidence trajectories for correct versus incorrect answers separate increasingly cleanly over the course of reasoning -- but this confidence-separation property is not universal: s1-32B does not separate correct from incorrect answers by confidence nearly as well as R1-32B does, despite scaling comparably in raw accuracy. Under the risk-neutral Exam Odds setting the two models look similar, but under Jeopardy Odds (equal cost/reward), selective answering at a high (0.95) confidence threshold dramatically improves utility for both models, and R1-32B substantially outperforms s1-32B at larger compute budgets in this setting -- a gap the standard Exam Odds evaluation entirely misses. The same pattern (R1-32B's confidence-calibration advantage becoming visible only once risk is priced in) is replicated on GPQA-diamond in the appendix for both Jeopardy and High-Stakes Odds.
+
+## Limitations
+
+The confidence-estimation method (summed log-probability of the model's own answer tokens after thinking) is not necessarily the optimal way to estimate model confidence, and may not generalize to question/task types the model has not seen. The chain-of-thought scaling method used (budget forcing, via Muennighoff et al. 2025) may itself diminish performance by abruptly truncating chains of thought and pushing the model outside its training distribution -- the paper notes concurrent work has introduced more elegant compute-budget-control methods. The utility function used does not incorporate compute cost itself (e.g. energy/hardware cost of longer reasoning), which the authors note is a real omission since encouraging higher confidence thresholds could otherwise be read as implicitly encouraging more energy consumption. Evaluation is restricted to English-language questions and answers, potentially missing model capabilities or weaknesses in lower-resource languages or multilingual settings.
+
+## Why it matters here
+
+- **overthinking**: Directly relevant and methodologically important for the topic: it argues the standard way test-time scaling is evaluated (always answer, no abstention) hides whether a model actually knows when it has reasoned enough to be confident -- exactly the calibration question underlying overthinking (does the model know it should stop?) and underthinking (does it know it needs to keep going?). Its finding that two models with near-identical raw accuracy-vs-compute curves (R1-32B, s1-32B) differ sharply in whether added reasoning actually improves confidence calibration is direct evidence that 'more compute' and 'better-calibrated stopping' are separate properties, and its risk-weighted utility framework offers a concrete alternative evaluation protocol for overthinking-mitigation methods that goes beyond plain accuracy-vs-length curves.
+
+## Entities
+
+- **Concepts**: selective question answering, confidence threshold (selection function), risk-weighted utility function (Exam / Jeopardy / High-Stakes Odds), test-time compute budget vs. confidence calibration
+- **Methods**: budget forcing (compute-budget enforcement), confidence-threshold selection function, risk-weighted utility evaluation (Exam/Jeopardy/High-Stakes Odds)
+- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA-diamond](../../../../wiki/datasets/gpqa-diamond.md)
+
+Tags: `overthinking`, `test-time-scaling`, `selective-question-answering`, `confidence-calibration`, `budget-forcing`
 
 ## Abstract
 

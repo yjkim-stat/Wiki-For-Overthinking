@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.1209",
+      "kind": "paper",
+      "note": "FREE adds GAN-based early exits to frozen-backbone Vision-Language Models -- an exit transformer (generator) trained to mimic the final layer's representations, discriminated against by a frozen final-layer classifier reused as the exit classifier -- addressing both 'overthinking' (unnecessary computation on easy tokens) and a newly named 'mid-crisis' (intermediate-layer accuracy dip from searching for irrelevant features), giving >1.51x inference speedup with comparable accuracy and outperforming four prior early-exit baselines on captioning, VQA and visual dialogue.",
+      "title": "FREE: Fast and Robust Vision Language Models with Early Exits"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "concept",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "GAN-based exit-transformer training",
+  "related": [
+    "overthinking-unnecessary-computation-vlm-early-exit-context",
+    "mid-crisis-intermediate-layer-accuracy-dip-in-frozen-backbone-vlms",
+    "frozen-final-layer-classifier-reuse",
+    "gan-based-adversarial-exit-training",
+    "early-exit-input-adaptive-inference",
+    "knowledge-distillation-unsupervised-exit-training",
+    "capfilt-synthetic-label-generation",
+    "deeblip-pabee-blip-leeblip-mue-baseline-early-exit-methods",
+    "coco-captioning",
+    "nocaps",
+    "vqav2",
+    "ok-vqa",
+    "gqa",
+    "vizwiz",
+    "visdial",
+    "blip-2-vit-g-opt-2-7b",
+    "blip-2-vit-g-flant5-xl",
+    "minigpt-appendix",
+    "instructblip-appendix"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "gan-based-exit-transformer-training",
+  "topics": [
+    "overthinking"
+  ]
+}

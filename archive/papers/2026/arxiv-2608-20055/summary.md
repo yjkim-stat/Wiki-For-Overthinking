@@ -47,7 +47,7 @@ Stated: for frontier proprietary models the ground-truth CoTs and their tokenize
 ## Entities
 
 - **Concepts**: hidden chain-of-thought as a model asset, reasoning replay surface, reasoning continuity across tool calls, near-verbatim CoT extraction, prompt injection through tool responses, online fidelity proxy signals, reasoning-token count as a side channel, CoT summary as a leakage channel, universal injection trajectory, adaptive attacker, defence in depth for reasoning traces, language switching in reasoning traces, self-correction in reasoning traces
-- **Methods**: EchoCoT, Length-Guided Optimization (LGO), Length and Text-Guided Optimization (LTGO), Inject-Reflect-Distill, scratchpad tool archival, REP, CoT Synthesis, Direct Prompting, Stolen Thoughts, GEPA, ExpeL
+- **Methods**: EchoCoT, Length-Guided Optimization (LGO), Length and Text-Guided Optimization (LTGO), Inject-Reflect-Distill, scratchpad tool archival, REP, CoT Synthesis, [Direct Prompting](../../../../wiki/methods/direct-prompting.md), Stolen Thoughts, GEPA, ExpeL
 - **Datasets**: [OpenThoughts](../../../../wiki/datasets/openthoughts.md), [MATH-500](../../../../wiki/datasets/math500.md), JEEBench, [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `security`, `prompt injection`, `chain-of-thought`, `model extraction`, `tool use`, `reasoning traces`, `defence evaluation`

@@ -1,17 +1,25 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Mistral-7B"
+  ],
+  "definition": "An open-weight LLM used across sources as an evaluation subject: as one of the base models fine-tuned with TISER's temporal self-reflection pipeline, and (per another archived source) as a comparison point in a study of when extra test-time iterations help versus harm a recurrent-depth reasoner, based on a measurable dynamical property (settling, marginal, or drifting) of the model's trained update map.",
   "evidence": [
     {
       "id": "arxiv:2608.18222",
       "kind": "paper",
       "note": "Shows that whether a recurrent-depth reasoner is helped or harmed by extra test-time iterations is predicted by a measurable dynamical property of its trained update map (settling, marginal, or drifting), proves a sufficient condition for the decoded answer to be frozen under further iteration, and demonstrates that a single terminal fixed-point loss term moves the regime and the depth behaviour together in both directions.",
       "title": "Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth"
+    },
+    {
+      "id": "doi:10.18653/v1/2025.acl-long.1358",
+      "kind": "paper",
+      "note": "TISER (Temporal Self-Reflective Prompting) extends chain-of-thought into a four-stage test-time-scaling pipeline -- reasoning, explicit timeline construction, iterative self-reflection, then answer generation -- for temporal reasoning, and fine-tuning smaller open models (Mistral-7B, Qwen2.5-7B) on TISER-formatted synthetic traces lets them match or beat GPT-4o on in-domain and out-of-distribution temporal reasoning benchmarks.",
+      "title": "Learning to Reason Over Time: Timeline Self-Reflection for Improved Temporal Reasoning in Language Models"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-27T22:59:02Z",
   "name": "Mistral 7B",
   "related": [
     "recurrent-depth-reasoning",
@@ -67,9 +75,26 @@
     "prefix-sums-size-ladder-appendix-i",
     "arc-1-and-arc-2-transductive-no-augmentation-supporting-only",
     "procedural-single-token-probe-bank-for-huginn-digit-copying-letter-repetition-ca",
-    "a-7b-prompt-bank-of-chain-and-last-digit-tasks-n-40-per-point"
+    "a-7b-prompt-bank-of-chain-and-last-digit-tasks-n-40-per-point",
+    "temporal-self-reflective-prompting-tiser",
+    "explicit-timeline-construction",
+    "iterative-self-reflection-loop",
+    "test-time-scaling-for-temporal-reasoning",
+    "lora-fine-tuning",
+    "synthetic-reasoning-trace-generation-with-answer-consistency-filtering",
+    "tgqa",
+    "tempreason-l2-l3",
+    "timeqa-easy-hard",
+    "test-of-time-tot-out-of-distribution",
+    "multihoprag-out-of-distribution",
+    "gpt-4o",
+    "deepseek-v2-5-data-generator",
+    "tg-llm-comparison-baseline"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "tiser",
+    "think-shallow-solve-deep"
+  ],
   "schema_version": 1,
   "slug": "mistral-7b",
   "topics": [

@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The wall-clock cost of a reasoning trace measured as the length of its longest sequential (non-parallelizable) token path, rather than its total token count -- so a trace whose branches run concurrently can have a critical path much shorter than its total length. Both sources use this as the metric that parallel-reasoning training methods are optimized to reduce, distinct from raw token count.
 
 - **Kind**: concept
-- **Also called**: Critical Path Latency
+- **Also called**: Critical Path Latency, longest-token-path latency
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Pareto Frontier](accuracy-efficiency-pareto-frontier.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [AMC23](../datasets/amc23.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPT-5.5](../models/gpt-5-5.md), [GRPO](../methods/grpo.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [Reward Hacking](reward-hacking.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
+**Related**: [Accuracy-Efficiency Pareto Frontier](accuracy-efficiency-pareto-frontier.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [AMC23](../datasets/amc23.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPT-5.5](../models/gpt-5-5.md), [GRPO](../methods/grpo.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [Reward Hacking](reward-hacking.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

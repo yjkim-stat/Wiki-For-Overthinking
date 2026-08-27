@@ -1,0 +1,54 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2025.findings-acl.408",
+      "kind": "paper",
+      "note": "Mousetrap is the first jailbreak attack framework designed against large reasoning models: a 'Chaos Machine' iteratively applies reversible one-to-one prompt mappings (character/word/sentence-level ciphers) to embed a toxic query inside a multi-step reconstruction task, exploiting the finding that LRMs exhibit 'reasoning inertia' -- once started, they follow the reasoning chain to completion by inertia and neglect to re-evaluate safety -- achieving up to 96-98% attack success against o1-mini, Claude-3.5-Sonnet and Gemini-2.0-Thinking and 87.5-93.13% on standard safety benchmarks against Claude-Sonnet.",
+      "title": "A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos"
+    }
+  ],
+  "first_seen": "2026-08-27T22:59:02Z",
+  "kind": "concept",
+  "last_seen": "2026-08-27T22:59:02Z",
+  "name": "Chaos Machine (reversible one-to-one prompt mapping generator)",
+  "related": [
+    "reasoning-inertia-lrm-inability-to-halt-reassess-mid-chain",
+    "reasoning-mask-inability-to-foresee-downstream-harm-of-a-reconstruction-task",
+    "chain-length-attack-effectiveness-trade-off-inverted-u",
+    "chaos-machine-iterative-reversible-prompt-mapping",
+    "role-play-competing-objectives-framing-mousetrap",
+    "gpt-4o-based-harm-judge-1-5-scale",
+    "trotterstrong-new",
+    "trotteradvanced-new",
+    "trotterultimate-new",
+    "advbench",
+    "strongreject",
+    "harmbench",
+    "jailbreakbench",
+    "maliciousinstruct",
+    "jailbenchseed",
+    "figstep",
+    "hades",
+    "redteam-2k",
+    "mm-safetybench-subsets",
+    "o1-mini",
+    "o1",
+    "o3-mini",
+    "claude-3-5-sonnet",
+    "claude-3-7-sonnet",
+    "gemini-2-0-thinking",
+    "gemini-2-5-pro",
+    "deepseek-r1",
+    "qwq-plus",
+    "grok-3",
+    "gpt-4o-mini-fine-tuned-chaos-machine-variant"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "chaos-machine-reversible-one-to-one-prompt-mapping-generator",
+  "topics": [
+    "overthinking"
+  ]
+}

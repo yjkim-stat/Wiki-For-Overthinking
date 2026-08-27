@@ -9,7 +9,7 @@ Best-of-N selection samples several complete attempts at a problem and picks one
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [HMMT 2025](../datasets/hmmt-2025.md), [LiveCodeBench-v6](../datasets/livecodebench-v6.md), [Pass@1](../concepts/pass-1.md), [Self-Consistency](self-consistency.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
+**Related**: [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [HMMT 2025](../datasets/hmmt-2025.md), [LiveCodeBench-v6](../datasets/livecodebench-v6.md), [Pass@1](../concepts/pass-1.md), [Self-Consistency](self-consistency.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

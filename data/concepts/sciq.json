@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "ThinkRetrieve augments each step of a reasoning model's chain of thought with a dynamically retrieved, fully worked solved example (rather than just facts), consistently beating standard sequential test-time scaling on math and QA benchmarks.",
       "title": "ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1069",
+      "kind": "paper",
+      "note": "GrACE teaches an LLM to output a discriminative, calibrated confidence score during generation itself -- via the similarity between the last hidden state and a learned embedding for a special <CNF> token, trained against k-fold-binned accuracy targets -- eliminating the separate evaluation stage post-generation methods require, and uses this on-the-fly confidence to weight self-consistency voting and drive early-stopping, improving test-time-scaling accuracy by up to 3.3% while cutting required samples by more than half in many cases.",
+      "title": "GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models"
     }
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-08-27T23:27:33Z",
   "name": "SciQ",
   "related": [
     "test-time-scaling",
@@ -51,7 +57,25 @@
     "self-consistency-majority-voting-compute-matched-comparison",
     "math500",
     "aime-2025",
-    "numinamath-1-5-synthetic-split-used-as-external-example-corpus"
+    "numinamath-1-5-synthetic-split-used-as-external-example-corpus",
+    "generative-confidence-elicitation-genconf",
+    "special-token-confidence-readout-cnf",
+    "k-fold-binned-calibration-target",
+    "confidence-weighted-self-consistency",
+    "confidence-thresholded-early-stopping",
+    "generative-confidence-elicitation-special-token-similarity-readout",
+    "k-fold-binned-calibration-target-construction",
+    "lora-fine-tuning",
+    "grace-sc-confidence-weighted-self-consistency",
+    "grace-es-confidence-thresholded-early-stopping",
+    "seq-likelihood-platt-scaling-p-true-verbal-apricot-actcab-baselines",
+    "triviaqa",
+    "mathqa",
+    "arc-challenge-arc-c",
+    "phi3-3-8b",
+    "llama2-7b",
+    "llama3-1-8b-instruct",
+    "qwen2-5-7b-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,
