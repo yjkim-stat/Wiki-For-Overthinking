@@ -1,0 +1,56 @@
+{
+  "abstract": "Test-time scaling uses extra test-time compute to improve performance, such as letting language models reason longer when solving a problem. As models keep the entire reasoning trace in memory via full attention, hard tasks that need long thinking can be prohibitively expensive. However, we find most intermediate reasoning tokens lose importance as the model continues reasoning. This calls into question whether retaining them is worth the cost. Based on this insight, we propose Prefix Sliding, which discards tokens during reasoning that are not part of the prefix or the window of the last few thousand tokens. The prefix has key instructions and tools available to the model, while the most recent tokens are the current reasoning the model is working on. This caps the total memory requirement regardless of how long the model reasons, allowing for efficient long-horizon test-time scaling. Without training, Prefix Sliding can make existing models 3x faster while maintaining performance. Training with Prefix Sliding using reinforcement learning can achieve better performance by enabling scaling to reasoning traces beyond a hundred thousand tokens. Ablations show Prefix Sliding outperforms summarizing intermediate tokens or vanilla sliding window. Our code is at https://github.com/Muennighoff/prefix-sliding",
+  "arxiv_id": "2608.26070",
+  "authors": [
+    "Niklas Muennighoff",
+    "Zhengyang Wang",
+    "Zeyi Chen",
+    "Weijia Shi",
+    "Binyuan Hui",
+    "John Yang",
+    "Dapeng Jiang",
+    "Mika Senghaas",
+    "Fares Obeid",
+    "Johannes Hagemann",
+    "Sami Jaghouar",
+    "Ludwig Schmidt",
+    "Percy Liang",
+    "Jason Wei",
+    "Andrew Y. Ng",
+    "Luke Zettlemoyer",
+    "Yejin Choi",
+    "Mike Lewis"
+  ],
+  "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "doi": "",
+  "first_seen": "2026-08-27T11:18:55Z",
+  "id": "arxiv:2608.26070",
+  "last_seen": "2026-08-27T11:18:55Z",
+  "local_path": "data/pdfs/arxiv-2608-26070.pdf",
+  "matched_keywords": [
+    "test-time compute",
+    "test time scaling",
+    "reasoning token",
+    "reasoning trace"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2608.26070v1",
+  "published": "2026-08-26",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.6667
+  },
+  "source": "arxiv",
+  "source_id": "2608.26070v1",
+  "title": "Prefix Sliding for efficient test-time scaling",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-08-26",
+  "url": "https://arxiv.org/abs/2608.26070",
+  "venue": "",
+  "year": 2026
+}
