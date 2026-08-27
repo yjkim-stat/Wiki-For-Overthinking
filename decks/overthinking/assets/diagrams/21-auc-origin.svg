@@ -1,0 +1,46 @@
+<svg class="fig" viewBox="0 0 1432 420" role="img"
+             aria-label="다섯 장의 라벨과 분류기 점수, 그리고 임계값 0.7, 0.5, 0.3이 ROC 곡선 위의 서로 다른 점이 되는 그림. 곡선 아래 넓이는 0.833.">
+          <text x="0" y="22" font-size="17" font-weight="800" fill="#5E88BC" letter-spacing="0.05em">분류기의 출력</text>
+          <text x="10"  y="62" font-size="18" fill="#9AA3B0">이미지</text>
+          <text x="180" y="62" font-size="18" fill="#9AA3B0">실제</text>
+          <text x="360" y="62" font-size="18" fill="#9AA3B0">분류기 점수</text>
+          <line x1="0" y1="74" x2="560" y2="74" stroke="#D6DCE4" stroke-width="1.5"/>
+          <text x="10" y="110" font-size="19" fill="#384150">사진 1</text><text x="180" y="110" font-size="19" font-weight="700" fill="#5C9A7C">고양이</text><text x="360" y="110" font-size="19" fill="#384150">0.92</text>
+          <text x="10" y="146" font-size="19" fill="#384150">사진 2</text><text x="180" y="146" font-size="19" font-weight="700" fill="#5C9A7C">고양이</text><text x="360" y="146" font-size="19" fill="#384150">0.71</text>
+          <text x="10" y="182" font-size="19" fill="#9AA3B0">사진 3</text><text x="180" y="182" font-size="19" font-weight="700" fill="#C4788A">개</text><text x="360" y="182" font-size="19" fill="#9AA3B0">0.64</text>
+          <text x="10" y="218" font-size="19" fill="#384150">사진 4</text><text x="180" y="218" font-size="19" font-weight="700" fill="#5C9A7C">고양이</text><text x="360" y="218" font-size="19" fill="#384150">0.38</text>
+          <text x="10" y="254" font-size="19" fill="#9AA3B0">사진 5</text><text x="180" y="254" font-size="19" font-weight="700" fill="#C4788A">개</text><text x="360" y="254" font-size="19" fill="#9AA3B0">0.15</text>
+          <line x1="0" y1="272" x2="620" y2="272" stroke="#D6DCE4" stroke-width="1.5"/>
+          <text x="0" y="304" font-size="17" font-weight="800" fill="#5E88BC" letter-spacing="0.05em">곡선의 두 축</text>
+          <text x="10" y="338" font-size="18" fill="#384150"><tspan font-weight="700">TPR</tspan> <tspan fill="#6B7484">재현율 — 실제 고양이 중 고양이로 맞춘 비율</tspan></text>
+          <text x="430" y="338" font-size="18" fill="#5E88BC" font-weight="700">TP / (TP+FN)</text>
+          <text x="10" y="368" font-size="18" fill="#384150"><tspan font-weight="700">FPR</tspan> <tspan fill="#6B7484">오탐률 — 실제 개 중 고양이로 잘못 부른 비율</tspan></text>
+          <text x="430" y="368" font-size="18" fill="#5E88BC" font-weight="700">FP / (FP+TN)</text>
+          <text x="10" y="404" font-size="18" fill="#9AA3B0">τ = 0.7 이면 TP 2 · FN 1 · FP 0 · TN 2 → TPR = .67, FPR = .00</text>
+
+          <line x1="680" y1="300" x2="680" y2="20" stroke="#D6DCE4" stroke-width="2"/>
+          <line x1="680" y1="300" x2="990" y2="300" stroke="#D6DCE4" stroke-width="2"/>
+          <path d="M680,300 L960,20" fill="none" stroke="#E4E8EE" stroke-width="2" stroke-dasharray="6 6"/>
+          <path d="M680,300 L680,113 L820,113 L820,20 L960,20 L960,300 Z" fill="#D3E0EF" opacity="0.6"/>
+          <path d="M680,300 L680,207 L680,113 L820,113 L820,20 L960,20" fill="none" stroke="#5E88BC" stroke-width="4"/>
+
+          <circle cx="680" cy="113" r="7" fill="#C4788A"/>
+          <text x="666" y="108" text-anchor="end" font-size="17" font-weight="700" fill="#C4788A">τ = 0.7</text>
+          <text x="666" y="130" text-anchor="end" font-size="15" fill="#9AA3B0">재현 .67 / 오탐 .00</text>
+          <circle cx="820" cy="113" r="7" fill="#C4788A"/>
+          <text x="836" y="108" font-size="17" font-weight="700" fill="#C4788A">τ = 0.5</text>
+          <text x="836" y="130" font-size="15" fill="#9AA3B0">재현 .67 / 오탐 .50</text>
+          <circle cx="820" cy="20" r="7" fill="#C4788A"/>
+          <text x="836" y="34" font-size="17" font-weight="700" fill="#C4788A">τ = 0.3</text>
+          <text x="836" y="56" font-size="15" fill="#9AA3B0">재현 1.00 / 오탐 .50</text>
+
+          <text x="1120" y="200" font-size="24" font-weight="800" fill="#5E88BC">AUC = 0.833</text>
+          <text x="1120" y="234" font-size="18" fill="#6B7484">= 뒤바뀌지 않은 쌍의 비율 5/6</text>
+          <text x="1120" y="278" font-size="17" fill="#9AA3B0">점수 0.64인 개가 0.38인 고양이보다</text>
+          <text x="1120" y="302" font-size="17" fill="#9AA3B0">높다 — 뒤바뀐 쌍은 그 하나뿐</text>
+          <text x="672" y="14" text-anchor="end" font-size="16" fill="#9AA3B0">TPR</text>
+          <text x="998" y="306" font-size="16" fill="#9AA3B0">FPR</text>
+          <text x="680" y="322" text-anchor="middle" font-size="15" fill="#9AA3B0">0</text>
+          <text x="960" y="322" text-anchor="middle" font-size="15" fill="#9AA3B0">1</text>
+          <text x="668" y="26" text-anchor="end" font-size="15" fill="#9AA3B0">1</text>
+        </svg>

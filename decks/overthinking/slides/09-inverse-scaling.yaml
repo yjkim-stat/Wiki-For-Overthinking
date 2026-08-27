@@ -1,0 +1,19 @@
+# 09 — 토큰 증가에 따른 정확도 역전
+layout: content
+eyebrow: Thread ② · 역효과
+eyebrow_color: rose
+title: 토큰 증가에 따른 정확도 역전
+blocks:
+- cond:
+  - 길이 · <b>task design으로 유도</b>
+  - 종료 · <b>모델이 스스로</b>
+  - 관측 · <b>정확도 평균</b>
+- lead: 토큰 증가 → <span class="em">정확도 하락</span>. 정체가 아니라 역전.
+- figure:
+    src: inv-fig1.png
+    alt: 주의 분산 계수, 허위 특징 회귀, 제약 추적 연역 세 과제의 예시 프롬프트와, 추론 토큰이 늘수록 성능이 내려가는 세 그래프
+    caption: |-
+      Gema 외 (2025) Figure 1 원문 인용 — 위: 과제별 실제 프롬프트(초록은 필요한 정보, 빨강은 무관한 미끼). 아래: Claude Sonnet 3.7·Sonnet 4·Opus 4·o3·o3-mini·o4-mini·Qwen3 32B·QwQ 32B·DeepSeek R1 의 성능 대 평균 추론 토큰.
+cite:
+- gema2025
+foot: Observation · It Can Reverse

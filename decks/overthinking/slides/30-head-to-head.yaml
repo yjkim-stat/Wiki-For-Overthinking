@@ -1,0 +1,29 @@
+# 30 — 같은 잣대 위의 다섯 방법
+layout: content
+eyebrow: Head-to-Head
+eyebrow_color: green
+title: 같은 잣대 위의 다섯 방법
+blocks:
+- lead: |-
+    완화 방법 5종 × 모델 2종, <span class="em">두 sub-benchmark 동시 채점</span> — 한쪽만으로는 드러나지 않는 손익 확인 목적.
+- figure:
+    src: otb-tab2.png
+    alt: 다섯 완화 방법의 F1otb, OverthinkingBench, UnderthinkingBench 결과 표
+    caption: Aggarwal 외 (2025) Table 2 원문 인용 — 괄호 안은 기본 모델 대비 변화량. 초록은 개선, 빨강은 저하.
+- cards:
+    cols: 2
+    items:
+    - color: rose
+      t: |-
+        방법 × 모델 6개 조합 중 <span class="k-rose">2개</span>는 <span class="mono">F1<sup>otb</sup></span>가 기본 모델 대비 하락
+      t_style: font-size:19px;
+      style: padding:14px 20px;
+    - color: green
+      t: |-
+        <span class="k-green">AdaptThink</span>만 두 벤치마크 동시 개선 <span class="ref">(38.3, +13.8)</span>
+      t_style: font-size:19px;
+      style: padding:14px 20px;
+    style: margin-top:12px;
+cite:
+- aggarwal2025
+foot: Head-to-Head

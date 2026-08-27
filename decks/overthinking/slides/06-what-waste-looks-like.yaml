@@ -1,0 +1,44 @@
+# 06 — 낭비의 실제 모습
+layout: content
+eyebrow: What It Looks Like
+eyebrow_color: blue
+title: 낭비의 실제 모습
+blocks:
+- lead: |-
+    세 갈래의 실제 출력 사례<br><span class="em">846 ÷ 18</span>, <span class="em">Max([12,45,23,89,34])</span>
+- figure:
+    src: ltb-fig3.png
+    alt: '네 가지 추론 패턴 사례: 극단적 오버씽킹, 정지 실패, 정당한 추론, 자기모순 루프'
+    caption: Srivastava 외 (2026) Figure 3 원문 인용 — 네 사례 모두 실제 모델 출력. 갈래 표기는 본 발표의 부기.
+- cards:
+    cols: 4
+    items:
+    - color: blue
+      k: (a) 갈래 ① 포화
+      k_style: margin-bottom:5px;
+      n: |-
+        846÷18 — Phi-4 47토큰 vs Phi-4-reasoning <span class="em">1,456토큰</span><br><span class="k-rose">31배, 이득 없음</span>
+      n_style: font-size:17px;
+      style: padding:13px 16px;
+    - color: amber
+      k: (b) 갈래 ③ 미종료
+      k_style: margin-bottom:5px;
+      n: Qwen3-4B — <span class="mono">n</span> 900회 이상 반복, 1,024토큰 소진
+      n_style: font-size:17px;
+      style: padding:13px 16px;
+    - color: green
+      k: (c) 반례 — 정당한 추론
+      k_style: margin-bottom:5px;
+      n: 8개 정렬 — 3.5배가 <span class="em">정당</span>. 길다고 모두 낭비는 아님
+      n_style: font-size:17px;
+      style: padding:13px 16px;
+    - color: blue
+      k: (d) 갈래 ① 포화 — 자기모순 루프
+      k_style: margin-bottom:5px;
+      n: 최댓값 탐색 — <span class="em">o3-mini 2,400토큰</span>, 89 발견 후에도 재검증 지속
+      n_style: font-size:17px;
+      style: padding:13px 16px;
+    style: margin-top:18px;
+cite:
+- srivastava2026
+foot: What It Looks Like

@@ -1,10 +1,11 @@
 # Figure provenance
 
-The crops this deck cites are **not committed**. `outputs/htmls/figures/` and
-`overthinking-standalone.html` (which carries the same images inlined as data URIs)
-are gitignored: this repository is public, carries no licence of its own, and the
-source documents are under a mix of arXiv terms and Creative Commons variants that
-were not checked individually. `data/pdfs/` is untracked for the same reason.
+The crops this deck cites are **not committed**. This directory (`figures/`) and
+everything under `build/` — which includes the standalone deck, carrying the same
+images inlined as data URIs — are gitignored: this repository is public, carries no
+licence of its own, and the source documents are under a mix of arXiv terms and
+Creative Commons variants that were not checked individually. `data/pdfs/` is
+untracked for the same reason.
 
 This table is what a clone gets instead. Every row names the paper a crop came from,
 so the crop can be retaken from the archive's own copy of the document.

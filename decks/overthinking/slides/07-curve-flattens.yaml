@@ -1,0 +1,24 @@
+# 07 — 예산 증가 대비 정확도 정체
+layout: content
+eyebrow: Thread ① · 포화
+eyebrow_color: blue
+title: 예산 증가 대비 정확도 정체
+blocks:
+- cond:
+  - 길이 · <b>API budget</b>
+  - 종료 · <b>모델이 스스로</b>
+  - 관측 · <b>정확도 평균</b>
+- lead: 예산 최소 → 최대, <span class="em">정확도 변화 거의 없음.</span>
+- figure:
+    src: ltb-fig4.png
+    alt: Gemini, GPT-5, O-시리즈 모델에서 추론 예산을 올려도 정확도가 거의 평평한 세 패널 그래프
+    caption: |-
+      Srivastava 외 (2026) Figure 4 원문 인용 — (a) Gemini 2.5 계열, (b) GPT-5 계열, (c) O-시리즈(o3 · o3-mini · o4-mini).
+- bullets:
+    bullets:
+    - O-시리즈 3종 — low → high 전 구간 <span class="em">93–97%대 고착</span>
+    size: sm
+    style: margin-top:16px;
+cite:
+- srivastava2026
+foot: Observation · The Curve Flattens

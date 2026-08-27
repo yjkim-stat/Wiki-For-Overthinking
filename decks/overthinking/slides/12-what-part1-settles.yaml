@@ -1,0 +1,53 @@
+# 12 — 세 갈래가 확정한 것
+layout: content
+eyebrow: Where Part 1 Lands
+eyebrow_color: blue
+title: 세 갈래가 확정한 것
+body_height: 520px
+blocks:
+- lead: |-
+    두 질문 — 종료 여부, 추가 토큰의 marginal utility 부호 — 이 만드는 <span class="em">배타적 세 경우</span>.
+- table:
+    head:
+    - html: 갈래
+      style: width:16%;
+    - html: 확정된 것
+      style: width:42%;
+    - html: 확정되지 않은 것
+      style: width:42%;
+    rows:
+    - - <span class="k-blue">① 포화</span><br><span class="ref">종료 · 이득 ≈ 0</span>
+      - |-
+        Gemini·GPT-5·O-시리즈 모두 예산을 올려도 평평하고, 12K 이후로는 내려간다. 하락은 <span class="em">잡음이 아니다</span> (95% CI [−1.4, −0.4])
+      - 꺾이는 지점이 <span class="em">문제마다 다르다</span> — 사전 판별 방법 부재
+    - - <span class="k-rose">② 역효과</span><br><span class="ref">종료 · 이득 &lt; 0</span>
+      - |-
+        미끼가 섞이면 토큰이 늘수록 정확도가 <span class="em">내려간다</span>. agent에서는 내부 추론이 행동을 밀어내며 해결률 하락
+      - |-
+        어떤 과제가 역전을 일으키는지 <span class="em">사전에 판별할 규칙</span>이 없다. 에이전트 근거는 <span class="em">한 편</span>이고 지표는 LLM judge
+    - - <span class="k-amber">③ 미종료</span><br><span class="ref">종료하지 않음</span>
+      - AIME 43.5%가 상한까지 종료 표시 미출력, 해당 집단 정확도 11.5%. 난이도로 미설명
+      - 조기 종료 시 정답 여부 <span class="em">미실험</span> — 개입 실험 부재
+    style: font-size:18px;
+- cards:
+    cols: 2
+    items:
+    - color: green
+      k: 합의된 것
+      t: |-
+        현상 <span class="em">실재</span><br><span class="em">잡음 아님</span><br><span class="em">프런티어 모델에서도 관측</span>
+      t_style: font-size:20px;
+      style: padding:16px 20px;
+    - color: rose
+      k: 다음 문제
+      t: 세 갈래가 <span class="k-rose">서로 다른 대상을 측정</span> — 강도를 말하려면 공통 척도 필요
+      t_style: font-size:20px;
+      style: padding:16px 20px;
+    style: margin-top:18px;
+cite:
+- srivastava2026
+- zhou2026
+- gema2025
+- cuadron2025
+- oladri2026
+foot: Where Part 1 Lands

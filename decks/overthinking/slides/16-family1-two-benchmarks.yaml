@@ -1,0 +1,75 @@
+# 16 — 두 벤치마크, 두 정규화
+layout: content
+eyebrow: Family ① · 문항 선별
+eyebrow_color: green
+title: 두 벤치마크, 두 정규화
+body_height: 560px
+blocks:
+- lead: |-
+    문항을 고르는 방식이 다르면 지표도 달라진다. 둘 다 <span class="em">조화평균</span>으로 종결, <span class="em">normalizer</span>에서 분기.
+- cards:
+    cols: 2
+    items:
+    - color: green
+      k: OptimalThinkingBench <span class="ref">Aggarwal 외, 2025 · 33개 모델</span>
+      blocks:
+      - note:
+          text: |-
+            구성<br>OvT-General <span class="em">1,327문항</span> — 합성 후 8/8 필터<br>OvT-Math <span class="em">133문항</span> — MATH Level 1–2 원형 사용
+          style: font-size:17px;margin-bottom:10px;
+      - card:
+          color: plain
+          blocks:
+          - text:
+              text: |-
+                OAA<sub>t</sub> &nbsp;&nbsp;= 생각 토큰 &lt; t 인 응답만 정답 인정<br>
+                AUC<sub>OAA</sub> = t 를 0 → 1000 훑으며 OAA<sub>t</sub> 평균<br>
+                F1<sup>otb</sup> &nbsp;&nbsp;= H(AUC<sub>OAA</sub>, Underthinking 정확도)
+              style: font-size:15px;line-height:1.85;color:var(--ink);
+              cls: mono
+          style: border-color:var(--green-edge);padding:12px 14px;margin-bottom:10px;
+      - note:
+          text: |-
+            사슬 전개 <span class="em">21–27쪽</span>. 짝인 <span class="em">UnderthinkingBench</span>가 난이도 높은 쪽 담당 → <span class="em">쉬운 쪽 전용 벤치마크 아님.</span>
+          style: font-size:17px;
+      - note:
+          text: Normalizer · <span class="em">t<sub>max</sub> = 1000</span> (벤치마크 지정 상수)
+          style: font-size:17px;margin-top:auto;color:var(--ink);
+      style: display:flex;flex-direction:column;
+    - color: amber
+      k: LLMThinkBench <span class="ref">Srivastava 외, 2026 · 53개 모델</span>
+      blocks:
+      - note:
+          text: |-
+            구성<br><span class="em">결정적 산술 과제 14종</span>(정렬, 합, 중앙값 …)<br>문항은 매 실행 신규 생성 → 고정 문제지 없음
+          style: font-size:17px;margin-bottom:10px;
+      - card:
+          color: plain
+          blocks:
+          - text:
+              text: |-
+                E<sub>t</sub> = 1 − (T̄ − T<sub>min</sub>) / (T<sub>max</sub> − T<sub>min</sub>)<br>
+                O &nbsp;= 2 · A · E<sub>t</sub> / (A + E<sub>t</sub>)
+              style: font-size:15px;line-height:1.85;color:var(--ink);
+              cls: mono
+          style: border-color:var(--amber-edge);padding:12px 14px;margin-bottom:10px;
+      - note:
+          text: |-
+            정확도 90%, 효율 10% → <span class="mono em">O = 0.18</span><br>정확도 60%, 효율 60% → <span class="mono em">O = 0.60</span><br><span class="k-rose" style="font-weight:600;">대가 · 결정적 산술 외 영역으로의 일반화 미보장</span>
+          style: font-size:17px;
+      - note:
+          text: |-
+            Normalizer · <span class="k-rose">평가 집합 전체의 T<sub>min</sub>, T<sub>max</sub></span>
+          style: font-size:17px;margin-top:auto;color:var(--ink);
+      style: display:flex;flex-direction:column;
+    style: flex:1;min-height:0;
+- card:
+    color: rose
+    t: |-
+      Normalizer 상이 — <span class="k-rose">O 는 평가 대상 모델 집합에 의존</span>. 모델 1개 추가 시 T<sub>max</sub> 변동 → <span class="em">기존 모델 점수까지 이동.</span>
+    t_style: font-size:20px;
+    style: margin-top:14px;
+cite:
+- aggarwal2025
+- srivastava2026
+foot: Family ① · 문항 선별

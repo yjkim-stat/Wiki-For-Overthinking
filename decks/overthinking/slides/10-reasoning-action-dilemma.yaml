@@ -1,0 +1,45 @@
+# 10 — Reasoning–action dilemma
+layout: content
+eyebrow: Thread ② · 역효과
+eyebrow_color: rose
+title: Reasoning–action dilemma
+blocks:
+- cond:
+  - 길이 · <b>자연 발생</b>
+  - 지표 · <b>LLM judge 0–10</b>
+  - 관측 · <b>이슈 해결률</b>
+- lead: Agent 과제에서도 역전 — 내부 추론 편중 시 <span class="em">이슈 해결률 하락</span>.
+- box:
+    style: |-
+      display:grid;grid-template-columns:1fr 1.05fr;gap:26px;flex:1;min-height:0;align-items:center;
+    blocks:
+    - svg: 10-reasoning-action-dilemma.svg
+    - figure:
+        src: danger-fig1.png
+        alt: 오버씽킹 점수가 높을수록 SWE-bench 이슈 해결률이 낮아지는 산점도
+        img_style: max-height:300px;
+        caption: Cuadron 외 (2025) Figure 1 원문 인용 — 추론 모델 R² = 0.892, β = −7.894. 4,018개 궤적.
+        style: height:100%;min-height:0;justify-content:center;
+- cards:
+    cols: 3
+    items:
+    - color: plain
+      k: 판정은 믿을 만한가
+      n: 전문가 4인 × 궤적 20개 채점 — LLM 판정 대비 <span class="em">Spearman 0.800</span>
+      n_style: font-size:17px;
+      style: border-color:var(--gray-edge);padding:14px 18px;
+    - color: rose
+      k: 왜 ‘길이’로 읽는가
+      n: |-
+        2개 중 <span class="em">점수 낮은 쪽</span> 선택만으로 계산 비용 <span class="em">43% 감소</span> — 점수가 실제 소비와 동행
+      n_style: font-size:17px;
+      style: padding:14px 18px;
+    - color: amber
+      k: 다만
+      n: 측정 대상은 길이가 아니라 <span class="em">내부 추론 대 환경 상호작용의 비율</span>
+      n_style: font-size:17px;
+      style: padding:14px 18px;
+    style: margin-top:14px;
+cite:
+- cuadron2025
+foot: Thread ② · 역효과

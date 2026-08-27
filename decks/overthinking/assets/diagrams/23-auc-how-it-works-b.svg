@@ -1,0 +1,22 @@
+<svg viewBox="0 0 1384 176" style="width:100%;display:block;" role="img"
+               aria-label="같은 모델이 임계값에 따라 20에서 80 퍼센트로 읽힌다. f 는 임계값 타우에서 측정되는 성능이고, AUC는 b 빼기 a 분의 1 곱하기 a에서 b까지 f 타우 d 타우이다.">
+            <text x="0" y="30" font-size="15" font-weight="800" fill="#C4788A" letter-spacing="0.05em">문제</text>
+            <text x="152" y="32" font-size="21" fill="#384150">같은 모델이 <tspan font-weight="800" fill="#C4788A">20% 로도 80% 로도</tspan> 읽힌다. Q3(오답)은 어디서 잘라도 세지 않고, Q5는 1,400을 넘겨야 비로소 세진다.</text>
+            <text x="152" y="62" font-size="19" fill="#6B7484">t 가 작으면 대부분의 thinking 모델이 0점, 크면 과대생각 미처벌 <tspan font-size="16" fill="#9AA3B0">— 원 논문의 문제 제기</tspan></text>
+
+            <line x1="0" y1="86" x2="1384" y2="86" stroke="#D3E0EF" stroke-width="1.5"/>
+
+            <text x="0" y="130" font-size="15" font-weight="800" fill="#5E88BC" letter-spacing="0.05em">해법</text>
+            <text x="152" y="136" font-size="28" font-weight="700" fill="#384150">AUC</text>
+            <text x="242" y="136" font-size="28" fill="#6B7484">=</text>
+            <text x="310" y="121" text-anchor="middle" font-size="21" fill="#384150">1</text>
+            <line x1="278" y1="129" x2="342" y2="129" stroke="#384150" stroke-width="1.6"/>
+            <text x="310" y="157" text-anchor="middle" font-size="21" fill="#384150">b − a</text>
+            <text x="374" y="152" font-size="50" fill="#384150">∫</text>
+            <text x="414" y="110" font-size="16" fill="#6B7484">b</text>
+            <text x="404" y="175" font-size="16" fill="#6B7484">a</text>
+            <text x="440" y="136" font-size="28" fill="#384150">f(τ) dτ</text>
+            <text x="600" y="128" font-size="19" fill="#6B7484">f(τ) = 임계값을 τ 로 고정했을 때 측정되는 성능 — 위 계단 곡선이 바로 f 다.</text>
+            <text x="600" y="152" font-size="19" fill="#6B7484">한 점을 고르는 대신 구간 전체의 평균 높이를 쓴다. 이 벤치마크는 <tspan font-weight="800" fill="#5E88BC">τ = t, [a, b] = [0, 1000]</tspan>.</text>
+            <text x="0" y="174" font-size="15" fill="#9AA3B0">위 5문항 예시는 이 발표에서 지어낸 것이다. 임계값 선택의 딜레마는 원 논문 §2.1의 문장이다.</text>
+          </svg>

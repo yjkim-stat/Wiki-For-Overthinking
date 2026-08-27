@@ -1,0 +1,56 @@
+# 11 — 멈추지 못한 43.5%
+layout: content
+eyebrow: Thread ③ · 미종료
+eyebrow_color: amber
+title: 멈추지 못한 43.5%
+blocks:
+- cond:
+  - 길이 · <b>자연 발생 · 상한 1만</b>
+  - text: 종료 · <b>43.5%가 미종료</b>
+    kind: warn
+  - 관측 · <b>종료 여부로 나눈 정확도</b>
+- lead: |-
+    Budget forcing 없을 때 AIME generation의 <span class="em">43.5%가 <span class="mono">&lt;/think&gt;</span> 미출력.</span>
+- svg: 11-non-termination.svg
+- box:
+    style: |-
+      display:grid;grid-template-columns:1.05fr 1fr;gap:26px;margin-top:14px;align-items:center;
+    blocks:
+    - box:
+        style: ''
+        blocks:
+        - text:
+            text: 그냥 어려운 문제라서 아닌가 — 논문이 통제한 것
+            style: |-
+              font-size:17px;font-weight:800;color:var(--blue);letter-spacing:.04em;margin-bottom:8px;
+        - figure:
+            src: tbs-tab3.png
+            alt: 난이도 삼분위별로 나눈 수렴 정확도와 미수렴 정확도 표
+            img_style: max-height:150px;
+            caption: Oladri 외 (2026) Table 3 원문 인용 — 난이도 proxy는 문항 번호(AIME는 대체로 번호순으로 난이도 상승).
+            caption_style: margin-top:6px;
+            style: min-height:0;
+    - box:
+        style: display:flex;flex-direction:column;gap:10px;
+        blocks:
+        - card:
+            color: blue
+            n: |-
+              난이도 구간 내에서도 격차 유지 — <span class="em">쉬운 문항(1–5)도 미종료 시 18.2%</span>. 문항 번호는 수렴 여부 분산의 <span class="mono">19% 미만</span>만 설명
+            n_style: font-size:18px;
+            style: padding:14px 18px;
+        - card:
+            color: rose
+            n: |-
+              <span class="k-rose">다만 인과 아님</span> — 강제 조기 종료 시 정답 여부는 미실험. 논문의 표현은 “수렴과 정답이 <span class="em">거의 함께 간다</span>”까지
+            n_style: font-size:18px;
+            style: padding:14px 18px;
+        - card:
+            color: plain
+            n: |-
+              논문의 주장은 정확도가 아니라 <span class="em">낭비</span> — 사전 탐지 후 중단 시 AIME 추론 계산의 <span class="em">43.5% 절감</span>
+            n_style: font-size:18px;
+            style: border-color:var(--gray-edge);padding:14px 18px;
+cite:
+- oladri2026
+foot: Thread ③ · 미종료

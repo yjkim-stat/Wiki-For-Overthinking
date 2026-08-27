@@ -1,0 +1,74 @@
+# 14 — 측정의 세 갈래
+layout: content
+eyebrow: Related Work
+title: 측정의 세 갈래
+body_height: 478px
+blocks:
+- lead: 오버씽킹을 재려면 <span class="em">“짧게 해도 됐다”</span>를 알아야 한다.<br>그것을 아는 방법이 셋이다.
+- cards:
+    cols: 3
+    items:
+    - color: green
+      k: ①
+      t: 문항 선별
+      t_style: family-name
+      bullets:
+      - 짧게 풀리는 문항만 모은다
+      - 거기서 쓴 <span class="em">토큰은 전부 벌점</span>
+      - 한 번 돌리면 점수가 나온다
+      bullet_size: sm
+      bullet_style: gap:7px;
+      n:
+      - 산출 · <span class="mono em">AUC_OAA, Overthinking Score</span>
+      - 대가 · 그 문항 집합 밖에서는 못 잰다
+      - |-
+        OptimalThinkingBench <span class="ref">(Aggarwal 외, 2025)</span><br>LLMThinkBench <span class="ref">(Srivastava 외, 2026)</span>
+      n_style: [family-out, family-cost, family-papers]
+      style: column
+    - color: blue
+      k: ②
+      t: 예산 변경
+      t_style: family-name
+      bullets:
+      - 같은 문항을 <span class="em">여러 예산에서 다시 돌린다</span>
+      - 정확도가 더 오르지 않는 지점을 찾는다
+      - 어떤 문항에도 쓸 수 있다
+      bullet_size: sm
+      bullet_style: gap:7px;
+      n:
+      - 산출 · <span class="mono em">MU(t), flip ratio, B*</span>
+      - 대가 · 문항당 수십 회 실행
+      - |-
+        When More Thinking Hurts <span class="ref">(Zhou 외, 2026)</span><br>Token Budget Saturation <span class="ref">(Oladri 외, 2026)</span><br>R³-Bench <span class="ref">(Wang 외, 2026)</span><br>Thinking Hard, Not Smart <span class="ref">(Fan 외, 2026)</span>
+      n_style: [family-out, family-cost, family-papers]
+      style: column
+    - color: rose
+      k: ③
+      t: 트레이스 판독
+      t_style: family-name
+      bullets:
+      - 한 번 돌린 결과의 <span class="em">모양만 읽는다</span>
+      - 반복, 주저 표현, 내부 상태, judge 점수
+      - 가장 싸다
+      bullet_size: sm
+      bullet_style: gap:7px;
+      n:
+      - 산출 · <span class="mono em">트레이스당 점수</span>
+      - 대가 · 무엇이 낭비인지 스스로 정해야 한다
+      - |-
+        Do NOT Think That Much <span class="ref">(2025)</span><br>Funnel of Thoughts <span class="ref">(Park 외, 2026)</span><br>Think Deep, Not Just Long <span class="ref">(2026)</span><br>The Danger of Overthinking <span class="ref">(Cuadron 외, 2025)</span>
+      n_style: [family-out, family-cost, family-papers]
+      style: column
+    style: fill
+cite:
+- aggarwal2025
+- srivastava2026
+- zhou2026
+- oladri2026
+- wang2026
+- fan2026
+- do-not-think-that-much-for-o2025
+- park2026
+- think-deep-not-just-long-mea2026
+- cuadron2025
+foot: Related Work

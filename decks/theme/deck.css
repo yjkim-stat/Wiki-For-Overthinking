@@ -1,0 +1,182 @@
+/* ==========================================================================
+   Keynote 1600x900 · pastel palette · 한 장에 메시지 하나
+   Hand-drawn figures are authored at the same px size as body text: every
+   <svg> is width:100% inside a 1432px content column and every viewBox is
+   1432 wide, so one viewBox unit is one CSS pixel.
+   Captured figures live in figures/ and are reproduced from the papers the
+   archive holds as PDFs; each one names its source under the image, and the
+   APA reference block at the foot of the slide carries the full citation.
+   ========================================================================== */
+:root {
+  --slide-w: 1600px;
+  --slide-h: 900px;
+  --margin-x: 84px;
+
+  --font-main: "Inter", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
+
+  --ink:       #384150;
+  --ink-mid:   #6B7484;
+  --ink-soft:  #9AA3B0;
+  --ink-faint: #AEB6C1;
+  --page-bg:   #E9EBF1;
+  --slide-bg:  #FFFFFF;
+  --line:      #E4E8EE;
+
+  --rose:   #C4788A; --rose-fill:   #FBEFF2; --rose-edge:   #EFD5DC;
+  --blue:   #5E88BC; --blue-fill:   #EEF3FA; --blue-edge:   #D3E0EF;
+  --amber:  #C0913F; --amber-fill:  #FBF4E7; --amber-edge:  #EEDFC0;
+  --green:  #5C9A7C; --green-fill:  #EDF5F1; --green-edge:  #CCE3D8;
+  --violet: #8578BC; --violet-fill: #F2F1FA; --violet-edge: #DCD7EE;
+  --gray:   #6E7885; --gray-fill:   #F5F6F9; --gray-edge:   #E4E8EE;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  background: var(--page-bg);
+  font-family: var(--font-main);
+  color: var(--ink);
+  width: 100vw; height: 100vh;
+  overflow: hidden; user-select: none; word-break: keep-all;
+}
+
+#stage {
+  position: absolute; top: 0; left: 0;
+  width: var(--slide-w); height: var(--slide-h);
+  transform-origin: top left;
+  box-shadow: 0 20px 50px rgba(56, 65, 80, 0.16);
+  background: var(--slide-bg);
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute; top: 0; left: 0;
+  width: var(--slide-w); height: var(--slide-h);
+  padding: 52px var(--margin-x) 0 var(--margin-x);
+  background: var(--slide-bg);
+  display: none; flex-direction: column;
+  z-index: 1;
+}
+.slide.active { display: flex; z-index: 2; }
+
+.eyebrow {
+  font-size: 16px; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 8px; margin-bottom: 7px;
+}
+.eyebrow.blue { color: var(--blue); }
+.eyebrow.rose { color: var(--rose); }
+.eyebrow.amber { color: var(--amber); }
+.eyebrow.green { color: var(--green); }
+.eyebrow.violet { color: var(--violet); }
+
+h1.stitle {
+  font-size: 42px; font-weight: 800; line-height: 1.2;
+  letter-spacing: -0.02em; color: var(--ink);
+  margin-bottom: 16px; flex-shrink: 0;
+}
+
+/* Fixed drawing room; the rest is reserved for the reference block. */
+.body { width: 100%; height: 600px; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+
+/* A captured figure fills whatever room the slide has left and never
+   overflows it, whatever its aspect ratio. */
+.figwrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 0; width: 100%; }
+.figwrap img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+.figsrc { margin-top: 9px; font-size: 13px; color: var(--ink-soft); text-align: center; flex-shrink: 0; }
+
+.fig { width: 100%; display: block; }
+
+ul.b { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+ul.b > li {
+  position: relative; padding-left: 24px;
+  font-size: 21px; line-height: 1.45; color: var(--ink);
+}
+ul.b > li::before {
+  content: ''; position: absolute; left: 2px; top: 11px;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--ink-soft);
+}
+ul.b.sm > li { font-size: 19px; }
+
+.card {
+  border-radius: 14px; padding: 20px 24px;
+  background: var(--gray-fill); border: 1.5px solid var(--gray-edge);
+}
+.card.rose   { background: var(--rose-fill);   border-color: var(--rose-edge); }
+.card.blue   { background: var(--blue-fill);   border-color: var(--blue-edge); }
+.card.amber  { background: var(--amber-fill);  border-color: var(--amber-edge); }
+.card.green  { background: var(--green-fill);  border-color: var(--green-edge); }
+.card.violet { background: var(--violet-fill); border-color: var(--violet-edge); }
+.card.plain  { background: #FFFFFF; }
+
+.card-k { font-size: 15px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 9px; }
+.card-t { font-size: 22px; font-weight: 700; line-height: 1.4; }
+.card-n { font-size: 19px; line-height: 1.5; color: var(--ink-mid); }
+
+.lead { font-size: 22px; font-weight: 600; line-height: 1.45; color: var(--ink); margin-bottom: 14px; flex-shrink: 0; }
+
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+
+.k-rose { color: var(--rose); font-weight: 700; }
+.k-blue { color: var(--blue); font-weight: 700; }
+.k-amber { color: var(--amber); font-weight: 700; }
+.k-green { color: var(--green); font-weight: 700; }
+.k-violet { color: var(--violet); font-weight: 700; }
+.em { font-weight: 700; color: var(--ink); }
+.mono { font-family: var(--font-mono); }
+/* An inline attribution inside body text. */
+.ref { font-size: 0.82em; color: var(--ink-soft); font-weight: 500; }
+
+table.t { width: 100%; border-collapse: collapse; font-size: 18px; line-height: 1.4; background: #FFFFFF; }
+table.t th, table.t td { border-bottom: 1px solid var(--line); padding: 12px 14px; text-align: left; vertical-align: top; }
+table.t th { font-size: 16px; font-weight: 800; color: var(--ink-mid); letter-spacing: .04em; text-transform: uppercase; border-bottom: 2px solid var(--gray-edge); }
+table.t td.n { font-family: var(--font-mono); font-weight: 700; }
+
+/* 각 근거 슬라이드가 "무엇을 어떻게 모은 것인가"를 한 줄로 밝힌다. */
+.cond { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 12px; flex-shrink: 0; }
+.cond span { font-size: 14px; font-weight: 600; padding: 5px 13px; border-radius: 999px;
+             background: var(--gray-fill); border: 1px solid var(--gray-edge); color: var(--ink-mid); }
+.cond span b { font-weight: 800; color: var(--ink); }
+.cond span.key { background: var(--blue-fill); border-color: var(--blue-edge); color: var(--blue); }
+.cond span.key b { color: var(--blue); }
+.cond span.warn { background: var(--amber-fill); border-color: var(--amber-edge); color: var(--amber); }
+.cond span.warn b { color: var(--amber); }
+
+.pill { display: inline-flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 800; letter-spacing: .05em; padding: 6px 15px; border-radius: 999px; }
+.pill.blue  { background: var(--blue-fill);  color: var(--blue); }
+.pill.green { background: var(--green-fill); color: var(--green); }
+.pill.rose  { background: var(--rose-fill);  color: var(--rose); }
+
+/* APA references — deliberately very small and low-contrast. */
+.cite {
+  position: absolute; bottom: 52px; left: var(--margin-x); right: var(--margin-x);
+  font-size: 12px; line-height: 1.5; color: var(--ink-faint);
+  z-index: 10; background: var(--slide-bg); padding-top: 6px;
+}
+.cite div { text-indent: -14px; padding-left: 14px; }
+.cite a { color: var(--ink-faint); text-decoration: none; border-bottom: 1px dotted #D3D8DF; }
+.cite i { font-style: italic; }
+
+.foot {
+  position: absolute; bottom: 17px; left: var(--margin-x); right: var(--margin-x);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 14px; color: var(--ink-soft); font-weight: 600;
+  border-top: 1px solid var(--line); padding-top: 8px; z-index: 10;
+  background: var(--slide-bg);
+}
+.foot .pg { font-family: var(--font-mono); font-size: 14px; color: var(--ink-mid); background: #F3F5F8; padding: 3px 10px; border-radius: 6px; }
+
+svg text { font-family: var(--font-main); }
+
+#hint {
+  position: fixed; top: 14px; right: 18px;
+  background: rgba(56, 65, 80, .78); color: #F7F8FA;
+  font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 20px;
+  display: flex; gap: 10px; z-index: 1000; pointer-events: none; opacity: .6;
+}
+#bar { position: absolute; top: 0; left: 0; height: 4px; background: var(--violet); width: 0%; transition: width .3s cubic-bezier(.4,0,.2,1); z-index: 100; }

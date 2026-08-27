@@ -1,0 +1,41 @@
+# 24 — 정확도 동점, AUC로 갈리는 순위
+layout: content
+eyebrow: Why It Compares
+eyebrow_color: blue
+title: 정확도 동점, AUC로 갈리는 순위
+blocks:
+- lead: |-
+    정확도를 <span class="em">동일하게 통제</span>한 두 모델 — 정답 4/5 동일, <span class="em">토큰 수만 상이</span>. 단일 threshold로 측정 시 <span class="k-rose">우열이 t 에 따라 역전.</span>
+- svg: 24-auc-why-it-compares.svg
+- cards:
+    cols: 3
+    items:
+    - color: plain
+      k: 정확도
+      t: A <span class="mono">80.0</span> · B <span class="mono">80.0</span>
+      t_style: font-size:21px;
+      n: 통제 변수 — 잔여 차이는 <span class="em">도달 시점</span> 하나
+      n_style: font-size:17px;margin-top:6px;
+      style: border-color:var(--gray-edge);padding:16px 20px;
+    - color: blue
+      k: AUC_OAA
+      t: A <span class="mono">32.0</span> · B <span class="mono">26.0</span>
+      t_style: font-size:21px;
+      n: t 선택이 소거<br><span class="em">단일 수치, 단일 순서</span>
+      n_style: font-size:17px;margin-top:6px;
+      style: padding:16px 20px;
+    - color: rose
+      k: 둘의 간극
+      t: A <span class="mono">48.0</span> · B <span class="mono">54.0</span>
+      t_style: font-size:21px;
+      n: 정확도와 동일 척도 → 차이가 <span class="em">늦은 도달의 대가</span>로 해석
+      n_style: font-size:17px;margin-top:6px;
+      style: padding:16px 20px;
+    style: margin-top:14px;
+- note:
+    text: |-
+      두 모델은 본 발표의 창작 예시. 수치는 원 논문 Eq. (1)에 t<sub>max</sub> = 1000 대입 산출. 정확도 동일화는 설명용 통제.
+    style: font-size:16px;margin-top:14px;
+cite:
+- aggarwal2025
+foot: Why It Compares

@@ -1,0 +1,54 @@
+# 17 — 예산을 바꾼 re-run
+layout: content
+eyebrow: Family ② · 예산 변경
+eyebrow_color: blue
+title: 예산을 바꾼 re-run
+body_height: 520px
+blocks:
+- lead: 문항을 고르지 않고, <span class="em">예산을 바꿔 직접 확인하는</span> 갈래.<br>re-run 대상이 방법을 가름.
+- table:
+    head:
+    - html: 연구
+      style: width:23%;
+    - html: 무엇을 다시 돌리나
+      style: width:29%;
+    - html: 뽑아내는 값
+      style: width:26%;
+    - html: 대가
+      style: width:22%;
+    rows:
+    - - When More Thinking Hurts <span class="ref">Zhou 외, 2026</span>
+      - 같은 문제를 500–16K, <span class="em">500 단위 32지점</span>에서 강제 종료로
+      - |-
+        <span class="mono">MU(t) = Acc(t+500) − Acc(t)</span><br><span class="mono">flip ratio = 음/양</span>
+      - 문제당 32회 실행
+    - - Token Budget Saturation <span class="ref">Oladri 외, 2026</span>
+      - 예산 강제 상향
+      - <span class="mono em">B*</span> — 무제한 정확도의 95%에 닿는 최소 예산
+      - 상한 외 구간 관측 불가
+    - - Inverse Scaling <span class="ref">Gema 외, 2025</span>
+      - 같은 과제를 <span class="em">강제 예산 / 자연</span> 두 조건에서
+      - 조건별 스케일링 방향 (↑ ↓ →)
+      - 역전 유도 과제 설계 필요
+    - - R³-Bench <span class="ref">Wang 외, 2026</span>
+      - 6문제를 한 예산에, <span class="em">그리고 같은 문제를 단독으로도</span>
+      - 단독 응답곡선으로 만든 <span class="em">오라클과의 격차</span>
+      - 단독 실행 전량 별도 수행
+    - - Thinking Hard, Not Smart <span class="ref">Fan 외, 2026</span>
+      - N문제 시험 + <span class="em">균등 분배 기준선</span>
+      - 위치·난이도·배점과의 부분 Spearman
+      - 기준선이 문항 간 간섭까지 제거
+    style: font-size:17px;
+- card:
+    color: blue
+    t: |-
+      어떤 문항에도 <span class="k-blue">그대로 쓸 수 있다</span> — 대가는 실행 횟수. 따라서 항상 <span class="em">사후 분석</span>.
+    t_style: font-size:20px;
+    style: margin-top:14px;
+cite:
+- zhou2026
+- oladri2026
+- gema2025
+- wang2026
+- fan2026
+foot: Family ② · 예산 변경

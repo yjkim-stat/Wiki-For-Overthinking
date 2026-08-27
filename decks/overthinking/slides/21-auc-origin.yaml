@@ -1,0 +1,16 @@
+# 21 — AUC의 출처 — 분류기 지표
+layout: content
+eyebrow: Background · Where AUC Comes From
+eyebrow_color: blue
+title: AUC의 출처 — 분류기 지표
+blocks:
+- lead: 고양이 사진 5장 분류기. 출력은 확률, <span class="em">양성 판정 threshold</span>는 별개의 선택.
+- svg: 21-auc-origin.svg
+- card:
+    color: blue
+    t: |-
+      Threshold 1개 = <span class="k-blue">곡선 위의 점 1개</span>. AUC는 그 점을 고르지 않고 분류기를 요약하기 위한 지표.
+    n: 5장 예시는 ROC-AUC 정의 설명을 위한 본 발표의 창작. 넓이 0.833과 순위 해석 5/6의 일치는 ROC-AUC의 기지 성질.
+    n_style: font-size:16px;margin-top:8px;
+    style: margin-top:12px;
+foot: Background · Where AUC Comes From

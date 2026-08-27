@@ -1,0 +1,46 @@
+<svg class="fig" viewBox="0 0 1432 300" role="img"
+             aria-label="다섯 문항의 정답 여부와 생각 토큰 수, 그리고 임계값을 200, 500, 1000, 1500으로 두었을 때 각각 20, 40, 60, 80 퍼센트가 되는 계단 곡선">
+          <text x="0" y="22" font-size="17" font-weight="800" fill="#5E88BC" letter-spacing="0.05em">한 모델의 응답</text>
+          <text x="10"  y="60" font-size="18" fill="#9AA3B0">문항</text>
+          <text x="150" y="60" font-size="18" fill="#9AA3B0">정답?</text>
+          <text x="290" y="60" font-size="18" fill="#9AA3B0">생각 토큰</text>
+          <line x1="0" y1="72" x2="470" y2="72" stroke="#D6DCE4" stroke-width="1.5"/>
+          <text x="10"  y="106" font-size="20" fill="#384150">Q1</text><text x="150" y="106" font-size="20" font-weight="700" fill="#5C9A7C">✓</text><text x="290" y="106" font-size="20" fill="#384150">120</text>
+          <text x="10"  y="142" font-size="20" fill="#384150">Q2</text><text x="150" y="142" font-size="20" font-weight="700" fill="#5C9A7C">✓</text><text x="290" y="142" font-size="20" fill="#384150">380</text>
+          <text x="10"  y="178" font-size="20" fill="#9AA3B0">Q3</text><text x="150" y="178" font-size="20" font-weight="700" fill="#C4788A">×</text><text x="290" y="178" font-size="20" fill="#9AA3B0">250</text>
+          <text x="10"  y="214" font-size="20" fill="#384150">Q4</text><text x="150" y="214" font-size="20" font-weight="700" fill="#5C9A7C">✓</text><text x="290" y="214" font-size="20" fill="#384150">900</text>
+          <text x="10"  y="250" font-size="20" fill="#384150">Q5</text><text x="150" y="250" font-size="20" font-weight="700" fill="#5C9A7C">✓</text><text x="290" y="250" font-size="20" fill="#384150">1,400</text>
+          <line x1="0" y1="264" x2="470" y2="264" stroke="#D6DCE4" stroke-width="1.5"/>
+          <text x="10" y="292" font-size="19" fill="#6B7484">임계값을 두지 않으면 정확도 <tspan font-weight="800" fill="#384150">4/5 = 80%</tspan></text>
+
+          <line x1="600" y1="250" x2="1400" y2="250" stroke="#D6DCE4" stroke-width="2"/>
+          <line x1="600" y1="250" x2="600" y2="40" stroke="#D6DCE4" stroke-width="2"/>
+          <text x="546" y="46" font-size="17" fill="#9AA3B0">OAA</text>
+          <text x="1400" y="296" text-anchor="end" font-size="17" fill="#9AA3B0">생각 토큰 예산 t →</text>
+
+          <line x1="600" y1="82" x2="1400" y2="82" stroke="#CCE3D8" stroke-width="1.5" stroke-dasharray="5 5"/>
+          <text x="606" y="74" font-size="16" fill="#5C9A7C">정확도 80%</text>
+
+          <path d="M600,250 L660,250 L660,208 L790,208 L790,166 L1050,166 L1050,124 L1300,124 L1300,82 L1400,82"
+                fill="none" stroke="#5E88BC" stroke-width="4"/>
+
+          <line x1="700"  y1="250" x2="700"  y2="208" stroke="#C4788A" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <circle cx="700" cy="208" r="6" fill="#C4788A"/>
+          <text x="712" y="202" font-size="18" font-weight="700" fill="#C4788A">20%</text>
+          <text x="700" y="274" text-anchor="middle" font-size="16" fill="#6B7484">t = 200</text>
+
+          <line x1="850"  y1="250" x2="850"  y2="166" stroke="#C4788A" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <circle cx="850" cy="166" r="6" fill="#C4788A"/>
+          <text x="862" y="160" font-size="18" font-weight="700" fill="#C4788A">40%</text>
+          <text x="850" y="274" text-anchor="middle" font-size="16" fill="#6B7484">t = 500</text>
+
+          <line x1="1100" y1="250" x2="1100" y2="124" stroke="#C4788A" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <circle cx="1100" cy="124" r="6" fill="#C4788A"/>
+          <text x="1112" y="118" font-size="18" font-weight="700" fill="#C4788A">60%</text>
+          <text x="1100" y="274" text-anchor="middle" font-size="16" fill="#6B7484">t = 1000</text>
+
+          <line x1="1350" y1="250" x2="1350" y2="82" stroke="#C4788A" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <circle cx="1350" cy="82" r="6" fill="#C4788A"/>
+          <text x="1290" y="66" font-size="18" font-weight="700" fill="#C4788A">80%</text>
+          <text x="1350" y="274" text-anchor="middle" font-size="16" fill="#6B7484">t = 1500</text>
+        </svg>

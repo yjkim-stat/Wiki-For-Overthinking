@@ -1,0 +1,39 @@
+<svg class="fig" viewBox="0 0 1432 300" role="img"
+             aria-label="초과 길이에서 시작해 생성이 종료되는지, 종료된다면 추가 토큰의 한계 이득이 0인지 음수인지로 갈라지는 결정 트리">
+          <rect x="0" y="118" width="150" height="54" rx="10" fill="#F5F6F9" stroke="#E4E8EE" stroke-width="1.5"/>
+          <text x="75" y="151" text-anchor="middle" font-size="18" font-weight="700" fill="#384150">길어진 생성</text>
+
+          <path d="M150,145 L190,145" stroke="#AEB6C1" stroke-width="2"/>
+          <rect x="190" y="118" width="212" height="54" rx="10" fill="#FFFFFF" stroke="#C9D2DE" stroke-width="1.5"/>
+          <text x="296" y="143" text-anchor="middle" font-size="17" fill="#6B7484">생성이 스스로</text>
+          <text x="296" y="164" text-anchor="middle" font-size="17" font-weight="700" fill="#384150">종료되는가</text>
+
+          <path d="M402,145 L422,145 L422,85 L442,85" fill="none" stroke="#AEB6C1" stroke-width="2"/>
+          <text x="425" y="76" text-anchor="end" font-size="15" font-weight="700" fill="#6B7484">예</text>
+          <path d="M402,145 L422,145 L422,243 L700,243" fill="none" stroke="#AEB6C1" stroke-width="2"/>
+          <text x="425" y="264" text-anchor="end" font-size="15" font-weight="700" fill="#6B7484">아니오</text>
+
+          <rect x="442" y="58" width="220" height="54" rx="10" fill="#FFFFFF" stroke="#C9D2DE" stroke-width="1.5"/>
+          <text x="552" y="83" text-anchor="middle" font-size="17" fill="#6B7484">추가 토큰의</text>
+          <text x="552" y="104" text-anchor="middle" font-size="17" font-weight="700" fill="#384150">한계 이득은</text>
+
+          <path d="M662,85 L682,85 L682,42 L700,42" fill="none" stroke="#AEB6C1" stroke-width="2"/>
+          <text x="674" y="58" text-anchor="end" font-size="15" font-weight="700" fill="#5E88BC">≈ 0</text>
+          <path d="M662,85 L682,85 L682,140 L700,140" fill="none" stroke="#AEB6C1" stroke-width="2"/>
+          <text x="674" y="120" text-anchor="end" font-size="15" font-weight="700" fill="#C4788A">&lt; 0</text>
+
+          <rect x="700" y="10" width="732" height="64" rx="12" fill="#EEF3FA" stroke="#D3E0EF" stroke-width="1.5"/>
+          <text x="722" y="36" font-size="18" font-weight="800" fill="#5E88BC">갈래 ① 포화</text>
+          <text x="860" y="36" font-size="18" fill="#384150">종료하나 추가 토큰이 무익</text>
+          <text x="722" y="60" font-size="16" fill="#9AA3B0">Srivastava Fig 4 · Zhou Table 1</text>
+
+          <rect x="700" y="108" width="732" height="64" rx="12" fill="#FBEFF2" stroke="#EFD5DC" stroke-width="1.5"/>
+          <text x="722" y="134" font-size="18" font-weight="800" fill="#C4788A">갈래 ② 역효과</text>
+          <text x="860" y="134" font-size="18" fill="#384150">종료하나 추가 토큰이 성능 저하</text>
+          <text x="722" y="158" font-size="16" fill="#9AA3B0">Gema Fig 1 · Cuadron Fig 1</text>
+
+          <rect x="700" y="210" width="732" height="64" rx="12" fill="#FBF4E7" stroke="#EEDFC0" stroke-width="1.5"/>
+          <text x="722" y="236" font-size="18" font-weight="800" fill="#C0913F">갈래 ③ 미종료</text>
+          <text x="860" y="236" font-size="18" fill="#384150">상한 도달까지 종료 표시 미출력</text>
+          <text x="722" y="260" font-size="16" fill="#9AA3B0">Oladri Table 2·3</text>
+        </svg>

@@ -1,0 +1,68 @@
+# 25 — AUC_OAA — 원문의 정의식
+layout: content
+eyebrow: Metric · Definition
+eyebrow_color: blue
+title: AUC_OAA — 원문의 정의식
+blocks:
+- box:
+    style: display:grid;grid-template-columns:1.25fr 1fr;gap:28px;flex:1;min-height:0;
+    blocks:
+    - box:
+        style: display:flex;flex-direction:column;justify-content:center;gap:20px;min-height:0;
+        blocks:
+        - box:
+            style: ''
+            blocks:
+            - text:
+                text: ① 임계값 t 에서의 성능
+                style: |-
+                  font-size:16px;font-weight:800;color:var(--blue);letter-spacing:.05em;margin-bottom:8px;
+            - image:
+                src: otb-eq-oaa.png
+                alt: OAA_t 는 정답 여부와 생각 토큰이 t 미만이라는 지시함수의 곱을 n개에 대해 평균한 값
+                style: width:100%;max-width:760px;display:block;
+        - box:
+            style: ''
+            blocks:
+            - text:
+                text: ② 그 곡선을 t 로 훑어 평균
+                style: |-
+                  font-size:16px;font-weight:800;color:var(--blue);letter-spacing:.05em;margin-bottom:8px;
+            - image:
+                src: otb-eq-auc.png
+                alt: AUC_OAA 는 0부터 t_max 까지 OAA_t 를 t_max 로 나눠 적분한 값이며 합으로 근사된다
+                style: width:100%;max-width:660px;display:block;
+        - caption:
+            text: Aggarwal 외 (2025) §2.1 및 Eq. (1) 원문 인용
+            style: text-align:left;margin-top:0;
+    - box:
+        style: display:flex;flex-direction:column;justify-content:center;gap:12px;
+        blocks:
+        - card:
+            color: plain
+            n: |-
+              <span class="em">Correctness<sub>i</sub></span> — LLM judge가 정답 인정 시 1, 아니면 0<br>
+              <span class="em">1[ThinkTokens<sub>i</sub> &lt; t]</span> <span class="ref">지시함수</span> — 생각 토큰이 t 미만이면 1<br>
+              <span class="em">n</span> — 벤치마크의 문항 수
+            n_style: font-size:18px;line-height:1.65;
+            style: border-color:var(--gray-edge);padding:16px 20px;
+        - card:
+            color: blue
+            t: 두 항의 <span class="k-blue">곱</span>이 핵심 — 정답만으로도, 짧기만 해도 점수 미달
+            t_style: font-size:20px;
+            style: padding:16px 20px;
+        - card:
+            color: plain
+            n: |-
+              <span class="em">t<sub>max</sub> = 1000</span> — 이 벤치마크가 <span class="k-rose">사람이 정한</span> 상한. 이 값을 바꾸면 점수도 순위도 바뀐다 — 임계값 문제가 사라진 게 아니라 <span class="em">한 단계 위로 옮겨간 것</span>이다<br>
+              <span class="mono">OAA<sub>t</sub> / t<sub>max</sub></span> 로 나누므로 결과는 <span class="em">평균 높이</span> — 정확도와 동일 척도
+            n_style: font-size:18px;line-height:1.65;
+            style: border-color:var(--gray-edge);padding:16px 20px;
+        - card:
+            color: green
+            t: 적분은 <span class="k-green">합으로 근사</span> — 응답별 토큰 수 고정 → 계단함수
+            t_style: font-size:20px;
+            style: padding:16px 20px;
+cite:
+- aggarwal2025
+foot: Metric · Definition

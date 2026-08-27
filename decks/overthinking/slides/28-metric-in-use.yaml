@@ -1,0 +1,22 @@
+# 28 — 33개 모델 일괄 평가
+layout: content
+eyebrow: The Metric in Use
+eyebrow_color: blue
+title: 33개 모델 일괄 평가
+blocks:
+- lead: 정의된 지표의 적용 결과 — <span class="em">thinking / non-thinking 모델을 동일 표에</span> 배치.
+- figure:
+    src: otb-tab1.png
+    alt: 33개 모델의 F1otb, OverthinkingBench 정확도·토큰·AUC_OAA, UnderthinkingBench 정확도·토큰 표
+    caption: Aggarwal 외 (2025) Table 1 원문 인용 — 네 묶음(개방·폐쇄 × 비사고·사고)마다 최고값을 굵게.
+- bullets:
+    bullets:
+    - 비사고형은 생각 토큰이 0이라 <span class="em">AUC_OAA가 곧 정확도</span>가 된다 — Qwen3-235B 96.7
+    - |-
+      사고형은 쉬운 질의에도 154–3,303 토큰을 써서 AUC_OAA가 정확도보다 크게 낮다 — Magistral은 정확도 95.7에 AUC_OAA <span class="k-rose">6.4</span>
+    - F1<sup>otb</sup> 1위 o3 71.1은 어려운 쪽 65.0을 얻는 대가로 6,273 토큰을 쓴다
+    size: sm
+    style: margin-top:20px;
+cite:
+- aggarwal2025
+foot: The Metric in Use

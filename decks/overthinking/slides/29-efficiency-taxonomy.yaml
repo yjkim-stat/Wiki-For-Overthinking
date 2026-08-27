@@ -1,0 +1,49 @@
+# 29 — 선행 연구의 분류 체계
+layout: content
+eyebrow: Related Work · Taxonomy
+eyebrow_color: green
+title: 선행 연구의 분류 체계
+blocks:
+- lead: |-
+    Yue 외(2025) 서베이 — efficient reasoning을 <span class="em">단일 모델</span>과 <span class="em">모델 협업</span>으로 이분<br>하위 8갈래.
+- box:
+    style: display:grid;grid-template-columns:1.15fr 1fr;gap:26px;flex:1;min-height:0;
+    blocks:
+    - figure:
+        src: survey-fig2.png
+        alt: 효율적 R1 계열 대형추론모델 연구의 분류 체계 트리
+        caption: Yue 외 (2025) Figure 2 원문 인용
+    - box:
+        style: display:flex;flex-direction:column;gap:10px;min-height:0;justify-content:center;
+        blocks:
+        - card:
+            color: green
+            k: 단일 모델 (§3)
+            k_style: margin-bottom:6px;
+            n: |-
+              Early Exit <span class="ref">§3.1 · DEER, NOWAIT</span><br>
+              CoT Compression <span class="ref">§3.2 · TokenSkip, LC-R1</span><br>
+              Adaptive Reasoning <span class="ref">§3.3 · Ada-R1, ARM, LASER</span><br>
+              Representation Engineering <span class="ref">§3.4 · SEAL, Manifold Steering</span>
+            n_style: font-size:18px;line-height:1.6;
+            style: padding:14px 18px;
+        - card:
+            color: blue
+            k: 모델 협업 (§4)
+            k_style: margin-bottom:6px;
+            n: |-
+              Long–Short Collaboration <span class="ref">§4.1 · PLAN-AND-BUDGET</span><br>
+              LLM Routing <span class="ref">§4.2 · RouteLLM, R2R</span><br>
+              Model Consolidation <span class="ref">§4.3 · TwT, DRP</span><br>
+              Speculative Decoding <span class="ref">§4.4 · RSD, SpecRouter</span>
+            n_style: font-size:18px;line-height:1.6;
+            style: padding:14px 18px;
+        - card:
+            color: rose
+            t: |-
+              8갈래 중 5개는 <span class="k-rose">길이</span>, 2개는 <span class="em">응답 모델 선택</span>, 1개는 <span class="em">속도</span>가 표적
+            t_style: font-size:19px;
+            style: padding:14px 18px;
+cite:
+- yue2025
+foot: Related Work · Taxonomy

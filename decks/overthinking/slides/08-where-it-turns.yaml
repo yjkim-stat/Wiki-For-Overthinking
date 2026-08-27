@@ -1,0 +1,37 @@
+# 08 — 정확도가 꺾이는 지점
+layout: content
+eyebrow: Thread ① · 포화
+eyebrow_color: blue
+title: 정확도가 꺾이는 지점
+blocks:
+- cond:
+  - 길이 · <b>budget forcing 500–16K</b>
+  - text: 종료 · <b>전부 강제 종료</b>
+    kind: key
+  - 관측 · <b>정확도 평균</b>
+- lead: Budget forcing으로 <span class="em">완성된 generation만</span> 수집 → 12K 최고, 이후 하락.
+- box:
+    style: display:grid;grid-template-columns:1.5fr 1fr;gap:26px;flex:1;min-height:0;
+    blocks:
+    - svg:
+        file: 08-where-it-turns.svg
+        style: align-self:center;
+    - figure:
+        src: wmth-tab1.png
+        alt: 구간별 증가폭과 예산별 정확도를 담은 원문 표
+        caption: |-
+          Zhou 외 (2026) Table 1 원문 인용 — 좌측 그림은 이 표의 (b) 열. 단 0.5K의 28.2%는 표 캡션(“Baseline accuracy at 500 tokens is 28.2% (R1)”) 출처. 가로축 간격 비균등.
+        style: justify-content:center;
+- bullets:
+    bullets:
+    - |-
+      12K에서 <span class="k-green">55.8%</span>로 최고, 16K에서 <span class="k-rose">54.9%</span> — <span class="em">4천 토큰 추가 투입, 0.9%p 손실</span>
+    - |-
+      이 하락은 <span class="em">잡음이 아님</span> — 12K→16K 하락 −0.9%p 의 95% 신뢰구간이 <span class="mono">[−1.4, −0.4]</span>로 0을 넘지 않음
+    - |-
+      꺾이는 지점은 문항별로 상이 — MATH-500 기준 <span class="em">Level 1은 1.0K, Level 5는 7.5K</span>
+    size: sm
+    style: margin-top:16px;
+cite:
+- zhou2026
+foot: Observation · Where It Turns

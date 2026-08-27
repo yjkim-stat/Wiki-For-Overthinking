@@ -1,0 +1,23 @@
+# 32 — 이 지표를 쓴 후속 연구
+layout: content
+eyebrow: Adoption
+eyebrow_color: blue
+title: 이 지표를 쓴 후속 연구
+blocks:
+- lead: 벤치마크 공개 이후 <span class="em">자기 방법을 이 지표로 채점한 후속 연구</span> 등장 — 아카이브 보유분은 현재 1편.
+- figure:
+    src: traac-tab2.png
+    alt: TRAAC와 베이스라인들의 OptimalThinkingBench 성적표
+    caption: |-
+      Singh 외 (2025) Table 2 원문 인용 — 두 백본에서 TokenSkip · L1-Max · LC-R1 · AdaptThink 를 같은 표에 놓고 F1<sup>otb</sup> 로 비교.
+- bullets:
+    bullets:
+    - |-
+      Qwen3-4B <span class="mono em">48.05 → 55.41</span>, DeepSeek-Qwen-7B <span class="mono em">21.60 → 34.15</span> — 수학 데이터로만 학습하고 OTB로 일반화를 봤다
+    - |-
+      L1-Max는 정확도 87.22%인데 AUC_OAA가 <span class="k-rose">1.11</span>이다 — 평균 0.9k 토큰이 상한 1,000에 거의 닿아 있다. <span class="em">t<sub>max</sub> 를 조금만 옮겨도 이 수치는 크게 변동</span>
+    size: sm
+    style: margin-top:20px;
+cite:
+- singh2025
+foot: Adoption

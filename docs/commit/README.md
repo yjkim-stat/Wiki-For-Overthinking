@@ -118,3 +118,4 @@ reference for everything built before the practice existed.
 | 0098 | [A redundancy the author has to see](0098-a-redundancy-the-author-has-to-see.md) | feature | One occurrence matching two keywords scored twice, and nothing downstream would ever complain |
 | 0099 | [A spelling, said on the day it splits](0099-a-spelling-said-on-the-day-it-splits.md) | feature | Two spellings make two records and neither is wrong about anything, which is why nobody notices until 39 sources against 5 |
 | 0100 | [The deck lands, the crops do not](0100-the-deck-lands-the-crops-do-not.md) | docs | The prose is ours and a rebuild cannot bring it back; the figures are quotation, and a public remote hosts rather than cites |
+| 0101 | [A deck becomes source and build](0101-a-deck-becomes-source-and-build.md) | refactor | Editing one sentence inside 123 KB of markup was the problem; the bibliography was 58 copies of 14 works |

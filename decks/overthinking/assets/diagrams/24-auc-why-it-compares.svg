@@ -1,0 +1,39 @@
+<svg class="fig" viewBox="0 0 1432 360" role="img"
+             aria-label="정확도가 같은 두 모델의 OAA 계단 곡선. t가 500일 때는 모델 A가, 800일 때는 모델 B가 앞선다.">
+          <rect x="570" y="0" width="300" height="52" rx="10" fill="#FBEFF2" stroke="#EFD5DC" stroke-width="1.5"/>
+          <text x="720" y="22" text-anchor="middle" font-size="17" fill="#6B7484">t = 500 · A 40% vs B 0%</text>
+          <text x="720" y="44" text-anchor="middle" font-size="18" font-weight="800" fill="#C4788A">A 우세</text>
+
+          <rect x="872" y="0" width="320" height="52" rx="10" fill="#EDF5F1" stroke="#CCE3D8" stroke-width="1.5"/>
+          <text x="1032" y="22" text-anchor="middle" font-size="17" fill="#6B7484">t = 800 · A 40% vs B 80%</text>
+          <text x="1032" y="44" text-anchor="middle" font-size="18" font-weight="800" fill="#5C9A7C">B 우세</text>
+
+          <line x1="200" y1="256" x2="1250" y2="256" stroke="#F0F2F6" stroke-width="1"/>
+          <line x1="200" y1="212" x2="1250" y2="212" stroke="#F0F2F6" stroke-width="1"/>
+          <line x1="200" y1="168" x2="1250" y2="168" stroke="#F0F2F6" stroke-width="1"/>
+          <line x1="200" y1="124" x2="1250" y2="124" stroke="#F0F2F6" stroke-width="1"/>
+          <line x1="200" y1="300" x2="1250" y2="300" stroke="#D6DCE4" stroke-width="2"/>
+          <line x1="200" y1="300" x2="200" y2="80" stroke="#D6DCE4" stroke-width="2"/>
+          <text x="188" y="306" text-anchor="end" font-size="15" fill="#9AA3B0">0</text>
+          <text x="188" y="262" text-anchor="end" font-size="15" fill="#9AA3B0">20%</text>
+          <text x="188" y="218" text-anchor="end" font-size="15" fill="#9AA3B0">40%</text>
+          <text x="188" y="174" text-anchor="end" font-size="15" fill="#9AA3B0">60%</text>
+          <text x="188" y="130" text-anchor="end" font-size="15" fill="#9AA3B0">80%</text>
+          <text x="132" y="92" font-size="17" fill="#9AA3B0">OAA</text>
+
+          <line x1="720"  y1="56" x2="720"  y2="300" stroke="#C4788A" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <line x1="1032" y1="56" x2="1032" y2="300" stroke="#5C9A7C" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+          <path d="M200,300 L325,300 L325,256 L595,256 L595,212 L1136,212 L1136,168 L1240,168"
+                fill="none" stroke="#5E88BC" stroke-width="4"/>
+          <path d="M200,300 L824,300 L824,256 L876,256 L876,212 L928,212 L928,168 L980,168 L980,124 L1240,124"
+                fill="none" stroke="#5C9A7C" stroke-width="4" stroke-dasharray="9 5"/>
+
+          <text x="1256" y="174" font-size="19" font-weight="800" fill="#5E88BC">모델 A</text>
+          <text x="1256" y="130" font-size="19" font-weight="800" fill="#5C9A7C">모델 B</text>
+
+          <text x="720"  y="324" text-anchor="middle" font-size="16" fill="#6B7484">500</text>
+          <text x="1032" y="324" text-anchor="middle" font-size="16" fill="#6B7484">800</text>
+          <text x="1240" y="324" text-anchor="middle" font-size="16" fill="#9AA3B0">1000</text>
+          <text x="720"  y="352" text-anchor="middle" font-size="17" fill="#9AA3B0">생각 토큰 예산 t</text>
+        </svg>

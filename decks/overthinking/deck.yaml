@@ -1,0 +1,25 @@
+# What the whole deck is. Per-slide content lives in slides/;
+# the bibliography lives in references.yaml.
+
+title: Overthinking — 측정 · 완화 · 한계
+lang: ko
+theme: ../theme
+fonts: |-
+  https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap
+hint:
+- ← →
+- ·
+- 클릭
+- ·
+- F 전체화면
+
+# Named styles. A block's `style:` may give one or more of these names instead
+# of CSS, so a look that several slides share is written down once. Anything
+# containing a colon is treated as literal CSS and passed straight through.
+styles:
+  family-name:   font-size:22px;margin-bottom:14px;
+  family-out:    font-size:16px;margin-top:14px;color:var(--ink-mid);
+  family-cost:   font-size:16px;color:var(--rose);font-weight:600;margin-top:6px;line-height:1.4;
+  family-papers: font-size:14px;margin-top:auto;padding-top:12px;color:var(--ink);line-height:1.5;
+  fill:          flex:1;min-height:0;
+  column:        display:flex;flex-direction:column;

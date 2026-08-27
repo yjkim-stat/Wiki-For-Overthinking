@@ -1,0 +1,37 @@
+# 15 — 짧게 풀리는 문항만 모으는 이유
+layout: content
+eyebrow: Family ① · 문항 선별
+eyebrow_color: green
+title: 짧게 풀리는 문항만 모으는 이유
+body_height: 560px
+blocks:
+- lead: |-
+    토큰 수를 <span class="em">그대로 벌점으로 쓰려면</span>, 그 문항이 짧게 풀린다는 것을 먼저 알아야 한다.<br>그 확인을 <span class="em">문항을 만들 때 끝내 둔다.</span>
+- svg: 15-family1-item-selection.svg
+- cards:
+    cols: 2
+    items:
+    - color: green
+      k: 확인 방법 · 실측 — OptimalThinkingBench
+      n: |-
+        별도 모델의 <span class="em">k = 8</span> 샘플이 <span class="em">전부</span> 기준 답과 일치할 때만 채택. 원문: “100% 일치 요구가 <span class="em">긴 추론이 필요 없을 만큼</span> 쉬운 문제임을 보장한다.” → 이 문항들은 <span class="em">생각 토큰 없이도 풀린다</span>.
+      n_style: font-size:17px;
+    - color: amber
+      k: 확인 방법 · 계산 — LLMThinkBench
+      n: |-
+        14개 과제 전부 <span class="mono">f : X → Y</span> 결정적 함수<br>복잡도 <span class="mono">O(n), O(n log n), O(n²)</span> <span class="em">기지</span> → 실측 없이 <span class="em">필요한 작업량의 상한이 정해진다.</span>
+      n_style: font-size:17px;
+    style: margin-top:16px;
+- card:
+    color: rose
+    t: |-
+      대가 · <span class="k-rose">짧게 풀린다고 확인할 수 있는 과제에 한정</span> → 쉬운 쪽 편중. <span class="em">OptimalThinkingBench는 난이도 높은 UnderthinkingBench를 짝지어 편향 상쇄</span>, LLMThinkBench는 미상쇄.
+    t_style: font-size:19px;margin-bottom:8px;
+    n: |-
+      잔여 문제 · 짧게 푼 것이 <span class="em">평가 대상이 아닌 별도 모델</span> — 주장 가능 범위는 “이 문항은 긴 추론 불요”까지, “이 모델이 짧게 해결 가능”은 아님.
+    n_style: font-size:17px;color:var(--ink-mid);
+    style: margin-top:14px;
+cite:
+- aggarwal2025
+- srivastava2026
+foot: Family ① · 문항 선별

@@ -1,0 +1,19 @@
+# 27 — 두 축의 조화평균 — F1<sup style="font-size:24px;">otb</sup>
+layout: content
+eyebrow: Metric
+eyebrow_color: blue
+title: 두 축의 조화평균 — F1<sup style="font-size:24px;">otb</sup>
+blocks:
+- lead: 두 sub-benchmark 중 <span class="em">한쪽만으로는 점수가 오르지 않도록</span> 조화평균으로 결합.
+- card:
+    color: plain
+    blocks:
+    - text:
+        text: F1<sup>otb</sup> = harmonic_mean( AUC_OAA , UnderthinkingBench 정확도 )
+        style: font-size:20px;line-height:1.7;color:var(--ink);
+        cls: mono
+    style: border-color:var(--gray-edge);background:#FAFBFC;margin-bottom:16px;
+- svg: 27-f1-otb.svg
+cite:
+- aggarwal2025
+foot: Metric

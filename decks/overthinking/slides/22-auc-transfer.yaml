@@ -1,0 +1,46 @@
+# 22 — 같은 발상, 다른 축
+layout: content
+eyebrow: Transfer
+eyebrow_color: blue
+title: 같은 발상, 다른 축
+blocks:
+- lead: |-
+    Threshold를 고르지 않는다는 발상은 그대로 이식. <span class="em">threshold의 정체와 trade-off 대상</span>만 상이.
+- table:
+    head:
+    - html: ''
+      style: width:26%;
+    - html: 이미지 분류 <span class="ref">ROC-AUC</span>
+      style: width:37%;
+    - html: 최적 사고 <span class="ref">AUC_OAA</span>
+      style: width:37%;
+    rows:
+    - - 임계값
+      - 점수 컷 <span class="mono">τ</span>
+      - 생각 토큰 예산 <span class="mono">t</span>
+    - - 임계값이 맞바꾸는 것
+      - 재현율 ↔ 오탐
+      - html: 정확도 ↔ 토큰 비용
+        cls: em
+    - - 곡선의 두 축
+      - FPR, TPR — 둘 다 성능
+      - html: t, OAA<sub>t</sub> — x축이 비용
+        cls: em
+    - - 넓이의 뜻
+      - 양성이 음성보다 높게 매겨질 확률
+      - 예산 구간에서의 평균 정확도
+    - - 상한을 정해야 하나
+      - 아니오 — FPR은 0–1 폐구간
+      - <span class="k-rose">예 — t<sub>max</sub> 를 사람이 지정</span>
+    style: font-size:18px;
+- card:
+    color: rose
+    t: |-
+      마지막 행이 이식의 대가 — x축이 <span class="k-rose">닫힌 비율이 아닌 열린 비용</span> → 절단 지점을 벤치마크가 지정해야 함
+    n: |-
+      두 지표는 동일하지 않음 — ROC 곡선은 threshold로 <i>매개된</i> 두 성능의 궤적, OAA 곡선은 threshold <i>자체</i>가 축.
+    n_style: font-size:16px;margin-top:8px;
+    style: margin-top:16px;
+cite:
+- aggarwal2025
+foot: Transfer

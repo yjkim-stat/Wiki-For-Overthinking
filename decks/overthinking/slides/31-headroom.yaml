@@ -1,0 +1,23 @@
+# 31 — 오라클과의 거리
+layout: content
+eyebrow: Headroom
+eyebrow_color: green
+title: 오라클과의 거리
+blocks:
+- lead: |-
+    동일 논문 — <span class="em">난이도 기반 router</span>와 <span class="em">정답을 아는 oracle router</span>를 동일 표에 배치.
+- figure:
+    src: otb-tab3.png
+    alt: Qwen3 기본, 비사고, 학습된 라우터, 오라클 라우터의 비교 표
+    caption: |-
+      Aggarwal 외 (2025) Table 3 원문 인용 — 24.3 → 46.9 → 61.2. 표의 (+20.4%)는 46.9−24.3이 아니라 <b>모델별 이득의 평균</b>이다(Table 8: 1.7B +10.9 · 8B +24.6 · 32B +24.7 · 235B +21.3, 각 모델의 더 나은 기준선 대비).
+- bullets:
+    bullets:
+    - |-
+      Routing의 개선폭은 <span class="em">실질적</span> — 단 oracle까지 <span class="mono em">14.3점</span> 잔존
+    - |-
+      Oracle은 <span class="em">정답을 알고</span> routing — 잔여 14.3점의 귀속(난이도 예측 실패 vs 결정 규칙·특징)은 <span class="k-rose">본 표만으로 판별 불가</span>
+    style: margin-top:20px;
+cite:
+- aggarwal2025
+foot: Headroom

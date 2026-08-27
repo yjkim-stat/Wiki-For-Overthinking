@@ -275,9 +275,12 @@ requests/pending/
 # repository; committing one would embed a repo inside itself.
 .claude/worktrees/
 
-# Figure crops taken from published papers, and the standalone deck that carries
-# them inlined as data: URIs. Excluded for the same reason as data/pdfs/ above --
-# this repository is public and the source documents are not ours to redistribute.
-# outputs/htmls/FIGURES.md records which paper each crop came from.
-outputs/htmls/figures/
-outputs/htmls/overthinking-standalone.html
+# Figure crops taken from published papers. Excluded for the same reason as
+# data/pdfs/ above -- this repository is public and the source documents are not
+# ours to redistribute. Each deck's assets/FIGURES.md records which paper every
+# crop came from, so a clone can re-fetch them.
+decks/*/assets/figures/
+
+# Built decks. Generated wholesale by decks/build.py from the YAML beside them,
+# and the standalone twin carries the crops above inlined as data: URIs.
+decks/*/build/

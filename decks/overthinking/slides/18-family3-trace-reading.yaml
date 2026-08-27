@@ -1,0 +1,64 @@
+# 18 — 한 번 돌린 결과만 읽기
+layout: content
+eyebrow: Family ③ · 트레이스 판독
+eyebrow_color: rose
+title: 한 번 돌린 결과만 읽기
+body_height: 520px
+blocks:
+- lead: |-
+    짧게 풀리는지도, 예산을 바꿨을 때도 확인하지 않는다.<br><span class="em">무엇을 대신 읽느냐</span>에서 다시 셋으로 분기.
+- cards:
+    cols: 3
+    items:
+    - color: amber
+      k: A · 구조 계수
+      n:
+      - |-
+        <span class="em">Do NOT Think That Much</span> <span class="ref">2025</span><br>추가 계산의 답 변경 여부(결과 효율)<br>사슬 내 중복 비율(과정 효율)<br><span class="em">두 값을 분리 측정</span>
+      - |-
+        <span class="em">Funnel of Thoughts</span> <span class="ref">Park 외, 2026</span><br>“Wait · Actually · perhaps” 등 <span class="em">주저 표현 밀도</span>. 115K 궤적 기반<br>추가 비용 없는 어휘 신호
+      - 대가 · 중복의 정의를 <span class="em">가정</span>
+      n_style:
+      - font-size:17px;margin-bottom:12px;
+      - font-size:17px;
+      - font-size:16px;margin-top:auto;color:var(--rose);
+      style: display:flex;flex-direction:column;
+    - color: violet
+      k: B · 내부 상태 판독
+      n:
+      - |-
+        <span class="em">Think Deep, Not Just Long</span> <span class="ref">2026</span><br>DTR — 출력 토큰 중 <span class="em">후반 층에서 여전히 수정 중인</span> 비율
+      - |-
+        <span class="em">Manifold Steering</span> <span class="ref">2025</span><br>오버씽킹을 활성 공간의 <span class="em">저차원 방향</span>으로 규정
+      - 대가 · 검증에 쓴 <span class="em">타 지표의 오차</span> 승계
+      n_style:
+      - font-size:17px;margin-bottom:12px;
+      - font-size:17px;
+      - font-size:16px;margin-top:auto;color:var(--rose);
+      style: display:flex;flex-direction:column;
+    - color: rose
+      k: C · judge 질의
+      n:
+      - |-
+        <span class="em">The Danger of Overthinking</span> <span class="ref">Cuadron 외, 2025</span><br>LLM judge <span class="mono em">0–10</span>. 궤적에서 성공·실패 정보 제거 후 채점
+      - 전문가 4인 × 궤적 20개 대조 — <span class="em">Spearman 0.800</span>
+      - 대가 · <span class="em">재현 가능한 계산 아님</span>
+      n_style:
+      - font-size:17px;margin-bottom:12px;
+      - font-size:17px;
+      - font-size:16px;margin-top:auto;color:var(--rose);
+      style: display:flex;flex-direction:column;
+    style: flex:1;min-height:0;
+- card:
+    color: plain
+    t: |-
+      셋 다 <span class="em">비교 대상이 없다</span> → 무엇에 맞춰 검증할지도 각자 설정. 동일 표적에 정렬된 사례 없음 — 다음 쪽의 문제.
+    t_style: font-size:20px;
+    style: border-color:var(--gray-edge);margin-top:14px;
+cite:
+- park2026
+- do-not-think-that-much-for-o2025
+- think-deep-not-just-long-mea2026
+- mitigating-overthinking-in-l2025
+- cuadron2025
+foot: Family ③ · 트레이스 판독
