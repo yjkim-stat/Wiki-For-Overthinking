@@ -43,7 +43,7 @@ Not stated in the fetched abstract beyond the two pretraining datasets and the A
 ## Entities
 
 - **Concepts**: compute-optimal scaling law, Kaplan vs. Chinchilla scaling-law discrepancy, optimizer-tuning confounds in scaling studies
-- **Methods**: scaling-law fitting, AdamW optimizer tuning analysis
+- **Methods**: [scaling-law fitting](../../../../wiki/methods/scaling-law-fitting.md), AdamW optimizer tuning analysis
 - **Datasets**: OpenWebText2, RefinedWeb
 
 Tags: `scaling-laws`, `compute-optimal`, `pretraining`, `optimizer-tuning`

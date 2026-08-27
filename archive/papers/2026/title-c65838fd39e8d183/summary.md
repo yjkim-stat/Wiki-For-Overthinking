@@ -44,7 +44,7 @@ The paper states that token-latency speedups are an upper bound on end-to-end ru
 
 ## Entities
 
-- **Concepts**: Parallel Reasoning, Critical Path Latency, [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [Accuracy-Efficiency Pareto Frontier](../../../../wiki/concepts/accuracy-efficiency-pareto-frontier.md), [Reward Hacking](../../../../wiki/concepts/reward-hacking.md), Adaptive Reasoning Structure
+- **Concepts**: Parallel Reasoning, [Critical Path Latency](../../../../wiki/concepts/critical-path-latency.md), [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [Accuracy-Efficiency Pareto Frontier](../../../../wiki/concepts/accuracy-efficiency-pareto-frontier.md), [Reward Hacking](../../../../wiki/concepts/reward-hacking.md), Adaptive Reasoning Structure
 - **Methods**: ThreadWeaver, P-GRPO, [GRPO](../../../../wiki/methods/grpo.md), trie-based rollout, ancestor-only attention mask, two-stage parallel trajectory generator, Multiverse, Parallel-R1
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md), [Minerva Math](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 

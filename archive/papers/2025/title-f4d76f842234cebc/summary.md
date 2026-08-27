@@ -43,7 +43,7 @@ Not stated in the fetched abstract beyond the ImageNet 256x256 evaluation settin
 ## Entities
 
 - **Concepts**: frequency-aware dynamic inference, curriculum layer-dropout supervision, wavelet-domain consistency loss
-- **Methods**: Visual AutoRegressive (VAR) modeling, early-exit inference, wavelet-domain frequency-consistency loss
+- **Methods**: Visual AutoRegressive (VAR) modeling, [early-exit inference](../../../../wiki/methods/early-exit-inference.md), wavelet-domain frequency-consistency loss
 - **Datasets**: ImageNet 256x256
 
 Tags: `early-exit`, `image-generation`, `visual-autoregressive`, `adaptive-inference`

@@ -45,7 +45,7 @@ RGV inherits retrieval quality -- it can be no better than what retrieval actual
 
 - **Concepts**: copy-inflation, retrieval-grounded voting, weighted majority vote, confidence-based voting, well-grounded but wrong
 - **Methods**: DeepConf (logprob-based confidence voting), Retrieval-Grounded Voting (RGV), Simple Majority voting, weighted majority vote
-- **Datasets**: BrowseComp-Plus, [GAIA](../../../../wiki/datasets/gaia.md), BrowseComp, FRAMES
+- **Datasets**: BrowseComp-Plus, [GAIA](../../../../wiki/datasets/gaia.md), [BrowseComp](../../../../wiki/datasets/browsecomp.md), FRAMES
 
 Tags: `test-time-scaling`, `search-agent`, `confidence-voting`, `retrieval-augmented`, `hallucination`
 

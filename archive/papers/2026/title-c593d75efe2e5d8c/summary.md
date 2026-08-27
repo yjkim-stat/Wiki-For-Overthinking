@@ -43,7 +43,7 @@ Not stated in the fetched abstract beyond the four reasoning benchmarks and Deep
 ## Entities
 
 - **Concepts**: mechanistic interpretation of compression effects, reasoning-critical weight identification, compression-induced reasoning degradation
-- **Methods**: quantization, [distillation](../../../../wiki/methods/knowledge-distillation.md), pruning, mechanistic interpretability analysis
+- **Methods**: quantization, [distillation](../../../../wiki/methods/knowledge-distillation.md), pruning, [mechanistic interpretability analysis](../../../../wiki/methods/mechanistic-interpretability-analysis.md)
 - **Datasets**: _none recorded_
 
 Tags: `model-compression`, `large-reasoning-models`, `mechanistic-interpretability`, `quantization`

@@ -43,7 +43,7 @@ Not stated in the fetched abstract beyond the tested parameter range (86.0M-2.2B
 ## Entities
 
 - **Concepts**: compute-optimal quantization-aware training, cooldown-QAT fusion, tokens-per-parameter-byte scaling statistic
-- **Methods**: quantization-aware training (QAT), scaling-law fitting
+- **Methods**: quantization-aware training (QAT), [scaling-law fitting](../../../../wiki/methods/scaling-law-fitting.md)
 - **Datasets**: _none recorded_
 
 Tags: `quantization`, `compute-optimal`, `scaling-laws`, `training-efficiency`

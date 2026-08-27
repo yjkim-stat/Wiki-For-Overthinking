@@ -44,7 +44,7 @@ The material reviewed (abstract-level, no attached PDF) does not give specific b
 ## Entities
 
 - **Concepts**: forest-of-thought, sparse activation, consensus-guided decision-making, reasoning-tree aggregation
-- **Methods**: Forest-of-Thought, sparse activation, dynamic self-correction, consensus-guided decision-making
+- **Methods**: Forest-of-Thought, sparse activation, [dynamic self-correction](../../../../wiki/methods/dynamic-self-correction.md), consensus-guided decision-making
 - **Datasets**: _none recorded_
 
 Tags: `test-time-compute`, `tree-of-thought`, `sparse-activation`, `consensus`, `reasoning-search`

@@ -45,8 +45,8 @@ BRANCH's selection is an unweighted majority vote; the paper records but does no
 ## Entities
 
 - **Concepts**: recursion operator, budget-exhausted output / truncation recovery, paired evaluation protocol, answer stability halting, hidden deliberation stream
-- **Methods**: GROW (additive recursion), PRUNE (reductive/decomposition recursion), BRANCH (search/self-consistency recursion), chain-of-thought baseline
-- **Datasets**: MuSiQue, [HLE](../../../../wiki/datasets/hle.md), BBEH, [SuperGPQA](../../../../wiki/datasets/supergpqa.md), [Omni-MATH](../../../../wiki/datasets/omni-math.md)
+- **Methods**: GROW (additive recursion), PRUNE (reductive/decomposition recursion), BRANCH (search/self-consistency recursion), [chain-of-thought baseline](../../../../wiki/methods/chain-of-thought-baseline.md)
+- **Datasets**: MuSiQue, [HLE](../../../../wiki/datasets/hle.md), [BBEH](../../../../wiki/datasets/bbeh.md), [SuperGPQA](../../../../wiki/datasets/supergpqa.md), [Omni-MATH](../../../../wiki/datasets/omni-math.md)
 
 Tags: `test-time-compute`, `self-consistency`, `decomposition`, `truncation`, `token-budget`, `evaluation-methodology`
 
