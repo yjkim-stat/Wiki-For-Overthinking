@@ -8,6 +8,9 @@ run, and edits made there are lost at the next build.
 python3 decks/build.py overthinking              # -> decks/overthinking/build/
 python3 decks/build.py overthinking --standalone # + the offline twin
 python3 decks/build.py overthinking --watch      # rebuild on every save
+python3 decks/build.py overthinking --slides 13-32 --out overthinking-part2 --standalone
+                                                  # only slides 13..32, renumbered from 1,
+                                                  # as decks/overthinking/build/overthinking-part2.html
 ```
 
 `--watch` is the one to use while writing: leave it running, keep the built

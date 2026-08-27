@@ -297,11 +297,20 @@ def load_deck(name):
     return deck, meta, refs, slides
 
 
-def build(name, standalone=False):
+def build(name, standalone=False, slides_spec=None, out_name=None):
     deck, meta, refs, slides = load_deck(name)
     theme = (deck / meta["theme"]).resolve() if meta.get("theme") else HERE / "theme"
     css = (theme / "deck.css").read_text(encoding="utf-8")
     js = (theme / "deck.js").read_text(encoding="utf-8")
+
+    if slides_spec:
+        m = re.fullmatch(r"(\d+)-(\d+)", slides_spec.strip())
+        if not m:
+            raise BuildError(f"--slides expects A-B, got {slides_spec!r}")
+        a, b = int(m.group(1)), int(m.group(2))
+        if not (1 <= a <= b <= len(slides)):
+            raise BuildError(f"--slides {slides_spec}: deck has {len(slides)} slides")
+        slides = slides[a - 1:b]
 
     STYLES.clear()
     STYLES.update(meta.get("styles") or {})
@@ -345,9 +354,13 @@ def build(name, standalone=False):
 
     out_dir = deck / "build"
     out_dir.mkdir(exist_ok=True)
-    dst = out_dir / f"{deck.name}.html"
+    dst = out_dir / f"{out_name or deck.name}.html"
     dst.write_bytes(b"\xef\xbb\xbf" + doc.encode("utf-8"))
 
+    # A partial build (--slides) shares this folder with the full deck's build.
+    # Its figure set is a subset by construction, so it only ever adds files
+    # here — deleting what it does not use would strip figures the full
+    # build still links to.
     fig_src, fig_dst = deck / "assets" / "figures", out_dir / "figures"
     fig_dst.mkdir(exist_ok=True)
     for f in sorted(ctx["figures"]):
@@ -355,19 +368,21 @@ def build(name, standalone=False):
         if not src.exists():
             raise BuildError(f"missing figure: {src}")
         shutil.copy2(src, fig_dst / f)
-    for stale in fig_dst.glob("*"):
-        if stale.name not in ctx["figures"]:
-            stale.unlink()
+    if not slides_spec:
+        for stale in fig_dst.glob("*"):
+            if stale.name not in ctx["figures"]:
+                stale.unlink()
 
     print(f"{dst}  —  {total} slides, {len(ctx['figures'])} figure(s), "
           f"{len(ctx['cited'])} reference(s), {dst.stat().st_size/1024:.0f} KB")
 
-    unused_f = sorted(p.name for p in fig_src.glob("*") if p.name not in ctx["figures"])
-    unused_r = sorted(set(refs) - ctx["cited"])
-    if unused_f:
-        print(f"  unused in assets/figures: {', '.join(unused_f)}")
-    if unused_r:
-        print(f"  unused in references.yaml: {', '.join(unused_r)}")
+    if not slides_spec:
+        unused_f = sorted(p.name for p in fig_src.glob("*") if p.name not in ctx["figures"])
+        unused_r = sorted(set(refs) - ctx["cited"])
+        if unused_f:
+            print(f"  unused in assets/figures: {', '.join(unused_f)}")
+        if unused_r:
+            print(f"  unused in references.yaml: {', '.join(unused_r)}")
 
     if standalone:
         build_standalone(dst, meta)
@@ -485,7 +500,7 @@ def build_standalone(src, meta):
     return dst
 
 
-def watch(name, standalone):
+def watch(name, standalone, slides_spec=None, out_name=None):
     """Rebuild whenever an input changes, so editing is: save, refresh the tab.
 
     A failed build prints its reason and keeps waiting — the last good HTML is
@@ -511,7 +526,7 @@ def watch(name, standalone):
         if now != last:
             last = now
             try:
-                build(name, standalone=standalone)
+                build(name, standalone=standalone, slides_spec=slides_spec, out_name=out_name)
             except BuildError as e:
                 print(f"build failed — {e}", file=sys.stderr)
             except Exception as e:                      # a malformed YAML mid-save
@@ -528,15 +543,24 @@ def main():
                     help="also write the offline twin, with fonts and figures inlined")
     ap.add_argument("--watch", action="store_true",
                     help="rebuild on every change to the deck or the theme")
+    ap.add_argument("--slides", metavar="A-B",
+                    help="build only slides A..B (1-indexed, inclusive of both ends, "
+                         "renumbered from 1) as their own file — requires --out")
+    ap.add_argument("--out", metavar="NAME",
+                    help="output file basename, e.g. NAME.html (default: the deck name; "
+                         "required with --slides so a partial build never overwrites the full one)")
     args = ap.parse_args()
+    if args.slides and not args.out:
+        print("build failed — --slides needs --out to name the output file", file=sys.stderr)
+        return 1
     if args.watch:
         try:
-            watch(args.deck, args.standalone)
+            watch(args.deck, args.standalone, slides_spec=args.slides, out_name=args.out)
         except KeyboardInterrupt:
             print()
         return 0
     try:
-        build(args.deck, standalone=args.standalone)
+        build(args.deck, standalone=args.standalone, slides_spec=args.slides, out_name=args.out)
     except BuildError as e:
         print(f"build failed — {e}", file=sys.stderr)
         return 1
