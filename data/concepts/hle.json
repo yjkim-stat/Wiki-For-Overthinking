@@ -3,17 +3,45 @@
   "definition": "HLE appears in this archive only as coverage of the hardest science and knowledge questions, and neither citing source reports a length or accuracy number on it. Statistical Early Stopping names GPQA and HLE as its science evaluation but reports its token savings on the four other sets - 63.30% (GSM-MC), 41.10% (UMWP), 68.15% (MiP) and 69.83% (MMLU) for the Maxwise rule, measured on ill-posed instances - so nothing is stated about what its stopping rules do on HLE. WebThinker lists HLE among GPQA, GAIA, WebWalkerQA and Glaive with only a qualitative claim of outperforming existing methods, and the archive files it as sharing no more than the 'large reasoning model' keyword. The group's pattern that token savings shrink on hard sets is therefore untested here rather than confirmed. The archive also holds this benchmark separately under its spelled-out name.",
   "evidence": [
     {
+      "id": "arxiv:2608.23956",
+      "kind": "paper",
+      "note": "Recasts iterative refinement, decomposition and repeated sampling as three recursion operators (GROW, PRUNE, BRANCH) over a shared reasoning-trace primitive, compares them under a paired protocol across 3 frontier models and 5 benchmarks, and finds BRANCH wins mainly because it recovers answers a single pass never emitted at all.",
+      "title": "Recursive Agentic Reasoning"
+    },
+    {
       "id": "title:594984624acaa60d",
       "kind": "paper",
       "note": "Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
       "title": "Statistical Early Stopping for Reasoning Models"
+    },
+    {
+      "id": "title:93df459afa09bdd6",
+      "kind": "paper",
+      "note": "WebThinker gives large reasoning models a Deep Web Explorer module and an Autonomous Think-Search-and-Draft strategy so they can search, navigate, and draft research reports interleaved with reasoning, trained via iterative online DPO, and it outperforms existing methods and strong proprietary systems on complex reasoning and report-generation benchmarks.",
+      "title": "WebThinker: Empowering Large Reasoning Models with Deep Research Capability"
     }
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "HLE",
   "related": [
+    "recursion-operator",
+    "budget-exhausted-output-truncation-recovery",
+    "paired-evaluation-protocol",
+    "answer-stability-halting",
+    "hidden-deliberation-stream",
+    "grow-additive-recursion",
+    "prune-reductive-decomposition-recursion",
+    "branch-search-self-consistency-recursion",
+    "chain-of-thought-baseline",
+    "musique",
+    "bbeh",
+    "supergpqa",
+    "omni-math",
+    "deepseek-v4-pro",
+    "minimax-m3",
+    "qwen3-6-plus",
     "early-stopping",
     "overthinking",
     "ill-posed-query",
@@ -38,7 +66,15 @@
     "umwp",
     "mip",
     "mmlu",
-    "gpqa"
+    "gpqa",
+    "deep-web-explorer",
+    "think-search-and-draft-strategy",
+    "iterative-online-dpo-for-tool-use",
+    "iterative-online-direct-preference-optimization-dpo",
+    "agentic-web-search-and-navigation",
+    "gaia",
+    "webwalkerqa",
+    "glaive"
   ],
   "related_authored": [
     "humanity-s-last-exam",

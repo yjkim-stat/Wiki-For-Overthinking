@@ -9,7 +9,7 @@ In the archived sources this names the set of non-dominated operating points whe
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 1
 
-**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [accuracy-efficiency tradeoff of reasoning length](accuracy-efficiency-tradeoff-of-reasoning-length.md), [Accuracy-Length Tradeoff](accuracy-length-tradeoff.md), [Accuracy-token Pareto frontier](accuracy-token-pareto-frontier.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GRPO](../methods/grpo.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [Reward Hacking](reward-hacking.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [accuracy-efficiency tradeoff of reasoning length](accuracy-efficiency-tradeoff-of-reasoning-length.md), [Accuracy-Length Tradeoff](accuracy-length-tradeoff.md), [Accuracy-token Pareto frontier](accuracy-token-pareto-frontier.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [critical-path latency](critical-path-latency.md), [GRPO](../methods/grpo.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [Reward Hacking](reward-hacking.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

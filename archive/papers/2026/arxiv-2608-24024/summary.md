@@ -11,9 +11,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Identifies copy-inflation -- retrieved documents in a search agent's context systematically inflate the token log-probabilities of copied tokens -- as the reason logprob-based confidence voting (DeepConf) fails on multi-turn search agents, and fixes it with Retrieval-Grounded Voting (RGV), which weights each rollout by lexical overlap between its answer and the documents it retrieved instead of by internal confidence.
+
+## Problem
+
+Confidence-based voting (weighting parallel LLM rollouts by token-level log-probabilities) works well for single-turn reasoning but transfers poorly to multi-turn search agents that condition on retrieved documents, and the underlying reason this fails, and how to fix it at the voting layer, was unstudied.
+
+## Contributions
+
+- identifies and quantifies copy-inflation, the mechanism by which appended retrieved documents inflate token log-probabilities and collapse confidence-based voting's discriminative power in multi-turn search agents
+- proposes Retrieval-Grounded Voting (RGV), which reads the voting signal from outside the model's contaminated context (the retrieval log) instead of from token logprobs, adding no extra LLM calls or fine-tuning
+- shows RGV is best in all 20 benchmark x model cells tested, with the largest gains (+35%) on minority-correct questions where confidence-based voting fails most
+
+## Method
+
+Defines copy tokens as generated tokens whose surface form is a substring of a retrieved document already in context, and shows these carry systematically inflated log-probabilities (+0.50 nats mean gap vs. non-copy tokens) because the model is effectively parroting text that is already visible to it. This copy-inflation compresses DeepConf's within-question score spread as copy fraction rises, so the weighted vote degenerates toward simple majority exactly on the copy-heavy, hard-to-vote questions where rollouts disagree most (median rollout copies 93% of its content tokens; 85% of questions have mean copy fraction >=0.90). The proposed fix, Retrieval-Grounded Voting (RGV), replaces the logprob-based weight with w_RGV = max over retrieved docs of the token-overlap fraction between the rollout's final answer prose and that document -- a signal read from the retrieval log rather than the model's contaminated hidden state, requiring no logprobs, no fine-tuning, and no extra LLM calls. RGV is evaluated against Simple Majority, DeepConf and an oracle upper bound across 4 multi-turn search-agent benchmarks (BrowseComp-Plus, GAIA, BrowseComp, FRAMES) and 5 LLMs (gpt-oss-120b, MiniMax-M2.7, GLM-5.1, Kimi-K2.5, Tongyi-DeepResearch) with N=8 rollouts per question, judged by Qwen3-32B.
+
+## Results
+
+RGV is the best voting method in all 20 benchmark x model cells, beating DeepConf by up to +5.4% accuracy overall and +35% on 'minority-correct' questions (only 1-2 of 8 rollouts correct), e.g. 84.4% vs. DeepConf's 49.2% on BrowseComp-Plus/Tongyi-DeepResearch. RGV at N=4 rollouts already matches DeepConf's accuracy at N=8, halving the rollout budget for equal accuracy, and its advantage grows monotonically with N (+3.3% at N=2 to +5.4% at N=8). At the rollout level RGV separates judge-correct from judge-wrong trajectories better than DeepConf (ROC AUC 0.908 vs. 0.837). DeepConf's mean per-question score stays at 87% of its peak value even on questions where every rollout is wrong -- it cannot distinguish an impossible question from a solvable one. RGV's grounding signal is validated as genuine (not verbosity or common-word overlap): a within-question document shuffle preserves the correct-vs-wrong score gap (0.080), an across-question shuffle collapses it 3x (to 0.025), and a random-token null collapses it 53x (to 0.002); rare entity/digit tokens carry most of the discriminative signal (gap 0.145 for digits, 0.092 for entities, 0.010 for common words). RGV's residual failures (26/616 questions, 4.2%) are 'well-grounded but wrong' cases where a wrong rollout retrieves topically relevant but factually incorrect documents. Cost: RGV needs only the rollout's own retrieval log (~0.3ms/rollout on one CPU thread), versus DeepConf's per-token logprobs and aggregator methods' extra LLM call.
+
+## Limitations
+
+RGV inherits retrieval quality -- it can be no better than what retrieval actually returned, and under outright corpus mismatch it is the only rule that stays above single-rollout average but its own margin is thin. Grounded is not correct: RGV measures retrieval success, not truth, so a wrong rollout that retrieves the right topic but draws the wrong conclusion still scores well (4.2% of questions). The prose-side normalization weakens the signal when the answer is forced to be very short, degrading toward simple answer-containment. All experiments are in English, and the method assumes retrieval-heavy agents; agents relying on non-retrieval tools (e.g. code interpreters) would need a different grounding signal, and gains shrink on reasoning-intensive tasks with less retrieval. RGV trusts the retrieval log, so an adversarially poisoned corpus could raise the vote weight of rollouts that copy from it -- a vulnerability shared by any method reading that log, and left open.
+
+## Why it matters here
+
+- **overthinking**: Indirectly relevant: it is not about reasoning length, but it undercuts a specific test-time-compute technique (DeepConf, logprob-based confidence voting/early-stopping) that the overthinking literature draws on for deciding which of several parallel reasoning attempts to trust or when to stop sampling. Showing that DeepConf's confidence signal is systematically miscalibrated in any setting where the context contains text the model can copy (not just search agents) is a caution for confidence-based stopping or routing rules more broadly.
+
+## Entities
+
+- **Concepts**: copy-inflation, retrieval-grounded voting, weighted majority vote, confidence-based voting, well-grounded but wrong
+- **Methods**: DeepConf (logprob-based confidence voting), Retrieval-Grounded Voting (RGV), Simple Majority voting, weighted majority vote
+- **Datasets**: BrowseComp-Plus, [GAIA](../../../../wiki/datasets/gaia.md), BrowseComp, FRAMES
+
+Tags: `test-time-scaling`, `search-agent`, `confidence-voting`, `retrieval-augmented`, `hallucination`
 
 ## Abstract
 

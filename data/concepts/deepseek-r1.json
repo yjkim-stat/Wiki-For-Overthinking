@@ -21,11 +21,23 @@
       "kind": "paper",
       "note": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
       "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy"
+    },
+    {
+      "id": "arxiv:2608.24658",
+      "kind": "paper",
+      "note": "Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.",
+      "title": "Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning"
+    },
+    {
+      "id": "title:c593d75efe2e5d8c",
+      "kind": "paper",
+      "note": "Studies how quantization, distillation and pruning affect DeepSeek-R1's reasoning ability using mechanistic interpretation, finding weight count matters more for knowledge memorization than reasoning, and that protecting just 2% of over-compressed weights recovers 6.57 accuracy points.",
+      "title": "When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "model",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "DeepSeek-R1",
   "related": [
     "adaptive-test-time-compute-allocation",
@@ -112,7 +124,37 @@
     "qwen3-30b-a3b-thinking-2507",
     "qwen3-4b-thinking-2507",
     "phi-4-reasoning",
-    "llama-3-3-70b-instruct"
+    "llama-3-3-70b-instruct",
+    "subtask-parallelism-and-branch",
+    "trial-parallelism-or-branch",
+    "critical-path-latency",
+    "parallelism-aware-reward-shaping",
+    "parallelism-aware-group-relative-policy-optimization-pa-grpo",
+    "context-free-grammar-constrained-parallel-trajectory-generation",
+    "sft-on-annotated-parallel-traces",
+    "tool-call-based-parallel-execution-sglang-xgrammar",
+    "amc",
+    "openmathreasoning",
+    "humanity-s-last-exam-hle",
+    "polaris-53k",
+    "parason-8b-built-on-qwen3-8b-traces",
+    "deepseek-v4",
+    "qwen3-30b-a3b",
+    "minimax-2-7",
+    "kimi-2-6",
+    "gemini-2-5-pro",
+    "claude-opus-4-5",
+    "gemini-3-pro",
+    "gpt-5-5",
+    "threadweaver-8b",
+    "multiverse-32b",
+    "mechanistic-interpretation-of-compression-effects",
+    "reasoning-critical-weight-identification",
+    "compression-induced-reasoning-degradation",
+    "quantization",
+    "knowledge-distillation",
+    "pruning",
+    "mechanistic-interpretability-analysis"
   ],
   "related_authored": [
     "o1",

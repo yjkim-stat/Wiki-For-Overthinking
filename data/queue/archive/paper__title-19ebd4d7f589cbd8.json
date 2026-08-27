@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:52:33Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:19ebd4d7f589cbd8",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "compute-optimal"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Compute-Optimal Quantization-Aware Training",
+    "url": "https://iclr.cc/virtual/2026/poster/10009552",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "compute-optimal quantization-aware training",
+      "cooldown-QAT fusion",
+      "tokens-per-parameter-byte scaling statistic"
+    ],
+    "contributions": [
+      "a scaling law for the loss-optimal ratio of QAT to full-precision training as a function of total compute",
+      "a tokens-per-parameter-byte statistic predicting the optimal QAT fraction",
+      "a cooldown-QAT fusion method combining learning-rate decay with quantization training"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the tested parameter range (86.0M-2.2B); no discussion of transfer to architectures or bit-width regimes outside those tested.",
+    "method": "Runs experiments across model sizes from 86.0M to 2.2B parameters and multiple bit widths, fitting a scaling law that predicts the optimal QAT-to-FP-training ratio and resulting performance, including a tokens-per-parameter-byte statistic and a cooldown-QAT fusion technique combining learning-rate decay with quantization training.",
+    "methods": [
+      "quantization-aware training (QAT)",
+      "scaling-law fitting"
+    ],
+    "models": [],
+    "one_liner": "Derives scaling laws for how to optimally split a fixed compute budget between full-precision training and quantization-aware training (QAT), finding the loss-optimal QAT fraction grows with total compute.",
+    "problem": "Practitioners lack a principled way to allocate a fixed training compute budget between full-precision training and quantization-aware training to obtain the best final quantized model.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Not relevant beyond the shared keyword 'compute-optimal': this is about training-time compute allocation between full-precision and quantized training phases, unrelated to inference-time reasoning length or the accuracy/efficiency tradeoff of LLM reasoning traces."
+    },
+    "results": "The loss-optimal ratio of QAT to full-precision training increases with total compute; the derived scaling law predicts optimal QAT ratios and final performance, identifies optimal bit widths under memory constraints, and the cooldown-QAT fusion approach lets practitioners train higher-quality quantized models under the same compute budget.",
+    "tags": [
+      "quantization",
+      "compute-optimal",
+      "scaling-laws",
+      "training-efficiency"
+    ]
+  },
+  "task_id": "paper__title-19ebd4d7f589cbd8",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

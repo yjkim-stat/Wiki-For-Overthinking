@@ -17,6 +17,12 @@
       "title": "$R^3$-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets"
     },
     {
+      "id": "arxiv:2608.23956",
+      "kind": "paper",
+      "note": "Recasts iterative refinement, decomposition and repeated sampling as three recursion operators (GROW, PRUNE, BRANCH) over a shared reasoning-trace primitive, compares them under a paired protocol across 3 frontier models and 5 benchmarks, and finds BRANCH wins mainly because it recovers answers a single pass never emitted at all.",
+      "title": "Recursive Agentic Reasoning"
+    },
+    {
       "id": "title:d02c8db6721c4d3c",
       "kind": "paper",
       "note": "GFPO samples a larger group of rollouts per problem during RL training and updates only on the top-k by length or by reward-per-token, converting extra training-time compute into shorter responses at inference.",
@@ -31,7 +37,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "Omni-MATH",
   "related": [
     "shared-budget-metareasoning-across-questions",
@@ -78,6 +84,21 @@
     "hy-3",
     "gpt-5-5",
     "claude-opus-4-8",
+    "recursion-operator",
+    "budget-exhausted-output-truncation-recovery",
+    "paired-evaluation-protocol",
+    "answer-stability-halting",
+    "hidden-deliberation-stream",
+    "grow-additive-recursion",
+    "prune-reductive-decomposition-recursion",
+    "branch-search-self-consistency-recursion",
+    "chain-of-thought-baseline",
+    "musique",
+    "hle",
+    "bbeh",
+    "supergpqa",
+    "minimax-m3",
+    "qwen3-6-plus",
     "length-inflation-under-rlvr",
     "filler-tokens",
     "token-efficiency-reward-per-token",

@@ -1,0 +1,94 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:52:34Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:4eb373d18ecc04ff",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "accuracy-efficiency tradeoff"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "KLAS: Using Similarity to Stitch Neural Networks for Improved Accuracy-Efficiency Tradeoffs",
+    "url": "https://iclr.cc/virtual/2026/poster/10007961",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "neural network stitching",
+      "KL-divergence-guided model selection",
+      "accuracy-efficiency interpolation"
+    ],
+    "contributions": [
+      "KLAS, a framework for combining pretrained models via activation stitching to reach new accuracy-efficiency tradeoff points",
+      "a KL-divergence-based method for automatically selecting stitching configurations instead of heuristics",
+      "up to 1.21% accuracy improvement at equal cost or 1.33x FLOPs reduction at equal accuracy on ImageNet-1K"
+    ],
+    "datasets": [
+      "ImageNet-1K"
+    ],
+    "limitations": "Not stated in the fetched abstract; evaluated on ImageNet-1K image classification, so generality to other modalities or tasks is untested.",
+    "method": "Transforms intermediate activations from a source model into a target model's representation space ('stitching'), and uses KL-divergence measurements between stitched and original outputs to automatically select the best stitching configuration among the ~k^2n^2 possible pairings for k pretrained models of depth n.",
+    "methods": [
+      "neural network stitching",
+      "KL-divergence-based configuration selection"
+    ],
+    "models": [],
+    "one_liner": "KLAS stitches together pretrained neural networks by transforming intermediate activations from one model into another, using KL-divergence to automatically select the best stitching configuration and produce interpolated models across the accuracy-efficiency spectrum.",
+    "problem": "Model selection under compute constraints is usually limited to choosing among existing pretrained models; combining pretrained models to reach intermediate points on the accuracy-efficiency spectrum is underexplored, and prior stitching approaches rely on heuristics to pick stitching configurations.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Not relevant beyond the shared keyword 'accuracy-efficiency tradeoff': this is about combining pretrained vision classifiers via activation stitching, unconnected to LLM reasoning length or test-time compute for reasoning."
+    },
+    "results": "Stitched models reach up to 1.21% higher ImageNet-1K top-1 accuracy at the same computational cost, or maintain accuracy with a 1.33x reduction in FLOPs, versus the constituent pretrained models.",
+    "tags": [
+      "model-merging",
+      "accuracy-efficiency-tradeoff",
+      "vision-models",
+      "compute-efficiency"
+    ]
+  },
+  "task_id": "paper__title-4eb373d18ecc04ff",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

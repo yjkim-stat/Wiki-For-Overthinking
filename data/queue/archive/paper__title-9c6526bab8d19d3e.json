@@ -1,0 +1,94 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:54:17Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:9c6526bab8d19d3e",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Doxing via the Lens: Revealing Location-related Privacy Leakage on Multi-modal Large Reasoning Models",
+    "url": "https://iclr.cc/virtual/2026/poster/10006914",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "geolocation privacy leakage",
+      "visual clue extraction",
+      "inference-time privacy safeguard"
+    ],
+    "contributions": [
+      "DoxBench, a 500-image benchmark across six categories for evaluating geolocation-inference privacy leakage",
+      "a three-tier risk framework for this class of privacy risk",
+      "GeoMiner, a two-stage attack demonstrating real-world feasibility of geolocation doxing via multi-modal LRMs"
+    ],
+    "datasets": [
+      "DoxBench (new, 500 images)"
+    ],
+    "limitations": "Not stated in the fetched abstract beyond the six image categories and 13 models tested.",
+    "method": "Develops a three-tier risk framework and DoxBench, a dataset of 500 real-world images across six categories, to evaluate geolocation-inference privacy leakage across 13 multi-modal LRMs; introduces GeoMiner, a two-stage attack framework (clue extraction, then reasoning) to demonstrate real-world feasibility.",
+    "methods": [
+      "three-tier risk framework",
+      "GeoMiner two-stage attack (clue extraction + reasoning)"
+    ],
+    "models": [],
+    "one_liner": "Introduces DoxBench (500 real-world images) and shows most tested multi-modal large reasoning models outperform non-expert humans at inferring a person's home location from an image's visual details, then demonstrates a practical two-stage attack (GeoMiner) exploiting this.",
+    "problem": "Multi-modal large reasoning models can infer sensitive geolocation information (e.g. home address or neighborhood) from user-generated images by combining visual detail extraction with internal geographic knowledge, and this privacy risk was not previously benchmarked or attributed to a specific mechanism.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Not relevant to reasoning length or efficiency: this is a privacy/safety study of multi-modal large reasoning models' geolocation-inference capability, matched to the topic only via the shared term 'large reasoning model.'"
+    },
+    "results": "Most of the 13 evaluated models outperform non-expert humans at geolocation inference from images; the paper attributes the vulnerability to models combining visual detail extraction with internal geographic knowledge and lacking any mechanism to suppress use of privacy-sensitive visual clues; GeoMiner demonstrates the attack is practically feasible.",
+    "tags": [
+      "privacy",
+      "multi-modal",
+      "large-reasoning-models",
+      "geolocation-inference"
+    ]
+  },
+  "task_id": "paper__title-9c6526bab8d19d3e",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

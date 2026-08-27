@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "gated refinement",
+    "adaptive prompt compression",
+    "prompt-optimization stagnation / local optima"
+  ],
+  "contributions": [
+    "GRACE, a prompt-optimization framework combining gated refinement and adaptive compression",
+    "feedback-regulation and update-rejection gates that stabilize prompt update signals",
+    "a compression strategy that escapes optimization stagnation by distilling and restructuring the prompt"
+  ],
+  "datasets": [
+    "BIG-Bench Hard (BBH)"
+  ],
+  "generated_at": "2026-08-27T13:52:33Z",
+  "generated_by": "queue",
+  "limitations": "Not stated beyond the tested task domains (BBH, domain-specific, general NLP); no discussion of when deliberate information loss via compression might hurt rather than help.",
+  "method": "Introduces GRACE, combining (1) gated refinement -- a feedback regulation gate and an update rejection gate that filter update signals for stable, effective prompt improvements -- with (2) adaptive compression -- when optimization stagnates, the prompt's core concepts are distilled and the optimization trace restructured to open new search paths, deliberately introducing information loss to escape local optima.",
+  "methods": [
+    "gated refinement",
+    "adaptive compression",
+    "automatic prompt optimization"
+  ],
+  "models": [],
+  "one_liner": "GRACE improves automatic prompt optimization by combining a gated-refinement mechanism (to stabilize update signals) with adaptive compression (distilling a stagnating prompt to escape local optima), reaching better task performance using only 25% of the prompt-generation budget of prior methods.",
+  "paper_id": "title:46b721af432d8a4e",
+  "problem": "Automatic prompt optimization methods often generate unstable, inefficient prompt updates and get trapped in local optima, and existing approaches overlook this stagnation problem.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Indirectly relevant: matched on 'adaptive compression,' but this compresses and restructures an evolving *prompt* during optimization, not a model's reasoning trace at inference time -- it is a budget-efficiency result in a related but distinct part of the LLM pipeline (prompt engineering rather than inference-time reasoning)."
+  },
+  "results": "Across 11 tasks in BIG-Bench Hard, domain-specific, and general NLP settings, GRACE achieves average relative improvements of 4.7%, 4.4% and 2.7% over state-of-the-art prompt-optimization methods respectively, using only 25% of the prompt-generation budget required by prior methods.",
+  "schema_version": 1,
+  "tags": [
+    "prompt-optimization",
+    "adaptive-compression",
+    "efficiency",
+    "local-optima"
+  ]
+}

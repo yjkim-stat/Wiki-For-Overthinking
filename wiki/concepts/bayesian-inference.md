@@ -6,14 +6,11 @@ A statistical framework for updating a belief (e.g. a prediction of prompt diffi
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
-
-**Related**: [reinforcement learning fine-tuning](reinforcement-learning-fine-tuning.md)
+- **Sources**: 1
 
 ## Appears in
 
-- [Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models](../../archive/papers/2026/title-0af2f5eb8565eb12/summary.md) — Selects which training prompts to use for RL finetuning of large reasoning models by predicting their learning dynamics with a hidden Markov model, instead of evaluating every candidate with rollouts.
-- [Small Generalizable Prompt Predictive Models Can Steer Efficient RL Post-Training of Large Reasoning Models](../../archive/papers/2026/title-ccc7bb1e86bc9d88/summary.md) — Trains a small, prompt-generic Bayesian predictor of prompt difficulty from shared RL optimization history to select informative training prompts and reduce rollout cost when RL-training large reasoning models.
+- [Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models](../../archive/papers/2026/title-0af2f5eb8565eb12/summary.md) — Dynamics-Predictive Sampling (DPS) forecasts, from a hidden-Markov model of each prompt's historical reward trajectory, which prompts are worth including in RL fine-tuning of large reasoning models before running any rollouts, cutting wasted rollouts and speeding up training.
 
 <!-- auto:end -->
 

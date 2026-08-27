@@ -1,0 +1,94 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:56:38Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:b2302bb0271de496",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "early exit"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "HiDrop: Hierarchical Vision Token Reduction in MLLMs via Late Injection, Concave Pyramid Pruning, and Early Exit",
+    "url": "https://iclr.cc/virtual/2026/poster/10011723",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "Late Injection",
+      "Concave Pyramid Pruning",
+      "adaptive visual-token early exit"
+    ],
+    "contributions": [
+      "Late Injection, delaying visual-token introduction to the point of active fusion",
+      "Concave Pyramid Pruning combined with an Early Exit mechanism for adaptive pruning rate",
+      "~90% visual-token compression matching original performance with 1.72x training acceleration"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the described mechanisms and the 90%/1.72x headline figures.",
+    "method": "Introduces Late Injection, which strategically delays introducing visual tokens until the point where active cross-modal fusion begins, combined with Concave Pyramid Pruning and an Early Exit mechanism for adaptive pruning-rate adjustment across layers; uses an inter-layer similarity metric with a differentiable top-k operator, plus persistent positional encoding, FlashAttention-compatible token selection, and parallel decoupling of visual computation to remove overhead.",
+    "methods": [
+      "differentiable top-k token selection",
+      "FlashAttention-compatible token selection",
+      "early-exit visual token pruning"
+    ],
+    "models": [],
+    "one_liner": "HiDrop reduces multimodal LLM inference cost by pruning ~90% of visual tokens through Late Injection, Concave Pyramid Pruning and an Early Exit mechanism, matching original performance while accelerating training by 1.72x.",
+    "problem": "Processing visual tokens in multimodal large language models is computationally expensive, and existing pruning approaches for reducing visual token count carry efficiency overhead or do not adapt pruning rate to content.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Off-topic domain (visual-token efficiency in multimodal LLMs rather than text reasoning length), matched via 'early exit'; relevant only as a cross-modal parallel showing adaptive, content-dependent pruning of an input representation can preserve accuracy while cutting compute substantially."
+    },
+    "results": "HiDrop compresses ~90% of visual tokens while matching original model performance and accelerating training by 1.72x, reported as state-of-the-art efficiency for both training and inference in multimodal systems.",
+    "tags": [
+      "multimodal",
+      "token-pruning",
+      "early-exit",
+      "efficiency",
+      "MLLM"
+    ]
+  },
+  "task_id": "paper__title-b2302bb0271de496",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

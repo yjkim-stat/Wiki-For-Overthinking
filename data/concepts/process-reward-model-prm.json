@@ -1,7 +1,8 @@
 {
   "aliases": [
     "process reward model",
-    "PRM"
+    "PRM",
+    "Process Reward Model (PRM)"
   ],
   "definition": "A reward model that scores the intermediate steps of a reasoning trace, not just the final answer, used to guide test-time search (pruning bad branches, expanding promising ones) rather than only to rank complete solutions. 'What If We Allocate Test-Time Compute Adaptively?' replaces uniform compute allocation with PRM-guided pruning/expansion; TaTToo trains a table-grounded, tool-verified PRM specifically for tabular reasoning search. Note: same concept as the archive's separately-tracked 'process reward model' entry -- not merged.",
   "evidence": [
@@ -10,11 +11,17 @@
       "kind": "paper",
       "note": "Replaces uniform test-time compute allocation with a process-reward-model-guided framework that adaptively prunes, expands and selects reasoning trajectories per problem.",
       "title": "What If We Allocate Test-Time Compute Adaptively?"
+    },
+    {
+      "id": "title:983af40bdcebe387",
+      "kind": "paper",
+      "note": "TaTToo is a table-grounded Process Reward Model that reasons explicitly over tabular operations and uses tool-based verification to supervise test-time scaling for tabular reasoning, improving downstream policy LRMs by 30.9% at inference.",
+      "title": "TaTToo: Tool-Grounded Thinking PRM for Test-Time Scaling in Tabular Reasoning"
     }
   ],
   "first_seen": "2026-08-20T12:20:08Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "process reward model (PRM)",
   "related": [
     "verifier-guided-adaptive-compute-allocation",
@@ -24,7 +31,13 @@
     "verifier-guided-adaptive-test-time-compute-allocation",
     "math500",
     "aime-2024",
-    "amo-bench"
+    "amo-bench",
+    "process-reward-model",
+    "tool-grounded-reward-shaping",
+    "table-grounded-reasoning-supervision",
+    "cold-start-supervised-fine-tuning",
+    "tool-grounded-reinforcement-learning",
+    "qwen-2-5-math-prm-72b-baseline"
   ],
   "related_authored": [
     "process-reward-model",

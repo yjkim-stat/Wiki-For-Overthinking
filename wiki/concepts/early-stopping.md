@@ -7,9 +7,9 @@ The five archived sources use 'early stopping' in three unrelated senses, and th
 - **Kind**: concept
 - **Also called**: Early Stopping
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [adaptive test-time compute](adaptive-test-time-compute.md), [Best-of-N](../methods/best-of-n.md), [Confidence-based early stopping](../methods/confidence-based-early-stopping.md), [Confidence Calibration](confidence-calibration.md), [Conformal Prediction](../methods/conformal-prediction.md), [Early Exit](../methods/early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [MathQA](../datasets/mathqa.md), [MMLU](../datasets/mmlu.md), [Overthinking](overthinking.md), [Self-Consistency](../methods/self-consistency.md), [Test-Time Compute](test-time-compute.md), [Test-Time Scaling](test-time-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
+**Related**: [adaptive test-time compute](adaptive-test-time-compute.md), [best-of-N](../methods/best-of-n.md), [Confidence-based early stopping](../methods/confidence-based-early-stopping.md), [Confidence Calibration](confidence-calibration.md), [Conformal Prediction](../methods/conformal-prediction.md), [Early Exit](../methods/early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [linear probe](../methods/linear-probe.md), [MathQA](../datasets/mathqa.md), [MMLU](../datasets/mmlu.md), [Overthinking](overthinking.md), [Self-Consistency](../methods/self-consistency.md), [Test-Time Compute](test-time-compute.md), [Test-Time Scaling](test-time-scaling.md), [Uncertainty Quantification](uncertainty-quantification.md)
 
 ## What we have settled
 
@@ -34,6 +34,7 @@ The practical consequence is narrower than the question supposed: the exposure o
 
 ## Appears in
 
+- [A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm](../../archive/papers/2026/arxiv-2608-24210/summary.md) — Derives an analytic, data-dependent estimate of the optimal early-stopping time for gradient-flow training of linear (and, via linear probing, underparameterized neural) models, using Rademacher complexity with the L1-norm instead of assumptions on the data distribution.
 - [CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning](../../archive/papers/2026/title-03232c54fde9b57f/summary.md) — Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.
 - [Statistical Early Stopping for Reasoning Models](../../archive/papers/2026/title-594984624acaa60d/summary.md) — Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.
 

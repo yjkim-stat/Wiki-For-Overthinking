@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Analyzes a solvable three-parameter neural scaling model (data complexity, target complexity, model-parameter-count) to derive the compute-optimal model size in the compute-limited, infinite-data regime, identifying 4 phases (+3 subphases) with proven scaling-law exponents in each.
+
+## Problem
+
+A rigorous, provable characterization of compute-optimal model-parameter-count as a function of compute budget, across different regimes of data and target complexity, was lacking for neural scaling laws.
+
+## Contributions
+
+- a solvable three-parameter neural scaling model with a loss-curve representation valid across all iteration counts
+- identification and proof of 4 phases (+3 subphases) governing compute-optimal scaling behavior
+- derived, proven scaling-law exponents and optimal model-parameter-count as a function of compute budget in each phase
+
+## Method
+
+Uses a solvable neural scaling model parameterized by data complexity, target complexity, and model-parameter-count, trained via one-pass stochastic gradient descent on mean-squared loss, deriving a representation of the loss curve valid across all iteration counts that improves in accuracy as parameter count grows; analyzes the compute-optimal model-parameter-count across the data-complexity/target-complexity phase plane.
+
+## Results
+
+Identifies 4 phases (plus 3 subphases) in the data-complexity/target-complexity phase plane, with boundaries determined by the relative importance of model capacity, optimizer noise, and feature embedding; derives, with mathematical proof and extensive numerical evidence, the scaling-law exponents in every phase, including the optimal model-parameter-count as a function of floating-point-operation budget; provides a companion notebook reproducing key results.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the solvable model's assumptions (one-pass SGD, mean-squared loss); applicability to real large-scale training dynamics beyond this idealized model is not discussed in the excerpt retrieved.
+
+## Why it matters here
+
+- **overthinking**: Not relevant beyond the shared keyword 'compute-optimal': this is a theoretical analysis of pretraining-compute-vs-model-size scaling laws, unconnected to inference-time reasoning length or test-time compute for LLM reasoning.
+
+## Entities
+
+- **Concepts**: compute-optimal model-parameter-count, neural scaling-law phase diagram, data/target-complexity parameterization
+- **Methods**: solvable neural scaling model, one-pass stochastic gradient descent theory
+- **Datasets**: _none recorded_
+
+Tags: `scaling-laws`, `compute-optimal`, `theory`, `neural-scaling`
 
 ## Abstract
 

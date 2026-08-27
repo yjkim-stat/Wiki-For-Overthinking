@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+UAT (Uncertain-Aware Thresholding) uses a Multi-Armed Bandit to adapt early-exit confidence thresholds online and unsupervised, replacing greedy static-threshold exits, with provable risk guarantees and 1.70-2.10x speedup at under 2% performance drop across vision-language, text-generation and classification tasks.
+
+## Problem
+
+Standard early-exit deep neural networks greedily exit at an intermediate layer once class-prediction confidence exceeds a predefined static threshold, but the model can be confidently wrong, and static thresholds are not robust to distribution shift encountered after deployment.
+
+## Contributions
+
+- UAT, replacing greedy static-threshold early exit with an online, unsupervised Multi-Armed-Bandit-adapted threshold
+- a reward function jointly assessing predictive certainty and its reliability
+- theoretical risk guarantees plus 1.70-2.10x speedup with <2% performance drop across three task types
+
+## Method
+
+Proposes UAT, which adapts the exit-decision threshold online and unsupervised using a Multi-Armed Bandit framework, driven by a new reward function that assesses both predictive certainty and its reliability, balancing computational efficiency against prediction quality while penalizing unnecessary late exits; provides theoretical guarantees on the risk UAT achieves.
+
+## Results
+
+Across vision-language understanding, text generation, and classification tasks, UAT delivers consistent speedups of 1.70-2.10x with a minimal performance drop of less than 2% compared to full-model performance.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the reported speedup/accuracy tradeoff range.
+
+## Why it matters here
+
+- **overthinking**: A general adaptive-computation result outside the LLM-reasoning-trace setting: UAT's core idea -- stop as soon as a *reliability-checked* confidence threshold is met, rather than a static one -- is the same principle behind proposed fixes for overthinking (stop generating once the model is reliably confident), demonstrated here for classic early-exit DNNs including a text-generation task.
+
+## Entities
+
+- **Concepts**: adaptive early-exit thresholding, Multi-Armed Bandit exit-decision policy, risk-controlled inference
+- **Methods**: Multi-Armed Bandit, early-exit deep neural networks, risk-controlled prediction
+- **Datasets**: _none recorded_
+
+Tags: `early-exit`, `adaptive-inference`, `risk-control`, `test-time-efficiency`
 
 ## Abstract
 

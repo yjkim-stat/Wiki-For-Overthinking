@@ -2,10 +2,17 @@
   "aliases": [
     "best-of-n",
     "best-of-N sampling",
-    "BoN"
+    "BoN",
+    "Best-of-N"
   ],
   "definition": "A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In the sources tagged separately under this exact capitalization: CaTS uses a self-distilled confidence signal to adaptively size the sampling budget per query instead of a fixed N; a theoretical paper derives worse sample-complexity bounds for best-of-n than for self-consistency; and 'Less Diverse, Less Safe' finds that reducing candidate diversity within Best-of-N/MCTS search substantially raises the rate of unsafe outputs. Note: this is the same underlying method as the archive's separate 'best-of-N sampling' entry -- the wiki did not merge the two spellings.",
   "evidence": [
+    {
+      "id": "arxiv:2605.17626",
+      "kind": "paper",
+      "note": "Decoding Time Verification (DTV) interleaves code generation with deterministic verifier calls (compiler, type checker) at structural boundaries, using structure-aware rollback and diagnostic feedback instead of post-hoc filtering, to translate code more accurately and more token-efficiently than resampling-based test-time scaling.",
+      "title": "Verifier-Guided Code Translation via Meta-Step Decoding"
+    },
     {
       "id": "title:03232c54fde9b57f",
       "kind": "paper",
@@ -33,9 +40,21 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "method",
-  "last_seen": "2026-08-21T03:00:11Z",
-  "name": "Best-of-N",
+  "last_seen": "2026-08-27T13:56:46Z",
+  "name": "best-of-N",
   "related": [
+    "decoding-time-verification",
+    "structural-boundary-verification",
+    "structure-aware-rollback-with-escalation",
+    "feedback-via-prompt-augmentation",
+    "process-level-step-level-verifier-signal",
+    "decoding-time-verification-dtv",
+    "self-refine",
+    "s-compile-driven-self-debug",
+    "codenet-c-source-300-programs",
+    "typeweaver-js-source-150-self-bundled-programs",
+    "qwen3-4b-instruct-2507",
+    "gemma-4-e4b",
     "confidence-calibration",
     "adaptive-test-time-compute",
     "self-consistency",

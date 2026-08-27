@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:54:16Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:6efe3d418b4ef980",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "RAIN-Merging: A Gradient-Free Method to Enhance Instruction Following in Large Reasoning Models with Preserved Thinking Format",
+    "url": "https://iclr.cc/virtual/2026/poster/10009681",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "gradient-free model merging",
+      "principal subspace orthogonality",
+      "thinking-format preservation"
+    ],
+    "contributions": [
+      "an analysis showing instruction-tuned and reasoning-model parameter differences occupy nearly orthogonal principal subspaces",
+      "RAIN-Merging, a gradient-free merge that improves instruction-following while preserving reasoning-model thinking format",
+      "validation across thirteen benchmarks and multiple model sizes/architectures"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract; relies on the empirical near-orthogonality of principal subspaces holding across model families, which is not guaranteed to generalize.",
+    "method": "Analyzes the parameter difference between an instruction-tuned model and a reasoning model, finding their principal subspaces are nearly orthogonal across key modules; proposes RAIN-Merging, a gradient-free merge using a small reasoning-calibration dataset to protect the model's thinking process and a small instruction-calibration set to identify which components handle instruction-following, merging only along the relevant subspaces.",
+    "methods": [
+      "gradient-free model merging",
+      "principal component / subspace analysis"
+    ],
+    "models": [],
+    "one_liner": "RAIN-Merging is a gradient-free method that merges an instruction-tuned model with a reasoning model by exploiting their near-orthogonal principal parameter subspaces, improving instruction-following in large reasoning models while preserving their thinking format and reasoning quality.",
+    "problem": "Large reasoning models excel at complex reasoning but often fail to follow specific formatting instructions, and naive merging with instruction-tuned models fails because reasoning models separately emit thinking and response segments while instruction-tuned models answer directly.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Tangential: concerned with instruction-following fidelity of reasoning models via merging, not reasoning length or the accuracy/efficiency tradeoff, but relevant background on how a reasoning model's 'thinking' segment can be preserved as a first-class structural object while other capabilities are edited in."
+    },
+    "results": "Across thirteen benchmarks and multiple model sizes/architectures, RAIN-Merging consistently improves instruction-following while maintaining reasoning capabilities (no specific numeric deltas given in the fetched abstract).",
+    "tags": [
+      "model-merging",
+      "instruction-following",
+      "large-reasoning-models",
+      "thinking-format"
+    ]
+  },
+  "task_id": "paper__title-6efe3d418b4ef980",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+TinyTTA enables test-time adaptation on memory-constrained microcontroller units via a self-ensemble, batch-agnostic early-exit strategy, improving TTA accuracy by up to 57.6% and cutting memory use up to 6x versus prior methods.
+
+## Problem
+
+Test-time adaptation (TTA) to handle data-distribution shifts on IoT/edge devices has not been validated on truly resource-constrained hardware (microcontroller units), where full backpropagation, lack of normalization-layer support, and batch-size tradeoffs make existing TTA approaches infeasible.
+
+## Contributions
+
+- a self-ensemble, batch-agnostic early-exit strategy enabling TTA under severe memory constraints
+- the TinyTTA Engine, a first-of-its-kind MCU library for on-device TTA
+- up to 57.6% accuracy improvement and 6x memory reduction on real MCU hardware
+
+## Method
+
+Proposes a self-ensemble and batch-agnostic early-exit strategy for TTA that enables continuous adaptation with small batch sizes to reduce memory usage while handling distribution shifts, and builds the TinyTTA Engine, an MCU library enabling on-device TTA, validated on a Raspberry Pi Zero 2W and an STM32H747 MCU.
+
+## Results
+
+TinyTTA improves TTA accuracy by up to 57.6%, reduces memory usage by up to 6x, and achieves faster, more energy-efficient adaptation versus prior methods; it is reported as the only framework able to run TTA on the STM32H747 MCU under a 512 KB memory constraint while maintaining high performance.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the two tested hardware targets (Raspberry Pi Zero 2W, STM32H747).
+
+## Why it matters here
+
+- **overthinking**: Off-topic domain (on-device test-time adaptation for distribution shift on microcontrollers, not LLM reasoning), matched via 'early exit'; not connected to reasoning length or the accuracy/efficiency tradeoff the topic tracks.
+
+## Entities
+
+- **Concepts**: test-time adaptation (TTA) on microcontrollers, self-ensemble batch-agnostic early exit, on-device continuous adaptation
+- **Methods**: test-time adaptation (TTA), self-ensemble early exit
+- **Datasets**: _none recorded_
+
+Tags: `test-time-adaptation`, `early-exit`, `edge-devices`, `efficiency`
 
 ## Abstract
 

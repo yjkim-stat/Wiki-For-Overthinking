@@ -5,30 +5,20 @@
     {
       "id": "title:0af2f5eb8565eb12",
       "kind": "paper",
-      "note": "Selects which training prompts to use for RL finetuning of large reasoning models by predicting their learning dynamics with a hidden Markov model, instead of evaluating every candidate with rollouts.",
+      "note": "Dynamics-Predictive Sampling (DPS) forecasts, from a hidden-Markov model of each prompt's historical reward trajectory, which prompts are worth including in RL fine-tuning of large reasoning models before running any rollouts, cutting wasted rollouts and speeding up training.",
       "title": "Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models"
-    },
-    {
-      "id": "title:ccc7bb1e86bc9d88",
-      "kind": "paper",
-      "note": "Trains a small, prompt-generic Bayesian predictor of prompt difficulty from shared RL optimization history to select informative training prompts and reduce rollout cost when RL-training large reasoning models.",
-      "title": "Small Generalizable Prompt Predictive Models Can Steer Efficient RL Post-Training of Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "Bayesian inference",
   "related": [
-    "active-learning-for-rl-data-selection",
-    "learning-dynamics-prediction",
-    "hidden-markov-model-over-reward-trajectories",
+    "dynamics-predictive-prompt-selection",
+    "active-rl-fine-tuning",
+    "hidden-markov-model-of-training-dynamics",
     "hidden-markov-model",
-    "reinforcement-learning-fine-tuning",
-    "prompt-difficulty-prediction",
-    "online-prompt-selection",
-    "rl-post-training-efficiency",
-    "generalizable-predictive-prompt-selection-gps"
+    "active-online-prompt-selection-for-rl-fine-tuning"
   ],
   "related_authored": [
     "reinforcement-learning"

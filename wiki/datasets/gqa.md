@@ -8,7 +8,7 @@ GQA entered this wiki through papers that share vocabulary with the tracked topi
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 1
 
-**Related**: [AI2D](ai2d.md), [ImageNet-1k](imagenet-1k.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [OlympiadBench](olympiadbench.md), [POPE](pope.md)
+**Related**: [AI2D](ai2d.md), [ImageNet-1K](imagenet-1k.md), [MathVerse](mathverse.md), [MathVista](mathvista.md), [OlympiadBench](olympiadbench.md), [POPE](pope.md)
 
 ## Appears in
 

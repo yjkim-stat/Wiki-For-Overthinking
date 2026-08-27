@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+SambaY is a decoder-hybrid-decoder architecture that shares memory states across State Space Model layers via a Gated Memory Unit, and its largest variant (Phi4-mini-Flash-Reasoning) matches or beats a same-size reasoning model on Math500/AIME24-25/GPQA without RL while delivering up to 10x higher decoding throughput on long-generation prompts.
+
+## Problem
+
+Hybrid SSM-Transformer architectures (e.g. Samba, YOCO) improve on plain Transformers but have not exploited representation sharing between SSM layers, leaving decoding efficiency for long generations (as needed for long reasoning traces) on the table.
+
+## Contributions
+
+- the Gated Memory Unit (GMU) for cross-layer memory sharing in SSM-based architectures
+- SambaY, a decoder-hybrid-decoder architecture with linear pre-filling and no explicit positional encoding
+- Phi4-mini-Flash-Reasoning, matching/exceeding a same-size reasoning model's accuracy with up to 10x higher decoding throughput on long generations
+
+## Method
+
+Introduces the Gated Memory Unit (GMU), a mechanism for sharing memory-readout states across layers, and applies it in a cross-decoder to build SambaY, a decoder-hybrid-decoder architecture that shares memory from a Samba-based self-decoder, preserves linear pre-filling time complexity, and needs no explicit positional encoding.
+
+## Results
+
+SambaY shows significantly lower irreducible loss than a strong YOCO baseline at scale; the largest variant, Phi4-mini-Flash-Reasoning (with added Differential Attention), significantly outperforms Phi4-mini-Reasoning on Math500, AIME24/25, and GPQA Diamond without any reinforcement learning, while delivering up to 10x higher decoding throughput on 2K-prompt/32K-generation workloads under vLLM.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the architectures and benchmarks tested.
+
+## Why it matters here
+
+- **overthinking**: Directly relevant as an architectural (rather than prompting/training) mitigation: it targets exactly the cost of long reasoning generations by making the underlying decoder architecture faster per token (up to 10x throughput) rather than shortening the trace, and shows this can match reasoning accuracy without needing RL -- a different lever than the length-penalty or early-stopping approaches common in the overthinking literature.
+
+## Entities
+
+- **Concepts**: Gated Memory Unit (GMU), decoder-hybrid-decoder architecture, memory-state sharing across SSM layers
+- **Methods**: State Space Models (SSM), Gated Memory Unit, Differential Attention
+- **Datasets**: [Math500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+
+Tags: `architecture`, `efficient-reasoning`, `decoding-throughput`, `state-space-models`, `long-generation`
 
 ## Abstract
 

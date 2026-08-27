@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+SolverLLM is a training-free test-time-scaling framework that solves optimization problems by having an LLM generate mathematical formulations and translate them into solver-ready code, guided by a modified Monte Carlo Tree Search with dynamic expansion, prompt backpropagation, and uncertainty backpropagation.
+
+## Problem
+
+Existing LLM approaches to optimization problems either rely on prompt engineering, which generalizes poorly across problem types, or require costly supervised training on solver-formulation pairs.
+
+## Contributions
+
+- SolverLLM, a training-free framework generating solver-ready formulations rather than direct answers for optimization problems
+- a modified MCTS with dynamic expansion, prompt backpropagation, and uncertainty backpropagation for guided search
+- outperformance of both prompt-based and learning-based baselines on six benchmarks without additional training
+
+## Method
+
+SolverLLM generates a mathematical formulation of the problem and translates it into solver-ready code rather than solving directly, guided by a modified Monte Carlo Tree Search (MCTS) with three enhancements: dynamic expansion for adaptive formulation generation, prompt backpropagation to guide exploration via outcome-driven feedback, and uncertainty backpropagation to incorporate reward reliability into the search decisions.
+
+## Results
+
+Across six standard benchmark datasets, SolverLLM outperforms both prompt-based and learning-based baselines, achieving strong generalization across problem types without additional training.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the six benchmark datasets tested; the training-free framing implies dependence on the underlying LLM's formulation quality, which is not discussed.
+
+## Why it matters here
+
+- **overthinking**: Indirectly relevant: an example of test-time scaling that spends inference compute on structured search (MCTS over formulations) rather than a single long chain-of-thought, illustrating an alternative use of test-time compute budget distinct from -- and potentially more efficient than -- simply generating a longer reasoning trace.
+
+## Entities
+
+- **Concepts**: formulate-then-solve via LLM-guided search, Monte Carlo Tree Search for test-time scaling, prompt/uncertainty backpropagation in search
+- **Methods**: Monte Carlo Tree Search (MCTS), LLM-guided search, test-time scaling
+- **Datasets**: _none recorded_
+
+Tags: `test-time-scaling`, `optimization`, `monte-carlo-tree-search`, `training-free`
 
 ## Abstract
 

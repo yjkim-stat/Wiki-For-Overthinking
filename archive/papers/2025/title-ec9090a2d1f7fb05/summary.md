@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+DisCO replaces GRPO's group-relative advantage objective with a discriminative-learning objective (raising positive-answer scores, lowering negative-answer scores) using non-clipping surrogates and constrained KL optimization, eliminating GRPO's question-level difficulty bias and entropy instability, and beating GRPO/DAPO by 6-7% on math reasoning benchmarks.
+
+## Problem
+
+Group Relative Policy Optimization (GRPO), the RL method behind DeepSeek-R1-style training of large reasoning models, has an inherent question-level difficulty bias arising from its group-relative advantage function under binary rewards, and suffers entropy instability from its clipping-based surrogate objective.
+
+## Contributions
+
+- an analysis identifying GRPO's inherent question-level difficulty bias and its connection to discriminative supervised learning
+- DisCO, a discriminative, non-clipping, KL-constrained RL objective for reasoning-model fine-tuning
+- 7%/6% average gains over GRPO/DAPO across six math-reasoning benchmarks with a 1.5B model, plus improved training stability
+
+## Method
+
+Analyzes GRPO's objective under binary rewards, identifying the difficulty-bias mechanism and a connection to traditional discriminative learning in supervised settings; introduces Discriminative Constrained Optimization (DisCO), which (1) replaces the group-relative objective with a discriminative objective defined by a scoring function, (2) abandons clipping-based surrogates in favor of non-clipping RL surrogate objectives used as scoring functions, and (3) enforces the KL-divergence constraint via a constrained-optimization approach rather than clipping, also incorporating techniques for data imbalance (more negative than positive generated answers).
+
+## Results
+
+On enhancing mathematical reasoning of SFT-finetuned models, DisCO significantly outperforms GRPO and its improved variants such as DAPO, with average gains of 7% over GRPO and 6% over DAPO across six benchmark tasks for a 1.5B model; DisCO eliminates GRPO's difficulty bias and yields long, stable training dynamics by avoiding clipping-induced entropy instability.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the 1.5B-model scale tested; generalization to larger model scales is not discussed in the excerpt retrieved.
+
+## Why it matters here
+
+- **overthinking**: Indirectly relevant: this is a training-algorithm improvement over GRPO (removing difficulty bias, stabilizing entropy) rather than a direct intervention on reasoning length, but since GRPO-family training is the mechanism by which most reasoning models acquire their (often overlong) reasoning behavior, a more stable, less-biased RL objective is upstream infrastructure that length-aware or efficiency-aware reward shaping (as used in several overthinking-mitigation papers) builds on.
+
+## Entities
+
+- **Concepts**: question-level difficulty bias in GRPO, discriminative learning for RL fine-tuning, constrained KL-divergence optimization
+- **Methods**: Discriminative Constrained Optimization (DisCO), Group Relative Policy Optimization (GRPO, baseline), DAPO (baseline)
+- **Datasets**: _none recorded_
+
+Tags: `reinforcement-learning`, `GRPO`, `large-reasoning-models`, `training-stability`
 
 ## Abstract
 

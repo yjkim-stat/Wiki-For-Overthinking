@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:54:16Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:8f5c26cc033aae9f",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Text embeddings are essential for tasks such as document retrieval, clustering, and semantic similarity assessment. In this paper, we study how to contrastively train text embedding models in a compute-optimal fashion, given a suite of pretrained decoder-only language models. Our innovation is an algorithm that produces optimal configurations of model sizes, data quantities, and fine-tuning methods for text-embedding models at different computational budget levels. The resulting recipe, which we obtain through extensive experiments, can be used by practitioners to make informed design choices for their embedding models. Specifically, our findings suggest that full fine-tuning and Low-Rank Adaptation fine-tuning produce optimal models at lower and higher computational budgets respectively.",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "compute-optimal"
+    ],
+    "pdf_url": "",
+    "published": "2024-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Repurposing Language Models into Embedding Models: Finding the Compute-Optimal Recipe",
+    "url": "https://neurips.cc/virtual/2024/poster/93887",
+    "venue": "NeurIPS 2024"
+  },
+  "result": {
+    "concepts": [
+      "compute-optimal fine-tuning recipe",
+      "contrastive text-embedding training",
+      "LoRA vs. full fine-tuning tradeoff"
+    ],
+    "contributions": [
+      "an algorithm producing compute-optimal model size / data quantity / fine-tuning method configurations for text-embedding training",
+      "an empirical finding that full fine-tuning wins at lower budgets and LoRA at higher budgets",
+      "a practical recipe for repurposing decoder-only LLMs into embedding models at a given compute level"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the tested fine-tuning methods (full FT, LoRA) and the decoder-only-LLM starting point.",
+    "method": "Runs extensive experiments over a suite of pretrained decoder-only LLMs, varying model size, contrastive training data quantity, and fine-tuning method (full fine-tuning vs. Low-Rank Adaptation), fitting an algorithm that produces optimal configurations at different computational budget levels.",
+    "methods": [
+      "contrastive training",
+      "full fine-tuning",
+      "Low-Rank Adaptation (LoRA)"
+    ],
+    "models": [],
+    "one_liner": "Derives a compute-optimal recipe for contrastively fine-tuning pretrained decoder-only LLMs into text-embedding models, finding full fine-tuning is optimal at lower compute budgets and LoRA fine-tuning at higher ones.",
+    "problem": "Practitioners lack a principled, compute-optimal recipe for repurposing pretrained decoder-only language models into text-embedding models via contrastive training, across different model sizes, data quantities and fine-tuning methods.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Not relevant beyond the shared keyword 'compute-optimal': this is about training-time compute allocation for building embedding models from decoder-only LLMs, unconnected to inference-time reasoning length or test-time compute for reasoning."
+    },
+    "results": "Full fine-tuning produces optimal embedding models at lower computational budgets, while LoRA fine-tuning is optimal at higher computational budgets; the resulting recipe gives practitioners informed design choices for embedding-model training at a given compute level.",
+    "tags": [
+      "compute-optimal",
+      "text-embeddings",
+      "fine-tuning",
+      "training-efficiency"
+    ]
+  },
+  "task_id": "paper__title-8f5c26cc033aae9f",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

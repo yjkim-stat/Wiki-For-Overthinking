@@ -5,6 +5,12 @@
   "definition": "The five archived sources use 'early stopping' in three unrelated senses, and the archive should not be read as holding one idea here. Two halt a large reasoning model at inference: CaTS stops drawing further samples for a query once its self-distilled confidence is high enough, and 'Statistical Early Stopping for Reasoning Models' applies sequential stopping rules to the arrival of uncertainty keywords inside a trace, halting on ill-posed or ambiguous queries, with a finite-sample bound on the probability of halting too early on a well-posed one. Two use the classical training sense of stopping an optimizer short of convergence: Instance-dependent Early Stopping drops a training example from backpropagation once the second-order difference of its loss stays near zero, and a theoretical paper shows that in well-specified high-dimensional logistic regression gradient descent stopped early is consistent with polynomially many samples while gradient descent run to convergence is not. The fifth is neither, calibrating a termination threshold for a mixed-integer solver by conformal prediction on a learned estimate of the optimality gap; and none of the five is about leaving a network's layer stack at an intermediate head, which is early exit.",
   "evidence": [
     {
+      "id": "arxiv:2608.24210",
+      "kind": "paper",
+      "note": "Derives an analytic, data-dependent estimate of the optimal early-stopping time for gradient-flow training of linear (and, via linear probing, underparameterized neural) models, using Rademacher complexity with the L1-norm instead of assumptions on the data distribution.",
+      "title": "A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm"
+    },
+    {
       "id": "title:03232c54fde9b57f",
       "kind": "paper",
       "note": "Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.",
@@ -19,9 +25,18 @@
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "early stopping",
   "related": [
+    "rademacher-complexity",
+    "bias-variance-tradeoff",
+    "generalization-gap",
+    "linear-probe",
+    "epoch-wise-double-descent",
+    "gradient-flow",
+    "rademacher-complexity-bound-l1-norm",
+    "mnist-classes-3-vs-5-and-0-vs-1",
+    "synthetic-gaussian-uniform-pareto-distributed-data",
     "confidence-calibration",
     "adaptive-test-time-compute",
     "self-consistency",

@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:56:38Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:c65d4659ec08b51c",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Early-Exit Deep Neural Networks enable adaptive inference by allowing prediction at intermediary layers, significantly reducing computational costs and latency. Most of the early exit strategies greedily exit a sample at an intermediary layer if the confidence in class prediction exceeds a predefined threshold that is set using a static validation set. This is problematic as the model might be overconfident in a wrong class. Also, they are not robust to distribution shifts encountered in deployment, which can undermine model trustworthiness and accuracy. To address these challenges, we propose UAT that adapts the threshold for exit decisions using a Multi-Armed Bandit framework, enabling online, unsupervised adjustment of exit decisions. UAT makes decisions based on a new reward function that assesses predictive certainty and its reliability to balance computational efficiency and prediction quality while penalizing unnecessary late exits. We provide guarantees on risk achieved by UAT and validate its performance on diverse tasks spanning vision-language understanding, text generation, and classification. Our framework demonstrates consistent improvements in speedup $(1.70-2.10\\times)$ with a minimal performance drop $(<2)$\\% as compared to full model performance.",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "early exit"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability",
+    "url": "https://neurips.cc/virtual/2025/poster/118222",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "adaptive early-exit thresholding",
+      "Multi-Armed Bandit exit-decision policy",
+      "risk-controlled inference"
+    ],
+    "contributions": [
+      "UAT, replacing greedy static-threshold early exit with an online, unsupervised Multi-Armed-Bandit-adapted threshold",
+      "a reward function jointly assessing predictive certainty and its reliability",
+      "theoretical risk guarantees plus 1.70-2.10x speedup with <2% performance drop across three task types"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the reported speedup/accuracy tradeoff range.",
+    "method": "Proposes UAT, which adapts the exit-decision threshold online and unsupervised using a Multi-Armed Bandit framework, driven by a new reward function that assesses both predictive certainty and its reliability, balancing computational efficiency against prediction quality while penalizing unnecessary late exits; provides theoretical guarantees on the risk UAT achieves.",
+    "methods": [
+      "Multi-Armed Bandit",
+      "early-exit deep neural networks",
+      "risk-controlled prediction"
+    ],
+    "models": [],
+    "one_liner": "UAT (Uncertain-Aware Thresholding) uses a Multi-Armed Bandit to adapt early-exit confidence thresholds online and unsupervised, replacing greedy static-threshold exits, with provable risk guarantees and 1.70-2.10x speedup at under 2% performance drop across vision-language, text-generation and classification tasks.",
+    "problem": "Standard early-exit deep neural networks greedily exit at an intermediate layer once class-prediction confidence exceeds a predefined static threshold, but the model can be confidently wrong, and static thresholds are not robust to distribution shift encountered after deployment.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "A general adaptive-computation result outside the LLM-reasoning-trace setting: UAT's core idea -- stop as soon as a *reliability-checked* confidence threshold is met, rather than a static one -- is the same principle behind proposed fixes for overthinking (stop generating once the model is reliably confident), demonstrated here for classic early-exit DNNs including a text-generation task."
+    },
+    "results": "Across vision-language understanding, text generation, and classification tasks, UAT delivers consistent speedups of 1.70-2.10x with a minimal performance drop of less than 2% compared to full-model performance.",
+    "tags": [
+      "early-exit",
+      "adaptive-inference",
+      "risk-control",
+      "test-time-efficiency"
+    ]
+  },
+  "task_id": "paper__title-c65d4659ec08b51c",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

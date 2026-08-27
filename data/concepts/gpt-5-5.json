@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "ParallelWorld is a verifier-guided tree search over simulated future observations for embodied reasoning: from a restorable simulator state it expands several candidate camera and physical actions in parallel, prunes branches with a verifier agent under a branch-width schedule, and answers from the top-ranked root-to-leaf route.",
       "title": "ParallelWorld: Test-Time Scaling for Embodied Reasoning"
+    },
+    {
+      "id": "arxiv:2608.24658",
+      "kind": "paper",
+      "note": "Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.",
+      "title": "Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning"
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "model",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "GPT-5.5",
   "related": [
     "resource-rational-reasoning",
@@ -68,7 +74,33 @@
     "active-exploration",
     "passive-single-view",
     "esi-bench-10-task-categories-28-of-29-subcategories-evaluated",
-    "gpt-5-4"
+    "gpt-5-4",
+    "subtask-parallelism-and-branch",
+    "trial-parallelism-or-branch",
+    "critical-path-latency",
+    "parallelism-aware-reward-shaping",
+    "parallelism-aware-group-relative-policy-optimization-pa-grpo",
+    "context-free-grammar-constrained-parallel-trajectory-generation",
+    "sft-on-annotated-parallel-traces",
+    "tool-call-based-parallel-execution-sglang-xgrammar",
+    "aime-2024",
+    "aime-2025",
+    "math500",
+    "amc",
+    "openmathreasoning",
+    "humanity-s-last-exam-hle",
+    "polaris-53k",
+    "parason-8b-built-on-qwen3-8b-traces",
+    "deepseek-r1",
+    "deepseek-v4",
+    "qwen3-30b-a3b",
+    "minimax-2-7",
+    "kimi-2-6",
+    "gemini-2-5-pro",
+    "claude-opus-4-5",
+    "gemini-3-pro",
+    "threadweaver-8b",
+    "multiverse-32b"
   ],
   "related_authored": [
     "gpt-5-4",

@@ -6,6 +6,12 @@
   "definition": "A linear classifier -- logistic regression in the sources here -- fitted to a model's hidden-state activations to predict a property of the generation that the text does not yet show. The two archived uses are a non-convergence study, where a probe on the 3,584-dimensional hidden state at token 150 predicts whether an AIME generation will terminate or loop to the ceiling and beats a behavioural baseline built from entropy statistics and repeated n-grams, and hallucination detection, where probing scores sit far above perplexity and verbalized-certainty detectors. Both sources are explicit about what it does not establish: a probe shows predictive information is present in the hidden state, not that the state causes the outcome, which would need activation patching.",
   "evidence": [
     {
+      "id": "arxiv:2608.24210",
+      "kind": "paper",
+      "note": "Derives an analytic, data-dependent estimate of the optimal early-stopping time for gradient-flow training of linear (and, via linear probing, underparameterized neural) models, using Rademacher complexity with the L1-norm instead of assumptions on the data distribution.",
+      "title": "A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm"
+    },
+    {
       "id": "local:34cecfd6f28ba72b",
       "kind": "paper",
       "note": "A survey that organizes existing mechanistic-interpretability research on large reasoning models into three areas -- reasoning-oriented training dynamics, reasoning mechanisms, and unintended behaviors (hallucination, CoT unfaithfulness, overthinking, unsafety) -- and proposes directions for future mechanistic work.",
@@ -20,9 +26,18 @@
   ],
   "first_seen": "2026-08-21T03:00:11Z",
   "kind": "method",
-  "last_seen": "2026-08-21T03:00:11Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "linear probe",
   "related": [
+    "rademacher-complexity",
+    "early-stopping",
+    "bias-variance-tradeoff",
+    "generalization-gap",
+    "epoch-wise-double-descent",
+    "gradient-flow",
+    "rademacher-complexity-bound-l1-norm",
+    "mnist-classes-3-vs-5-and-0-vs-1",
+    "synthetic-gaussian-uniform-pareto-distributed-data",
     "overthinking",
     "inverted-u-shaped-length-performance-curve",
     "hallucination-in-reasoning-models",

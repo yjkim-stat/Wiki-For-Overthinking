@@ -93,6 +93,12 @@
       "title": "Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding"
     },
     {
+      "id": "title:9fd5690d024b72bf",
+      "kind": "paper",
+      "note": "SpatialNavigator (MindJourney) couples a vision-language model with a controllable video-diffusion world model, iteratively sketching camera trajectories and synthesizing corresponding views for the VLM to reason over, boosting spatial-reasoning benchmark performance 7.7% without any fine-tuning.",
+      "title": "MindJourney: Test-Time Scaling with World Models for Spatial Reasoning"
+    },
+    {
       "id": "title:ab80eef8a7c42e7c",
       "kind": "paper",
       "note": "JETTS is a benchmark evaluating how well LLM-as-judge models perform as evaluators guiding test-time-scaling methods -- response reranking, step-level beam search, and critique-based refinement -- across math, code and instruction-following.",
@@ -117,6 +123,12 @@
       "title": "TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling"
     },
     {
+      "id": "title:e149fd58642147ea",
+      "kind": "paper",
+      "note": "SolverLLM is a training-free test-time-scaling framework that solves optimization problems by having an LLM generate mathematical formulations and translate them into solver-ready code, guided by a modified Monte Carlo Tree Search with dynamic expansion, prompt backpropagation, and uncertainty backpropagation.",
+      "title": "SolverLLM: Leveraging Test-Time Scaling for Optimization Problem via LLM-Guided Search"
+    },
+    {
       "id": "title:f508a5b012a33fd1",
       "kind": "paper",
       "note": "DEER is a training-free decoding method that watches for the points where a reasoning model switches thought chains, prompts it for a trial answer there, and terminates the chain of thought when the trial answer's token confidence exceeds a threshold.",
@@ -131,7 +143,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "concept",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "Test-Time Scaling",
   "related": [
     "latent-reasoning",
@@ -307,6 +319,12 @@
     "sampling-consistency-in-internal-states",
     "self-truncation-best-of-n-st-bon",
     "best-of-n-bon-sampling",
+    "controllable-world-model-video-diffusion",
+    "test-time-scaling-via-interactive-exploration",
+    "iterative-camera-trajectory-sketching",
+    "video-diffusion-world-model",
+    "iterative-multi-view-exploration",
+    "sat-spatial-reasoning-benchmark",
     "llm-as-judge",
     "outcome-reward-model",
     "best-of-n-reranking",
@@ -332,6 +350,11 @@
     "verifier-guided-cot-truncation",
     "asynchronous-online-trimming-system",
     "gpqa",
+    "formulate-then-solve-via-llm-guided-search",
+    "monte-carlo-tree-search-for-test-time-scaling",
+    "prompt-uncertainty-backpropagation-in-search",
+    "monte-carlo-tree-search-mcts",
+    "llm-guided-search",
     "dynamic-early-exit",
     "reasoning-transition-point",
     "trial-answer",

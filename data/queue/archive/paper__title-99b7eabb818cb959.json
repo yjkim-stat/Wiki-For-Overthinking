@@ -1,0 +1,95 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:54:17Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:99b7eabb818cb959",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Large language models (LLMs) have significantly advanced in reasoning tasks through reinforcement learning (RL) optimization, achieving impressive capabilities across various challenging benchmarks. However, our empirical analysis reveals a critical drawback: reasoning-oriented RL fine-tuning significantly increases the prevalence of hallucinations. We theoretically analyze the RL training dynamics, identifying high-variance gradient, entropy-induced randomness, and susceptibility to spurious local optima as key factors leading to hallucinations. To address this drawback, we propose Factuality-aware Step-wise Policy Optimization (FSPO), an innovative RL fine-tuning algorithm incorporating explicit factuality verification at each reasoning step. FSPO leverages automated verification against given evidence to dynamically adjust token-level advantage values, incentivizing factual correctness throughout the reasoning process. Experiments across mathematical reasoning and hallucination benchmarks using Qwen2.5 and Llama models demonstrate that FSPO effectively reduces hallucinations while enhancing reasoning accuracy, substantially improving both reliability and performance.",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Reasoning Models Hallucinate More: Factuality-Aware Reinforcement Learning for Large Reasoning Models",
+    "url": "https://neurips.cc/virtual/2025/poster/118780",
+    "venue": "NeurIPS 2025"
+  },
+  "result": {
+    "concepts": [
+      "reasoning-induced hallucination",
+      "step-wise factuality verification",
+      "token-level advantage shaping"
+    ],
+    "contributions": [
+      "an empirical finding that reasoning-oriented RL fine-tuning significantly increases hallucination",
+      "a theoretical account of the RL training-dynamics causes (gradient variance, entropy-induced randomness, spurious local optima)",
+      "Factuality-aware Step-wise Policy Optimization (FSPO), reducing hallucination while improving reasoning accuracy on Qwen2.5 and Llama models"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract; the factuality-verification step requires evidence to verify against, whose availability/quality is not discussed in the excerpt retrieved.",
+    "method": "Theoretically analyzes RL training dynamics for reasoning fine-tuning, identifying high-variance gradients, entropy-induced randomness, and susceptibility to spurious local optima as key factors driving hallucination; proposes Factuality-aware Step-wise Policy Optimization (FSPO), which incorporates explicit factuality verification against given evidence at each reasoning step, dynamically adjusting token-level advantage values to reward factual correctness throughout reasoning.",
+    "methods": [
+      "Factuality-aware Step-wise Policy Optimization (FSPO)",
+      "reinforcement learning (RL) fine-tuning"
+    ],
+    "models": [
+      "Qwen2.5",
+      "Llama"
+    ],
+    "one_liner": "Shows that reasoning-oriented RL fine-tuning of LLMs significantly increases hallucination, traces this to high-variance gradients, entropy-induced randomness and spurious local optima, and proposes Factuality-aware Step-wise Policy Optimization (FSPO) to reduce hallucination while improving reasoning accuracy.",
+    "problem": "Reasoning-oriented RL fine-tuning improves LLM performance on reasoning benchmarks but the paper's empirical analysis reveals it significantly increases the prevalence of hallucinations, and the training-dynamics cause of this was unclear.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Directly relevant as a side-effect finding about the same RL-for-reasoning training pipeline the overthinking literature studies: it shows reasoning-oriented RL has a cost (increased hallucination) beyond the accuracy/length tradeoff usually discussed, and its training-dynamics account (variance, entropy-induced randomness, spurious optima) is a candidate mechanism for other reasoning pathologies including overthinking."
+    },
+    "results": "Across mathematical-reasoning and hallucination benchmarks using Qwen2.5 and Llama models, FSPO effectively reduces hallucinations while enhancing reasoning accuracy, improving both reliability and performance versus standard reasoning-RL fine-tuning (aggregate claims; no specific deltas given in the fetched abstract).",
+    "tags": [
+      "hallucination",
+      "reinforcement-learning",
+      "large-reasoning-models",
+      "factuality"
+    ]
+  },
+  "task_id": "paper__title-99b7eabb818cb959",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

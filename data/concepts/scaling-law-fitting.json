@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:19ebd4d7f589cbd8",
+      "kind": "paper",
+      "note": "Derives scaling laws for how to optimally split a fixed compute budget between full-precision training and quantization-aware training (QAT), finding the loss-optimal QAT fraction grows with total compute.",
+      "title": "Compute-Optimal Quantization-Aware Training"
+    },
+    {
+      "id": "title:d494aac6d49ec910",
+      "kind": "paper",
+      "note": "Explains the discrepancy between the Kaplan and Chinchilla compute-optimal scaling laws by identifying and correcting three confounds (last-layer compute cost, warmup duration, scale-dependent optimizer tuning), after which the Kaplan-style reproduction matches the Chinchilla law.",
+      "title": "Resolving Discrepancies in Compute-Optimal Scaling of Language Models"
+    }
+  ],
+  "first_seen": "2026-08-27T13:56:46Z",
+  "kind": "method",
+  "last_seen": "2026-08-27T13:56:46Z",
+  "name": "scaling-law fitting",
+  "related": [
+    "compute-optimal-quantization-aware-training",
+    "cooldown-qat-fusion",
+    "tokens-per-parameter-byte-scaling-statistic",
+    "quantization-aware-training-qat",
+    "compute-optimal-scaling-law",
+    "kaplan-vs-chinchilla-scaling-law-discrepancy",
+    "optimizer-tuning-confounds-in-scaling-studies",
+    "adamw-optimizer-tuning-analysis",
+    "openwebtext2",
+    "refinedweb"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "scaling-law-fitting",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.57
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+TaTToo is a table-grounded Process Reward Model that reasons explicitly over tabular operations and uses tool-based verification to supervise test-time scaling for tabular reasoning, improving downstream policy LRMs by 30.9% at inference.
+
+## Problem
+
+Process Reward Models used to supervise test-time scaling of large reasoning models are widely adopted for text-only reasoning steps but struggle with table-specific operations (sub-table retrieval, schema interaction), creating a performance bottleneck for tabular reasoning.
+
+## Contributions
+
+- a scalable data curation pipeline producing 60k+ step-level table-verification annotations
+- TaTToo, an 8B table-grounded PRM trained via cold-start SFT then tool-grounded RL
+- an evaluation showing TaTToo outperforms a 72B text-only PRM baseline on 5 tabular reasoning benchmarks
+
+## Method
+
+Builds a scalable data curation pipeline producing 60k+ step-level annotations combining table verification rationales with tool-based executions, then trains TaTToo in two stages: cold-start supervised fine-tuning to capture tool-use reasoning patterns, followed by reinforcement learning with tool-grounded reward shaping.
+
+## Results
+
+Across 5 tabular reasoning benchmarks (numerical reasoning, fact-checking, data analysis), TaTToo improves downstream policy LRMs by 30.9% at inference and surpasses strong PRM baselines such as Qwen-2.5-Math-PRM-72B while using only 8B parameters; the abstract reports generalization across diverse test-time-scaling strategies but gives no further breakdown.
+
+## Limitations
+
+Not stated in the abstract beyond the domain scope (tabular reasoning); no quantitative comparison numbers besides the 30.9% aggregate figure are given.
+
+## Why it matters here
+
+- **overthinking**: Tangential: it is about supervising *where* test-time compute goes in tabular reasoning via a domain-specialized reward model, not about reasoning length or the accuracy/efficiency tradeoff directly, but it is an example of test-time-scaling supervision infrastructure that a length- or budget-aware PRM could build on.
+
+## Entities
+
+- **Concepts**: Process Reward Model, tool-grounded reward shaping, table-grounded reasoning supervision
+- **Methods**: Process Reward Model (PRM), cold-start supervised fine-tuning, tool-grounded reinforcement learning
+- **Datasets**: _none recorded_
+
+Tags: `process-reward-model`, `test-time-scaling`, `tabular-reasoning`, `tool-use`
 
 ## Abstract
 

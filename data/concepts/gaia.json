@@ -9,15 +9,27 @@
       "title": "CHILL-Harness: Counterfactual Harness Learning for Efficient Reasoning in Long-Horizon Agents"
     },
     {
+      "id": "arxiv:2608.24024",
+      "kind": "paper",
+      "note": "Identifies copy-inflation -- retrieved documents in a search agent's context systematically inflate the token log-probabilities of copied tokens -- as the reason logprob-based confidence voting (DeepConf) fails on multi-turn search agents, and fixes it with Retrieval-Grounded Voting (RGV), which weights each rollout by lexical overlap between its answer and the documents it retrieved instead of by internal confidence.",
+      "title": "Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding"
+    },
+    {
       "id": "title:711c479b500244c5",
       "kind": "paper",
       "note": "Studies sequential and parallel test-time compute scaling for deep-search LLM agents and shows that allocating modest compute to a cheap verifier outperforms pushing sequential generation length further.",
       "title": "Pushing Test-Time Scaling Limits of Deep Search with Asymmetric Verification"
+    },
+    {
+      "id": "title:93df459afa09bdd6",
+      "kind": "paper",
+      "note": "WebThinker gives large reasoning models a Deep Web Explorer module and an Autonomous Think-Search-and-Draft strategy so they can search, navigate, and draft research reports interleaved with reasoning, trained via iterative online DPO, and it outperforms existing methods and strong proprietary systems on complex reasoning and report-generation benchmarks.",
+      "title": "WebThinker: Empowering Large Reasoning Models with Deep Research Capability"
     }
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "GAIA",
   "related": [
     "agent-harness",
@@ -51,12 +63,37 @@
     "terminal-bench-2-0",
     "deepseek-v4-flash",
     "deepseek-v4-pro",
+    "copy-inflation",
+    "retrieval-grounded-voting",
+    "weighted-majority-vote",
+    "confidence-based-voting",
+    "well-grounded-but-wrong",
+    "deepconf-logprob-based-confidence-voting",
+    "retrieval-grounded-voting-rgv",
+    "simple-majority-voting",
+    "browsecomp-plus",
+    "browsecomp",
+    "frames",
+    "gpt-oss-120b",
+    "minimax-m2-7",
+    "glm-5-1",
+    "kimi-k2-5",
+    "tongyi-deepresearch",
+    "qwen3-32b-judge",
     "asymmetric-verification",
     "sequential-vs-parallel-test-time-scaling",
     "budget-forcing",
     "parallel-test-time-scaling-verify-and-select",
-    "browsecomp",
-    "xbench-deepsearch"
+    "xbench-deepsearch",
+    "deep-web-explorer",
+    "think-search-and-draft-strategy",
+    "iterative-online-dpo-for-tool-use",
+    "iterative-online-direct-preference-optimization-dpo",
+    "agentic-web-search-and-navigation",
+    "gpqa",
+    "webwalkerqa",
+    "hle",
+    "glaive"
   ],
   "related_authored": [],
   "schema_version": 1,

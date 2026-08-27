@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Shows that a constant-learning-rate-with-cooldown schedule scales as predictably and reliably as the standard cosine schedule for LLM pretraining, letting scaling-law experiments reuse partial training runs across durations and cut required compute.
+
+## Problem
+
+Scaling-law research has relied on the cosine learning-rate schedule, which requires committing to a fixed training length in advance and prevents reusing a single run to study multiple training durations for the same model size, adding needless complexity and compute cost.
+
+## Contributions
+
+- shows constant-LR-with-cooldown scaling matches cosine-schedule scaling reliability
+- shows SWA improves performance along the training trajectory at no added cost, across scales
+- a practical reduction in compute/GPU-hours needed for scaling-law research via reusable training runs
+
+## Method
+
+Investigates constant learning rate with cooldowns as a direct alternative to cosine scheduling, and separately evaluates stochastic weight averaging (SWA) along the training trajectory, across multiple model scales.
+
+## Results
+
+Constant-learning-rate-with-cooldowns scales predictably and reliably, similarly to cosine scheduling; stochastic weight averaging improves performance along the training trajectory at no additional training cost across scales; together these let scaling experiments reuse fewer, reusable training runs, reducing compute and GPU-hours needed.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the pretraining-schedule scope; no discussion of downstream task types where the finding might not hold.
+
+## Why it matters here
+
+- **overthinking**: Not relevant beyond the shared keyword 'compute-optimal': this is about LLM pretraining schedule design and scaling-law methodology, unconnected to inference-time reasoning length or test-time compute.
+
+## Entities
+
+- **Concepts**: constant learning rate with cooldown, stochastic weight averaging (SWA), scaling-law experiment design
+- **Methods**: constant learning rate with cooldown, cosine learning-rate schedule, stochastic weight averaging
+- **Datasets**: _none recorded_
+
+Tags: `scaling-laws`, `learning-rate-schedule`, `compute-efficiency`, `pretraining`
 
 ## Abstract
 

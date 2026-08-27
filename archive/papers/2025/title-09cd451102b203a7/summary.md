@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Streaming Content Monitor (SCM) is a safety moderator trained with token-level supervision to judge harmfulness of an LLM's output mid-stream and stop generation early, matching full-detection accuracy after seeing only ~18% of the response on average.
+
+## Problem
+
+Safety moderators are normally trained and applied to complete LLM outputs (full detection), causing high latency; recent partial-detection approaches apply the same full-detection-trained moderators to incomplete outputs, creating a training-inference gap that lowers performance.
+
+## Contributions
+
+- FineHarm, a 29K-pair dataset with token-level harmfulness annotations
+- Streaming Content Monitor (SCM), a moderator natively trained for partial-output detection
+- use of SCM as a pseudo-harmfulness annotator that outperforms DPO for safety alignment
+
+## Method
+
+Constructs FineHarm, a 29K-pair dataset with fine-grained token-level harmfulness annotations, and trains the Streaming Content Monitor (SCM) with dual supervision (response-level and token-level labels) so it natively supports partial detection and can judge harmfulness as the output streams.
+
+## Results
+
+SCM reaches 0.95+ macro F1, comparable to full-detection moderators, while seeing only the first 18% of response tokens on average; used as a pseudo-harmfulness annotator, it also yields a higher harmlessness score than DPO for safety alignment.
+
+## Limitations
+
+Not stated in the abstract beyond the domain (LLM output moderation); no discussion of false-early-stop cases or failure modes when harmful content appears very late in a response.
+
+## Why it matters here
+
+- **overthinking**: Only loosely related: matched on the shared term 'early stopping,' but this is about stopping generation early to block unsafe content, not about reasoning length or the accuracy/efficiency tradeoff the topic tracks; it is a different application of the general idea that a decision can be made from a prefix of a generation rather than the whole thing.
+
+## Entities
+
+- **Concepts**: partial (streaming) content detection, token-level harmfulness supervision, early stopping for safety moderation
+- **Methods**: dual response/token-level supervised training, streaming/partial content moderation
+- **Datasets**: FineHarm (new, 29K prompt-response pairs)
+
+Tags: `safety-moderation`, `early-stopping`, `streaming-inference`, `guardrail`
 
 ## Abstract
 

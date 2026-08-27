@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:56:37Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:a7838a0be137b21d",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "A Simple \"Motivation\" Can Enhance Reinforcement Finetuning of Large Reasoning Models",
+    "url": "https://iclr.cc/virtual/2026/poster/10011610",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "in-context reward specification ('motivation')",
+      "Reinforcement Learning with Verifiable Rewards (RLVR)",
+      "exploration efficiency in RL fine-tuning"
+    ],
+    "contributions": [
+      "MeRF, which puts the verifiable reward specification directly into the training prompt as task motivation",
+      "an empirical demonstration of substantial gains over baseline RLVR from this simple addition",
+      "an ablation showing gains scale with alignment between the in-context motivation and the true reward function"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract; the approach depends on rewards being expressible as natural-language specifications, which the excerpt does not discuss the limits of.",
+    "method": "Exploits that verifiable rewards can be expressed in natural language and that LLMs have strong in-context learning ability: MeRF directly incorporates the reward specification into the prompt as an explicit 'motivation,' so the model understands its optimization objective before training begins, rather than discovering it purely through trial and error.",
+    "methods": [
+      "Reinforcement Learning with Verifiable Rewards (RLVR)",
+      "in-context reward specification"
+    ],
+    "models": [],
+    "one_liner": "MeRF (Motivation-enhanced Reinforcement Finetuning) puts the verifiable reward specification itself into the training prompt, giving the model advance awareness of its optimization objective, and substantially improves over baseline RLVR performance.",
+    "problem": "Standard Reinforcement Learning with Verifiable Rewards (RLVR) trains via trial-and-error exploration without giving the model any awareness of the overall reward pattern it is being optimized against, making exploration inefficient.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Indirectly relevant: it targets training-time sample efficiency of RLVR (how quickly a model learns its objective) rather than inference-time reasoning length, but a model trained with explicit awareness of its reward pattern is a plausible lever for shaping *what* the reasoning is optimized for -- including, in principle, an efficiency or length-aware objective, though the fetched abstract does not test that."
+    },
+    "results": "MeRF demonstrates substantial improvements over baseline RLVR performance; ablations show gains scale with the alignment between the in-context motivation and the actual reward function, and models can also adapt to deliberately contradictory motivations through the RL process (no specific numeric deltas given in the fetched abstract).",
+    "tags": [
+      "reinforcement-learning",
+      "RLVR",
+      "training-efficiency",
+      "large-reasoning-models"
+    ]
+  },
+  "task_id": "paper__title-a7838a0be137b21d",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

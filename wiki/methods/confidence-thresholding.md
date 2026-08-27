@@ -9,7 +9,7 @@ Committing to a prediction as soon as a confidence score crosses a fixed cutoff,
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Compute-optimal inference](../concepts/compute-optimal-inference.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Conformal Prediction](conformal-prediction.md), [Early Exit](early-exit.md), [early-exit neural networks](../concepts/early-exit-neural-networks.md), [ImageNet-1k](../datasets/imagenet-1k.md), [Risk Control](../concepts/risk-control.md), [SST-2](../datasets/sst-2.md), [T5-Large](t5-large.md)
+**Related**: [Compute-optimal inference](../concepts/compute-optimal-inference.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Conformal Prediction](conformal-prediction.md), [Early Exit](early-exit.md), [early-exit neural networks](../concepts/early-exit-neural-networks.md), [ImageNet-1K](../datasets/imagenet-1k.md), [Risk Control](../concepts/risk-control.md), [SST-2](../datasets/sst-2.md), [T5-Large](t5-large.md)
 
 ## Appears in
 

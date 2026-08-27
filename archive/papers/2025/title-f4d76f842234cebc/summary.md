@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+FreqExit enables dynamic early-exit inference for Visual AutoRegressive (VAR) image generation models by exploiting that high-frequency image details emerge only in later decoding stages, using curriculum-based layer-dropout supervision and a wavelet-domain frequency-consistency loss, achieving up to 2x speedup with minor quality loss.
+
+## Problem
+
+Visual AutoRegressive models' coarse-to-fine, next-scale decoding paradigm violates the two assumptions (semantic stability, monotonic locality) that conventional dynamic-inference/early-exit methods rely on, making existing early-exit techniques ineffective for VAR models.
+
+## Contributions
+
+- identification of why conventional early-exit assumptions fail for Visual AutoRegressive models
+- FreqExit, a training framework enabling dynamic early exit in VAR without architecture changes
+- up to 2x speedup (minor quality loss) or 1.3x speedup (no perceptible loss) on ImageNet 256x256
+
+## Method
+
+Observes that high-frequency image details are crucial for perceptual quality but only emerge in later VAR decoding stages, and designs FreqExit, a training framework with three components: curriculum-based supervision with progressive layer dropout and an early-exit loss, a wavelet-domain high-frequency consistency loss aligning spectral content across generation steps, and a lightweight self-supervised frequency-gated module guiding adaptive learning of structural and detailed spectral components -- without altering the VAR architecture.
+
+## Results
+
+On ImageNet 256x256, FreqExit achieves up to 2x speedup with only minor quality degradation, and delivers 1.3x acceleration with no perceptible quality loss, enabling runtime-adaptive acceleration within a single unified model.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the ImageNet 256x256 evaluation setting for VAR image generation.
+
+## Why it matters here
+
+- **overthinking**: Off-topic domain (image generation via Visual AutoRegressive models, not text reasoning), matched via 'early exit'; relevant only as a cross-modal example that early-exit/adaptive-computation techniques must be redesigned when the generation paradigm's structural assumptions differ, a caution potentially applicable when adapting LLM early-exit or stopping methods across reasoning-model architectures.
+
+## Entities
+
+- **Concepts**: frequency-aware dynamic inference, curriculum layer-dropout supervision, wavelet-domain consistency loss
+- **Methods**: Visual AutoRegressive (VAR) modeling, early-exit inference, wavelet-domain frequency-consistency loss
+- **Datasets**: ImageNet 256x256
+
+Tags: `early-exit`, `image-generation`, `visual-autoregressive`, `adaptive-inference`
 
 ## Abstract
 

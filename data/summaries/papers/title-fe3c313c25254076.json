@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "pairwise (Givens) rotation quantization",
+    "channel-wise outlier scaling",
+    "outlier-error compounding in reasoning chains"
+  ],
+  "contributions": [
+    "ParoQuant, combining hardware-efficient pairwise Givens rotations with channel-wise scaling for outlier-robust quantization",
+    "co-designed inference kernels maximizing GPU efficiency at low overhead",
+    "2.4% average accuracy improvement over AWQ on reasoning tasks under weight-only quantization, at <10% overhead"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-27T13:56:39Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the fetched abstract beyond the weight-only-quantization comparison setting; comparison to weight-activation quantization is only described as 'comparable,' with no numeric detail retrieved.",
+  "method": "Introduces ParoQuant, combining hardware-efficient, optimizable independent Givens (pairwise) rotations with channel-wise scaling to even out magnitude differences across channels and narrow the dynamic range within each quantization group, paired with co-designed inference kernels that maximize GPU efficiency while keeping computational overhead minimal.",
+  "methods": [
+    "Givens (pairwise) rotation quantization",
+    "channel-wise scaling",
+    "post-training quantization"
+  ],
+  "models": [],
+  "one_liner": "ParoQuant is a post-training weight quantization method for reasoning LLMs that uses pairwise Givens rotations plus channel-wise scaling to even out per-channel outlier magnitudes, achieving 2.4% higher accuracy than AWQ on reasoning tasks at under 10% inference overhead.",
+  "paper_id": "title:fe3c313c25254076",
+  "problem": "Post-training quantization reduces LLM memory and inference cost but outlier weight/activation magnitudes cause substantial quantization error and accuracy loss, and this is especially damaging for reasoning models because errors compound through long chains of reasoning steps; existing outlier-handling methods either handle outliers inadequately or impose heavy inference cost.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly relevant as a complementary efficiency lever: it notes explicitly that quantization errors compound through long reasoning chains, making reasoning models especially sensitive to outlier-induced quantization error -- tying model-compression fidelity to the same long-generation cost that reasoning-length-focused overthinking mitigations address from the other direction (shortening the chain rather than cheapening each step)."
+  },
+  "results": "Under weight-only quantization, ParoQuant achieves an average 2.4% accuracy improvement over AWQ on reasoning tasks with under 10% inference overhead, and performs comparably to leading weight-activation quantization approaches.",
+  "schema_version": 1,
+  "tags": [
+    "quantization",
+    "efficient-reasoning",
+    "inference-efficiency",
+    "large-reasoning-models"
+  ]
+}

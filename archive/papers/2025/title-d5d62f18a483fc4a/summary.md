@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Studies compute-optimal scaling for online value-based deep RL along the model-capacity and update-to-data (UTD) ratio axes, identifying a 'TD-overfitting' phenomenon where larger batch sizes harm small models' Q-function accuracy but not large ones, enabling large-batch efficiency at scale.
+
+## Problem
+
+Compute-optimal scaling is well studied for language modeling but not for value-based deep reinforcement learning, which has two primary compute-allocation axes (model capacity and update-to-data ratio) whose optimal partitioning under a fixed budget was unclear.
+
+## Contributions
+
+- identification of TD-overfitting, where large batch sizes harm Q-function accuracy for small but not large models
+- guidelines for partitioning compute between model capacity and UTD ratio in value-based deep RL
+- a compute-optimal-scaling analysis for TD learning analogous to supervised-learning scaling studies
+
+## Method
+
+Investigates compute scaling for online value-based deep RL along the model-capacity and UTD-ratio axes, analyzing the interplay between model size, batch size, and UTD ratio under a fixed compute budget to determine how resources should be partitioned to maximize data efficiency.
+
+## Results
+
+Identifies 'TD-overfitting': increasing batch size quickly harms Q-function accuracy for small models, but this effect is absent in large models, which can therefore use large batch sizes effectively at scale; the paper provides a mental model for this phenomenon and guidelines for choosing batch size and UTD ratio to optimize compute usage, mirroring supervised-learning compute-optimal scaling but adapted to TD learning.
+
+## Limitations
+
+Not stated in the fetched abstract beyond the online, value-based deep RL setting studied.
+
+## Why it matters here
+
+- **overthinking**: Not relevant beyond the shared keyword 'compute-optimal': this is about training-compute allocation (model size vs. batch/UTD ratio) for value-based deep RL agents, unconnected to inference-time reasoning length or test-time compute for LLM reasoning.
+
+## Entities
+
+- **Concepts**: TD-overfitting, update-to-data (UTD) ratio, compute-optimal scaling for deep RL
+- **Methods**: value-based deep reinforcement learning, compute-optimal scaling analysis
+- **Datasets**: _none recorded_
+
+Tags: `reinforcement-learning`, `compute-optimal`, `scaling-laws`, `TD-learning`
 
 ## Abstract
 

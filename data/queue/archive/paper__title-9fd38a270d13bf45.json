@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:54:17Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:9fd38a270d13bf45",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Efficient Test-Time Scaling for Small Vision-Language Models",
+    "url": "https://iclr.cc/virtual/2026/poster/10007164",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "Test-Time Augmentation (TTAug)",
+      "Test-Time Adaptation (TTAdapt)",
+      "consensus-based pseudolabeling"
+    ],
+    "contributions": [
+      "TTAug, token-level aggregation over multiple augmented inputs with no parameter updates",
+      "TTAdapt, inference-time parameter adaptation via consensus-based pseudolabels",
+      "consistent gains across nine benchmarks and multiple small VLMs without additional tuning"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract; no discussion of the added inference-time cost of augmentation/adaptation relative to the baseline small-VLM cost.",
+    "method": "TTAug generates multiple augmented inputs and aggregates outputs at the token level without any parameter updates; TTAdapt adapts model parameters during inference using consensus-based pseudolabels derived from the model's own outputs.",
+    "methods": [
+      "Test-Time Augmentation",
+      "Test-Time Adaptation",
+      "consensus pseudolabeling"
+    ],
+    "models": [],
+    "one_liner": "Introduces Test-Time Augmentation (TTAug) and Test-Time Adaptation (TTAdapt), two test-time scaling methods designed for small vision-language models, giving consistent gains across nine benchmarks without additional tuning.",
+    "problem": "Small vision-language models are computationally efficient but generalize more weakly than larger ones, and prior test-time-scaling methods are typically not designed for resource-constrained small-VLM settings.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Relevant as a resource-constrained variant of test-time scaling: it targets small VLMs rather than reasoning-length-heavy LRMs, but demonstrates that test-time compute methods can be made efficient enough for small models -- a useful data point for where the accuracy/efficiency tradeoff sits when the base model itself is already cheap."
+    },
+    "results": "Across nine benchmarks and multiple VLMs of different scales, both methods yield consistent performance gains while maintaining computational efficiency, generalizing without requiring additional tuning.",
+    "tags": [
+      "test-time-scaling",
+      "vision-language-models",
+      "small-models",
+      "test-time-adaptation"
+    ]
+  },
+  "task_id": "paper__title-9fd38a270d13bf45",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

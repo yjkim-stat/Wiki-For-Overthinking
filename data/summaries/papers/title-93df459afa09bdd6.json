@@ -1,0 +1,43 @@
+{
+  "concepts": [
+    "Deep Web Explorer",
+    "Think-Search-and-Draft strategy",
+    "iterative online DPO for tool use"
+  ],
+  "contributions": [
+    "a Deep Web Explorer module letting LRMs autonomously search, navigate and extract web information during reasoning",
+    "an Autonomous Think-Search-and-Draft strategy interleaving reasoning, search and report drafting",
+    "an iterative online DPO training strategy improving research-tool utilization, outperforming existing methods and strong proprietary systems"
+  ],
+  "datasets": [
+    "GPQA",
+    "GAIA",
+    "WebWalkerQA",
+    "HLE",
+    "Glaive"
+  ],
+  "generated_at": "2026-08-27T13:54:17Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the fetched abstract; evaluation limited to the listed reasoning/report-generation benchmarks.",
+  "method": "Integrates a Deep Web Explorer module enabling LRMs to dynamically search, navigate, and extract information from the web when they hit a knowledge gap, and an Autonomous Think-Search-and-Draft strategy that interleaves reasoning, information gathering, and report drafting in real time; adds an RL-based training strategy via iterative online Direct Preference Optimization to improve research-tool use.",
+  "methods": [
+    "iterative online Direct Preference Optimization (DPO)",
+    "agentic web search and navigation"
+  ],
+  "models": [],
+  "one_liner": "WebThinker gives large reasoning models a Deep Web Explorer module and an Autonomous Think-Search-and-Draft strategy so they can search, navigate, and draft research reports interleaved with reasoning, trained via iterative online DPO, and it outperforms existing methods and strong proprietary systems on complex reasoning and report-generation benchmarks.",
+  "paper_id": "title:93df459afa09bdd6",
+  "problem": "Large reasoning models rely on static internal knowledge, which limits performance on complex knowledge-intensive tasks and prevents them from producing comprehensive research reports that require synthesizing diverse, current web information.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Indirectly relevant: this is about extending LRM reasoning with external web search rather than making a fixed reasoning trace shorter or better-calibrated, but it is an example of the kind of agentic, multi-tool reasoning system where reasoning-length/overthinking concerns compound with tool-call overhead -- relevant background context rather than a direct contribution to the topic's core measurement/mitigation questions."
+  },
+  "results": "On complex reasoning benchmarks (GPQA, GAIA, WebWalkerQA, HLE) and a scientific report-generation task (Glaive), WebThinker significantly outperforms existing methods and strong proprietary systems (no specific numeric deltas given in the fetched abstract).",
+  "schema_version": 1,
+  "tags": [
+    "deep-research-agent",
+    "large-reasoning-models",
+    "web-search",
+    "tool-use"
+  ]
+}

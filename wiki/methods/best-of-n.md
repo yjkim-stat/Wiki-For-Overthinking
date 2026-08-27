@@ -1,18 +1,19 @@
-# Best-of-N
+# best-of-N
 
 <!-- auto:begin -->
 
 A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In the sources tagged separately under this exact capitalization: CaTS uses a self-distilled confidence signal to adaptively size the sampling budget per query instead of a fixed N; a theoretical paper derives worse sample-complexity bounds for best-of-n than for self-consistency; and 'Less Diverse, Less Safe' finds that reducing candidate diversity within Best-of-N/MCTS search substantially raises the rate of unsafe outputs. Note: this is the same underlying method as the archive's separate 'best-of-N sampling' entry -- the wiki did not merge the two spellings.
 
 - **Kind**: method
-- **Also called**: BoN, best-of-N sampling, best-of-n
+- **Also called**: Best-of-N, BoN, best-of-N sampling, best-of-n
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 4
+- **Sources**: 5
 
-**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [adaptive test-time compute](../concepts/adaptive-test-time-compute.md), [Best-of-N sampling](best-of-n-sampling.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [Confidence-based early stopping](confidence-based-early-stopping.md), [Confidence Calibration](../concepts/confidence-calibration.md), [early stopping](../concepts/early-stopping.md), [GSM8K](../datasets/gsm8k.md), [Majority Voting](majority-voting.md), [MATH500](../datasets/math500.md), [MathQA](../datasets/mathqa.md), [MBPP](../datasets/mbpp.md), [Monte Carlo Tree Search](monte-carlo-tree-search.md), [process reward model](process-reward-model.md), [Self-Consistency](self-consistency.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Tree Search Decoding](../concepts/tree-search-decoding.md), [weighted voting](../concepts/weighted-voting.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [adaptive test-time compute](../concepts/adaptive-test-time-compute.md), [Best-of-N sampling](best-of-n-sampling.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [Confidence-based early stopping](confidence-based-early-stopping.md), [Confidence Calibration](../concepts/confidence-calibration.md), [early stopping](../concepts/early-stopping.md), [Gemma-4-E4B](../models/gemma-4-e4b.md), [GSM8K](../datasets/gsm8k.md), [Majority Voting](majority-voting.md), [MATH500](../datasets/math500.md), [MathQA](../datasets/mathqa.md), [MBPP](../datasets/mbpp.md), [Monte Carlo Tree Search](monte-carlo-tree-search.md), [process reward model](process-reward-model.md), [Self-Consistency](self-consistency.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Tree Search Decoding](../concepts/tree-search-decoding.md), [weighted voting](../concepts/weighted-voting.md)
 
 ## Appears in
 
+- [Verifier-Guided Code Translation via Meta-Step Decoding](../../archive/papers/2026/arxiv-2605-17626/summary.md) — Decoding Time Verification (DTV) interleaves code generation with deterministic verifier calls (compiler, type checker) at structural boundaries, using structure-aware rollback and diagnostic feedback instead of post-hoc filtering, to translate code more accurately and more token-efficiently than resampling-based test-time scaling.
 - [CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning](../../archive/papers/2026/title-03232c54fde9b57f/summary.md) — Proposes CaTS, a calibrated test-time scaling framework that uses a self-distilled confidence signal to adaptively allocate sampling budget per query, including early stopping once the model is confident.
 - [Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for LLM Problem-Solving](../../archive/papers/2025/title-0d818df77a2dc810/summary.md) — An empirical study of compute-optimal inference that measures accuracy against FLOPs for greedy decoding, sampling with majority and weighted voting, best-of-n and tree search across model sizes, and introduces REBASE, a reward-guided tree search.
 - [Sample Complexity and Representation Ability of Test-time Scaling Paradigms](../../archive/papers/2026/title-27bc5c2aff7ebdab/summary.md) — A theoretical paper deriving sample-complexity bounds for self-consistency versus best-of-n, and an expressiveness result showing self-correction lets a Transformer simulate online learning over multiple tasks at test time.

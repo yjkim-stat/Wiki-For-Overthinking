@@ -9,7 +9,7 @@ In these three sources an early-exit neural network is a backbone with intermedi
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [Confidence Calibration](confidence-calibration.md), [Confidence Thresholding](../methods/confidence-thresholding.md), [Early Exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [ImageNet-1k](../datasets/imagenet-1k.md), [Layer-wise early exit](../methods/layer-wise-early-exit.md)
+**Related**: [Confidence Calibration](confidence-calibration.md), [Confidence Thresholding](../methods/confidence-thresholding.md), [Early Exit](../methods/early-exit.md), [early-exit ensembles](../methods/early-exit-ensembles.md), [ImageNet-1K](../datasets/imagenet-1k.md), [Layer-wise early exit](../methods/layer-wise-early-exit.md)
 
 ## Appears in
 

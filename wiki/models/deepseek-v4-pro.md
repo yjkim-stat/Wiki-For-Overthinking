@@ -7,14 +7,15 @@ DeepSeek's largest V4 reasoning model, used in this archive as a frontier refere
 - **Kind**: model
 - **Also called**: DeepSeek V4 Pro, DeepSeek-V4-Pro, deepseek-v4-pro
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [Claude-Opus-4.8](claude-opus-4-8.md), [deepseek-v4-flash](deepseek-v4-flash.md), [GAIA](../datasets/gaia.md), [GLM-5.2](glm-5-2.md), [GPT-5.5](gpt-5-5.md), [Omni-MATH](../datasets/omni-math.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
+**Related**: [BBEH](../datasets/bbeh.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [Claude-Opus-4.8](claude-opus-4-8.md), [deepseek-v4-flash](deepseek-v4-flash.md), [GAIA](../datasets/gaia.md), [GLM-5.2](glm-5-2.md), [GPT-5.5](gpt-5-5.md), [HLE](../datasets/hle.md), [Omni-MATH](../datasets/omni-math.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md), [SuperGPQA](../datasets/supergpqa.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
 
 ## Appears in
 
 - [CHILL-Harness: Counterfactual Harness Learning for Efficient Reasoning in Long-Horizon Agents](../../archive/papers/2026/arxiv-2607-25825/summary.md) — Treats an agent harness's orchestration decisions as causal interventions on the current workflow, learns which ones would improve it, and executes only those whose estimated advantage clears a margin -- so deliberation is spent where it changes the plan rather than at every step.
 - [$R^3$-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets](../../archive/papers/unknown/arxiv-2608-16033/summary.md) — A benchmark that puts six problems of mixed difficulty under one shared computation budget and measures the gap between what a model solves problem-by-problem and what it solves when it must decide how to divide the budget.
+- [Recursive Agentic Reasoning](../../archive/papers/2026/arxiv-2608-23956/summary.md) — Recasts iterative refinement, decomposition and repeated sampling as three recursion operators (GROW, PRUNE, BRANCH) over a shared reasoning-trace primitive, compares them under a paired protocol across 3 frontier models and 5 benchmarks, and finds BRANCH wins mainly because it recovers answers a single pass never emitted at all.
 
 <!-- auto:end -->
 

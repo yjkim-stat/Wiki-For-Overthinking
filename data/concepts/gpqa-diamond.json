@@ -86,6 +86,12 @@
       "title": "S-GRPO: Early Exit via Reinforcement Learning in Reasoning Models"
     },
     {
+      "id": "title:70a0c3f7ce6097f6",
+      "kind": "paper",
+      "note": "SambaY is a decoder-hybrid-decoder architecture that shares memory states across State Space Model layers via a Gated Memory Unit, and its largest variant (Phi4-mini-Flash-Reasoning) matches or beats a same-size reasoning model on Math500/AIME24-25/GPQA without RL while delivering up to 10x higher decoding throughput on long-generation prompts.",
+      "title": "Decoder-Hybrid-Decoder Architecture for Efficient Reasoning with Long Generation"
+    },
+    {
       "id": "title:7651639ee2f29946",
       "kind": "paper",
       "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
@@ -130,7 +136,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-08-27T13:56:46Z",
   "name": "GPQA-Diamond",
   "related": [
     "segment-level-attribution",
@@ -320,6 +326,17 @@
     "deepseek-r1-distill-qwen-7b-14b",
     "qwen3-8b-14b",
     "gsm8k",
+    "gated-memory-unit-gmu",
+    "decoder-hybrid-decoder-architecture",
+    "memory-state-sharing-across-ssm-layers",
+    "state-space-models-ssm",
+    "gated-memory-unit",
+    "differential-attention",
+    "sambay",
+    "phi4-mini-flash-reasoning",
+    "phi4-mini-reasoning",
+    "yoco-baseline",
+    "samba-baseline",
     "hierarchical-reasoning-as-a-finite-state-machine",
     "latent-cognitive-states",
     "reasoning-as-a-planning-problem",

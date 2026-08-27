@@ -9,7 +9,7 @@ A DeepSeek reasoning model used in this archive as an API-accessed backbone whos
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [deepseek-v4-pro](deepseek-v4-pro.md), [GAIA](../datasets/gaia.md), [GLM-5.2](glm-5-2.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [OpenThoughts](../datasets/openthoughts.md), [Self-verification](../methods/self-verification.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
+**Related**: [deepseek-v4-pro](deepseek-v4-pro.md), [GAIA](../datasets/gaia.md), [GLM-5.2](glm-5-2.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Self-verification](../methods/self-verification.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
 
 ## Appears in
 

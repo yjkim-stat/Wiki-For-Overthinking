@@ -1,0 +1,50 @@
+{
+  "concepts": [
+    "Gated Memory Unit (GMU)",
+    "decoder-hybrid-decoder architecture",
+    "memory-state sharing across SSM layers"
+  ],
+  "contributions": [
+    "the Gated Memory Unit (GMU) for cross-layer memory sharing in SSM-based architectures",
+    "SambaY, a decoder-hybrid-decoder architecture with linear pre-filling and no explicit positional encoding",
+    "Phi4-mini-Flash-Reasoning, matching/exceeding a same-size reasoning model's accuracy with up to 10x higher decoding throughput on long generations"
+  ],
+  "datasets": [
+    "Math500",
+    "AIME24",
+    "AIME25",
+    "GPQA Diamond"
+  ],
+  "generated_at": "2026-08-27T13:54:16Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the fetched abstract beyond the architectures and benchmarks tested.",
+  "method": "Introduces the Gated Memory Unit (GMU), a mechanism for sharing memory-readout states across layers, and applies it in a cross-decoder to build SambaY, a decoder-hybrid-decoder architecture that shares memory from a Samba-based self-decoder, preserves linear pre-filling time complexity, and needs no explicit positional encoding.",
+  "methods": [
+    "State Space Models (SSM)",
+    "Gated Memory Unit",
+    "Differential Attention"
+  ],
+  "models": [
+    "SambaY",
+    "Phi4-mini-Flash-Reasoning",
+    "Phi4-mini-Reasoning",
+    "YOCO (baseline)",
+    "Samba (baseline)"
+  ],
+  "one_liner": "SambaY is a decoder-hybrid-decoder architecture that shares memory states across State Space Model layers via a Gated Memory Unit, and its largest variant (Phi4-mini-Flash-Reasoning) matches or beats a same-size reasoning model on Math500/AIME24-25/GPQA without RL while delivering up to 10x higher decoding throughput on long-generation prompts.",
+  "paper_id": "title:70a0c3f7ce6097f6",
+  "problem": "Hybrid SSM-Transformer architectures (e.g. Samba, YOCO) improve on plain Transformers but have not exploited representation sharing between SSM layers, leaving decoding efficiency for long generations (as needed for long reasoning traces) on the table.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Directly relevant as an architectural (rather than prompting/training) mitigation: it targets exactly the cost of long reasoning generations by making the underlying decoder architecture faster per token (up to 10x throughput) rather than shortening the trace, and shows this can match reasoning accuracy without needing RL -- a different lever than the length-penalty or early-stopping approaches common in the overthinking literature."
+  },
+  "results": "SambaY shows significantly lower irreducible loss than a strong YOCO baseline at scale; the largest variant, Phi4-mini-Flash-Reasoning (with added Differential Attention), significantly outperforms Phi4-mini-Reasoning on Math500, AIME24/25, and GPQA Diamond without any reinforcement learning, while delivering up to 10x higher decoding throughput on 2K-prompt/32K-generation workloads under vLLM.",
+  "schema_version": 1,
+  "tags": [
+    "architecture",
+    "efficient-reasoning",
+    "decoding-throughput",
+    "state-space-models",
+    "long-generation"
+  ]
+}

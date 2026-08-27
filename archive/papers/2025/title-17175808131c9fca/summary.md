@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Difficulty-Aware Stochastic Interpolant Policy (DA-SIP) lets a diffusion/flow-based robot control policy adaptively choose its integration step budget, solver, and ODE/SDE mode per control step based on a difficulty classifier over RGB-D observations, cutting computation 2.6-4.4x with comparable task success.
+
+## Problem
+
+Diffusion- and flow-based robot control policies use a fixed inference budget at every control step regardless of task complexity, wasting computation on easy subtasks while potentially underperforming on hard ones.
+
+## Contributions
+
+- a difficulty classifier that selects step budget, solver, and integration mode per control step from RGB-D observations
+- a unified stochastic-interpolant framework spanning diverse diffusion/flow policy configurations
+- 2.6-4.4x computation reduction with comparable success rate across manipulation benchmarks
+
+## Method
+
+A difficulty classifier analyzes RGB-D observations to dynamically select the step budget, solver variant, and ODE/SDE integration mode at each control cycle, built on a unified stochastic-interpolant formulation covering diverse diffusion/flow policy training and inference configurations.
+
+## Results
+
+Across diverse manipulation benchmarks, DA-SIP achieves 2.6-4.4x reduction in total computation time while maintaining task-success rates comparable to fixed maximum-computation baselines.
+
+## Limitations
+
+Not stated in the abstract; evaluation is restricted to robotic manipulation/imitation-learning tasks, so generality beyond that domain is untested.
+
+## Why it matters here
+
+- **overthinking**: A structural analog outside the LLM domain: it is the same 'don't spend a fixed compute budget on every case regardless of difficulty' problem that motivates overthinking mitigation, applied to diffusion/flow-based robot control policies rather than LLM reasoning traces -- useful as a cross-domain reference point for difficulty-aware adaptive test-time compute.
+
+## Entities
+
+- **Concepts**: difficulty-aware adaptive compute allocation, stochastic interpolant policy, per-step inference budget selection
+- **Methods**: stochastic interpolants, diffusion/flow-based control policies, difficulty classification
+- **Datasets**: _none recorded_
+
+Tags: `test-time-compute`, `adaptive-computation`, `robotics`, `diffusion-policy`
 
 ## Abstract
 

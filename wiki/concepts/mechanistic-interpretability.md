@@ -9,7 +9,7 @@ Both archived sources use 'mechanistic interpretability' loosely, as a label for
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 1
 
-**Related**: [activation steering](../methods/activation-steering.md), [Manifold Steering](../methods/manifold-steering.md), [Overthinking](overthinking.md)
+**Related**: [activation steering](../methods/activation-steering.md), [Manifold Steering](../methods/manifold-steering.md), [mechanistic interpretability analysis](../methods/mechanistic-interpretability-analysis.md), [Overthinking](overthinking.md)
 
 ## Appears in
 

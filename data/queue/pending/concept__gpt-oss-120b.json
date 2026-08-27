@@ -1,0 +1,63 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces HazMart (77 hand-written agentic shopkeeper scenarios) and Targeted Reasoning Replacement, a search-and-replace edit of a model's own reasoning trace, and shows that models which follow their traces more faithfully also follow tampered unsafe traces more often, with two anti-correlated residual-stream directions in QwQ-32B that can be steered independently.",
+        "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Risa reads the MoE router's expert-selection trace as a behavioral fingerprint of what a software agent is doing, using it to push sibling actions away from recently repeated computation during exploration and toward peer agreement once a patch is being written, then to arbitrate among completed attempts without an external judge or test execution.",
+        "title": "Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies copy-inflation -- retrieved documents in a search agent's context systematically inflate the token log-probabilities of copied tokens -- as the reason logprob-based confidence voting (DeepConf) fails on multi-turn search agents, and fixes it with Retrieval-Grounded Voting (RGV), which weights each rollout by lexical overlap between its answer and the documents it retrieved instead of by internal confidence.",
+        "title": "Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
+        "title": "Adaptive Thinking: Large Language Models Know When to Think in Latent Space",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-08-27T13:56:48Z",
+  "instructions": "Revise the wiki definition for 'gpt-oss-120b'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    gpt-oss-120b is an open-weight language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight reasoning models on HazMart (77 hand-written agentic shopkeeper scenarios, 11 harm categories, 5 runs each) scoring chain-of-thought faithfulness against safe action under Targeted Reasoning Replacement -- the comparison in which four of the seven models exceed 80% faithfulness, QwQ-32B is best on both axes at about 75%, and DeepSeek-R1-Distill-Llama-70B is the most faithful at 97.5% while acting safely in only 12.3% of cases; the model's own figures are not given in the archived record. Adaptive Thinking uses it as one of four backbones, with Qwen3-8B, Qwen3-235B-A22B and Intern-S1-mini, for Sonata, an adapter that predicts a query's self-consistency from last-layer hidden states at prefill and sets the thinking budget before any thinking tokens are generated. Neither paper says anything about the model's architecture, training or provenance: it appears only as something to run a method on.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "gpt-oss-120b",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "gpt-oss-120b",
+    "previous_definition": "gpt-oss-120b is an open-weight language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight reasoning models on HazMart (77 hand-written agentic shopkeeper scenarios, 11 harm categories, 5 runs each) scoring chain-of-thought faithfulness against safe action under Targeted Reasoning Replacement -- the comparison in which four of the seven models exceed 80% faithfulness, QwQ-32B is best on both axes at about 75%, and DeepSeek-R1-Distill-Llama-70B is the most faithful at 97.5% while acting safely in only 12.3% of cases; the model's own figures are not given in the archived record. Adaptive Thinking uses it as one of four backbones, with Qwen3-8B, Qwen3-235B-A22B and Intern-S1-mini, for Sonata, an adapter that predicts a query's self-consistency from last-layer hidden states at prefill and sets the thinking budget before any thinking tokens are generated. Neither paper says anything about the model's architecture, training or provenance: it appears only as something to run a method on.",
+    "source_count": 4
+  },
+  "task_id": "concept__gpt-oss-120b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

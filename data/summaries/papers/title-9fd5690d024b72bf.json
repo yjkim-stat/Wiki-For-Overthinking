@@ -1,0 +1,40 @@
+{
+  "concepts": [
+    "controllable world model (video diffusion)",
+    "test-time scaling via interactive exploration",
+    "iterative camera-trajectory sketching"
+  ],
+  "contributions": [
+    "SpatialNavigator, coupling a VLM with a video-diffusion world model for test-time spatial reasoning",
+    "a plug-and-play route to 3D spatial reasoning requiring no fine-tuning of the VLM",
+    "a 7.7% average gain on the SAT spatial-reasoning benchmark, improving even over RL-trained test-time-inference VLMs"
+  ],
+  "datasets": [
+    "SAT (spatial-reasoning benchmark)"
+  ],
+  "generated_at": "2026-08-27T13:54:17Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the fetched abstract; evaluated primarily on the SAT benchmark, so generality across other spatial-reasoning tasks is not established in the excerpt retrieved.",
+  "method": "SpatialNavigator is a test-time scaling framework in which a VLM iteratively proposes a concise camera trajectory, a video-diffusion-based controllable world model synthesizes the corresponding view at each step, and the VLM reasons over the resulting multi-view evidence gathered through this interactive exploration -- all without fine-tuning the VLM.",
+  "methods": [
+    "video diffusion world model",
+    "test-time scaling",
+    "iterative multi-view exploration"
+  ],
+  "models": [],
+  "one_liner": "SpatialNavigator (MindJourney) couples a vision-language model with a controllable video-diffusion world model, iteratively sketching camera trajectories and synthesizing corresponding views for the VLM to reason over, boosting spatial-reasoning benchmark performance 7.7% without any fine-tuning.",
+  "paper_id": "title:9fd5690d024b72bf",
+  "problem": "Vision-language models perceive only static 2D images and lack an internal model of 3D scene dynamics, so they struggle even with simple spatial-reasoning tasks like anticipating how a scene looks after an egocentric motion.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Indirectly relevant: it is test-time scaling in the spatial/embodied domain (spending more inference compute generating and reasoning over synthesized views) rather than the token-length scaling the overthinking topic mostly tracks, but it is another example of test-time compute buying accuracy through additional structured computation rather than a longer text chain-of-thought."
+  },
+  "results": "On the SAT spatial-reasoning benchmark, SpatialNavigator achieves an average 7.7% performance boost with no fine-tuning, and also improves upon VLMs already trained for test-time inference via reinforcement learning.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "spatial-reasoning",
+    "world-model",
+    "vision-language-models"
+  ]
+}

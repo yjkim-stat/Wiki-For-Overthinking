@@ -9,7 +9,7 @@ A Z.ai reasoning model, used in this archive in three service roles rather than 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Claude-Opus-4.8](claude-opus-4-8.md), [deepseek-v4-flash](deepseek-v4-flash.md), [deepseek-v4-pro](deepseek-v4-pro.md), [GPT-5.5](gpt-5-5.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [Omni-MATH](../datasets/omni-math.md), [OpenThoughts](../datasets/openthoughts.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md)
+**Related**: [Claude-Opus-4.8](claude-opus-4-8.md), [deepseek-v4-flash](deepseek-v4-flash.md), [deepseek-v4-pro](deepseek-v4-pro.md), [GPT-5.5](gpt-5-5.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [Omni-MATH](../datasets/omni-math.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md)
 
 ## Appears in
 

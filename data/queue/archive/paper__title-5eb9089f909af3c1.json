@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-08-27T13:52:34Z",
+  "created_at": "2026-08-26T22:16:21Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:5eb9089f909af3c1",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Abstract Scale has become a main ingredient in obtaining strong machine learning models. As a result, understanding a model's scaling properties is key to effectively designing both the right training setup as well as future generations of architectures. In this work, we argue that scale and training research has been needlessly complex due to reliance on the cosine schedule, which prevents training across different lengths for the same model size. We investigate the training behavior of a direct alternative --- constant learning rate and cooldowns --- and find that it scales predictably and reliably similar to cosine. Additionally, we show that stochastic weight averaging yields improved performance along the training trajectory, without additional training costs, across different scales. Importantly, with these findings we demonstrate that scaling experiments can be performed with significantly reduced compute and GPU hours by utilizing fewer but reusable training runs. Our code is available at https://github.com/epfml/schedules-and-scaling/.",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "compute-optimal"
+    ],
+    "pdf_url": "",
+    "published": "2024-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Scaling Laws and Compute-Optimal Training Beyond Fixed Training Durations",
+    "url": "https://neurips.cc/virtual/2024/poster/94731",
+    "venue": "NeurIPS 2024"
+  },
+  "result": {
+    "concepts": [
+      "constant learning rate with cooldown",
+      "stochastic weight averaging (SWA)",
+      "scaling-law experiment design"
+    ],
+    "contributions": [
+      "shows constant-LR-with-cooldown scaling matches cosine-schedule scaling reliability",
+      "shows SWA improves performance along the training trajectory at no added cost, across scales",
+      "a practical reduction in compute/GPU-hours needed for scaling-law research via reusable training runs"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the pretraining-schedule scope; no discussion of downstream task types where the finding might not hold.",
+    "method": "Investigates constant learning rate with cooldowns as a direct alternative to cosine scheduling, and separately evaluates stochastic weight averaging (SWA) along the training trajectory, across multiple model scales.",
+    "methods": [
+      "constant learning rate with cooldown",
+      "cosine learning-rate schedule",
+      "stochastic weight averaging"
+    ],
+    "models": [],
+    "one_liner": "Shows that a constant-learning-rate-with-cooldown schedule scales as predictably and reliably as the standard cosine schedule for LLM pretraining, letting scaling-law experiments reuse partial training runs across durations and cut required compute.",
+    "problem": "Scaling-law research has relied on the cosine learning-rate schedule, which requires committing to a fixed training length in advance and prevents reusing a single run to study multiple training durations for the same model size, adding needless complexity and compute cost.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Not relevant beyond the shared keyword 'compute-optimal': this is about LLM pretraining schedule design and scaling-law methodology, unconnected to inference-time reasoning length or test-time compute."
+    },
+    "results": "Constant-learning-rate-with-cooldowns scales predictably and reliably, similarly to cosine scheduling; stochastic weight averaging improves performance along the training trajectory at no additional training cost across scales; together these let scaling experiments reuse fewer, reusable training runs, reducing compute and GPU-hours needed.",
+    "tags": [
+      "scaling-laws",
+      "learning-rate-schedule",
+      "compute-efficiency",
+      "pretraining"
+    ]
+  },
+  "task_id": "paper__title-5eb9089f909af3c1",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "concepts": [
+    "Test-Time Augmentation (TTAug)",
+    "Test-Time Adaptation (TTAdapt)",
+    "consensus-based pseudolabeling"
+  ],
+  "contributions": [
+    "TTAug, token-level aggregation over multiple augmented inputs with no parameter updates",
+    "TTAdapt, inference-time parameter adaptation via consensus-based pseudolabels",
+    "consistent gains across nine benchmarks and multiple small VLMs without additional tuning"
+  ],
+  "datasets": [],
+  "generated_at": "2026-08-27T13:54:17Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the fetched abstract; no discussion of the added inference-time cost of augmentation/adaptation relative to the baseline small-VLM cost.",
+  "method": "TTAug generates multiple augmented inputs and aggregates outputs at the token level without any parameter updates; TTAdapt adapts model parameters during inference using consensus-based pseudolabels derived from the model's own outputs.",
+  "methods": [
+    "Test-Time Augmentation",
+    "Test-Time Adaptation",
+    "consensus pseudolabeling"
+  ],
+  "models": [],
+  "one_liner": "Introduces Test-Time Augmentation (TTAug) and Test-Time Adaptation (TTAdapt), two test-time scaling methods designed for small vision-language models, giving consistent gains across nine benchmarks without additional tuning.",
+  "paper_id": "title:9fd38a270d13bf45",
+  "problem": "Small vision-language models are computationally efficient but generalize more weakly than larger ones, and prior test-time-scaling methods are typically not designed for resource-constrained small-VLM settings.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Relevant as a resource-constrained variant of test-time scaling: it targets small VLMs rather than reasoning-length-heavy LRMs, but demonstrates that test-time compute methods can be made efficient enough for small models -- a useful data point for where the accuracy/efficiency tradeoff sits when the base model itself is already cheap."
+  },
+  "results": "Across nine benchmarks and multiple VLMs of different scales, both methods yield consistent performance gains while maintaining computational efficiency, generalizing without requiring additional tuning.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "vision-language-models",
+    "small-models",
+    "test-time-adaptation"
+  ]
+}

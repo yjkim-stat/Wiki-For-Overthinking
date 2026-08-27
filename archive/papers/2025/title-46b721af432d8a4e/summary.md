@@ -10,9 +10,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+GRACE improves automatic prompt optimization by combining a gated-refinement mechanism (to stabilize update signals) with adaptive compression (distilling a stagnating prompt to escape local optima), reaching better task performance using only 25% of the prompt-generation budget of prior methods.
+
+## Problem
+
+Automatic prompt optimization methods often generate unstable, inefficient prompt updates and get trapped in local optima, and existing approaches overlook this stagnation problem.
+
+## Contributions
+
+- GRACE, a prompt-optimization framework combining gated refinement and adaptive compression
+- feedback-regulation and update-rejection gates that stabilize prompt update signals
+- a compression strategy that escapes optimization stagnation by distilling and restructuring the prompt
+
+## Method
+
+Introduces GRACE, combining (1) gated refinement -- a feedback regulation gate and an update rejection gate that filter update signals for stable, effective prompt improvements -- with (2) adaptive compression -- when optimization stagnates, the prompt's core concepts are distilled and the optimization trace restructured to open new search paths, deliberately introducing information loss to escape local optima.
+
+## Results
+
+Across 11 tasks in BIG-Bench Hard, domain-specific, and general NLP settings, GRACE achieves average relative improvements of 4.7%, 4.4% and 2.7% over state-of-the-art prompt-optimization methods respectively, using only 25% of the prompt-generation budget required by prior methods.
+
+## Limitations
+
+Not stated beyond the tested task domains (BBH, domain-specific, general NLP); no discussion of when deliberate information loss via compression might hurt rather than help.
+
+## Why it matters here
+
+- **overthinking**: Indirectly relevant: matched on 'adaptive compression,' but this compresses and restructures an evolving *prompt* during optimization, not a model's reasoning trace at inference time -- it is a budget-efficiency result in a related but distinct part of the LLM pipeline (prompt engineering rather than inference-time reasoning).
+
+## Entities
+
+- **Concepts**: gated refinement, adaptive prompt compression, prompt-optimization stagnation / local optima
+- **Methods**: gated refinement, adaptive compression, automatic prompt optimization
+- **Datasets**: BIG-Bench Hard (BBH)
+
+Tags: `prompt-optimization`, `adaptive-compression`, `efficiency`, `local-optima`
 
 ## Abstract
 
