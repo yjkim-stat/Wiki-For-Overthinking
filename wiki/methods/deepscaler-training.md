@@ -9,7 +9,7 @@
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAPO (baseline)](dapo-baseline.md), [DeepScaleR-1.5B-Preview](../models/deepscaler-1-5b-preview.md), [GPT-5](../models/gpt-5.md), [GSM8K](../datasets/gsm8k.md), [HMMT25](../datasets/hmmt25.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [o3-mini](../models/o3-mini.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md), [QwQ-32B](../models/qwq-32b.md), [s1-32B](../models/s1-32b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAPO (baseline)](dapo-baseline.md), [DeepScaleR-1.5B-Preview](../models/deepscaler-1-5b-preview.md), [GPT-5](../models/gpt-5.md), [GRPO (baseline)](grpo-baseline.md), [GSM8K](../datasets/gsm8k.md), [HMMT25](../datasets/hmmt25.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [o3-mini](../models/o3-mini.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md), [QwQ-32B](../models/qwq-32b.md), [s1-32B](../models/s1-32b.md)
 
 ## Appears in
 

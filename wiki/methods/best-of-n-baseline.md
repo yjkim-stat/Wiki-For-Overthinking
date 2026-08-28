@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Best-of-N sampling is used in these sources as a test-time-scaling baseline that alternatives are compared against for cost/accuracy: Guided by Gut shows its calibrated-confidence tree search matches or beats Best-of-N at matched sampling budgets while using roughly half the KV-cache memory; AdaReasoner is a separate RL-trained plugin that instead adapts prompt format, decoding temperature and reasoning-step count per task rather than sampling N full completions.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [chain-of-thought baseline](chain-of-thought-baseline.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](../models/deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA](../datasets/gpqa.md), [GRPO](grpo.md), [LiveCodeBench](../datasets/livecodebench.md), [LogiQA](../datasets/logiqa.md), [LoRA fine-tuning](lora-fine-tuning.md), [MATH500](../datasets/math500.md), [Qwen2.5-Math-1.5B-Instruct](../models/qwen2-5-math-1-5b-instruct.md), [TruthfulQA](../datasets/truthfulqa.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [chain-of-thought baseline](chain-of-thought-baseline.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](../models/deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA](../datasets/gpqa.md), [GRPO](grpo.md), [LiveCodeBench](../datasets/livecodebench.md), [LogiQA](../datasets/logiqa.md), [LoRA fine-tuning](lora-fine-tuning.md), [MATH500](../datasets/math500.md), [OpenAI o1-mini](../models/openai-o1-mini.md), [Qwen2.5-Math-1.5B-Instruct](../models/qwen2-5-math-1-5b-instruct.md), [TruthfulQA](../datasets/truthfulqa.md)
 
 ## Appears in
 

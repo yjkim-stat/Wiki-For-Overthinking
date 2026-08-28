@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "GPT-4o mini"
+  ],
   "definition": "A closed-source LLM used across sources as both an evaluated model and a data-generation/judging tool: tested as a test-time-scaling subject (found to suffer the largest accuracy drop among models tested when a token budget is imposed too tightly, attributed to its smaller parameter count), and used as the reasoning-LLM budget estimator and as an LLM judge/generator in other papers' pipelines.",
   "evidence": [
     {
@@ -31,11 +33,17 @@
       "kind": "paper",
       "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
       "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1305",
+      "kind": "paper",
+      "note": "VecCISC reduces the cost of Confidence-Informed Self-Consistency (CISC) -- which needs a separate critic-LLM call on every sampled reasoning trace to weight majority voting -- by embedding traces, clustering them per candidate answer, and sending only cluster-representative (nearest-centroid) traces to the critic, cutting critic calls 30-35% and total pipeline token usage 47% while matching or exceeding CISC's accuracy across five models and five datasets.",
+      "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "GPT-4o-mini",
   "related": [
     "easy-moderate-hard-question-defined-via-answer-probability-structure-under-major",
@@ -132,7 +140,23 @@
     "qwen2-5-72b-instruct",
     "gemini-2-0-flash",
     "deepseek-r1",
-    "o1-mini"
+    "o1-mini",
+    "think-twice-paradigm",
+    "confidence-informed-self-consistency-cisc",
+    "reasoning-trace-embedding-clustering",
+    "min-centroid-representative-selection",
+    "weighted-majority-voting",
+    "veccisc-kmeans-hac",
+    "confidence-informed-self-consistency-cisc-baseline",
+    "self-consistency-sc-baseline",
+    "veccisc-random-ablation",
+    "aqua-rat",
+    "arc-challenging",
+    "mmlu-pro",
+    "llama-3-1-8b",
+    "llama-3-3-70b",
+    "qwen2-5-7b",
+    "mistral-7b-v0-1"
   ],
   "related_authored": [
     "token-budget-aware-llm-reasoning-tale",

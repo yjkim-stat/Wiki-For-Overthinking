@@ -43,6 +43,12 @@
       "title": "AMO-Bench: Large Language Models Still Struggle in High School Math Competitions"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.1336",
+      "kind": "paper",
+      "note": "STEP trains a lightweight 2-layer-MLP step scorer on reasoning-model hidden states at step boundaries to evaluate parallel-reasoning trace quality with near-zero overhead, and pairs it with a GPU-memory-triggered (not confidence-threshold or fixed-schedule) pruning mechanism that eliminates the KV-cache waiting-queue bottleneck identified as the dominant source of end-to-end latency in parallel test-time scaling -- cutting latency 45-70% versus self-consistency while improving accuracy 0.4-7.5 points across three models and six benchmarks.",
+      "title": "Hidden States as Early Signals: Step-level Trace Evaluation and Pruning for Efficient Test-Time Scaling"
+    },
+    {
       "id": "local:49199e3b0f694ee1",
       "kind": "paper",
       "note": "Introduces OptimalThinkingBench, a unified benchmark pairing OverthinkingBench (simple queries) and UnderthinkingBench (hard reasoning/math) with a shared F1 metric, showing that none of 33 evaluated LLMs balances accuracy and thinking-token efficiency.",
@@ -51,7 +57,7 @@
   ],
   "first_seen": "2026-08-21T03:00:11Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "HMMT25",
   "related": [
     "claim-level-falsification",
@@ -176,6 +182,21 @@
     "qwen3-max-instruct",
     "longcat-flash",
     "deepseek-r1",
+    "overthinking-via-wasted-parallel-reasoning-compute",
+    "step-level-trace-scoring-from-hidden-states",
+    "gpu-memory-triggered-pruning",
+    "kv-cache-waiting-queue-bottleneck",
+    "weighted-majority-voting",
+    "step-step-level-trace-evaluation-and-pruning",
+    "self-consistency-sc-baseline",
+    "slim-sc-baseline-similarity-based-pruning",
+    "deepconf-baseline-confidence-based-pruning",
+    "prm-weighted-voting-qwen2-5-math-prm-7b-comparison",
+    "hmmt-2012-2023-step-scorer-training-data",
+    "hmmt-24",
+    "equibench",
+    "divlogiceval",
+    "phi-4-reasoning-plus-14b",
     "overthinking",
     "underthinking",
     "test-time-compute-scaling",

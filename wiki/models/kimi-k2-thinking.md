@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Kimi-K2-Thinking is used in these sources as a top-tier reasoning model evaluated on hard benchmarks rather than a subject of methodological study: PaCoRe cites frontier-model comparisons including this one when reporting an 8B model with massively-parallel test-time compute surpassing GPT-5 on HMMT 2025, and AMO-Bench separately evaluates it among 36 models on its original hard-problem math set.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [benchmark saturation](../concepts/benchmark-saturation.md), [Claude-Opus-4.5](claude-opus-4-5.md), [DeepSeek-R1](deepseek-r1.md), [Gemini-3-Pro](gemini-3-pro.md), [GLM-4.6](glm-4-6.md), [GPT-5](gpt-5.md), [HMMT 2025](../datasets/hmmt-2025.md), [HMMT25](../datasets/hmmt25.md), [MATH500](../datasets/math500.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [benchmark saturation](../concepts/benchmark-saturation.md), [Claude-Opus-4.5](claude-opus-4-5.md), [DeepSeek-R1](deepseek-r1.md), [Gemini-3-Pro](gemini-3-pro.md), [GLM-4.6](glm-4-6.md), [GPT-5](gpt-5.md), [HMMT 2025](../datasets/hmmt-2025.md), [HMMT25](../datasets/hmmt25.md), [MATH500](../datasets/math500.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [Qwen3-235B-A22B-Thinking-2507](qwen3-235b-a22b-thinking-2507.md)
 
 ## Appears in
 

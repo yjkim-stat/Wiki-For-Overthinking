@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Gemini-3-Pro is used in these sources as a top-tier evaluated reasoning model: AMO-Bench reports it as the single best-performing model among 36 evaluated on its hard original-problem math benchmark (63.1% accuracy, still well short of saturation), and Parason lists it among the closed-source frontier models its parallel-reasoning results are compared against.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

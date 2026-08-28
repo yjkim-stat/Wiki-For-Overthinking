@@ -45,11 +45,17 @@
       "kind": "paper",
       "note": "FS-Researcher is a dual-agent (Context Builder / Report Writer) deep-research framework that scales test-time compute beyond a single context window by persisting evidence and task state in an external file-system workspace instead of the model's context, achieving state-of-the-art report quality on two open-ended benchmarks and outperforming official agent harnesses on an answer-verifiable search benchmark.",
       "title": "FS-Researcher: Test-Time Scaling for Long-Horizon Research Tasks with File-System-Based Agents"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1262",
+      "kind": "paper",
+      "note": "BloomEval maps each step of an LRM's reasoning trace onto Bloom's six-level cognitive taxonomy (Remember through Create) via a Cognitive Hierarchy Trace (CHT), defining structural anomalies -- hierarchy break (reasoning never reaches the required cognitive level), hierarchy jump (skipping intermediate levels), and overthinking (invoking cognitive operations exceeding what the task needs) -- and finds these anomalies are common even in *correct* answers (e.g. Grok-3 shows a 0.185 hierarchy-jump rate on correct answers), demonstrating that answer accuracy alone cannot detect incoherent or wasteful reasoning structure.",
+      "title": "BloomEval: A Bloom’s Cognitive Taxonomy-Based Benchmark for Evaluating LRMs via Cognitive Hierarchy Trace"
     }
   ],
   "first_seen": "2026-08-27T13:56:46Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "Gemini-2.5-Pro",
   "related": [
     "subtask-parallelism-and-branch",
@@ -192,7 +198,31 @@
     "deepconsult",
     "browsecomp",
     "gpt-5-mini",
-    "claude-sonnet-4-5"
+    "claude-sonnet-4-5",
+    "overthinking-as-exceeding-required-cognitive-level",
+    "cognitive-hierarchy-trace-cht",
+    "bloom-s-cognitive-taxonomy-bct",
+    "hierarchy-break",
+    "hierarchy-jump",
+    "cognitive-process-verbs",
+    "cognitive-hierarchy-trace-cht-construction",
+    "bloom-s-cognitive-taxonomy-bct-mapping",
+    "expert-llm-collaborative-annotation-with-three-stage-reconciliation",
+    "synthetic-data-augmentation-for-rare-cognitive-levels",
+    "omni-math",
+    "gsm8k",
+    "orca-math",
+    "mooc-radar",
+    "bloomeval-new-94-602-problems",
+    "claude-3-7",
+    "openai-o1-mini",
+    "s1-32b",
+    "kimi-k1-5",
+    "openai-o3",
+    "gemini-1-5",
+    "claude-3-5",
+    "qwen3-max",
+    "openai-o4-mini"
   ],
   "related_authored": [
     "parason",

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Claude-Opus-4.5 appears in these sources as one of the frontier models used within test-time-compute/parallel-reasoning systems and evaluated on hard math benchmarks: Parason lists it among the closed-source models it compares parallel-reasoning results against, and AMO-Bench evaluates it (among 36 models) on its 50 IMO-difficulty-or-harder original problems.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

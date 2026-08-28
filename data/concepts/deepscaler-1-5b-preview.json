@@ -17,6 +17,12 @@
       "title": "Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.1333",
+      "kind": "paper",
+      "note": "Shows that short-context (4K-token) post-training alone -- with pure GRPO and no length-aware reward at all -- already induces reasoning compression comparable to dedicated length-control RL methods, isolating training context length as a confound in prior efficient-reasoning work; but this compression destabilizes training because truncated-yet-correct rollouts get zero reward, so Step-level Advantage Selection (SAS) zeros the advantage of low-confidence steps in correct rollouts and high-confidence steps in verifier-failed rollouts, cutting average reasoning length 30%+ while improving Pass@1 by 3.79 points over the strongest length-aware baseline.",
+      "title": "Stabilizing Efficient Reasoning with Step-Level Advantage Selection"
+    },
+    {
       "id": "local:6afb006d68240134",
       "kind": "paper",
       "note": "An empirical study showing reasoning LLMs overthink easy questions and underthink hard ones, and that preferring shorter outputs via SimPO can cut generation length 30-60% with little accuracy loss.",
@@ -25,7 +31,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "DeepScaleR-1.5B-Preview",
   "related": [
     "invalid-thinking-post-answer-redundant-verification",
@@ -77,6 +83,20 @@
     "o3-mini",
     "gemini-2-5-pro-preview",
     "gpt-5",
+    "overthinking-via-short-context-induced-reasoning-compression",
+    "truncation-induced-noisy-credit-assignment",
+    "step-level-advantage-selection",
+    "step-level-confidence-score",
+    "verifier-failed-but-correct-rollout",
+    "step-level-advantage-selection-sas",
+    "grpo",
+    "l1-max-lcpo-baseline",
+    "thinkprune-4k-baseline",
+    "lapo-i-baseline",
+    "deepscaler-preview-dataset-training-40k-problems-aime-1984-2023-amc-pre-2023-omn",
+    "math",
+    "lsat",
+    "mmlu",
     "overthinking",
     "underthinking",
     "reasoning-length-vs-correctness-tradeoff",
@@ -84,8 +104,7 @@
     "length-based-preference-optimization",
     "difficulty-calibration-self-awareness-in-reasoning-length",
     "deepseek-r1-distill-1-5b",
-    "simpo-simple-preference-optimization",
-    "math"
+    "simpo-simple-preference-optimization"
   ],
   "related_authored": [],
   "schema_version": 1,

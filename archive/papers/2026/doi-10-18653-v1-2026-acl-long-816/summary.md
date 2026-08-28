@@ -46,7 +46,7 @@ RPO's gain over the SFT operating point is configuration-dependent: on Qwen3-1.7
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), root-token gating, difficulty-aware policy optimization, per-mode group-relative advantage, reasoning-per-accuracy ratio (RAR)
-- **Methods**: Root-token Policy Optimization (RPO), [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo.md), self-distillation SFT for mode selection, AdaptThink (baseline), Thinkless (baseline), Rejection Fine-Tuning (baseline)
+- **Methods**: Root-token Policy Optimization (RPO), [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo.md), self-distillation SFT for mode selection, AdaptThink (baseline), [Thinkless (baseline)](../../../../wiki/methods/thinkless-baseline.md), Rejection Fine-Tuning (baseline)
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA (Diamond)](../../../../wiki/datasets/gpqa-diamond.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), OpenR1-Math (SFT data source), s1 (compression dataset, partial)
 
 Tags: `overthinking`, `adaptive-reasoning`, `reinforcement-learning`, `GRPO`, `training-efficiency`, `difficulty-aware-routing`

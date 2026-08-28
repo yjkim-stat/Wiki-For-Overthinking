@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepSeek-R1-0528 is used in these sources as one of several top reasoning models evaluated on hard tasks: GENCLUSTER's test-time-compute pipeline for competitive-programming gold-medal performance is built on gpt-oss-120b rather than this model, and RFMDataset separately evaluates DeepSeek-R1 (unspecified version) among the top reasoning models scoring under 20-60% on its curated proof benchmark; the specific '0528' checkpoint is not further characterized by either cited source.
 
 - **Kind**: model
 - **Also called**: Deepseek-R1-0528

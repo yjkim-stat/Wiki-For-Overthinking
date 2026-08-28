@@ -8,7 +8,7 @@ A latent chain-of-thought method that the archive's two sources cite only as pri
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [beam search](beam-search.md), [best-of-n selection](best-of-n-selection.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [COCONUT](coconut.md), [CODI](codi.md), [GRPO](grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [GSM8K-Test](../datasets/gsm8k-test.md), [Latent reasoning](../concepts/latent-reasoning.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [RLOO](rloo.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
+**Related**: [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [beam search](beam-search.md), [best-of-n selection](best-of-n-selection.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [COCONUT](coconut.md), [CODI](codi.md), [GRPO](grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [GSM8K-Test](../datasets/gsm8k-test.md), [Latent reasoning](../concepts/latent-reasoning.md), [majority voting (baseline)](majority-voting-baseline.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [RLOO](rloo.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
 
 ## Appears in
 

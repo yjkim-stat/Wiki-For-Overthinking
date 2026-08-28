@@ -45,9 +45,9 @@ The scope is narrower than the title suggests, and this is the main thing to rec
 
 ## Entities
 
-- **Concepts**: [Early Stopping](../../../../wiki/concepts/early-stopping.md), [Overthinking](../../../../wiki/concepts/overthinking.md), Ill-Posed Query, [Uncertainty Quantification](../../../../wiki/concepts/uncertainty-quantification.md), Conformal Prediction, Finite-Sample Guarantee, Renewal Process, Sequential Testing, False Positive Rate Control, Abstention, [Test-Time Compute](../../../../wiki/concepts/test-time-compute.md), Oracle Detection Power
+- **Concepts**: [Early Stopping](../../../../wiki/concepts/early-stopping.md), [Overthinking](../../../../wiki/concepts/overthinking.md), Ill-Posed Query, [Uncertainty Quantification](../../../../wiki/concepts/uncertainty-quantification.md), Conformal Prediction, Finite-Sample Guarantee, Renewal Process, Sequential Testing, False Positive Rate Control, [Abstention](../../../../wiki/concepts/abstention.md), [Test-Time Compute](../../../../wiki/concepts/test-time-compute.md), Oracle Detection Power
 - **Methods**: Maxwise (conformal nonparametric stopping), Renewal (parametric renewal-process stopping), sequential testing, [conformal prediction](../../../../wiki/methods/conformal-prediction.md), renewal process modelling, uncertainty-keyword monitoring, confidence-prompting baseline, length-based stopping baseline, logits-based uncertainty baseline
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), GSM-MC, UMWP, MiP, [MMLU](../../../../wiki/datasets/mmlu.md), [GPQA](../../../../wiki/datasets/gpqa.md), [HLE](../../../../wiki/datasets/hle.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [GSM-MC](../../../../wiki/datasets/gsm-mc.md), [UMWP](../../../../wiki/datasets/umwp.md), MiP, [MMLU](../../../../wiki/datasets/mmlu.md), [GPQA](../../../../wiki/datasets/gpqa.md), [HLE](../../../../wiki/datasets/hle.md)
 
 Tags: `early-stopping`, `overthinking`, `conformal-prediction`, `uncertainty`, `sequential-testing`, `ill-posed-queries`, `test-time-compute`, `abstention`, `finite-sample-guarantee`
 

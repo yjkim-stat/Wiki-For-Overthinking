@@ -45,8 +45,8 @@ ZoomR's memory savings come at a throughput cost: decoding is measurably slower 
 
 ## Entities
 
-- **Concepts**: multi-granularity KV cache, reasoning summarization (thought compression), consensus-based segment retrieval, mean summary key, agreeability (attention-head consensus metric), attention sink
-- **Methods**: ZoomR (multi-granularity dynamic KV selection), StreamingLLM (baseline), H2O (baseline), SumR (summary-only ablation baseline), [LoRA fine-tuning](../../../../wiki/methods/lora-fine-tuning.md)
+- **Concepts**: multi-granularity KV cache, reasoning summarization (thought compression), consensus-based segment retrieval, mean summary key, agreeability (attention-head consensus metric), [attention sink](../../../../wiki/concepts/attention-sink.md)
+- **Methods**: ZoomR (multi-granularity dynamic KV selection), StreamingLLM (baseline), [H2O (baseline)](../../../../wiki/methods/h2o-baseline.md), SumR (summary-only ablation baseline), [LoRA fine-tuning](../../../../wiki/methods/lora-fine-tuning.md)
 - **Datasets**: Bespoke-17K (augmented with summaries, fine-tuning data), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md)
 
 Tags: `KV-cache`, `memory-efficiency`, `long-output-generation`, `summarization`, `reasoning-efficiency`

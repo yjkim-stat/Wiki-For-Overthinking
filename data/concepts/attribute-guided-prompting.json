@@ -1,0 +1,48 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1335",
+      "kind": "paper",
+      "note": "CLARO treats conciseness as an emergent property of well-structured reasoning rather than a truncation target: it fine-tunes models via GRPO with two correctness-gated reward terms (structural attribute alignment -- readability, mathematical-notation density, syntactic compression, low redundancy -- plus a length-contribution term) within a user-specified token budget, outperforming length-controlled baselines (s1, L1-Max) by up to 63.6% relative accuracy under matched budgets across eight math and general-reasoning benchmarks, while a lightweight zero-shot prompting variant (Attribute-Guided Prompting) is shown to be far more robust than simply instructing a model to 'prioritize conciseness.'",
+      "title": "CLARO: Controlled Attribute-Driven Reasoning Optimization for Efficient Chain-of-Thought"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "Attribute-Guided Prompting",
+  "related": [
+    "overthinking",
+    "structural-attribute-optimization",
+    "conciseness-as-emergent-property",
+    "readability-mathematical-expression-rate-syntactic-compression-redundancy-metric",
+    "correctness-gated-structural-reward",
+    "claro-controlled-attribute-driven-reasoning-optimization",
+    "grpo",
+    "l1-max-baseline",
+    "s1-baseline",
+    "deepscaler-deepseek-r1-distill-qwen-base-models",
+    "deepscaler-preview-dataset-training-3-840-of-40-315-pairs-used",
+    "amc",
+    "aime-2024",
+    "aime-2025",
+    "math500",
+    "olympiadbench",
+    "gpqa",
+    "lsat",
+    "mmlu",
+    "claro-1-5b-built-on-l1-max-deepscaler-1-5b",
+    "claro-7b-built-on-l1-max-deepseek-r1-distill-qwen-7b",
+    "phi-4-3-8b",
+    "mathstral-7b",
+    "deepseek-r1-distill-llama-8b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "attribute-guided-prompting",
+  "topics": [
+    "overthinking"
+  ]
+}

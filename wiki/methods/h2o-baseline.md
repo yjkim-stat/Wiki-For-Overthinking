@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+H2O (Heavy-Hitter Oracle) is used in these sources as a dynamic, attention-score-based KV-cache token-selection baseline that alternatives are compared against: ZoomR benchmarks its multi-granularity consensus-based cache selection against H2O (and StreamingLLM) at matched GPU-memory budgets, outperforming both; the greedy-pruning functional-importance study does not name H2O specifically in its own cited note.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1333",
+      "kind": "paper",
+      "note": "Shows that short-context (4K-token) post-training alone -- with pure GRPO and no length-aware reward at all -- already induces reasoning compression comparable to dedicated length-control RL methods, isolating training context length as a confound in prior efficient-reasoning work; but this compression destabilizes training because truncated-yet-correct rollouts get zero reward, so Step-level Advantage Selection (SAS) zeros the advantage of low-confidence steps in correct rollouts and high-confidence steps in verifier-failed rollouts, cutting average reasoning length 30%+ while improving Pass@1 by 3.79 points over the strongest length-aware baseline.",
+      "title": "Stabilizing Efficient Reasoning with Step-Level Advantage Selection"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "L1-Max / LCPO (baseline)",
+  "related": [
+    "overthinking-via-short-context-induced-reasoning-compression",
+    "truncation-induced-noisy-credit-assignment",
+    "step-level-advantage-selection",
+    "step-level-confidence-score",
+    "verifier-failed-but-correct-rollout",
+    "step-level-advantage-selection-sas",
+    "grpo",
+    "thinkprune-4k-baseline",
+    "lapo-i-baseline",
+    "deepscaler-preview-dataset-training-40k-problems-aime-1984-2023-amc-pre-2023-omn",
+    "aime-2024",
+    "aime-2025",
+    "math",
+    "amc",
+    "olympiadbench",
+    "gpqa-diamond",
+    "lsat",
+    "mmlu",
+    "deepscaler-1-5b-preview"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "l1-max-lcpo-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

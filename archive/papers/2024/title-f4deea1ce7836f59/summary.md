@@ -44,7 +44,7 @@ The reported degradations are stated qualitatively in the available material ('a
 
 ## Entities
 
-- **Concepts**: dynamic evaluation, data contamination, controlled complexity, [reasoning graph](../../../../wiki/concepts/reasoning-graph.md), benchmark saturation, linguistic diversity, label verification, model bias under complexity
+- **Concepts**: dynamic evaluation, data contamination, controlled complexity, [reasoning graph](../../../../wiki/concepts/reasoning-graph.md), [benchmark saturation](../../../../wiki/concepts/benchmark-saturation.md), linguistic diversity, label verification, model bias under complexity
 - **Methods**: DARG, [reasoning graph extraction](../../../../wiki/methods/reasoning-graph-extraction.md), reasoning graph perturbation, code-augmented LLM label verification
 - **Datasets**: existing reasoning benchmarks across four domains, extended by DARG (individual benchmark names not given in the supplied material)
 

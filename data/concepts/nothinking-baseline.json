@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "WHISPER treats a large reasoning model purely as a black-box communicator and mitigates overthinking with no training or model access at all, using an iterative refinement loop over persuasive prompts (psychological, evidence-based, role-play, threat, instruction) that finds a single deployable prompt suffix cutting response length up to 3x on simple questions with preserved accuracy.",
       "title": "Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1231",
+      "kind": "paper",
+      "note": "NEAT identifies a sparse set of 'exit-associated neurons' whose FFN activation dynamics causally predict the </think> termination token, then monitors these neurons training-free during inference to trigger graded early exit or reflection suppression -- cutting average token generation 22-28% across four benchmarks and six models with accuracy comparable to vanilla decoding, and 21-23% real wall-clock latency reduction versus vanilla and CGRS (which is 41-63% slower than vanilla despite shortening output, due to its own scoring overhead).",
+      "title": "NEAT: Neuron-Based Early Exit for Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "method",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "NoThinking (baseline)",
   "related": [
     "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
@@ -62,7 +68,20 @@
     "qwen3-32b",
     "claude-3-7-sonnet-thinking",
     "gemini-2-5-pro-thinking",
-    "gpt-4o-prompt-generator"
+    "gpt-4o-prompt-generator",
+    "exit-associated-neurons",
+    "neuron-level-causal-attribution",
+    "temporal-filtering-center-of-mass-activation-entropy",
+    "graded-hierarchical-intervention-strategy",
+    "reflection-suppression",
+    "neat-neuron-based-early-exit",
+    "tale-baseline",
+    "dynasor-baseline",
+    "deer-baseline",
+    "cgrs-baseline",
+    "vllm-inference-framework",
+    "math-calibration-split",
+    "deepseek-r1-distill-qwen-7b"
   ],
   "related_authored": [],
   "schema_version": 1,

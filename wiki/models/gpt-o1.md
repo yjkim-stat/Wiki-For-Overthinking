@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GPT-o1 is used in these sources as an evaluated reasoning model rather than a subject of study: RFMDataset finds it, alongside other top reasoning models (o3, Claude-3.7-Sonnet-Thinking, Qwen3-235B, DeepSeek-R1), achieves under 20-60% accuracy on its curated mathematical-proof benchmark; ChainPrune's own cited note does not mention GPT-o1 specifically (it evaluates on R1-distilled models).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

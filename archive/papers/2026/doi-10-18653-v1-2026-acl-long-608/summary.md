@@ -45,9 +45,9 @@ TRACE INVERSION requires prompting the LLM three times (trace generation, query 
 
 ## Entities
 
-- **Concepts**: query misalignment, reasoning trace inversion, abstention, hallucination-as-wrong-question, groundedness detection
+- **Concepts**: query misalignment, reasoning trace inversion, [abstention](../../../../wiki/concepts/abstention.md), hallucination-as-wrong-question, groundedness detection
 - **Methods**: TRACE INVERSION (query reconstruction + ensemble distance), Probs (calibration baseline), AskCali (calibration baseline), Reflect (prompting baseline), Cooperate (collaboration baseline), Compete (collaboration baseline)
-- **Datasets**: [MMLU](../../../../wiki/datasets/mmlu.md), Knowledge Crosswords, [HellaSwag](../../../../wiki/datasets/hellaswag.md), Propaganda, Bias Benchmark for QA (BBQ), Misconceptions (BIG-Bench), Quail, GSM-MC, UMWP
+- **Datasets**: [MMLU](../../../../wiki/datasets/mmlu.md), Knowledge Crosswords, [HellaSwag](../../../../wiki/datasets/hellaswag.md), Propaganda, Bias Benchmark for QA (BBQ), Misconceptions (BIG-Bench), Quail, [GSM-MC](../../../../wiki/datasets/gsm-mc.md), [UMWP](../../../../wiki/datasets/umwp.md)
 
 Tags: `abstention`, `hallucination`, `reasoning-trace-analysis`, `chain-of-thought`, `evaluation-methodology`
 

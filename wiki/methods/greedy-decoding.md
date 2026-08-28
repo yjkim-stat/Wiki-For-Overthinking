@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Greedy decoding is used in these sources as a deterministic baseline decoding strategy against which compute-scaling methods are measured: an inference-scaling-laws study measures accuracy-vs-FLOPs for greedy decoding alongside majority/weighted-vote sampling, best-of-n, and tree search (introducing REBASE, a reward-guided tree search, as an alternative), and TRACE's overthinking-structure study also uses greedy decoding as its generation setting when benchmarking thinking vs. non-thinking mode across 14 models.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

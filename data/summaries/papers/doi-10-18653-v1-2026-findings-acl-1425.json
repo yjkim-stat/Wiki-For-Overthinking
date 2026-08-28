@@ -1,0 +1,62 @@
+{
+  "concepts": [
+    "overthinking",
+    "reasoning vector",
+    "steering vector (activation engineering)",
+    "training-time vector-guided rollout steering",
+    "importance-sampling correction for off-policy rollouts",
+    "cosine-annealed vector reliance"
+  ],
+  "contributions": [
+    "the concept of a reasoning vector, computed cheaply from the hidden-state difference between a question's shortest-correct and longest-incorrect sampled responses, which encodes a direction distinguishing efficient from inefficient reasoning",
+    "ERRV, a training framework that steers RL rollouts with the reasoning vector (rather than only injecting it at inference) so the model internalizes efficient reasoning and needs no vector guidance at deployment time, using importance sampling to keep the off-policy steered rollouts' gradient estimate unbiased",
+    "an empirical characterization of reasoning vectors' stability across RL training (high pre/post cosine similarity) and generalizability across base, distilled, parameter-merged, and adaptive-reasoning models",
+    "state-of-the-art accuracy-efficiency trade-off among the compared training methods on three math benchmarks, plus demonstrated generalization to code generation (LiveCodeBench) and general knowledge (MMLU)"
+  ],
+  "datasets": [
+    "DeepScaleR (training, ~40K problems: AIME 1984-2023, AMC, Omni-MATH, STILL)",
+    "GSM8K",
+    "MATH500",
+    "AIME 2024",
+    "LiveCodeBench-v6",
+    "MMLU"
+  ],
+  "generated_at": "2026-08-28T01:49:01Z",
+  "generated_by": "queue",
+  "limitations": "The paper does not discuss limitations explicitly in the excerpted sections; its own ablations show a tradeoff between the standard ERRV variant (larger length reduction, smaller accuracy gain) and ERRV-IS (higher accuracy gain, smaller length reduction, more stable training), meaning a practitioner must choose based on which axis matters more for their deployment rather than getting the best of both simultaneously; the effective scaling-factor range for inference-time injection varies across models and must be tuned per model rather than transferring a single universal value.",
+  "method": "Defines the reasoning vector v as the mean, over a small stratified-difficulty sample set, of the hidden-state difference h(y+) - h(y-) at a chosen middle-to-late layer, where y+ is the shortest correct sampled response and y- is the longest incorrect sampled response to the same question (n=10-200 samples per question). Direct inference-time injection (adding a scaled, normalized v to hidden states at a chosen layer, per Eq. 2) is shown to improve accuracy and reduce length within an effective scaling-factor range [0, alpha_x] but is limited (continuous injection required, undermining model autonomy, modest gains). ERRV instead integrates the vector into RL training: during each rollout, hidden states are steered by v (with a scaling factor alpha, cosine-annealed from alpha_0 to 0 over training so dependence on the vector decreases as training progresses) to sample higher-quality (shorter, more accurate) steered responses, whose rewards/advantages are used for GRPO policy optimization -- so the model learns from targeted, high-quality rollouts rather than merely being steered at test time. Since steered rollouts are off-policy relative to the unsteered policy, importance-sampling correction (ratio of old unsteered policy probability to old steered-rollout-policy probability) is applied in the policy-gradient objective to keep the optimization unbiased (ERRV-IS variant). The vector is periodically recomputed every k%=6% of training steps (rather than every step) to balance staying aligned with the evolving policy against computational cost.",
+  "methods": [
+    "ERRV (Reasoning Vector-guided RL)",
+    "ERRV-IS (with importance sampling)",
+    "GRPO",
+    "ModelMerging (baseline)",
+    "TLMRE (baseline)",
+    "DPO (baseline)",
+    "AdaptThink (reference, excluded from head-to-head)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "Qwen2.5-1.5B",
+    "Qwen2.5-7B",
+    "Qwen2.5-1.5B-Simple-Zoo (RL-trained counterpart)",
+    "Qwen2.5-7B-Simple-Zoo (RL-trained counterpart)"
+  ],
+  "one_liner": "ERRV defines a 'reasoning vector' -- the mean hidden-state difference between a question's shortest-correct and longest-incorrect sampled responses -- and instead of injecting it at inference (which limits autonomy and gives modest gains), steers RL rollouts with it during training via importance-sampling-corrected GRPO, letting the model internalize efficient reasoning so it needs no vector guidance at inference: ~30% length reduction with stable accuracy, and the vectors are shown to be stable across RL training (cosine similarity 0.83-0.83 pre/post-training) and to transfer across base, distilled, merged, and adaptive-reasoning models.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.1425",
+  "problem": "Large reasoning models' extended chain-of-thought inflates inference cost, and prior evidence suggests reasoning length can be uncorrelated with (or even inversely related to) correctness; most efficient-reasoning methods act externally (length-penalty rewards, dataset reconstruction, prompt token budgets) rather than targeting a model's internal states directly, even though hidden states are known to already encode predictive information about final answers, required reasoning-token counts, and answer confidence -- suggesting models possess a latent, not-yet-activated capability to reason efficiently.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly and centrally relevant: it treats overthinking as a latent, not-yet-activated model capability rather than something that must be imposed externally, extracting a concrete internal direction (the reasoning vector) that already separates efficient from inefficient reasoning inside the model's own hidden states -- complementary to entropy-trend, step-structure, and neuron-level mechanistic accounts elsewhere in this archive, and notable for training an intervention into the weights so it requires no runtime guidance, unlike inference-time steering-vector or prompting approaches."
+  },
+  "results": "Reasoning vectors alone, injected at inference with an appropriately tuned scaling factor, improve accuracy and reduce length for all four tested models (DeepSeek-R1-Distill-Qwen-1.5B/7B, Qwen2.5-1.5B/7B) within an effective alpha range, but the optimal alpha_x varies by model (~1.0 for DS-1.5B, ~3.0 for DS-7B). Vector stability: cosine similarity between vectors extracted from a model before and after RL training is high (0.834 for a 1.5B pair, 0.828 for a 7B pair), indicating the direction encoded by the reasoning vector remains largely stable through RL training rather than drifting. Cross-application experiments show vectors extracted from an RL-trained model's counterpart outperform a model's own self-extracted vector when applied to a base model (higher accuracy, shorter length across a wider alpha range), and RL-trained models' own vectors similarly outperform base-model vectors when both are cross-applied -- indicating RL training makes reasoning vectors more robust/informative, not just present. On the main benchmarks (GSM8K/MATH500/AIME2024), using a joint criterion (>=20% length reduction with <=2% accuracy loss for DS-1.5B, <=3% for DS-7B, given its higher baseline), ERRV is the only method among all baselines (ModelMerging, TLMRE, DPO) meeting the criteria on DS-1.5B: 32.9% average length reduction with a +2.2% accuracy *improvement* over the original model; other baselines either achieve substantial length reduction at excessive accuracy cost or fail to reduce length enough. On DS-7B, ERRV is again the only method meeting the (relaxed) criteria: 23.0% length reduction at only -2.6% accuracy. ERRV-IS (with importance-sampling correction) achieves more stable training and the highest accuracy improvement of all variants (DS-1.5B: +6.5% accuracy, -18.4% length; DS-7B: +4.9%, -10.8%), trading some length compression for greater training stability and accuracy gain, suited to accuracy-prioritizing deployment scenarios. Applying reasoning vectors at inference on top of every baseline (including AdaptThink, an adaptive-thinking-mode method excluded from head-to-head comparison due to methodological differences) further improves both accuracy and length versus each baseline's unsteered version, confirming the vector's benefit generalizes across model types (base, distilled, parameter-merged, and adaptive-reasoning models) rather than being specific to ERRV's own training recipe. Out-of-domain generalization: on LiveCodeBench-v6 (code generation), ERRV reduces average length from 6,026 to 4,442 tokens while improving accuracy 14.5%->22.3% (+7.8pp); on MMLU (general knowledge), ERRV nearly halves reasoning length (1,357->669 tokens) while maintaining stable (slightly improved) accuracy -- confirming the method is not limited to mathematical reasoning. Ablation on the alpha-scaling schedule during training shows cosine-decay and a reward-adaptive dynamic schedule perform similarly well, while a constant (non-decaying) alpha causes substantial length reduction but a significant accuracy drop, indicating gradual internalization (decreasing reliance on the vector as training proceeds) is important rather than sustained forced steering. Sample size n used to compute the vector has minimal impact on results (n=10 performs comparably to n=200), meaning the vector can be computed cheaply without a large calibration set, keeping training overhead low.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "mechanistic-interpretability",
+    "steering-vector",
+    "reinforcement-learning",
+    "GRPO",
+    "reasoning-efficiency"
+  ]
+}

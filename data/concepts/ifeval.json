@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "IF-Eval"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,23 @@
       "kind": "paper",
       "note": "Reveals that linear interpolation between an Instruct model's and a Thinking model's weights does not trade off performance and reasoning verbosity smoothly, but follows a predictable three-stage transition (Instruct-dominated -> abrupt thinking-pattern emergence -> converging to Thinking with diminishing/overthinking returns), and shows a strategically chosen interpolation point beats sophisticated model-merging baselines (task arithmetic, TIES) on both efficiency and accuracy.",
       "title": "Revisiting Model Interpolation for Efficient Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1266",
+      "kind": "paper",
+      "note": "A systematic study of entropy collapse in GRPO-based RLVR training finds performance can improve without entropy loss (so entropy collapse is not merely a side effect of legitimate learning), identifies clipping thresholds, off-policy update count, and training-data diversity as governing factors, proves theoretically and confirms empirically that positive-advantage tokens are the primary driver of entropy collapse, and proposes Positive-Advantage Reweighting -- dynamically down-weighting positive-advantage-token loss -- to regulate entropy while maintaining performance, though training exclusively on non-positive-advantage tokens actually hurts benchmark scores despite reducing collapse.",
+      "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1545",
+      "kind": "paper",
+      "note": "PACE identifies two distinct failure modes of uniform length-penalty RL for efficient reasoning -- sequence-level over-compression of critical early deduction steps, and group-level indiscriminate compression that ignores query difficulty -- and fixes both with a frozen-policy prefix-rollout anchor (decaying over training) plus a pass-rate-derived, difficulty-scaled length penalty, becoming the only compared method to cut token usage over 45% while simultaneously improving accuracy, and generalizing to code, science and instruction-following domains.",
+      "title": "PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "IFEval",
   "related": [
     "model-interpolation-linear-weight-merging",
@@ -30,7 +44,49 @@
     "qwen3-4b",
     "qwen3-4b-base",
     "qwen3-30b-a3b",
-    "llama-3-1-8b"
+    "llama-3-1-8b",
+    "entropy-collapse",
+    "positive-advantage-token",
+    "clipping-threshold-clip-higher-lower-tighter-free",
+    "off-policy-updates",
+    "training-data-diversity",
+    "positive-advantage-reweighting",
+    "miscalibration-entropy-collapse-and-confidence",
+    "grpo",
+    "positive-advantage-reweighting-stage-based-epoch-wise-entropy-guided",
+    "adaptive-entropy-regularization-baseline",
+    "clip-cov-kl-cov-baseline",
+    "rand-pos-clip-baseline",
+    "dapo-clip-higher-reference",
+    "dapo-math-17k-training",
+    "aime-2024",
+    "math500",
+    "amc23",
+    "minerva",
+    "livecodebench",
+    "qwen2-5-math-7b",
+    "overthinking",
+    "sequence-level-over-compression",
+    "group-level-indiscriminate-compression",
+    "prefix-protected-optimization",
+    "difficulty-aware-penalty",
+    "shortcut-learning",
+    "reasoning-collapse",
+    "pace-prefix-protected-and-difficulty-aware-compression-for-efficient-reasoning",
+    "thinkswitcher-baseline",
+    "deer-baseline",
+    "dynasor-cot-baseline",
+    "o1-pruner-baseline",
+    "dast-baseline",
+    "adaptthink-baseline",
+    "dr-saf-baseline",
+    "efficient-r-baseline",
+    "skywork-o1-training",
+    "gsm8k",
+    "livecodebench-v6",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-32b-behavioral-annotator"
   ],
   "related_authored": [],
   "schema_version": 1,

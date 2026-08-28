@@ -47,7 +47,7 @@ The framework employs two LLM modules, introducing computational overhead depend
 
 - **Concepts**: Verbal Annotation (analytic query-document relevance narrative), Context Utilization Efficacy (CUE), Verbal Reranker (distilled relevance-scoring + rewriting module), relevance-guided test-time scaling
 - **Methods**: Verbal-R3 (Generator + Verbal Reranker, GRPO alignment), relevance-guided test-time scaling, Search-R1 (baseline), IRCoT, ITER-RETGEN, RAG (baselines), MonoT5, RankLLaMA, Rank1 (reranker baselines)
-- **Datasets**: [2WikiMultiHopQA](../../../../wiki/datasets/2wikimultihopqa.md), Bamboogle, [HotpotQA](../../../../wiki/datasets/hotpotqa.md), [MuSiQue](../../../../wiki/datasets/musique.md), [Natural Questions (NQ)](../../../../wiki/datasets/natural-questions-nq.md), PopQA, [TriviaQA](../../../../wiki/datasets/triviaqa.md), BEIR
+- **Datasets**: [2WikiMultiHopQA](../../../../wiki/datasets/2wikimultihopqa.md), Bamboogle, [HotpotQA](../../../../wiki/datasets/hotpotqa.md), [MuSiQue](../../../../wiki/datasets/musique.md), [Natural Questions (NQ)](../../../../wiki/datasets/natural-questions-nq.md), [PopQA](../../../../wiki/datasets/popqa.md), [TriviaQA](../../../../wiki/datasets/triviaqa.md), BEIR
 
 Tags: `retrieval-augmented-generation`, `reranking`, `test-time-scaling`, `agentic-reasoning`, `multi-hop-qa`
 

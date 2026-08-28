@@ -47,7 +47,7 @@ Multi-agent systems are computationally expensive to run at scale, so the study 
 ## Entities
 
 - **Concepts**: compute-accuracy Pareto front, overthinking phenomenon (task-difficulty-dependent compute benefit), difficulty-adaptive test-time-compute routing, mixture-of-agents (MoA) proposer/aggregator ratio, memory-transfer-aware compute estimation
-- **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), self-refinement, multi-agent debate, mixture-of-agents (MoA), chain-of-thought (CoT, baseline)
+- **Methods**: [self-consistency](../../../../wiki/methods/self-consistency.md), self-refinement, [multi-agent debate](../../../../wiki/methods/multi-agent-debate.md), mixture-of-agents (MoA), [chain-of-thought (CoT, baseline)](../../../../wiki/methods/chain-of-thought-cot-baseline.md)
 - **Datasets**: [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [BBH (Big-Bench Hard)](../../../../wiki/datasets/bbh-big-bench-hard.md)
 
 Tags: `test-time-scaling`, `multi-agent`, `compute-efficiency`, `pareto-optimality`, `overthinking`

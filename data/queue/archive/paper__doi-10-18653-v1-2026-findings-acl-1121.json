@@ -1,0 +1,119 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1121.pdf"
+  },
+  "completed_at": "2026-08-28T01:51:24Z",
+  "created_at": "2026-08-28T01:36:19Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1121",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large reasoning models (LRMs) achieve strong performance on mathematical reasoning tasks, often attributed to their capability to generate explicit chain-of-thought (CoT) explanations. However, recent work shows that LRMs often arrive at the correct answer before completing these textual reasoning steps, indicating the presence of latent reasoning – internal, non-verbal computation encoded in hidden states. While this phenomenon has been explored in English, its multilingual behavior remains largely unknown. In this paper, we conduct a systematic investigation of multilingual latent reasoning in LRMs across 11 languages. Using a truncation-based strategy, we examine how the correct answer emerges as the model is given only partial reasoning traces, allowing us to measure stepwise latent prediction formation. Our results reveal clear evidence of multilingual latent reasoning, though unevenly: strong in resource-rich languages, weaker in low-resource ones, and broadly less observable on harder benchmarks. To understand whether these differences reflect distinct internal mechanisms, we further perform representational analyses. Despite surface-level disparities, we find that the internal evolution of predictions is highly consistent across languages and broadly aligns with English – a pattern suggesting an English-centered latent reasoning pathway.",
+    "authors": [
+      "Yihong Liu",
+      "Raoyuan Zhao",
+      "Hinrich Schuetze",
+      "Michael A. Hedderich"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1121.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners",
+    "url": "https://aclanthology.org/2026.findings-acl.1121/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "latent reasoning",
+      "overthinking (in a multilingual latent-reasoning context)",
+      "truncation-based latent reasoning identification",
+      "Gold-in-Trace rate",
+      "Latent Reasoning Score (LRS)",
+      "English-centered latent reasoning pathway",
+      "memorization vs. genuine reasoning disentanglement"
+    ],
+    "contributions": [
+      "the first systematic investigation of multilingual latent reasoning in LRMs, across 11 languages, 2 benchmarks of differing difficulty, and 3 model sizes",
+      "a truncation-based diagnostic protocol and a set of aggregate metrics (AUTC, AUGC, LRS) that jointly characterize when correctness emerges relative to explicit answer articulation",
+      "an empirical finding that latent reasoning is strong in high-resource languages on easier tasks but weak in low-resource languages and largely absent on harder benchmarks",
+      "a representational analysis (logit lens rank trajectories, cross-lingual hidden-state similarity) showing internal latent reasoning dynamics are broadly shared across languages and converge toward an English-centered pathway, especially for high-resource languages and correctly-solved instances",
+      "evidence that the observed patterns are not specific to distilled reasoning models (replicated on an instruction-tuned and an RL-post-trained model) and are not explained away by memorization, via controlled numerical-edit and paraphrase perturbation tests"
+    ],
+    "datasets": [
+      "MGSM (Multilingual Grade School Math, 250 problems, 11 languages)",
+      "Multilingual AIME (AIME2024/2025 translated, 11 languages)"
+    ],
+    "limitations": "Truncation is implemented at the sentence/step level (following prior work) rather than the token level, which aligns with CoT structure and improves interpretability but may obscure finer-grained dynamics of latent answer formation. The Gold-in-Trace metric relies on string matching to detect whether the gold answer appears in the trace, which can yield false positives when intermediate values happen to match the final numeric answer, though the paper argues this effect is limited given the prevalence of multi-digit answers. Experiments focus on mathematical reasoning benchmarks specifically for precise, structured, numerically-verifiable measurement, which may limit generalizability to other reasoning domains (e.g. commonsense reasoning). Due to computational constraints, experiments are limited to models up to 32B parameters; extending to larger-scale models is left to future work. The work is explicitly diagnostic and does not propose a new inference method to exploit or correct the observed asymmetries.",
+    "method": "Truncates a model's full reasoning trace at varying ratios r (0-100%, e.g. every 10% for MGSM, every 5% for Multilingual AIME) and asks the model to directly predict the numeric answer from only the truncated prefix (via a prompt-hacking strategy inserting </think> plus a language-specific prefix), then measures four metrics across truncation ratios: truncated Pass@k accuracy a_k(r); Gold-in-Trace rate g_k(r) (whether the gold answer already appears verbatim in the visible truncated trace, distinguishing 'correctness via explicit articulation already visible' from 'correctness via latent computation'); Area Under the truncation-accuracy Curve (AUTC, how early/robustly correct predictions emerge); Area Under the Gold-in-trace Curve (AUGC, how early the gold answer becomes textually visible); and Latent Reasoning Score (LRS = integral of a_k(r)*(1-g_k(r)) over r), a proxy for correctness not trivially explained by the answer already being visible in the trace. Evaluated on MGSM (250 grade-school math problems, 11 languages) and Multilingual AIME (competition-level, same 11 languages) across three DeepSeek-R1-Distill-Qwen model sizes (7B/14B/32B). Then investigates whether languages share a common internal mechanism (RQ2) via logit-lens analysis (projecting each layer's hidden state through the unembedding matrix to track the gold answer's rank across layers) and cosine similarity of hidden states between each target language and English at matched truncation ratios/reasoning steps. Extends the latent-reasoning identification to two additional 32B models with different post-training paradigms (Qwen2.5-32B-Instruct, no reasoning distillation; Nemotron-32B, RL-based post-training) to test whether the phenomenon is specific to distilled reasoning models. Finally disentangles memorization from genuine latent reasoning via two controlled perturbations on MGSM questions answered correctly with zero reasoning trace: NumEdit (altering one numerical value, which should change the correct answer -- a memorization-reliant model's prediction would not track this) and Paraphrase (rewording the question while preserving its meaning and numerical answer -- a memorization-reliant model relying on surface pattern-matching should be more fragile to this than a genuinely-reasoning one).",
+    "methods": [
+      "truncation-based latent reasoning identification",
+      "logit lens",
+      "NumEdit perturbation",
+      "Paraphrase perturbation"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-14B",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "Qwen2.5-32B-Instruct",
+      "Nemotron-32B"
+    ],
+    "one_liner": "Using a truncation-based diagnostic across 11 languages, 3 model sizes, and 2 benchmarks, this paper measures how strongly LRMs already know the answer before finishing their explicit reasoning trace ('latent reasoning'), finding it exists but is uneven -- strong in resource-rich languages on easy tasks, weak in low-resource languages, and largely absent on harder benchmarks -- and that the internal layer-wise dynamics driving it are strikingly consistent across languages, converging toward an English-centered latent pathway that is not explained by memorization alone.",
+    "problem": "Large reasoning models often reach the correct answer internally before completing their explicit chain-of-thought (evidence of 'latent reasoning', internal non-verbal computation encoded in hidden states, related to why models continue reasoning past a correct answer -- overthinking), but this phenomenon has been studied almost exclusively in English, leaving open whether latent reasoning exists across languages, how its strength varies, and whether different languages rely on distinct internal mechanisms or share a common one.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant: it explicitly frames overthinking as continuing to generate after the correct answer has already been internally/latently computed, and provides a general, cross-lingual measurement instrument (truncation-based latent-reasoning identification) for exactly this gap between internal knowledge and externalized reasoning length. Its finding that an RL-post-trained model (Nemotron-32B) shows the answer articulated early followed by substantial further reasoning is a direct, named instance of overthinking, and its finding that latent reasoning is far weaker on harder benchmarks is a caution that overthinking-detection methods calibrated on easy tasks may not transfer to genuinely hard ones where extended explicit reasoning is actually necessary."
+    },
+    "results": "Latent reasoning exists across languages but unevenly: on MGSM, pass@1 accuracy at zero visible reasoning steps is already nontrivial (~0.2) for high-resource languages (English, French, Chinese) with R1-Qwen-32B, and accuracy rises steadily with truncation ratio well before the gold-in-trace rate approaches 1.0, indicating the model frequently computes the answer in latent representations before articulating it -- for MGSM, R1-Qwen-7B/14B/32B respectively reach LRS of 0.38/0.44/0.51 on English (32B being the strongest). Latent reasoning is substantially stronger in high-resource languages: on MGSM with R1-Qwen-7B, English achieves AUTC 0.52/LRS 0.38 versus Swahili's much lower AUTC/LRS (0.19/0.08 from Table 1), and while increasing model size from 7B to 32B improves AUTC/LRS in all languages, it does not close this resource-based gap. Latent reasoning is far less pronounced on the harder Multilingual AIME benchmark: LRS drops sharply across all languages and model sizes relative to MGSM (e.g. English LRS falls from ~0.38 on MGSM to ~0.03 on Multilingual AIME with R1-Qwen-7B), indicating that for problems requiring longer, more complex reasoning, models rarely form correct predictions before explicit articulation and instead depend on extended explicit reasoning -- consistent with early answer formation largely disappearing as difficulty rises. Layer-wise rank trajectories (logit lens) are highly similar across all 11 languages for a fixed model on both benchmarks, suggesting the internal mechanism forming the solution is largely language-invariant despite surface differences in language and accuracy, though model size shapes the specific dynamics (larger models distribute reasoning more evenly across depth). Hidden-state cosine similarity to English is consistently higher for high-resource languages (including non-Latin-script ones like Chinese and Russian) than for mid-/low-resource languages (Japanese, Telugu), stable across layers and reasoning steps -- and this English-alignment for high-resource languages holds nearly as strongly for incorrectly-solved instances as correctly-solved ones (Figure 5), evidence the alignment reflects a stable latent reasoning trajectory (an English-centered pathway) rather than merely arising because correct answers happen to look similar across languages. The phenomenon is not specific to distillation-trained reasoning models: extending the analysis to Qwen2.5-32B-Instruct (no explicit reasoning distillation) and Nemotron-32B (RL-based post-training) shows the same core patterns hold -- uneven, resource-dependent latent reasoning on MGSM, weaker on Multilingual AIME. Nemotron-32B shows substantially higher AUTC (stronger overall reasoning) but also much higher AUGC with relatively low LRS, meaning its correctness often relies on the gold answer being articulated early followed by extended further reasoning -- explicitly identified by the authors as an instance of overthinking (the model continues generating after already having reached the answer). Memorization-disentanglement analysis: under NumEdit (single-value perturbation, changing the correct answer), models still match the original gold answer in a non-trivial fraction of cases (~30% matching ratio typically, higher for low-resource languages, without a generated reasoning trace), indicating partial memorization; but this matching ratio consistently and substantially decreases (often below 25% for smaller models, below 20% for the 32B model) once the model is allowed to generate a full reasoning trace, indicating models largely recompute rather than merely recall memorized answers. Under Paraphrase (meaning-preserving rewording), accuracy without a trace is typically above 70% and increases further with a generated trace, including near-perfect accuracy for R1-Qwen-32B on high-resource languages, with the same trend (weaker but present) for low-resource languages like Swahili -- robustness to paraphrasing that preserves meaning while altering surface form argues against models relying on pattern-matching memorization, supporting that genuine reasoning processes (latent and explicit) are engaged.",
+    "tags": [
+      "latent-reasoning",
+      "multilingual",
+      "mechanistic-interpretability",
+      "overthinking",
+      "memorization"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1121",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

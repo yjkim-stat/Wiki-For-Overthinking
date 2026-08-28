@@ -43,11 +43,17 @@
       "kind": "paper",
       "note": "SCOPE replaces long natural-language reasoning chains for multi-constraint planning with a two-stage, multi-agent pipeline that infers a query's combination/constraint structure once and compiles it into reusable, deterministic solver functions (Combination/Filter/Deliver), reaching 93.1% success on TravelPlanner with GPT-4o (a 61.6-point gain over CoT) while cutting inference cost 1.4x and time 4.67x versus the best baseline.",
       "title": "Programming over Thinking: Efficient and Robust Multi-Constraint Planning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1262",
+      "kind": "paper",
+      "note": "BloomEval maps each step of an LRM's reasoning trace onto Bloom's six-level cognitive taxonomy (Remember through Create) via a Cognitive Hierarchy Trace (CHT), defining structural anomalies -- hierarchy break (reasoning never reaches the required cognitive level), hierarchy jump (skipping intermediate levels), and overthinking (invoking cognitive operations exceeding what the task needs) -- and finds these anomalies are common even in *correct* answers (e.g. Grok-3 shows a 0.185 hierarchy-jump rate on correct answers), demonstrating that answer accuracy alone cannot detect incoherent or wasteful reasoning structure.",
+      "title": "BloomEval: A Bloom’s Cognitive Taxonomy-Based Benchmark for Evaluating LRMs via Cognitive Hierarchy Trace"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "GPT-4o",
   "related": [
     "non-neutrality-index-nni",
@@ -167,7 +173,32 @@
     "gpt-o3",
     "gpt-5",
     "gemini-1-5-pro",
-    "gemini-2-5-pro"
+    "gemini-2-5-pro",
+    "overthinking-as-exceeding-required-cognitive-level",
+    "cognitive-hierarchy-trace-cht",
+    "bloom-s-cognitive-taxonomy-bct",
+    "hierarchy-break",
+    "hierarchy-jump",
+    "cognitive-process-verbs",
+    "cognitive-hierarchy-trace-cht-construction",
+    "bloom-s-cognitive-taxonomy-bct-mapping",
+    "expert-llm-collaborative-annotation-with-three-stage-reconciliation",
+    "synthetic-data-augmentation-for-rare-cognitive-levels",
+    "omni-math",
+    "orca-math",
+    "mooc-radar",
+    "bloomeval-new-94-602-problems",
+    "grok-3",
+    "claude-3-7",
+    "openai-o1-mini",
+    "s1-32b",
+    "kimi-k1-5",
+    "deepseek-v3",
+    "openai-o3",
+    "gemini-1-5",
+    "claude-3-5",
+    "qwen3-max",
+    "openai-o4-mini"
   ],
   "related_authored": [
     "think-again-pobs",

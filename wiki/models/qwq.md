@@ -8,7 +8,7 @@ QwQ is a reasoning model cited in this archive's revisiting-test-time-scaling st
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [GSM8K](../datasets/gsm8k.md), [HumanEval](../datasets/humaneval.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [sequential vs. parallel test-time scaling](../concepts/sequential-vs-parallel-test-time-scaling.md), [Sky-T1](sky-t1.md), [StrongReject](../datasets/strongreject.md), [WildJailbreak](../datasets/wildjailbreak.md), [XSTest](../datasets/xstest.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [GSM8K](../datasets/gsm8k.md), [HumanEval](../datasets/humaneval.md), [Kimi-k1.5](kimi-k1-5.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [sequential vs. parallel test-time scaling](../concepts/sequential-vs-parallel-test-time-scaling.md), [Sky-T1](sky-t1.md), [StrongReject](../datasets/strongreject.md), [WildJailbreak](../datasets/wildjailbreak.md), [XSTest](../datasets/xstest.md)
 
 ## Appears in
 

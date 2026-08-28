@@ -8,7 +8,7 @@ Sky-T1 is cited in this archive by the Long CoT Collection cold-start dataset pa
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [HumanEval](../datasets/humaneval.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [MMLU-Pro](../datasets/mmlu-pro.md), [o1-mini](o1-mini.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [QwQ](qwq.md), [QwQ-32B](qwq-32b.md), [StrongReject](../datasets/strongreject.md), [WildJailbreak](../datasets/wildjailbreak.md), [XSTest](../datasets/xstest.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [HumanEval](../datasets/humaneval.md), [Kimi-k1.5](kimi-k1-5.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [MMLU-Pro](../datasets/mmlu-pro.md), [o1-mini](o1-mini.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [QwQ](qwq.md), [QwQ-32B](qwq-32b.md), [StrongReject](../datasets/strongreject.md), [WildJailbreak](../datasets/wildjailbreak.md), [XSTest](../datasets/xstest.md)
 
 ## Appears in
 

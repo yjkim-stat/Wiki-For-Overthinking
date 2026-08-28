@@ -9,7 +9,7 @@ An open-weight instruction-tuned model used across sources as a cross-model tran
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2025](../datasets/aime-2025.md), [best-of-N](../methods/best-of-n.md), [DeepScaleR-preview (training)](../datasets/deepscaler-preview-training.md), [Gemma-4-E4B](gemma-4-e4b.md), [GPQA-D](../datasets/gpqa-d.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [Llama-3.1-8B](llama-3-1-8b.md), [MATH500](../datasets/math500.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Qwen3-4B](qwen3-4b.md), [Qwen3-4B-Base](qwen3-4b-base.md), [Qwen3-4B-Thinking-2507](qwen3-4b-thinking-2507.md), [self-refine](../methods/self-refine.md)
+**Related**: [AIME 2025](../datasets/aime-2025.md), [best-of-N](../methods/best-of-n.md), [DeepScaleR-preview (training)](../datasets/deepscaler-preview-training.md), [Gemma-4-E4B](gemma-4-e4b.md), [GPQA-D](../datasets/gpqa-d.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [IFEval](../datasets/ifeval.md), [LiveCodeBench](../datasets/livecodebench.md), [Llama-3.1-8B](llama-3-1-8b.md), [MATH500](../datasets/math500.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Qwen3-4B](qwen3-4b.md), [Qwen3-4B-Base](qwen3-4b-base.md), [Qwen3-4B-Thinking-2507](qwen3-4b-thinking-2507.md), [self-refine](../methods/self-refine.md)
 
 ## Appears in
 

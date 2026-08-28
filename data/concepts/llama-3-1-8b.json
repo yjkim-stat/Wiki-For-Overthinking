@@ -41,11 +41,17 @@
       "kind": "paper",
       "note": "A systematic Pareto-front analysis of four test-time-scaling pipelines (self-consistency, self-refinement, debate, mixture-of-agents) across 34 configurations finds mixture-of-agents dominates the compute-accuracy frontier (+7.1pp over CoT at 15-20x compute, beating self-consistency and debate by 2.7pp/1.4pp at matched budgets), that debate should scale agents rather than rounds, that MoA is Pareto-optimal when proposer models outnumber layers by one, and that harder tasks benefit far more from added test-time compute than easy ones (+9.0pp vs. +2.2pp), while self-refinement underperforms even the plain chain-of-thought baseline throughout.",
       "title": "Multi-Agent Reasoning Improves Compute Efficiency: Pareto-Optimal Test-Time Scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1305",
+      "kind": "paper",
+      "note": "VecCISC reduces the cost of Confidence-Informed Self-Consistency (CISC) -- which needs a separate critic-LLM call on every sampled reasoning trace to weight majority voting -- by embedding traces, clustering them per candidate answer, and sending only cluster-representative (nearest-centroid) traces to the critic, cutting critic calls 30-35% and total pipeline token usage 47% while matching or exceeding CISC's accuracy across five models and five datasets.",
+      "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "Llama-3.1-8B",
   "related": [
     "measurement-system-default-bias",
@@ -144,7 +150,22 @@
     "chain-of-thought-cot-baseline",
     "mmlu-pro",
     "bbh-big-bench-hard",
-    "llama-3-1-70b"
+    "llama-3-1-70b",
+    "think-twice-paradigm",
+    "confidence-informed-self-consistency-cisc",
+    "reasoning-trace-embedding-clustering",
+    "min-centroid-representative-selection",
+    "weighted-majority-voting",
+    "veccisc-kmeans-hac",
+    "confidence-informed-self-consistency-cisc-baseline",
+    "self-consistency-sc-baseline",
+    "veccisc-random-ablation",
+    "aqua-rat",
+    "commonsenseqa",
+    "arc-challenging",
+    "gpqa",
+    "gpt-4o-mini",
+    "mistral-7b-v0-1"
   ],
   "related_authored": [
     "on-generalization-across-measurement-systems",

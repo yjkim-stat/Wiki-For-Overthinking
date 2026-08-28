@@ -8,7 +8,7 @@ HarmBench is used in these sources as a standard safety benchmark against which 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdvBench](advbench.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini 2.5 Flash](../models/gemini-2-5-flash.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [gpt-o3](../models/gpt-o3.md), [o1](../models/o1.md), [o1-mini](../models/o1-mini.md), [o3-mini](../models/o3-mini.md), [Qwen3-8B](../models/qwen3-8b.md), [StrongReject](strongreject.md)
+**Related**: [AdvBench](advbench.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini 2.5 Flash](../models/gemini-2-5-flash.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [gpt-o3](../models/gpt-o3.md), [Grok-3](../models/grok-3.md), [o1](../models/o1.md), [o1-mini](../models/o1-mini.md), [o3-mini](../models/o3-mini.md), [Qwen3-8B](../models/qwen3-8b.md), [StrongReject](strongreject.md)
 
 ## Appears in
 

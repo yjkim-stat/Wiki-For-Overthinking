@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1305",
+      "kind": "paper",
+      "note": "VecCISC reduces the cost of Confidence-Informed Self-Consistency (CISC) -- which needs a separate critic-LLM call on every sampled reasoning trace to weight majority voting -- by embedding traces, clustering them per candidate answer, and sending only cluster-representative (nearest-centroid) traces to the critic, cutting critic calls 30-35% and total pipeline token usage 47% while matching or exceeding CISC's accuracy across five models and five datasets.",
+      "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "Confidence-Informed Self-Consistency (CISC)",
+  "related": [
+    "think-twice-paradigm",
+    "reasoning-trace-embedding-clustering",
+    "min-centroid-representative-selection",
+    "weighted-majority-voting",
+    "veccisc-kmeans-hac",
+    "confidence-informed-self-consistency-cisc-baseline",
+    "self-consistency-sc-baseline",
+    "veccisc-random-ablation",
+    "aqua-rat",
+    "commonsenseqa",
+    "arc-challenging",
+    "mmlu-pro",
+    "gpqa",
+    "gpt-4o-mini",
+    "llama-3-1-8b",
+    "llama-3-3-70b",
+    "qwen2-5-7b",
+    "mistral-7b-v0-1"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "confidence-informed-self-consistency-cisc",
+  "topics": [
+    "overthinking"
+  ]
+}

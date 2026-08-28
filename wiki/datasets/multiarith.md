@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+MultiArith is used in these sources as one of the arithmetic benchmarks for evaluating latent (continuous-vector) reasoning methods: the parallel-test-time-scaling-for-latent-reasoning paper uses it (among other arithmetic benchmarks) to show scaling gains from stochastic latent-trajectory sampling with best-of-N and beam search, and SLPO's surrogate-policy RL method for latent reasoners is evaluated in the same family of arithmetic benchmarks.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [beam search](../methods/beam-search.md), [best-of-n selection](../methods/best-of-n-selection.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](gsm-hard.md), [GSM8K-Test](gsm8k-test.md), [Latent reasoning](../concepts/latent-reasoning.md), [MATH500](math500.md), [RLOO](../methods/rloo.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
+**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [beam search](../methods/beam-search.md), [best-of-n selection](../methods/best-of-n-selection.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](gsm-hard.md), [GSM8K-Test](gsm8k-test.md), [Latent reasoning](../concepts/latent-reasoning.md), [majority voting (baseline)](../methods/majority-voting-baseline.md), [MATH500](math500.md), [RLOO](../methods/rloo.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
 
 ## Appears in
 

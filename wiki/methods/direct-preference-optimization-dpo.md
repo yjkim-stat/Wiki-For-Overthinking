@@ -8,7 +8,7 @@ Direct Preference Optimization (DPO) is used across these sources as the trainin
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAST](dast.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-o1](../models/gpt-o1.md), [GSM8K](../datasets/gsm8k.md), [LLM-as-a-Judge](llm-as-a-judge.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Redundant Reasoning Steps](../concepts/redundant-reasoning-steps.md), [SimPO](simpo.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAST](dast.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-o1](../models/gpt-o1.md), [GSM8K](../datasets/gsm8k.md), [LC-R1 (baseline)](lc-r1-baseline.md), [LLM-as-a-Judge](llm-as-a-judge.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Redundant Reasoning Steps](../concepts/redundant-reasoning-steps.md), [SimPO](simpo.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
 
 ## Appears in
 

@@ -1,0 +1,51 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1545",
+      "kind": "paper",
+      "note": "PACE identifies two distinct failure modes of uniform length-penalty RL for efficient reasoning -- sequence-level over-compression of critical early deduction steps, and group-level indiscriminate compression that ignores query difficulty -- and fixes both with a frozen-policy prefix-rollout anchor (decaying over training) plus a pass-rate-derived, difficulty-scaled length penalty, becoming the only compared method to cut token usage over 45% while simultaneously improving accuracy, and generalizing to code, science and instruction-following domains.",
+      "title": "PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "DR.SAF (baseline)",
+  "related": [
+    "overthinking",
+    "sequence-level-over-compression",
+    "group-level-indiscriminate-compression",
+    "prefix-protected-optimization",
+    "difficulty-aware-penalty",
+    "shortcut-learning",
+    "reasoning-collapse",
+    "pace-prefix-protected-and-difficulty-aware-compression-for-efficient-reasoning",
+    "grpo",
+    "thinkswitcher-baseline",
+    "deer-baseline",
+    "dynasor-cot-baseline",
+    "o1-pruner-baseline",
+    "dast-baseline",
+    "adaptthink-baseline",
+    "efficient-r-baseline",
+    "skywork-o1-training",
+    "aime-2024",
+    "aime-2025",
+    "math500",
+    "gsm8k",
+    "gpqa-diamond",
+    "livecodebench-v6",
+    "ifeval",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-32b-behavioral-annotator"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "dr-saf-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

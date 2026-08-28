@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "ThinkBrake is a training-free decoding rule that injects </think> at sentence boundaries whenever the log-probability margin between the top continuation token and </think> narrows below a threshold, recovering most of an oracle stopping point's headroom (8% accuracy gain, 72% token reduction) with a theoretically grounded, model-agnostic criterion, and its generated trajectories can also train models via DPO for training-free-free efficient reasoning.",
       "title": "ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1507",
+      "kind": "paper",
+      "note": "Analyzing how answer tokens attend back to reasoning tokens ('self-reading') in thinking LLMs reveals a stable, structured 'benign self-reading' pattern strongly correlated with correctness -- a forward-drifting attention centroid plus persistent focus on key semantic anchors -- interpreted as internal certainty, versus diffuse/irregular attention in incorrect solutions; a training-free Self-Reading Quality (SRQ) score built from this pattern is used to select contrastive samples for activation-steering vectors that consistently improve accuracy (up to 2.6pp) across three models, three steering mechanisms, and multiple quantitative-reasoning benchmarks including out-of-domain transfer.",
+      "title": "How Do Answer Tokens Read Reasoning Traces? Self-Reading Patterns in Thinking LLMs for Quantitative Reasoning"
     }
   ],
   "first_seen": "2026-08-28T01:36:19Z",
   "kind": "model",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "Qwen3-4B-Thinking",
   "related": [
     "overthinking",
@@ -43,7 +49,25 @@
     "qwen3-32b",
     "qwen3-next-80b",
     "deepseek-r1-7b",
-    "phi-4-reasoning"
+    "phi-4-reasoning",
+    "self-reading-answer-to-reasoning-attention",
+    "benign-self-reading-pattern",
+    "attention-centroid-forward-drift",
+    "semantic-anchor-concentration",
+    "self-reading-quality-srq",
+    "internal-certainty-control-and-monitoring",
+    "self-reading-quality-srq-scoring",
+    "contrastive-activation-addition-caa",
+    "conceptor-steering",
+    "pca-caa",
+    "repe-baseline",
+    "sae-free-baseline",
+    "seal-baseline",
+    "svamp",
+    "sciq",
+    "aime24-25",
+    "r1-distill-qwen-7b",
+    "r1-distill-llama-8b"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -1,0 +1,52 @@
+{
+  "concepts": [
+    "chronological (time-series) reasoning scoring",
+    "multi-scale temporal convolution",
+    "score-weighted majority voting",
+    "token-level negative-log-probability signal",
+    "uniform pooling vs. sequential modeling"
+  ],
+  "contributions": [
+    "a reframing of trajectory-quality estimation for test-time scaling as a time-series classification problem over token-level probability signals, rather than a pooled scalar-statistic problem as in prior confidence-based scorers",
+    "Chronos, a lightweight multi-scale convolutional (InceptionTime-inspired) scorer focused on a trajectory's tail tokens, capturing both local fluctuations and long-range dependencies in the reasoning process",
+    "state-of-the-art aggregation performance across three model scales and both in-domain (math) and out-of-domain (science) benchmarks, beating majority voting by up to 13.76 absolute points and a confidence-based baseline (DeepConf) in all nine tested combinations, at negligible (0.0005%) added inference cost",
+    "empirical evidence (via score-distribution visualization and scaling/cross-model-generalization analyses) that modeling temporal structure, rather than pooling it away, is what drives the improved discrimination between correct and incorrect reasoning trajectories"
+  ],
+  "datasets": [
+    "AIME archive (2000-2023, training)",
+    "AIME25",
+    "HMMT25 (Feb)",
+    "GPQA-Diamond"
+  ],
+  "generated_at": "2026-08-28T01:54:33Z",
+  "generated_by": "queue",
+  "limitations": "The paper does not discuss limitations explicitly in the excerpted sections; cross-model generalization, while shown to be largely robust, does exhibit a measurable performance degradation versus a scorer trained natively on the target model's own trajectory distribution, since different LLMs have distinct intrinsic reasoning logic and token-level probability distributions -- meaning a fully training-free, universal scorer is not directly demonstrated, only near-transferability between two specific model pairs. Hyperparameter sensitivity analysis shows optimal architecture settings (projection dimension, filter count, kernel-length receptive field) differ meaningfully between model scales (DeepSeek-1.5B favors more filters and shorter local kernels; Qwen3-4B favors higher-dimensional projections and longer-range kernels), implying some model-specific tuning may be needed rather than one universal configuration.",
+  "method": "Defines a temporal signal s = (s_1,...,s_L) where s_t is the negative mean log-probability of the top-k candidate tokens at decoding step t (higher = more uncertain), preserving fine-grained sequential structure rather than pooling it away. Chronos's architecture (inspired by InceptionTime) focuses exclusively on the final L_tail=2048 tokens of the trajectory (motivated by the observation that critical reasoning steps and the final answer concentrate in the last stages), first projecting the 1-channel signal via 1x1 convolutions, then processing it with parallel convolutional filters of varying kernel lengths (shorter filters capture local fluctuations/immediate inconsistencies, longer filters capture broader trends/long-range dependencies), concatenating these multi-scale representations, and stacking N_Blk such multi-scale blocks with residual connections to form a deep temporal feature extractor, followed by an MLP and sigmoid to output a scalar quality score per trajectory, trained via binary cross-entropy against ground-truth answer-correctness labels. In practice an ensemble of independently-trained Chronos models is averaged for the final score. At inference, given N_samp sampled trajectories and their predicted scores, a top-eta fraction (eta=0.1, i.e. top 10%) is retained by score rank, and the final answer is determined by a weighted majority vote over this filtered subset (weighting each trajectory's vote by its own score), so the consensus relies exclusively on the most reliable traces rather than the full sample.",
+  "methods": [
+    "Chronos (multi-scale temporal convolutional scorer)",
+    "majority voting (baseline)",
+    "DeepConf (baseline, confidence-weighted voting)",
+    "score-weighted majority voting"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "Qwen3-4B-Thinking-2507",
+    "DeepSeek-R1-0528-Qwen3-8B"
+  ],
+  "one_liner": "Chronos treats a reasoning trace's per-token negative-log-probability sequence as a time series (rather than collapsing it to a single pooled scalar like prior confidence-based scorers) and scores its quality with a multi-scale InceptionTime-style CNN focused on the final tail tokens, then weights majority voting by these learned scores -- beating majority voting by up to 13.76 absolute points and confidence-weighted voting (DeepConf) across all nine model-benchmark combinations, at only a 0.0005% increase in inference FLOPs, and generalizing across models and out-of-domain tasks.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.1376",
+  "problem": "Parallel test-time-scaling aggregation methods either treat all sampled reasoning trajectories as equally reliable (majority voting, which fails when correct answers are in the minority) or score trajectory quality via predefined heuristics on token-level distributional statistics (confidence-based methods) that collapse the whole sequence into a single scalar via uniform mean pooling -- implicitly assuming all tokens are unordered and equally informative, which masks critical localized reasoning failures and weakens discriminative power, evidenced by substantial overlap between correct and incorrect trajectories' confidence-score distributions.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Indirectly relevant to test-time compute efficiency (better aggregation of parallel samples, rather than reducing the length of any single reasoning trace), but reinforces a recurring pattern in this archive (also seen in STEP, Guided by Gut, RFS-Guard): a model's raw output-level confidence, especially when pooled uniformly across a whole trace, is an unreliable and easily-improved-upon signal, and a comparatively cheap model of the *shape* of a reasoning trace's internal signal over time or steps consistently outperforms it -- evidence relevant to any overthinking-detection method that relies on aggregate confidence or entropy statistics rather than their trajectory."
+  },
+  "results": "Trained exclusively on AIME archive problems (2000-2023, out of benchmark-difficulty range to prevent leakage) and evaluated on AIME25, HMMT25, and the out-of-domain GPQA-Diamond across three model scales (DeepSeek-1.5B, Qwen3-4B, DeepSeek-8B) at 128 sampled trajectories, Chronos@128 consistently surpasses Majority Voting (Maj@128) in every setting: on DeepSeek-1.5B, average accuracy improves from Maj@128's 29.38% to 37.09% (+7.71 absolute); on DeepSeek-8B, from 73.54% to 78.68% (+5.14). Chronos also outperforms DeepConf (a confidence-weighted voting baseline using uniformly-pooled token statistics) across all nine model-dataset combinations, with the largest gap on HMMT25/Qwen3-4B: Chronos 74.38% vs. DeepConf's 67.08% vs. Maj@128's 60.62% -- a 13.76-point absolute improvement over majority voting on this challenging benchmark, and Chronos even nearly matches Pass@1's ceiling behavior in some regimes by correctly identifying and up-weighting statistically-underrepresented correct trajectories. Chronos generalizes to the out-of-domain scientific-reasoning benchmark GPQA-Diamond despite training exclusively on competition math, consistently outperforming both baselines across all three model scales. Scaling analysis (1 to 128 sampled trajectories) shows Chronos's accuracy improves consistently and does not exhibit significant diminishing returns within the evaluated compute budget, unlike majority voting and DeepConf which plateau earlier -- e.g. on Qwen3-4B/HMMT25, Chronos continues climbing toward 74% while DeepConf plateaus around 67% and majority voting around 60% as trajectory count increases from 32 to 128. Computational overhead is negligible: a forward pass of Chronos for a batch of 30 queries costs ~3.9 BFLOPs versus ~2,000 TFLOPs for the underlying DeepSeek-1.5B generative inference on the same batch, a 0.0005% relative increase, since Chronos processes only a compact, fixed-length tail-token signal rather than requiring any additional generation. Cross-model generalization tests (a scorer trained on one model's trajectories, Chronos-1B or Chronos-4B, applied to score another model's trajectories) show the temporal signal is largely model-agnostic: Chronos-4B applied to DeepSeek-1.5B trajectories still substantially outperforms Majority@128, though with a modest performance degradation versus the native in-domain scorer, attributed to distributional shift between models' distinct token-probability characteristics. Score-distribution visualizations (Figure 6) directly confirm the mechanism: Tail Confidence (uniform-pooling baseline) shows substantial overlap between correct/incorrect trajectory score distributions across all three benchmarks, while Chronos produces markedly more separated distributions, with incorrect trajectories concentrated near 0 and correct ones concentrated near 1 -- direct visual/quantitative evidence that modeling the temporal evolution of token-level uncertainty, rather than pooling it into a single number, reduces score ambiguity between correct and incorrect reasoning.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "trajectory-scoring",
+    "confidence-calibration",
+    "time-series-modeling",
+    "parallel-reasoning"
+  ]
+}

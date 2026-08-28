@@ -1,0 +1,124 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1128.pdf"
+  },
+  "completed_at": "2026-08-28T01:44:48Z",
+  "created_at": "2026-08-28T01:36:19Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1128",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models (LRMs) achieve strong performance on complex tasks by leveraging long Chain-of-Thought (CoT), but often suffer from overthinking, leading to excessive reasoning steps and high inference latency. Existing CoT compression methods struggle to balance accuracy and efficiency, and lack fine-grained, step-level adaptation to redundancy and reasoning bias. Therefore, we propose State-Aware Reasoning Compression with Knowledge Guidance (STACK), a framework that performs step-wise CoT compression by explicitly modeling stage-specific redundancy sources and integrating with a retrieval-augmented guidance. STACK constructs online long–short contrastive samples and dynamically switches between knowledge-guided compression for uncertain or biased reasoning state and self-prompted compression for overly long but confident state, complemented by an answer-convergence-based early stopping mechanism to suppress redundant verification. We further propose a reward-difference-driven training strategy by combining Proximal Policy Optimization (PPO) and Direct Preference Optimization (DPO), enabling models to learn state-conditioned compression strategies. Experiments on three mathematical reasoning benchmarks show that STACK achieves a superior accuracy–efficiency balance, reducing average response length by 59.9% while improving accuracy by 4.8 points over existing methods.",
+    "authors": [
+      "Yi Sui",
+      "Chaozhuo Li",
+      "Dawei Song"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "large reasoning model",
+      "early stopping",
+      "efficient reasoning"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1128.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.6667
+    },
+    "title": "Think Less, Know More: State-Aware Reasoning Compression with Knowledge Guidance for Efficient Reasoning",
+    "url": "https://aclanthology.org/2026.findings-acl.1128/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "hesitation state",
+      "step-level (state-aware) reasoning compression",
+      "knowledge-guided contrastive decoding",
+      "self-prompted compression",
+      "answer-convergence early stopping",
+      "reward-difference-driven Margin DPO"
+    ],
+    "contributions": [
+      "an explicit distinction between two step-level sources of chain-of-thought redundancy -- repetitive elaboration under high confidence vs. excessive verification under uncertainty (the 'hesitation state') -- detected online via local entropy relative to a sliding-window baseline",
+      "Knowledge-Guided Contrastive Decoding (KGCD), correcting hesitation-state redundancy via retrieval-anchored contrastive decoding with a dynamic trust gate, rather than static prompted context that studies show gets progressively dominated by internal inference in long chains",
+      "an answer-convergence-based (KL-divergence) early-stopping mechanism that suppresses redundant post-convergence verification specifically, distinct from length- or confidence-based stopping",
+      "a reward-difference-driven training strategy (PPO cold-start + Margin DPO) that learns state-conditioned compression strategies from online-constructed long-short contrastive pairs, avoiding the growing train-test distribution shift the paper attributes to prior methods' statically-constructed offline training data",
+      "state-of-the-art accuracy-efficiency balance (59.9% average length reduction, +4.8 accuracy points) across three math benchmarks and two model scales, with disproportionately larger relative gains on an out-of-domain, knowledge-gap-driven QA benchmark (GPQA)"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH500",
+      "AIME24",
+      "GPQA"
+    ],
+    "limitations": "STACK depends on an external web search API (Bing) for its knowledge-guided compression branch, introducing an external-service dependency and associated latency/cost at both training-data-construction and (implicitly) inference time for hesitation-state correction. The method requires an initial cold-start SFT stage before DPO-style optimization to prevent mode collapse and training instability, adding a training-pipeline step beyond a single RL run. The paper's own ablation notes significant performance gaps remain among compression strategies depending on task type (structural math redundancy vs. knowledge-gap-driven QA redundancy), suggesting the relative importance of STACK's two mechanisms is domain-dependent rather than uniformly weighted.",
+    "method": "During online sampling, tracks local information entropy at each reasoning step (over the vocabulary distribution) and maintains a sliding-window mean as a historical confidence baseline; when a step's entropy significantly exceeds this baseline, the model is judged to have entered a 'hesitation state' (abnormal uncertainty). In hesitation states, Knowledge-Guided Contrastive Decoding (KGCD) treats web-retrieved evidence (top-5 Bing results, via a Search-o1-style approach) as a factual anchor: it contrasts token log-probabilities between the original long-CoT model and a retrieval-conditioned model prompted for concise, evidence-driven reasoning, suppressing tokens the base model over-favors without retrieval support (via a ReLU term scaled by a dynamic trust gate lambda_w based on relative entropy reduction from the retrieved context) -- redirecting reasoning and suppressing redundant verification without needing an explicit boosted logit for retrieved content. When the model is instead in a high-confidence state but the response exceeds a 2,000-token threshold, a lightweight self-prompted compression instruction ('summarize the key reasoning steps, maintaining logical completeness and removing redundant elaboration') is activated. An early-stopping mechanism separately monitors the KL divergence between consecutive steps' answer-probability distributions (conditioned on 'Therefore the final answer is \\boxed'); when this information gain falls below a threshold, reasoning is judged to have converged and stops. These online interventions produce paired long (original) / short (compressed) contrastive samples per input, scored by a reward function combining factual accuracy with a compression-gain term (log length ratio, capped) for the compressed sample only, and trained via a reward-difference-driven Margin DPO (MDPO) loss that interpolates between standard DPO and a dynamic-margin objective scaled by the actual reward gap, combined with an initial PPO-based cold-start fine-tuning stage to prevent mode collapse.",
+    "methods": [
+      "STACK (State-Aware reasoning Compression with Knowledge guidance)",
+      "Knowledge-Guided Contrastive Decoding (KGCD)",
+      "Margin DPO (MDPO)",
+      "PPO (cold-start)",
+      "ConCISE (baseline)",
+      "MuTIS (baseline)",
+      "TokenSqueeze (baseline)",
+      "Search-o1-style retrieval (Bing Web Search API)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "DeepSeek-R1-Distill-Qwen-7B"
+    ],
+    "one_liner": "STACK distinguishes two distinct sources of overthinking redundancy -- 'hesitation states' (uncertainty needing correction) versus overlong-but-confident reasoning -- detecting the former via a local-entropy spike relative to a sliding-window baseline and fixing it with retrieval-augmented knowledge-guided contrastive decoding, and the latter with a self-prompted compression instruction plus an answer-convergence-based early-stopping signal, trained via a reward-difference-driven PPO+DPO hybrid loss -- cutting average response length 59.9% while improving accuracy 4.8 points over existing CoT-compression baselines on three math benchmarks.",
+    "problem": "Chain-of-thought compression methods for large reasoning models either constrain length via prompting (compromising completeness/coherence, capped by a performance ceiling) or adjust length via RL reward/penalty terms (reduces length but at accuracy cost), and both classes treat redundancy as a single, uniform phenomenon determined only by task-level complexity, missing that redundancy actually arises from heterogeneous, step-level sources -- repetitive elaboration under high confidence versus excessive verification under uncertainty -- which require different fixes.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly and centrally relevant: it explicitly names overthinking and contributes a specific, testable decomposition of its causes into confidence-dependent step types -- redundant elaboration when confident versus excessive re-verification when uncertain -- arguing these need different, step-level fixes rather than a single uniform length penalty. Its finding that prompted external context loses influence as a long reasoning chain proceeds (motivating step-level rather than input-level knowledge injection) is a specific, checkable claim relevant to any overthinking-mitigation method that relies on prompting or retrieval to steer a long trace."
+    },
+    "results": "On three math benchmarks (GSM8K, MATH500, AIME24) with DeepSeek-R1-Distill-Qwen-1.5B/7B, STACK achieves the best average token efficiency (TE = Acc/Len*100) and reduces average response length 59.9% while improving accuracy 4.8 points versus the original model on the 1.5B model (e.g. AIME24: original 29.4% accuracy/16814 tokens -> STACK 36.7%/8752 tokens); on the 7B model, STACK reaches 95.7% GSM8K accuracy (vs. original 93.5%) at 563 tokens (vs. 1478), and 57.4% AIME24 accuracy (vs. original 53.8%) at 7274 tokens (vs. 13178), a 54.5% average length reduction with +2.70 average accuracy versus baselines including ConCISE, MuTIS, and TokenSqueeze. Prompt-based compression is shown to be largely ineffective, incurring only ~1 second latency reduction and a 1.1-point accuracy drop on AIME24 (1.5B model) despite incorporating external knowledge -- because as reasoning chains grow longer, the model's generation becomes increasingly dominated by internal inference, progressively weakening the influence of contextual (prompted) evidence, motivating STACK's step-level intervention instead of input-level prompting. On the out-of-domain GPQA benchmark (open-domain, partially multi-hop QA), STACK's relative advantage over baselines is even larger than on math benchmarks (1.5B: 34.8%->38.4% accuracy at 9213->6012 tokens; 7B: highest accuracy of 52.7% at 8045->4573 tokens), attributed to GPQA's redundancy stemming more from knowledge gaps (which STACK's retrieval-guided compression directly targets) than from purely structural over-derivation (which prior methods that only shorten structurally, like ConCISE/TokenSqueeze, are better suited for on math). Ablations (DeepSeek-R1-Distill-Qwen-7B) confirm each component's distinct role: removing entropy detection (always retrieving) increases response length and degrades stability without improving accuracy, confirming entropy detection's role is selectively triggering retrieval rather than directly boosting accuracy; removing knowledge-guided compression (no retrieval) causes the largest accuracy degradation, especially on the harder AIME24 benchmark (53.8%->54.7% roughly flat but length stays short at 8697, meaning compression persists but loses access to corrective evidence) -- retrieval is identified as the primary contributor to accuracy gains rather than an auxiliary component; removing early stopping causes the largest accuracy drop on AIME24 specifically (57.1%->31.7% under an 'end signal' ablation variant), confirming its role suppressing unproductive post-convergence verification; comparing training paradigms shows the full STACK training (online contrastive sampling + MDPO) outperforms SFT-only and SFT+DPO variants on both accuracy and length. Training-dynamics analysis (Figure 3) shows early training eliminates repetitive verification/reflection (rapid length drop), while later training increasingly preserves essential information as accuracy requirements bind -- with model-scale differences: the 1.5B model (higher initial redundancy) shows larger early compression gains but more reward-fluctuation sensitivity later in training; the 7B model (already more compact) shows smoother, more coordinated compression-accuracy co-improvement throughout.",
+    "tags": [
+      "overthinking",
+      "chain-of-thought-compression",
+      "retrieval-augmented-generation",
+      "early-stopping",
+      "reinforcement-learning",
+      "DPO"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1128",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

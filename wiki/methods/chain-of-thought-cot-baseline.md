@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Plain chain-of-thought (CoT) prompting is used across these sources as the reference baseline against which structured or multi-agent test-time-scaling methods are measured: SCOPE reports a 61.6-point accuracy gain and large cost/time reductions over a CoT baseline on a multi-constraint planning benchmark by compiling constraints into deterministic solver code instead; the Pareto-optimal multi-agent-reasoning study finds mixture-of-agents gains +7.1 percentage points over CoT at high compute, while self-refinement -- despite using more compute than CoT -- consistently underperforms it.
 
 - **Kind**: method
 - **Also called**: chain-of-thought (CoT, baseline)

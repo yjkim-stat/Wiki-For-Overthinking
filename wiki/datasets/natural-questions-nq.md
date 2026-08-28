@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Natural Questions (NQ) is used in these sources as an open-domain QA benchmark for retrieval-augmented reasoning: Verbal-R3 and Self-Correcting RAG both evaluate their RAG improvements (relevance-guided retrieval, MMKP context selection with NLI-guided search) on NQ alongside multi-hop benchmarks; a third source (compute-optimal scaling of skills) does not name NQ specifically in its cited note.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

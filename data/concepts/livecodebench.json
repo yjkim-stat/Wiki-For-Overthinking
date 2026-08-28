@@ -78,6 +78,12 @@
       "title": "How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.1266",
+      "kind": "paper",
+      "note": "A systematic study of entropy collapse in GRPO-based RLVR training finds performance can improve without entropy loss (so entropy collapse is not merely a side effect of legitimate learning), identifies clipping thresholds, off-policy update count, and training-data diversity as governing factors, proves theoretically and confirms empirically that positive-advantage tokens are the primary driver of entropy collapse, and proposes Positive-Advantage Reweighting -- dynamically down-weighting positive-advantage-token loss -- to regulate entropy while maintaining performance, though training exclusively on non-positive-advantage tokens actually hurts benchmark scores despite reducing collapse.",
+      "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models"
+    },
+    {
       "id": "title:0bc5d9b198744bed",
       "kind": "paper",
       "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
@@ -128,7 +134,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "LiveCodeBench",
   "related": [
     "hidden-chain-of-thought-as-a-model-asset",
@@ -346,6 +352,19 @@
     "gemini-2-5-pro-distillation-source",
     "gpt-4o-distillation-source",
     "claude-3-5-sonnet-distillation-source",
+    "positive-advantage-token",
+    "clipping-threshold-clip-higher-lower-tighter-free",
+    "off-policy-updates",
+    "training-data-diversity",
+    "positive-advantage-reweighting",
+    "miscalibration-entropy-collapse-and-confidence",
+    "positive-advantage-reweighting-stage-based-epoch-wise-entropy-guided",
+    "adaptive-entropy-regularization-baseline",
+    "clip-cov-kl-cov-baseline",
+    "rand-pos-clip-baseline",
+    "dapo-clip-higher-reference",
+    "dapo-math-17k-training",
+    "ifeval",
     "adaptive-thinking",
     "thinking-mode-switching",
     "reward-shaping",

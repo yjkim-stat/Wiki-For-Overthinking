@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1128",
+      "kind": "paper",
+      "note": "STACK distinguishes two distinct sources of overthinking redundancy -- 'hesitation states' (uncertainty needing correction) versus overlong-but-confident reasoning -- detecting the former via a local-entropy spike relative to a sliding-window baseline and fixing it with retrieval-augmented knowledge-guided contrastive decoding, and the latter with a self-prompted compression instruction plus an answer-convergence-based early-stopping signal, trained via a reward-difference-driven PPO+DPO hybrid loss -- cutting average response length 59.9% while improving accuracy 4.8 points over existing CoT-compression baselines on three math benchmarks.",
+      "title": "Think Less, Know More: State-Aware Reasoning Compression with Knowledge Guidance for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "hesitation state",
+  "related": [
+    "overthinking",
+    "step-level-state-aware-reasoning-compression",
+    "knowledge-guided-contrastive-decoding",
+    "self-prompted-compression",
+    "answer-convergence-early-stopping",
+    "reward-difference-driven-margin-dpo",
+    "stack-state-aware-reasoning-compression-with-knowledge-guidance",
+    "knowledge-guided-contrastive-decoding-kgcd",
+    "margin-dpo-mdpo",
+    "ppo-cold-start",
+    "concise-baseline",
+    "mutis-baseline",
+    "tokensqueeze-baseline",
+    "search-o1-style-retrieval-bing-web-search-api",
+    "gsm8k",
+    "math500",
+    "aime-2024",
+    "gpqa",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "hesitation-state",
+  "topics": [
+    "overthinking"
+  ]
+}

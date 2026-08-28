@@ -8,7 +8,7 @@ AdvBench is a jailbreak/harmfulness benchmark used in this archive by Mousetrap,
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [AIME 2024](aime-2024.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini 2.5 Flash](../models/gemini-2-5-flash.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPQA-Diamond](gpqa-diamond.md), [gpt-o3](../models/gpt-o3.md), [HarmBench](harmbench.md), [MATH500](math500.md), [MMLU](mmlu.md), [o1](../models/o1.md), [o1-mini](../models/o1-mini.md), [o3-mini](../models/o3-mini.md), [Phi-4-Reasoning](../methods/phi-4-reasoning.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [StrongReject](strongreject.md), [WildJailbreak](wildjailbreak.md), [XSTest](xstest.md)
+**Related**: [AIME 2024](aime-2024.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini 2.5 Flash](../models/gemini-2-5-flash.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPQA-Diamond](gpqa-diamond.md), [gpt-o3](../models/gpt-o3.md), [Grok-3](../models/grok-3.md), [HarmBench](harmbench.md), [MATH500](math500.md), [MMLU](mmlu.md), [o1](../models/o1.md), [o1-mini](../models/o1-mini.md), [o3-mini](../models/o3-mini.md), [Phi-4-Reasoning](../methods/phi-4-reasoning.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [StrongReject](strongreject.md), [WildJailbreak](wildjailbreak.md), [XSTest](xstest.md)
 
 ## Appears in
 

@@ -45,7 +45,7 @@ AMO-Bench contains only 50 problems, a deliberately small set given the cost of 
 
 ## Entities
 
-- **Concepts**: benchmark saturation, final-answer-based automated grading, test-time-scaling headroom, reasoning deficiency vs. knowledge deficiency, brute-force enumeration failure mode
+- **Concepts**: [benchmark saturation](../../../../wiki/concepts/benchmark-saturation.md), final-answer-based automated grading, test-time-scaling headroom, reasoning deficiency vs. knowledge deficiency, brute-force enumeration failure mode
 - **Methods**: final-answer-based automated grading (parser-based / LLM-based), AVG@32 evaluation, paired significance testing (ranking confidence intervals), Monte Carlo simulation (sampling-variability confidence intervals)
 - **Datasets**: AMO-Bench (new, 50 problems, EN+CH versions), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [HMMT25](../../../../wiki/datasets/hmmt25.md), [MATH500](../../../../wiki/datasets/math500.md)
 

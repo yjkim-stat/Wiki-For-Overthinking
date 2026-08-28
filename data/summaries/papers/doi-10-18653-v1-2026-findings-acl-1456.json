@@ -1,0 +1,57 @@
+{
+  "concepts": [
+    "reasoning instruction following",
+    "Instruction Following Score (IFS)",
+    "reasoning-vs-response IF gap",
+    "Reasoning Instruction Finetuning (RIF)",
+    "verifiable instructions"
+  ],
+  "contributions": [
+    "ReasonIF, a 300-sample benchmark with six verifiable instruction types spanning multilingual, formatting, and length-control constraints, specifically designed to evaluate instruction adherence within a reasoning trace rather than only in the final response",
+    "an empirical finding that state-of-the-art LRMs comply with instructions far less within their reasoning trace (15.6% average IFS) than in their main response (57.3%), with complete (0%) reasoning-trace compliance on some instruction types (JSON formatting, uppercase only) despite substantially higher response-level compliance",
+    "a positive correlation between reasoning instruction-following capability and model accuracy across problem difficulty, surviving a partial-correlation check controlling for reasoning length, implying reasoning instruction adherence degrades specifically as tasks get harder",
+    "an evaluation of two mitigation strategies -- multi-turn self-reflection and Reasoning Instruction Finetuning (RIF) -- both of which measurably improve reasoning IFS but leave substantial room for improvement, with RIF showing a demonstrated accuracy/compliance tradeoff when pushed harder on a resistant instruction category"
+  ],
+  "datasets": [
+    "GSM8K",
+    "AMC",
+    "AIME",
+    "GPQA-Diamond",
+    "ARC-Challenge",
+    "ReasonIF (new, 300 samples)"
+  ],
+  "generated_at": "2026-08-28T01:55:37Z",
+  "generated_by": "queue",
+  "limitations": "Closed-source models (Claude family, GPT o-series) are explicitly excluded because their APIs do not expose reasoning traces as of the paper's writing, so the benchmark's coverage is limited to open-source LRMs. The mechanism behind multi-turn self-reflection's accuracy improvement (despite feedback only addressing instruction compliance, not correctness) is observed but not investigated further, explicitly left to future research. RIF is presented as a proof-of-concept rather than a solution -- the paper explicitly states it does not claim RIF solves reasoning instruction following, given the demonstrated accuracy-vs-compliance tradeoff and the persistent difficulty of the 'Word limit' category specifically.",
+  "method": "Constructs ReasonIF: 300 question-instruction pairs sampled across five source datasets (GSM8K, AMC, AIME, GPQA-Diamond, ARC-Challenge) and six verifiable (automatically-checkable, no LLM-judge needed) instruction types -- Multilinguality (respond only in a randomly-selected target language, checked via fast-langdetect), Word limit (a model-and-source-specific 20th-percentile word count, checked by counting), Disclaimer (end with an exact predefined phrase), JSON formatting, Uppercase only, and Remove commas (all checked via exact string/regex matching). Defines the Instruction Following Score (IFS) as the average binary compliance rate, computable separately with the constraint target set to either the reasoning trace or the main response (using the same questions/instructions, differing only in which part of the output the checker inspects and which part the prompt asks to comply). Evaluates six open-source LRMs (GPT-OSS-20B/120B, DeepSeek-R1-Distill-Qwen-14B, GLM-4.5-Air, DeepSeek-R1, Qwen3-235B-A22B-Thinking-2507), excluding closed-source models since their APIs do not expose reasoning traces. Tests two mitigation strategies: (1) multi-turn self-reflection, where a model given negative feedback ('your reasoning trace did not follow the instructions') gets a second attempt; (2) Reasoning Instruction Finetuning (RIF), supervised fine-tuning of GPT-OSS-20B on ~240-950 synthetically-generated prompt-reasoning-response pairs built by transforming the base model's own reasoning traces to comply with instructions via a mixed rule-based/LLM-based approach.",
+  "methods": [
+    "ReasonIF benchmark (verifiable-instruction checking)",
+    "Instruction Following Score (IFS)",
+    "multi-turn self-reflection",
+    "Reasoning Instruction Finetuning (RIF)"
+  ],
+  "models": [
+    "GPT-OSS-20B",
+    "GPT-OSS-120B",
+    "DeepSeek-R1-Distill-Qwen-14B",
+    "GLM-4.5-Air",
+    "DeepSeek-R1",
+    "Qwen3-235B-A22B-Thinking-2507"
+  ],
+  "one_liner": "ReasonIF is a 300-sample, six-instruction-type benchmark (multilinguality, word limit, disclaimer, JSON formatting, uppercase-only, remove-commas) showing large reasoning models comply with instructions far less inside their reasoning trace (average IFS 15.6%) than in their main response (57.3%), that reasoning instruction-following degrades further as problem difficulty rises (positive correlation up to 0.863 with accuracy), and that both multi-turn self-reflection and supervised fine-tuning on synthetic reasoning-instruction data (RIF) only partially close the gap, the latter trading a measurable accuracy drop for the IFS gain.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.1456",
+  "problem": "Instruction-following evaluation for LLMs has focused exclusively on a model's final response, leaving open whether large reasoning models' internal reasoning traces -- not just their outputs -- actually adhere to user-specified instructions (format, tone, constraints), a distinct capability important for controllability, transparency, auditability, and reducing risks of reward hacking or hidden spurious reasoning.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Indirectly relevant, and a sharp complication of the topic's usual accuracy/length framing (similar in spirit to MathIF, also in this archive): rather than measuring whether more reasoning improves accuracy, it measures whether more/harder reasoning erodes the model's fidelity to the user's own instructions about how that reasoning should proceed -- and finds it does, worsening specifically as problems get harder, which is exactly the regime where methods elsewhere in this archive argue extended reasoning is most needed. It implies any overthinking-mitigation method that itself takes the form of an instruction (e.g. 'be concise,' a token-budget prompt) inherits a real risk of being ignored inside the reasoning trace precisely on the hardest, highest-stakes problems."
+  },
+  "results": "Averaged across all six LRMs, reasoning IFS is only 15.6% versus response IFS of 57.3% -- a substantial, consistent discrepancy across all six instruction types and all five data sources (every data-source point falls below the y=x line in a reasoning-vs-response IFS scatter). The best individual model (Qwen3-235B-A22B-Thinking-2507) achieves 78.7% response IFS but only 25.0% reasoning IFS. At the instruction-type level, all LRMs achieve exactly 0% reasoning IFS on 'JSON formatting' and 'Uppercase only' (complete failure), while achieving substantially higher response IFS on the same instruction types (e.g. GPT-OSS-120B reaches 75% response IFS on JSON formatting) -- reasoning traces are essentially unconstrained by these instruction types even when the model's final answer complies. The reasoning-vs-response IFS gap is more pronounced on easier datasets (GSM8K, ARC) than harder ones (AMC, AIME, GPQA); for Qwen3-235B-A22B-Thinking-2507 specifically, the gap is 69.8 points on GSM8K but only 26.2 points on AIME. Reasoning IFS correlates positively with model accuracy across all six models (average correlation 0.784, ranging from DeepSeek-R1's lowest at 0.387 up to Qwen3-235B-A22B-Thinking-2507's 0.863), and this correlation remains positive even after partial-correlation-controlling for reasoning length, ruling out response length as a full confound -- the harder the problem, the less faithfully instructions are followed within reasoning, which the paper flags as a real-world reliability risk for deployments involving multi-step deep reasoning (math, coding, scientific research) where users cannot assume the model reliably follows their instructions during inference. Multi-turn self-reflection (giving explicit feedback and a second attempt when the first reasoning trace fails compliance) increases reasoning IFS across all six models by an average 16.6%, with DeepSeek-R1 gaining the most (+23.7%), and interestingly also improves accuracy in the second iteration despite the feedback only addressing instruction compliance, not correctness -- a pattern the paper does not fully explain but hypothesizes may stem from exposure to prior partially-successful reasoning attempts helping generate more informed answers. However, even with this extra reflection turn and added inference cost, reasoning IFS still stays below 45% for every model, and the gains vary substantially and unevenly by instruction type (word-limit compliance in multi-turn mode is partly explained by the model shortening its overall reasoning about the full chat history rather than genuinely following the constraint better, so higher multi-turn IFS does not necessarily indicate better underlying performance). Reasoning Instruction Finetuning (RIF) on GPT-OSS-20B with ~240 synthetic prompt-reasoning-response examples raises reasoning IFS from 0.11 to 0.27 while accuracy drops modestly from 0.77 to 0.73 (an out-of-distribution evaluation, since the training and evaluation data distributions differ); per-instruction-type analysis shows RIF improves IFS across every category except 'Word limit' (where the fundamental limitation appears resistant to this fine-tuning approach) -- 'Uppercase only', 'JSON formatting' and 'Disclaimer' improve from 0 to 0.35/0.09/0.14 respectively. Scaling RIF training data to address 'Word limit' specifically (adding ~710 more samples, 953 total) raises Word-limit IFS to 0.38 (above the non-RIF baseline) but at the cost of non-negligible overfitting, dropping overall accuracy across the six categories to 0.68 (from 0.77) while overall reasoning IFS still increases to 0.44 (from 0.11) -- illustrating a real accuracy-compliance tradeoff rather than a free improvement.",
+  "schema_version": 1,
+  "tags": [
+    "instruction-following",
+    "reasoning-trace-controllability",
+    "large-reasoning-models",
+    "evaluation-methodology",
+    "self-reflection"
+  ]
+}

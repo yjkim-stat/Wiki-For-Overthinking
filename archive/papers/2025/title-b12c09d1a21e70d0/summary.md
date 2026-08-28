@@ -45,7 +45,7 @@ The authors state that AdaReasoner needs per-task few-shot fine-tuning and adds 
 ## Entities
 
 - **Concepts**: [Adaptive Reasoning](../../../../wiki/concepts/adaptive-reasoning.md), Reasoning Configuration Search, Factorized Action Space, Reward-Model-Guided Prompting, Test-Time Configuration Adaptation
-- **Methods**: AdaReasoner, factorized action space, reinforcement learning policy optimization, pretrained reward model, [Chain-of-Thought (baseline)](../../../../wiki/methods/chain-of-thought-baseline.md), Auto-CoT (baseline), in-context CoT (baseline), Best-of-N (baseline)
+- **Methods**: AdaReasoner, factorized action space, reinforcement learning policy optimization, pretrained reward model, [Chain-of-Thought (baseline)](../../../../wiki/methods/chain-of-thought-baseline.md), Auto-CoT (baseline), in-context CoT (baseline), [Best-of-N (baseline)](../../../../wiki/methods/best-of-n-baseline.md)
 - **Datasets**: MMLU (Math), Metaphor, [TruthfulQA](../../../../wiki/datasets/truthfulqa.md), [LogiQA](../../../../wiki/datasets/logiqa.md), BRIGHTER, StepGame, CRoW, [GPQA](../../../../wiki/datasets/gpqa.md), MMLU-Chem, MedExQA
 
 Tags: `adaptive-reasoning`, `prompt-configuration`, `reinforcement-learning`, `reasoning-steps`, `temperature`, `llm-agnostic-plugin`

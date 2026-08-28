@@ -19,11 +19,17 @@
       "kind": "paper",
       "note": "GrACE teaches an LLM to output a discriminative, calibrated confidence score during generation itself -- via the similarity between the last hidden state and a learned embedding for a special <CNF> token, trained against k-fold-binned accuracy targets -- eliminating the separate evaluation stage post-generation methods require, and uses this on-the-fly confidence to weight self-consistency voting and drive early-stopping, improving test-time-scaling accuracy by up to 3.3% while cutting required samples by more than half in many cases.",
       "title": "GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1507",
+      "kind": "paper",
+      "note": "Analyzing how answer tokens attend back to reasoning tokens ('self-reading') in thinking LLMs reveals a stable, structured 'benign self-reading' pattern strongly correlated with correctness -- a forward-drifting attention centroid plus persistent focus on key semantic anchors -- interpreted as internal certainty, versus diffuse/irregular attention in incorrect solutions; a training-free Self-Reading Quality (SRQ) score built from this pattern is used to select contrastive samples for activation-steering vectors that consistently improve accuracy (up to 2.6pp) across three models, three steering mechanisms, and multiple quantitative-reasoning benchmarks including out-of-domain transfer.",
+      "title": "How Do Answer Tokens Read Reasoning Traces? Self-Reading Patterns in Thinking LLMs for Quantitative Reasoning"
     }
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "SciQ",
   "related": [
     "test-time-scaling",
@@ -75,7 +81,25 @@
     "phi3-3-8b",
     "llama2-7b",
     "llama3-1-8b-instruct",
-    "qwen2-5-7b-instruct"
+    "qwen2-5-7b-instruct",
+    "self-reading-answer-to-reasoning-attention",
+    "benign-self-reading-pattern",
+    "attention-centroid-forward-drift",
+    "semantic-anchor-concentration",
+    "self-reading-quality-srq",
+    "internal-certainty-control-and-monitoring",
+    "self-reading-quality-srq-scoring",
+    "contrastive-activation-addition-caa",
+    "conceptor-steering",
+    "pca-caa",
+    "repe-baseline",
+    "sae-free-baseline",
+    "seal-baseline",
+    "svamp",
+    "aime24-25",
+    "r1-distill-qwen-7b",
+    "r1-distill-llama-8b",
+    "qwen3-4b-thinking"
   ],
   "related_authored": [],
   "schema_version": 1,

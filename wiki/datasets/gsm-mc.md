@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GSM-MC is used as one of the abstention-scenario evaluation datasets in TRACE INVERSION's Math & Knowledge domain, alongside MMLU and UMWP, for measuring whether a model correctly abstains rather than hallucinating an answer; Statistical Early Stopping for Reasoning Models does not name GSM-MC specifically in its cited note.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

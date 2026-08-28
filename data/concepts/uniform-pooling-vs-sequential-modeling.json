@@ -1,0 +1,38 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1376",
+      "kind": "paper",
+      "note": "Chronos treats a reasoning trace's per-token negative-log-probability sequence as a time series (rather than collapsing it to a single pooled scalar like prior confidence-based scorers) and scores its quality with a multi-scale InceptionTime-style CNN focused on the final tail tokens, then weights majority voting by these learned scores -- beating majority voting by up to 13.76 absolute points and confidence-weighted voting (DeepConf) across all nine model-benchmark combinations, at only a 0.0005% increase in inference FLOPs, and generalizing across models and out-of-domain tasks.",
+      "title": "Chronos: Learning Temporal Dynamics of Reasoning Chains for Test-Time Scaling"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "uniform pooling vs. sequential modeling",
+  "related": [
+    "chronological-time-series-reasoning-scoring",
+    "multi-scale-temporal-convolution",
+    "score-weighted-majority-voting",
+    "token-level-negative-log-probability-signal",
+    "chronos-multi-scale-temporal-convolutional-scorer",
+    "majority-voting-baseline",
+    "deepconf-baseline-confidence-weighted-voting",
+    "aime-archive-2000-2023-training",
+    "aime-2025",
+    "hmmt25-feb",
+    "gpqa-diamond",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-4b-thinking-2507",
+    "deepseek-r1-0528-qwen3-8b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "uniform-pooling-vs-sequential-modeling",
+  "topics": [
+    "overthinking"
+  ]
+}

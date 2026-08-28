@@ -42,7 +42,7 @@ Not stated in the fetched abstract beyond the ReTruthQA dataset scope.
 
 ## Entities
 
-- **Concepts**: Reasoning Hallucination, Reasoning Score (logit-divergence reasoning-depth metric), step-level deep-reasoning reward shaping
+- **Concepts**: [Reasoning Hallucination](../../../../wiki/concepts/reasoning-hallucination.md), Reasoning Score (logit-divergence reasoning-depth metric), step-level deep-reasoning reward shaping
 - **Methods**: mechanistic logit-divergence analysis, GRPO-R (potential-based step-level reward shaping)
 - **Datasets**: ReTruthQA (new)
 

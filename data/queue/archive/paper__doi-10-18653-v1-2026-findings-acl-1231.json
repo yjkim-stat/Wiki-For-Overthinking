@@ -1,0 +1,127 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1231.pdf"
+  },
+  "completed_at": "2026-08-28T01:43:44Z",
+  "created_at": "2026-08-28T01:36:19Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1231",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models (LRMs) often suffer from overthinking, a phenomenon in which redundant reasoning steps are generated after a correct solution has already been reached. Existing early reasoning exit methods primarily rely on output-level heuristics or trained probing models to skip redundant reasoning steps, thereby mitigating overthinking. However, these approaches typically require additional rollout computation or externally labeled datasets. In this paper, we propose NEAT, a Neuron-based Early reAsoning exiT framework that monitors neuron-level activation dynamics to enable training-free early exits, without introducing any additional test-time computation. NEAT identifies exit-associated neurons and tracks their activation patterns during reasoning to dynamically trigger early exit or suppress reflection, thereby reducing unnecessary reasoning while preserving solution quality. Experiments on four reasoning benchmarks across six models with different scales and architectures show that, for each model, NEAT achieves an average token reduction of 22% to 28% when averaged over the four benchmarks, while maintaining accuracy.",
+    "authors": [
+      "Kang Liu",
+      "YongKang Liu",
+      "Xiaocui Yang",
+      "Peidong Wang",
+      "Wen Zhang",
+      "Shi Feng",
+      "Yifei Zhang",
+      "Daling Wang"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "large reasoning model",
+      "early exit"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1231.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.7
+    },
+    "title": "NEAT: Neuron-Based Early Exit for Large Reasoning Models",
+    "url": "https://aclanthology.org/2026.findings-acl.1231/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "exit-associated neurons",
+      "neuron-level causal attribution",
+      "temporal filtering (Center of Mass / Activation Entropy)",
+      "graded (hierarchical) intervention strategy",
+      "reflection suppression"
+    ],
+    "contributions": [
+      "NEAT, a training-free early-reasoning-exit framework that monitors neuron-level (rather than output- or hidden-state-level) activation dynamics to detect internal reasoning convergence, requiring no external supervision, extra forward passes, or parallel rollouts",
+      "a neuron identification procedure combining causal attribution to the termination token with temporal filtering (concentration and consistency of late-stage activation) to isolate a sparse, reliable exit-signaling neuron subset",
+      "a graded, three-way (terminate / suppress-reflection / continue) intervention policy that reduces the premature-exit risk of hard-threshold methods",
+      "empirical results across six models and four benchmarks showing 22-28% average token reduction with accuracy comparable to vanilla decoding, and a wall-clock latency finding that a competing output-based method (CGRS) is actually 41-63% *slower* than vanilla despite generating fewer tokens, due to its own per-step overhead"
+    ],
+    "datasets": [
+      "MATH500",
+      "AMC23",
+      "AIME24",
+      "GPQA-Diamond",
+      "MATH (calibration split)"
+    ],
+    "limitations": "The paper does not discuss limitations in the excerpted sections beyond what is implicit in its design: the exit-associated neuron set and reference activation pattern are derived from a calibration set (a sampled subset of the MATH training split) and held fixed during inference, so the method's reliability depends on this calibration set being representative; sensitivity analysis shows the number of monitored neurons matters differently across models (Qwen3-8B degrades noticeably with too few neurons before stabilizing, while DeepSeek-R1-Distill-Qwen-7B is far more robust to this choice), indicating some model-specific tuning may be needed.",
+    "method": "Attributes each FFN-layer neuron's causal contribution to predicting the termination token (e.g. </think>) via a log-probability increase method (adding the neuron's contribution to the residual stream and measuring the resulting increase in termination-token probability), retaining the top-k candidates. Applies temporal filtering across each candidate's activation trajectory over a calibration set, computing a Relative Center of Mass (where along the trace activation concentrates) and Activation Entropy (temporal dispersion); neurons with high center-of-mass (late-stage activation) and low entropy (focused, consistent activation) are selected as the final 'exit-associated neuron' set. At inference, the activation vector of this fixed neuron set is compared at each decoding step against a reference pattern (averaged from the calibration set at true termination points) via cosine similarity (rho, directional alignment) and relative magnitude (phi); a hierarchical intervention policy then acts based on these two signals: strong alignment (rho and phi both above high thresholds) triggers immediate termination (append </think>); moderate alignment triggers suppression of a predefined set of reflection tokens (setting their logits to -infinity) without forcing exit; weak alignment leaves decoding unaffected. The whole framework requires no additional supervised training, no extra forward passes, and no parallel sampling -- only monitoring internal activations already computed during normal decoding.",
+    "methods": [
+      "NEAT (neuron-based early exit)",
+      "NoThinking (baseline)",
+      "TALE (baseline)",
+      "Dynasor (baseline)",
+      "DEER (baseline)",
+      "CGRS (baseline)",
+      "vLLM (inference framework)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Llama-8B",
+      "Qwen3-8B",
+      "Qwen3-14B"
+    ],
+    "one_liner": "NEAT identifies a sparse set of 'exit-associated neurons' whose FFN activation dynamics causally predict the </think> termination token, then monitors these neurons training-free during inference to trigger graded early exit or reflection suppression -- cutting average token generation 22-28% across four benchmarks and six models with accuracy comparable to vanilla decoding, and 21-23% real wall-clock latency reduction versus vanilla and CGRS (which is 41-63% slower than vanilla despite shortening output, due to its own scoring overhead).",
+    "problem": "Large reasoning models continue generating reasoning steps after a correct solution has already been reached (overthinking), raising compute cost, latency, and risk of hallucination/error accumulation in the generation tail; existing early-exit methods either require repeated rollouts and answer-convergence checks (increasing parallel test-time computation and latency) or require training external probes on labeled hidden-state data (extra supervision and a persistent performance gap versus mature output-based approaches).",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly and centrally relevant: it names overthinking explicitly and locates the exit signal at the neuron level rather than the output or hidden-state level, and its case study (Figure 5) is a clean worked example of the phenomenon this archive studies throughout -- a model reaches the correct answer, then spends hundreds more tokens on unproductive reflective/confirmatory steps with no new information and no change to the answer. Its wall-clock-latency finding (a competing method that shortens output but is slower in practice due to scoring overhead) is a concrete methodological caution for evaluating any overthinking-mitigation method: token count is not latency."
+    },
+    "results": "Across four benchmarks (MATH500, AMC23, AIME24, GPQA-Diamond) and four models (DeepSeek-R1-Distill-Qwen-7B/Llama-8B, Qwen3-8B/14B), NEAT achieves the best average result of all compared methods, reducing token generation 22.0-28.2% while maintaining accuracy comparable to (in several cases nominally exceeding) vanilla decoding -- e.g. DeepSeek-R1-Distill-Qwen-7B: 71.7% accuracy (vs. vanilla's 71.2%) at 22.0% length reduction; Qwen3-8B: 77.2% accuracy (vs. vanilla's 75.7%) at 16.8% length reduction, the best average accuracy of any method on that model. Output-based heuristic baselines (DEER, CGRS) show substantial cross-model variance and calibration sensitivity: DEER achieves aggressive 41.7%-average compression on better-calibrated models like Qwen3 but at accuracy cost (AIME24/Qwen3-8B: 61.1%->45.6%, a 15.5-point drop), and on GPQA-D with Llama-8B, DEER/CGRS reduce accuracy 7.5/9.7 points while achieving under 6% length reduction (indicating premature or ineffective exits) -- NEAT's graded (suppress-then-exit) intervention strategy consistently preserves accuracy better than these direct/aggressive termination methods. Inference-latency measurement on AIME2024 across Qwen3 model scales (4B/8B/14B) shows CGRS actually *increases* wall-clock latency 41-63% versus vanilla decoding despite reducing token count, because its confidence-estimation scoring overhead outweighs the savings from shorter output; NEAT, which requires no extra forward passes or scoring modules, achieves consistent 21-23% latency *reductions* across all three model scales -- direct evidence that shorter generation and lower latency are not automatically the same thing for methods with heavy per-step overhead. Ablations on MATH500/DeepSeek-R1-Distill-Qwen-7B isolate the two intervention mechanisms: suppression-only with moderate threshold (tau_sup=0.6) improves accuracy over vanilla (92.2%->93.4%) while reducing tokens (3743->3485), but overly strong suppression (tau_sup=0.2) harms accuracy (89.6%), showing excessive interference can disrupt valid reasoning even without forcing hard exits; exit-only with a low similarity threshold (tau_sim=0.4) achieves the most aggressive compression (2287 tokens) but at accuracy cost (87.2%), while higher thresholds better preserve accuracy with smaller savings -- combining both mechanisms (the default configuration) achieves the reported balance. A comparison of exit-signal types on MATH500 shows neuron-based signals (NEAT, or a naive top-activated-neuron baseline) outperform both logit-based signals (Wait/</think>/Answer-confidence heuristics, which lag vanilla accuracy and still incur overhead) and hidden-state-based signals (similarity/probe methods, which achieve large length reductions but at substantial accuracy loss from premature exits) -- a random-neuron control performs poorly, confirming exit-relevant signal is concentrated in a sparse, specific neuron subset rather than distributed generally.",
+    "tags": [
+      "overthinking",
+      "early-exit",
+      "mechanistic-interpretability",
+      "training-free",
+      "inference-latency"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1231",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An attention sink -- retaining a fixed prefix of initial tokens (system instructions/prompt) as a stable anchor for attention regardless of how long generation runs -- is used by these sources as a component of memory-efficient long-generation methods: Prefix Sliding keeps only the prefix plus a sliding window of recent tokens for constant per-token cost, and ZoomR retains an attention-sink prefix alongside its consensus-selected zoomed-in segments and compressed summaries when constructing its multi-granularity KV cache.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -43,7 +43,7 @@ On LiveCodeBench, a window smaller than 16,384 tokens fails to match full attent
 
 ## Entities
 
-- **Concepts**: attention sink, bounded (constant) cost per new token, intermediate reasoning token importance decay, truncated backpropagation for long RL rollouts
+- **Concepts**: [attention sink](../../../../wiki/concepts/attention-sink.md), bounded (constant) cost per new token, intermediate reasoning token importance decay, truncated backpropagation for long RL rollouts
 - **Methods**: Prefix Sliding (prefix + sliding-window attention), Continue PE (reused RoPE positions on eviction), GRPO reinforcement learning, truncated backpropagation, Last-k / summarization (comparison baselines)
 - **Datasets**: [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MATH500](../../../../wiki/datasets/math500.md), LiveCodeBench (LCB) v5, HealthBench
 

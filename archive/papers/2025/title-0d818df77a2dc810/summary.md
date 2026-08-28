@@ -44,7 +44,7 @@ No limitations section is given in the material available. Observed constraints:
 ## Entities
 
 - **Concepts**: [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [Compute-Optimal Inference](../../../../wiki/concepts/compute-optimal-inference.md), Inference Scaling Laws, Process Reward Model, [Tree Search Decoding](../../../../wiki/concepts/tree-search-decoding.md), Majority Voting, Diminishing Returns, [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md)
-- **Methods**: REBASE (reward balanced search), [majority voting / self-consistency](../../../../wiki/methods/majority-voting-self-consistency.md), [best-of-n](../../../../wiki/methods/best-of-n.md), weighted voting, Monte Carlo Tree Search (comparison), [process reward model](../../../../wiki/methods/process-reward-model.md), greedy decoding
+- **Methods**: REBASE (reward balanced search), [majority voting / self-consistency](../../../../wiki/methods/majority-voting-self-consistency.md), [best-of-n](../../../../wiki/methods/best-of-n.md), weighted voting, Monte Carlo Tree Search (comparison), [process reward model](../../../../wiki/methods/process-reward-model.md), [greedy decoding](../../../../wiki/methods/greedy-decoding.md)
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MBPP](../../../../wiki/datasets/mbpp.md)
 
 Tags: `test-time-compute`, `inference-scaling`, `compute-optimal`, `tree-search`, `process-reward-model`, `majority-voting`, `math-reasoning`, `diminishing-returns`

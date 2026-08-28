@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1240",
+      "kind": "paper",
+      "note": "a1 (Environment Augmented Generation) couples LLM reasoning to real-time execution feedback (Python code blocks validated by a sandbox at each step) plus dynamic branch exploration guided by an information-gain-weighted branch value function, trained via SFT on a curated 2,000-trajectory dataset (EAG-2K) built from error-correction and branching examples -- producing a distinctive 'steep scaling' pattern where a1-32B initially trails a same-size non-interactive baseline at low token budgets (due to feedback-cycle overhead) but decisively overtakes it past a 4-8K-token inflection point, ultimately matching o1 on AIME24 (74.4%) with far fewer parameters and training examples.",
+      "title": "a1: Steep Test-time Scaling Law via Environment Augmented Generation"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "trajectory-based (imitation) learning",
+  "related": [
+    "environment-augmented-generation-eag",
+    "real-time-environmental-feedback-execution-grounded-step-verification",
+    "dynamic-branch-exploration",
+    "branch-value-function-information-gain-path-progress-cost-constraint",
+    "steep-test-time-scaling",
+    "branch-exploration-bex-heuristic-graph-search",
+    "supervised-fine-tuning-trajectory-imitation",
+    "hybrid-feedback-guided-action-selection-policy",
+    "s1-dataset-1-000-traces-source",
+    "eag-2k-new-2-000-trajectories-raw-iterative-refinement-direct-execution-subsets",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "a1-32b-built-on-qwen2-5-32b-instruct",
+    "s1-32b-baseline",
+    "qwq-32b-preview-baseline",
+    "o1-o1-preview-reference",
+    "deepseek-r1-distill-qwen-32b-reference"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "trajectory-based-imitation-learning",
+  "topics": [
+    "overthinking"
+  ]
+}

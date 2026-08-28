@@ -47,7 +47,7 @@ Solving the MMKP exactly is computationally prohibitive (O(m*2^|G_max|)), so the
 
 - **Concepts**: Multi-dimensional Multiple-choice Knapsack Problem (MMKP) for context selection, NLI-guided Monte Carlo Tree Search, faithfulness metrics (Attribution Precision, Contradiction Rate, Support), test-time compute for RAG, semantic redundancy grouping
 - **Methods**: Self-Correcting RAG (MMKP context selection + NLI-guided MCTS), Naive RAG (baseline), HyDE (baseline), RRR (baseline), RAG+MMR / Filco / RECOMP / LongLLMLingua (selection/reranking baselines), IRCoT / Self-RAG / CRAG / DRAG (iterative/agentic baselines)
-- **Datasets**: [Natural Questions (NQ)](../../../../wiki/datasets/natural-questions-nq.md), PopQA, [MuSiQue](../../../../wiki/datasets/musique.md), [2WikiMultiHopQA](../../../../wiki/datasets/2wikimultihopqa.md), HotpotQA (distractor setting), MultiHop-RAG
+- **Datasets**: [Natural Questions (NQ)](../../../../wiki/datasets/natural-questions-nq.md), [PopQA](../../../../wiki/datasets/popqa.md), [MuSiQue](../../../../wiki/datasets/musique.md), [2WikiMultiHopQA](../../../../wiki/datasets/2wikimultihopqa.md), HotpotQA (distractor setting), MultiHop-RAG
 
 Tags: `retrieval-augmented-generation`, `hallucination`, `monte-carlo-tree-search`, `test-time-compute`, `combinatorial-optimization`
 

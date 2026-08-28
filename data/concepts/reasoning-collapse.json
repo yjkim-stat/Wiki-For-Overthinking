@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Reasoning collapse"
+    "Reasoning collapse",
+    "reasoning collapse"
   ],
   "definition": "The failure in which reinforcement learning drives a model's reasoning trace towards nothing rather than towards length - the under-thinking direction, not overthinking. On four subjective verification rubrics with no deterministic verifier, outcome-only RLVR under GRPO drops Qwen2.5-7B's mean completion length from about 300 tokens to about 170 after roughly 70 steps as the policy switches to fast heuristic guessing; TwT reports the same shape for R1-Zero-style RL on machine translation, where traces fall below 100 tokens and degenerate into templates, three of which cover about 73% of Zh->En traces, with or without a KL term. Both read it as evidence that the emergent long reasoning seen in mathematics and code does not transfer to their domains. The fixes differ: the subjective-tasks paper puts length back into the reward as a capped bonus paid only when the answer is correct (L_target = 1000, lambda = 2e-4), reaching 0.851 macro-F1 at about 980 tokens against 0.805 reasoning and 0.748 no-reasoning baselines, while TwT uses no length reward at all and restores length through difficulty-rewritten cold-start data - removing that stage collapses its traces to 62 tokens.",
   "evidence": [
@@ -15,11 +16,17 @@
       "kind": "paper",
       "note": "An empirical study of LLM verifiers on four subjective verification tasks from a production recommender platform, showing that explicit reasoning often degrades accuracy and that standard RLVR drives reasoning length to near zero ('reasoning collapse'), plus a conditional length-penalized reward that restores it.",
       "title": "LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1545",
+      "kind": "paper",
+      "note": "PACE identifies two distinct failure modes of uniform length-penalty RL for efficient reasoning -- sequence-level over-compression of critical early deduction steps, and group-level indiscriminate compression that ignores query difficulty -- and fixes both with a frozen-policy prefix-rollout anchor (decaying over training) plus a pass-rate-derived, difficulty-scaled length penalty, becoming the only compared method to cut token usage over 45% while simultaneously improving accuracy, and generalizing to code, science and instruction-following domains.",
+      "title": "PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "Reasoning Collapse",
   "related": [
     "resource-rational-reasoning",
@@ -59,7 +66,32 @@
     "persona-conditioned-prompting",
     "llm-as-a-judge-verification",
     "four-internal-netflix-verification-tasks-with-human-ground-truth-labels-conversa",
-    "a-public-roleplay-persona-dataset-1-500-personas"
+    "a-public-roleplay-persona-dataset-1-500-personas",
+    "sequence-level-over-compression",
+    "group-level-indiscriminate-compression",
+    "prefix-protected-optimization",
+    "difficulty-aware-penalty",
+    "shortcut-learning",
+    "pace-prefix-protected-and-difficulty-aware-compression-for-efficient-reasoning",
+    "thinkswitcher-baseline",
+    "deer-baseline",
+    "dynasor-cot-baseline",
+    "o1-pruner-baseline",
+    "dast-baseline",
+    "adaptthink-baseline",
+    "dr-saf-baseline",
+    "efficient-r-baseline",
+    "skywork-o1-training",
+    "aime-2024",
+    "aime-2025",
+    "math500",
+    "gsm8k",
+    "gpqa-diamond",
+    "livecodebench-v6",
+    "ifeval",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-32b-behavioral-annotator"
   ],
   "related_authored": [
     "underthinking",

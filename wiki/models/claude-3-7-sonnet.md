@@ -8,7 +8,7 @@ A closed-source reasoning-capable model used across sources as an evaluation tar
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AdvBench](../datasets/advbench.md), [AIME 2024](../datasets/aime-2024.md), [DeepSeek-R1](deepseek-r1.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [gpt-o3](gpt-o3.md), [GSM8K](../datasets/gsm8k.md), [HarmBench](../datasets/harmbench.md), [HumanEval](../datasets/humaneval.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [o1](o1.md), [o1-mini](o1-mini.md), [o3-mini](o3-mini.md), [Qwen3-8B](qwen3-8b.md), [QwQ](qwq.md), [Sky-T1](sky-t1.md), [StrongReject](../datasets/strongreject.md), [WildJailbreak](../datasets/wildjailbreak.md), [XSTest](../datasets/xstest.md)
+**Related**: [AdvBench](../datasets/advbench.md), [AIME 2024](../datasets/aime-2024.md), [DeepSeek-R1](deepseek-r1.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [gpt-o3](gpt-o3.md), [Grok-3](grok-3.md), [GSM8K](../datasets/gsm8k.md), [HarmBench](../datasets/harmbench.md), [HumanEval](../datasets/humaneval.md), [Kimi-k1.5](kimi-k1-5.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [o1](o1.md), [o1-mini](o1-mini.md), [o3-mini](o3-mini.md), [Qwen3-8B](qwen3-8b.md), [QwQ](qwq.md), [Sky-T1](sky-t1.md), [StrongReject](../datasets/strongreject.md), [WildJailbreak](../datasets/wildjailbreak.md), [XSTest](../datasets/xstest.md)
 
 ## Appears in
 

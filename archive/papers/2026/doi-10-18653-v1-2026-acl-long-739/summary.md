@@ -46,7 +46,7 @@ The intrinsic confidence signal does not inherently verify the actual correctnes
 ## Entities
 
 - **Concepts**: intrinsic (verifier-free) confidence signal, confidence-based RL calibration, self-guided tree search, novelty-weighted exploration, overconfidence penalty
-- **Methods**: Guided by Gut (GG), Diverse Verifier Tree Search (DVTS), [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo.md), [LoRA fine-tuning](../../../../wiki/methods/lora-fine-tuning.md), Best-of-N (baseline), PRM-guided search (baseline: MathShepherd-7B, RLHFlowLlama3.1-8B, Qwen2.5-MathPRM-7B)
+- **Methods**: Guided by Gut (GG), Diverse Verifier Tree Search (DVTS), [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo.md), [LoRA fine-tuning](../../../../wiki/methods/lora-fine-tuning.md), [Best-of-N (baseline)](../../../../wiki/methods/best-of-n-baseline.md), PRM-guided search (baseline: MathShepherd-7B, RLHFlowLlama3.1-8B, Qwen2.5-MathPRM-7B)
 - **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), LIMO (RL calibration data)
 
 Tags: `test-time-scaling`, `confidence-calibration`, `tree-search`, `process-reward-model-free`, `reinforcement-learning`, `inference-efficiency`

@@ -1,0 +1,49 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1365",
+      "kind": "paper",
+      "note": "ARM2 extends adaptive reasoning-format selection (Direct Answer, Short CoT, Code-Text, Code-Exec, Long CoT) to multimodal (vision) inputs and lets executable code substitute for lengthy chain-of-thought on tasks with verifiable computation, trained via GRPO-alp (a format-collapse-resistant, length-aware GRPO variant), reducing token usage over 70% versus standard GRPO while matching its accuracy across six in-domain and six out-of-domain text and multimodal benchmarks.",
+      "title": "ARM2: Adaptive Reasoning Model with Vision Understanding and Executable Code"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "GRPO-alp (format-encouragement + length-aware GRPO)",
+  "related": [
+    "overthinking",
+    "adaptive-reasoning-format-selection",
+    "format-collapse",
+    "code-execution-as-a-cot-substitute",
+    "cosine-decayed-reward-amplification",
+    "grpo-baseline",
+    "ada-grpo-arm-baseline",
+    "sft-cold-start",
+    "majority-vote-test-time-scaling",
+    "aqua-rat",
+    "visualwebinstruct",
+    "commonsenseqa",
+    "gsm8k",
+    "aime-1987-2023",
+    "mme-realworld",
+    "geometry3k",
+    "mmk12",
+    "obqa",
+    "math500",
+    "gpqa-diamond",
+    "blink",
+    "chartqa",
+    "mmmu",
+    "qwen2-5-vl-7b",
+    "mimo-7b-rl-and-sft-variants-backbone-comparison"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "grpo-alp-format-encouragement-length-aware-grpo",
+  "topics": [
+    "overthinking"
+  ]
+}

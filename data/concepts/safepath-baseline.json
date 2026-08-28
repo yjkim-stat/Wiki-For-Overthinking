@@ -1,0 +1,51 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1118",
+      "kind": "paper",
+      "note": "Decomposing LRM reasoning traces into risk-awareness/risk-analysis/response-strategy stages reveals 'Self-Jailbreak' -- the model correctly identifies harmful intent early but overrides its own judgment during subsequent reasoning (accounting for up to 93.7% of unsafe outputs, dominated by a 'Warning' failure pattern where the model wrongly assumes appending a disclaimer suffices) -- and Chain-of-Guardrail (CoG) fixes this with targeted, step-level reasoning-chain rewrites rather than global safety constraints, achieving safety comparable to the strongest baseline while actually *improving* reasoning accuracy (Qwen3-32B: GPQA-Diamond 54.30->62.38, AIME2024 71.70->82.08) where competing safety methods cost 10+ accuracy points.",
+      "title": "When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "SafePath (baseline)",
+  "related": [
+    "self-jailbreak",
+    "harm-misidentification",
+    "risk-awareness-risk-analysis-response-strategy-decomposition",
+    "chain-of-guardrail-cog",
+    "safety-recomposition",
+    "safety-backtrack",
+    "selective-loss-masking",
+    "safety-reasoning-trade-off",
+    "chain-of-guardrail-cog-safety-recomposition-safr-and-safety-backtrack-safb",
+    "star-1-baseline",
+    "safechain-baseline",
+    "safekey-baseline",
+    "r2d-reasoning-for-safety-baseline",
+    "wildjailbreak-analysis-2-000-samples",
+    "alert-toxicdpoqa-harmful-dataset-aya-redteaming-do-not-answer-attaq-toxic-chat-c",
+    "sorry-bench",
+    "strongreject",
+    "jailbreakbench-jbb-pair-jbb-gcg",
+    "gpqa-diamond",
+    "aime-2024",
+    "math500",
+    "humaneval",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-32b",
+    "deepseek-r1",
+    "deepseek-r1-distill-llama-70b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "safepath-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

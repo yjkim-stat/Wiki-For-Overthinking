@@ -1,0 +1,127 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1335.pdf"
+  },
+  "completed_at": "2026-08-28T02:05:30Z",
+  "created_at": "2026-08-28T01:36:19Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1335",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large language models exhibit strong reasoning capabilities but often require significant computational resources due to verbose, unstructured Chain-of-Thought outputs. Recent approaches guide reasoning length through token penalties or truncation, risking the omission of necessary steps. We posit that conciseness should be an emergent property of structured thought, rather than a result of artificially forced brevity. To this end, we first demonstrate that Attribute-Guided Prompting, a lightweight zero-shot strategy, improves reasoning performance while reducing inference cost. Building on this foundation, we introduce Controlled Attribute-Driven Reasoning Optimization (CLARO), a reinforcement learning framework designed to internalize these benefits. CLARO guides models to embed high-quality structural attributes, such as readability, math density, syntactic compression, and low redundancy, within a user-defined token budget. The proposed method outperforms state-of-the-art baselines across diverse benchmarks, yielding accuracy gains of up to 63.6%, demonstrating that guiding generated output language structure enhances reasoning. Overall, our findings establish that optimizing the thought process structure refines reasoning efficacy, with computational efficiency emerging as a derivative benefit of a clearer thought process. Code and models are available at https://github.com/odedsc/CLARO.",
+    "authors": [
+      "Oded Schlesinger",
+      "Young Kyung Kim",
+      "J. Matias Di Martino",
+      "Guillermo Sapiro"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "reasoning length",
+      "token budget"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1335.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "CLARO: Controlled Attribute-Driven Reasoning Optimization for Efficient Chain-of-Thought",
+    "url": "https://aclanthology.org/2026.findings-acl.1335/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "structural attribute optimization",
+      "conciseness as emergent property",
+      "readability / mathematical expression rate / syntactic compression / redundancy metrics",
+      "correctness-gated structural reward",
+      "Attribute-Guided Prompting"
+    ],
+    "contributions": [
+      "an argument and demonstration that conciseness should emerge from optimizing reasoning *structure* (readability, mathematical notation density, syntactic compression, low redundancy) rather than being imposed as a direct truncation or length-penalty target",
+      "Attribute-Guided Prompting, a lightweight zero-shot strategy that robustly improves the efficiency-accuracy trade-off versus both standard and naive conciseness-only prompting, without extra inference-time computational overhead",
+      "CLARO, a GRPO-based fine-tuning framework with two correctness-gated reward functions (structural-attribute alignment plus explicit length adherence) that internalizes these structural behaviors into the model, requiring only problem-answer pairs (no ground-truth reasoning traces) for training",
+      "state-of-the-art accuracy-under-budget results across eight math and general-reasoning benchmarks (up to 63.6% relative improvement over length-controlled baselines), with ablations showing all four attributes contribute synergistically and behavioral analysis confirming the targeted attributes are intrinsic markers of correct, not just baseline, reasoning"
+    ],
+    "datasets": [
+      "DeepScaleR-Preview-Dataset (training, 3,840 of 40,315 pairs used)",
+      "AMC",
+      "AIME 2024",
+      "AIME 2025",
+      "MATH-500",
+      "OlympiadBench",
+      "GPQA",
+      "LSAT",
+      "MMLU"
+    ],
+    "limitations": "The paper does not discuss limitations explicitly in a dedicated section within the excerpted material; its own ablation results show tension between certain attribute pairs (readability vs. sentence-length compression) that must be balanced via reward-weighting rather than resolved outright, and the redundancy metric specifically shows a counterintuitive, only partially explained relationship with correctness (correct solutions sometimes scoring higher, not lower, on raw redundancy) that the paper attributes to confounds (semantic drift, length-sensitivity of TF-IDF) rather than fully disentangling. Fine-tuning uses only problem-answer pairs (no ground-truth CoT/reasoning-trace supervision), which the paper presents as a strength (label efficiency) but means the structural attributes are learned entirely from the correctness-gated RL signal rather than any direct structural supervision.",
+    "method": "Defines four interpretable, easily-computable structural attribute metrics motivated by established linguistic research on efficient communication: Readability (Flesch Reading Ease formula), Mathematical expression rate (proportion of compact symbolic notation vs. verbose natural-language description), Syntactic compression (average sentence length, shorter indicating more granular stepwise reasoning), and Redundancy (TF-IDF-based term-repetition measure, capturing wasteful over-reuse of terms). First demonstrates Attribute-Guided Prompting, a zero-shot strategy explicitly instructing a pretrained model to 'prioritize readability, syntactic compression, and mathematical notation while eliminating words and terms redundancy and verbose explanations,' as a three-way comparison against a standard CoT-trigger baseline and a naive 'prioritize conciseness' baseline (holding the core reasoning instruction constant across all three). Then introduces CLARO (Controlled Attribute-Driven Reasoning Optimization), a training-time framework: starting from a length-controllable base reasoning model, fine-tunes via GRPO with a length directive embedded in the prompt ('Think for maximum L-hat tokens') and two complementary, correctness-gated reward functions assigned with equal probability per training sample -- R_C combines a correctness indicator with a length-contribution term (C_L) and a weighted sum of normalized, clipped structural-metric-alignment scores (MC_j, each measuring how close a generated attribute value is to a target hat{m}_j); R_L is a strict length-adherence reward penalizing deviation between generated and allocated output length, weighted by a penalty coefficient. Crucially, both rewards are gated by the correctness indicator, so structural/length alignment provides zero benefit on an incorrect answer -- the model cannot trade accuracy for stylistic conformance, turning the attribute metrics into regularizers rather than primary objectives. Trained on the DeepScaleR-Preview-Dataset (40,315 problem-answer pairs, only 3,840 randomly selected via a 30-step adaptation procedure, no ground-truth reasoning traces or CoT examples provided during fine-tuning) at two scales (CLARO 1.5B built on L1-Max/DeepScaleR-1.5B, CLARO 7B built on L1-Max/DeepSeek-R1-Distill-Qwen-7B).",
+    "methods": [
+      "CLARO (Controlled Attribute-Driven Reasoning Optimization)",
+      "Attribute-Guided Prompting",
+      "GRPO",
+      "L1-Max (baseline)",
+      "s1 (baseline)",
+      "DeepScaleR / DeepSeek-R1-Distill-Qwen (base models)"
+    ],
+    "models": [
+      "CLARO-1.5B (built on L1-Max/DeepScaleR-1.5B)",
+      "CLARO-7B (built on L1-Max/DeepSeek-R1-Distill-Qwen-7B)",
+      "Phi-4 (3.8B)",
+      "Mathstral (7B)",
+      "DeepSeek-R1-Distill-Llama (8B)"
+    ],
+    "one_liner": "CLARO treats conciseness as an emergent property of well-structured reasoning rather than a truncation target: it fine-tunes models via GRPO with two correctness-gated reward terms (structural attribute alignment -- readability, mathematical-notation density, syntactic compression, low redundancy -- plus a length-contribution term) within a user-specified token budget, outperforming length-controlled baselines (s1, L1-Max) by up to 63.6% relative accuracy under matched budgets across eight math and general-reasoning benchmarks, while a lightweight zero-shot prompting variant (Attribute-Guided Prompting) is shown to be far more robust than simply instructing a model to 'prioritize conciseness.'",
+    "problem": "Reasoning models often produce verbose, unstructured chain-of-thought that inflates inference cost without proportional accuracy gain, and existing length-control approaches (token penalties, truncation, generic conciseness instructions) regulate only the *quantity* of output while ignoring the linguistic and structural qualities that make reasoning both clear and efficient, risking omission of necessary steps or degraded reasoning depth when brevity is imposed directly.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly and centrally relevant: it explicitly frames the standard overthinking-mitigation approach (token penalties, truncation) as regulating quantity while ignoring the structural/linguistic qualities that make reasoning genuinely efficient, and proposes that conciseness be treated as a downstream, emergent consequence of well-structured reasoning rather than a target imposed directly -- a philosophically distinct framing from most length-penalty methods in this archive. Its finding that a naive 'be concise' instruction is unstable (sometimes hurting accuracy) while structure-guided prompting/training is robust is a concrete, transferable caution for any overthinking-mitigation method that specifies its objective purely in terms of length."
+    },
+    "results": "Attribute-Guided Prompting three-way comparison (Table 1, across Phi-4, Mathstral-7B, DeepSeek-R1-Distill-Llama-8B): the naive conciseness-only baseline is unstable -- it reduces token count in most cases but sometimes *degrades* accuracy relative to standard prompting (e.g. Phi-4: accuracy drops from 28.56% to 29.01% is actually a slight gain, but DeepSeek-R1-Distill-Llama shows accuracy improving to 38.46% with much larger token reduction than Attribute-Guided in that specific case, illustrating the instability the paper flags) -- whereas Attribute-Guided Prompting consistently improves or matches accuracy versus standard prompting while reducing token consumption across all three models (Phi-4: 28.56%->29.01% accuracy at 641.64 vs. 725.05 tokens; Mathstral-7B: 17.64%->19.40% accuracy at 613.04 vs. 631.94 tokens), offering the most robust efficiency-without-instability trade-off among the three strategies. CLARO fine-tuning yields average relative accuracy improvements of up to 56.8% (1.5B) and 63.6% (7B) -- 4.7 and 6.9 absolute percentage points respectively -- over length-controlled baselines (L1-Max, s1) under identical token-budget constraints, across eight benchmarks spanning math (AMC, AIME2024/25, MATH-500, OlympiadBench) and general/OOD reasoning domains (GPQA, LSAT, MMLU). Accuracy-vs-token-budget curves (Figure 3) show CLARO's advantage is most pronounced under tight token budgets (the low-resource, left side of the curves), where baselines struggle most, while CLARO maintains parity or a marginal edge as budgets relax toward unconstrained generation -- indicating the structural-optimization approach makes especially effective use of limited token capacity rather than merely performing comparably once tokens are abundant. Leave-one-out ablations (removing one of the four attribute rewards at a time from CLARO-1.5B) show the complete CLARO framework with all four attributes optimized synergistically outperforms every single-attribute-removed variant, but each ablated variant still outperforms the plain L1-Max baseline -- indicating the attributes interact synergistically (not merely additively) while each still contributes independent value; the paper notes readability and sentence-length compression can sometimes tension against each other, a conflict balanced by the reward's relative weighting. Behavioral analysis (Figure 5) confirms CLARO measurably shifts generated reasoning toward the target attribute distributions relative to the L1-Max baseline (higher readability, higher math-notation density, shorter average sentences, lower redundancy) at both model scales. Comparing correct vs. incorrect solutions directly (rather than baseline vs. CLARO) shows correct reasoning traces are statistically more likely to already exhibit higher readability and higher mathematical-expression rate and greater syntactic compression than incorrect ones -- evidence the proposed attributes are not merely stylistic preferences but intrinsic markers of successful reasoning chains, not artifacts imposed by the training procedure. The redundancy metric shows a more nuanced, mixed trend: correct solutions can show slightly *higher* raw redundancy scores than incorrect ones, which the paper attributes to two confounds -- incorrect solutions often exhibit semantic drift (oscillating between unrelated concepts, artificially deflating measured term-repetition similarity) while correct solutions stay focused on specific variables/constraints (naturally increasing legitimate term reuse), and the TF-IDF-based redundancy metric is sensitive to text length, so correct solutions' typically shorter length inflates the relative frequency of necessary repeated problem terms.",
+    "tags": [
+      "overthinking",
+      "reinforcement-learning",
+      "GRPO",
+      "length-control",
+      "structural-attribute-optimization",
+      "prompting"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1335",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

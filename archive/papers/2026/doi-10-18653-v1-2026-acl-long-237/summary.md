@@ -47,7 +47,7 @@ The work focuses specifically on unlocking signal from positive-homogeneous prom
 
 - **Concepts**: positive homogeneous (PH) prompt, uncertainty-driven intrinsic reward (per-token NLL), token-level focal credit assignment, adaptive advantage calibration
 - **Methods**: MINER (uncertainty-driven intrinsic reward + token-level focal credit assignment + adaptive advantage calibration), GRPO (baseline), [DAPO (baseline)](../../../../wiki/methods/dapo-baseline.md), REINFORCE++ (baseline), GSPO (baseline), UCAS (baseline), BAPO, KL-Cov, Clip-Cov, Entropy-Adv (exploration-enhancement baselines)
-- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [HMMT25](../../../../wiki/datasets/hmmt25.md), [DeepScaleR (training)](../../../../wiki/datasets/deepscaler-training.md), MedQA, MedMCQA, PubMedQA, MedXpertQA, MMLU-Pro (medical subset)
+- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [HMMT25](../../../../wiki/datasets/hmmt25.md), DeepScaleR (training), MedQA, MedMCQA, PubMedQA, MedXpertQA, MMLU-Pro (medical subset)
 
 Tags: `reinforcement-learning`, `RLVR`, `data-efficiency`, `training-efficiency`, `large-reasoning-models`
 

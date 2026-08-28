@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Multi-agent debate -- multiple agents iteratively refining responses over rounds, each conditioning on other agents' prior answers -- is studied as one of four test-time-scaling pipelines in the Pareto-optimal multi-agent-reasoning study, which finds debate should scale the number of agents rather than the number of rounds (which accumulates context without reliable benefit) and that mixture-of-agents dominates it at matched compute; a probability-theory-based prompting-strategies study separately finds that plain chain-of-thought eventually dominates more elaborate strategies (potentially including debate-style ones) as sampling budget grows.
 
 - **Kind**: method
 - **Also called**: multi-agent debate

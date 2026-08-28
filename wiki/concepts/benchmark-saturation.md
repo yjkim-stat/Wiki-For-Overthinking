@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Benchmark saturation -- top models scoring so high on a benchmark (e.g. AIME24/25 exceeding 90%) that it can no longer distinguish further reasoning progress -- is the problem AMO-Bench is built to avoid, via original, IMO-difficulty-or-harder problems on which even the best model reaches only 63.1%; DARG addresses the same underlying problem differently, by perturbing an existing benchmark's extracted reasoning graph to generate new items at controlled complexity levels rather than authoring new problems from scratch.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -46,7 +46,7 @@ The framework relies on LLMs' coding and structured-generation skills, so the re
 ## Entities
 
 - **Concepts**: reasoning-execution disentanglement, reusable solver functions (Combination/Filter/Deliver), structured combination/constraint representation, code-as-proxy-for-reasoning
-- **Methods**: SCOPE (Scalable COde Planning Engine), Chain-of-Thought (CoT, baseline), Tree-of-Thought (ToT, baseline), EvoAgent (baseline), HyperTree Planning (HTP, baseline), Thought of Search (ToS, baseline), CPMPy constraint programming (baseline)
+- **Methods**: SCOPE (Scalable COde Planning Engine), [Chain-of-Thought (CoT, baseline)](../../../../wiki/methods/chain-of-thought-cot-baseline.md), Tree-of-Thought (ToT, baseline), EvoAgent (baseline), HyperTree Planning (HTP, baseline), Thought of Search (ToS, baseline), CPMPy constraint programming (baseline)
 - **Datasets**: TravelPlanner, Natural Plan (Trip Planning, Meeting Planning)
 
 Tags: `multi-constraint-planning`, `code-generation`, `agentic-reasoning`, `efficient-reasoning`, `reasoning-execution-separation`

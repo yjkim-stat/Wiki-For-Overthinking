@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1291",
+      "kind": "paper",
+      "note": "Defines the Refinement Gap (self-refinement accuracy minus majority-voting accuracy) to isolate parallel self-refinement's genuine value beyond simple candidate aggregation, finds it scales with model size but only weakly with base capability, and trains this capability into a 7B student (GSR) via a hybrid direct-solving-plus-refinement objective that explicitly retains all-candidates-incorrect training cases -- achieving 73.6% average accuracy across five math benchmarks (a +3.1-point Refinement Gap versus a much larger QwQ-32B teacher's +1.15) and recovering correct answers 5.9% of the time even when every sampled candidate is wrong.",
+      "title": "Learning to Refine: Self-Refinement of Parallel Reasoning in LLMs"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "Refinement Gap",
+  "related": [
+    "parallel-self-refinement",
+    "generative-self-refinement-as-a-learnable-skill",
+    "candidate-quality-ceiling",
+    "hybrid-direct-solving-plus-refinement-training",
+    "generative-self-refinement-gsr",
+    "majority-voting-baseline",
+    "best-of-n-with-reward-models-skyworkrm-27b-rm-r1-7b-rrm-7b-baselines",
+    "synthesizer-8b-baseline",
+    "openmathreasoning-training-corpus-184k-direct-solving-184k-refinement-instances",
+    "aime-2024",
+    "aime-2025",
+    "amc22-23",
+    "math500",
+    "olympiadbench",
+    "knights-and-knaves-k-k-out-of-domain-logic-puzzles",
+    "qwen2-5-7b-instruct-gsr-7b-base",
+    "qwen2-5-14b-32b-instruct",
+    "deepseek-r1-distill-qwen-family",
+    "qwq-32b-teacher",
+    "o1-mini-reference"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "refinement-gap",
+  "topics": [
+    "overthinking"
+  ]
+}

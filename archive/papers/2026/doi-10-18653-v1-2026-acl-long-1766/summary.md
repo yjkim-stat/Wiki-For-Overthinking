@@ -46,7 +46,7 @@ The current approach uses standard supervised fine-tuning on a constructed hybri
 ## Entities
 
 - **Concepts**: self-hypnosis (trained prefix/in-context behavioral trigger), difficulty cognition / redundancy cognition, dual-process (System 1/System 2) reasoning framing, prospective (global) vs. retrospective (local) intervention
-- **Methods**: TH2T (Think-How-to-Think, two-stage SFT with self-hypnosis), D-Prompt (baseline), NoThinking (baseline), [TokenSkip (baseline)](../../../../wiki/methods/tokenskip-baseline.md), [CoT-Valve (baseline)](../../../../wiki/methods/cot-valve-baseline.md), AdaCtrl (baseline), AdaptThink, DR.SAF, DRQA, Thinkless, Steering (RL baselines)
+- **Methods**: TH2T (Think-How-to-Think, two-stage SFT with self-hypnosis), D-Prompt (baseline), [NoThinking (baseline)](../../../../wiki/methods/nothinking-baseline.md), [TokenSkip (baseline)](../../../../wiki/methods/tokenskip-baseline.md), [CoT-Valve (baseline)](../../../../wiki/methods/cot-valve-baseline.md), AdaCtrl (baseline), AdaptThink, DR.SAF, DRQA, Thinkless, Steering (RL baselines)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), OmniMath, [GPQA](../../../../wiki/datasets/gpqa.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [Olympiad](../../../../wiki/datasets/olympiad.md), [MMLU](../../../../wiki/datasets/mmlu.md)
 
 Tags: `overthinking`, `difficulty-cognition`, `efficient-reasoning`, `dual-process-theory`, `SFT`

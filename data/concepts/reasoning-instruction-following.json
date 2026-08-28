@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1456",
+      "kind": "paper",
+      "note": "ReasonIF is a 300-sample, six-instruction-type benchmark (multilinguality, word limit, disclaimer, JSON formatting, uppercase-only, remove-commas) showing large reasoning models comply with instructions far less inside their reasoning trace (average IFS 15.6%) than in their main response (57.3%), that reasoning instruction-following degrades further as problem difficulty rises (positive correlation up to 0.863 with accuracy), and that both multi-turn self-reflection and supervised fine-tuning on synthetic reasoning-instruction data (RIF) only partially close the gap, the latter trading a measurable accuracy drop for the IFS gain.",
+      "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "reasoning instruction following",
+  "related": [
+    "instruction-following-score-ifs",
+    "reasoning-vs-response-if-gap",
+    "reasoning-instruction-finetuning-rif",
+    "verifiable-instructions",
+    "reasonif-benchmark-verifiable-instruction-checking",
+    "multi-turn-self-reflection",
+    "gsm8k",
+    "amc",
+    "aime",
+    "gpqa-diamond",
+    "arc-challenge",
+    "reasonif-new-300-samples",
+    "gpt-oss-20b",
+    "gpt-oss-120b",
+    "deepseek-r1-distill-qwen-14b",
+    "glm-4-5-air",
+    "deepseek-r1",
+    "qwen3-235b-a22b-thinking-2507"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "reasoning-instruction-following",
+  "topics": [
+    "overthinking"
+  ]
+}

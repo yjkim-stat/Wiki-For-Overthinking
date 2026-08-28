@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "DeepSeek-R1-0528-Qwen3-8B is used in these sources as a reasoning-model backbone subject to interventions on its chain-of-thought: CiPO unlearns sensitive knowledge from both this model's intermediate reasoning trace and final answer via counterfactual preference optimization, while STOP evaluates its path-pruning method (learnable [STOP]-token scoring of parallel reasoning trajectories) across model scales including this one.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.143",
@@ -13,11 +13,23 @@
       "kind": "paper",
       "note": "STOP (Super TOken for Pruning) is a lightweight, LoRA-based module that reads a frozen LRM's cached KV states via a single learnable [STOP] token to score and prune futile parallel-reasoning paths early -- at negligible inference overhead (0.59% latency) -- and is shown, via a proposed four-way taxonomy of path-pruning signal generators, to dominate external-signal and non-learnable internal-signal baselines in both accuracy and compute across model scales 1.5B-20B.",
       "title": "Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1336",
+      "kind": "paper",
+      "note": "STEP trains a lightweight 2-layer-MLP step scorer on reasoning-model hidden states at step boundaries to evaluate parallel-reasoning trace quality with near-zero overhead, and pairs it with a GPU-memory-triggered (not confidence-threshold or fixed-schedule) pruning mechanism that eliminates the KV-cache waiting-queue bottleneck identified as the dominant source of end-to-end latency in parallel test-time scaling -- cutting latency 45-70% versus self-consistency while improving accuracy 0.4-7.5 points across three models and six benchmarks.",
+      "title": "Hidden States as Early Signals: Step-level Trace Evaluation and Pruning for Efficient Test-Time Scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1376",
+      "kind": "paper",
+      "note": "Chronos treats a reasoning trace's per-token negative-log-probability sequence as a time series (rather than collapsing it to a single pooled scalar like prior confidence-based scorers) and scores its quality with a multi-scale InceptionTime-style CNN focused on the final tail tokens, then weights majority voting by these learned scores -- beating majority voting by up to 13.76 absolute points and confidence-weighted voting (DeepConf) across all nine model-benchmark combinations, at only a 0.0005% increase in inference FLOPs, and generalizing across models and out-of-domain tasks.",
+      "title": "Chronos: Learning Temporal Dynamics of Reasoning Chains for Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-28T00:09:24Z",
   "kind": "model",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "DeepSeek-R1-0528-Qwen3-8B",
   "related": [
     "counterfactual-unlearning",
@@ -54,7 +66,33 @@
     "deepseek-r1-distill-qwen-1-5b",
     "deepseek-r1-distill-qwen-7b",
     "gpt-oss-20b",
-    "gpt-oss-120b"
+    "gpt-oss-120b",
+    "overthinking-via-wasted-parallel-reasoning-compute",
+    "step-level-trace-scoring-from-hidden-states",
+    "gpu-memory-triggered-pruning",
+    "kv-cache-waiting-queue-bottleneck",
+    "weighted-majority-voting",
+    "step-step-level-trace-evaluation-and-pruning",
+    "self-consistency-sc-baseline",
+    "slim-sc-baseline-similarity-based-pruning",
+    "deepconf-baseline-confidence-based-pruning",
+    "prm-weighted-voting-qwen2-5-math-prm-7b-comparison",
+    "hmmt-2012-2023-step-scorer-training-data",
+    "hmmt-24",
+    "equibench",
+    "divlogiceval",
+    "qwen3-4b-thinking-2507",
+    "phi-4-reasoning-plus-14b",
+    "chronological-time-series-reasoning-scoring",
+    "multi-scale-temporal-convolution",
+    "score-weighted-majority-voting",
+    "token-level-negative-log-probability-signal",
+    "uniform-pooling-vs-sequential-modeling",
+    "chronos-multi-scale-temporal-convolutional-scorer",
+    "majority-voting-baseline",
+    "deepconf-baseline-confidence-weighted-voting",
+    "aime-archive-2000-2023-training",
+    "hmmt25-feb"
   ],
   "related_authored": [],
   "schema_version": 1,

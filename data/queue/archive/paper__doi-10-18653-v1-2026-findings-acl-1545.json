@@ -1,0 +1,144 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1545.pdf"
+  },
+  "completed_at": "2026-08-28T01:50:04Z",
+  "created_at": "2026-08-28T01:36:19Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1545",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Language Reasoning Models (LRMs) achieve strong performance by scaling test-time computation but often suffer from “overthinking”, producing excessively long reasoning traces that increase latency and memory usage. Existing LRMs typically enforce conciseness with uniform length penalties, which over-compress crucial early deduction steps at the sequence level and indiscriminately penalize all queries at the group level. To solve these limitations, we propose PACE, a dual-level framework for prefix-protected and difficulty-aware compression under hierarchical supervision. At the sequence level, prefix-protected optimization employs decaying mixed rollouts to maintain valid reasoning paths while promoting conciseness. At the group level, difficulty-aware penalty dynamically scales length constraints based on query complexity, maintaining exploration for harder questions while curbing redundancy on easier ones. Extensive experiments on DeepSeek-R1-Distill-Qwen (1.5B/7B) demonstrate that PACE achieves a substantial reduction in token usage (up to 55.7%) while simultaneously improving accuracy (up to 4.1%) on math benchmarks, with generalization ability to code, science, and general domains.",
+    "authors": [
+      "Ruixiang Feng",
+      "Yuntao Wen",
+      "Silin Zhou",
+      "Ke Shi",
+      "Yifan Wang",
+      "Ran Le",
+      "Zhenwei An",
+      "Zongchao Chen",
+      "Chen Yang",
+      "Guangyue Peng",
+      "Yiming Jia",
+      "Dongsheng Wang",
+      "Tao Zhang",
+      "Lisi Chen",
+      "Yang Song",
+      "Shen Gao",
+      "Shuo Shang"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "efficient reasoning",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1545.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.625
+    },
+    "title": "PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning",
+    "url": "https://aclanthology.org/2026.findings-acl.1545/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "sequence-level over-compression",
+      "group-level indiscriminate compression",
+      "prefix-protected optimization",
+      "difficulty-aware penalty",
+      "shortcut learning",
+      "reasoning collapse"
+    ],
+    "contributions": [
+      "an explicit diagnosis of two distinct failure modes of uniform length-penalty RL: sequence-level over-compression of critical early reasoning tokens, and group-level indiscriminate compression that ignores query difficulty",
+      "prefix-protected optimization, anchoring early reasoning in a frozen reference policy's valid solution path via a linearly-decaying hybrid rollout distribution, preventing premature reasoning collapse from over-compressing the logical foundation",
+      "a difficulty-aware penalty that scales length-penalty strength by each query's empirically-measured pass rate, relaxing constraints on hard queries while strictly enforcing conciseness on easy ones",
+      "the only method among nine training-free and training-based baselines to simultaneously exceed 45% token reduction and improve accuracy over the vanilla model, with demonstrated generalization across model scales, out-of-domain tasks (science, code, instruction-following), and alternative length-reward formulations (cosine reward)",
+      "a behavioral analysis (Advance/Reflect/Refine/Verify categorization) showing the compression specifically suppresses redundant self-correction and hesitation rather than constructive reasoning content"
+    ],
+    "datasets": [
+      "Skywork-o1 (training)",
+      "AIME24",
+      "AIME25",
+      "MATH500",
+      "GSM8K",
+      "GPQA-Diamond",
+      "LiveCodeBench-v6",
+      "IF-Eval"
+    ],
+    "limitations": "The paper does not discuss limitations explicitly in the excerpted sections; the difficulty-aware penalty relies on empirical pass rate from sampled prefix rollouts as a difficulty proxy, which requires additional group sampling during training (computational overhead versus a simpler uniform penalty is not directly quantified in the excerpted material); the prefix-protection mechanism requires a hyperparameter search over initial prefix length and decay duration K, shown to be sensitive (both too-short and too-long prefixes underperform the tuned setting).",
+    "method": "PACE combines two mechanisms within GRPO. Sequence level (prefix-protected optimization): for each training query, rejection sampling from a frozen initial (reference) policy selects the shortest correct sample as a fixed reasoning prefix (or the shortest sample overall if none is correct); early in training, the rollout distribution is a hybrid that strictly follows this frozen prefix policy up to a prefix length S(k) and then switches to the current training policy for the remainder, anchoring the reasoning path in a valid logical foundation before compression pressure applies; S(k) linearly decays from an initial length L_init to zero over K training steps, so the safeguard is gradually removed as training progresses, letting the policy eventually generate the full sequence unconstrained. Group level (difficulty-aware penalty): quantifies each query's difficulty via the empirical pass rate rho(q) over a sampled group of prefix rollouts (lower pass rate = harder); scales the length-penalty strength via alpha(rho) = 1 - cos(pi/2 * rho), which approaches its maximum (strict length penalty) as rho -> 1 (easy queries) and decays toward zero as rho -> 0 (hard queries), so difficult problems retain their needed exploration/reasoning budget while easy problems are strictly compressed. The two mechanisms combine into one GRPO-compatible reward and advantage computation, with importance-sampling correction (since prefix-anchored rollouts are off-policy relative to the pure current policy) and a KL penalty against the reference policy under the hybrid prefix distribution.",
+    "methods": [
+      "PACE (Prefix-protected and difficulty-Aware Compression for Efficient reasoning)",
+      "GRPO",
+      "ThinkSwitcher (baseline)",
+      "DEER (baseline)",
+      "Dynasor-CoT (baseline)",
+      "O1-Pruner (baseline)",
+      "DAST (baseline)",
+      "AdaptThink (baseline)",
+      "DR.SAF (baseline)",
+      "Efficient-R (baseline)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "Qwen3-32B (behavioral annotator)"
+    ],
+    "one_liner": "PACE identifies two distinct failure modes of uniform length-penalty RL for efficient reasoning -- sequence-level over-compression of critical early deduction steps, and group-level indiscriminate compression that ignores query difficulty -- and fixes both with a frozen-policy prefix-rollout anchor (decaying over training) plus a pass-rate-derived, difficulty-scaled length penalty, becoming the only compared method to cut token usage over 45% while simultaneously improving accuracy, and generalizing to code, science and instruction-following domains.",
+    "problem": "Length-penalty RL for LRM overthinking applies a uniform penalty to every token and every query, which causes two distinct failure modes: at the sequence level, compressing the earliest reasoning tokens (which serve as the logical anchor for the whole derivation) causes the model to skip essential deduction steps and produce shortcut/incorrect answers; at the group level, applying the same length constraint regardless of query difficulty disproportionately shortens reasoning on hard problems (where accuracy degrades sharply as training progresses) while under-penalizing easy ones.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly and centrally relevant: it names overthinking explicitly and provides a precise, mechanistic diagnosis of exactly why naive length-penalty RL for overthinking mitigation fails in two distinct, separable ways (destroying the logical anchor at the start of a trace; ignoring that harder problems genuinely need more reasoning budget) -- both of which are load-bearing assumptions in many other length-penalty methods in this archive that this paper's ablations show are necessary to address explicitly rather than assume away, and its behavioral (Advance/Reflect/Refine/Verify) decomposition gives a concrete, checkable way to distinguish genuine compression of redundant hesitation from harmful compression of constructive reasoning."
+    },
+    "results": "Across four in-domain math benchmarks (AIME24/25, MATH500, GSM8K) on DeepSeek-R1-Distill-Qwen-7B/1.5B, PACE is the only method (among ThinkSwitcher, DEER, Dynasor-CoT, O1-Pruner, DAST, AdaptThink, DR.SAF, Efficient-R baselines) that achieves both >45% token reduction and an accuracy *improvement* over the vanilla model simultaneously: on the 7B model, 54.8% average token reduction with accuracy 69.5% (vs. vanilla's 68.9%, +0.6); on the 1.5B model, 46.6% token reduction with accuracy 57.3% (vs. vanilla's 53.2%, +4.1) -- nearly double the token-reduction rate of the second-best performer (AdaptThink, 28.5% TR on 7B) while also exceeding its accuracy. Aggressive training-free pruners (DR.SAF, DEER) achieve high token-reduction rates but at accuracy cost (DR.SAF -2.7pp, DEER -2.3pp on 7B), while conservative methods (AdaptThink) preserve accuracy but yield much smaller efficiency gains -- PACE dominates the Pareto frontier rather than trading off along it. Out-of-domain generalization (trained exclusively on math data) extends to GPQA-Diamond (science), LiveCodeBench-v6 (code), and IF-Eval (instruction-following): the 1.5B model shows 1.1-4.6% accuracy improvements with 14.5-37.0% token reduction across these domains; the 7B model achieves up to 1.8% accuracy gain with 25.7-33.3% token reduction -- both accuracy and efficiency gains transfer beyond the mathematical training domain. Ablations (7B model) confirm both mechanisms are necessary: removing group-level (difficulty-aware) control causes a significant performance drop (-9.8pp on AIME24, -12.9pp on MATH500), attributed to indiscriminate compression causing 'reasoning collapse' during training (training accuracy and entropy both destabilize/oscillate, per Figure 3); removing sequence-level (prefix) control also degrades performance sharply since compression then starts from the initial tokens, causing the model to skip essential reasoning steps. A prefix-length sweep on the 7B model shows even a modest prefix (256 tokens) improves accuracy over no prefix (90.2%->92.0%), peaking at 512 tokens (93.1%), but an excessively long prefix (1024 tokens) harms performance (90.3%) because the model comes to fully rely on the frozen prefix, exposing the ground-truth path too early during initial training and inducing 'shortcut learning' that degrades reasoning capability once the prefix protection is removed. Behavioral analysis (annotating generated CoT into Advance/Reflect/Refine/Verify categories via Qwen3-32B) across training shows the proportion of 'Advance' (forward-progressing) steps rises from 61.5% to 72.5% while 'Reflect' and 'Verify' steps decline (18.5%->13.6%, 14.0%->9.8% respectively) -- direct evidence that PACE's token reduction comes from suppressing redundant self-correction and excessive hesitation rather than omitting constructive logical content. A per-difficulty-level breakdown on MATH500 (5 levels) shows a 'No Control' (uniform penalty) ablation suffers catastrophic accuracy collapse on hard problems (Level 1: 0.96 -> Level 5: 0.07), while PACE's accuracy stays comparable to the unconstrained original model across all difficulty levels, even slightly exceeding it at Level 4 (0.79 vs. 0.77) at 58% shorter length -- evidence that targeted compression can reduce redundant reasoning noise on complex problems, not just preserve accuracy. Testing generalization to an alternative length-reward formulation (a static cosine reward penalizing length by z-score) shows the baseline cosine-reward-only training suffers catastrophic training-accuracy collapse after ~150 steps, while combining PACE's dual-level control with the same cosine reward avoids this collapse and achieves consistently better accuracy-length trade-offs across AIME24/25/MATH500 -- confirming PACE's mechanisms generalize across different underlying length-penalty reward designs, not just its own default one.",
+    "tags": [
+      "overthinking",
+      "reinforcement-learning",
+      "GRPO",
+      "length-control",
+      "difficulty-adaptive",
+      "reasoning-collapse"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1545",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

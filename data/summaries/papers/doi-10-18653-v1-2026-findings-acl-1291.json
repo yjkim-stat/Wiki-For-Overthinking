@@ -1,0 +1,57 @@
+{
+  "concepts": [
+    "Refinement Gap",
+    "parallel self-refinement",
+    "generative self-refinement (as a learnable skill)",
+    "candidate-quality ceiling",
+    "hybrid direct-solving-plus-refinement training"
+  ],
+  "contributions": [
+    "the Refinement Gap, a metric isolating parallel self-refinement's improvement beyond majority-voting aggregation over the same candidate set, revealing that refinement capability scales with model size and correlates only weakly with base task capability",
+    "an argument, from the near-zero refinement gap of untrained smaller models, that self-refinement is a distinct, learnable inference skill requiring explicit training activation rather than being reliably elicited by prompting",
+    "Generative Self-Refinement (GSR), a hybrid training pipeline jointly optimizing direct candidate generation and candidate synthesis in a single model, with training data deliberately retaining hard, all-incorrect-candidate cases to teach genuine synthesis rather than selection",
+    "state-of-the-art results across five math benchmarks, with the trained 7B student's refinement gap exceeding a much larger (32B) teacher model's own gap, structural evidence of genuine synthesis (5.9% correct-from-all-wrong-candidates recovery, impossible for selection-based baselines), and demonstrated transfer across model scales and to an out-of-domain logic-puzzle task"
+  ],
+  "datasets": [
+    "OpenMathReasoning (training corpus, 184K direct-solving + 184K refinement instances)",
+    "AIME24",
+    "AIME25",
+    "AMC22-23",
+    "MATH500",
+    "OlympiadBench",
+    "Knights and Knaves (K&K, out-of-domain logic puzzles)"
+  ],
+  "generated_at": "2026-08-28T01:52:31Z",
+  "generated_by": "queue",
+  "limitations": "On the MATH500 benchmark specifically, selfRef@4 (93.4%) marginally underperforms BoN@4 with an external reward model (93.5%), attributed to the specific dynamics of high-accuracy regimes where at least one correct candidate is highly likely to already be present among four samples, making selection-based methods particularly competitive there and reducing the relative advantage of synthesis. The hierarchical input-scaling strategies used by some prior methods to scale beyond a fixed candidate count have O(N) time complexity, a general limitation of the parallel-refinement paradigm the paper's own input-scaling experiments work within (though GSR itself is evaluated with direct, non-hierarchical scaling up to k=10). The paper's main experiments and training are conducted on mathematical reasoning; broader domain coverage beyond the single out-of-domain logic-puzzle check is not reported.",
+  "method": "Defines the Refinement Gap Delta(M,D,k) = selfRef@k(M,D) - maj@k(M,D) for a model M, dataset D and candidate budget k, using majority voting as a deterministic, well-understood baseline to isolate the marginal contribution of synthesis-based refinement beyond simple aggregation. Measures this across instruction (Qwen2.5-Instruct) and thinking (DeepSeek-R1-Distill-Qwen/QwQ) model families from 1.5B to 72B on AIME24/25, finding the gap scales with model size (a regime shift around 14B, with >=14B models showing consistently higher average gap) and correlates only weakly with base pass@1 capability (e.g. DeepSeek-R1-Distill-Qwen-7B has higher base accuracy than Qwen2.5-32B-Instruct on AIME24 but a much lower/negative refinement gap). Concludes self-refinement is a distinct, learnable inference skill that must be explicitly activated via training (not reliably elicited by prompting alone in small models), motivating Generative Self-Refinement (GSR): a single unified student model trained to both generate strong candidates (direct-solving) and synthesize a refined final answer from a set of candidates (refinement), via a hybrid training pipeline. Training data construction: for each problem, k candidates are sampled from the student itself (matching the test-time candidate distribution), concatenated with the question into an augmented input, and a large teacher model with high refinement gap is queried to produce a refined target solution -- crucially retaining hard instances where all candidates are incorrect or highly inconsistent, so the student is directly supervised on synthesizing a correct solution from flawed inputs rather than merely selecting among them. A separate direct-solving dataset (teacher's direct solutions to the original questions) is combined with the refinement dataset via a weighted joint negative-log-likelihood objective (lambda=0.5), so the model preserves/strengthens base candidate-generation quality while learning the refinement skill, rather than the refinement objective alone (bottlenecked by candidate quality) or the direct-solving objective alone (improves base capability but not refinement).",
+  "methods": [
+    "Generative Self-Refinement (GSR)",
+    "majority voting (baseline)",
+    "Best-of-N with reward models (SkyworkRM-27B, RM-R1-7B, RRM-7B baselines)",
+    "Synthesizer-8B (baseline)"
+  ],
+  "models": [
+    "Qwen2.5-7B-Instruct (GSR-7B base)",
+    "Qwen2.5-14B/32B-Instruct",
+    "DeepSeek-R1-Distill-Qwen family",
+    "QwQ-32B (teacher)",
+    "o1-mini (reference)"
+  ],
+  "one_liner": "Defines the Refinement Gap (self-refinement accuracy minus majority-voting accuracy) to isolate parallel self-refinement's genuine value beyond simple candidate aggregation, finds it scales with model size but only weakly with base capability, and trains this capability into a 7B student (GSR) via a hybrid direct-solving-plus-refinement objective that explicitly retains all-candidates-incorrect training cases -- achieving 73.6% average accuracy across five math benchmarks (a +3.1-point Refinement Gap versus a much larger QwQ-32B teacher's +1.15) and recovering correct answers 5.9% of the time even when every sampled candidate is wrong.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.1291",
+  "problem": "Test-time scaling methods like majority voting and Best-of-N are fundamentally bounded by candidate quality -- they cannot produce a correct answer if every sampled candidate is wrong -- and while parallel self-refinement (generating multiple candidates and synthesizing a refined answer conditioned on them) is a promising alternative, it is unclear how much of its benefit is genuinely a refinement effect versus simply the effect of having multiple candidates to choose among (which majority voting also exploits), and whether/how this capability can be reliably elicited in smaller models.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Indirectly relevant: this is about test-time compute allocation across multiple parallel candidate generations and their synthesis, not about single-trace reasoning length, but its central methodological move -- separating a technique's genuine mechanism (synthesis) from a simpler confound (aggregation, i.e. majority voting) via a differential metric (Refinement Gap) -- is a useful template for the kind of careful attribution overthinking-mitigation methods elsewhere in this archive should also apply when claiming a specific intervention (rather than a confound like shorter training context or reduced sampling variance) drives their reported gains."
+  },
+  "results": "GSR-7B (Qwen2.5-7B-Instruct trained via the hybrid pipeline) achieves 73.6% average accuracy across five math benchmarks (AIME24/25, AMC22-23, MATH500, OlympiadBench) at k=4, the state of the art among compared parallel aggregation methods, exceeding majority voting (70.5%), several trained/RL-based reward-model Best-of-N variants (68.5-70.9%), and a prior SOTA synthesis-based aggregator (Synthesizer-8B, 69.7%). Its Refinement Gap after training is +3.1 points average (AIME24 +6.0, AIME25 +5.0), versus the untrained base model's near-zero gap (+/-0.0) and versus the strong teacher model QwQ-32B's own gap of only +1.15 -- meaning the trained 7B student exceeds its much-larger teacher's refinement gap, evidence the training successfully distills and even amplifies the refinement skill beyond what the teacher itself exhibits at inference. In the hardest, most-informative regime (candidate pool with zero correct answers among 4, N_c=0), GSR-7B still produces a correct solution 5.9% of the time on average across benchmarks (3.4% on MATH500 up to 9.0% on AMC22-23), while every compared baseline method achieves 0% in this regime by construction (majority voting and BoN/RM-based selection cannot produce an answer not present among the candidates) -- direct, structural evidence GSR performs genuine synthesis rather than selection. An ablation isolating training-data composition (Direct-Solving only, Refinement only, vs. the hybrid) shows Direct-Solving-only maximizes pass@1 but has severely limited self-refinement capacity; Refinement-only surprisingly still improves pass@1 over the untrained base model but underperforms on selfRef@4 relative to the hybrid; the full hybrid method achieves the highest selfRef@4 on both AIME24/25 while maintaining competitive pass@1, confirming joint optimization is necessary (not merely additive) for the synergy between candidate quality and refinement skill. The method generalizes to larger model scales (14B/32B): after the same hybrid fine-tuning, selfRef@4 shows a 20.1% relative improvement over majority voting on the 14B model (AIME24, 68.1% vs. 56.7%) and 13.7% on the 32B model (AIME25, 67.3% vs. 59.2%), while the base 14B model without training fails to benefit from self-refinement at all (even degrading relative to majority voting on AIME24) -- and since all training-data candidate solutions were generated by the 7B model (not the 14B/32B models being fine-tuned), this cross-model-size transfer is evidence the learned skill decouples from a model's own specific error patterns rather than merely correcting its own idiosyncratic mistakes. Input-scaling experiments (evaluating with more candidates than trained on, k=2 to 10, though training used only k=4) show GSR-7B's selfRef@k consistently outperforms majority voting and scales with more candidates, even slightly exceeding oracle pass@2 at k=2 on AIME24 (63.2% vs. 62.5%), demonstrating extrapolation beyond the fixed training candidate count. Out-of-domain generalization to Knights and Knaves logic puzzles (a non-math domain) shows the untrained base model's self-refinement actually underperforms majority voting (-7.6% relative), while GSR-7B shows the opposite pattern, a +7.2% relative improvement from self-refinement over majority voting -- confirming the trained skill transfers to an unseen reasoning domain rather than being math-specific.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "self-refinement",
+    "parallel-reasoning",
+    "distillation",
+    "reward-model-free-aggregation"
+  ]
+}

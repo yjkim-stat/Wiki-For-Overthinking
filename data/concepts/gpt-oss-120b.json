@@ -53,6 +53,18 @@
       "title": "Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.1289",
+      "kind": "paper",
+      "note": "Introduces Effective Token Cost (ETC), a hardware/pricing-aware metric weighting cached vs. non-cached input and output tokens, to study how deep-search agents should allocate test-time budget between listwise document reranking depth and agent reasoning effort -- finding moderate reranking depth is consistently more cost-effective than increasing search-time reasoning, and that a lightweight cross-encoder reranker recovers most of listwise reranking's end-to-end accuracy gain at substantially lower cost.",
+      "title": "Rerank Before You Reason: Analyzing Reranking Tradeoffs through Effective Token Cost in Deep Search Agents"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1456",
+      "kind": "paper",
+      "note": "ReasonIF is a 300-sample, six-instruction-type benchmark (multilinguality, word limit, disclaimer, JSON formatting, uppercase-only, remove-commas) showing large reasoning models comply with instructions far less inside their reasoning trace (average IFS 15.6%) than in their main response (57.3%), that reasoning instruction-following degrades further as problem difficulty rises (positive correlation up to 0.863 with accuracy), and that both multi-turn self-reflection and supervised fine-tuning on synthetic reasoning-instruction data (RIF) only partially close the gap, the latter trading a measurable accuracy drop for the IFS gain.",
+      "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning"
+    },
+    {
       "id": "title:cc91145094e2b147",
       "kind": "paper",
       "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
@@ -61,7 +73,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "gpt-oss-120b",
   "related": [
     "chain-of-thought-faithfulness",
@@ -212,6 +224,32 @@
     "deepseek-r1-distill-qwen-1-5b",
     "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-0528-qwen3-8b",
+    "effective-token-cost-etc",
+    "listwise-reranking",
+    "deep-search-agent",
+    "reasoning-effort-vs-retrieval-depth-budget-allocation",
+    "heterogeneous-reranker-cost-effectiveness",
+    "rankllm-listwise-reranking",
+    "qwen3-reranker-0-6b-cross-encoder-reranking",
+    "qwen3-embedding-8b-base-retriever",
+    "effective-token-cost-etc-metric",
+    "browsecomp-plus-830-deep-search-queries-human-verified-corpus",
+    "reasoning-instruction-following",
+    "instruction-following-score-ifs",
+    "reasoning-vs-response-if-gap",
+    "reasoning-instruction-finetuning-rif",
+    "verifiable-instructions",
+    "reasonif-benchmark-verifiable-instruction-checking",
+    "multi-turn-self-reflection",
+    "gsm8k",
+    "amc",
+    "aime",
+    "arc-challenge",
+    "reasonif-new-300-samples",
+    "deepseek-r1-distill-qwen-14b",
+    "glm-4-5-air",
+    "deepseek-r1",
+    "qwen3-235b-a22b-thinking-2507",
     "thinking-budget-allocation",
     "self-consistency-as-a-difficulty-proxy",
     "compute-optimal-inference",
@@ -224,7 +262,6 @@
     "hidden-state-probing-adapter",
     "qwen3-235b-a22b",
     "intern-s1-mini",
-    "gsm8k",
     "gpqa"
   ],
   "related_authored": [

@@ -47,7 +47,7 @@ Stated: six open-weight models up to 120B, no closed models and none from the De
 
 - **Concepts**: [Chain-of-Thought Compression](../../../../wiki/concepts/chain-of-thought-compression.md), Token Entropy, Forking Tokens, Random Baseline, Activation Patching, Relative Performance Retention, Distributed Reasoning Information, Confounded Heuristics
 - **Methods**: entropy-based CoT pruning (low-entropy / high-entropy selection), random pruning baseline, numbers and low-entropy-no-numbers selectors, residual-stream activation patching, NNsight, relative performance retention (RPR) and delta-AUC, bootstrap confidence intervals, gpt-oss-20b/120b, gemma-4-E4B-it, gemma-4-26B-A4B-it, Qwen3-4B/14B
-- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AIME 2026](../../../../wiki/datasets/aime-2026.md), MATH-500 (subsets of 100/50/50), ZebraLogic, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+- **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AIME 2026](../../../../wiki/datasets/aime-2026.md), MATH-500 (subsets of 100/50/50), [ZebraLogic](../../../../wiki/datasets/zebralogic.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `cot-compression`, `entropy`, `negative-result`, `activation-patching`, `reproducibility`, `efficient-reasoning`, `random-baseline`
 

@@ -45,6 +45,12 @@
       "title": "How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.1121",
+      "kind": "paper",
+      "note": "Using a truncation-based diagnostic across 11 languages, 3 model sizes, and 2 benchmarks, this paper measures how strongly LRMs already know the answer before finishing their explicit reasoning trace ('latent reasoning'), finding it exists but is uneven -- strong in resource-rich languages on easy tasks, weak in low-resource languages, and largely absent on harder benchmarks -- and that the internal layer-wise dynamics driving it are strikingly consistent across languages, converging toward an English-centered latent pathway that is not explained by memorization alone.",
+      "title": "Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners"
+    },
+    {
       "id": "title:6ac5c2757444abad",
       "kind": "paper",
       "note": "A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.",
@@ -53,7 +59,7 @@
   ],
   "first_seen": "2026-08-21T00:56:47Z",
   "kind": "model",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:05:37Z",
   "name": "DeepSeek-R1-Distill-Qwen-32B",
   "related": [
     "mixture-of-neurons-mon",
@@ -169,6 +175,20 @@
     "gemini-2-5-pro-distillation-source",
     "gpt-4o-distillation-source",
     "claude-3-5-sonnet-distillation-source",
+    "latent-reasoning",
+    "overthinking-in-a-multilingual-latent-reasoning-context",
+    "truncation-based-latent-reasoning-identification",
+    "gold-in-trace-rate",
+    "latent-reasoning-score-lrs",
+    "english-centered-latent-reasoning-pathway",
+    "memorization-vs-genuine-reasoning-disentanglement",
+    "logit-lens",
+    "numedit-perturbation",
+    "paraphrase-perturbation",
+    "mgsm-multilingual-grade-school-math-250-problems-11-languages",
+    "multilingual-aime-aime2024-2025-translated-11-languages",
+    "qwen2-5-32b-instruct",
+    "nemotron-32b",
     "chain-of-thought-compression",
     "overthinking",
     "token-budget",

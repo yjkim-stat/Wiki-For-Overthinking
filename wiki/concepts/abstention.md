@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Abstention -- an LLM's ability to recognize when it should not answer (an ill-posed, ambiguous, or unanswerable query) -- is studied in these sources as a capability degraded by reasoning-style prompting: TRACE INVERSION shows CoT prompting itself lowers abstention accuracy by an average 2.6% versus non-reasoning prompting, and proposes detecting failures via query-reconstruction mismatch; Statistical Early Stopping for Reasoning Models proposes monitoring uncertainty-keyword arrivals within a trace to trigger abstention-driven halting on ill-posed queries, with a finite-sample bound on premature halting for well-posed ones.
 
 - **Kind**: concept
 - **Also called**: Abstention

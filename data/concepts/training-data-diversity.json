@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1266",
+      "kind": "paper",
+      "note": "A systematic study of entropy collapse in GRPO-based RLVR training finds performance can improve without entropy loss (so entropy collapse is not merely a side effect of legitimate learning), identifies clipping thresholds, off-policy update count, and training-data diversity as governing factors, proves theoretically and confirms empirically that positive-advantage tokens are the primary driver of entropy collapse, and proposes Positive-Advantage Reweighting -- dynamically down-weighting positive-advantage-token loss -- to regulate entropy while maintaining performance, though training exclusively on non-positive-advantage tokens actually hurts benchmark scores despite reducing collapse.",
+      "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T02:05:37Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:05:37Z",
+  "name": "training-data diversity",
+  "related": [
+    "entropy-collapse",
+    "positive-advantage-token",
+    "clipping-threshold-clip-higher-lower-tighter-free",
+    "off-policy-updates",
+    "positive-advantage-reweighting",
+    "miscalibration-entropy-collapse-and-confidence",
+    "grpo",
+    "positive-advantage-reweighting-stage-based-epoch-wise-entropy-guided",
+    "adaptive-entropy-regularization-baseline",
+    "clip-cov-kl-cov-baseline",
+    "rand-pos-clip-baseline",
+    "dapo-clip-higher-reference",
+    "dapo-math-17k-training",
+    "aime-2024",
+    "aime-2025",
+    "math500",
+    "amc23",
+    "minerva",
+    "livecodebench",
+    "ifeval",
+    "qwen2-5-math-7b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "training-data-diversity",
+  "topics": [
+    "overthinking"
+  ]
+}
