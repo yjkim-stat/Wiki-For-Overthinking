@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.304",
+      "kind": "paper",
+      "note": "MERA frames overthinking as a deficiency in fine-grained internal control (not a lack of capability) and fixes it by structurally decoupling a reasoning model's output into alternating <reason>/<control> segments -- built via a control-takeover data pipeline and trained with SFT plus a segment-wise, control-masked RL objective (CSPO) -- cutting DeepSeek-R1-Distill-Qwen token usage 30-47% while simultaneously improving accuracy across five math benchmarks and generalizing to non-math MMLU-Pro domains.",
+      "title": "From \"Aha Moments\" to Controllable Thinking: Toward Meta-Cognitive Reasoning in LRMs via Decoupled Reasoning and Control"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "Llama-3.3-70B-Instruct (control-signal generator)",
+  "related": [
+    "meta-cognitive-reasoning-framework-reasoning-control-decoupling",
+    "control-takeover-data-construction",
+    "control-segment-policy-optimization-cspo",
+    "control-masking-sparse-reward-attribution",
+    "mera-meta-cognitive-reasoning-framework",
+    "control-takeover-mechanism",
+    "o1-pruner-no-wait-dast-fcs-ref-lcpo-deer-baselines",
+    "deepscaler-preview-dataset-training-5-000-pairs",
+    "gsm8k",
+    "math500",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "mmlu-pro-law-engineering-physics-subsets",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-14b",
+    "gpt-4o-control-reward-scorer"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "llama-3-3-70b-instruct-control-signal-generator",
+  "topics": [
+    "overthinking"
+  ]
+}

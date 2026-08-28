@@ -46,7 +46,7 @@ The evaluation focuses on reasoning-intensive classification tasks with complex,
 
 - **Concepts**: Prompt-Level Distillation (PLD), non-parametric reasoning transfer, closed-loop conflict resolution, semantic clustering of extracted instructions (DBSCAN)
 - **Methods**: Prompt-Level Distillation (supervised extraction + DBSCAN clustering + closed-loop conflict resolution), TextGrad (automatic prompt optimization baseline), LoRA fine-tuning (baseline), Knowledge Distillation (comparison paradigm)
-- **Datasets**: Contract-NLI, StereoSet, LogiQA
+- **Datasets**: Contract-NLI, StereoSet, [LogiQA](../../../../wiki/datasets/logiqa.md)
 
 Tags: `overthinking`, `distillation`, `prompt-engineering`, `efficient-reasoning`, `chain-of-thought`
 

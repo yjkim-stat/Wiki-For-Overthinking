@@ -47,7 +47,7 @@ The adaptive precision- and confidence-tracking mechanism introduces a minor com
 
 - **Concepts**: temporal redundancy (CoT), spatial redundancy (numerical precision), Dewey-inspired reasoning-phase segmentation, phase-aware progressive quantization, unified confidence score (local dynamics + progression regularizer), coordinated (jointly-scheduled) termination
 - **Methods**: Any-Precision quantization, phase-aware progressive quantization, Random Forest reasoning-phase classifier, coordinated confidence-based termination, PMPD / S1 length-control / NoThinking (baselines)
-- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), AIME-120, [AMC-23](../../../../wiki/datasets/amc23.md), GPQA-Diamond-MC, GSM8K (appendix), MMLU (appendix)
+- **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), AIME-120, [AMC-23](../../../../wiki/datasets/amc23.md), GPQA-Diamond-MC, [GSM8K (appendix)](../../../../wiki/datasets/gsm8k-appendix.md), MMLU (appendix)
 
 Tags: `overthinking`, `quantization`, `efficient-reasoning`, `early-termination`, `training-free`
 

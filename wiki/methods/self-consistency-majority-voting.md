@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Self-consistency (majority voting) is sampling multiple independent reasoning attempts and taking the majority/plurality answer as the final one. In this archive it appears as the baseline SoftCoT's soft-thought-token method is meant to improve upon or complement, and as one of two signals (alongside PRM scores) that a separate paper derives an optimal weighted combination of for selecting responses at test time, cutting the compute needed for comparable accuracy versus using either signal alone.
 
 - **Kind**: method
 - **Also called**: self-consistency / majority voting

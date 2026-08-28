@@ -1,17 +1,23 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "XSTest is an exaggerated-safety (over-refusal) benchmark used in this archive by SafeChain's 13-model safety evaluation and by ReasoningGuard, whose attention-aware safety injection achieves the best or near-best exaggerated-safety scores (0.95/0.84 F1) among training-free defenses, mitigating the over-refusal problem other jailbreak defenses introduce.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.findings-acl.1197",
       "kind": "paper",
       "note": "SafeChain systematically evaluates 13 large reasoning models' safety on StrongReject/WildJailbreak, finding no model is safe on both, that unsafe responses are consistently longer than safe ones, that safety improves within a model family as it scales but long-CoT fine-tuning itself does not inherently improve safety over the base instruction-tuned model, and that training-free decoding strategies controlling thought length (ZeroThink most effectively) improve safety without training -- motivating a new CoT-style safety training dataset that preserves reasoning performance while improving safety.",
       "title": "SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1453",
+      "kind": "paper",
+      "note": "ReasoningGuard is a training-free, inference-time jailbreak defense for large reasoning models that uses an attention-sink signal to locate the moment reasoning shifts from problem restatement to exploration, injects a crafted 'safety aha' phrase there, then samples multiple continuations and selects the one with the highest sustained attention to that safety phrase -- outperforming nine existing defenses at only 5-9% extra inference cost.",
+      "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T00:09:24Z",
   "name": "XSTest",
   "related": [
     "thought-answer-safety-decomposition",
@@ -38,7 +44,23 @@
     "gemini-thinking",
     "kimi-k1-5",
     "claude-3-7-sonnet",
-    "llama-3-3-70b-instruct-base-model-comparison"
+    "llama-3-3-70b-instruct-base-model-comparison",
+    "safety-aha-moment-inference-time-injection",
+    "attention-sink-as-a-phase-transition-signal",
+    "superficial-safety-alignment",
+    "injection-attention-score-ias",
+    "reasoningguard-attention-sink-triggered-safety-injection-ias-based-scaling-sampl",
+    "safedecoding-realsafe-r1-safepath-ft-safekey-training-based-baselines",
+    "paraphrase-self-reminder-smoothllm-thinkingi-safepath-zs-training-free-baselines",
+    "advbench",
+    "sorrybench",
+    "mmlu",
+    "gpqa-diamond",
+    "deepseek-r1-qwen-7b-14b-32b",
+    "deepseek-r1-llama-8b",
+    "phi-4-reasoning",
+    "qwq-32b",
+    "qwen3-4b-thinking-2507"
   ],
   "related_authored": [],
   "schema_version": 1,

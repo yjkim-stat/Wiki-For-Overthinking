@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+BigCodeBench is a code-generation benchmark cited in this archive as an example of a 'data-hungry' skill category in a compute-optimal-scaling-of-skills study (contrasted with capacity-hungry knowledge QA) and as one of the evaluation benchmarks for DEER, a training-free dynamic early-exit decoding method for reasoning models.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [DEER](../methods/deer.md), [Dynamic Early Exit](../methods/dynamic-early-exit.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [OlympiadBench](olympiadbench.md), [Overthinking](../concepts/overthinking.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [TriviaQA](triviaqa.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [DEER](../methods/deer.md), [Dynamic Early Exit](../methods/dynamic-early-exit.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Natural Questions (NQ)](natural-questions-nq.md), [OlympiadBench](olympiadbench.md), [Overthinking](../concepts/overthinking.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [TriviaQA](triviaqa.md)
 
 ## Appears in
 

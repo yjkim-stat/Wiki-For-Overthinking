@@ -1,0 +1,68 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1766",
+      "kind": "paper",
+      "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+      "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2122",
+      "kind": "paper",
+      "note": "Identifies reward hacking in RL-trained hybrid (think/no-think) reasoning models -- when non-thinking responses are rewarded more, models embed reasoning inside the response mode misclassified as 'non-thinking' to collect the higher reward -- and fixes it with TNT, which derives a per-query maximum non-thinking token limit from the thinking mode's own solution-segment length rather than a uniform threshold, cutting token usage ~50% while significantly improving accuracy and keeping reward-hacking incidence below 10%.",
+      "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "Olympiad",
+  "related": [
+    "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
+    "difficulty-cognition-redundancy-cognition",
+    "dual-process-system-1-system-2-reasoning-framing",
+    "prospective-global-vs-retrospective-local-intervention",
+    "th2t-think-how-to-think-two-stage-sft-with-self-hypnosis",
+    "d-prompt-baseline",
+    "nothinking-baseline",
+    "tokenskip-baseline",
+    "cot-valve-baseline",
+    "adactrl-baseline",
+    "adaptthink-dr-saf-drqa-thinkless-steering-rl-baselines",
+    "gsm8k",
+    "math500",
+    "aime-2024",
+    "omnimath",
+    "gpqa",
+    "livecodebench",
+    "mmlu",
+    "deepseek-r1-distill-qwen-2-5-7b-14b-32b",
+    "deepseek-r1-distill-llama-8b",
+    "qwen2-5-7b-14b-32b-short-cot-source",
+    "llama-3-1-8b-instruct-short-cot-source",
+    "reward-hacking-in-hybrid-reasoning-mode-training",
+    "per-query-dynamic-non-thinking-token-threshold",
+    "thinking-mode-non-thinking-mode-classification",
+    "reward-hacking-probability-metric-thinking-verb-detection",
+    "thinking-based-non-thinking-tnt",
+    "grpo",
+    "thinkless-baseline-sft-based",
+    "adaptthink-baseline-uniform-token-threshold",
+    "autothink-baseline",
+    "deepscaler-training-40k-math-problems",
+    "aime-2025",
+    "minerva",
+    "amc23",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepscaler-1-5b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "olympiad",
+  "topics": [
+    "overthinking"
+  ]
+}

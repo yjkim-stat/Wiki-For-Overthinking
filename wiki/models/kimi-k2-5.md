@@ -9,7 +9,7 @@ A model used as an annotator LRM (labeling safety judgments and extracting suppo
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [BrowseComp](../datasets/browsecomp.md), [GAIA](../datasets/gaia.md), [Gemma-4-E4B](gemma-4-e4b.md), [gpt-oss-120b](gpt-oss-120b.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Qwen3-8B](../methods/qwen3-8b.md)
+**Related**: [BrowseComp](../datasets/browsecomp.md), [DeepSeek-V3.2](deepseek-v3-2.md), [GAIA](../datasets/gaia.md), [Gemma-4-E4B](gemma-4-e4b.md), [gpt-oss-120b](gpt-oss-120b.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Qwen3-8B](qwen3-8b.md)
 
 ## Appears in
 

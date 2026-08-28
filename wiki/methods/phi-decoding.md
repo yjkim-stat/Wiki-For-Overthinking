@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Phi-decoding is one of nine test-time-compute scaling strategies implemented in ThinkBooster's unified benchmarking framework and one of four test-time-scaling backends MUR (Momentum Uncertainty guided Reasoning) is evaluated against. Sources name it as a strategy/backend among several rather than describing its own mechanism.
 
 - **Kind**: method
 - **Also called**: phi-Decoding
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [best-of-N](best-of-n.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [HumanEval](../datasets/humaneval.md), [majority voting / self-consistency](majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen2.5-Math-7B-Instruct](../models/qwen2-5-math-7b-instruct.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-8B](qwen3-8b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [best-of-N](best-of-n.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [HumanEval](../datasets/humaneval.md), [majority voting / self-consistency](majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [MBPP](../datasets/mbpp.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen2.5-Math-7B-Instruct](../models/qwen2-5-math-7b-instruct.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3-8B](../models/qwen3-8b.md)
 
 ## Appears in
 

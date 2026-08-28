@@ -9,7 +9,7 @@ Meta's 1B-parameter Llama 3.2 checkpoint, used in this archive as the smallest b
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [GSM8K](../datasets/gsm8k.md), [Latent reasoning](../concepts/latent-reasoning.md), [Llama-3.1-8B](llama-3-1-8b.md), [Recurrent Depth](../concepts/recurrent-depth.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [GSM8K](../datasets/gsm8k.md), [Latent reasoning](../concepts/latent-reasoning.md), [Llama-3.1-8B](llama-3-1-8b.md), [LoRA](../methods/lora.md), [Recurrent Depth](../concepts/recurrent-depth.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md)
 
 ## Appears in
 

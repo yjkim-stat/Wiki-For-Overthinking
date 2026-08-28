@@ -9,6 +9,12 @@
       "title": "ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning"
     },
     {
+      "id": "doi:10.18653/v1/2026.acl-long.143",
+      "kind": "paper",
+      "note": "CiPO reframes unlearning for large reasoning models as counterfactual intervention on the chain-of-thought: it has the target model generate a logically valid counterfactual reasoning trace and answer, then iteratively preference-optimizes the model toward that counterfactual (SimPO loss against online-sampled dispreferred responses), removing sensitive knowledge from both intermediate CoT and final answers while preserving reasoning ability better than prior unlearning baselines.",
+      "title": "CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization"
+    },
+    {
       "id": "title:279ee92c27a8bb8d",
       "kind": "paper",
       "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
@@ -17,7 +23,7 @@
   ],
   "first_seen": "2026-08-21T00:49:09Z",
   "kind": "method",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-28T00:09:24Z",
   "name": "SimPO",
   "related": [
     "overthinking",
@@ -52,6 +58,19 @@
     "deepseek-r1",
     "qwen-qwq",
     "kimi-1-5",
+    "counterfactual-unlearning",
+    "causal-intervention-view-of-lrm-unlearning-do-f-c-a",
+    "iterative-online-preference-optimization",
+    "cot-level-vs-answer-level-forgetting",
+    "cipo-counterfactual-unlearning-via-iterative-preference-optimization",
+    "r2mu-baseline",
+    "reasonedidk-directidk-answeridk-baselines",
+    "gradient-ascent-gradient-descent-ga-gd-baselines",
+    "npo-baseline",
+    "r-tofu-forget01-05-10",
+    "return",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-0528-qwen3-8b",
     "reasoning-efficiency-frontier",
     "reasoning-efficiency-gap",
     "token-budget",

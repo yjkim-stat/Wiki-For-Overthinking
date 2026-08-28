@@ -27,6 +27,46 @@
       },
       {
         "kind": "paper",
+        "note": "CAT (Confidence-Adaptive Thinking) uses self-certainty -- the KL divergence of a reasoning trajectory's per-token predictive distribution from uniform, an intrinsic model signal requiring no external labels -- to build preference pairs and a confidence-weighted preference-optimization loss (CWPO) that compresses reasoning on problems the model is confident about while preserving deliberation on uncertain ones, beating three efficient-reasoning baselines (OverThink, DAST, ConCISE) on accuracy-at-compression across three LRMs and three benchmarks.",
+        "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies 'length shift' -- reasoning models progressively generate longer responses on already-correctly-solved (zero-gradient) training queries during RLVR, because reasoning-word emission learned for hard problems generalizes indiscriminately to easy ones -- and fixes it with Dynamic Outlier Truncation (DOT), a training-time RL intervention that truncates only the statistical outlier-length tail of all-correct rollout groups (affecting <0.5% of responses) while leaving hard queries unconstrained, cutting AIME-24 token usage 78% while increasing accuracy over the initial policy and beating prior efficient-reasoning methods.",
+        "title": "Anti-Length Shift: Dynamic Outlier Truncation for Training Efficient Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "LEASH formulates reasoning-length control as a constrained RL optimization (maximize task reward subject to an expected-length constraint) solved via a Lagrangian primal-dual method with a one-sided length penalty, letting the penalty coefficient lambda self-tighten or self-relax based on real-time constraint violation rather than requiring manual tuning, and reduces average reasoning length by up to 62.7% (1.5B model) or 26.2% (4B model) while maintaining or improving accuracy on in-domain math and out-of-domain (GPQA, MMLU-Pro) benchmarks, outperforming fixed-penalty and prior length-control baselines.",
+        "title": "LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces token-level marginal utility -- the per-token log-probability gain toward the ground-truth answer -- and MUTO, a training framework that penalizes trajectories and individual tokens that reduce this probability, cutting DeepSeek-R1-Distill-Qwen token usage by 87.1% (1.5B) / 80.2% (7B) with comparable or better accuracy.",
+        "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names 'invalid thinking' -- redundant double-checking after a reasoning model has already derived the correct answer -- as a specific, measurable form of overthinking (Valid Thinking rate as low as 57.5-65.3% on four SOTA LRMs), and introduces LC-R1, a GRPO method with a dual Length Reward (global conciseness) and Compress Reward (targeted removal of the redundant tail), achieving ~46-52% length reduction for only 1.8-2.1% accuracy loss and 97%+ Valid Thinking rate.",
+        "title": "Optimizing Length Compression in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Ada-R1 merges a long-CoT and a short-CoT model into one hybrid, then applies two levels of preference training so the model first picks a reasoning style per problem and then prefers the shorter correct trace within that style, cutting average reasoning length by about 51% on five maths datasets.",
         "title": "Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization",
         "topics": [
@@ -43,9 +83,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-26T02:18:14Z",
-  "created_at": "2026-08-26T02:14:29Z",
-  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Qwen-1.5B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Qwen-1.5B is a language model that archived papers train and evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. It is the smallest distilled reasoning model the archive's length-reduction work uses, and in both citing papers it appears as the small sibling of the 7B model that carries the headline numbers. Ada-R1 merges a long-CoT and a short-CoT version of it into one hybrid and applies bi-level preference training, covering AIME25, MATH500, GSM8K, OlympiadBench and Minerva Math -- though the reported 50.93% length cut at a 1.65-point accuracy cost is measured on the 7B. ShorterBetter trains it on 40K DeepScaleR-preview mathematics problems with a per-problem target set by the shortest correct sampled response, reporting a 50%-80% output-length reduction across the 1.5B/7B pair both in and out of domain; neither paper reports the model's architecture or separate capability figures beyond those runs.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-28T00:11:38Z",
+  "created_at": "2026-08-28T00:09:26Z",
+  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Qwen-1.5B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Qwen-1.5B is the smallest of the DeepSeek-R1 distillations and the model the archive's length-reduction work uses when it wants a second scale alongside the 7B. It is filed as a model; earlier wiki text said the wiki had no kind for one, which is no longer true. Across the sources it plays two roles. As a training target it is the small sibling: Ada-R1 merges long-CoT and short-CoT versions of it under bi-level preference training across AIME25, MATH500, GSM8K, OlympiadBench and Minerva Math, though its headline 50.93% length cut at a 1.65-point accuracy cost is measured on the 7B; ShorterBetter trains it on 40K DeepScaleR-preview problems against a per-problem target set by the shortest correct sampled response, reporting 50%-80% output-length reduction across the 1.5B/7B pair in and out of domain; ChainPrune reports its own numbers on it directly, raising AIME24 accuracy 0.3104 to 0.3292 and AMC23 0.7016 to 0.7250 while cutting AMC23 chain length from 167 to 87 steps. As a subject of measurement, Bloom's Taxonomy profiling gives it the highest Evaluating share of the R1 distillations at 21.0% against 9.3% for the Llama-8B distillation, with Applying at 35.6%. No source reports its architecture or standalone capability figures beyond these runs.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1-Distill-Qwen-1.5B",
   "kind": "concept",
   "language": "en",
@@ -61,20 +101,14 @@
   },
   "payload": {
     "name": "DeepSeek-R1-Distill-Qwen-1.5B",
-    "previous_definition": "DeepSeek-R1-Distill-Qwen-1.5B is a language model that archived papers train and evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. It is the smallest distilled reasoning model the archive's length-reduction work uses, and in both citing papers it appears as the small sibling of the 7B model that carries the headline numbers. Ada-R1 merges a long-CoT and a short-CoT version of it into one hybrid and applies bi-level preference training, covering AIME25, MATH500, GSM8K, OlympiadBench and Minerva Math -- though the reported 50.93% length cut at a 1.65-point accuracy cost is measured on the 7B. ShorterBetter trains it on 40K DeepScaleR-preview mathematics problems with a per-problem target set by the shortest correct sampled response, reporting a 50%-80% output-length reduction across the 1.5B/7B pair both in and out of domain; neither paper reports the model's architecture or separate capability figures beyond those runs.",
-    "source_count": 5
+    "previous_definition": "DeepSeek-R1-Distill-Qwen-1.5B is the smallest of the DeepSeek-R1 distillations and the model the archive's length-reduction work uses when it wants a second scale alongside the 7B. It is filed as a model; earlier wiki text said the wiki had no kind for one, which is no longer true. Across the sources it plays two roles. As a training target it is the small sibling: Ada-R1 merges long-CoT and short-CoT versions of it under bi-level preference training across AIME25, MATH500, GSM8K, OlympiadBench and Minerva Math, though its headline 50.93% length cut at a 1.65-point accuracy cost is measured on the 7B; ShorterBetter trains it on 40K DeepScaleR-preview problems against a per-problem target set by the shortest correct sampled response, reporting 50%-80% output-length reduction across the 1.5B/7B pair in and out of domain; ChainPrune reports its own numbers on it directly, raising AIME24 accuracy 0.3104 to 0.3292 and AMC23 0.7016 to 0.7250 while cutting AMC23 chain length from 167 to 87 steps. As a subject of measurement, Bloom's Taxonomy profiling gives it the highest Evaluating share of the R1 distillations at 21.0% against 9.3% for the Llama-8B distillation, with Applying at 35.6%. No source reports its architecture or standalone capability figures beyond these runs.",
+    "source_count": 10
   },
   "result": {
-    "aliases": [
-      "R1-Distill-Qwen-1.5B",
-      "DeepSeek-Distill-Qwen-1.5B"
-    ],
-    "definition": "DeepSeek-R1-Distill-Qwen-1.5B is the smallest of the DeepSeek-R1 distillations and the model the archive's length-reduction work uses when it wants a second scale alongside the 7B. It is filed as a model; earlier wiki text said the wiki had no kind for one, which is no longer true. Across the sources it plays two roles. As a training target it is the small sibling: Ada-R1 merges long-CoT and short-CoT versions of it under bi-level preference training across AIME25, MATH500, GSM8K, OlympiadBench and Minerva Math, though its headline 50.93% length cut at a 1.65-point accuracy cost is measured on the 7B; ShorterBetter trains it on 40K DeepScaleR-preview problems against a per-problem target set by the shortest correct sampled response, reporting 50%-80% output-length reduction across the 1.5B/7B pair in and out of domain; ChainPrune reports its own numbers on it directly, raising AIME24 accuracy 0.3104 to 0.3292 and AMC23 0.7016 to 0.7250 while cutting AMC23 chain length from 167 to 87 steps. As a subject of measurement, Bloom's Taxonomy profiling gives it the highest Evaluating share of the R1 distillations at 21.0% against 9.3% for the Llama-8B distillation, with Applying at 35.6%. No source reports its architecture or standalone capability figures beyond these runs.",
+    "aliases": [],
+    "definition": "DeepSeek-R1-Distill-Qwen-1.5B is one of the most heavily studied small reasoning-model backbones in this archive, used to evaluate adaptive test-time compute allocation via mode tokens, ChainPrune's step-merging, cognitive profiling, CAT's confidence-adaptive compression, Anti-Length Shift's outlier truncation (78% AIME-24 token reduction), LEASH's constrained-RL length control (up to 62.7% reduction at this scale), MUTO's token-level marginal utility (87.1% token reduction), Ada-R1's hybrid-CoT merging, LC-R1's invalid-thinking compression, and ShorterBetter's shortest-correct-response target -- collectively the archive's primary testbed for length-compression methods at the 1.5B scale.",
     "kind": "model",
-    "related": [
-      "DeepSeek-R1",
-      "DeepSeek-R1-Distill-Qwen-7B"
-    ]
+    "related": []
   },
   "task_id": "concept__deepseek-r1-distill-qwen-1-5b",
   "task_version": 1,

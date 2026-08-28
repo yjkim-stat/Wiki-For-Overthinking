@@ -47,7 +47,7 @@ The analysis and evaluation focus on reasoning models and are conducted primaril
 
 - **Concepts**: thinking-content compensation, semantic path convergence, Reasoning Completion Point (RCP), cognitive inertia (post-RCP rationalization), Reasoning Completion Point Detector (RCPD), rank of </think> as an online convergence signature
 - **Methods**: stepwise truncation protocol, PCA-based semantic trajectory analysis, KL-divergence convergence residual, distill-to-detect pipeline (decision tree), Reasoning Completion Point Detector (RCPD), Full Reasoning / No-Think / Budget Force / DEER (baselines)
-- **Datasets**: MATH-500 (RCPD training), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), GPQA-D
+- **Datasets**: MATH-500 (RCPD training), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA-D](../../../../wiki/datasets/gpqa-d.md)
 
 Tags: `overthinking`, `reasoning-dynamics`, `early-exit`, `semantic-convergence`, `training-free`
 

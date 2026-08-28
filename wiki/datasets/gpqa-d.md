@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GPQA-D (GPQA-Diamond) is a graduate-level QA benchmark used in this archive to evaluate GRIP's reward-guided parameter interpolation for efficient reasoning and to validate the two-stage 'Reasoning Dynamics' structure (Pre-RCP Active Reasoning / Post-RCP Converged Reasoning) whose Reasoning Completion Point detector cuts tokens up to 44% while preserving or improving accuracy-per-token.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [DeepScaleR-preview (training)](deepscaler-preview-training.md), [GSM8K](gsm8k.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [Qwen3-4B-Instruct-2507](../models/qwen3-4b-instruct-2507.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [Qwen3-8B](../methods/qwen3-8b.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [DeepScaleR-preview (training)](deepscaler-preview-training.md), [GSM8K](gsm8k.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [Qwen3-4B-Instruct-2507](../models/qwen3-4b-instruct-2507.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [Qwen3-8B](../models/qwen3-8b.md)
 
 ## Appears in
 

@@ -1,0 +1,54 @@
+{
+  "concepts": [
+    "greedy pruning (likelihood-preserving token deletion)",
+    "token-level functional importance",
+    "pruning-rank dynamics",
+    "attention-predictable pruning ranks"
+  ],
+  "contributions": [
+    "greedy pruning, a diagnostic likelihood-preserving deletion procedure that reveals whether an LLM internally encodes token-level functional importance in its own reasoning",
+    "evidence that pruned reasoning chains preserve information needed for correct answer generation, evaluated via a teacher-pruner-student distillation framework that outperforms a frontier-model-supervised baseline (TokenSkip) at matched lengths",
+    "a functional-structure analysis showing symbolic computation is preferentially preserved under pruning while referential, descriptive and linguistic scaffolding is removed first, and that this structure is sharpened by including reasoning likelihood (not just answer likelihood) in the pruning objective",
+    "evidence that pruning ranks are dynamically re-evaluated as context contracts (not a fixed global ordering) and are substantially predictable from attention patterns alone (Pearson r=0.88 from a small trained surrogate)"
+  ],
+  "datasets": [
+    "GSM8K",
+    "MATH",
+    "MMLU-Pro"
+  ],
+  "generated_at": "2026-08-28T00:02:41Z",
+  "generated_by": "queue",
+  "limitations": "Greedy pruning's computational cost scales superlinearly in sequence length (each step requires re-evaluating likelihood over all remaining candidate deletions), making it a one-time offline preprocessing step rather than a universally scalable algorithm, and the paper studies it only at realistic-but-bounded reasoning lengths (<=500 tokens) where it remains empirically tractable. Aggressive pruning can degrade surface-level readability of reasoning traces, introducing formatting-level artifacts even though the paper reports semantic/mathematical structure is largely preserved at moderate (30%) reduction; the precise threshold at which reasoning becomes unsuitable for human interpretation is not characterized. The analysis is restricted to teacher-generated, correctness-filtered reasoning traces, so it is unclear whether pruning behaves the same way on incorrect or low-quality reasoning, where likelihood signals may be less aligned with true functional importance. Experiments use moderately sized instruction-tuned LLMs (not very large reasoning-focused models like DeepSeek-R1) due to computational constraints, though pruning quality is shown to depend on pruner strength, suggesting trends may persist or strengthen at larger scales.",
+  "method": "Greedy pruning is a likelihood-preserving deletion procedure: starting from a complete teacher-generated reasoning chain, it iteratively removes the single token whose deletion minimally degrades a pruner model's likelihood under a specified objective (answer-only, preserving log P(answer|remaining reasoning), or joint, preserving log P(reasoning and answer)), producing both a length-controlled pruned chain and a monotonic pruning-rank ordering over tokens. Evaluated in a teacher-pruner-student distillation framework across GSM8K, MATH and MMLU-Pro with four instruction-tuned models (Llama3.1-8B, Qwen2.5-7B, Llama2-7B-chat, Mistral-7B), comparing against TokenSkip (frontier-model-supervised), H2O (attention-based cache eviction), Surprisal (token-probability-based), and Uniform pruning baselines; also analyzes which functional token categories (symbolic math, coreference, entity names, verbal math, grammar, meta-discourse) are preserved or removed, whether pruning ranks are static or dynamically re-evaluated as context contracts, and whether pruning ranks are predictable from attention patterns alone via a trained MLP surrogate.",
+  "methods": [
+    "greedy pruning",
+    "TokenSkip (baseline)",
+    "H2O (baseline)",
+    "Surprisal (baseline)",
+    "Uniform pruning (baseline)",
+    "teacher-pruner-student distillation",
+    "attention-based MLP surrogate for pruning-rank prediction"
+  ],
+  "models": [
+    "Llama-3.1-8B-Instruct",
+    "Qwen2.5-7B-Instruct",
+    "Llama-2-7B-chat-hf",
+    "Mistral-7B-Instruct"
+  ],
+  "one_liner": "Introduces greedy pruning, a likelihood-preserving token-deletion diagnostic that reveals LLMs encode a nontrivial token-level functional-importance structure in their reasoning chains -- preferentially preserving symbolic computation over referential/linguistic scaffolding -- and shows students distilled on greedily-pruned chains outperform a frontier-model-supervised pruning baseline (TokenSkip) at matched lengths.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.1419",
+  "problem": "Prior compact-reasoning methods discover shorter reasoning chains via external mechanisms (stochastic sampling, heuristics, frontier-model supervision) but offer little insight into whether a model itself internally encodes which reasoning tokens are functionally important for producing the correct answer.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly relevant as a diagnostic contribution: rather than proposing another length-reduction training method, it asks whether models internally encode which reasoning tokens are functionally load-bearing, and answers yes -- with a specific, interpretable ordering (symbolic computation preserved, referential/linguistic scaffolding pruned first). This gives a mechanistic grounding for why length-based interventions elsewhere in the archive can cut 70-90% of tokens without hurting accuracy: much of a reasoning trace is measurably non-essential scaffolding, and this paper is among the more rigorous attempts to characterize which parts."
+  },
+  "results": "Across all teacher-pruner-student configurations and keep fractions (0.7-0.9), students trained on greedily-pruned reasoning chains achieve the strongest accuracy among pruning-based methods at matched keep fractions, consistently outperforming TokenSkip, H2O, Surprisal and Uniform on GSM8K, MMLU-Pro and MATH; zero-shot student performance is consistently worse than all pruning-based distillation methods. Functional-structure analysis on GSM8K shows symbolic-math tokens are strongly over-retained across pruning levels (deviating substantially above uniform-deletion baseline), while coreference tokens are markedly under-retained until late pruning stages, and verbal-math tokens fall below symbolic-math retention -- a stable ordering that persists (with some category shifts) even when pruner strength is varied. The answer-only pruning objective weakens this functional structure (categories collapse toward uniform) and correspondingly yields lower downstream student accuracy than the joint objective, and a weaker pruner (Llama2-7B) induces a different, less effective functional structure that also degrades student accuracy. Pruning ranks are dynamically re-evaluated as context contracts rather than fixed upfront: dynamic local rankings consistently outperform both a frozen (rho=1.0) and a random ranking baseline at predicting subsequent pruning decisions. A 2-layer MLP trained on only 200 GSM8K examples' attention features predicts post-deletion likelihood with Pearson correlation 0.88 on held-out data, indicating token-level importance is substantially accessible from attention patterns alone.",
+  "schema_version": 1,
+  "tags": [
+    "reasoning-compression",
+    "token-pruning",
+    "distillation",
+    "attribution",
+    "efficient-reasoning"
+  ]
+}

@@ -47,7 +47,7 @@ REST is primarily empirical and exploratory, serving as a controlled proxy for i
 
 - **Concepts**: question concatenation stress testing, adaptive reasoning effort allocation, question position bias, attention drift (to prior distractor reasoning), overthinking trap (REST-specific), Long2Short training robustness
 - **Methods**: REST (cyclic-indexed question concatenation), six-category error taxonomy, attention-allocation quantification (relevant vs. distractor content), Long2Short training (comparison)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), LiveCodeBench (v5), ARC-C, [BBH](../../../../wiki/datasets/bbh.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [LiveCodeBench (v5)](../../../../wiki/datasets/livecodebench-v5.md), [ARC-C](../../../../wiki/datasets/arc-c.md), [BBH](../../../../wiki/datasets/bbh.md)
 
 Tags: `overthinking`, `benchmark`, `stress-testing`, `multi-question-reasoning`, `attention-analysis`
 

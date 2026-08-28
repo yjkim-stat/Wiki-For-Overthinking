@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+LogiQA is a logic-heavy classification benchmark used in this archive by Prompt-Level Distillation, which lets compact student models match frontier-model accuracy on it via system-prompt heuristics transferred from a teacher rather than fine-tuning, and by AdaReasoner, an RL-trained plugin that picks a per-task reasoning configuration instead of a single fixed prompting setup.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

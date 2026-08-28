@@ -1,0 +1,50 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.237",
+      "kind": "paper",
+      "note": "MINER recovers training signal from 'positive homogeneous' (PH) prompts -- where all sampled RLVR rollouts are already correct and GRPO-style advantage collapses to zero, wasting the rollout budget -- by converting the policy's own per-token uncertainty (negative log-likelihood) into an intrinsic reward that reinforces under-confident-but-correct reasoning paths, combined with token-level focal credit assignment and adaptive advantage calibration, achieving up to +4.58 Pass@1 and +6.66 Pass@K over GRPO with zero extra rollouts or inference cost.",
+      "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "REINFORCE++ (baseline)",
+  "related": [
+    "positive-homogeneous-ph-prompt",
+    "uncertainty-driven-intrinsic-reward-per-token-nll",
+    "token-level-focal-credit-assignment",
+    "adaptive-advantage-calibration",
+    "miner-uncertainty-driven-intrinsic-reward-token-level-focal-credit-assignment-ad",
+    "grpo-baseline",
+    "dapo-baseline",
+    "gspo-baseline",
+    "ucas-baseline",
+    "bapo-kl-cov-clip-cov-entropy-adv-exploration-enhancement-baselines",
+    "math500",
+    "amc23",
+    "olympiadbench",
+    "aime-2024",
+    "aime-2025",
+    "hmmt25",
+    "deepscaler-training",
+    "medqa",
+    "medmcqa",
+    "pubmedqa",
+    "medxpertqa",
+    "mmlu-pro-medical-subset",
+    "qwen3-4b-base",
+    "qwen3-8b-base",
+    "qwen3-14b-base",
+    "llama3-1-8b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "reinforce-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

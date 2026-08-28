@@ -198,6 +198,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Directly on topic, and it attacks the stopping problem from an unusual angle: instead of shortening a Long CoT, it lets the model decline to enter one. Ada-GRPO is a concrete answer to why the obvious approach fails — under plain outcome-reward GRPO the policy collapses onto Long CoT because that format wins on accuracy in every group, so any multi-format scheme needs an explicit force keeping cheap formats alive. The per-benchmark numbers are the more useful contribution for this topic than the headline: the 73% saving on CommonsenseQA and the +7.9% on AIME&#x27;25 together say the model is learning task difficulty roughly correctly, and that an average token-reduction figure across a mixed benchmark suite mostly measures how many easy problems the suite contains. Useful as a comparison point against methods that impose a length penalty on a single format.</p>
 </section>
 <section class="slide">
+<h2>Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models</h2>
+<p class="subtitle">Jiawei Li, Yang Gao, Huashan Sun et al. · ACL · 2026</p>
+<blockquote>
+<p>Introduces token-level marginal utility -- the per-token log-probability gain toward the ground-truth answer -- and MUTO, a training framework that penalizes trajectories and individual tokens that reduce this probability, cutting DeepSeek-R1-Distill-Qwen token usage by 87.1% (1.5B) / 80.2% (7B) with comparable or better accuracy.</p>
+</blockquote>
+<ul>
+<li>token-level marginal utility, a dense per-token supervision signal quantifying each reasoning token&#x27;s log-probability contribution to the ground-truth answer, requiring no labeled CoT</li>
+<li>MUTO, an RLVR training framework that penalizes trajectories and tokens with negative marginal utility on top of a dual-mode Think/No-Think scaffold</li>
+<li>an efficiency-accuracy Pareto improvement across model scales (1.5B/7B) and six benchmarks, generalizing beyond math to GPQA/TheoremQA</li>
+<li>an analysis linking overthinking failures to accumulated negative-utility tokens causing the model to drift away from an answer it had transiently locked onto, rather than a pure capability deficit</li>
+</ul>
+<p><strong>Results.</strong> On six math benchmarks with DeepSeek-R1-Distill-Qwen backbones: at 1.5B, MUTO cuts average token usage 87.1% (10,633-&gt;1,374 tokens) while improving accuracy +2.3%, including +5.8% on AIME24 (27.5%-&gt;33.3%); at 7B, it cuts tokens 80.2% (7,815-&gt;1,544) with only -0.1% accuracy change (64.4%-&gt;64.3%). Under the Length-normalized Accuracy metric (L-Acc), MUTO scores 47.5 (1.5B) and 57.6 (7B), beating baselines Concise-RL (40.9), ShorterBetter, ThinkPrune and AutoThink (37.3 at 1.5B; AutoThink needs ~3x more tokens for comparable accuracy at 7B). Generalizes beyond math: on GPQA and TheoremQA, MUTO improves accuracy 33.45-&gt;34.00 while cutting tokens 75.32% (1.5B), and 34.35-&gt;35.20 while cutting tokens 69.21% (7B). Even on an already-concise math-specialized backbone (Qwen2.5-Math-1.5B-Instruct), MUTO still improves accuracy +2.0 points while cutting tokens 12.9%, though the efficiency gain is smaller than on the long-CoT DeepSeek-R1-Distill backbones. Failure analysis on MATH finds incorrect trajectories have a higher Negative Utility Ratio than correct ones (45.8% vs 34.9%), and that in all incorrect trajectories the model transiently reaches high confidence in the correct answer before drifting away as negative-utility tokens accumulate -- evidence the paper reads as &#x27;reasoning drift&#x27; rather than pure capability deficit.</p>
+<p><strong>Why it matters.</strong> Central to the topic: proposes a fine-grained, causally-motivated (probability-gain) diagnostic for exactly which tokens in a reasoning trace are wasteful, and uses it to train models that cut tokens 80-87% with comparable or improved accuracy -- among the strongest length-reduction results in the archive -- plus a mechanistic account (transient correct-answer confidence followed by negative-utility-token-driven drift) for why overthinking happens at all.</p>
+</section>
+<section class="slide">
 <h2>Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation</h2>
 <p class="subtitle">Yongshi Ye, Biao Fu, Chongxuan Huang et al. · ACL · 2026</p>
 <blockquote>
@@ -228,21 +243,6 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> This is the measurement paper the topic needs. Every method in this area reports &#x27;X% fewer tokens at comparable accuracy&#x27;, and those numbers are not comparable across papers because each picks its own operating point on its own base model; REG replaces the pair with one number defined against a common frontier. Two findings matter for how the group reads other work here. First, the failure taxonomy — methods either buy brevity with accuracy or hit good accuracy at budgets far above what the frontier shows is attainable — means a paper reporting high accuracy is not thereby efficient, and vice versa. Second, targeting only five token budgets approximates the whole accuracy-per-budget curve to under 1% error, which says the tradeoff curve is smooth enough that dense supervision at every length is unnecessary. Caveat when citing: the frontier is the envelope of the authors&#x27; own fine-tune pool, so REG is a relative yardstick, and the evaluation is math-only.</p>
 </section>
 <section class="slide">
-<h2>LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model</h2>
-<p class="subtitle">Yanhao Li, Lu Ma, Jiaran Zhang et al. · ACL · 2026</p>
-<blockquote>
-<p>LEASH formulates reasoning-length control as a constrained RL optimization (maximize task reward subject to an expected-length constraint) solved via a Lagrangian primal-dual method with a one-sided length penalty, letting the penalty coefficient lambda self-tighten or self-relax based on real-time constraint violation rather than requiring manual tuning, and reduces average reasoning length by up to 62.7% (1.5B model) or 26.2% (4B model) while maintaining or improving accuracy on in-domain math and out-of-domain (GPQA, MMLU-Pro) benchmarks, outperforming fixed-penalty and prior length-control baselines.</p>
-</blockquote>
-<ul>
-<li>a formalization of reasoning-length control as a constrained optimization problem (maximize task reward subject to an expected-length constraint), solved via a Lagrangian primal-dual method that adaptively tightens or relaxes the length penalty based on real-time constraint satisfaction, rather than relying on a fixed or manually-tuned penalty coefficient</li>
-<li>a one-sided penalized, clipped reward formulation that avoids incentivizing degenerately short responses (a failure mode of naive two-sided length penalties) while still discouraging over-length generations</li>
-<li>empirical results across two model scales (1.5B, 4B) showing LEASH achieves a substantially better efficiency-accuracy trade-off than fixed-penalty (LEASH-C) and prior length-control baselines (L1, THINKPRUNE, LASER-DE) on in-domain math benchmarks, with robust out-of-domain generalization to GPQA and MMLU-Pro</li>
-<li>a behavioral analysis showing LEASH-trained models reduce redundant self-verification and explicit step-by-step planning markers while retaining core reflective and summarization structures, rather than suppressing reasoning wholesale</li>
-</ul>
-<p><strong>Results.</strong> On DeepSeek-R1-Distill-Qwen-1.5B (target L_t=4k), LEASH reduces average generation length by 62.7% (11,103 -&gt; 4,230 tokens averaged across AIME24/25, HMMT25, AMC) while improving accuracy by +0.8 points, substantially outperforming L1-Qwen-1.5B-Max/Extra (-1.1/-1.6 accuracy, -81.6%/-83.7% tokens -- larger token reduction but at an accuracy cost), THINKPRUNE (-1.7 accuracy, -65.9% tokens), LASER-DE (-1.6 accuracy, -57.8% tokens), and its own fixed-penalty ablation LEASH-C (+1.5 accuracy but only -53.2% tokens, i.e. less compression than the adaptive variant at similar or better accuracy). On Qwen3-4B-Thinking-2507 (target L_t=12k), LEASH-4B achieves a 26.2% length reduction while maintaining 74.6% average accuracy (only 1.0 point below the 75.5% base model), and the constant-penalty LEASH-C-4B variant achieves less compression (-18.4%) at a larger accuracy cost (-2.1 points) -- demonstrating the adaptive dual-update variant consistently outperforms the fixed-penalty variant across model scales. Tightening the target length further (L_t=8k) still achieves about 29% token reduction with only minor performance degradation, showing robustness across different length-budget settings. Out-of-domain generalization (GPQA, MMLU-Pro) shows LEASH-4B (L_t=12k) improves average accuracy by +1.3 points while reducing generation length 16.9%, suggesting moderate length constraints can enhance focus and consistency in reasoning rather than merely degrading capability; the more aggressive L_t=8k setting still achieves roughly 29% average token reduction with only minor performance degradation, demonstrating robustness across both in- and out-of-domain evaluation settings. Training-dynamics analysis (1.5B, L_t=4k) shows LEASH&#x27;s adaptive lambda rises early in training (as generations initially exceed the target, intensifying the penalty), peaks around step 150, then progressively decays toward zero by ~step 450 as the model&#x27;s average length converges near the target -- while LEASH-C&#x27;s fixed lambda produces a smoother but less adaptive control signal, converging more slowly and settling at a higher token plateau than the adaptive variant, despite both ultimately reaching near-100% constraint-satisfaction rates. Behavioral analysis (keyword-frequency tracking across RL iterations on AIME24/25) shows average response length steadily decreases from 16.9K to 6.2K tokens over training; rethink-related keywords (&#x27;recheck&#x27;, &#x27;re-evaluate&#x27;) decrease from 9.38 to 3.62 frequency before a slight rebound to 3.69 (interpreted as the model reducing excessive self-verification while preserving necessary reflective mechanisms rather than eliminating reflection entirely); plan-related keywords (&#x27;First&#x27;, &#x27;Second&#x27;, &#x27;Step&#x27;) continuously decline from 30.53 to 9.16 (explicit step-by-step planning replaced by more implicit, compact procedural reasoning); summary-related keywords decline sharply then slightly rebound and stabilize, indicating the model retains essential structural conclusions while reducing redundant restatement.</p>
-<p><strong>Why it matters.</strong> Directly central to the topic and a strong methodological contribution to the training-time (RL reward-shaping) branch of overthinking mitigation: it explicitly targets the same over-penalization/under-penalization instability problem that plagues fixed-length-penalty RL methods, framing the fix as a constrained-optimization/Lagrangian-duality problem rather than a hand-tuned heuristic. Its behavioral keyword analysis -- showing rethink-related markers decline then rebound to a nonzero floor, distinct from plan-related markers which decline monotonically -- is a fine-grained empirical signal for exactly which reasoning behaviors get compressed versus preserved under length control, complementary to this archive&#x27;s other training-time methods (DOT, GRIP, CAT) and useful for calibrating how aggressive a length constraint can be before it starts removing genuinely necessary reflection rather than redundant verbosity.</p>
-</section>
-<section class="slide">
 <h2>Recurring ideas</h2>
 <ul>
 <li><strong>Overthinking</strong> — A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that wastes compute for no...</li>
@@ -257,19 +257,19 @@ th { background: var(--surface); }
 <h2>Methods</h2>
 <ul>
 <li><strong>GRPO</strong> — The reinforcement-learning algorithm almost every training-side method in this archive is built on: it samples a group of G completions p...</li>
-<li><strong>Qwen3-8B</strong> — Qwen3-8B is a language model that archived papers train and evaluate on, not a concept, method or dataset; the wiki has no kind for a mod...</li>
-<li><strong>DeepSeek-R1-Distill-Qwen-7B</strong> — DeepSeek-R1-Distill-Qwen-7B is a language model -- REA-RL calls it a 7B distilled model, and Ada-R1 and ShorterBetter use it as their lon...</li>
 <li><strong>Self-Consistency</strong> — Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is t...</li>
 <li><strong>Best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>
 <li><strong>process reward model</strong> — A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search a...</li>
+<li><strong>Early Exit</strong> — Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archi...</li>
+<li><strong>best-of-N</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
 <li><strong>MATH500</strong> — A 500-problem competition-mathematics test set drawn from the MATH dataset, and the archive&#x27;s default mid-difficulty maths benchmark: it...</li>
-<li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark. It appears acr...</li>
 <li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning...</li>
+<li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark. It appears acr...</li>
 <li><strong>GSM8K</strong> — A grade-school math word-problem benchmark used throughout the archive as an &#x27;easy&#x27; reasoning testbed, in contrast to harder benchmarks l...</li>
 <li><strong>GPQA-Diamond</strong> — The 198-question &#x27;Diamond&#x27; subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the arc...</li>
 <li><strong>AMC23</strong> — The 40 problems of the 2023 American Mathematics Competitions, used across the archive as the middle rung of a near-standard math evaluat...</li>
@@ -305,14 +305,15 @@ th { background: var(--surface); }
 <li>Yang Xiang, Yixin Ji, Ruotao Xu et al.. <em>When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning</em>. ACL. 2026</li>
 <li>Gijs Kassenaar, Zhao Yang, Vincent François-Lavet. <em>Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation</em>. cs.AI. 2026</li>
 <li><em>ARM: Adaptive Reasoning Model</em>. NeurIPS 2025. 2025</li>
+<li>Jiawei Li, Yang Gao, Huashan Sun et al.. <em>Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models</em>. ACL. 2026</li>
 <li>Yongshi Ye, Biao Fu, Chongxuan Huang et al.. <em>Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation</em>. ACL. 2026</li>
 <li><em>How Far Are We from Optimal Reasoning Efficiency?</em>. NeurIPS 2025. 2025</li>
-<li>Yanhao Li, Lu Ma, Jiaran Zhang et al.. <em>LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Yanhao Li, Lu Ma, Jiaran Zhang et al.. <em>LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model</em>. ACL. 2026</li>
 <li>Niklas Muennighoff, Zhengyang Wang, Zeyi Chen et al.. <em>Prefix Sliding for efficient test-time scaling</em>. cs.CL. 2026</li>
 <li>Wei Yu, Suxing Liu, Minjie Yu et al.. <em>Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models</em>. cs.AI. 2026</li>
 <li>Linh Dieu Le, Tong Chen, Shazia Sadiq et al.. <em>Towards Efficient Reasoning in LLM-Based Recommender Systems via Model Merging</em>. cs.IR. 2026</li>
@@ -320,20 +321,19 @@ th { background: var(--surface); }
 <li>Junlin Fang, Do Nguyen-Thanh, Xiaogang Xu et al.. <em>Reasoning Denoiser: Denoising Reasoning Traces for Hallucination Detection in Large Reasoning Models</em>. cs.AI. 2026</li>
 <li>Shu Zhou, Rui Ling, Junan Chen et al.. <em>When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling</em>. preprint. 2026</li>
 <li><em>Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking</em>. ICLR 2026. 2026</li>
-<li><em>TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling</em>. ICLR 2026. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li><em>TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling</em>. ICLR 2026. 2026</li>
 <li>Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al.. <em>Inverse Scaling in Test-Time Compute</em>. Transactions on Machine Learning Research (TMLR). 2025</li>
 <li>Alejandro Cuadron, Dacheng Li, Wenjie Ma et al.. <em>The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks</em>. International Conference on Machine Learning (ICML) 2025. 2025</li>
 <li><em>Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL</em>. NeurIPS 2025. 2025</li>
 <li><em>Mitigating Overthinking in Large Reasoning Models via Manifold Steering</em>. NeurIPS 2025. 2025</li>
 <li>Peisong Wang, Zhiwei Ma, Bowen Liu et al.. <em><span class="math">R^3</span>-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets</em>. cs.CL</li>
 <li>Zihao Wei, Liang Pang, Jiahao Liu et al.. <em>The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis</em>. ACL. 2026</li>
-<li>Zishan Ahmad, Vishal Vaddina. <em>Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference</em>. cs.AI. 2026</li>
-<li>Ahmet Bugra Gundogan, Yigit Turkmen, Melih Bastopcu. <em>Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services</em>. cs.GT. 2026</li>
+<li>Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. <em>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

@@ -47,7 +47,7 @@ Stated: ambiguity in visual references, where a model cites the correct object w
 
 - **Concepts**: Visual attribution, Amortized explanation, Faithfulness, Counterfactual ablation, Attention as a feature signal, Multimodal thinking models, Streaming interpretability, Language-prior drift in long reasoning traces
 - **Methods**: vStream, amortized attribution, semantic region unitization, DINOv3 features, agglomerative clustering, linear amortized estimator, attention masking ablation, Linear Datamodeling Score, InputGrad, AttnLRP, TAM, Qwen3-VL-8B-Thinking, GLM-4.1V-9B-Thinking, MiMo-VL-7B, Cosmos-Reason1-7B
-- **Datasets**: [MathVista](../../../../wiki/datasets/mathvista.md), [MathVerse](../../../../wiki/datasets/mathverse.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), ScienceQA, [AI2D](../../../../wiki/datasets/ai2d.md), DocVQA, ChartMimic, WebSight, [GQA](../../../../wiki/datasets/gqa.md), COCO, ReferIt
+- **Datasets**: [MathVista](../../../../wiki/datasets/mathvista.md), [MathVerse](../../../../wiki/datasets/mathverse.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [ScienceQA](../../../../wiki/datasets/scienceqa.md), [AI2D](../../../../wiki/datasets/ai2d.md), DocVQA, ChartMimic, WebSight, [GQA](../../../../wiki/datasets/gqa.md), COCO, ReferIt
 
 Tags: `multimodal`, `visual-attribution`, `interpretability`, `faithfulness`, `attention`, `thinking-models`, `long-reasoning-traces`, `streaming`, `tangential`
 

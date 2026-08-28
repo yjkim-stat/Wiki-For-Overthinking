@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Sequential vs. parallel test-time scaling is the distinction between spending inference-time compute as one longer reasoning chain (sequential) versus multiple independent attempts aggregated together (parallel). In this archive, one paper finds o1-like models do not actually possess consistent sequential scaling -- longer solutions are not more accurate, and self-revision usually fails to fix wrong answers -- and proposes a parallel alternative (Shortest Majority Vote) that outperforms plain majority voting; a second paper finds that for deep-search LLM agents, allocating modest compute to a cheap verifier outperforms pushing sequential generation length further. Both sources conclude parallel or verifier-based allocation beats pushing sequential length alone.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -24,12 +24,52 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.",
+        "title": "Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Mousetrap is the first jailbreak attack framework designed against large reasoning models: a 'Chaos Machine' iteratively applies reversible one-to-one prompt mappings (character/word/sentence-level ciphers) to embed a toxic query inside a multi-step reconstruction task, exploiting the finding that LRMs exhibit 'reasoning inertia' -- once started, they follow the reasoning chain to completion by inertia and neglect to re-evaluate safety -- achieving up to 96-98% attack success against o1-mini, Claude-3.5-Sonnet and Gemini-2.0-Thinking and 87.5-93.13% on standard safety benchmarks against Claude-Sonnet.",
+        "title": "A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Rt-LRM is a unified 30-task benchmark evaluating large reasoning models along truthfulness, safety and efficiency, testing both CoT-hijacking (direct interference with the reasoning process) and prompt-induced impacts (jailbreaks or overthinking triggers); across 26 models it finds LRMs are consistently less trustworthy than their own base LLMs, that explicit reasoning can amplify safety risk and inefficiency under attack, and that over 60% of tested samples exhibit overthinking (more than double the clean-input token count) across most models.",
+        "title": "Red Teaming Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "REST (Reasoning Evaluation through Simultaneous Testing) concatenates multiple questions from an existing benchmark into a single prompt to stress-test LRMs' multi-context reasoning; across 30+ models and 9 benchmarks it finds even SOTA models like DeepSeek-R1 degrade substantially (e.g. -31.6% on AIME25), that the 'overthinking trap' is a primary cause, that Long2Short-trained models are more robust, and that REST reveals sharp performance gaps among models that look identical under traditional single-question evaluation.",
+        "title": "REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Studies how quantization, distillation and pruning affect DeepSeek-R1's reasoning ability using mechanistic interpretation, finding weight count matters more for knowledge memorization than reasoning, and that protecting just 2% of over-compressed weights recovers 6.57 accuracy points.",
+        "title": "When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-26T02:18:13Z",
-  "created_at": "2026-08-26T02:14:29Z",
-  "instructions": "Write the wiki definition for 'DeepSeek-R1'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-28T00:00:49Z",
+  "created_at": "2026-08-27T23:01:46Z",
+  "instructions": "Revise the wiki definition for 'DeepSeek-R1'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1 is one of the two models the archive's sources name, alongside OpenAI's o1, as opening the line of large reasoning models that produce long explicit chains of thought before answering, and it is the origin of the distilled Qwen and Llama checkpoints most of the archive's length-reduction work fine-tunes. It appears in three roles across the sources: as the historical reference for the paradigm whose cost is overthinking, as the parent of the distillations that stand in for it experimentally, and as a subject of measurement in its own right -- the Bloom's Taxonomy profiling reports it spending 32.9% of reasoning steps on Applying and 18.6% on Evaluating, the highest evaluative share among R1-family models profiled, with Creating at 0.2%. It also serves as one of three judge models in ChainPrune's reasoning-quality panel.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1",
   "kind": "concept",
   "language": "en",
@@ -45,19 +85,14 @@
   },
   "payload": {
     "name": "DeepSeek-R1",
-    "source_count": 3
+    "previous_definition": "DeepSeek-R1 is one of the two models the archive's sources name, alongside OpenAI's o1, as opening the line of large reasoning models that produce long explicit chains of thought before answering, and it is the origin of the distilled Qwen and Llama checkpoints most of the archive's length-reduction work fine-tunes. It appears in three roles across the sources: as the historical reference for the paradigm whose cost is overthinking, as the parent of the distillations that stand in for it experimentally, and as a subject of measurement in its own right -- the Bloom's Taxonomy profiling reports it spending 32.9% of reasoning steps on Applying and 18.6% on Evaluating, the highest evaluative share among R1-family models profiled, with Creating at 0.2%. It also serves as one of three judge models in ChainPrune's reasoning-quality panel.",
+    "source_count": 8
   },
   "result": {
-    "aliases": [
-      "R1"
-    ],
-    "definition": "DeepSeek-R1 is one of the two models the archive's sources name, alongside OpenAI's o1, as opening the line of large reasoning models that produce long explicit chains of thought before answering, and it is the origin of the distilled Qwen and Llama checkpoints most of the archive's length-reduction work fine-tunes. It appears in three roles across the sources: as the historical reference for the paradigm whose cost is overthinking, as the parent of the distillations that stand in for it experimentally, and as a subject of measurement in its own right -- the Bloom's Taxonomy profiling reports it spending 32.9% of reasoning steps on Applying and 18.6% on Evaluating, the highest evaluative share among R1-family models profiled, with Creating at 0.2%. It also serves as one of three judge models in ChainPrune's reasoning-quality panel.",
+    "aliases": [],
+    "definition": "DeepSeek-R1 is a large reasoning model used both as a training/base target for efficient-reasoning interventions (adaptive mode-token training, ChainPrune step-merging, cognitive profiling with Bloom's taxonomy, Parason's parallel-reasoning grammar) and as a stress-test subject: REST reports it degrades substantially under simultaneous multi-question prompts (e.g. -31.6% on AIME25), attributing this to an 'overthinking trap', and a mechanistic-interpretation study finds its reasoning is more sensitive to compression than its knowledge memorization is.",
     "kind": "model",
-    "related": [
-      "o1",
-      "DeepSeek-R1-Distill-Qwen-7B",
-      "Long Chain-of-Thought"
-    ]
+    "related": []
   },
   "task_id": "concept__deepseek-r1",
   "task_version": 1,

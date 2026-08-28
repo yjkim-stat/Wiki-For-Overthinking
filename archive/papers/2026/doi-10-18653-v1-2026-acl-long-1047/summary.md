@@ -47,7 +47,7 @@ As a training-time RL intervention, DOT's effectiveness is inherently bounded by
 
 - **Concepts**: length shift (distributional response-length growth on zero-gradient queries), Dynamic Outlier Truncation (DOT), cross-difficulty policy interference, reasoning-word over-triggering, KL-Cov regularization, Predictive Dynamic Sampling
 - **Methods**: [Group Relative Policy Optimization (GRPO)](../../../../wiki/methods/grpo.md), Dynamic Outlier Truncation (DOT), KL-Cov regularization, Predictive Dynamic Sampling, OverThink / DAST / O1-Pruner / LC-R1 / Laser-DE / AdaptThink / DLER-R1 / SIRI (baselines)
-- **Datasets**: DeepScaleR-Preview (training), [AIME-24](../../../../wiki/datasets/aime-2024.md), [AIME-25](../../../../wiki/datasets/aime-2025.md), AMC (AMC-22/23), [MATH-500](../../../../wiki/datasets/math500.md), [HumanEval](../../../../wiki/datasets/humaneval.md), [LiveCodeBench(v6)](../../../../wiki/datasets/livecodebench-v6.md)
+- **Datasets**: [DeepScaleR-Preview (training)](../../../../wiki/datasets/deepscaler-preview-training.md), [AIME-24](../../../../wiki/datasets/aime-2024.md), [AIME-25](../../../../wiki/datasets/aime-2025.md), AMC (AMC-22/23), [MATH-500](../../../../wiki/datasets/math500.md), [HumanEval](../../../../wiki/datasets/humaneval.md), [LiveCodeBench(v6)](../../../../wiki/datasets/livecodebench-v6.md)
 
 Tags: `overthinking`, `reinforcement-learning`, `grpo`, `efficient-reasoning`, `training-dynamics`
 

@@ -1,0 +1,130 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-536.pdf"
+  },
+  "completed_at": "2026-08-28T00:35:42Z",
+  "created_at": "2026-08-28T00:09:26Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.536",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "LLMs can solve complex tasks by generating long, multi-step reasoning chains. Test-time scaling (TTS) can further improve LLM performance by sampling multiple variants of intermediate reasoning steps, verifying their correctness, and strategically choosing the best steps for continuation. However, existing verification approaches, such as Process Reward Models (PRMs), are computationally expensive, limited to specific domains, and require large-scale human or model-generated annotations. We propose a lightweight alternative for step-level reasoning verification based on probing the internal states of LLMs. We train a transformer-based probe that uses the internal states of the frozen LLM to estimate the credibility of its reasoning steps during generation. Annotation can be generated either by another larger LLM (e.g., DeepSeek-R1) or in a self-supervised manner by the original model itself. The probes are both effective and lightweight, containing fewer than 10M parameters. Across multiple domains, including mathematics, planning, and general knowledge question answering, our probes match or even exceed the performance of PRMs that are up to 810× larger. Our findings suggest that the internal states of LLMs encode their confidence in reasoning processes and can serve as reliable signals for reasoning step verification, offering a promising direction towards scalable and generalizable TTS and introspective LLMs.",
+    "authors": [
+      "Jingwei Ni",
+      "Ekaterina Fadeeva",
+      "Tianyi Wu",
+      "Mubashara Akhtar",
+      "Jiaheng Zhang",
+      "Elliott Ash",
+      "Markus Leippold",
+      "Timothy Baldwin",
+      "See-Kiong Ng",
+      "Artem Shelmanov",
+      "Mrinmaya Sachan"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.536.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models",
+    "url": "https://aclanthology.org/2026.acl-long.536/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "Reasoning Probe (ReProbe)",
+      "internal-state-based step verification",
+      "self-supervised step-level annotation",
+      "PRM/ReProbe complementarity"
+    ],
+    "contributions": [
+      "ReProbe, a lightweight (<10M-parameter) trainable probe that verifies reasoning-step correctness by introspecting a frozen LLM's internal states rather than relying on an external, much larger critic model",
+      "empirical evidence across math, planning and QA tasks and multiple LLM families/modes that ReProbe matches or exceeds PRMs up to 810x larger, with a clear advantage on out-of-domain generalization, at 2.6-25x lower inference cost",
+      "a fully self-supervised training recipe (the target LLM annotates its own reasoning) performing comparably to externally-supervised training, removing the need for human annotation or Monte Carlo rollouts",
+      "demonstration that ReProbe-guided test-time scaling lets a smaller model (Qwen3-8B) outperform a larger sibling (Qwen3-14B) on several benchmarks, and that combining ReProbe with a PRM yields further gains"
+    ],
+    "datasets": [
+      "PRM800K",
+      "MATH",
+      "GSM8K",
+      "ProofNet",
+      "Trip Planning",
+      "Meeting Planning",
+      "Calendar Scheduling",
+      "StrategyQA",
+      "ScienceQA"
+    ],
+    "limitations": "Performance of both ReProbe and PRMs degrades (slightly for ReProbe) as reasoning length increases. Step extraction relies on the base LLM following an instructed one-step-per-line format for structured CoT, or treats each sentence as a step for native thinking mode -- an approximation rather than semantically grounded segmentation. Primary training data uses 10.8K problems from a single source (PRM800K), and the paper's own scaling analysis shows PR-AUC continues improving with more training questions.",
+    "method": "ReProbe is a plug-and-play module on top of a frozen LLM: at each reasoning step, it extracts token-level internal-state features from the base LLM (attention weights and logits, or hidden states, across all layers), projects them, processes with transformer layers, aggregates per-token features into a step-level vector via mean pooling, and classifies step correctness with a two-layer NN, trained with binary cross-entropy while the underlying LLM remains entirely frozen -- only the probe's fewer-than-10M parameters are updated. Training data is constructed via external verification (a larger LLM, DeepSeek-R1, judges step correctness) or self-supervised (the same LLM annotates its own generated CoT), using 10.8K math problems (~32K trajectories) from PRM800K.",
+    "methods": [
+      "ReProbe (internal-state step-level probe)",
+      "Process Reward Models (PRM baselines)",
+      "unsupervised uncertainty quantification baselines",
+      "best-of-N and beam-search test-time scaling"
+    ],
+    "models": [
+      "Qwen3-8B",
+      "Qwen3-1.7B",
+      "Qwen3-32B",
+      "Qwen3-14B",
+      "Phi-4",
+      "DeepSeek-R1 (annotator)",
+      "GPT-OSS-120B (annotator)"
+    ],
+    "one_liner": "ReProbe is a lightweight (<10M-parameter) transformer probe trained on a frozen LLM's internal states (hidden states, attention, logits) to predict step-level reasoning correctness, matching or exceeding Process Reward Models up to 810x larger for test-time-scaling verification, at 2.6-25x faster inference, and can be trained fully self-supervised (the model annotating its own reasoning) with no human labels or Monte Carlo rollouts.",
+    "problem": "Test-time scaling (best-of-N, beam search) relies on scoring intermediate reasoning steps to select promising continuations, and the dominant approach -- Process Reward Models (PRMs) -- is computationally expensive (1.5B-8B-parameter separate models adding substantial inference-time memory and latency), typically domain-specific (mostly math, generalizing poorly to unseen domains), and costly to train (requiring Monte Carlo rollouts, human annotation, or large model-generated datasets).",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant as efficient infrastructure for test-time scaling: rather than reducing reasoning length, it makes the verification signal that guides best-of-N/beam-search test-time scaling far cheaper (2.6-25x speedup, <10M vs. 1.5B-8B parameters) and more generalizable, which matters because most parallel test-time-scaling methods discussed elsewhere in this archive incur significant overhead from the verifier itself -- ReProbe's finding that internal states already encode reliable step-correctness signals is a complementary efficiency lever to reasoning-length-reduction methods, targeting the cost of evaluating reasoning rather than the cost of generating it."
+    },
+    "results": "For step-level correctness detection (PR-AUC) on Qwen3-8B, unsupervised UQ baselines substantially underperform, small PRMs show limited OOD generalization, and large PRMs (750-810x larger) reach the strongest in-domain math scores but degrade OOD; ReProbe achieves the best overall average PR-AUC (0.604), matching or exceeding the strongest PRMs on out-of-domain planning/QA tasks specifically (0.553 OOD average vs. best PRM's 0.429-0.518) while remaining competitive on in-domain math. This pattern holds in native think mode for Qwen3-1.7B/32B and Phi-4. In best-of-N test-time scaling on Qwen3-8B, ReProbe achieves the best average accuracy among all methods, with especially strong OOD planning gains. In beam-search test-time scaling, ReProbe achieves the strongest overall performance, notably enabling probed Qwen3-8B to outperform larger Qwen3-14B (pass@1) on multiple benchmarks. The self-supervised ReProbe variant achieves comparable performance to the externally-supervised one. Combining PRM and ReProbe scores yields further PR-AUC improvements, suggesting complementary signals. Scaling analysis shows performance improves with more training questions/trajectories and with higher training-data diversity. Runtime measurements show a 2.6x-25x speedup over state-of-the-art PRMs.",
+    "tags": [
+      "test-time-scaling",
+      "process-reward-model",
+      "internal-state-probing",
+      "step-level-verification",
+      "efficient-reasoning"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-536",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

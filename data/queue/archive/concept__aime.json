@@ -3,8 +3,40 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Marco-o1 v2 identifies 'formalistic long-time thinking' -- distilled small models mechanically replicating a large reasoning model's surface reasoning patterns (content repetition, over-reflection) without internalizing the underlying logic, often producing no final answer at all -- and fixes it by generating CoT training data from scratch via MCTS plus three CoT-aware post-training techniques (thought-length balance, fine-grained/masking-based DPO, joint SFT+DPO loss).",
+        "title": "Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Systematically compares 8 prompting strategies under equal sampling budget for majority-vote test-time scaling across 6 LLMs x 6 benchmarks, finding plain Chain-of-Thought eventually dominates every more elaborate strategy as sampling time N grows -- because CoT has more easy/fewer hard questions and a flatter wrong-answer distribution -- and shows combining per-question difficulty-adaptive scaling with per-question optimal-strategy selection lifts GSM8K accuracy from 86.0% to 97.4% (Majority@10) and MATH-500 from 15.2% to 61.0%.",
+        "title": "Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
         "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A KV-cache compression framework that labels segments of a reasoning trace by thought type and applies per-type quantization and progressive eviction, keeping accuracy near full-cache at under 5% of the cache.",
+        "title": "ThinKV: Thought-Adaptive KV Cache Compression for Efficient Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Diagnoses why adding a length penalty to GRPO degrades accuracy — the group-relative advantage can turn correct-but-long rollouts negative — and fixes it by normalising the reward of correct rollouts only against other correct rollouts.",
+        "title": "DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization",
         "topics": [
           "overthinking"
         ]
@@ -27,6 +59,14 @@
       },
       {
         "kind": "paper",
+        "note": "ShorterBetter takes the length of the shortest correct response in a sampled group as a per-problem target and rewards the model for matching it, cutting output length by 50%-80% on DeepSeek-Distill-Qwen-1.5B/7B.",
+        "title": "ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "PIR scores reasoning steps by their effect on answer confidence and prunes only low-importance verification/error-correction steps from distilled chain-of-thought data, producing models that reason more concisely without losing accuracy.",
         "title": "LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling",
         "topics": [
@@ -43,9 +83,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-20T12:29:16Z",
-  "created_at": "2026-08-20T12:28:12Z",
-  "instructions": "Write the wiki definition for 'AIME'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-28T00:00:49Z",
+  "created_at": "2026-08-27T23:01:46Z",
+  "instructions": "Revise the wiki definition for 'AIME'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    The American Invitational Mathematics Examination, used throughout the archive's sources (unspecified year in this entry) as a standard hard competition-math benchmark. Under this exact spelling, the 5 sources use it to evaluate: self-braking tuning, the foundational overthinking paper, meta-RL test-time-compute optimization, reasoning-step pruning (LIMOPro), and Kinetics' reworked test-time scaling law. Note: the archive's wiki tracks this exam under at least 8 separate near-duplicate entries by exact spelling that were never merged -- this is the same underlying exam split into fragmented wiki notes.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AIME",
   "kind": "concept",
   "language": "en",
@@ -54,32 +94,21 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "AIME",
-    "source_count": 5
+    "previous_definition": "The American Invitational Mathematics Examination, used throughout the archive's sources (unspecified year in this entry) as a standard hard competition-math benchmark. Under this exact spelling, the 5 sources use it to evaluate: self-braking tuning, the foundational overthinking paper, meta-RL test-time-compute optimization, reasoning-step pruning (LIMOPro), and Kinetics' reworked test-time scaling law. Note: the archive's wiki tracks this exam under at least 8 separate near-duplicate entries by exact spelling that were never merged -- this is the same underlying exam split into fragmented wiki notes.",
+    "source_count": 10
   },
   "result": {
-    "aliases": [
-      "AIME 2024",
-      "AIME 2025",
-      "AIME24",
-      "AIME25",
-      "AIME2024",
-      "AIME2025",
-      "AIME'25"
-    ],
-    "definition": "The American Invitational Mathematics Examination, used throughout the archive's sources (unspecified year in this entry) as a standard hard competition-math benchmark. Under this exact spelling, the 5 sources use it to evaluate: self-braking tuning, the foundational overthinking paper, meta-RL test-time-compute optimization, reasoning-step pruning (LIMOPro), and Kinetics' reworked test-time scaling law. Note: the archive's wiki tracks this exam under at least 8 separate near-duplicate entries by exact spelling that were never merged -- this is the same underlying exam split into fragmented wiki notes.",
+    "aliases": [],
+    "definition": "AIME (American Invitational Mathematics Examination) is a competition-math benchmark cited across many efficient-reasoning papers in this archive -- Self-Braking Tuning, DRPO, ShorterBetter, Anti-Length Shift, LIMOPro, Kinetics -- primarily as the target for reporting token-usage cuts and accuracy on hard math problems (e.g. Anti-Length Shift's 78% AIME-24 token reduction). Sources use it purely as an evaluation benchmark and do not characterize it beyond that role.",
     "kind": "dataset",
-    "related": [
-      "AMC",
-      "GPQA Diamond",
-      "MATH-500"
-    ]
+    "related": []
   },
   "task_id": "concept__aime",
   "task_version": 1,

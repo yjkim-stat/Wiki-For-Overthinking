@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "TriviaQA is a knowledge-QA benchmark used in this archive's compute-optimal-scaling-of-skills study, where knowledge-based QA is shown to be capacity-hungry (versus code generation being data-hungry) even after controlling for skill-relevant pretraining data, and by GrACE's generative confidence-elicitation method, which uses an on-the-fly calibrated confidence score to weight self-consistency voting and drive early stopping.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.findings-acl.688",
@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "GrACE teaches an LLM to output a discriminative, calibrated confidence score during generation itself -- via the similarity between the last hidden state and a learned embedding for a special <CNF> token, trained against k-fold-binned accuracy targets -- eliminating the separate evaluation stage post-generation methods require, and uses this on-the-fly confidence to weight self-consistency voting and drive early-stopping, improving test-time-scaling accuracy by up to 3.3% while cutting required samples by more than half in many cases.",
       "title": "GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1712",
+      "kind": "paper",
+      "note": "Verbal-R3 shows that rewriting retrieved documents into 'Verbal Annotations' -- analytic narratives that explicitly state the logical connection between a query and a document, distilled from GPT-OSS-120B into a lightweight 1.5B/3B Verbal Reranker -- substantially improves RAG accuracy over both raw context injection and stylistic paraphrasing, and pairs this with a relevance-guided test-time-scaling method that allocates search-trajectory budget toward high-relevance-scored queries, beating Search-R1 by up to 18% F1 while cutting reranker calls ~45-54%.",
+      "title": "Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning"
     }
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "TriviaQA",
   "related": [
     "skill-dependent-compute-optimal-scaling",
@@ -58,7 +64,26 @@
     "phi3-3-8b",
     "llama2-7b",
     "llama3-1-8b-instruct",
-    "qwen2-5-7b-instruct"
+    "qwen2-5-7b-instruct",
+    "verbal-annotation-analytic-query-document-relevance-narrative",
+    "context-utilization-efficacy-cue",
+    "verbal-reranker-distilled-relevance-scoring-rewriting-module",
+    "relevance-guided-test-time-scaling",
+    "verbal-r3-generator-verbal-reranker-grpo-alignment",
+    "search-r1-baseline",
+    "ircot-iter-retgen-rag-baselines",
+    "monot5-rankllama-rank1-reranker-baselines",
+    "2wikimultihopqa",
+    "bamboogle",
+    "hotpotqa",
+    "musique",
+    "popqa",
+    "beir",
+    "qwen2-5-3b-instruct",
+    "qwen2-5-7b",
+    "gpt-oss-120b-teacher",
+    "gemini-2-5-pro-validator",
+    "gpt-4-1-judge"
   ],
   "related_authored": [],
   "schema_version": 1,

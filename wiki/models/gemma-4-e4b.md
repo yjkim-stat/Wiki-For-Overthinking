@@ -8,7 +8,7 @@ An open-weight model used as a secondary/cross-model generator in two sources: t
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [best-of-N](../methods/best-of-n.md), [Kimi-K2.5](kimi-k2-5.md), [Qwen3-4B-Instruct-2507](qwen3-4b-instruct-2507.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Qwen3-8B](../methods/qwen3-8b.md), [self-refine](../methods/self-refine.md)
+**Related**: [best-of-N](../methods/best-of-n.md), [DeepSeek-V3.2](deepseek-v3-2.md), [Kimi-K2.5](kimi-k2-5.md), [Qwen3-4B-Instruct-2507](qwen3-4b-instruct-2507.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Qwen3-8B](qwen3-8b.md), [self-refine](../methods/self-refine.md)
 
 ## Appears in
 

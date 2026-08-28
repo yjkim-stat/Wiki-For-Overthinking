@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Llama3.1-8B-Instruct is a backbone model used in this archive by ARISE, which combines Monte Carlo Tree Search with a Bayesian risk-value function for knowledge-augmented reasoning (at substantially higher inference cost), and by GrACE, which teaches the model to emit a calibrated confidence score during generation itself to weight self-consistency voting and drive early stopping. Note: this entity's name differs only in capitalization/spacing from 'LLaMA-3.1-8B-Instruct' recorded elsewhere in the archive from a different set of sources -- possibly the same model under two spellings, not merged here.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.acl-long.538",
@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "GrACE teaches an LLM to output a discriminative, calibrated confidence score during generation itself -- via the similarity between the last hidden state and a learned embedding for a special <CNF> token, trained against k-fold-binned accuracy targets -- eliminating the separate evaluation stage post-generation methods require, and uses this on-the-fly confidence to weight self-consistency voting and drive early-stopping, improving test-time-scaling accuracy by up to 3.3% while cutting required samples by more than half in many cases.",
       "title": "GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.237",
+      "kind": "paper",
+      "note": "MINER recovers training signal from 'positive homogeneous' (PH) prompts -- where all sampled RLVR rollouts are already correct and GRPO-style advantage collapses to zero, wasting the rollout budget -- by converting the policy's own per-token uncertainty (negative log-likelihood) into an intrinsic reward that reinforces under-confident-but-correct reasoning paths, combined with token-level focal credit assignment and adaptive advantage calibration, achieving up to +4.58 Pass@1 and +6.66 Pass@K over GRPO with zero extra rollouts or inference cost.",
+      "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "Llama3.1-8B-Instruct",
   "related": [
     "error-propagation-in-linear-kar-chains",
@@ -52,7 +58,33 @@
     "mathqa",
     "arc-challenge-arc-c",
     "phi3-3-8b",
-    "llama2-7b"
+    "llama2-7b",
+    "positive-homogeneous-ph-prompt",
+    "uncertainty-driven-intrinsic-reward-per-token-nll",
+    "token-level-focal-credit-assignment",
+    "adaptive-advantage-calibration",
+    "miner-uncertainty-driven-intrinsic-reward-token-level-focal-credit-assignment-ad",
+    "grpo-baseline",
+    "dapo-baseline",
+    "reinforce-baseline",
+    "gspo-baseline",
+    "ucas-baseline",
+    "bapo-kl-cov-clip-cov-entropy-adv-exploration-enhancement-baselines",
+    "math500",
+    "amc23",
+    "olympiadbench",
+    "aime-2024",
+    "aime-2025",
+    "hmmt25",
+    "deepscaler-training",
+    "medqa",
+    "medmcqa",
+    "pubmedqa",
+    "medxpertqa",
+    "mmlu-pro-medical-subset",
+    "qwen3-4b-base",
+    "qwen3-8b-base",
+    "qwen3-14b-base"
   ],
   "related_authored": [],
   "schema_version": 1,

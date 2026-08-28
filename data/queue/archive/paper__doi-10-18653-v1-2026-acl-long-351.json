@@ -1,0 +1,116 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-351.pdf"
+  },
+  "completed_at": "2026-08-28T00:32:53Z",
+  "created_at": "2026-08-28T00:09:26Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.351",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Attention scales quadratically with sequence length, fundamentally limiting long-context inference.Existing block-granularity sparsification can reduce latency, but coarse blocks impose an intrinsic sparsity ceiling, making further improvements difficult even with carefully engineered designs.We present S2O, which performs early stopping for sparse attention via online permutation.Inspired by virtual-to-physical address mapping in memory systems, S2O revisits and factorizes FlashAttention execution, enabling inference to load non-contiguous tokens rather than a contiguous span in the original order.Motivated by fine-grained structures in attention heatmaps, we transform explicit permutation into an online, index-guided, discrete loading policy; with extremely lightweight preprocessing and index-remapping overhead, it concentrates importance on a small set of high-priority blocks.Building on this importance-guided online permutation for loading, S2O further introduces an early-stopping rule: computation proceeds from high to low importance; once the current block score falls below a threshold, S2O terminates early and skips the remaining low-contribution blocks, thereby increasing effective sparsity and reducing computation under a controlled error budget.As a result, S2O substantially raises the practical sparsity ceiling.On Llama-3.1-8B under a 128K context, S2O reduces single-operator MSE by 3.82× at matched sparsity, and reduces prefill compute density by 3.31× at matched MSE; meanwhile, it preserves end-to-end accuracy and achieves 7.51× attention and 3.81× end-to-end speedups.",
+    "authors": [
+      "Yu Zhang",
+      "Songwei Liu",
+      "Chenqian Yan",
+      "Linsheng",
+      "Beichen Ning",
+      "Fangmin Chen",
+      "Xing Wang"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "early stopping"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.351.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "S2O: Early Stopping for Sparse Attention via Online Permutation",
+    "url": "https://aclanthology.org/2026.acl-long.351/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "online (index-guided) permutation",
+      "monotone-gain early stopping for sparse attention",
+      "coordinate-scheduled sparse attention",
+      "stripe-like attention heatmap structure"
+    ],
+    "contributions": [
+      "identification of a practical sparsity ceiling in coarse block-sparse attention caused by a mismatch between fine-grained stripe-like attention structures and block-wise computation, motivating a global (not merely local) permutation approach",
+      "a FlashAttention-compatible, index-guided online permutation scheme that reorders the effective computation order of queries and historical keys/values without physically permuting tensors in memory, achieving global permutation benefits at negligible index-remapping overhead",
+      "a monotone-gain early-stopping rule that adaptively terminates key/value block processing once marginal attention-mass gain becomes negligible, avoiding the rigid fixed-subset commitment of Top-K/Top-CDF sparse-attention methods",
+      "state-of-the-art sparsity-error trade-off and substantial measured speedups (7.51x attention, 3.81x end-to-end) on Llama-3.1-8B at 128K context, with accuracy preserved across multiple long-context benchmarks and model families"
+    ],
+    "datasets": [
+      "InfiniteBench",
+      "RULER",
+      "LongBench v2"
+    ],
+    "limitations": "The method introduces additional hyperparameters (segment length, early-stop threshold, scheduling rules) that may require re-tuning across different models, context lengths and hardware platforms, and the best configuration is not guaranteed to transfer reliably. Evaluation focuses primarily on the prefill stage of decoder-only LLMs; extending the approach to other architectures (encoder-decoder, multimodal models) and to training-time usage requires further study. Experiments are conducted on a specific GPU and software stack (Triton implementation, BF16 on NVIDIA GPUs), so performance and memory behavior may vary across other accelerators and deployment environments.",
+    "method": "Observes that attention heatmaps are dominated by fine-grained vertical, horizontal and slash-like stripes rather than block-uniform patterns, and that a global (not merely local) permutation of queries and keys/values can concentrate this dispersed attention mass into a compact, top-left-weighted region. Rather than physically reordering tensors in memory (which is costly), S2O introduces an online, index-guided permutation: within each fixed-length segment, queries are cheaply ranked and permuted via a shared guide vector (front-loading queries likely to induce salient horizontal stripes), and historical keys/values are ranked per segment by their similarity to a mean-pooled segment query representative, producing a logical causal-prefix ordering. A FlashAttention-style kernel then gathers Q/K/V tiles according to these logical indices (physical HBM layout unchanged) and computes attention in two passes: Pass-1 initializes stable online-softmax states via a small dense intra-segment causal window; Pass-2 traverses the ranked historical key/value prefix in the permuted order, updating online-softmax accumulators, and applies a monotone-gain early-stopping rule that terminates processing once the marginal normalization-mass gain from newly processed blocks falls below a threshold tau relative to the accumulated mass -- unlike Top-K/Top-CDF methods that pre-commit to a fixed block subset, this adaptively determines how much of the prefix is worth computing per query.",
+    "methods": [
+      "S2O (online permutation + monotone-gain early stopping)",
+      "FlashAttention / FlashAttention2 (baseline, dense reference)",
+      "FlexPrefill (baseline)",
+      "XAttn (baseline)",
+      "PBS (baseline)"
+    ],
+    "models": [
+      "Llama-3.1-8B",
+      "Qwen3-8B"
+    ],
+    "one_liner": "S2O is a FlashAttention-compatible sparse-attention method for long-context prefill that reorders queries and keys/values via lightweight index arrays (no physical tensor permutation) to concentrate attention mass into a compact region, then applies an online early-stopping rule that skips low-contribution key/value blocks once marginal attention-mass gain falls below a threshold, achieving up to 7.51x attention speedup and 3.81x end-to-end prefill speedup on Llama-3.1-8B at 128K context with lower approximation error than prior sparse-attention baselines.",
+    "problem": "Attention scales quadratically with sequence length, making long-context prefill the dominant inference bottleneck; block-sparse attention reduces this cost but coarse fixed-size blocks impose an intrinsic sparsity ceiling because attention heatmaps in LLMs actually exhibit thin, stripe-like structures rather than uniform block-level importance, so even accurate block selection wastes substantial computation on low-importance positions within selected blocks.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Not relevant to reasoning length or the accuracy/efficiency tradeoff of LLM reasoning: 'early stopping' here refers to terminating sparse-attention key/value block processing during long-context prefill, an unrelated inference-efficiency mechanism at the attention-operator level rather than the reasoning-trace level. It matched the topic's collection keywords only via the shared term 'early stopping.'"
+    },
+    "results": "On Llama-3.1-8B at 128K context, S2O reduces single-operator mean-squared error (MSE, versus full dense attention) by 3.82x at matched sparsity, and reduces prefill compute density by 3.31x at matched MSE, compared to the strongest baseline (PBS, a local permutation-based method); it also outperforms FlexPrefill and XAttn (pattern/probing-based block-selection methods) at all tested sparsity levels. End-to-end measurements show 7.51x attention-operator speedup and 3.81x end-to-end prefill speedup over dense FlashAttention2 at 128K context, with sparse-preprocessing overhead (index computation) accounting for only a small fraction of total time and remaining below 10% relative to attention speedup gains across context lengths from 32K to 128K. On long-context benchmarks (InfiniteBench, RULER, LongBench v2) across Llama-3.1-8B and Qwen3-8B, S2O attains accuracy comparable to full dense attention across most tasks (average 0.379/0.386 vs. full-attention's 0.383/0.386 on InfiniteBench) while reducing prefill compute density by 2-3x compared to the default configuration, and maintains accuracy across a wide range of context lengths on RULER while achieving higher sparsity than baselines. Ablations show the early-stop threshold tau is the dominant factor governing the speed-accuracy trade-off (segment length S has only minor effect on approximation error), and component ablation confirms query-side intra-segment permutation (Q_perm) meaningfully improves the speed-quality trade-off over both a local-window-only variant (large approximation error from omitting the historical-prefix ranking) and a no-Q-permutation variant (identity query order within segments), by front-loading queries likely to induce salient horizontal stripes and enabling earlier, more effective attention-mass accumulation and early stopping.",
+    "tags": [
+      "sparse-attention",
+      "long-context-inference",
+      "early-stopping",
+      "efficient-transformers",
+      "prefill-optimization"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-351",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

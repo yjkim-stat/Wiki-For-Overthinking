@@ -8,7 +8,7 @@ GPT-5.5 is a proprietary model that appears in the archive only as an instrument
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [Claude-Opus-4.8](claude-opus-4-8.md), [Confidence-Based Stopping](../methods/confidence-based-stopping.md), [critical-path latency](../concepts/critical-path-latency.md), [DeepSeek-R1](deepseek-r1.md), [deepseek-v4-pro](deepseek-v4-pro.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GLM-5.2](glm-5-2.md), [Information Gain](../concepts/information-gain.md), [MATH500](../datasets/math500.md), [Omni-MATH](../datasets/omni-math.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [Claude-Opus-4.8](claude-opus-4-8.md), [Confidence-Based Stopping](../methods/confidence-based-stopping.md), [critical-path latency](../concepts/critical-path-latency.md), [DeepSeek-R1](deepseek-r1.md), [deepseek-v4-pro](deepseek-v4-pro.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GLM-5.2](glm-5-2.md), [Information Gain](../concepts/information-gain.md), [MATH500](../datasets/math500.md), [Omni-MATH](../datasets/omni-math.md), [OpenMathReasoning](../datasets/openmathreasoning.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Resource-Rational Reasoning](../concepts/resource-rational-reasoning.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

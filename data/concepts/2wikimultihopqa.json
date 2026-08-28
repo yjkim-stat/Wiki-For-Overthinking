@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "2WikiMultiHopQA"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "ARISE combines Monte Carlo Tree Search with a Bayesian Risk-Value function -- estimating each reasoning-state node's risk from the policy model's own likelihood of regenerating the original question given that state -- to guide retrieval-augmented multi-hop reasoning, outperforming SOTA knowledge-augmented-reasoning baselines by up to 23.10% and RAG-equipped DeepSeek-R1-distilled LRMs by up to 25.37%, while making explicit that its search-based gains come at substantially higher inference-time cost.",
       "title": "ARise: Towards Knowledge-Augmented Reasoning via Risk-Adaptive Search"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1712",
+      "kind": "paper",
+      "note": "Verbal-R3 shows that rewriting retrieved documents into 'Verbal Annotations' -- analytic narratives that explicitly state the logical connection between a query and a document, distilled from GPT-OSS-120B into a lightweight 1.5B/3B Verbal Reranker -- substantially improves RAG accuracy over both raw context injection and stylistic paraphrasing, and pairs this with a relevance-guided test-time-scaling method that allocates search-trajectory budget toward high-relevance-scored queries, beating Search-R1 by up to 18% F1 while cutting reranker calls ~45-54%.",
+      "title": "Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "2WikiMultihopQA",
   "related": [
     "error-propagation-in-linear-kar-chains",
@@ -29,7 +37,25 @@
     "qwen2-5-7b-instruct",
     "llama3-1-8b-instruct",
     "qwen2-5-0-5b-32b-scaling-experiment",
-    "deepseek-r1-distilled-models-comparison"
+    "deepseek-r1-distilled-models-comparison",
+    "verbal-annotation-analytic-query-document-relevance-narrative",
+    "context-utilization-efficacy-cue",
+    "verbal-reranker-distilled-relevance-scoring-rewriting-module",
+    "relevance-guided-test-time-scaling",
+    "verbal-r3-generator-verbal-reranker-grpo-alignment",
+    "search-r1-baseline",
+    "ircot-iter-retgen-rag-baselines",
+    "monot5-rankllama-rank1-reranker-baselines",
+    "bamboogle",
+    "natural-questions-nq",
+    "popqa",
+    "triviaqa",
+    "beir",
+    "qwen2-5-3b-instruct",
+    "qwen2-5-7b",
+    "gpt-oss-120b-teacher",
+    "gemini-2-5-pro-validator",
+    "gpt-4-1-judge"
   ],
   "related_authored": [],
   "schema_version": 1,

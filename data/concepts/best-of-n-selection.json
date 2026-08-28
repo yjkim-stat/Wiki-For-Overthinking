@@ -2,7 +2,8 @@
   "aliases": [
     "Best-of-N Selection",
     "best-of-N",
-    "BoN"
+    "BoN",
+    "best-of-N selection"
   ],
   "definition": "Best-of-N selection samples several complete attempts at a problem and picks one to submit, so its whole difficulty is the choosing rule when there is no verifier and no canonical answer to match. The archive's sources are both about that rule rather than about the sampling. Consilience picks the rollout whose confidence starts low and ends high, introduced to fix a failure mode where maximising confidence alone favours confidently wrong answers on hard problems. Risa selects among software-agent patches by agreement of their MoE routing traces at informative positions, matching text-consensus selection on SWE-bench Verified without any answer-string matching (48.2% against 48.0% macro-average on gpt-oss; exact McNemar p = 1.000 against text consensus on Qwen3.6). Risa also marks the headroom the rule leaves: its four-attempt oracle reaches 60.9% against 48.3% for the best selector, so most of the complementary coverage in a pool goes unselected.",
   "evidence": [
@@ -17,11 +18,17 @@
       "kind": "paper",
       "note": "Risa reads the MoE router's expert-selection trace as a behavioral fingerprint of what a software agent is doing, using it to push sibling actions away from recently repeated computation during exploration and toward peer agreement once a patch is being written, then to arbitrate among completed attempts without an external judge or test execution.",
       "title": "Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2069",
+      "kind": "paper",
+      "note": "Extends parallel test-time scaling to latent reasoning models (which reason in continuous hidden-state vectors rather than tokens) by introducing two stochastic sampling strategies (Monte Carlo Dropout, Additive Gaussian Noise) to generate diverse latent trajectories and a Latent Reward Model trained with a step-wise contrastive objective to score and aggregate them, showing consistent scaling gains with best-of-N and beam search across three arithmetic benchmarks and backbones up to 4B parameters.",
+      "title": "Parallel Test-Time Scaling for Latent Reasoning Models"
     }
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "method",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "best-of-n selection",
   "related": [
     "temporal-confidence-asymmetry-low-initial-high-final-confidence",
@@ -56,7 +63,25 @@
     "swe-bench-verified-496-498-eligible-tasks-per-condition-500-task-full-benchmark",
     "gpt-oss-20b",
     "gpt-oss-120b",
-    "qwen3-6-35b-a3b"
+    "qwen3-6-35b-a3b",
+    "latent-continuous-chain-of-thought-reasoning",
+    "monte-carlo-dropout-for-epistemic-uncertainty-sampling",
+    "additive-gaussian-noise-for-aleatoric-uncertainty-sampling",
+    "latent-reward-model-latentrm",
+    "sampling-diversity-vs-coverage-tradeoff",
+    "monte-carlo-dropout-mc-dropout",
+    "additive-gaussian-noise-agn",
+    "beam-search",
+    "majority-voting-baseline",
+    "gsm8k-test",
+    "gsm8k-hard",
+    "multiarith",
+    "math500",
+    "coconut",
+    "codi",
+    "colar",
+    "latent-sft-llama-3-2-1b",
+    "render-of-thought-rot-2b-4b-qwen3-vl"
   ],
   "related_authored": [
     "self-consistency",

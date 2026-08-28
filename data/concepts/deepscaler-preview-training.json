@@ -2,7 +2,7 @@
   "aliases": [
     "DeepScaleR-Preview (training)"
   ],
-  "definition": "",
+  "definition": "DeepScaleR-preview (training) is named only in a training context by this archive's sources -- GRIP's reward-guided parameter-interpolation method and Anti-Length Shift's outlier-truncation (DOT) method for efficient reasoning both reference it alongside their own training setups -- without further characterization of what it is beyond that training-time role.",
   "evidence": [
     {
       "id": "arxiv:2608.25583",
@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Identifies 'length shift' -- reasoning models progressively generate longer responses on already-correctly-solved (zero-gradient) training queries during RLVR, because reasoning-word emission learned for hard problems generalizes indiscriminately to easy ones -- and fixes it with Dynamic Outlier Truncation (DOT), a training-time RL intervention that truncates only the statistical outlier-length tail of all-correct rollout groups (affecting <0.5% of responses) while leaving hard queries unconstrained, cutting AIME-24 token usage 78% while increasing accuracy over the initial policy and beating prior efficient-reasoning methods.",
       "title": "Anti-Length Shift: Dynamic Outlier Truncation for Training Efficient Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1845",
+      "kind": "paper",
+      "note": "Discovers Key-Focus Heads (KFHs) -- a small subset of attention heads that, during final-answer generation, naturally attend more to essential reasoning steps than redundant ones -- and builds ATTNPO, an RL framework that rescales GRPO's outcome-level advantage per reasoning step using KFH attention scores, cutting reasoning length 55-61% while improving accuracy +2.9 to +7.3 points on DeepSeek-R1-Distill-Qwen-1.5B/7B.",
+      "title": "AttnPO: Attention-Guided Process Supervision for Efficient Reasoning"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "DeepScaleR-preview (training)",
   "related": [
     "module-wise-sigmoid-controlled-parameter-fusion",
@@ -50,7 +56,21 @@
     "deepseek-r1-distill-qwen-1-5b",
     "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-distill-qwen-32b",
-    "qwen2-5-7b-instruct-analysis"
+    "qwen2-5-7b-instruct-analysis",
+    "key-focus-heads-kfhs",
+    "step-ranking-accuracy-sra",
+    "stepwise-outcome-level-advantage-rescaling",
+    "difficulty-aware-advantage-attenuation",
+    "attnpo-attention-guided-policy-optimization",
+    "key-focus-heads-kfh-probing",
+    "grpo-rloo",
+    "tlmre-baseline",
+    "thinkprune-diet-acpo-laser-outcome-supervised-baselines",
+    "lc-r1-vsrm-r-s-grpo-depo-decs-process-supervised-baselines",
+    "amc23",
+    "olympiadbench",
+    "gpqa-diamond",
+    "mmlu"
   ],
   "related_authored": [],
   "schema_version": 1,

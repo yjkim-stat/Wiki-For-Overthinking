@@ -47,7 +47,7 @@ Stated: REDE only filters an already-generated trace and does not intervene duri
 
 - **Concepts**: Reasoning Trace Noise, Repetitive Reasoning Steps, Final-Answer Attention, Step-Level Representation Shaping, Hallucination Detection, Reasoning Step Selection
 - **Methods**: REDE, final-answer attention scoring, perplexity-weighted step embedding, kNN distance filtering, CCS (Contrast-Consistent Search), supervised probing, ARS, RACE, RHD, HaloScope, TSV, HaMI, CED, Semantic Entropy, SelfCheckGPT, [SPIRIT](../../../../wiki/methods/spirit.md), ASAP, Step Entropy, STEP
-- **Datasets**: [TruthfulQA](../../../../wiki/datasets/truthfulqa.md), MATH500 + AIME 2024 + AIME 2025 (combined as MATH), CodeElo, MULTIHOPQA (HotpotQA, 2WikiMultihopQA, MuSiQue, Bamboogle), GSM8K (appendix), Qwen3-8B / Qwen3-32B, DeepSeek-R1-Distill-Llama-8B / DeepSeek-R1-Distill-Qwen-32B
+- **Datasets**: [TruthfulQA](../../../../wiki/datasets/truthfulqa.md), MATH500 + AIME 2024 + AIME 2025 (combined as MATH), CodeElo, MULTIHOPQA (HotpotQA, 2WikiMultihopQA, MuSiQue, Bamboogle), [GSM8K (appendix)](../../../../wiki/datasets/gsm8k-appendix.md), Qwen3-8B / Qwen3-32B, DeepSeek-R1-Distill-Llama-8B / DeepSeek-R1-Distill-Qwen-32B
 
 Tags: `hallucination detection`, `reasoning traces`, `step filtering`, `attention supervision`, `representation shaping`, `large reasoning models`
 

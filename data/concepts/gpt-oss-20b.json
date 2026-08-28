@@ -4,7 +4,7 @@
     "gpt-oss-20b",
     "gpt-oss-20B"
   ],
-  "definition": "GPT-OSS-20B is a language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. ParaTempo uses it, with Qwen3.5-35B-A3B, as a backbone for training-free parallel reasoning: on GPT-OSS-20B mean latency falls 32.2% (129.7s to 88.0s) and tokens 18.1%, but accuracy falls from self-consistency's 71.8% to 68.0%, and on HMMT26 the model is the paper's worst cell at 5.3 points below SC@16 -- a larger efficiency gain and a larger accuracy cost than on the Qwen backbone. FROST prunes attention-marked sentence-level reasoning outliers from chains of thought produced by GPT-OSS-20B and Phi-4-Reasoning, reporting a 69.68% average token reduction and 26.70% average accuracy gain over the base model across GSM8K, MATH500, AIME24 and Minerva. Both treat it as an off-the-shelf reasoning model whose chain of thought is long enough to be worth cutting; neither reports its architecture or training.",
+  "definition": "GPT-OSS-20B is an open-weight reasoning model evaluated in this archive across several efficient-reasoning and test-time-scaling methods: ParaTempo's temporal-confidence parallel-branch controller, Risa's MoE-router-guided test-time scaling for software agents, TRS's skill-card retrieval, REFRAIN's reflective-redundancy early stopping, GENCLUSTER's IOI-gold-medal test-time-compute pipeline (where it is outperformed by the larger gpt-oss-120b), and FROST's attention-based reasoning-outlier pruning.",
   "evidence": [
     {
       "id": "arxiv:2608.16425",
@@ -31,6 +31,12 @@
       "title": "Stop When Enough: Adaptive Early-Stopping for Chain-of-Thought Reasoning"
     },
     {
+      "id": "doi:10.18653/v1/2026.acl-long.1532",
+      "kind": "paper",
+      "note": "GENCLUSTER is a scalable test-time-compute pipeline (parallel generation, behavioral clustering by execution output, LLM-tournament ranking, round-robin submission) that lets an open-weight model (gpt-oss-120b) achieve gold-medal-level performance at the International Olympiad in Informatics 2025 for the first time, by generating up to 5,000 candidate solutions per subtask.",
+      "title": "Scaling Test-Time Compute to Achieve IOI Gold Medal with Open-Weight Models"
+    },
+    {
       "id": "title:e2cdfd631cb4eda0",
       "kind": "paper",
       "note": "FROST uses attention weights to identify and prune sentence-level 'reasoning outliers' from a reasoning model's chain of thought, reporting an average 69.68% token reduction and 26.70% accuracy gain over the base model on four maths benchmarks.",
@@ -38,8 +44,8 @@
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T00:09:24Z",
   "name": "GPT-OSS-20B",
   "related": [
     "temporal-confidence",
@@ -115,6 +121,16 @@
     "acemath-7b-reward-model-ablation",
     "qwen2-5-math-prm-7b-ablation",
     "skywork-reward-v2-8b-ablation",
+    "behavioral-clustering-by-execution-output",
+    "llm-tournament-ranking",
+    "round-robin-submission-strategy",
+    "reasoning-length-as-a-correctness-proxy",
+    "gencluster-parallel-generation-behavioral-clustering-tournament-ranking-round-ro",
+    "behavioral-clustering",
+    "llm-as-judge-pairwise-tournament",
+    "ioi-2025-new-subtask-level-benchmark-derived-from-ioi-2025-competition-problems",
+    "deepseek-r1-0528",
+    "qwen3-235b-a22b-thinking",
     "reasoning-outliers",
     "efficient-reasoning",
     "chain-of-thought-pruning",
@@ -131,9 +147,7 @@
     "aime-2024",
     "minerva"
   ],
-  "related_authored": [
-    "gpt-oss-120b"
-  ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "gpt-oss-20b",
   "topics": [

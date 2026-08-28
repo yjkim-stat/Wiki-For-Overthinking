@@ -1,0 +1,122 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-211.pdf"
+  },
+  "completed_at": "2026-08-28T00:29:24Z",
+  "created_at": "2026-08-28T00:09:24Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.211",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "As large language models (LLMs) increasingly tackle complex reasoning tasks, test-time scaling has become critical for enhancing capabilities. However, in agentic scenarios with frequent tool calls, the traditional generation-length-based definition breaks down: tool latency decouples inference time from generation length. We propose Timely Machine, redefining test-time as wall-clock time, where models dynamically adjust strategies based on time budgets. We introduce Timely-Eval, a benchmark spanning high-frequency tool calls, low-frequency tool calls, and time-constrained reasoning. By varying tool latency, we find smaller models excel with fast feedback through more interactions, while larger models dominate high-latency settings via superior interaction quality. Moreover, existing models fail to adapt reasoning to time budgets. We propose Timely-RL to address this gap. After cold-start supervised fine-tuning, we use reinforcement learning to enhance temporal planning. Timely-RL improves time budget awareness and consistently boosts performance across Timely-Eval. We hope our work offers a new perspective on test-time scaling for the agentic era.",
+    "authors": [
+      "Yichuan Ma",
+      "Linyang Li",
+      "Yongkang Chen",
+      "Peiji Li",
+      "Xiaozhe Li",
+      "Qipeng Guo",
+      "Dahua Lin",
+      "Kai Chen"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.211.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Timely Machine: Awareness of Time Makes Test-Time Scaling Agentic",
+    "url": "https://aclanthology.org/2026.acl-long.211/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "Timely Machine (wall-clock-time test-time scaling)",
+      "tool-dominated / generation-dominated / mixed latency regimes",
+      "sinusoidal time-utilization reward",
+      "time-budget-aware cold start"
+    ],
+    "contributions": [
+      "a reformulation of test-time scaling for agentic tasks as wall-clock time rather than token/generation length, motivated by a formal decomposition of when tool latency dominates, is dominated by, or roughly matches generation time",
+      "Timely-Eval, a benchmark spanning interactive text games, machine-learning tasks, and general reasoning under configurable time budgets and tool latencies, revealing that model-size scaling advantage flips direction depending on tool latency and that existing models lack time-budget-adaptive reasoning",
+      "Timely-RL, a time-aware cold-start-plus-RL training recipe with a sinusoidal time-utilization reward (ablated against linear and step-function alternatives) that gives an 8B model measurable, budget-responsive reasoning-length adaptation and on-time completion rates exceeding much larger untrained models",
+      "empirical evidence that Timely-RL training, not scale or generic RLVR alone, produces genuine time awareness, validated via ablation against SFT-only and standard-RLVR-only baselines"
+    ],
+    "datasets": [
+      "AIME",
+      "MATH",
+      "GPQA-Diamond",
+      "MLEBench-Lite (Leaf Classification, Spaceship Titanic, Random Acts of Pizza, Detecting Insults)",
+      "Jericho interactive fiction games (Zork1, Advent, Enchanter, Detective)",
+      "AM-DeepSeek-R1-Distilled-1.4M (distillation source)",
+      "DataScience-Instruct-500K"
+    ],
+    "limitations": "Evaluation is currently conducted only on text-based tasks; multimodal interactive tasks with image or video streams introduce more complex and variable latencies not addressed here. The framework does not fully address multi-agent deployment where latency arises from another LLM's own generation time; training for effective time-aware collaboration in such contexts remains open. Accuracy improvements from Timely-RL training vary by benchmark difficulty in ways not yet fully characterized.",
+    "method": "Formalizes total agentic task time as generation time plus tool-execution time summed over interaction rounds, and derives three regimes via the per-step latency ratio (tool time / generation time): tool-dominated, generation-dominated (collapses to standard token-length control), and mixed. Introduces Timely-Eval, a benchmark spanning Interactive Games (four Jericho text adventures with controllable per-action latency), Machine Learning tasks (adapted from MLEBench-Lite, execution-time-dominated), and General Reasoning tasks (AIME, MATH, GPQA-Diamond, with a timer tool and a hard timeout). Builds Timely-RL: cold-start SFT distilling time-budget-varying solutions from a teacher equipped with a timer tool, plus interaction traces from DeepSeek-V3.2 on interactive games, followed by a GRPO variant whose reward combines correctness/formatting with a sinusoidal time-utilization bonus that grows and saturates as elapsed time approaches the budget, designed to reward appropriately-paced full budget use without over-penalizing minor timing variation near the deadline.",
+    "methods": [
+      "Timely-RL (time-aware GRPO with sinusoidal reward)",
+      "Timely cold-start SFT",
+      "timer-tool-augmented reasoning"
+    ],
+    "models": [
+      "Qwen3-0.6B/1.7B/2B/4B/8B/14B/32B",
+      "TimelyLM-8B",
+      "DeepSeek-V3.2",
+      "GPT-5.1 (medium)",
+      "Gemini-2.5-pro"
+    ],
+    "one_liner": "Timely Machine redefines test-time scaling in agentic settings as wall-clock time rather than token/generation length (since unpredictable tool-call latency decouples the two), introduces Timely-Eval to benchmark this, and trains Timely-RL (SFT cold-start + a sinusoidal time-utilization RL reward) so an 8B model learns to query elapsed time and dynamically size its reasoning to a time budget, beating much larger models' on-time completion rates and outperforming Qwen3-8B on all three general-reasoning benchmarks.",
+    "problem": "Test-time scaling is traditionally defined by generation length because token count and inference time are proportional in pure-generation tasks, but in agentic tasks with tool calls, tool-execution latency is unpredictable and can dominate total time -- a concise trajectory using slow tools can take longer than a long trajectory using fast tools -- so token-based budget control is insufficient, and models lack any intrinsic awareness of, or ability to plan around, actual wall-clock time budgets.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant, and a useful complication of the topic's usual token-count framing: it argues that in tool-using agentic settings, token length is not even the right unit for measuring 'how much a model thinks,' since tool latency can decouple wall-clock cost from generation length entirely -- a concise trajectory can be slow, and a long one can be fast. This reframes the overthinking mitigation problem (train models to use their budget well, not just to generate fewer tokens) and its finding that model-size scaling advantage flips with tool latency is a caution for any efficiency comparison in this archive that assumes token count is a reliable proxy for inference cost in agentic or tool-augmented settings."
+    },
+    "results": "Scaling experiments across four interactive games and Qwen3 models (0.6B-32B) show tool latency flips which model size wins: at low/no latency smaller models can outperform larger ones by completing more interaction rounds, but as latency increases the task becomes tool-dominated and larger models pull ahead via higher per-round interaction quality. TimelyLM-8B (Qwen3-8B cold-started then Timely-RL-trained) outperforms untrained Qwen3-8B on all three general-reasoning benchmarks (MATH 78.0 vs. 71.2, AIME 42.5 vs. 40.0, GPQA-Diamond 49.5 vs. 37.5) and achieves the best or near-best Machine Learning task scores among all evaluated models including much larger ones, while remaining competitive with substantially larger general models on interactive games despite being cold-started on only the first 50 steps of each game. Under a reduced (0.75x) time budget, TimelyLM-8B achieves the highest on-time completion rate across AIME/GPQA/MATH (53.3%/52.0%/56.0%) versus Qwen3-8B/14B/32B (18-46%) and even versus larger closed models, while matching or exceeding their accuracy -- Qwen3-series models cannot adapt reasoning length to shrunken budgets and frequently fail to finish in time. TimelyLM's average token count clearly increases as the time budget scales from 0.75x to 3.0x, while Qwen3-series models show comparatively flat length changes across budgets; an ablation shows Timely-RL achieves markedly higher on-time completion than SFT alone, and standard RLVR (no time-aware reward) on the same SFT checkpoint fails to produce comparable adaptation. Reward-design ablation confirms the sinusoidal utilization bonus outperforms both a linear-reward variant (under-incentivizes full budget use) and a step-function reward (coarse intervals fail to distinguish trajectories within the same bin), across standard and reduced-budget settings.",
+    "tags": [
+      "test-time-scaling",
+      "agentic-reasoning",
+      "time-budget-awareness",
+      "reinforcement-learning",
+      "tool-use"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-211",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

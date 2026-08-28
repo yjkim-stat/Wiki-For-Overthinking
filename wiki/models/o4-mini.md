@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+o4-mini is cited in this archive by EchoCoT, a security study showing its hidden chain-of-thought (and that of other black-box reasoning models) can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must persist across tool calls within a turn, and by REST's multi-question stress test of large reasoning models.
 
 - **Kind**: model
 - **Also called**: O4-mini
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [ARC-C](../datasets/arc-c.md), [BBH](../datasets/bbh.md), [DeepSeek-R1](deepseek-r1.md), [deepseek-v4-flash](deepseek-v4-flash.md), [Direct Prompting](../methods/direct-prompting.md), [GLM-5.2](glm-5-2.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [MATH500](../datasets/math500.md), [o3-mini](o3-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Qwen3.5-Plus](qwen3-5-plus.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [ARC-C](../datasets/arc-c.md), [BBH](../datasets/bbh.md), [DeepScaleR-1.5B](deepscaler-1-5b.md), [DeepSeek-R1](deepseek-r1.md), [deepseek-v4-flash](deepseek-v4-flash.md), [Direct Prompting](../methods/direct-prompting.md), [GLM-5.2](glm-5-2.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [MATH500](../datasets/math500.md), [o3-mini](o3-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Qwen3.5-Plus](qwen3-5-plus.md)
 
 ## Appears in
 

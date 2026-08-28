@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+ARC-C (AI2 Reasoning Challenge, Challenge set) is a benchmark used in this archive as one of nine benchmarks in REST's multi-question stress test, where the 'overthinking trap' is identified as a primary cause of degraded performance under simultaneous multi-problem prompting, and in a diffusion-LLM test-time-scaling paper that majority-votes across multiple block-generation schedules. Sources cite it only as an evaluation benchmark without further characterization.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [BBH](bbh.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [LiveCodeBench (v5)](livecodebench-v5.md), [MATH](math.md), [MATH500](math500.md), [o3-mini](../models/o3-mini.md), [o4-mini](../models/o4-mini.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [TruthfulQA](truthfulqa.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [BBH](bbh.md), [DeepScaleR-1.5B](../models/deepscaler-1-5b.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [LiveCodeBench (v5)](livecodebench-v5.md), [MATH](math.md), [MATH500](math500.md), [o3-mini](../models/o3-mini.md), [o4-mini](../models/o4-mini.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [TruthfulQA](truthfulqa.md)
 
 ## Appears in
 

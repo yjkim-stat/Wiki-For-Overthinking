@@ -2,7 +2,7 @@
   "aliases": [
     "StrongREJECT"
   ],
-  "definition": "",
+  "definition": "StrongReject is a safety/refusal benchmark used in this archive by SafeChain's systematic 13-model safety evaluation (finding no model is safe on both StrongReject and WildJailbreak, and that unsafe responses are consistently longer than safe ones) and by the Mousetrap jailbreak-attack framework, which reports 87.5-93.13% attack success on standard safety benchmarks including this one.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.findings-acl.1197",
@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Mousetrap is the first jailbreak attack framework designed against large reasoning models: a 'Chaos Machine' iteratively applies reversible one-to-one prompt mappings (character/word/sentence-level ciphers) to embed a toxic query inside a multi-step reconstruction task, exploiting the finding that LRMs exhibit 'reasoning inertia' -- once started, they follow the reasoning chain to completion by inertia and neglect to re-evaluate safety -- achieving up to 96-98% attack success against o1-mini, Claude-3.5-Sonnet and Gemini-2.0-Thinking and 87.5-93.13% on standard safety benchmarks against Claude-Sonnet.",
       "title": "A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1988",
+      "kind": "paper",
+      "note": "AutoRAN is the first automated framework for hijacking a large reasoning model's internal safety deliberation, using a weaker, less-aligned auxiliary model to simulate the target's execution reasoning and iteratively refine attack prompts from leaked refusal reasoning, achieving near-100% attack success against gpt-o3/o4-mini and Gemini-2.5-Flash within a few turns.",
+      "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "StrongReject",
   "related": [
     "thought-answer-safety-decomposition",
@@ -75,7 +81,22 @@
     "deepseek-r1",
     "qwq-plus",
     "grok-3",
-    "gpt-4o-mini-fine-tuned-chaos-machine-variant"
+    "gpt-4o-mini-fine-tuned-chaos-machine-variant",
+    "execution-hijacking",
+    "targeted-refinement-refusal-reasoning-exploitation",
+    "weak-to-strong-execution-simulation",
+    "reasoning-trace-attack-surface",
+    "autoran-execution-simulation-iterative-refinement-jailbreak",
+    "mousetrap-comparison-baseline",
+    "h-cot-policypuppetry-referenced-prior-attacks",
+    "rlhf-based-adversarial-data-defense-dr-grpo",
+    "system-prompt-based-safety-defense",
+    "xstest-over-refusal-evaluation",
+    "gpt-o3",
+    "gpt-o4-mini",
+    "gemini-2-5-flash",
+    "qwen3-8b",
+    "qwen3-8b-ablated-attacker"
   ],
   "related_authored": [],
   "schema_version": 1,

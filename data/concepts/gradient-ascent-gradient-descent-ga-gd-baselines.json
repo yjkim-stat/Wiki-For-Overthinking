@@ -1,0 +1,37 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.143",
+      "kind": "paper",
+      "note": "CiPO reframes unlearning for large reasoning models as counterfactual intervention on the chain-of-thought: it has the target model generate a logically valid counterfactual reasoning trace and answer, then iteratively preference-optimizes the model toward that counterfactual (SimPO loss against online-sampled dispreferred responses), removing sensitive knowledge from both intermediate CoT and final answers while preserving reasoning ability better than prior unlearning baselines.",
+      "title": "CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization"
+    }
+  ],
+  "first_seen": "2026-08-28T00:09:24Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T00:09:24Z",
+  "name": "Gradient Ascent / Gradient Descent (GA/GD, baselines)",
+  "related": [
+    "counterfactual-unlearning",
+    "causal-intervention-view-of-lrm-unlearning-do-f-c-a",
+    "iterative-online-preference-optimization",
+    "cot-level-vs-answer-level-forgetting",
+    "cipo-counterfactual-unlearning-via-iterative-preference-optimization",
+    "simpo",
+    "r2mu-baseline",
+    "reasonedidk-directidk-answeridk-baselines",
+    "npo-baseline",
+    "r-tofu-forget01-05-10",
+    "return",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-0528-qwen3-8b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "gradient-ascent-gradient-descent-ga-gd-baselines",
+  "topics": [
+    "overthinking"
+  ]
+}

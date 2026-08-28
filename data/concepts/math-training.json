@@ -1,0 +1,68 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.146",
+      "kind": "paper",
+      "note": "Names 'invalid thinking' -- redundant double-checking after a reasoning model has already derived the correct answer -- as a specific, measurable form of overthinking (Valid Thinking rate as low as 57.5-65.3% on four SOTA LRMs), and introduces LC-R1, a GRPO method with a dual Length Reward (global conciseness) and Compress Reward (targeted removal of the redundant tail), achieving ~46-52% length reduction for only 1.8-2.1% accuracy loss and 97%+ Valid Thinking rate.",
+      "title": "Optimizing Length Compression in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2216",
+      "kind": "paper",
+      "note": "ROSE improves MCTS-based RLVR by branching reasoning rollouts at semantic-entropy positions (generation entropy weighted by embedding-space token dispersion, not raw token-probability entropy, which conflates functionally-equivalent tokens like 'can'/'need' as diverse) plus an epsilon-exploration mechanism, combined with a length-aware segment-level advantage estimator that penalizes unnecessarily long correct branches, outperforming GRPO variants and MCTS baselines (TreePO, FR3E) on AIME/MATH500/AMC23 while producing measurably shorter, less overthought reasoning.",
+      "title": "Reinforced Efficient Reasoning via Semantically Diverse Exploration"
+    }
+  ],
+  "first_seen": "2026-08-28T00:09:24Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "MATH (training)",
+  "related": [
+    "invalid-thinking-post-answer-redundant-verification",
+    "valid-thinking-vt-rate",
+    "brevity-and-sufficiency-principles",
+    "dual-reward-grpo-length-reward-compress-reward",
+    "lc-r1-dual-reward-grpo",
+    "lc-extractor-valid-thinking-segment-extraction",
+    "sft-baseline",
+    "dpo-baseline",
+    "o1-pruner-baseline",
+    "thinkprune-baseline",
+    "sft-o1-pruner-baseline",
+    "aime-2025",
+    "math500",
+    "gsm8k",
+    "olympiadbench",
+    "amc",
+    "gpqa-diamond",
+    "livecodebench",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepscaler-1-5b-preview",
+    "qwen3-32b",
+    "qwq-32b",
+    "deepseek-r1",
+    "llama-3-3-nemotron-super-49b-v1",
+    "qwen2-5-3b-instruct-extractor-backbone",
+    "semantic-entropy-semantic-divergence-weighted-branching-criterion",
+    "epsilon-exploration-mechanism",
+    "segment-level-advantage-estimation",
+    "length-aware-calibration",
+    "rose-semantic-entropy-guided-mcts-rollout-length-aware-segment-advantage",
+    "grpo-dapo-dr-grpo-baselines",
+    "treepo-fr3e-mcts-based-baselines",
+    "aime-2024",
+    "amc23",
+    "qwen3-4b-base",
+    "qwen3-8b-base",
+    "llama-3-2-3b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "math-training",
+  "topics": [
+    "overthinking"
+  ]
+}

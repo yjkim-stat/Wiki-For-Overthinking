@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ThinkBooster is a unified, open-source framework (Python library + OpenAI-compatible proxy endpoint + visual debugger) implementing 9 test-time-compute scaling strategies and 4 scorer families under a joint TFLOPs-and-tokens compute-accounting benchmark, whose pilot study finds PRM scorers dominate on math while lightweight uncertainty scorers are surprisingly competitive on (out-of-domain-for-PRM) coding tasks, and that beam search often underperforms best-of-N and even self-consistency despite costing more compute.",
+        "title": "ThinkBooster: A Unified Framework for Seamless Test-Time Scaling of LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MUR (Momentum Uncertainty guided Reasoning) is a training-free, orthogonal-to-existing-TTS method that recursively aggregates step-level uncertainty into a momentum term (proven to act as a low-pass filter emphasizing recent steps) and selectively applies test-time-scaling compute only to steps whose uncertainty exceeds this momentum by a tunable threshold, cutting thinking-token budgets by over 45% on average while improving accuracy 0.33-3.46% across four benchmarks, three Qwen3 model sizes, and four test-time-scaling backends.",
+        "title": "MUR: Momentum Uncertainty guided Reasoning for Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-28T00:00:51Z",
+  "created_at": "2026-08-27T23:27:34Z",
+  "instructions": "Write the wiki definition for 'Phi-decoding'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Phi-decoding",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Phi-decoding",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Phi-decoding is one of nine test-time-compute scaling strategies implemented in ThinkBooster's unified benchmarking framework and one of four test-time-scaling backends MUR (Momentum Uncertainty guided Reasoning) is evaluated against. Sources name it as a strategy/backend among several rather than describing its own mechanism.",
+    "kind": "method",
+    "related": []
+  },
+  "task_id": "concept__phi-decoding",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

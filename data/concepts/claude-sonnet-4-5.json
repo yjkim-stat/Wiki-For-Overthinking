@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Claude-Sonnet-4.5"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Routed Graph Handoff (RGH) uses a lightweight LLM router to pick, per delegation, between a typed dependency-graph message and natural-language prose for multi-agent LLM handoffs, matching or beating NL-only on every one of four benchmarks while cutting token cost 2-3x.",
       "title": "Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.288",
+      "kind": "paper",
+      "note": "FS-Researcher is a dual-agent (Context Builder / Report Writer) deep-research framework that scales test-time compute beyond a single context window by persisting evidence and task state in an external file-system workspace instead of the model's context, achieving state-of-the-art report quality on two open-ended benchmarks and outperforming official agent harnesses on an answer-verifiable search benchmark.",
+      "title": "FS-Researcher: Test-Time Scaling for Long-Horizon Research Tasks with File-System-Based Agents"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "Claude Sonnet 4.5",
   "related": [
     "structure-flexibility-tradeoff",
@@ -26,7 +34,18 @@
     "bfcl-v3",
     "appworld",
     "gpt-5-mini",
-    "nova-pro"
+    "nova-pro",
+    "file-system-based-persistent-workspace-external-memory-beyond-context-window",
+    "dual-agent-context-builder-report-writer-separation",
+    "session-based-iterative-refinement",
+    "test-time-scaling-via-external-memory-rather-than-longer-context",
+    "fs-researcher-file-system-based-dual-agent-framework",
+    "claude-deepresearch-openai-deepresearch-gemini-2-5-pro-deepresearch-proprietary",
+    "langchain-open-deep-research-webweaver-rhinoinsight-enterprisedeepresearch-open",
+    "deepresearch-bench",
+    "deepconsult",
+    "gemini-2-5-pro",
+    "gpt-5"
   ],
   "related_authored": [],
   "schema_version": 1,

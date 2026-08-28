@@ -1,0 +1,38 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2216",
+      "kind": "paper",
+      "note": "ROSE improves MCTS-based RLVR by branching reasoning rollouts at semantic-entropy positions (generation entropy weighted by embedding-space token dispersion, not raw token-probability entropy, which conflates functionally-equivalent tokens like 'can'/'need' as diverse) plus an epsilon-exploration mechanism, combined with a length-aware segment-level advantage estimator that penalizes unnecessarily long correct branches, outperforming GRPO variants and MCTS baselines (TreePO, FR3E) on AIME/MATH500/AMC23 while producing measurably shorter, less overthought reasoning.",
+      "title": "Reinforced Efficient Reasoning via Semantically Diverse Exploration"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "length-aware calibration",
+  "related": [
+    "semantic-entropy-semantic-divergence-weighted-branching-criterion",
+    "epsilon-exploration-mechanism",
+    "segment-level-advantage-estimation",
+    "rose-semantic-entropy-guided-mcts-rollout-length-aware-segment-advantage",
+    "grpo-dapo-dr-grpo-baselines",
+    "treepo-fr3e-mcts-based-baselines",
+    "math-training",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "math500",
+    "qwen3-4b-base",
+    "qwen3-8b-base",
+    "llama-3-2-3b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "length-aware-calibration",
+  "topics": [
+    "overthinking"
+  ]
+}

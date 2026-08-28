@@ -11,6 +11,38 @@
       },
       {
         "kind": "paper",
+        "note": "Introduces the Long CoT Collection, a 100K-example dataset built by having short-CoT LLMs (GPT-4o) generate o1-style long reasoning traces from a 1K seed of teacher-annotated reasoning flow and thought-budget targets, showing it is a stronger RL cold-start than the base model (2-3x larger RLVR gains) and offers built-in controllability over thought budget to address overthinking.",
+        "title": "One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SoftCoT keeps the backbone LLM frozen and instead uses a small auxiliary assistant model plus a trainable projection module to generate instance-specific continuous 'soft thought' tokens that prime the LLM's chain-of-thought, avoiding the catastrophic forgetting that full-model fine-tuning for continuous-space reasoning (e.g. Coconut) causes on modern instruction-tuned LLMs, and improving accuracy on five reasoning benchmarks with only ~6 soft tokens versus 24 hard tokens needed by a discrete-token assistant baseline.",
+        "title": "SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Marco-o1 v2 identifies 'formalistic long-time thinking' -- distilled small models mechanically replicating a large reasoning model's surface reasoning patterns (content repetition, over-reflection) without internalizing the underlying logic, often producing no final answer at all -- and fixes it by generating CoT training data from scratch via MCTS plus three CoT-aware post-training techniques (thought-length balance, fine-grained/masking-based DPO, joint SFT+DPO loss).",
+        "title": "Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TALE (Token-Budget-Aware LLM rEasoning) identifies that reasoning LLMs will follow a token budget stated in the prompt but that the effective budget must be chosen carefully -- too small a budget triggers 'token elasticity' where the model gives up complying and produces even longer output than an unconstrained baseline -- and offers two implementations, zero-shot budget estimation-and-prompting (TALE-EP, 67% token reduction with <3% accuracy loss) and post-training internalization (TALE-PT, ~50% reduction via SFT or DPO), both found via a binary-search 'optimal budget' procedure motivated by an 'implicit monotonicity assumption' verified on 90.91% of sampled GSM8K problems.",
+        "title": "Token-Budget-Aware LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Heima replaces each stage of a multimodal model's textual chain of thought with a single learned 'thinking token' generated in latent space, and trains a separate decoder that can expand those tokens back into readable reasoning.",
         "title": "Efficient Reasoning with Hidden Thinking",
         "topics": [
@@ -19,9 +51,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-26T02:18:13Z",
-  "created_at": "2026-08-26T02:14:29Z",
-  "instructions": "Write the wiki definition for 'LLaMA-3.1-8B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-28T00:00:49Z",
+  "created_at": "2026-08-27T23:01:46Z",
+  "instructions": "Revise the wiki definition for 'LLaMA-3.1-8B-Instruct'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    LLaMA-3.1-8B-Instruct is an open-weight instruction-tuned model that the archive's sources use as a baseline or a backbone rather than study. FIRE uses it as the strongest supervised fine-tuned baseline its two sub-2B agents are compared against, losing to FIRE on human preference at win rates of 0.86 to 0.93 across four criteria, and cites the 8B class as the monolithic alternative whose roughly 16GB peak VRAM its sequential 1.7B agents cut to about 4GB. Heima uses the family as the backbone whose textual chain-of-thought stages are replaced by single latent thinking tokens. Neither source reports capability figures for the model outside those specific comparisons.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "LLaMA-3.1-8B-Instruct",
   "kind": "concept",
   "language": "en",
@@ -37,19 +69,14 @@
   },
   "payload": {
     "name": "LLaMA-3.1-8B-Instruct",
-    "source_count": 2
+    "previous_definition": "LLaMA-3.1-8B-Instruct is an open-weight instruction-tuned model that the archive's sources use as a baseline or a backbone rather than study. FIRE uses it as the strongest supervised fine-tuned baseline its two sub-2B agents are compared against, losing to FIRE on human preference at win rates of 0.86 to 0.93 across four criteria, and cites the 8B class as the monolithic alternative whose roughly 16GB peak VRAM its sequential 1.7B agents cut to about 4GB. Heima uses the family as the backbone whose textual chain-of-thought stages are replaced by single latent thinking tokens. Neither source reports capability figures for the model outside those specific comparisons.",
+    "source_count": 6
   },
   "result": {
-    "aliases": [
-      "Llama-3.1-8B-Instruct",
-      "LLaMA-3.1-8B"
-    ],
-    "definition": "LLaMA-3.1-8B-Instruct is an open-weight instruction-tuned model that the archive's sources use as a baseline or a backbone rather than study. FIRE uses it as the strongest supervised fine-tuned baseline its two sub-2B agents are compared against, losing to FIRE on human preference at win rates of 0.86 to 0.93 across four criteria, and cites the 8B class as the monolithic alternative whose roughly 16GB peak VRAM its sequential 1.7B agents cut to about 4GB. Heima uses the family as the backbone whose textual chain-of-thought stages are replaced by single latent thinking tokens. Neither source reports capability figures for the model outside those specific comparisons.",
+    "aliases": [],
+    "definition": "LLaMA-3.1-8B-Instruct is an instruction-tuned base model used across several efficient-reasoning constructions in this archive: as the backbone for FIRE's counterspeech agents, as the base model the Long CoT Collection dataset is shown to out-cold-start for RLVR, as SoftCoT's frozen backbone primed by soft thought tokens, as the model Marco-o1 v2's distillation-training fixes are demonstrated on, as the subject of TALE's token-budget-aware prompting, and as the backbone Heima's latent 'thinking token' replaces textual CoT for.",
     "kind": "model",
-    "related": [
-      "Qwen3-1.7B",
-      "Supervised Fine-Tuning Baseline"
-    ]
+    "related": []
   },
   "task_id": "concept__llama-3-1-8b-instruct",
   "task_version": 1,

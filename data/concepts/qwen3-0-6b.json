@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Trains a ~1B-parameter multimodal model to predict, before any API call, which of seven performance bins a frontier LLM will land in for a given (document, prompt, model, reasoning budget) tuple, and uses those predictions to pick a per-sample reasoning budget for document tasks.",
       "title": "Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.200",
+      "kind": "paper",
+      "note": "Introduces attention-temperature modulation (softening/sharpening the attention softmax at inference, distinct from decoding-temperature sampling) as a difficulty-adaptive exploration control -- higher attention temperature broadens exploration and helps hard problems, lower temperature curbs overthinking and helps easy ones -- and pairs it with a difficulty-induced weighted-voting aggregation scheme (Thermometer of Thoughts), improving Pass@10 by 6.78-14.20% and aggregation accuracy by 9.74% across seven reasoning benchmarks.",
+      "title": "Thermometer of Thoughts: Enhancing LLM’s Exploration via Attention Temperature Modulation"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "Qwen3-0.6B",
   "related": [
     "over-thinking-penalty",
@@ -41,7 +47,27 @@
     "budgetdoc-introduced-360-base-contexts-x-5-models-x-5-budgets-9-000-labeled-pair",
     "rvl-cdip-modified-three-pdfs-from-different-categories-concatenated-page-level-m",
     "tat-qa-tat-dqa-hybrid-tabular-and-textual-numerical-reasoning-over-financial-rep",
-    "checkboxqa-scanned-form-checkbox-state-extraction"
+    "checkboxqa-scanned-form-checkbox-state-extraction",
+    "attention-temperature-attention-softmax-scaling",
+    "attention-entropy-vs-decoding-entropy",
+    "difficulty-induced-aggregation",
+    "continuation-tendency-score-cts",
+    "attention-temperature-scaling-ats",
+    "difficulty-induced-aggregation-d-induced",
+    "thermometer-of-thoughts-tot",
+    "decoding-temperature-sampling-dts-baseline",
+    "random-sampling-rs-baseline",
+    "gsm8k",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "hmmt",
+    "gpqa",
+    "humaneval",
+    "hunyuan-1-8b-instruct",
+    "qwen3-1-7b",
+    "deepseek-r1-distilled-qwen-1-5b",
+    "deepseek-r1-evaluator-judge"
   ],
   "related_authored": [],
   "schema_version": 1,

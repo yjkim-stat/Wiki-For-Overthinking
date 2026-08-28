@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "CoRAP is a conformal-prediction framework that constructs statistically valid uncertainty sets over reasoning-answer pairs for large reasoning models (guaranteeing a correct answer supported by valid reasoning is covered with a user-specified probability), paired with a Shapley-value-based example-to-step explanation method that provably identifies which training examples and reasoning steps are sufficient to achieve that coverage.",
+        "title": "Quantifying and Understanding Uncertainty in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "vStream trains a lightweight linear estimator to predict counterfactual ablation effects of image regions from cached attention features, so a multimodal reasoning model's visual grounding can be displayed while it reasons rather than recomputed afterwards, at 0.024 s per 10 tokens against 1.9-2.8 s for causal baselines.",
+        "title": "Real-Time Visual Attribution Streaming in Thinking Model",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-28T00:11:39Z",
+  "created_at": "2026-08-28T00:09:25Z",
+  "instructions": "Write the wiki definition for 'ScienceQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "ScienceQA",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "ScienceQA",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "ScienceQA is a multimodal science-QA benchmark used in this archive by CoRAP's conformal-prediction uncertainty framework and by vStream, which trains a lightweight linear estimator to predict counterfactual visual-attribution effects from cached attention features, streaming visual grounding at 0.024s per 10 tokens versus 1.9-2.8s for causal baselines.",
+    "kind": "dataset",
+    "related": []
+  },
+  "task_id": "concept__scienceqa",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

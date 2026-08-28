@@ -8,7 +8,7 @@ Whether a model's reasoning trace can be watched to catch misbehaviour before it
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](../datasets/aime-2025.md), [Chain-of-thought faithfulness](chain-of-thought-faithfulness.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [MMLU](../datasets/mmlu.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-8B](../methods/qwen3-8b.md), [QwQ-32B](../methods/qwq-32b.md)
+**Related**: [AIME 2025](../datasets/aime-2025.md), [Chain-of-thought faithfulness](chain-of-thought-faithfulness.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [MMLU](../datasets/mmlu.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md)
 
 ## Appears in
 

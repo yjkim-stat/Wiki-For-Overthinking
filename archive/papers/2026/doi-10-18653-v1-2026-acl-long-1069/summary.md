@@ -47,7 +47,7 @@ GrACE provides only a single confidence score reflecting overall confidence for 
 
 - **Concepts**: generative confidence elicitation (GenConf), special-token confidence readout (<CNF>), k-fold-binned calibration target, confidence-weighted self-consistency, confidence-thresholded early stopping
 - **Methods**: generative confidence elicitation (special-token similarity readout), k-fold-binned calibration target construction, [LoRA fine-tuning](../../../../wiki/methods/lora-fine-tuning.md), GrACE-SC (confidence-weighted self-consistency), GrACE-ES (confidence-thresholded early stopping), Seq. Likelihood / Platt Scaling / P(True) / Verbal / Apricot / ActCab (baselines)
-- **Datasets**: TriviaQA, [SciQ](../../../../wiki/datasets/sciq.md), [MathQA](../../../../wiki/datasets/mathqa.md), ARC_Challenge (ARC_C)
+- **Datasets**: [TriviaQA](../../../../wiki/datasets/triviaqa.md), [SciQ](../../../../wiki/datasets/sciq.md), [MathQA](../../../../wiki/datasets/mathqa.md), ARC_Challenge (ARC_C)
 
 Tags: `overthinking`, `confidence-calibration`, `test-time-scaling`, `self-consistency`, `early-stopping`
 

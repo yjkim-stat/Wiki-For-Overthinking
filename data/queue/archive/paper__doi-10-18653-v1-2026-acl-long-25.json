@@ -1,0 +1,120 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-25.pdf"
+  },
+  "completed_at": "2026-08-28T00:16:54Z",
+  "created_at": "2026-08-28T00:09:24Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.25",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Chain-of-Thought (CoT) reasoning is crucial for the performance of Large Reasoning Models (LRMs) but is often hindered by redundant and distracting segments, which incur excessive inference costs and degrade robustness. Existing approaches try to solve this problem by enforcing brevity through external supervision, such as length-based penalties or heuristic truncation. However, these approaches often degrade performance because they disregard the model’s intrinsic reasoning dependency and thus fail to distinguish between essential and redundant CoT segments. To address this problem, we propose SGP-CoT, a novel Self-Guided Pruning framework that leverages the model’s intrinsic likelihood landscape to identify segments that are extraneous to its specific reasoning pattern. Specifically, SGP-CoT treats the reasoning trajectory as a sequence of semantic units and assesses the necessity of each one via internal likelihood signals, measuring its contribution to the answer and local coherence. Based on this, it selectively removes non-essential segments and then forms high-quality pruning-based preference pairs, enabling the model to learn focused reasoning via self-optimization. Extensive experiments across diverse benchmarks demonstrate that the proposed SGP-CoT significantly reduces output length while maintaining or improving accuracy. These results validate that LRMs intrinsically possess the capability to discern reasoning utility, positioning SGP-CoT as a robust pathway toward scalable inference.",
+    "authors": [
+      "Zi-Ao Ma",
+      "Xian-Ling Mao",
+      "Tian Lan",
+      "Chen Xu",
+      "Zhijing Wu"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "efficient reasoning"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.25.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning",
+    "url": "https://aclanthology.org/2026.acl-long.25/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "reasoning unit (semantic segmentation)",
+      "Answer Impact / Coherence Impact (counterfactual likelihood scores)",
+      "self-guided vs. externally-imposed pruning",
+      "coherence-aware buffered retention"
+    ],
+    "contributions": [
+      "a self-assessment mechanism formalizing CoT traces as sequences of reasoning units and scoring each unit's necessity via two intrinsic counterfactual likelihood signals (answer impact, coherence impact), requiring no external supervision, verifier, or curated data",
+      "SGP-CoT, a fully self-guided pruning-and-preference-optimization framework that consistently preserves or improves accuracy while cutting reasoning length across five model families and four benchmarks",
+      "direct empirical evidence (a pruner-student mismatch experiment and a perplexity probe) that redundancy is model-specific: a model's own pruning signal best preserves its reasoning coherence and downstream accuracy, while pruning by another model (even another LRM or a stronger model like GPT-5) causes measurable accuracy degradation",
+      "ablations isolating the necessity of the coherence-impact buffering mechanism and the preference-optimization training objective, and showing a compact (1.5K-pair) preference dataset is sufficient and preferable to larger ones"
+    ],
+    "datasets": [
+      "AIME 2024",
+      "GPQA Diamond",
+      "MATH-500",
+      "GSM8K",
+      "Mixture-of-Thoughts (science questions, training)"
+    ],
+    "limitations": "Impact-score thresholds (tau_A, tau_C) require some tuning, though the paper reports performance is stable across a broad central region and the framework does not require delicate threshold tuning in practice. Scaling preference-data volume beyond ~1.5K pairs increasingly hurts accuracy on hard benchmarks (most clearly AIME2024), so the method is deliberately kept in a small-data regime rather than scaled up, which the paper frames as a design choice for stability and practicality rather than as a limitation to be resolved. The paper does not report results at larger model scales (beyond ~8B) within the excerpted sections.",
+    "method": "Segments each sampled reasoning trace into semantically coherent 'reasoning units' using data-driven, frequent-first-token line boundaries. For each unit, computes two intrinsic, counterfactual likelihood-based impact scores by comparing the model's own generation likelihoods with and without that unit present: Answer Impact (change in the average log-likelihood of the correct final answer when the unit is removed -- positive means the unit is answer-critical) and Coherence Impact (change in the model's own predicted likelihood of the immediately following unit -- positive means the unit supports fluent local continuation). A conservative pruning strategy keeps any unit above an answer-impact threshold tau_A outright, temporarily buffers units below tau_A but above a coherence threshold tau_C (discarding the buffer only if no subsequent answer-critical unit follows, otherwise retaining the whole buffer), and prunes only units below both thresholds. The resulting pruned-but-correct trace forms a preference pair against the original longer correct trace (pruning-based pairs), combined with sampling-based pairs (a naturally shorter correct response preferred over a longer incorrect one), and the model is trained via DPO with an added SFT loss term to directly optimize for concise, focused reasoning.",
+    "methods": [
+      "SGP-CoT (Self-Guided Pruning + DPO)",
+      "LC-R1 (baseline)",
+      "L1-Exact / L1-Max (baseline)",
+      "Direct Preference Optimization (DPO)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Llama-8B",
+      "OpenMath-Nemotron-1.5B",
+      "OpenMath-Nemotron-7B",
+      "GPT-5 (as external pruner, comparison)"
+    ],
+    "one_liner": "SGP-CoT identifies which reasoning units a model can safely drop using only its own intrinsic likelihood signals (counterfactual answer-impact and coherence-impact scores, no external verifier or curated data), then trains the model via preference optimization on self-pruned traces, cutting reasoning length 15-50% across five model families while preserving or improving accuracy -- and shows pruning by a different model consistently degrades accuracy more than self-pruning.",
+    "problem": "Existing efficient-CoT methods (length-aware RL penalties, heuristic truncation, external verifiers or curated compressed data) act as semantically-blind compressors that cannot distinguish which reasoning segments are essential for a given model's own reasoning trajectory versus another model's, so externally-imposed brevity disrupts model-specific reasoning dependencies and degrades accuracy.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Central to the topic: directly challenges the 'redundancy is universal' assumption behind semantically-blind length-penalty or heuristic-truncation methods, arguing and empirically demonstrating that which reasoning steps are essential is model-specific -- the same trace pruned by a different model (even a stronger one) introduces measurable confusion and accuracy loss for the original model. This gives a concrete mechanism (counterfactual likelihood impact, computable with no external verifier) for the broader claim in this archive that current LRMs already 'know' which parts of their own reasoning matter, complementing other archive papers (e.g. attention-head-based or Valid-Thinking-rate approaches) that reach similar conclusions via different signals."
+    },
+    "results": "Across five LRMs (DeepSeek-R1-Distill-Qwen-1.5B/7B, DeepSeek-R1-Distill-Llama-8B, OpenMath-Nemotron-1.5B/7B) and four benchmarks (AIME2024, GPQA-Diamond, MATH-500, GSM8K), SGP-CoT consistently maintains or slightly improves Pass@1 accuracy while reducing token count 20-50% on hard benchmarks and 15-30% on easy ones (e.g. GSM8K), and reduces end-to-end wall-clock latency by over 40% on the 1.5B/7B DeepSeek models -- latency reductions exceed raw token reductions, suggesting the method preferentially prunes extra-long, expensive-to-decode responses. Compared to LC-R1 and L1 (length/budget-penalty RL baselines), those methods achieve more aggressive compression but with accuracy drops (e.g. LC-R1 loses 6.4 points on AIME2024 for DS-Qwen-1.5B), while SGP-CoT's more moderate compression consistently preserves or improves accuracy, positioning it as complementary to (not a strict replacement for) aggressive-compression methods when reliability cannot be compromised. A perplexity-probe experiment shows the lowest relative perplexity increase after pruning consistently occurs along the diagonal (a model pruned by itself), confirming self-guided pruning best preserves a model's own reasoning coherence; training a student model (DS-Qwen-7B) with preference pairs constructed by external pruners causes accuracy drops of up to 8.3 points on AIME2024 versus self-pruning at comparable compression rates. Ablations show removing the coherence-guided buffering mechanism ('w/o Retention') preserves accuracy but drastically reduces compression (units are kept too liberally); pruning on answer impact alone ('w/o Delta_C') achieves more aggressive compression (40-53% on hard benchmarks) but causes accuracy drops up to 4 points on AIME2024; rate-matched random pruning at SGP-CoT's compression level causes accuracy drops up to 12 points, confirming the impact-score-guided selection (not just the compression rate) is what preserves accuracy. Increasing the preference-data scale from 1.5K to 10K-30K yields only marginal further compression while larger sets increasingly hurt hard-benchmark accuracy, so the paper adopts a compact 1.5K-pair training set as the default.",
+    "tags": [
+      "overthinking",
+      "efficient-reasoning",
+      "self-pruning",
+      "model-specific-redundancy",
+      "preference-optimization"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-25",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -45,7 +45,7 @@ Evaluated only at the 4B parameter scale due to compute constraints; whether the
 
 - **Concepts**: module-wise sigmoid-controlled parameter fusion, reward-guided interpolation (vs. fixed-ratio merging), correctness-gated, length-penalized RL reward
 - **Methods**: module-wise sigmoid-parameterized model interpolation, GRPO-style RL with clip-higher/KL-free modifications from DAPO, CMA-ES (black-box search baseline)
-- **Datasets**: DeepScaleR-preview (training), [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), GPQA-D, [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
+- **Datasets**: [DeepScaleR-preview (training)](../../../../wiki/datasets/deepscaler-preview-training.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [GPQA-D](../../../../wiki/datasets/gpqa-d.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `overthinking`, `model-merging`, `efficient-reasoning`, `reinforcement-learning`, `reward-guided-interpolation`
 

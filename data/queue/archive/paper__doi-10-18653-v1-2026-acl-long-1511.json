@@ -1,0 +1,112 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-1511.pdf"
+  },
+  "completed_at": "2026-08-28T00:04:57Z",
+  "created_at": "2026-08-27T23:01:46Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.1511",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models (LRMs) have recently demonstrated significant improvements in complex reasoning. While quantifying generation uncertainty in LRMs is crucial, traditional methods are often insufficient because they do not provide finite-sample guarantees for reasoning-answer generation. Conformal prediction (CP) stands out as a model-agnostic methodology that constructs statistically rigorous uncertainty sets. However, existing CP methods ignore the logical connection between the reasoning trace and the final answer. Additionally, prior studies fail to interpret the origins of uncertainty coverage for LRMs as they typically overlook the specific training factors driving valid reasoning. Notably, it is challenging to disentangle reasoning quality from answer correctness, while simultaneously establishing theoretical guarantees for computationally efficient explanation methods. To address these challenges, we first propose a novel methodology that provides the uncertainty of the reasoning-answer structure with statistical guarantees. Subsequently, we develop a unified example-to-step explanation framework using Shapley values that identifies a provably sufficient subset of training data and their specific reasoning steps sufficient to achieve coverage. We also provide the theoretical analysis for our proposed methods. Extensive experiments on challenging reasoning datasets verify the effectiveness of the proposed methods.",
+    "authors": [
+      "Yangyi Li",
+      "Chenxu Zhao",
+      "Mengdi Huai"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.1511.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Quantifying and Understanding Uncertainty in Large Reasoning Models",
+    "url": "https://aclanthology.org/2026.acl-long.1511/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "Conformal Reasoning-Answer Prediction (CoRAP)",
+      "reasoning-answer structure uncertainty",
+      "example-to-step Shapley explanation",
+      "Learn-Then-Test calibration"
+    ],
+    "contributions": [
+      "CoRAP, a post-hoc, model-agnostic conformal-prediction method that jointly quantifies uncertainty over the reasoning trace and the final answer with finite-sample coverage guarantees, rather than calibrating the answer alone",
+      "a hierarchical example-to-step explanation framework using Shapley values with statistical guarantees to identify which training examples and which reasoning steps within them are provably sufficient to achieve the coverage guarantee",
+      "a group-partitioning Monte Carlo approximation that decouples the method's computational cost from quadratic scaling in training-set size, making it practical for large-scale reasoning models",
+      "theoretical risk-control guarantees (Theorem 3.1 for CoRAP's coverage, Theorem 3.2 for the two-level explanation's certified sufficiency) validated empirically across datasets and models"
+    ],
+    "datasets": [
+      "CLEVR-Math",
+      "ScienceQA"
+    ],
+    "limitations": "Experiments are primarily on two multimodal datasets (CLEVR-Math, ScienceQA), and the paper states additional experiments on other data types (e.g. legal or medical) are needed to verify generality. The study considers only multimodal (vision-language) reasoning models; extending the framework to standard text-only LLMs to check whether efficiency and stability gains hold in unimodal tasks is left as an important next step.",
+    "method": "CoRAP defines a sequence quality function (log-likelihood of a candidate answer given the reasoning trace) and a conditional answer quality function (checking the answer is grounded in the reasoning), and builds a prediction set by sampling candidate reasoning-answer sequences and admitting those exceeding quality thresholds until both a set-confidence and answer-quality termination criterion are met; a Learn-Then-Test calibration procedure selects the threshold configuration that provably bounds the expected coverage failure below a target level with high probability (Theorem 3.1). The example-to-step explanation framework then quantifies each training example's, and (conditioned on selected examples) each reasoning step's, Shapley-value contribution to achieving this coverage guarantee, via a Monte Carlo approximation with Hoeffding-bound-derived lower confidence bounds; a hierarchical two-level (example-level, then step-level within selected examples) selection identifies a provably sufficient subset with its own statistical guarantee (Theorem 3.2), and a group-partitioning optimization decouples the method's inference-time cost from quadratic scaling in training-data size.",
+    "methods": [
+      "Conformal Prediction (CP)",
+      "Learn-Then-Test calibration",
+      "Shapley-value data attribution",
+      "Monte Carlo approximation of Shapley values"
+    ],
+    "models": [
+      "LMM-R1",
+      "R1-Onevision",
+      "LLaVA-CoT"
+    ],
+    "one_liner": "CoRAP is a conformal-prediction framework that constructs statistically valid uncertainty sets over reasoning-answer pairs for large reasoning models (guaranteeing a correct answer supported by valid reasoning is covered with a user-specified probability), paired with a Shapley-value-based example-to-step explanation method that provably identifies which training examples and reasoning steps are sufficient to achieve that coverage.",
+    "problem": "Conformal prediction offers distribution-free, finite-sample uncertainty guarantees, but existing CP methods for LLMs either calibrate only the final answer while ignoring the reasoning trace, or treat the whole generation as a single unit without verifying that the reasoning logically supports the answer -- so they cannot guarantee that a correct answer in the uncertainty set is actually backed by valid reasoning, and no prior method attributes quantified uncertainty back to specific training examples or reasoning steps with statistical guarantees.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Tangential: this is about statistically valid uncertainty quantification and attribution for reasoning-answer pairs, not about reasoning length or the accuracy/efficiency tradeoff. It is relevant background in that its compact uncertainty sets (as few as ~2.76 reasoning traces needed for guaranteed coverage) imply most sampled reasoning traces in a self-consistency-style pool are redundant for establishing confidence -- a different angle on the same 'much of what a reasoning model generates is not doing useful work' observation the overthinking literature makes about individual traces."
+    },
+    "results": "On CLEVR-Math and ScienceQA using LMM-R1 (also LLaVA-CoT, R1-Onevision), CoRAP's empirical loss stays below the target level alpha across alpha in {0.3, 0.4, 0.5}, while the CP-Router baseline exceeds the target level in multiple settings -- i.e. CP-Router fails to maintain the coverage guarantee CoRAP achieves. CoRAP also produces substantially more compact uncertainty sets: e.g. on CLEVR-Math with LMM-R1 at alpha=0.4, CoRAP's average prediction-set size is 2.76 versus CP-Router's 5.00, meaning fewer than three reasoning traces are typically sufficient to cover the correct answer under valid coverage. Example-level Shapley explanations substantially outperform random selection: top-1 Shapley value rises from 0.042 (random) to 0.433 (CoRAP) on LMM-R1/CLEVR-Math and from 0.021 to 0.356 on R1-Onevision, with success rates of 0.833 and 1.000 respectively (both exceeding the required 1-delta_ex threshold of 0.75), and fine-tuning on CoRAP-selected examples shifts a held-out test point from excluded to included in the uncertainty set, unlike fine-tuning on random examples. Step-level explanations show a similar pattern (top-1 Shapley value 0.020->0.739 for LMM-R1, 0.006->0.589 for R1-Onevision), with success rates (0.875, 0.750) both surpassing the required threshold. CoRAP's running time is substantially lower than full fine-tuning and LoRA baselines when using influence-function-based approximation, and decreases further as the number of computation groups increases, confirming the group-partitioning optimization's practical savings.",
+    "tags": [
+      "uncertainty-quantification",
+      "conformal-prediction",
+      "large-reasoning-models",
+      "explainability",
+      "multimodal"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-1511",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

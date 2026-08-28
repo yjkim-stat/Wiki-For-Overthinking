@@ -1,0 +1,51 @@
+{
+  "concepts": [
+    "semantic entropy (semantic-divergence-weighted branching criterion)",
+    "epsilon-exploration mechanism",
+    "segment-level advantage estimation",
+    "length-aware calibration"
+  ],
+  "contributions": [
+    "a semantic-entropy branching criterion for MCTS-based RLVR rollout that identifies genuinely semantically divergent reasoning positions, addressing a specific failure mode of raw generation-entropy-based branching (functionally equivalent high-entropy tokens producing near-identical subsequent reasoning)",
+    "an epsilon-exploration mechanism that stochastically restarts rollouts from scratch to prevent the tree search from becoming overly local, balancing exploration depth and breadth",
+    "a length-aware segment-level advantage estimator that explicitly penalizes unnecessarily long correct reasoning branches relative to a shorter correct alternative sharing the same prefix, directly targeting overthinking during RL training rather than only after the fact",
+    "consistent improvements over GRPO-loss-modification variants (DAPO, Dr.GRPO) and prior MCTS-based methods (TreePO, FR3E) across three model backbones and four math benchmarks, with tunable length reduction that preserves or improves accuracy at moderate settings"
+  ],
+  "datasets": [
+    "MATH (training)",
+    "AIME2024",
+    "AIME2025",
+    "AMC23",
+    "MATH500"
+  ],
+  "generated_at": "2026-08-28T00:31:08Z",
+  "generated_by": "queue",
+  "limitations": "Experiments are conducted on models up to 8B parameters; scalability to larger architectures (e.g. 14B) is left for future investigation. The work focuses primarily on mathematical reasoning tasks; extending the approach to other domains such as code generation and question answering is identified as future work. The paper notes recent findings suggesting potential data leakage in Qwen-family benchmarks, though it reports comparable performance gains on Llama models of similar scale as partial mitigation of this concern.",
+  "method": "Defines semantic divergence at a branching candidate position as the probability-weighted sum of pairwise embedding-space cosine dissimilarities among the top-20 highest-probability next tokens, then defines semantic entropy as generation entropy multiplied by semantic divergence, and uses semantic entropy (rather than raw generation entropy) as the branching criterion for MCTS-based rollout -- selecting positions where semantically diverse continuations exist for tree-structured sampling. Adds an epsilon-exploration mechanism: before generating each response, with probability epsilon the rollout is regenerated fully from scratch (independent, like vanilla GRPO) rather than following the branching strategy, preventing the tree search from becoming overly local. For advantage estimation, partitions each response into segments at its branching nodes, computes each node's value as the average binary correctness reward over all responses passing through it, derives segment-level advantage as the value difference between consecutive nodes, then applies length-aware calibration: for correct responses that diverge from the shortest correct response at a common branch point, the longer branch's post-divergence advantage is proportionally reduced (scaled by a hyperparameter alpha and the relative post-divergence length ratio) to penalize unnecessarily long correct reasoning chains relative to a shorter correct alternative sharing the same prefix.",
+  "methods": [
+    "ROSE (semantic-entropy-guided MCTS rollout + length-aware segment advantage)",
+    "GRPO / DAPO / Dr.GRPO (baselines)",
+    "TreePO / FR3E (MCTS-based baselines)"
+  ],
+  "models": [
+    "Qwen3-4B-Base",
+    "Qwen3-8B-Base",
+    "Llama-3.2-3B-Instruct"
+  ],
+  "one_liner": "ROSE improves MCTS-based RLVR by branching reasoning rollouts at semantic-entropy positions (generation entropy weighted by embedding-space token dispersion, not raw token-probability entropy, which conflates functionally-equivalent tokens like 'can'/'need' as diverse) plus an epsilon-exploration mechanism, combined with a length-aware segment-level advantage estimator that penalizes unnecessarily long correct branches, outperforming GRPO variants and MCTS baselines (TreePO, FR3E) on AIME/MATH500/AMC23 while producing measurably shorter, less overthought reasoning.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.2216",
+  "problem": "MCTS-based RLVR methods improve on vanilla GRPO by branching reasoning rollouts into a tree for fine-grained segment-level credit assignment, but existing branching strategies rely on generation (token-probability) entropy to pick branch points, which fails to capture semantic uncertainty: two tokens can have similarly high probability yet be functionally/semantically equivalent (e.g. 'can' vs. 'need'), causing branches from that point to explore nearly identical subsequent reasoning -- limiting real exploration diversity -- and existing MCTS methods also do not explicitly account for reasoning length during advantage estimation, allowing overthinking (redundant reasoning) to persist even as segment-level credit assignment improves.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Central to the topic: explicitly names overthinking (redundant reasoning from uniform credit assignment) as a motivating failure of prior MCTS-based RLVR methods and builds a length-aware advantage estimator directly into the RL training signal to counter it, rather than applying a post-hoc length penalty or inference-time intervention. Its semantic-entropy branching critique -- that raw token-probability entropy conflates functionally equivalent tokens as if they were genuinely divergent reasoning options -- is a mechanistic insight relevant to any method in this archive that uses entropy or logit-based signals to detect reasoning uncertainty or decide where a trace can be pruned or branched."
+  },
+  "results": "Across Qwen3-4B-Base, Qwen3-8B-Base and Llama-3.2-3B-Instruct on AIME2024/2025, MATH500 and AMC23 (pass@8 metric), ROSE achieves the best average score in every backbone: 51.24% (Qwen3-4B, +2.75 over the strongest baseline), 55.75% (Qwen3-8B, +4.65), and 31.67% (Llama-3.2-3B, +2.86), consistently beating GRPO, DAPO, Dr.GRPO (GRPO-loss-modification variants) and MCTS-based baselines TreePO and FR3E, with the largest gains concentrated on the more challenging AIME2024/2025 benchmarks -- evidence the semantic-diversity branching specifically helps harder problems requiring genuinely divergent reasoning paths. A branching-metric ablation confirms semantic entropy outperforms raw generation entropy and semantic divergence alone across all three backbones and datasets, and a kernel-density analysis of pairwise response-embedding similarities shows ROSE's branching produces distributions with lower peaks and heavier tails (more dispersed, i.e. more genuinely diverse) than entropy-based branching. Length-efficiency analysis shows increasing the length-aware calibration hyperparameter alpha steadily shortens average response length while pass@8 remains strong or even improves at moderate alpha (alpha=1 or 2 gives the best accuracy-efficiency trade-off, e.g. Qwen3-8B pass@8 rising to 55.75% while length drops 21.0% versus the base model); even at an aggressive alpha=10, ROSE still outperforms GRPO variants on pass@8 while cutting response length substantially (up to -19.6% on Llama-3.2-3B), and response-length curves during both rollout and evaluation stages are consistently and increasingly shorter than GRPO/Dr.GRPO as alpha grows. Ablations removing epsilon-exploration (forcing epsilon=0, fully local branching) or the segment-level length-aware advantage estimation (falling back to plain GRPO's response-level advantage) both cause consistent performance drops across all three backbones, and replacing semantic-entropy branching with random branching also degrades performance, confirming semantic entropy successfully identifies genuinely uncertain reasoning positions. A sweep over epsilon shows performance first improves then degrades as epsilon increases from 0 to 1: epsilon=0 (no random restarts) becomes overly local and loses diversity, while epsilon=1 (fully independent rollouts, equivalent to Dr.GRPO) loses the tree structure needed for segment-level advantage estimation -- a moderate epsilon (0.3-0.5) performs best across all backbones. Learning-curve analysis shows ROSE's training is more stable than vanilla GRPO's, particularly at smaller model scales (3B/4B), where GRPO shows noticeable fluctuation and fails to achieve significant gains.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "reinforcement-learning",
+    "monte-carlo-tree-search",
+    "exploration-diversity",
+    "efficient-reasoning"
+  ]
+}

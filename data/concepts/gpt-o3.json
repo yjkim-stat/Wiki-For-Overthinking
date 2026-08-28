@@ -1,0 +1,68 @@
+{
+  "aliases": [
+    "GPT-o3"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1988",
+      "kind": "paper",
+      "note": "AutoRAN is the first automated framework for hijacking a large reasoning model's internal safety deliberation, using a weaker, less-aligned auxiliary model to simulate the target's execution reasoning and iteratively refine attack prompts from leaked refusal reasoning, achieving near-100% attack success against gpt-o3/o4-mini and Gemini-2.5-Flash within a few turns.",
+      "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2028",
+      "kind": "paper",
+      "note": "SCOPE replaces long natural-language reasoning chains for multi-constraint planning with a two-stage, multi-agent pipeline that infers a query's combination/constraint structure once and compiles it into reusable, deterministic solver functions (Combination/Filter/Deliver), reaching 93.1% success on TravelPlanner with GPT-4o (a 61.6-point gain over CoT) while cutting inference cost 1.4x and time 4.67x versus the best baseline.",
+      "title": "Programming over Thinking: Efficient and Robust Multi-Constraint Planning"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "gpt-o3",
+  "related": [
+    "execution-hijacking",
+    "targeted-refinement-refusal-reasoning-exploitation",
+    "weak-to-strong-execution-simulation",
+    "reasoning-trace-attack-surface",
+    "autoran-execution-simulation-iterative-refinement-jailbreak",
+    "mousetrap-comparison-baseline",
+    "h-cot-policypuppetry-referenced-prior-attacks",
+    "rlhf-based-adversarial-data-defense-dr-grpo",
+    "system-prompt-based-safety-defense",
+    "advbench",
+    "harmbench",
+    "strongreject",
+    "xstest-over-refusal-evaluation",
+    "gpt-o4-mini",
+    "gemini-2-5-flash",
+    "deepseek-r1",
+    "qwen3-8b",
+    "qwen3-8b-ablated-attacker",
+    "claude-3-7-sonnet",
+    "reasoning-execution-disentanglement",
+    "reusable-solver-functions-combination-filter-deliver",
+    "structured-combination-constraint-representation",
+    "code-as-proxy-for-reasoning",
+    "scope-scalable-code-planning-engine",
+    "chain-of-thought-cot-baseline",
+    "tree-of-thought-tot-baseline",
+    "evoagent-baseline",
+    "hypertree-planning-htp-baseline",
+    "thought-of-search-tos-baseline",
+    "cpmpy-constraint-programming-baseline",
+    "travelplanner",
+    "natural-plan-trip-planning-meeting-planning",
+    "gpt-4o",
+    "gpt-5",
+    "gemini-1-5-pro",
+    "gemini-2-5-pro"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "gpt-o3",
+  "topics": [
+    "overthinking"
+  ]
+}

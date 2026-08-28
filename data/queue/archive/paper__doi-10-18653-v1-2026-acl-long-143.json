@@ -1,0 +1,113 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-143.pdf"
+  },
+  "completed_at": "2026-08-28T00:03:28Z",
+  "created_at": "2026-08-27T23:01:46Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.143",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Machine unlearning has gained increasing attention in recent years, as a promising technique to selectively remove unwanted privacy or copyrighted information from Large Language Models that are trained on a massive scale of human data. However, the emergence of Large Reasoning Models (LRMs), which emphasize long chain-of-thought (CoT) reasoning to address complex questions, presents a dilemma to unlearning: existing methods either struggle to completely eliminate undesired knowledge from the CoT traces or degrade the reasoning performances due to the interference with the reasoning process. To this end, we introduce Counterfactual Unlearning through iterative Preference Optimization (CiPO), a novel framework that redefines unlearning as the targeted intervention of the CoT reasoning in LRMs. More specifically, given a desired unlearning target answer, CiPO instructs LRMs to generate a logically valid counterfactual reasoning trace for preference tuning. As the LRM adjusts to the counterfactual trace, CiPO iteratively updates the preference learning data to increase the discrepancy from the original model. This iterative loop ensures both desirable unlearning and smooth optimization, effectively mitigating the dilemma. Experiments on challenging benchmarks demonstrate that CiPO excels at unlearning, completely removing knowledge from both the intermediate CoT steps and the final answer, while preserving the reasoning abilities of LRMs.",
+    "authors": [
+      "Junyi Li",
+      "Yongqiang Chen",
+      "Ningning Ding"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.143.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization",
+    "url": "https://aclanthology.org/2026.acl-long.143/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "counterfactual unlearning",
+      "causal-intervention view of LRM unlearning (do(F->{C,A}))",
+      "iterative/online preference optimization",
+      "CoT-level vs. answer-level forgetting"
+    ],
+    "contributions": [
+      "a causal reformulation of LRM unlearning as intervening on both the reasoning trace and the answer to achieve conditional independence from the forget set",
+      "CiPO, a self-contained (no external teacher) counterfactual-generation-plus-iterative-preference-optimization framework for LRM unlearning",
+      "state-of-the-art unlearning-utility trade-off versus GA/GD/NPO/IDK-style/R2MU baselines on both a synthetic benchmark (R-TOFU) and a real-world evaluation (RETURN), replicated across two backbones",
+      "an ablation isolating the necessity of warmup SFT, the SimPO preference term, the NLL term, and the iterative (vs. fixed) sampling procedure"
+    ],
+    "datasets": [
+      "R-TOFU (Forget01/05/10)",
+      "RETURN"
+    ],
+    "limitations": "Extending CiPO beyond factual forgetting in QA-style settings to other training data formats is left to future work and would require additional adaptation. The paper notes unlearning is not a guarantee under adversarial prompting -- leakage may persist -- so it recommends responsible governance and periodic auditing rather than treating CiPO as a complete safety solution. R-TOFU's CoT traces are GPT-4o-synthesized and may not fully reflect real-world reasoning behavior, which motivated but does not fully substitute for the separate real-world evaluation.",
+    "method": "Frames LRM unlearning via a causal graph over question Q, chain-of-thought C, answer A, and the forget set F, with the objective of achieving the post-intervention distribution do(F -> {C,A}) so C and A become independent of F given Q. CiPO's counterfactual generator has the target model itself (self-contained, no external teacher) generate a counterfactual answer that changes the forgotten fact, then backward-reasons a coherent, in-distribution CoT trace leading to it, forming a fixed preferred set. Iterative preference optimization then, at each round, samples the current model's own real-time (dispreferred) response to the forget-set question, pairs it with the fixed counterfactual (preferred) response, and optimizes a SimPO-style reference-free loss plus an NLL term boosting the counterfactual's likelihood and a retain-loss term preserving behavior on the retain set -- keeping the preference signal aligned with the model's evolving distribution across iterations rather than a fixed off-policy pair.",
+    "methods": [
+      "CiPO (counterfactual unlearning via iterative preference optimization)",
+      "SimPO",
+      "R2MU (baseline)",
+      "ReasonedIDK / DirectIDK / AnswerIDK (baselines)",
+      "Gradient Ascent / Gradient Descent (GA/GD, baselines)",
+      "NPO (baseline)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Llama-8B",
+      "DeepSeek-R1-0528-Qwen3-8B"
+    ],
+    "one_liner": "CiPO reframes unlearning for large reasoning models as counterfactual intervention on the chain-of-thought: it has the target model generate a logically valid counterfactual reasoning trace and answer, then iteratively preference-optimizes the model toward that counterfactual (SimPO loss against online-sampled dispreferred responses), removing sensitive knowledge from both intermediate CoT and final answers while preserving reasoning ability better than prior unlearning baselines.",
+    "problem": "Machine unlearning for standard LLMs targets only the final output, but large reasoning models expose their internal deliberation as an explicit chain-of-thought, so unwanted knowledge can leak through the reasoning trace itself even when the final answer looks clean; existing LRM unlearning strategies either suppress reasoning representations directly (degrading CoT interpretability and reasoning ability, e.g. R2MU) or train a refusal response (introducing new privacy risks via a detectable refusal pattern and causing over-rejection on safe queries, e.g. ReasonedIDK).",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Only loosely connected to the topic: this is a privacy/unlearning paper, not about reasoning length or the accuracy/efficiency tradeoff. Its relevance is that it treats the chain-of-thought as a first-class object carrying information beyond the final answer (a leakage vector here, rather than wasted computation) -- a reminder that reasoning-trace content, not just its length, is a live research target, and that interventions on CoT (like the length-focused ones common in this archive) must also reckon with what the trace itself semantically preserves or discards."
+    },
+    "results": "On the R-TOFU benchmark (Forget01/05/10 splits, 1%/5%/10% of training instances) with a DeepSeek-R1-Distill-Llama-8B-based target model, CiPO achieves the most favorable utility-forgetting trade-off among all compared methods (GA, GD, NPO, DirectIDK, AnswerIDK, ReasonedIDK, R2MU): e.g. on Forget10, Answer-level Forgetting Efficacy 0.5169, CoT-level Forgetting Efficacy 0.5730, Model Utility 0.6629, versus gradient-ascent variants (GA/GD) reaching near-perfect forgetting but catastrophic utility collapse (MU as low as 0.0-0.2877), NPO showing instability/collapse signs, and IDK/R2MU variants improving forgetting at the cost of suppressed reasoning, excessive refusal, or unstable competency metrics. On a real-world unlearning evaluation (RETURN dataset, LLM-as-judge on 260 QA pairs about public figures' private information, DeepSeek-R1-Distill-Llama-8B target), CiPO reaches ForgetACC 0.3178, CoT-UA (CoT leakage) 0.4446, RetainACC 0.8148 (best among all methods), while GA/NPO lose reasoning ability entirely (CoT-UA undefined) and IDK-style methods over-refuse on the retain set. Results replicate on a second backbone (DeepSeek-R1-0528-Qwen3-8B) with consistent trends. Ablations show removing the warmup SFT stage, the SimPO term, the NLL term, or the iterative (vs. fixed-sample) procedure each substantially degrades either forgetting efficacy or utility, confirming all components are necessary.",
+    "tags": [
+      "machine-unlearning",
+      "large-reasoning-models",
+      "chain-of-thought",
+      "preference-optimization",
+      "privacy"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-143",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

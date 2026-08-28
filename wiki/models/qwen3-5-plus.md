@@ -9,7 +9,7 @@ A model used as an annotator LRM in the TRACE safety benchmark's construction (l
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [deepseek-v4-flash](deepseek-v4-flash.md), [Direct Prompting](../methods/direct-prompting.md), [Gemma-4-E4B](gemma-4-e4b.md), [GLM-5.2](glm-5-2.md), [Kimi-K2.5](kimi-k2-5.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [o4-mini](o4-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen3-8B](../methods/qwen3-8b.md)
+**Related**: [DeepSeek-V3.2](deepseek-v3-2.md), [deepseek-v4-flash](deepseek-v4-flash.md), [Direct Prompting](../methods/direct-prompting.md), [Gemma-4-E4B](gemma-4-e4b.md), [GLM-5.2](glm-5-2.md), [Kimi-K2.5](kimi-k2-5.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [o4-mini](o4-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen3-8B](qwen3-8b.md)
 
 ## Appears in
 

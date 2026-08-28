@@ -11,6 +11,86 @@
       },
       {
         "kind": "paper",
+        "note": "ChainPrune merges semantically equivalent steps from 16 sampled reasoning paths into a tree, picks Pareto-dominant short paths as DPO preference data, and fine-tunes with an added NLL term, cutting tokens 28.1% and reasoning steps 26.8% on two R1-distilled models without losing accuracy.",
+        "title": "ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
+        "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CAT (Confidence-Adaptive Thinking) uses self-certainty -- the KL divergence of a reasoning trajectory's per-token predictive distribution from uniform, an intrinsic model signal requiring no external labels -- to build preference pairs and a confidence-weighted preference-optimization loss (CWPO) that compresses reasoning on problems the model is confident about while preserving deliberation on uncertain ones, beating three efficient-reasoning baselines (OverThink, DAST, ConCISE) on accuracy-at-compression across three LRMs and three benchmarks.",
+        "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "NeuReasoner identifies a Mixture of Neurons (MoN) -- three distinct neuron clusters in an LRM's middle layer whose fluctuation signatures predict intra-step (calculation/derivation) errors, inter-step (oscillation/stagnation) failures, and instance-level overthinking respectively -- then trains lightweight monitoring MLPs to detect these fluctuations online and trigger special-token-conditioned diagnose-then-correct behaviors, achieving 3.2-27.0% accuracy gains while cutting token consumption 19.6-63.3% across six backbones (8B-70B) and six benchmarks, beating nine training-free and RL-based efficient-reasoning baselines.",
+        "title": "NeuReasoner: Towards Explainable, Controllable, and Unified Reasoning via Mixture-of-Neurons",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies 'length shift' -- reasoning models progressively generate longer responses on already-correctly-solved (zero-gradient) training queries during RLVR, because reasoning-word emission learned for hard problems generalizes indiscriminately to easy ones -- and fixes it with Dynamic Outlier Truncation (DOT), a training-time RL intervention that truncates only the statistical outlier-length tail of all-correct rollout groups (affecting <0.5% of responses) while leaving hard queries unconstrained, cutting AIME-24 token usage 78% while increasing accuracy over the initial policy and beating prior efficient-reasoning methods.",
+        "title": "Anti-Length Shift: Dynamic Outlier Truncation for Training Efficient Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Discovers 'The First is The Best' -- across five reasoning benchmarks and multiple LRMs, a model's first-generated solution is optimal in up to 93.7% of cases, because reasoning errors form a self-propagating forest structure (Forest of Errors, FoE) that grows faster and larger in subsequent solutions than in the first -- then proposes RED (Refine First, Discard Subs), which entropy-triggers negative-prompt intervention only on the first solution's root-error-prone segments and prunes all subsequent solutions via a dual-consistency early-stop check, improving accuracy up to 19.0% while cutting tokens 37.7-70.4% across six backbones and five benchmarks.",
+        "title": "FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ASTRO is a training-free framework that jointly exploits temporal redundancy (unnecessary reasoning steps once confidence stabilizes) and spatial redundancy (reasoning phases that tolerate lower numerical precision), segmenting a trace into five Dewey-inspired cognitive phases and coordinating phase-aware progressive quantization with confidence-based early termination, achieving up to 11.3x composite efficiency gains and 2.3-4.7x measured latency speedups while retaining 80-99% of original accuracy across two models and four reasoning benchmarks.",
+        "title": "Adaptive Spatial and Temporal Redundancy Optimization for Efficient Reasoning in Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Step-Saliency pools token-level attention-gradient saliency into step-to-step maps across a reasoning trace's question/thinking/summary structure, revealing two depth-wise information-flow failures in incorrect outputs -- Shallow Lock-in (shallow layers over-focus on the current step, ignoring earlier context) and Deep Decay (deep layers lose connection to the thinking segment, with the summary attending mainly to itself) -- and fixes both with StepFlow, a training-free single-pass decoding intervention that improves accuracy by up to 11.8 points across six LRM backbones and six benchmarks.",
+        "title": "Reasoning Fails Where Step Flow Breaks",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces token-level marginal utility -- the per-token log-probability gain toward the ground-truth answer -- and MUTO, a training framework that penalizes trajectories and individual tokens that reduce this probability, cutting DeepSeek-R1-Distill-Qwen token usage by 87.1% (1.5B) / 80.2% (7B) with comparable or better accuracy.",
+        "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names 'invalid thinking' -- redundant double-checking after a reasoning model has already derived the correct answer -- as a specific, measurable form of overthinking (Valid Thinking rate as low as 57.5-65.3% on four SOTA LRMs), and introduces LC-R1, a GRPO method with a dual Length Reward (global conciseness) and Compress Reward (targeted removal of the redundant tail), achieving ~46-52% length reduction for only 1.8-2.1% accuracy loss and 97%+ Valid Thinking rate.",
+        "title": "Optimizing Length Compression in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
         "title": "REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning",
         "topics": [
@@ -35,9 +115,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T01:23:12Z",
-  "created_at": "2026-08-21T01:05:42Z",
-  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Qwen-7B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-08-28T00:11:38Z",
+  "created_at": "2026-08-28T00:09:26Z",
+  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Qwen-7B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Qwen-7B is a language model -- REA-RL calls it a 7B distilled model, and Ada-R1 and ShorterBetter use it as their long-CoT base -- that archived papers evaluate on rather than study; the wiki has no kind for a model, so it is filed under the least wrong of the three available. It is the archive's most common efficient-reasoning testbed: ReCo reports 60.0% six-benchmark accuracy on it against 61.9% for full-cache CoT with 65% fewer tokens; REA-RL starts from it at 80.39% average accuracy over GSM8K, MATH500, Gaokao23, AMC23 and AIME24 and cuts length about 36% at unchanged accuracy, where a plain length-reward GRPO baseline gives up roughly 3.5 points for a comparable saving; Ada-R1 cuts its average reasoning length 50.93% for 1.65 accuracy points; ShorterBetter cuts in-domain length 62.1% with accuracy up 7.1%, e.g. AIME 53.3% against the base model's 36.7% at 5,288 against 11,382 tokens. What these papers establish about the model itself is the overthinking they are correcting: ShorterBetter's trace analysis attributes its excess length to repetition, self-verification and exploration of alternative solution paths after an answer is already reached, and ReCo shows its generations lengthen by 38.8% on MATH-500 when KV cache is compressed to 25%.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1-Distill-Qwen-7B",
   "kind": "concept",
   "language": "en",
@@ -46,26 +126,21 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "DeepSeek-R1-Distill-Qwen-7B",
-    "source_count": 4
+    "previous_definition": "DeepSeek-R1-Distill-Qwen-7B is a language model -- REA-RL calls it a 7B distilled model, and Ada-R1 and ShorterBetter use it as their long-CoT base -- that archived papers evaluate on rather than study; the wiki has no kind for a model, so it is filed under the least wrong of the three available. It is the archive's most common efficient-reasoning testbed: ReCo reports 60.0% six-benchmark accuracy on it against 61.9% for full-cache CoT with 65% fewer tokens; REA-RL starts from it at 80.39% average accuracy over GSM8K, MATH500, Gaokao23, AMC23 and AIME24 and cuts length about 36% at unchanged accuracy, where a plain length-reward GRPO baseline gives up roughly 3.5 points for a comparable saving; Ada-R1 cuts its average reasoning length 50.93% for 1.65 accuracy points; ShorterBetter cuts in-domain length 62.1% with accuracy up 7.1%, e.g. AIME 53.3% against the base model's 36.7% at 5,288 against 11,382 tokens. What these papers establish about the model itself is the overthinking they are correcting: ShorterBetter's trace analysis attributes its excess length to repetition, self-verification and exploration of alternative solution paths after an answer is already reached, and ReCo shows its generations lengthen by 38.8% on MATH-500 when KV cache is compressed to 25%.",
+    "source_count": 14
   },
   "result": {
-    "aliases": [
-      "DeepSeek-Distill-Qwen-7B",
-      "Distill-7B"
-    ],
-    "definition": "DeepSeek-R1-Distill-Qwen-7B is a language model -- REA-RL calls it a 7B distilled model, and Ada-R1 and ShorterBetter use it as their long-CoT base -- that archived papers evaluate on rather than study; the wiki has no kind for a model, so it is filed under the least wrong of the three available. It is the archive's most common efficient-reasoning testbed: ReCo reports 60.0% six-benchmark accuracy on it against 61.9% for full-cache CoT with 65% fewer tokens; REA-RL starts from it at 80.39% average accuracy over GSM8K, MATH500, Gaokao23, AMC23 and AIME24 and cuts length about 36% at unchanged accuracy, where a plain length-reward GRPO baseline gives up roughly 3.5 points for a comparable saving; Ada-R1 cuts its average reasoning length 50.93% for 1.65 accuracy points; ShorterBetter cuts in-domain length 62.1% with accuracy up 7.1%, e.g. AIME 53.3% against the base model's 36.7% at 5,288 against 11,382 tokens. What these papers establish about the model itself is the overthinking they are correcting: ShorterBetter's trace analysis attributes its excess length to repetition, self-verification and exploration of alternative solution paths after an answer is already reached, and ReCo shows its generations lengthen by 38.8% on MATH-500 when KV cache is compressed to 25%.",
-    "kind": "method",
-    "related": [
-      "distillation",
-      "DeepSeek-R1-Distill-Qwen-1.5B"
-    ]
+    "aliases": [],
+    "definition": "DeepSeek-R1-Distill-Qwen-7B is, alongside its 1.5B sibling, one of the archive's primary backbones for efficient-reasoning research, tested by ReCo, ChainPrune, cognitive profiling, CAT, NeuReasoner, Anti-Length Shift, FoE, ASTRO, Step-Saliency/StepFlow, MUTO, REA-RL's reflection-density reward (36% length cut), Ada-R1, LC-R1, and ShorterBetter -- spanning length-compression, mechanistic-interpretability and reflection-control methods.",
+    "kind": "model",
+    "related": []
   },
   "task_id": "concept__deepseek-r1-distill-qwen-7b",
   "task_version": 1,

@@ -23,11 +23,23 @@
       "kind": "paper",
       "note": "Shows current LLMs already possess a latent capacity for concise reasoning -- shorter correct paths exist within their own stochastic output distribution -- and that self-training (fine-tuning on the model's own best-of-N and few-shot-conditioned concise samples, FS-BoN) reliably elicits this capacity, cutting output length 30% on average across five model families on GSM8K/MATH with preserved accuracy, far outperforming zero-shot 'be concise' prompting and training on externally-sourced concise data.",
       "title": "Self-Training Elicits Concise Reasoning in Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.351",
+      "kind": "paper",
+      "note": "S2O is a FlashAttention-compatible sparse-attention method for long-context prefill that reorders queries and keys/values via lightweight index arrays (no physical tensor permutation) to concentrate attention mass into a compact region, then applies an online early-stopping rule that skips low-contribution key/value blocks once marginal attention-mass gain falls below a threshold, achieving up to 7.51x attention speedup and 3.81x end-to-end prefill speedup on Llama-3.1-8B at 128K context with lower approximation error than prior sparse-attention baselines.",
+      "title": "S2O: Early Stopping for Sparse Attention via Online Permutation"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.389",
+      "kind": "paper",
+      "note": "Reveals that linear interpolation between an Instruct model's and a Thinking model's weights does not trade off performance and reasoning verbosity smoothly, but follows a predictable three-stage transition (Instruct-dominated -> abrupt thinking-pattern emergence -> converging to Thinking with diminishing/overthinking returns), and shows a strategically chosen interpolation point beats sophisticated model-merging baselines (task arithmetic, TIES) on both efficiency and accuracy.",
+      "title": "Revisiting Model Interpolation for Efficient Reasoning"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "Llama-3.1-8B",
   "related": [
     "measurement-system-default-bias",
@@ -83,7 +95,37 @@
     "gemma-2-2b",
     "qwen2-5-3b",
     "qwen2-5-math-1-5b",
-    "deepseekmath-7b"
+    "deepseekmath-7b",
+    "online-index-guided-permutation",
+    "monotone-gain-early-stopping-for-sparse-attention",
+    "coordinate-scheduled-sparse-attention",
+    "stripe-like-attention-heatmap-structure",
+    "s2o-online-permutation-monotone-gain-early-stopping",
+    "flashattention-flashattention2-baseline-dense-reference",
+    "flexprefill-baseline",
+    "xattn-baseline",
+    "pbs-baseline",
+    "infinitebench",
+    "ruler",
+    "longbench-v2",
+    "qwen3-8b",
+    "model-interpolation-linear-weight-merging",
+    "three-stage-evolutionary-paradigm",
+    "thinking-ratio-think-r",
+    "layer-and-module-localized-reasoning-capability",
+    "model-interpolation-mi",
+    "task-arithmetic-ta-baseline",
+    "ties-merging-baseline",
+    "dare-baseline",
+    "slerp-baseline",
+    "aime-2025",
+    "ifeval",
+    "gpqa-diamond",
+    "qwen3-4b-instruct-2507",
+    "qwen3-4b-thinking-2507",
+    "qwen3-4b",
+    "qwen3-4b-base",
+    "qwen3-30b-a3b"
   ],
   "related_authored": [
     "on-generalization-across-measurement-systems",

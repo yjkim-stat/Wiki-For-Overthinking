@@ -1,0 +1,61 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
+        "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "GRIP fuses a reasoning model and an instruction (non-thinking) model of identical architecture by learning a separate sigmoid-controlled interpolation ratio per module (attention, FFN, embedding/LM-head), trained with an RL reward that favors correct and concise responses while keeping both source models frozen, cutting Qwen3-4B-Thinking's average generation length 27.0% while slightly improving average accuracy.",
+        "title": "GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "LEASH formulates reasoning-length control as a constrained RL optimization (maximize task reward subject to an expected-length constraint) solved via a Lagrangian primal-dual method with a one-sided length penalty, letting the penalty coefficient lambda self-tighten or self-relax based on real-time constraint violation rather than requiring manual tuning, and reduces average reasoning length by up to 62.7% (1.5B model) or 26.2% (4B model) while maintaining or improving accuracy on in-domain math and out-of-domain (GPQA, MMLU-Pro) benchmarks, outperforming fixed-penalty and prior length-control baselines.",
+        "title": "LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-28T00:00:49Z",
+  "created_at": "2026-08-27T23:01:46Z",
+  "instructions": "Write the wiki definition for 'Qwen3-4B-Thinking-2507'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen3-4B-Thinking-2507",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Qwen3-4B-Thinking-2507",
+    "source_count": 3
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Qwen3-4B-Thinking-2507 is a Qwen3 'thinking' variant used as a backbone for cognitive profiling of reasoning traces via Bloom's taxonomy, for GRIP's reward-guided parameter interpolation (cutting its average generation length 27.0% while slightly improving accuracy), and for LEASH's constrained-RL length control (up to 26.2% length reduction at this scale while maintaining or improving accuracy on in- and out-of-domain benchmarks).",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__qwen3-4b-thinking-2507",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

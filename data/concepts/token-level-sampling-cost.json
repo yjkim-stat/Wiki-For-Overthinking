@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2121",
+      "kind": "paper",
+      "note": "EconRL identifies substantial token-level inefficiency in state-of-the-art automated theorem provers' test-time scaling (sequential reflective CoT vs. parallel sampling) and fixes it with two combined RL techniques -- DPO-trained dynamic CoT-mode switching and difficulty-partitioned diverse-prefix parallel scaling -- so EconProver-GD matches Goedel-Prover-V2-8B's full-CoT accuracy on miniF2F using only 12% of the sampling cost.",
+      "title": "EconProver: Towards More Economical Test-Time Scaling for Automated Theorem Proving"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "token-level sampling cost",
+  "related": [
+    "prefix-diversity-coverage-pdc",
+    "dynamic-chain-of-thought-switching-dpo-trained",
+    "difficulty-aware-parallel-head-partitioning",
+    "econrl-dynamic-cot-switching-diverse-parallel-scaled-rl",
+    "direct-preference-optimization-dpo",
+    "proximal-policy-optimization-ppo",
+    "iterative-refinement-ir",
+    "minif2f-test-valid",
+    "proofnet-test",
+    "leanworkbook",
+    "goedel-pset-v1",
+    "deepseek-prover-v2-7b",
+    "goedel-prover-v2-8b",
+    "goedel-prover-sft",
+    "kimina-prover-distil-7b",
+    "leanabell-prover-v2-ds"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "token-level-sampling-cost",
+  "topics": [
+    "overthinking"
+  ]
+}

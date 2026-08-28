@@ -46,7 +46,7 @@ MUR relies on the model's internal probability calibration, which may contain bi
 ## Entities
 
 - **Concepts**: momentum uncertainty (exponentially-weighted step-level uncertainty aggregate), low-pass filter property of momentum uncertainty, gamma-control (tunable step-scaling threshold), step-level uncertainty (average negative log-likelihood), adaptive/selective test-time scaling
-- **Methods**: Momentum Uncertainty guided Reasoning (MUR), gamma-control, Guided Search / Best-of-N, LLM-as-a-Critic, phi-Decoding, Thinking Mode, Average uncertainty (baseline), SMART (baseline)
+- **Methods**: Momentum Uncertainty guided Reasoning (MUR), gamma-control, Guided Search / Best-of-N, LLM-as-a-Critic, [phi-Decoding](../../../../wiki/methods/phi-decoding.md), Thinking Mode, Average uncertainty (baseline), SMART (baseline)
 - **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA-diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `overthinking`, `test-time-scaling`, `uncertainty-estimation`, `adaptive-computation`, `training-free`

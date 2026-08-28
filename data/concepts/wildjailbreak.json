@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "SafeChain systematically evaluates 13 large reasoning models' safety on StrongReject/WildJailbreak, finding no model is safe on both, that unsafe responses are consistently longer than safe ones, that safety improves within a model family as it scales but long-CoT fine-tuning itself does not inherently improve safety over the base instruction-tuned model, and that training-free decoding strategies controlling thought length (ZeroThink most effectively) improve safety without training -- motivating a new CoT-style safety training dataset that preserves reasoning performance while improving safety.",
       "title": "SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.432",
+      "kind": "paper",
+      "note": "PAM trains large reasoning models to explicitly assess which human-preference priority (e.g. harmlessness) applies to a query before reasoning -- via a Flavell-metacognition-inspired cold-start SFT stage plus DPO preference optimization -- improving helpfulness, harmlessness and instruction-following by an average of ~10 points over an identically-trained model without this metacognitive step, without a corresponding drop in math reasoning performance for one of two backbones.",
+      "title": "PAM: Enhancing General Alignment of Large Reasoning Models through Priority-Aware Metacognition"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "WildJailbreak",
   "related": [
     "thought-answer-safety-decomposition",
@@ -38,7 +44,23 @@
     "gemini-thinking",
     "kimi-k1-5",
     "claude-3-7-sonnet",
-    "llama-3-3-70b-instruct-base-model-comparison"
+    "llama-3-3-70b-instruct-base-model-comparison",
+    "metacognitive-knowledge-flavell-s-framework-task-self-strategy",
+    "priority-aware-reasoning",
+    "metacognition-guided-rejection-sampling",
+    "fine-grained-metacognition-cot-reward",
+    "pam-priority-aware-metacognition-sft-cold-start-dpo-grpo",
+    "llm-as-judge-fine-grained-reward",
+    "alpacaeval2-0",
+    "advbench",
+    "ultrafeedback-training",
+    "saferlhf-10k-training",
+    "helpsteer2-training",
+    "deepseek-distill-qwen-7b-r1-qwen-7b",
+    "deepseek-distill-llama-8b-r1-llama-8b",
+    "gpt-4-mini-cold-start-annotator",
+    "skywork-reward-v2-llama-3-1-8b-reward-model",
+    "qwen3-30b-a3b-instruct-2507-llm-as-judge"
   ],
   "related_authored": [],
   "schema_version": 1,

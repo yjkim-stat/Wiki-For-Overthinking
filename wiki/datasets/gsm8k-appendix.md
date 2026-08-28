@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GSM8K (appendix) refers to the grade-school-math benchmark as reported in the appendix of the two papers citing it here -- REDE's attention-based hallucination-detection denoising method and ASTRO's spatial/temporal redundancy optimization framework, which reports up to 11.3x composite efficiency gains while retaining 80-99% of original accuracy. Sources do not explain why results appear in an appendix rather than the main text.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AMC23](amc23.md), [DeepSeek-R1-Distill-Qwen-7B](../methods/deepseek-r1-distill-qwen-7b.md), [MATH500](math500.md), [Qwen3-8B](../methods/qwen3-8b.md), [SPIRIT](../methods/spirit.md), [TruthfulQA](truthfulqa.md)
+**Related**: [AMC23](amc23.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [MATH500](math500.md), [Qwen3-8B](../models/qwen3-8b.md), [SPIRIT](../methods/spirit.md), [TruthfulQA](truthfulqa.md)
 
 ## Appears in
 

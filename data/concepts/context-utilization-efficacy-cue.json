@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1712",
+      "kind": "paper",
+      "note": "Verbal-R3 shows that rewriting retrieved documents into 'Verbal Annotations' -- analytic narratives that explicitly state the logical connection between a query and a document, distilled from GPT-OSS-120B into a lightweight 1.5B/3B Verbal Reranker -- substantially improves RAG accuracy over both raw context injection and stylistic paraphrasing, and pairs this with a relevance-guided test-time-scaling method that allocates search-trajectory budget toward high-relevance-scored queries, beating Search-R1 by up to 18% F1 while cutting reranker calls ~45-54%.",
+      "title": "Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "Context Utilization Efficacy (CUE)",
+  "related": [
+    "verbal-annotation-analytic-query-document-relevance-narrative",
+    "verbal-reranker-distilled-relevance-scoring-rewriting-module",
+    "relevance-guided-test-time-scaling",
+    "verbal-r3-generator-verbal-reranker-grpo-alignment",
+    "search-r1-baseline",
+    "ircot-iter-retgen-rag-baselines",
+    "monot5-rankllama-rank1-reranker-baselines",
+    "2wikimultihopqa",
+    "bamboogle",
+    "hotpotqa",
+    "musique",
+    "natural-questions-nq",
+    "popqa",
+    "triviaqa",
+    "beir",
+    "qwen2-5-3b-instruct",
+    "qwen2-5-7b",
+    "gpt-oss-120b-teacher",
+    "gemini-2-5-pro-validator",
+    "gpt-4-1-judge"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "context-utilization-efficacy-cue",
+  "topics": [
+    "overthinking"
+  ]
+}

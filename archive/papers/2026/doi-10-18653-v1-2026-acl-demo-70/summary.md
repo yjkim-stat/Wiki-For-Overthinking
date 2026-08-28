@@ -46,7 +46,7 @@ Several ThinkBooster components depend on deployment-specific capabilities: dyna
 ## Entities
 
 - **Concepts**: test-time compute (TTC) scaling, joint TFLOPs-and-token compute accounting, process reward model (PRM) vs. uncertainty-based scoring, white-box vs. black-box TTC strategy access level
-- **Methods**: [Best-of-N](../../../../wiki/methods/best-of-n.md), [majority voting / self-consistency](../../../../wiki/methods/majority-voting-self-consistency.md), beam search (tree-of-thought), extended thinking (budget forcing), dynamic exploration (MUR), DeepConf (online/offline), Phi-decoding, uncertainty CoT, process reward models (PRM), ReProbes (internal-state regressor)
+- **Methods**: [Best-of-N](../../../../wiki/methods/best-of-n.md), [majority voting / self-consistency](../../../../wiki/methods/majority-voting-self-consistency.md), beam search (tree-of-thought), extended thinking (budget forcing), dynamic exploration (MUR), DeepConf (online/offline), [Phi-decoding](../../../../wiki/methods/phi-decoding.md), uncertainty CoT, process reward models (PRM), ReProbes (internal-state regressor)
 - **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), GaoKao23EN, [AIME-2024](../../../../wiki/datasets/aime-2024.md), [AIME-2025](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [HumanEval+](../../../../wiki/datasets/humaneval.md), [MBPP+](../../../../wiki/datasets/mbpp.md), KernelBench
 
 Tags: `test-time-scaling`, `benchmark`, `open-source-framework`, `compute-accounting`, `process-reward-model`

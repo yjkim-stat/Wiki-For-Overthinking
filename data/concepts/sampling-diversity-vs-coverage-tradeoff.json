@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2069",
+      "kind": "paper",
+      "note": "Extends parallel test-time scaling to latent reasoning models (which reason in continuous hidden-state vectors rather than tokens) by introducing two stochastic sampling strategies (Monte Carlo Dropout, Additive Gaussian Noise) to generate diverse latent trajectories and a Latent Reward Model trained with a step-wise contrastive objective to score and aggregate them, showing consistent scaling gains with best-of-N and beam search across three arithmetic benchmarks and backbones up to 4B parameters.",
+      "title": "Parallel Test-Time Scaling for Latent Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "sampling diversity vs. coverage tradeoff",
+  "related": [
+    "latent-continuous-chain-of-thought-reasoning",
+    "monte-carlo-dropout-for-epistemic-uncertainty-sampling",
+    "additive-gaussian-noise-for-aleatoric-uncertainty-sampling",
+    "latent-reward-model-latentrm",
+    "monte-carlo-dropout-mc-dropout",
+    "additive-gaussian-noise-agn",
+    "best-of-n-selection",
+    "beam-search",
+    "majority-voting-baseline",
+    "gsm8k-test",
+    "gsm8k-hard",
+    "multiarith",
+    "math500",
+    "coconut",
+    "codi",
+    "colar",
+    "latent-sft-llama-3-2-1b",
+    "render-of-thought-rot-2b-4b-qwen3-vl"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "sampling-diversity-vs-coverage-tradeoff",
+  "topics": [
+    "overthinking"
+  ]
+}

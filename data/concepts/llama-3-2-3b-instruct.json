@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Llama-3.2-3B-Instruct"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Introduces POBs, a 20-topic Likert-scale benchmark for LLM preferences/opinions/beliefs on controversial topics, finding models consistently lean progressive-collectivist (with newer versions more strongly and less consistently so), and that adding reasoning or self-reflection prompting gives only limited improvement to reliability, neutrality, or consistency.",
       "title": "Think Again! The Effect of Test-Time Compute on Preferences, Opinions, and Beliefs of Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2216",
+      "kind": "paper",
+      "note": "ROSE improves MCTS-based RLVR by branching reasoning rollouts at semantic-entropy positions (generation entropy weighted by embedding-space token dispersion, not raw token-probability entropy, which conflates functionally-equivalent tokens like 'can'/'need' as diverse) plus an epsilon-exploration mechanism, combined with a length-aware segment-level advantage estimator that penalizes unnecessarily long correct branches, outperforming GRPO variants and MCTS baselines (TreePO, FR3E) on AIME/MATH500/AMC23 while producing measurably shorter, less overthought reasoning.",
+      "title": "Reinforced Efficient Reasoning via Semantically Diverse Exploration"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "LLaMA 3.2 3B Instruct",
   "related": [
     "non-neutrality-index-nni",
@@ -31,7 +39,21 @@
     "granite-3-2-8b-instruct",
     "llama-3-3-70b-instruct",
     "mistral-large",
-    "qwen-2-5-72b-instruct"
+    "qwen-2-5-72b-instruct",
+    "semantic-entropy-semantic-divergence-weighted-branching-criterion",
+    "epsilon-exploration-mechanism",
+    "segment-level-advantage-estimation",
+    "length-aware-calibration",
+    "rose-semantic-entropy-guided-mcts-rollout-length-aware-segment-advantage",
+    "grpo-dapo-dr-grpo-baselines",
+    "treepo-fr3e-mcts-based-baselines",
+    "math-training",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "math500",
+    "qwen3-4b-base",
+    "qwen3-8b-base"
   ],
   "related_authored": [],
   "schema_version": 1,

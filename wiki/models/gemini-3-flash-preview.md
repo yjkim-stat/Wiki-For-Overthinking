@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Gemini 3 Flash Preview is a closed-weight model used in this archive as the prediction target for a lightweight (~1B-parameter) performance-bin classifier that estimates reasoning outcomes before an API call, and as the frontier-accuracy reference that Thinking with Reasoning Skills (TRS) and, separately, Prompt-Level Distillation aim to match or approach via cheaper inference-time methods.
 
 - **Kind**: model
 - **Also called**: Gemini-3-Flash-Preview
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Compute-optimal inference](../concepts/compute-optimal-inference.md), [GPT-4o-mini](gpt-4o-mini.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](../methods/gpt-oss-20b.md)
+**Related**: [Compute-optimal inference](../concepts/compute-optimal-inference.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [GPT-4o-mini](gpt-4o-mini.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [Qwen3-0.6B](qwen3-0-6b.md)
 
 ## Appears in
 

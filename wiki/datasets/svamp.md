@@ -8,7 +8,7 @@ Neither source describes SVAMP directly; it appears as one of the math-word-prob
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [Ada-GRPO](../methods/ada-grpo.md), [AIME 2025](aime-2025.md), [ARC-Challenge](arc-challenge.md), [BBH](bbh.md), [C4](../methods/c4.md), [CommonsenseQA](commonsenseqa.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GPQA](gpqa.md), [GRPO](../methods/grpo.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Overthinking](../concepts/overthinking.md), [StrategyQA](strategyqa.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [Token Budget](../concepts/token-budget.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [Ada-GRPO](../methods/ada-grpo.md), [AIME 2025](aime-2025.md), [ARC-Challenge](arc-challenge.md), [BBH](bbh.md), [C4](../methods/c4.md), [CommonsenseQA](commonsenseqa.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GPQA](gpqa.md), [GRPO](../methods/grpo.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [OpenBookQA](openbookqa.md), [Overthinking](../concepts/overthinking.md), [StrategyQA](strategyqa.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [Token Budget](../concepts/token-budget.md)
 
 ## Appears in
 

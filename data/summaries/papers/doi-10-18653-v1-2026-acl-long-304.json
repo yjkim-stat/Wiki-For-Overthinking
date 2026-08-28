@@ -1,0 +1,56 @@
+{
+  "concepts": [
+    "meta-cognitive reasoning framework (reasoning/control decoupling)",
+    "control-takeover data construction",
+    "Control-Segment Policy Optimization (CSPO)",
+    "control masking (sparse-reward attribution)"
+  ],
+  "contributions": [
+    "a reframing of overthinking as a deficiency in fine-grained internal control (the model lacking a mechanism to monitor its own reasoning state and decide when to continue/backtrack/stop) rather than an inherent capability limitation, motivating a reasoning-control decoupling strategy",
+    "MERA, integrating a control-takeover data-construction pipeline (using natural turning-expression anchors and an auxiliary LLM monitor) with structural SFT that teaches a model to generate explicit alternating <reason>/<control> tags",
+    "Control-Segment Policy Optimization (CSPO), combining segment-wise GRPO, a semantic-plus-structural control reward, and control masking to optimize meta-cognitive regulation with fine-grained credit assignment and minimal interference from non-critical reasoning content",
+    "empirical results across three model scales, five math benchmarks and a non-math (MMLU-Pro) generalization test showing MERA simultaneously improves accuracy and substantially reduces reasoning length (30-47% token reduction), outperforming both length-compression and budget-based baselines and a non-internalized (externally-controlled, dual-model) alternative"
+  ],
+  "datasets": [
+    "DeepScaleR Preview Dataset (training, ~5,000 pairs)",
+    "GSM8K",
+    "MATH-500",
+    "AMC2023",
+    "AIME2024",
+    "AIME2025",
+    "MMLU-Pro (Law, Engineering, Physics subsets)"
+  ],
+  "generated_at": "2026-08-28T00:41:29Z",
+  "generated_by": "queue",
+  "limitations": "MERA delivers consistent efficiency and accuracy gains but the paper identifies two open aspects: support for user-side preference personalization remains limited, since different application contexts/users may favor different accuracy-verification-early-stopping tradeoffs, and the current framework does not provide explicit preference controls to tailor the control policy to such varying needs. Control-decision interpretability also has room for improvement -- while the model can produce some rationale for actions like stopping, continuing, or backtracking, scenarios requiring higher transparency would benefit from these rationales being more fine-grained, auditable, and explicitly tied to the specific evidence/judgments driving the reasoning process.",
+  "method": "Structurally decomposes each reasoning trace into an alternating sequence of reasoning statements (<reason> tags, logical steps toward the answer) and control statements (<control> tags, meta-cognitive assessment of the current reasoning state and directives on whether to continue/backtrack/stop), formalizing generation as pi(tau,y|x) = pi(y|tau,x)*pi(tau|x). Meta-cognitive Data Construction has three stages: (1) a control-takeover mechanism identifies key transition points in existing long-horizon reasoning traces using natural 'turning expressions' (e.g. 'wait', 'alternatively') that mark cognitive shifts as reliable anchors; (2) at each takeover point, Llama-3.3-70B-Instruct is prompted as a 'meta-cognitive monitor' that evaluates the current reasoning state and generates an explicit control statement (evaluative feedback plus a directive signal); (3) generation returns to the original LRM to continue producing the next reasoning segment, and the full trajectory is assembled into a structured reasoning-control alternating sequence. The model is first trained via standard supervised fine-tuning on these (x, tau, y) triplets to internalize the <reason>/<control> structural separation and learn to generate meaningful control content. It is then further optimized with Control-Segment Policy Optimization (CSPO): segments are independently sampled and rewarded (segment-wise GRPO, addressing that standard GRPO cannot attribute reward with fine granularity across the many segments in a long trace), the reward for each control segment combines a Control Reward (GPT-4o-scored semantic similarity between the generated control statement and a reference control target) and a Format Reward (adherence to the <reason>/<control> structure), and Control Masking restricts policy-gradient updates to only the tokens within control spans (since control content is sparse and diluted by non-critical reasoning tokens under naive full-sequence optimization).",
+  "methods": [
+    "MERA (Meta-cognitive Reasoning Framework)",
+    "Control-Segment Policy Optimization (CSPO)",
+    "control-takeover mechanism",
+    "O1-Pruner, No Wait, DAST, FCS+Ref., LCPO, DEER (baselines)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "DeepSeek-R1-Distill-Qwen-14B",
+    "Llama-3.3-70B-Instruct (control-signal generator)",
+    "GPT-4o (control-reward scorer)"
+  ],
+  "one_liner": "MERA frames overthinking as a deficiency in fine-grained internal control (not a lack of capability) and fixes it by structurally decoupling a reasoning model's output into alternating <reason>/<control> segments -- built via a control-takeover data pipeline and trained with SFT plus a segment-wise, control-masked RL objective (CSPO) -- cutting DeepSeek-R1-Distill-Qwen token usage 30-47% while simultaneously improving accuracy across five math benchmarks and generalizing to non-math MMLU-Pro domains.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.304",
+  "problem": "Large reasoning models exhibit step-by-step reasoning, reflection and backtracking (so-called 'Aha Moments'), but these cognitive behaviors are unregulated, so models continue generating redundant reasoning content even after reaching high-confidence conclusions, and the root cause -- an absent internal mechanism to monitor the reasoning state and decide when to continue, backtrack, or stop -- is not addressed by prior approaches that either compress reasoning length directly (with no difficulty adaptivity), impose preset token budgets (unable to react to the model's evolving state), or use dynamic early-stopping based on external confidence thresholds rather than the model's own regulatory judgment.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Central to the topic: directly and explicitly frames overthinking as a self-regulation failure -- models cannot decide when reflection/backtracking is warranted or when to terminate -- and its structural decoupling of reasoning content from control decisions gives both a diagnostic lens (counting and characterizing control interventions before/after training) and a training mechanism that simultaneously improves accuracy and cuts tokens 30-47%, a stronger joint result than most length-penalty or budget-based baselines it compares against. Its finding that an externally-controlled (non-internalized) version of the same mechanism is both less accurate and far slower is a clean empirical argument for why overthinking mitigation should be trained into the model's own generation process rather than bolted on via external monitoring at inference time."
+  },
+  "results": "Across DeepSeek-R1-Distill-Qwen-1.5B/7B/14B and five math benchmarks (GSM8K, MATH-500, AMC2023, AIME2024, AIME2025), MERA achieves both the highest overall accuracy and the lowest overall token usage among all compared methods (O1-Pruner, No Wait, DAST, FCS+Ref., LCPO, DEER) at every model scale: e.g. on the 7B model, overall accuracy rises from 71.2% (original) to 76.0% while overall tokens drop from 7,488 to 4,680 (37.5% reduction); on the 1.5B model, tokens drop from 8,379 to 4,862 (42.0% reduction) while accuracy rises from 58.6% to 62.4%; on the 14B model, tokens drop from 7,316 to 3,864 (47.2% reduction) while accuracy rises from 76.0% to 79.8% -- MERA is the only method in the comparison to simultaneously improve accuracy and reduce length substantially across every benchmark and scale, whereas most baselines trade off some accuracy for length reduction or vice versa. Generalization to MMLU-Pro (Law, Engineering, Physics, non-math domains, using the 7B model) shows MERA achieves the best accuracy-length combination in every domain, e.g. Engineering tokens drop from 5,412 (original) to 4,092 while accuracy stays on par with baselines -- confirming the self-regulation mechanism is not math-specific. Behavioral analysis of control statements shows MERA sharply reduces the *number* of control interventions per trace (e.g. AIME2024: 44 control sentences in the original model's implicit reflective phrases down to 17 under MERA) while increasing the *average length/informativeness* of each retained control statement (15 to 37 tokens on AIME2024), and this effect grows with task difficulty -- interpreted as the model learning to suppress unnecessary or ineffective cognitive interventions while making the interventions it does keep more deliberate and substantive. A comparison against an alternating dual-model generation setting (mirroring the external, non-internalized control-takeover process used only for data construction) shows MERA is both more accurate (+3.1% MATH, +5.3% AMC2023) and dramatically faster (171s vs. 763s per question on MATH; 369s vs. 1,340s on AMC2023 for the 7B model), demonstrating that internalizing control into a single coherent model outperforms relying on external control injection at inference time. Ablation (Table 3, 7B model) shows SFT alone gives a modest accuracy gain with reduced tokens versus the original model; adding standard GRPO on top of SFT increases accuracy further but also increases token generation; the full MERA (SFT + CSPO) achieves the largest accuracy gains while also being the most token-efficient configuration, confirming CSPO's segment-wise, control-masked optimization (not GRPO in general) is what delivers efficient regulation rather than merely more accurate but longer reasoning.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "meta-cognition",
+    "reinforcement-learning",
+    "reasoning-control-decoupling",
+    "efficient-reasoning"
+  ]
+}

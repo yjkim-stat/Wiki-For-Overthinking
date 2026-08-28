@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Qwen3-14B is a backbone tested by DTSR, a training-free early-exit framework where the model self-assesses from a third-person perspective whether its own reasoning so far is sufficient, cutting reasoning length 28.9-34.9% with near-zero accuracy loss while also cutting latency (unlike DEER, which reduces length but increases it), and by the paper defining the Reasoning Completion Point / two-stage Reasoning Dynamics structure.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.1080",
@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "Identifies a two-stage 'Reasoning Dynamics' structure in LRM chains-of-thought -- a Pre-RCP Active Reasoning stage where thinking length and content length compensate for each other, followed by a Post-RCP Converged Reasoning stage where the semantic trajectory has stabilized and further thinking is redundant -- defines the boundary as the instance-specific Reasoning Completion Point (RCP), and builds RCPD, an online detector (monitoring the rank of the </think> token) that truncates post-RCP overthinking, cutting tokens up to 44% while preserving or improving accuracy-per-token across four models and three benchmarks.",
       "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.536",
+      "kind": "paper",
+      "note": "ReProbe is a lightweight (<10M-parameter) transformer probe trained on a frozen LLM's internal states (hidden states, attention, logits) to predict step-level reasoning correctness, matching or exceeding Process Reward Models up to 810x larger for test-time-scaling verification, at 2.6-25x faster inference, and can be trained fully self-supervised (the model annotating its own reasoning) with no human labels or Monte Carlo rollouts.",
+      "title": "ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models"
     }
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "model",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "Qwen3-14B",
   "related": [
     "reflection-signal-wait-alternatively-but-triggered-exit-cue",
@@ -54,7 +60,27 @@
     "gpqa-d",
     "qwen3-30b-a3b",
     "deepseek-r1-distill-8b",
-    "qwen3-embedding-model-semantic-probe"
+    "qwen3-embedding-model-semantic-probe",
+    "reasoning-probe-reprobe",
+    "internal-state-based-step-verification",
+    "self-supervised-step-level-annotation",
+    "prm-reprobe-complementarity",
+    "reprobe-internal-state-step-level-probe",
+    "process-reward-models-prm-baselines",
+    "unsupervised-uncertainty-quantification-baselines",
+    "best-of-n-and-beam-search-test-time-scaling",
+    "prm800k",
+    "math",
+    "proofnet",
+    "trip-planning",
+    "meeting-planning",
+    "calendar-scheduling",
+    "strategyqa",
+    "scienceqa",
+    "qwen3-1-7b",
+    "phi-4",
+    "deepseek-r1-annotator",
+    "gpt-oss-120b-annotator"
   ],
   "related_authored": [],
   "schema_version": 1,

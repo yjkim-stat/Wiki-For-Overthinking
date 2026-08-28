@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1766",
+      "kind": "paper",
+      "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+      "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "TH2T (Think-How-to-Think, two-stage SFT with self-hypnosis)",
+  "related": [
+    "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
+    "difficulty-cognition-redundancy-cognition",
+    "dual-process-system-1-system-2-reasoning-framing",
+    "prospective-global-vs-retrospective-local-intervention",
+    "d-prompt-baseline",
+    "nothinking-baseline",
+    "tokenskip-baseline",
+    "cot-valve-baseline",
+    "adactrl-baseline",
+    "adaptthink-dr-saf-drqa-thinkless-steering-rl-baselines",
+    "gsm8k",
+    "math500",
+    "aime-2024",
+    "omnimath",
+    "gpqa",
+    "livecodebench",
+    "olympiad",
+    "mmlu",
+    "deepseek-r1-distill-qwen-2-5-7b-14b-32b",
+    "deepseek-r1-distill-llama-8b",
+    "qwen2-5-7b-14b-32b-short-cot-source",
+    "llama-3-1-8b-instruct-short-cot-source"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "th2t-think-how-to-think-two-stage-sft-with-self-hypnosis",
+  "topics": [
+    "overthinking"
+  ]
+}

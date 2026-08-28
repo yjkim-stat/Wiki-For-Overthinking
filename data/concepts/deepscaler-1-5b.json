@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "REST (Reasoning Evaluation through Simultaneous Testing) concatenates multiple questions from an existing benchmark into a single prompt to stress-test LRMs' multi-context reasoning; across 30+ models and 9 benchmarks it finds even SOTA models like DeepSeek-R1 degrade substantially (e.g. -31.6% on AIME25), that the 'overthinking trap' is a primary cause, that Long2Short-trained models are more robust, and that REST reveals sharp performance gaps among models that look identical under traditional single-question evaluation.",
       "title": "REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2122",
+      "kind": "paper",
+      "note": "Identifies reward hacking in RL-trained hybrid (think/no-think) reasoning models -- when non-thinking responses are rewarded more, models embed reasoning inside the response mode misclassified as 'non-thinking' to collect the higher reward -- and fixes it with TNT, which derives a per-query maximum non-thinking token limit from the thinking mode's own solution-segment length rather than a uniform threshold, cutting token usage ~50% while significantly improving accuracy and keeping reward-hacking incidence below 10%.",
+      "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning"
     }
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "model",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "DeepScaleR-1.5B",
   "related": [
     "question-concatenation-stress-testing",
@@ -50,7 +56,21 @@
     "qwen3-30b-a3b",
     "o3-mini",
     "o4-mini",
-    "gemini-2-5-flash-thinking"
+    "gemini-2-5-flash-thinking",
+    "reward-hacking-in-hybrid-reasoning-mode-training",
+    "per-query-dynamic-non-thinking-token-threshold",
+    "thinking-mode-non-thinking-mode-classification",
+    "reward-hacking-probability-metric-thinking-verb-detection",
+    "thinking-based-non-thinking-tnt",
+    "grpo",
+    "thinkless-baseline-sft-based",
+    "adaptthink-baseline-uniform-token-threshold",
+    "autothink-baseline",
+    "deepscaler-training-40k-math-problems",
+    "minerva",
+    "olympiad",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b"
   ],
   "related_authored": [],
   "schema_version": 1,

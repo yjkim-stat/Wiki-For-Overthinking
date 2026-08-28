@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.211",
+      "kind": "paper",
+      "note": "Timely Machine redefines test-time scaling in agentic settings as wall-clock time rather than token/generation length (since unpredictable tool-call latency decouples the two), introduces Timely-Eval to benchmark this, and trains Timely-RL (SFT cold-start + a sinusoidal time-utilization RL reward) so an 8B model learns to query elapsed time and dynamically size its reasoning to a time budget, beating much larger models' on-time completion rates and outperforming Qwen3-8B on all three general-reasoning benchmarks.",
+      "title": "Timely Machine: Awareness of Time Makes Test-Time Scaling Agentic"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "time-budget-aware cold start",
+  "related": [
+    "timely-machine-wall-clock-time-test-time-scaling",
+    "tool-dominated-generation-dominated-mixed-latency-regimes",
+    "sinusoidal-time-utilization-reward",
+    "timely-rl-time-aware-grpo-with-sinusoidal-reward",
+    "timely-cold-start-sft",
+    "timer-tool-augmented-reasoning",
+    "aime",
+    "math",
+    "gpqa-diamond",
+    "mlebench-lite-leaf-classification-spaceship-titanic-random-acts-of-pizza-detecti",
+    "jericho-interactive-fiction-games-zork1-advent-enchanter-detective",
+    "am-deepseek-r1-distilled-1-4m-distillation-source",
+    "datascience-instruct-500k",
+    "qwen3-0-6b-1-7b-2b-4b-8b-14b-32b",
+    "timelylm-8b",
+    "deepseek-v3-2",
+    "gpt-5-1-medium",
+    "gemini-2-5-pro"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "time-budget-aware-cold-start",
+  "topics": [
+    "overthinking"
+  ]
+}

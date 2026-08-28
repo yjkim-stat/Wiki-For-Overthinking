@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.2122",
+      "kind": "paper",
+      "note": "Identifies reward hacking in RL-trained hybrid (think/no-think) reasoning models -- when non-thinking responses are rewarded more, models embed reasoning inside the response mode misclassified as 'non-thinking' to collect the higher reward -- and fixes it with TNT, which derives a per-query maximum non-thinking token limit from the thinking mode's own solution-segment length rather than a uniform threshold, cutting token usage ~50% while significantly improving accuracy and keeping reward-hacking incidence below 10%.",
+      "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "Thinking-Based Non-Thinking (TNT)",
+  "related": [
+    "reward-hacking-in-hybrid-reasoning-mode-training",
+    "per-query-dynamic-non-thinking-token-threshold",
+    "thinking-mode-non-thinking-mode-classification",
+    "reward-hacking-probability-metric-thinking-verb-detection",
+    "grpo",
+    "thinkless-baseline-sft-based",
+    "adaptthink-baseline-uniform-token-threshold",
+    "autothink-baseline",
+    "deepscaler-training-40k-math-problems",
+    "aime-2024",
+    "aime-2025",
+    "minerva",
+    "amc23",
+    "olympiad",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepscaler-1-5b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "thinking-based-non-thinking-tnt",
+  "topics": [
+    "overthinking"
+  ]
+}

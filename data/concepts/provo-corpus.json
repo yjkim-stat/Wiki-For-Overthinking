@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Shows that the well-known inverse-scaling effect -- larger pre-trained language models' word-surprisal predicting human reading times worse than smaller models' -- is not an artifact of training-data leakage: overlap between five naturalistic reading-time corpora and two pre-training corpora is minimal, and models trained from scratch on leakage-free data still replicate the negative size-vs-fit relationship.",
       "title": "The Inverse Scaling Effect of Pre-Trained Language Model Surprisal Is Not Due to Data Leakage"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1550",
+      "kind": "paper",
+      "note": "Models human working-memory (WM) constraints in a GPT-2-small language model by injecting Gaussian noise into self-attention value vectors (with precision decaying exponentially by query-key distance) and training with a hybrid objective that trades off next-word prediction against total encoding precision, finding this explicit WM constraint improves alignment with human reading times and reshapes next-word predictions into a more compressed, categorical representational space.",
+      "title": "Memory efficiency and resource-rational encoding in sentence processing"
     }
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "Provo Corpus",
   "related": [
     "inverse-scaling-lm-size-vs-surprisal-reading-time-fit",
@@ -29,7 +35,19 @@
     "the-pile-pythia-training-subset",
     "openwebtext-corpus-gpt-2-replication",
     "pythia-small-medium-large-retrained-on-leakage-free-data",
-    "gpt-2-reference-via-openwebtext"
+    "gpt-2-reference-via-openwebtext",
+    "resource-rational-working-memory-constraint",
+    "representational-uncertainty-gaussian-noise-injection",
+    "precision-decay-rate-theta",
+    "categorical-vs-fine-grained-encoding-under-memory-constraint",
+    "gaussian-noise-injection-into-self-attention-value-vectors",
+    "resource-rational-hybrid-training-objective-cross-entropy-encoding-precision-pen",
+    "surprisal-based-psychometric-predictive-power-delta-log-likelihood",
+    "pca-based-representational-space-analysis",
+    "wikitext-103-training",
+    "spr-natural-stories-corpus",
+    "a-maze-natural-stories-corpus-mazensc",
+    "gpt-2-small-modified-architecture-noisy-self-attention"
   ],
   "related_authored": [],
   "schema_version": 1,

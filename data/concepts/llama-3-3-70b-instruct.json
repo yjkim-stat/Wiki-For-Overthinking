@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Introduces POBs, a 20-topic Likert-scale benchmark for LLM preferences/opinions/beliefs on controversial topics, finding models consistently lean progressive-collectivist (with newer versions more strongly and less consistently so), and that adding reasoning or self-reflection prompting gives only limited improvement to reliability, neutrality, or consistency.",
       "title": "Think Again! The Effect of Test-Time Compute on Preferences, Opinions, and Beliefs of Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1798",
+      "kind": "paper",
+      "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
+      "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering"
     }
   ],
   "first_seen": "2026-08-26T02:14:28Z",
   "kind": "model",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "Llama-3.3-70B-Instruct",
   "related": [
     "overthinking",
@@ -66,7 +72,28 @@
     "granite-3-2-8b-instruct",
     "llama-3-2-3b-instruct",
     "mistral-large",
-    "qwen-2-5-72b-instruct"
+    "qwen-2-5-72b-instruct",
+    "process-error-correct-answer-flawed-reasoning",
+    "reasoning-aware-vs-answer-only-evaluation",
+    "error-taxonomy-misinterpretation-hallucination-reasoning",
+    "answer-only-performance-inflation",
+    "llm-as-judge-reference-free-and-reference-based",
+    "process-reward-models-math-shepherd-skywork-prm-qwen2-5-math-prm",
+    "zero-shot-chain-of-thought-reasoning-trace-generation",
+    "retraceqa-new-2-421-annotated-traces",
+    "commonsenseqa",
+    "openbookqa",
+    "qasc",
+    "strategyqa",
+    "qwen2-5-1-5b-3b-7b-instruct",
+    "llama-3-2-1b-3b-instruct",
+    "llama-3-1-8b-instruct",
+    "phi-4-mini-instruct",
+    "mistral-small-24b-instruct-2501",
+    "qwen2-5-72b-instruct",
+    "gemini-2-0-flash",
+    "gpt-4o-mini",
+    "o1-mini"
   ],
   "related_authored": [
     "think-again-pobs",

@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepSeek-R1-Distill-Llama-70B is the largest distilled backbone tested in this archive's faithfulness-safety tension study (Risky Business) and in mechanistic-overthinking-detection work spanning 8B-70B backbones: NeuReasoner's Mixture-of-Neurons monitors and FoE's Forest-of-Errors finding that a model's first-generated solution is optimal in up to 93.7% of cases.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Chain-of-thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [Chain-of-thought monitorability](../concepts/chain-of-thought-monitorability.md), [DeepSeek-R1-Distill-Llama-8B](../methods/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../methods/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](gpt-oss-120b.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-32B-thinking](qwen3-32b-thinking.md), [Qwen3-8B](../methods/qwen3-8b.md), [Qwen3-8B-thinking](qwen3-8b-thinking.md), [QwQ-32B](../methods/qwq-32b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Chain-of-thought faithfulness](../concepts/chain-of-thought-faithfulness.md), [Chain-of-thought monitorability](../concepts/chain-of-thought-monitorability.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](gpt-oss-120b.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-32B-thinking](qwen3-32b-thinking.md), [Qwen3-8B](qwen3-8b.md), [Qwen3-8B-thinking](qwen3-8b-thinking.md), [QwQ-32B](qwq-32b.md)
 
 ## Appears in
 

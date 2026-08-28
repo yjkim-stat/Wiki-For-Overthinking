@@ -9,7 +9,7 @@ Thinking budget denotes a cap, fixed or learned, on how much reasoning a model p
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [Latent reasoning](latent-reasoning.md), [MATH500](../datasets/math500.md), [RLOO](../methods/rloo.md), [Test-Time Scaling](test-time-scaling.md)
+**Related**: [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K-Test](../datasets/gsm8k-test.md), [Latent reasoning](latent-reasoning.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [RLOO](../methods/rloo.md), [Test-Time Scaling](test-time-scaling.md)
 
 ## Appears in
 

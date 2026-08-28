@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Self-refine is iteratively revising a generated output using feedback, used as an outer-loop test-time-scaling strategy. In this archive, Decoding Time Verification (DTV) composes with a self-refine outer loop rather than substituting for it when translating code, and a systematic comparison of eight prompting strategies under equal sampling budget finds plain Chain-of-Thought eventually dominates self-refine and every other more elaborate strategy as the sampling budget grows.
 
 - **Kind**: method
 - **Also called**: Self-Refine

@@ -1,0 +1,47 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.536",
+      "kind": "paper",
+      "note": "ReProbe is a lightweight (<10M-parameter) transformer probe trained on a frozen LLM's internal states (hidden states, attention, logits) to predict step-level reasoning correctness, matching or exceeding Process Reward Models up to 810x larger for test-time-scaling verification, at 2.6-25x faster inference, and can be trained fully self-supervised (the model annotating its own reasoning) with no human labels or Monte Carlo rollouts.",
+      "title": "ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "PRM/ReProbe complementarity",
+  "related": [
+    "reasoning-probe-reprobe",
+    "internal-state-based-step-verification",
+    "self-supervised-step-level-annotation",
+    "reprobe-internal-state-step-level-probe",
+    "process-reward-models-prm-baselines",
+    "unsupervised-uncertainty-quantification-baselines",
+    "best-of-n-and-beam-search-test-time-scaling",
+    "prm800k",
+    "math",
+    "gsm8k",
+    "proofnet",
+    "trip-planning",
+    "meeting-planning",
+    "calendar-scheduling",
+    "strategyqa",
+    "scienceqa",
+    "qwen3-8b",
+    "qwen3-1-7b",
+    "qwen3-32b",
+    "qwen3-14b",
+    "phi-4",
+    "deepseek-r1-annotator",
+    "gpt-oss-120b-annotator"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "prm-reprobe-complementarity",
+  "topics": [
+    "overthinking"
+  ]
+}

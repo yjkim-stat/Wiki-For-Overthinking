@@ -1,0 +1,23 @@
+# Direct Preference Optimization (DPO)
+
+<!-- auto:begin -->
+
+_No definition yet — a task is queued to write one._
+
+- **Kind**: method
+- **Topics**: [overthinking](../topics/overthinking.md)
+- **Sources**: 3
+
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAST](dast.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [LLM-as-a-Judge](llm-as-a-judge.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Redundant Reasoning Steps](../concepts/redundant-reasoning-steps.md), [SimPO](simpo.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md)
+
+## Appears in
+
+- [ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning](../../archive/papers/2026/arxiv-2608-21860/summary.md) — ChainPrune merges semantically equivalent steps from 16 sampled reasoning paths into a tree, picks Pareto-dominant short paths as DPO preference data, and fine-tunes with an added NLL term, cutting tokens 28.1% and reasoning steps 26.8% on two R1-distilled models without losing accuracy.
+- [EconProver: Towards More Economical Test-Time Scaling for Automated Theorem Proving](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-2121/summary.md) — EconRL identifies substantial token-level inefficiency in state-of-the-art automated theorem provers' test-time scaling (sequential reflective CoT vs. parallel sampling) and fixes it with two combined RL techniques -- DPO-trained dynamic CoT-mode switching and difficulty-partitioned diverse-prefix parallel scaling -- so EconProver-GD matches Goedel-Prover-V2-8B's full-CoT accuracy on miniF2F using only 12% of the sampling cost.
+- [Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-25/summary.md) — SGP-CoT identifies which reasoning units a model can safely drop using only its own intrinsic likelihood signals (counterfactual answer-impact and coherence-impact scores, no external verifier or curated data), then trains the model via preference optimization on self-pruned traces, cutting reasoning length 15-50% across five model families while preserving or improving accuracy -- and shows pruning by a different model consistently degrades accuracy more than self-pruning.
+
+<!-- auto:end -->
+
+## Notes
+
+_Anything below the marker above is yours. It is never overwritten._

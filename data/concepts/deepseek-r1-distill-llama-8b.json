@@ -2,7 +2,7 @@
   "aliases": [
     "Llama-8B"
   ],
-  "definition": "DeepSeek-R1-Distill-Llama-8B is a language model that two archived papers run experiments on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. In ReCo it is one of three evaluated models and the one where cache compression is hardest: reward-coordinated compression holds 60.2% six-benchmark accuracy against 62.8% for full-cache CoT at 37% fewer tokens, while the baselines it is compared with collapse on this model (R-KV 48.1%, SnapKV 37.5%), and at a 25% R-KV retention rate its MATH-500 generations grow from 4,409.8 to 7,891.7 tokens, an increase of 79.0%. Keep, Customize, or Exit uses it with Qwen3-8B only to calibrate an accuracy-versus-reasoning-token curve, Q(r) = D + A(1 - e^{-br}), under s1-style budget forcing on AIME 2024, AIME 2025, GPQA Diamond, GSM8K and HMMT 2025, three samples per question -- the model supplies the empirical shape that a pricing game is then built on, rather than being the object of study. Neither paper reports its architecture or training.",
+  "definition": "DeepSeek-R1-Distill-Llama-8B is a distilled reasoning-model backbone tested across this archive's efficient-reasoning work (ReCo's reward-coordinated KV-cache and token control cutting tokens 37-65%), a game-theoretic study of reasoning-token pricing, cognitive profiling via Bloom's taxonomy, NeuReasoner's overthinking-detecting neuron clusters, FoE's 'first solution is best' finding, and CiPO's counterfactual machine-unlearning method.",
   "evidence": [
     {
       "id": "arxiv:2608.04771",
@@ -33,11 +33,35 @@
       "kind": "paper",
       "note": "Discovers 'The First is The Best' -- across five reasoning benchmarks and multiple LRMs, a model's first-generated solution is optimal in up to 93.7% of cases, because reasoning errors form a self-propagating forest structure (Forest of Errors, FoE) that grows faster and larger in subsequent solutions than in the first -- then proposes RED (Refine First, Discard Subs), which entropy-triggers negative-prompt intervention only on the first solution's root-error-prone segments and prunes all subsequent solutions via a dual-consistency early-stop check, improving accuracy up to 19.0% while cutting tokens 37.7-70.4% across six backbones and five benchmarks.",
       "title": "FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.143",
+      "kind": "paper",
+      "note": "CiPO reframes unlearning for large reasoning models as counterfactual intervention on the chain-of-thought: it has the target model generate a logically valid counterfactual reasoning trace and answer, then iteratively preference-optimizes the model toward that counterfactual (SimPO loss against online-sampled dispreferred responses), removing sensitive knowledge from both intermediate CoT and final answers while preserving reasoning ability better than prior unlearning baselines.",
+      "title": "CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1766",
+      "kind": "paper",
+      "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+      "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1864",
+      "kind": "paper",
+      "note": "AdaMix decouples efficiency and accuracy into two separately-trained LoRA adapters (a short adapter and a long adapter), then uses a BERT-based difficulty-aware router to predict a per-problem complexity coefficient that linearly interpolates the two adapters via task arithmetic, cutting DeepSeek-R1-Distill-Qwen-7B's average response length 54.9% while improving accuracy up to 4.8% across five math benchmarks and outperforming ShorterBetter/TLMRE/CoT-Valve/model-merging/SwitchCoT baselines on an accuracy-efficiency score.",
+      "title": "AdaMix: Adaptive Mixing for Short and Long Reasoning Adapters"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.25",
+      "kind": "paper",
+      "note": "SGP-CoT identifies which reasoning units a model can safely drop using only its own intrinsic likelihood signals (counterfactual answer-impact and coherence-impact scores, no external verifier or curated data), then trains the model via preference optimization on self-pruned traces, cutting reasoning length 15-50% across five model families while preserving or improving accuracy -- and shows pruning by a different model consistently degrades accuracy more than self-pruning.",
+      "title": "Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "DeepSeek-R1-Distill-Llama-8B",
   "related": [
     "overthinking",
@@ -133,12 +157,66 @@
     "forest-of-errors-foe-modeling",
     "entropy-and-entropy-variance-triggered-classifier-free-guidance-intervention",
     "deer-think-or-not-alphaone-dast-rl-lp-grpo-s-grpo-baselines",
-    "bespoke-stratos-17k-bs-17k-subset-foe-analysis"
+    "bespoke-stratos-17k-bs-17k-subset-foe-analysis",
+    "counterfactual-unlearning",
+    "causal-intervention-view-of-lrm-unlearning-do-f-c-a",
+    "iterative-online-preference-optimization",
+    "cot-level-vs-answer-level-forgetting",
+    "cipo-counterfactual-unlearning-via-iterative-preference-optimization",
+    "simpo",
+    "r2mu-baseline",
+    "reasonedidk-directidk-answeridk-baselines",
+    "gradient-ascent-gradient-descent-ga-gd-baselines",
+    "npo-baseline",
+    "r-tofu-forget01-05-10",
+    "return",
+    "deepseek-r1-0528-qwen3-8b",
+    "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
+    "difficulty-cognition-redundancy-cognition",
+    "dual-process-system-1-system-2-reasoning-framing",
+    "prospective-global-vs-retrospective-local-intervention",
+    "th2t-think-how-to-think-two-stage-sft-with-self-hypnosis",
+    "d-prompt-baseline",
+    "nothinking-baseline",
+    "tokenskip-baseline",
+    "cot-valve-baseline",
+    "adactrl-baseline",
+    "adaptthink-dr-saf-drqa-thinkless-steering-rl-baselines",
+    "omnimath",
+    "olympiad",
+    "mmlu",
+    "deepseek-r1-distill-qwen-2-5-7b-14b-32b",
+    "qwen2-5-7b-14b-32b-short-cot-source",
+    "llama-3-1-8b-instruct-short-cot-source",
+    "dual-adapter-decoupled-optimization",
+    "difficulty-aware-adaptive-routing",
+    "task-arithmetic-adapter-interpolation",
+    "capability-gated-length-penalty",
+    "adamix-dual-adapter-decoupled-optimization-difficulty-aware-routing",
+    "lora",
+    "grpo",
+    "dpo-baseline",
+    "shorterbetter-baseline",
+    "tlmre-baseline",
+    "modelmerging-baseline",
+    "switchcot-baseline",
+    "deepmath-103k-training-difficulty-annotated",
+    "qwen3-4b",
+    "qwen2-5-math-instruct-short-baseline",
+    "reasoning-unit-semantic-segmentation",
+    "answer-impact-coherence-impact-counterfactual-likelihood-scores",
+    "self-guided-vs-externally-imposed-pruning",
+    "coherence-aware-buffered-retention",
+    "sgp-cot-self-guided-pruning-dpo",
+    "lc-r1-baseline",
+    "l1-exact-l1-max-baseline",
+    "direct-preference-optimization-dpo",
+    "mixture-of-thoughts-science-questions-training",
+    "openmath-nemotron-1-5b",
+    "openmath-nemotron-7b",
+    "gpt-5-as-external-pruner-comparison"
   ],
-  "related_authored": [
-    "distillation",
-    "deepseek-r1-distill-qwen-7b"
-  ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "deepseek-r1-distill-llama-8b",
   "topics": [

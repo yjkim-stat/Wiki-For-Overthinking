@@ -1,0 +1,52 @@
+{
+  "aliases": [
+    "task arithmetic (adapter interpolation)"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1864",
+      "kind": "paper",
+      "note": "AdaMix decouples efficiency and accuracy into two separately-trained LoRA adapters (a short adapter and a long adapter), then uses a BERT-based difficulty-aware router to predict a per-problem complexity coefficient that linearly interpolates the two adapters via task arithmetic, cutting DeepSeek-R1-Distill-Qwen-7B's average response length 54.9% while improving accuracy up to 4.8% across five math benchmarks and outperforming ShorterBetter/TLMRE/CoT-Valve/model-merging/SwitchCoT baselines on an accuracy-efficiency score.",
+      "title": "AdaMix: Adaptive Mixing for Short and Long Reasoning Adapters"
+    }
+  ],
+  "first_seen": "2026-08-28T00:41:44Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T00:41:44Z",
+  "name": "task-arithmetic adapter interpolation",
+  "related": [
+    "dual-adapter-decoupled-optimization",
+    "difficulty-aware-adaptive-routing",
+    "capability-gated-length-penalty",
+    "adamix-dual-adapter-decoupled-optimization-difficulty-aware-routing",
+    "lora",
+    "grpo",
+    "dpo-baseline",
+    "shorterbetter-baseline",
+    "tlmre-baseline",
+    "modelmerging-baseline",
+    "cot-valve-baseline",
+    "switchcot-baseline",
+    "gsm8k",
+    "math500",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "deepmath-103k-training-difficulty-annotated",
+    "livecodebench",
+    "gpqa-diamond",
+    "mmlu",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-llama-8b",
+    "qwen3-4b",
+    "qwen2-5-math-instruct-short-baseline"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "task-arithmetic-adapter-interpolation",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -9,7 +9,7 @@ A parameter-efficient fine-tuning method used across sources as a lightweight al
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [GPQA](../datasets/gpqa.md), [GPT-4o](../models/gpt-4o.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [MathQA](../datasets/mathqa.md), [Mistral 7B](../models/mistral-7b.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3-8B](qwen3-8b.md), [SciQ](../datasets/sciq.md), [TriviaQA](../datasets/triviaqa.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA](../datasets/gpqa.md), [GPT-4o](../models/gpt-4o.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [MathQA](../datasets/mathqa.md), [Mistral 7B](../models/mistral-7b.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3-8B](../models/qwen3-8b.md), [SciQ](../datasets/sciq.md), [TriviaQA](../datasets/triviaqa.md)
 
 ## Appears in
 

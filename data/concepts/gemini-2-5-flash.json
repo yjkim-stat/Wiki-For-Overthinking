@@ -1,17 +1,31 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Gemini-2.5-Flash"
+  ],
+  "definition": "Gemini 2.5 Flash is cited in this archive as the prediction target for a lightweight (~1B-parameter) multimodal model that estimates LLM reasoning performance bins before an API call to guide compute-optimal reasoning-budget selection, and appears in the construction pipeline of LEGIT, a legal-reasoning-trace benchmark, as one of the LLMs used to extract facts and issue structure from court judgments.",
   "evidence": [
     {
       "id": "arxiv:2608.18591",
       "kind": "paper",
       "note": "Trains a ~1B-parameter multimodal model to predict, before any API call, which of seven performance bins a frontier LLM will land in for a given (document, prompt, model, reasoning budget) tuple, and uses those predictions to pick a per-sample reasoning budget for document tasks.",
       "title": "Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.150",
+      "kind": "paper",
+      "note": "LEGIT is a 24K-instance Korean legal-judgment-prediction benchmark that converts real court judgments into hierarchical legal issue trees, using them as fine-grained rubrics (issue coverage and issue correctness, alongside final-order correctness) to evaluate LLM reasoning traces with human-lawyer-level reliability, and shows retrieval-augmented generation and RL-with-rubrics have complementary effects on legal reasoning quality.",
+      "title": "Evaluating Legal Reasoning Traces with Legal Issue Tree Rubrics"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1988",
+      "kind": "paper",
+      "note": "AutoRAN is the first automated framework for hijacking a large reasoning model's internal safety deliberation, using a weaker, less-aligned auxiliary model to simulate the target's execution reasoning and iteratively refine attack prompts from leaked refusal reasoning, achieving near-100% attack success against gpt-o3/o4-mini and Gemini-2.5-Flash within a few turns.",
+      "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
-  "kind": "method",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T00:41:44Z",
   "name": "Gemini 2.5 Flash",
   "related": [
     "over-thinking-penalty",
@@ -41,7 +55,41 @@
     "budgetdoc-introduced-360-base-contexts-x-5-models-x-5-budgets-9-000-labeled-pair",
     "rvl-cdip-modified-three-pdfs-from-different-categories-concatenated-page-level-m",
     "tat-qa-tat-dqa-hybrid-tabular-and-textual-numerical-reasoning-over-financial-rep",
-    "checkboxqa-scanned-form-checkbox-state-extraction"
+    "checkboxqa-scanned-form-checkbox-state-extraction",
+    "legal-issue-tree",
+    "issue-coverage-vs-issue-correctness",
+    "decomposition-error-vs-deduction-error",
+    "rubric-based-llm-as-judge",
+    "llm-as-judge-with-structured-rubrics",
+    "retrieval-augmented-generation-bm25-contriever",
+    "grpo-based-reinforcement-learning-with-rubric-rewards",
+    "legit-new-24-406-korean-court-judgments",
+    "gpt-4-1",
+    "gpt-4-1-mini",
+    "o3",
+    "gemini-2-5-pro",
+    "gemini-2-0-flash",
+    "gemma-3-27b-12b-4b",
+    "exaone-3-5-32b-7-8b-2-4b",
+    "execution-hijacking",
+    "targeted-refinement-refusal-reasoning-exploitation",
+    "weak-to-strong-execution-simulation",
+    "reasoning-trace-attack-surface",
+    "autoran-execution-simulation-iterative-refinement-jailbreak",
+    "mousetrap-comparison-baseline",
+    "h-cot-policypuppetry-referenced-prior-attacks",
+    "rlhf-based-adversarial-data-defense-dr-grpo",
+    "system-prompt-based-safety-defense",
+    "advbench",
+    "harmbench",
+    "strongreject",
+    "xstest-over-refusal-evaluation",
+    "gpt-o3",
+    "gpt-o4-mini",
+    "deepseek-r1",
+    "qwen3-8b",
+    "qwen3-8b-ablated-attacker",
+    "claude-3-7-sonnet"
   ],
   "related_authored": [],
   "schema_version": 1,

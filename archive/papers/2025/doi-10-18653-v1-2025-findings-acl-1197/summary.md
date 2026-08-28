@@ -47,7 +47,7 @@ No explicit Limitations section is present in the retrieved pages of this paper 
 
 - **Concepts**: thought/answer safety decomposition, ZeroThink / LessThink / MoreThink (decoding-time thought-length control), safety-vs-reasoning-length correlation, CoT-style safety alignment data
 - **Methods**: ZeroThink / LessThink / MoreThink decoding strategies, Llama-Guard safety evaluation, pairwise LLM-as-judge safety comparison, SafeChain data construction (sample-then-filter via Llama-Guard)
-- **Datasets**: [StrongReject](../../../../wiki/datasets/strongreject.md), WildJailbreak, XSTest, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [HumanEval](../../../../wiki/datasets/humaneval.md), [MBPP](../../../../wiki/datasets/mbpp.md), LiveCodeBench (v5), SAFECHAIN (new, 40,000 instruction-response pairs)
+- **Datasets**: [StrongReject](../../../../wiki/datasets/strongreject.md), WildJailbreak, [XSTest](../../../../wiki/datasets/xstest.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [HumanEval](../../../../wiki/datasets/humaneval.md), [MBPP](../../../../wiki/datasets/mbpp.md), [LiveCodeBench (v5)](../../../../wiki/datasets/livecodebench-v5.md), SAFECHAIN (new, 40,000 instruction-response pairs)
 
 Tags: `overthinking`, `safety`, `long-chain-of-thought`, `reasoning-trace-analysis`, `safety-alignment-data`
 

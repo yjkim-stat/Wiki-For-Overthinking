@@ -9,7 +9,7 @@ Ada-GRPO is the reinforcement-learning objective introduced with ARM: a GRPO var
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [AIME 2025](../datasets/aime-2025.md), [BBH](../datasets/bbh.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA](../datasets/gpqa.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MathVerse](../datasets/mathverse.md), [MathVision](../datasets/mathvision.md), [MathVista](../datasets/mathvista.md), [MMStar](../datasets/mmstar.md), [Overthinking](../concepts/overthinking.md), [POPE](../datasets/pope.md), [StrategyQA](../datasets/strategyqa.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [SVAMP](../datasets/svamp.md), [Token Budget](../concepts/token-budget.md), [WeMath](../datasets/wemath.md)
+**Related**: [accuracy-efficiency tradeoff](../concepts/accuracy-efficiency-tradeoff.md), [AIME 2025](../datasets/aime-2025.md), [BBH](../datasets/bbh.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA](../datasets/gpqa.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MathVerse](../datasets/mathverse.md), [MathVision](../datasets/mathvision.md), [MathVista](../datasets/mathvista.md), [MMStar](../datasets/mmstar.md), [OpenBookQA](../datasets/openbookqa.md), [Overthinking](../concepts/overthinking.md), [POPE](../datasets/pope.md), [StrategyQA](../datasets/strategyqa.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [SVAMP](../datasets/svamp.md), [Token Budget](../concepts/token-budget.md), [WeMath](../datasets/wemath.md)
 
 ## Appears in
 

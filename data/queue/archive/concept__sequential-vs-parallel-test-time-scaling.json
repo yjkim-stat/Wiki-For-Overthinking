@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Systematically shows that o1-like models (QwQ, R1, LIMO, and R1-Distill variants) do not actually possess consistent sequential test-time scaling: correct solutions are on average shorter than incorrect ones on the same questions, accuracy does not consistently improve (and sometimes inverse-scales) with solution length, and this traces to a failure of self-revision (models rarely fix wrong answers and sometimes break correct ones) -- leading to Shortest Majority Vote, a parallel-scaling method weighting majority-vote clusters by inverse-log solution length, which significantly outperforms both plain Majority Vote and a shortest-solution-only heuristic.",
+        "title": "Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Studies sequential and parallel test-time compute scaling for deep-search LLM agents and shows that allocating modest compute to a cheap verifier outperforms pushing sequential generation length further.",
+        "title": "Pushing Test-Time Scaling Limits of Deep Search with Asymmetric Verification",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-28T00:00:52Z",
+  "created_at": "2026-08-27T23:01:46Z",
+  "instructions": "Write the wiki definition for 'sequential vs. parallel test-time scaling'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "sequential vs. parallel test-time scaling",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "sequential vs. parallel test-time scaling",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Sequential vs. parallel test-time scaling is the distinction between spending inference-time compute as one longer reasoning chain (sequential) versus multiple independent attempts aggregated together (parallel). In this archive, one paper finds o1-like models do not actually possess consistent sequential scaling -- longer solutions are not more accurate, and self-revision usually fails to fix wrong answers -- and proposes a parallel alternative (Shortest Majority Vote) that outperforms plain majority voting; a second paper finds that for deep-search LLM agents, allocating modest compute to a cheap verifier outperforms pushing sequential generation length further. Both sources conclude parallel or verifier-based allocation beats pushing sequential length alone.",
+    "kind": "concept",
+    "related": []
+  },
+  "task_id": "concept__sequential-vs-parallel-test-time-scaling",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

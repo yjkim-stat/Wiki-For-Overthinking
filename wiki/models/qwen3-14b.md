@@ -2,18 +2,19 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen3-14B is a backbone tested by DTSR, a training-free early-exit framework where the model self-assesses from a third-person perspective whether its own reasoning so far is sufficient, cutting reasoning length 28.9-34.9% with near-zero accuracy loss while also cutting latency (unlike DEER, which reduces length but increases it), and by the paper defining the Reasoning Completion Point / two-stage Reasoning Dynamics structure.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GPQA-D](../datasets/gpqa-d.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-8B](../methods/qwen3-8b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GPQA-D](../datasets/gpqa-d.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [OlympiadBench](../datasets/olympiadbench.md), [Phi-4](phi-4.md), [PRM800K](../datasets/prm800k.md), [Qwen3-1.7B](qwen3-1-7b.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-8B](qwen3-8b.md), [ScienceQA](../datasets/scienceqa.md), [StrategyQA](../datasets/strategyqa.md)
 
 ## Appears in
 
 - [When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-1080/summary.md) — DTSR (Dynamic Thought Sufficiency in Reasoning) is a training-free early-exit framework where the model itself, at each reflection signal ('Wait', 'Alternatively', etc.), evaluates from a third-person perspective whether its own chain-of-thought so far is sufficient to answer, exiting once a self-assessed sufficiency score crosses a threshold, cutting reasoning length 28.9-34.9% with near-zero accuracy loss across Qwen3-8B/14B/32B and five benchmarks, outperforming NoThinking, NOWAIT, and DEER while also cutting inference latency 25-40% (unlike DEER, which reduces length but increases latency).
 - [The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-1239/summary.md) — Identifies a two-stage 'Reasoning Dynamics' structure in LRM chains-of-thought -- a Pre-RCP Active Reasoning stage where thinking length and content length compensate for each other, followed by a Post-RCP Converged Reasoning stage where the semantic trajectory has stabilized and further thinking is redundant -- defines the boundary as the instance-specific Reasoning Completion Point (RCP), and builds RCPD, an online detector (monitoring the rank of the </think> token) that truncates post-RCP overthinking, cutting tokens up to 44% while preserving or improving accuracy-per-token across four models and three benchmarks.
+- [ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-536/summary.md) — ReProbe is a lightweight (<10M-parameter) transformer probe trained on a frozen LLM's internal states (hidden states, attention, logits) to predict step-level reasoning correctness, matching or exceeding Process Reward Models up to 810x larger for test-time-scaling verification, at 2.6-25x faster inference, and can be trained fully self-supervised (the model annotating its own reasoning) with no human labels or Monte Carlo rollouts.
 
 <!-- auto:end -->
 

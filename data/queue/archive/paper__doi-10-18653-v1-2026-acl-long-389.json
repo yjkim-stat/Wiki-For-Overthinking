@@ -1,0 +1,119 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-389.pdf"
+  },
+  "completed_at": "2026-08-28T00:21:07Z",
+  "created_at": "2026-08-28T00:09:26Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.389",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Model merging, typically on Instruct and Thinking models, has shown remarkable performance for efficient reasoning. In this paper, we systematically revisit the simplest merging method that interpolates two weights directly. Particularly, we observe that model interpolation follows a three-stage evolutionary paradigm with distinct behaviors on the reasoning trajectory. These dynamics provide a principled guide for navigating the performance-cost trade-off. Empirical results demonstrate that a strategically interpolated model surprisingly surpasses sophisticated model merging baselines on both efficiency and effectiveness. We further validate our findings with extensive ablation studies on model layers, modules, and decoding strategies. Ultimately, this work demystifies model interpolation and offers a practical framework for crafting models with precisely targeted reasoning capabilities.",
+    "authors": [
+      "Taiqiang Wu",
+      "Runming Yang",
+      "Tao Liu",
+      "Jiahao Wang",
+      "Ngai Wong"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "efficient reasoning",
+      "thinking model"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.389.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Revisiting Model Interpolation for Efficient Reasoning",
+    "url": "https://aclanthology.org/2026.acl-long.389/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "model interpolation (linear weight merging)",
+      "three-stage evolutionary paradigm",
+      "Thinking Ratio (Think #R)",
+      "layer- and module-localized reasoning capability"
+    ],
+    "contributions": [
+      "a systematic revisiting of linear model interpolation between Instruct and Thinking models, showing performance and verbosity follow a predictable three-stage paradigm rather than evolving linearly",
+      "identification of the abrupt phase-transition stage as a favorable performance-cost sweet spot, and the final convergence stage as an explicit, controllable demonstration of overthinking",
+      "empirical evidence that a strategically interpolated model surpasses more sophisticated merging baselines (Task Arithmetic, TIES-Merging, DARE, SLERP) on accuracy, token efficiency and controllability simultaneously",
+      "layer- and module-level ablations localizing long-CoT reasoning: FFN sublayers in the later two-thirds of the network drive the thinking pattern's emergence, while MHA sublayers govern reasoning correctness"
+    ],
+    "datasets": [
+      "AIME'25",
+      "IFEval",
+      "GPQA-Diamond"
+    ],
+    "limitations": "Empirical validation is centered on the Qwen3 family (4B and 30B-A3B, plus a confirmatory Llama-3.1-8B check); whether the three-stage dynamic generalizes to other model families (e.g. Mistral) is left as future work. The study interpolates only two models (Instruct and Thinking); extending to three or more specialist models is an open direction not explored.",
+    "method": "Defines model interpolation (MI) as Theta_merge = lambda*Theta_Thinking + (1-lambda)*Theta_Instruct, and shows algebraically this is equivalent to task arithmetic with scaling factors lambda and (1-lambda) applied to the Thinking and Instruct task vectors relative to any base model. Sweeps lambda from 0 to 1 on Qwen3-4B and Qwen3-30B-A3B, evaluating Pass@k, Mean@k, Vote@k, token count and Thinking Ratio (fraction of responses containing a think token) across AIME'25, IFEval and GPQA-Diamond. Compares against Task Arithmetic, TIES-Merging, DARE and SLERP baselines, and conducts layer-wise and module-wise (MHA vs. FFN) ablations to localize where the thinking pattern is stored.",
+    "methods": [
+      "Model Interpolation (MI)",
+      "Task Arithmetic (TA, baseline)",
+      "TIES-Merging (baseline)",
+      "DARE (baseline)",
+      "SLERP (baseline)"
+    ],
+    "models": [
+      "Qwen3-4B-Instruct-2507",
+      "Qwen3-4B-Thinking-2507",
+      "Qwen3-4B",
+      "Qwen3-4B-Base",
+      "Qwen3-30B-A3B",
+      "Llama-3.1-8B"
+    ],
+    "one_liner": "Reveals that linear interpolation between an Instruct model's and a Thinking model's weights does not trade off performance and reasoning verbosity smoothly, but follows a predictable three-stage transition (Instruct-dominated -> abrupt thinking-pattern emergence -> converging to Thinking with diminishing/overthinking returns), and shows a strategically chosen interpolation point beats sophisticated model-merging baselines (task arithmetic, TIES) on both efficiency and accuracy.",
+    "problem": "Model merging between a long-CoT 'Thinking' model and a short-CoT 'Instruct' model is a popular way to build efficient hybrid reasoners, but the simplest merging method -- direct linear weight interpolation -- had not been systematically analyzed to understand how performance and reasoning verbosity actually evolve as the interpolation coefficient sweeps from 0 to 1, leaving practitioners without principled guidance for navigating the performance-cost trade-off.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Central to the topic: gives a mechanistic, quantitative account of overthinking-like diminishing returns in model merging -- as the interpolation coefficient pushes a hybrid model toward the pure Thinking model, token count keeps rising while Mean@k/Pass@k plateau, explicitly identified by the paper as overthinking. Its finding that an intermediate interpolation point can outperform the pure Thinking model, and its layer/module localization of the thinking pattern to specific FFN sublayers, offer both a practical training-free efficiency lever and mechanistic grounding for why blending in non-thinking behavior can regularize away some overthinking."
+    },
+    "results": "MI follows a consistent three-stage evolution rather than a linear one: Stage 1 (lambda approx 0-0.4) is Instruct-dominated, Think Ratio near 0 but token count and Pass@k grow gradually with no explicit reasoning. Stage 2 (lambda approx 0.4-0.6) is a sharp phase transition -- Think Ratio abruptly rises from near 0 to 1, Mean@k jumps sharply (AIME'25 Mean@64 55.8->71.0) while Pass@k grows only gently and token count briefly decreases, marking an efficiency/effectiveness sweet spot; the merged model at lambda=0.8 can even outperform the pure Thinking model. Stage 3 (lambda approx 0.6-1.0) converges toward the pure Thinking model with continuously increasing token count but only marginal or plateauing Mean@k/Pass@k gains -- explicit evidence of overthinking. MI-0.8 achieves state-of-the-art results versus TA/TIES baselines on all three benchmarks (AIME'25 Mean@64 80.5, 10.9 points above the best TA baseline) and needs only 1556 tokens on IFEval versus 2810 for the best TA baseline at comparable or better accuracy. Layer-wise ablation shows interpolating only the last two-thirds of the model's 36 layers reproduces near-full performance while any one-third alone fails to induce thinking behavior. Module-wise ablation shows skipping FFN sublayers collapses Think Ratio from 99.95% to 0.68% (FFN drives long-CoT pattern emergence), while skipping MHA leaves Think Ratio nearly unchanged but drops Mean@64 from 80.47 to 71.46 (MHA is needed for reasoning quality, not the pattern itself). Substituting the Instruct backbone with the pretrained base model collapses AIME'25 Mean@64 from 80.5 to 67.7 despite similar Pass@64, indicating instruction-following alignment in the non-thinking backbone matters for merged-reasoning quality.",
+    "tags": [
+      "overthinking",
+      "model-merging",
+      "efficient-reasoning",
+      "controllable-reasoning-length",
+      "mechanistic-interpretability"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-389",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}
