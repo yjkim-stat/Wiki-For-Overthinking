@@ -47,7 +47,7 @@ The RLHF-based defense the paper proposes generalizes poorly across narrative-te
 
 - **Concepts**: Execution Hijacking, Targeted Refinement (refusal-reasoning exploitation), weak-to-strong execution simulation, reasoning-trace attack surface
 - **Methods**: AutoRAN (execution-simulation + iterative refinement jailbreak), MouseTrap (comparison baseline), H-CoT, PolicyPuppetry (referenced prior attacks), RLHF-based adversarial-data defense (Dr. GRPO), system-prompt-based safety defense
-- **Datasets**: [AdvBench](../../../../wiki/datasets/advbench.md), HarmBench, [StrongReject](../../../../wiki/datasets/strongreject.md), XSTest (over-refusal evaluation)
+- **Datasets**: [AdvBench](../../../../wiki/datasets/advbench.md), [HarmBench](../../../../wiki/datasets/harmbench.md), [StrongReject](../../../../wiki/datasets/strongreject.md), XSTest (over-refusal evaluation)
 
 Tags: `jailbreak`, `large-reasoning-models`, `safety`, `chain-of-thought`, `red-teaming`
 

@@ -12,9 +12,44 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.57
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+STOP (Super TOken for Pruning) is a lightweight, LoRA-based module that reads a frozen LRM's cached KV states via a single learnable [STOP] token to score and prune futile parallel-reasoning paths early -- at negligible inference overhead (0.59% latency) -- and is shown, via a proposed four-way taxonomy of path-pruning signal generators, to dominate external-signal and non-learnable internal-signal baselines in both accuracy and compute across model scales 1.5B-20B.
+
+## Problem
+
+Parallel reasoning (sampling many independent reasoning trajectories and aggregating them) improves LRM accuracy but at prohibitive cost, since many trajectories are flawed from an early prefix and never self-correct, yet consume full generation resources anyway; existing path-pruning (prefix-rejection) methods are fragmented across ad hoc designs with no standardized taxonomy or evaluation protocol, and specifically no prior method combines access to the model's rich internal states with a learnable, task-adaptive pruning signal.
+
+## Contributions
+
+- the first systematic taxonomy of path-pruning methods, classified by pruning-signal source (internal vs. external) and learnability, revealing that the internal+learnable (Type IV) combination is unexplored despite being the theoretically ideal design point
+- STOP, a lightweight LoRA-based module using a single learnable [STOP] token to read cached internal LRM states and score reasoning-path quality at near-zero (0.59%) inference overhead
+- empirical validation across model scales 1.5B-20B and multiple reasoning benchmarks showing STOP dominates all three other pruning-signal-source/learnability paradigms in both accuracy and compute efficiency
+- a power-law empirical guideline predicting the optimal path-retention ratio from compute budget, prefix length, and task length, plus demonstrated generalization to non-math reasoning (ZebraLogic) and a real tool-augmented math competition (AIMO3)
+
+## Method
+
+Proposes a unified taxonomy of pruning-signal generators along two axes -- signal source (external text-based vs. internal hidden-state-based) and learnability (non-learnable heuristic vs. learnable/trained) -- yielding four types, with Type IV (internal + learnable) identified as the unexplored ideal. STOP instantiates Type IV: it adds a single learnable [STOP] super-token to the vocabulary plus a LoRA-based 'Critique Adapter' and a linear classification head, all applied only when processing the [STOP] token so the frozen LRM's own generative capability is untouched. At inference, a three-stage 'Launch-Check-Resume' pipeline: (1) Launch generates N short prefixes (e.g. first 2,048 tokens) and caches their KV states; (2) Check appends [STOP] to each cached prefix and reads the KV cache through the trained adapter/head to output a quality score, reusing the heavy computation already done in Launch so this step is extremely fast; (3) Resume keeps only the top-k highest-scoring prefixes (discarding the rest to free memory) and completes only those to final answers, aggregated by majority vote. Training uses Monte Carlo estimation (K=32 sampled continuations per prefix) to derive soft probabilistic labels of prefix quality, minimizing a binary cross-entropy classification loss on the [STOP] token's hidden state.
+
+## Results
+
+Under a standardized protocol (64 initial paths pruned to top-8, evaluated at avg@8|64) across DeepSeek-R1-Distill-Qwen 1.5B/7B/8B and GPT-OSS-20B on AIME24/25, BRUMO25, HMMT25, GPQA-Diamond: STOP (Type IV) dominates all other paradigms in both effectiveness and efficiency. On AIME24 with the 1.5B model, STOP raises average accuracy from 30.10% (no pruning) to 37.92%, exceeding Type II external-judge methods (32.50%) and Type III raw-confidence methods (32.92%), while cutting total token consumption by over 73%. Internal-signal generators (Type III, IV) consistently outperform external-signal ones (Type I, II) because they access richer hidden-state/KV-cache representations than constrained text output; among internal methods, only STOP's learnable design shows stable, consistently superior scalability across nearly all tasks and compute budgets, whereas raw-confidence (Type III) methods are inconsistent (e.g. beating baseline on AIME24 but falling below it on AIME25 for the 1.5B model). A power-law model fit to the optimal retention ratio gamma as a function of compute budget, prefix length and task length (gamma^-1 = a*C^b*L_prefix^c/L_task^d) closely matches empirical optimal points, giving a practical guideline for choosing gamma without exhaustive search. Ablations: MC-estimated soft labels (K=32) beat single-sample hard labels (K=1) by 6.66 points Cons@N on AIME24 (46.67%->53.33%), confirming lower-variance supervision helps; removing the LoRA Critique Adapter (using only a linear classifier on raw hidden states) drops Cons@N from 53.33% to 46.67% on AIME24, showing raw internal states need a specialized transformation to bridge generation-forward and evaluation-backward representations, not just linear probing. STOP incurs only 0.20s (0.59%) inference overhead per check versus Type II's 1.13s (3.37%) and Type I's 0.38s (0.93%), since it reuses cached KV states and processes only the [STOP] token. STOP generalizes beyond math/STEM to ZebraLogic combinatorial reasoning (73.73%->77.23% accuracy, +3.50 points) and to a real tool-augmented competition setting (AIMO3, GPT-OSS-120B+tool), where it improves the competition score from 39 (no pruning) to 42-43, reaching silver-level performance on the public leaderboard under a fixed single-GPU, 5-hour budget.
+
+## Limitations
+
+Constructing the Monte Carlo soft-label supervision requires K=32 sampled continuations per prefix during training data construction, an upfront computational cost (though incurred only once, with the trained STOP module reusable across tasks and cost statistics disclosed for reproducibility). STOP's optimal hyperparameters (retention ratio, prefix length, number of [STOP] tokens, LoRA rank) require task-specific tuning via the paper's power-law-fitted empirical guideline; the paper does not report performance without any tuning of these values. Evaluation model sizes range from 1.5B to 20B parameters; behavior at substantially larger scale is not evaluated.
+
+## Why it matters here
+
+- **overthinking**: Directly relevant to test-time compute efficiency, though framed around parallel-reasoning waste (futile trajectories) rather than single-trace token-length overthinking: it shows that most of the cost of parallel test-time scaling is spent completing paths already doomed by an early error, and that a cheap, internal-state-based, learnable signal read from cached KV states can identify and discard them almost for free -- a distinct mechanism from length-penalty or budget-based single-trace approaches, applicable specifically to the sample-and-vote family of test-time-scaling methods this archive also covers.
+
+## Entities
+
+- **Concepts**: path pruning (prefix rejection), pruning-signal-generator taxonomy, super token for pruning, Launch-Check-Resume pipeline, Monte Carlo soft-label supervision
+- **Methods**: STOP (Super TOken for Pruning), path pruning / prefix rejection, majority voting (consensus aggregation), SlimSC (Type I baseline), DeepPrune / LaBoR (Type II baselines), ThinkPRM / MAV (Type II baselines), DeepConf / AdaDec / Think Just Enough (Type III baselines)
+- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), BRUMO25, [HMMT25](../../../../wiki/datasets/hmmt25.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), ZebraLogic, AIMO3 competition problems
+
+Tags: `parallel-reasoning`, `path-pruning`, `test-time-scaling`, `efficiency`, `KV-cache`
 
 ## Abstract
 

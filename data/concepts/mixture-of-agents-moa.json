@@ -1,0 +1,37 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-srw.1",
+      "kind": "paper",
+      "note": "A systematic Pareto-front analysis of four test-time-scaling pipelines (self-consistency, self-refinement, debate, mixture-of-agents) across 34 configurations finds mixture-of-agents dominates the compute-accuracy frontier (+7.1pp over CoT at 15-20x compute, beating self-consistency and debate by 2.7pp/1.4pp at matched budgets), that debate should scale agents rather than rounds, that MoA is Pareto-optimal when proposer models outnumber layers by one, and that harder tasks benefit far more from added test-time compute than easy ones (+9.0pp vs. +2.2pp), while self-refinement underperforms even the plain chain-of-thought baseline throughout.",
+      "title": "Multi-Agent Reasoning Improves Compute Efficiency: Pareto-Optimal Test-Time Scaling"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "mixture-of-agents (MoA)",
+  "related": [
+    "compute-accuracy-pareto-front",
+    "overthinking-phenomenon-task-difficulty-dependent-compute-benefit",
+    "difficulty-adaptive-test-time-compute-routing",
+    "mixture-of-agents-moa-proposer-aggregator-ratio",
+    "memory-transfer-aware-compute-estimation",
+    "self-consistency",
+    "self-refinement",
+    "multi-agent-debate",
+    "chain-of-thought-cot-baseline",
+    "mmlu-pro",
+    "bbh-big-bench-hard",
+    "llama-3-1-70b",
+    "llama-3-1-8b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "mixture-of-agents-moa",
+  "topics": [
+    "overthinking"
+  ]
+}

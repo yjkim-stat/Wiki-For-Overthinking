@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Beam search is cited as one of several test-time search strategies whose behavior on reasoning models these sources study or extend. It is one of the granularity choices studied in optimal-verification-granularity work, and one of the scaling strategies (alongside best-of-N) shown to transfer, with consistent gains, to latent (continuous-vector) reasoning models.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

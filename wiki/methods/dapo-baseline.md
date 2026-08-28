@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DAPO is cited here as an RL training baseline for large reasoning models that other methods compare against: MINER contrasts its own intrinsic-reward recovery mechanism against DAPO-style GRPO training under 'positive homogeneous' prompts, and DisCO reports average accuracy gains over DAPO (6%) alongside its gains over GRPO (7%) on six math-reasoning benchmarks with a 1.5B model.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DeepScaler (training)](../datasets/deepscaler-training.md), [HMMT25](../datasets/hmmt25.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DeepScaler (training)](deepscaler-training.md), [HMMT25](../datasets/hmmt25.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md)
 
 ## Appears in
 

@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GPT-5 appears in this archive as an off-the-shelf frontier LLM the cited papers build agentic or test-time-scaling systems on top of, rather than as a subject of study itself. PaCoRe and FS-Researcher use it as a backbone for parallel/long-horizon test-time-compute frameworks, and it is not otherwise characterized by the sources beyond that role.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [BrowseComp](../datasets/browsecomp.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [DeepScaleR-1.5B-Preview](deepscaler-1-5b-preview.md), [DeepScaler (training)](../datasets/deepscaler-training.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [GPT-5 mini](gpt-5-mini.md), [gpt-o3](gpt-o3.md), [GSM8K](../datasets/gsm8k.md), [HMMT 2025](../datasets/hmmt-2025.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [o3-mini](o3-mini.md), [OlympiadBench](../datasets/olympiadbench.md), [QwQ-32B](qwq-32b.md), [s1-32B](s1-32b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [BrowseComp](../datasets/browsecomp.md), [Chain-of-Thought (CoT, baseline)](../methods/chain-of-thought-cot-baseline.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [DeepScaleR-1.5B-Preview](deepscaler-1-5b-preview.md), [DeepScaler (training)](../methods/deepscaler-training.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GLM-4.6](glm-4-6.md), [GPT-4o](gpt-4o.md), [GPT-5 mini](gpt-5-mini.md), [gpt-o3](gpt-o3.md), [GSM8K](../datasets/gsm8k.md), [HMMT 2025](../datasets/hmmt-2025.md), [Kimi-K2-Thinking](kimi-k2-thinking.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [o3-mini](o3-mini.md), [OlympiadBench](../datasets/olympiadbench.md), [QwQ-32B](qwq-32b.md), [s1-32B](s1-32b.md)
 
 ## Appears in
 

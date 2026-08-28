@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1063",
+      "kind": "paper",
+      "note": "SelfBudgeter trains a reasoning model to emit its own predicted token budget before answering (<budget>N</budget><solution>...</solution>) via a cold-start plus budget-guided GRPO pipeline, cutting response length ~61% on math benchmarks while preserving or improving accuracy, and letting users see the estimated wait time or pre-fill a hard budget upfront.",
+      "title": "SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "Eurus-2-7B-PRIME",
+  "related": [
+    "overthinking",
+    "self-estimated-token-budget",
+    "budget-guided-grpo",
+    "precise-budget-control-preb-reward",
+    "reward-hacking-via-loose-length-tolerance",
+    "dynamic-alpha-schedule",
+    "grpo",
+    "budget-guided-grpo-with-preb-reward",
+    "cold-start-sft",
+    "l1-baseline-prompt-templated-length-limit",
+    "e1-math-baseline-hard-truncation-length-control",
+    "gsm8k",
+    "math500",
+    "aime-2025",
+    "s1k-1-1",
+    "still-3-preview-rl-data",
+    "gpqa",
+    "score",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "qwen-2-5-7b-simple-rl"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "eurus-2-7b-prime",
+  "topics": [
+    "overthinking"
+  ]
+}

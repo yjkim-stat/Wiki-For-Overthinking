@@ -47,7 +47,7 @@ No separate Limitations section is present in the retrieved pages of this paper;
 
 - **Concepts**: Chaos Machine (reversible one-to-one prompt mapping generator), reasoning inertia (LRM inability to halt/reassess mid-chain), reasoning mask (inability to foresee downstream harm of a reconstruction task), chain-length / attack-effectiveness trade-off (inverted-U)
 - **Methods**: Chaos Machine (iterative reversible prompt mapping), role-play / competing-objectives framing (Mousetrap), GPT-4o-based harm judge (1-5 scale)
-- **Datasets**: TrotterStrong (new), TrotterAdvanced (new), TrotterUltimate (new), [AdvBench](../../../../wiki/datasets/advbench.md), [StrongREJECT](../../../../wiki/datasets/strongreject.md), HarmBench, JailbreakBench, MaliciousInstruct, JailBenchSeed, FigStep, HADES, RedTeam-2K, MM-SafetyBench (subsets)
+- **Datasets**: TrotterStrong (new), TrotterAdvanced (new), TrotterUltimate (new), [AdvBench](../../../../wiki/datasets/advbench.md), [StrongREJECT](../../../../wiki/datasets/strongreject.md), [HarmBench](../../../../wiki/datasets/harmbench.md), JailbreakBench, MaliciousInstruct, JailBenchSeed, FigStep, HADES, RedTeam-2K, MM-SafetyBench (subsets)
 
 Tags: `jailbreak`, `safety`, `large-reasoning-models`, `reasoning-inertia`, `iterative-reasoning`
 

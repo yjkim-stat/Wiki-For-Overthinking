@@ -8,7 +8,7 @@ HLE appears in this archive only as coverage of the hardest science and knowledg
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [BBEH](bbeh.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [Conformal Prediction](../methods/conformal-prediction.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [early stopping](../concepts/early-stopping.md), [GAIA](gaia.md), [GPQA](gpqa.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [MMLU](mmlu.md), [MuSiQue](musique.md), [Omni-MATH](omni-math.md), [Overthinking](../concepts/overthinking.md), [SuperGPQA](supergpqa.md), [Test-Time Compute](../concepts/test-time-compute.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
+**Related**: [abstention](../concepts/abstention.md), [BBEH](bbeh.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [Conformal Prediction](../methods/conformal-prediction.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [early stopping](../concepts/early-stopping.md), [GAIA](gaia.md), [GPQA](gpqa.md), [GPQA-Diamond](gpqa-diamond.md), [GSM-MC](gsm-mc.md), [GSM8K](gsm8k.md), [MMLU](mmlu.md), [MuSiQue](musique.md), [Omni-MATH](omni-math.md), [Overthinking](../concepts/overthinking.md), [SuperGPQA](supergpqa.md), [Test-Time Compute](../concepts/test-time-compute.md), [UMWP](umwp.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
 
 ## Appears in
 

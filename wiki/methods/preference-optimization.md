@@ -9,7 +9,7 @@ Training a model on pairs of preferred-vs-dispreferred outputs to shift its beha
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [Aha Moment](../concepts/aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [MATH500](../datasets/math500.md), [O1-Pruner](o1-pruner.md), [Overthinking](../concepts/overthinking.md), [Redundant Self-Verification](../concepts/redundant-self-verification.md), [ThinkPrune](thinkprune.md), [veRL](verl.md)
+**Related**: [Aha Moment](../concepts/aha-moment.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [MATH500](../datasets/math500.md), [O1-Pruner](o1-pruner.md), [Overthinking](../concepts/overthinking.md), [Redundant Self-Verification](../concepts/redundant-self-verification.md), [TACO](../datasets/taco.md), [ThinkPrune](thinkprune.md), [veRL](verl.md)
 
 ## Appears in
 

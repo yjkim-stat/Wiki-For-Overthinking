@@ -47,7 +47,7 @@ Restricted to small language models (<=10B parameters) and four multiple-choice/
 
 - **Concepts**: process error (correct answer, flawed reasoning), reasoning-aware vs. answer-only evaluation, error taxonomy (Misinterpretation / Hallucination / Reasoning), answer-only performance inflation
 - **Methods**: LLM-as-judge (reference-free and reference-based), Process Reward Models (Math-Shepherd, Skywork-PRM, Qwen2.5-Math-PRM), zero-shot Chain-of-Thought reasoning-trace generation
-- **Datasets**: ReTraceQA (new, 2,421 annotated traces), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), OpenBookQA, QASC, [StrategyQA](../../../../wiki/datasets/strategyqa.md)
+- **Datasets**: ReTraceQA (new, 2,421 annotated traces), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), [OpenBookQA](../../../../wiki/datasets/openbookqa.md), QASC, [StrategyQA](../../../../wiki/datasets/strategyqa.md)
 
 Tags: `reasoning-trace-evaluation`, `commonsense-reasoning`, `small-language-models`, `process-reward-models`, `llm-as-judge`
 

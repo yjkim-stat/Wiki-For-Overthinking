@@ -1,0 +1,58 @@
+{
+  "concepts": [
+    "overthinking",
+    "entropy trend (uncertainty trajectory)",
+    "momentum-based entropy trend reward",
+    "instance-adaptive termination",
+    "Accuracy-Efficiency-trade-off Score (AES)",
+    "oscillatory self-reflection"
+  ],
+  "contributions": [
+    "an empirical identification that CoT length and efficiency are governed by the global directional trend of predictive-uncertainty evolution (a Spearman correlation between step index and entropy), not by absolute entropy magnitude at each step",
+    "Entropy Trend Reward (ETR), a momentum-weighted, trajectory-aware RL reward that rewards early, sustained entropy descent while tolerating local exploratory entropy increases, avoiding the information-loss of the naive telescoping first-vs-last-entropy alternative",
+    "integration into GRPO with correctness as a hard gating constraint, so efficiency shaping applies only among already-correct completions",
+    "state-of-the-art accuracy-efficiency trade-off (AES) across three model families and four benchmarks versus seven training-free and RL-based baselines, with a behavioral analysis showing ETR preserves self-verification structure while cutting per-step verbosity, unlike entropy-minimization which suppresses exploration outright"
+  ],
+  "datasets": [
+    "DeepMath-103K (training, difficulty 5-10)",
+    "MATH500",
+    "AMC23",
+    "AIME24",
+    "GPQA-Diamond"
+  ],
+  "generated_at": "2026-08-28T01:34:17Z",
+  "generated_by": "queue",
+  "limitations": "The paper does not discuss limitations in the excerpted sections beyond what is implicit in its design: step segmentation relies on a fixed delimiter ('\\n\\n'), the entropy trend momentum coefficient gamma is fixed (0.9, chosen via analysis deferred to an appendix) rather than adaptively tuned per task, and the correctness-gated reward structure means entropy shaping provides no training signal at all on incorrect rollouts, which the paper notes but does not evaluate as an alternative design.",
+  "method": "Defines per-step entropy H_t as the Shannon entropy of the model's next-token predictive distribution at each reasoning step (steps split by '\\n\\n' delimiters), and the step-wise entropy change Delta_t = H_{t-1} - H_t. An empirical analysis on MATH500 finds a clear monotonic relationship between the Spearman rank correlation (rho) of step index vs. entropy and total CoT length: a smaller (more negative) rho, indicating stronger global entropy descent, is associated with substantially shorter reasoning traces, while weaker descent (higher rho) is associated with much longer traces -- validating that global entropy *trend*, not instantaneous entropy level, governs length. A naive total-entropy-reduction reward telescopes to only depend on the first and last step's entropy (ignoring the intermediate trajectory shape, so a smooth monotonic descent and a trace full of entropy spikes get identical reward if their endpoints match), so ETR instead defines a momentum-based latent trend state S_t = gamma*S_{t-1} + Delta_t (gamma=0.9), summed across all steps as R_entropy(o) = sum_t S_t; unrolling this recurrence shows it is equivalent to a weighted sum of per-step entropy changes with strictly decreasing weights alpha_t = (1-gamma^{T-t+1})/(1-gamma), so entropy reductions occurring *earlier* in the trajectory are rewarded more than equally-sized reductions occurring later, encouraging the model to reach a convergent belief state rapidly rather than postponing critical deductions. This entropy-trend reward is combined with GRPO as a two-stage reward: incorrect completions get -1 (hard correctness constraint), correct completions get 1 + lambda*R_entropy(o) (entropy shaping applies only among already-correct trajectories, so it cannot substitute efficiency for correctness). Trained via LoRA on 7,000 problems from DeepMath-103K (difficulty 5-10, verified non-overlapping with eval benchmarks) on three reasoning models (DeepSeek-R1-Distill-Qwen-7B, Qwen3-4B, Qwen3-8B).",
+  "methods": [
+    "Entropy Trend Reward (ETR)",
+    "GRPO (Group Relative Policy Optimization)",
+    "DEER (baseline, training-free)",
+    "NoThink (baseline, training-free)",
+    "LCPO (baseline, length-penalty RL)",
+    "O1-Pruner (baseline, length-penalty RL)",
+    "PEAR (baseline, entropy-based RL)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "Qwen3-4B",
+    "Qwen3-8B"
+  ],
+  "one_liner": "ETR (Entropy Trend Reward) shows chain-of-thought efficiency is governed by the trajectory of predictive uncertainty (whether entropy trends downward over the trace) rather than its absolute magnitude, and trains a momentum-weighted, trajectory-aware GRPO reward that rewards steady entropy descent while tolerating local exploration -- improving DeepSeek-R1-Distill-7B's accuracy by 9.9% while cutting CoT length 67% across four benchmarks, and achieving the best accuracy-efficiency trade-off score against seven training-free and RL baselines.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.799",
+  "problem": "Reasoning models generate excessively long, repetitive, sometimes self-contradictory chains of thought (overthinking); existing length-based RL rewards are content-blind and can penalize informative steps needed for accuracy, while existing entropy-based rewards implicitly assume low uncertainty is desirable throughout reasoning -- but this contradicts how effective reasoning actually unfolds, since early exploratory steps are naturally high-entropy and later constrained steps are naturally low-entropy, so directly minimizing overall CoT entropy can discourage necessary self-reflection.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly and centrally relevant: it names overthinking explicitly and contributes a mechanistic reframing of what drives it -- not the level of uncertainty at any given step, but whether uncertainty is trending toward resolution over the course of the trace -- which explains why prior absolute-entropy-minimization approaches (PEAR) and length penalties either fail to shorten traces or do so by suppressing legitimate self-reflection. Its behavioral finding (ETR preserves self-verification markers while cutting per-step verbosity, unlike entropy minimization which cuts self-reflection outright) gives a concrete, checkable distinction between removing genuine overthinking and removing genuine reasoning."
+  },
+  "results": "Across four benchmarks (AMC23, AIME24, MATH500, GPQA-Diamond) and all three model families/sizes, ETR achieves the highest Accuracy-Efficiency-trade-off Score (AES, a unified metric combining relative length reduction and relative accuracy change, weighting accuracy 5x more than length per Luo et al. 2025's convention) in every setting: DeepSeek-R1-Distill-7B improves overall accuracy from 58.1% to 68.0% (+9.9pp) while cutting average token length from 8.5k to 2.8k (67.3% compression, AES=1.53, versus PEAR's 1.41, O1-Pruner's 1.18, LCPO's 0.65, NoThink's -0.44, DEER's 0.51); Qwen3-4B reaches 77.1% accuracy (vs. 69.5% original) at 4.1k tokens (39.4% compression, AES=1.03, best among all compared methods); Qwen3-8B reaches 79.1% accuracy (vs. 76.3% original) at 5.1k tokens (52.5% compression, AES=0.77). Comparison against baselines shows the specific failure modes ETR avoids: training-free DEER largely preserves accuracy but fails to substantially reduce length; training-free NoThink aggressively truncates (e.g. Qwen3-4B: 8.7k->4.2k tokens) but at severe accuracy cost (69.5%->56.2%, negative AES); length-penalty RL methods (LCPO, O1-Pruner) shorten more effectively than training-free approaches but with accuracy loss; entropy-based PEAR (minimizing absolute entropy) preserves accuracy but still produces long reasoning chains due to reliance on absolute entropy magnitude rather than trend. An ablation isolating reward design confirms the mechanism: absolute entropy minimization yields short CoTs but a lower AES (1.06) than ETR (1.53) and does not improve accuracy; absolute entropy maximization collapses reasoning to near-zero accuracy at maximal length; removing the momentum term (naive first-vs-last-entropy reward) preserves accuracy but fails to shorten length (AES drops from 1.53 to 0.11), confirming the necessity of momentum-based trajectory aggregation over the naive telescoping reward; removing the correctness constraint (entropy shaping applied unconditionally) causes a substantial accuracy drop (e.g. AMC23: 87.5%->65.0%), showing entropy trends alone cannot ensure correctness. Post-ETR-training, the Spearman correlation between step index and step entropy shifts from positive/near-zero to consistently negative across all three model scales on AIME24/AMC23, empirically confirming the trained models produce more convergent (entropy-descending) reasoning trajectories. A behavioral decomposition of CoT length reduction shows ETR and pure entropy-minimization achieve short CoTs via qualitatively different mechanisms: entropy minimization shortens by suppressing exploration (fewer steps, dramatically fewer self-reflection markers like 'wait'/'alternatively'/'hmm', but each remaining step becomes more verbose in tokens-per-sentence), whereas ETR preserves a moderate degree of self-verification and multi-step reasoning while keeping low per-step verbosity -- i.e. ETR discourages oscillatory, unproductive overthinking without enforcing uniformly low uncertainty at every step.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "entropy",
+    "reinforcement-learning",
+    "GRPO",
+    "reasoning-efficiency",
+    "length-control"
+  ]
+}

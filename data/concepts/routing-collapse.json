@@ -17,11 +17,17 @@
       "kind": "paper",
       "note": "A controlled synthetic study finding that mixing stable spectral state-space operators through a learned router fails to beat a single-expert baseline on regime-switching time series, with more experts making it worse, routing collapsing to one expert, and apparent MSE gains on chaotic data coming from variance suppression that destroys the attractor.",
       "title": "More Experts, Worse Dynamics: Inverse Scaling and Spectral Bias in Mixture-of-Experts State-Space Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.885",
+      "kind": "paper",
+      "note": "RFS-Guard detects and localizes reasoning hallucinations in LRMs training-free, using a Routing Focus Score (RFS) that measures how strongly cross-step attention between reasoning and answer phases collapses toward semantic-neighbor proximity (rather than task-critical evidence) -- finding this 'routing collapse' is a strong hallucination signal that beats sampling-based, uncertainty-based, and other self-aware baselines while remaining far more inference-efficient.",
+      "title": "RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "concept",
-  "last_seen": "2026-08-26T02:14:28Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "routing collapse",
   "related": [
     "adaptive-test-time-compute-allocation",
@@ -70,7 +76,28 @@
     "oracle-routing-ablation",
     "frozen-expert-ablation",
     "delay-coordinate-embedding",
-    "synthetic-three-regime-sequence-mackey-glass-chaotic-tau-17-stable-oscillatory-n"
+    "synthetic-three-regime-sequence-mackey-glass-chaotic-tau-17-stable-oscillatory-n",
+    "reasoning-hallucination",
+    "routing-focus-score-rfs",
+    "cross-phase-attention-correlation",
+    "reason-flow-multi-hop-backtracking",
+    "self-confirmation-loop",
+    "rfs-guard-routing-focus-score-reason-flow",
+    "selfcheckgpt-baseline",
+    "sindex-baseline",
+    "race-baseline",
+    "p-true-lnpe-ppl-ccp-uncertainty-baselines",
+    "eigenscore-attentionscore-uqac-rhd-self-aware-baselines",
+    "lengthscore-rule-based-baseline",
+    "minervamath",
+    "math-composite-domain",
+    "science-domain",
+    "multihopqa-domain",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-14b",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-235b-a22b-instruct-2507-annotator"
   ],
   "related_authored": [
     "adaptive-reasoning",

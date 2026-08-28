@@ -47,7 +47,7 @@ Integrating the external Pilot module introduces marginal computational overhead
 
 - **Concepts**: reasoning-as-Finite-State-Machine, step-level difficulty-aware pruning, lightweight distilled Pilot (compact Process Reward Model), in-context steering (control tags), consistent entry / hysteresis exit
 - **Methods**: SAT (Stepwise Adaptive Thinking, FSM + lightweight PRM), DEER (baseline, confidence-based early exit), CGRS (baseline, reflective-token suppression), ThinkSwitcher (baseline, question-driven routing)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [HumanEval](../../../../wiki/datasets/humaneval.md), PRM800K, MT-Bench
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [HumanEval](../../../../wiki/datasets/humaneval.md), [PRM800K](../../../../wiki/datasets/prm800k.md), MT-Bench
 
 Tags: `overthinking`, `step-level-pruning`, `process-reward-model`, `finite-state-machine`, `efficient-reasoning`
 

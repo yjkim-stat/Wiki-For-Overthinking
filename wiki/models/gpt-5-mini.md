@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GPT-5-mini appears in these sources as one of the LLMs used within multi-agent/long-horizon test-time-scaling systems: Routed Graph Handoff uses it in its multi-agent delegation benchmarks, and FS-Researcher uses it within its file-system-based deep-research framework, without further characterization from the sources.
 
 - **Kind**: model
 - **Also called**: GPT-5-mini

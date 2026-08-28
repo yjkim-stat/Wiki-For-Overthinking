@@ -8,7 +8,7 @@ Uncertainty quantification here means estimating how confident a model is in ord
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 1
 
-**Related**: [Conformal Prediction](../methods/conformal-prediction.md), [early stopping](early-stopping.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [MMLU](../datasets/mmlu.md), [Overthinking](overthinking.md), [Test-Time Compute](test-time-compute.md)
+**Related**: [abstention](abstention.md), [Conformal Prediction](../methods/conformal-prediction.md), [early stopping](early-stopping.md), [GPQA](../datasets/gpqa.md), [GSM-MC](../datasets/gsm-mc.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [MMLU](../datasets/mmlu.md), [Overthinking](overthinking.md), [Test-Time Compute](test-time-compute.md), [UMWP](../datasets/umwp.md)
 
 ## Appears in
 

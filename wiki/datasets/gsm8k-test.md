@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GSM8K (test) is referenced in these sources as one of the arithmetic/math reasoning benchmarks used to evaluate latent (continuous-vector) reasoning methods: SLPO and the parallel-test-time-scaling-for-latent-reasoning paper both use it (among other arithmetic benchmarks) to show scaling gains for their respective latent-reasoning approaches, without further detail on the test set itself.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

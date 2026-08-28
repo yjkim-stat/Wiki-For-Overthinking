@@ -46,8 +46,8 @@ The framework is presented as a proof-of-concept and in-depth analysis of parall
 ## Entities
 
 - **Concepts**: latent (continuous) chain-of-thought reasoning, Monte Carlo Dropout for epistemic-uncertainty sampling, Additive Gaussian Noise for aleatoric-uncertainty sampling, Latent Reward Model (LatentRM), sampling diversity vs. coverage tradeoff
-- **Methods**: Monte Carlo Dropout (MC-dropout), Additive Gaussian Noise (AGN), Latent Reward Model (LatentRM), [best-of-N selection](../../../../wiki/methods/best-of-n-selection.md), beam search, majority voting (baseline)
-- **Datasets**: GSM8K-Test, GSM8K-Hard, MultiArith, [MATH500](../../../../wiki/datasets/math500.md)
+- **Methods**: Monte Carlo Dropout (MC-dropout), Additive Gaussian Noise (AGN), Latent Reward Model (LatentRM), [best-of-N selection](../../../../wiki/methods/best-of-n-selection.md), [beam search](../../../../wiki/methods/beam-search.md), majority voting (baseline)
+- **Datasets**: [GSM8K-Test](../../../../wiki/datasets/gsm8k-test.md), GSM8K-Hard, [MultiArith](../../../../wiki/datasets/multiarith.md), [MATH500](../../../../wiki/datasets/math500.md)
 
 Tags: `latent-reasoning`, `test-time-scaling`, `parallel-sampling`, `reward-model`, `continuous-chain-of-thought`
 

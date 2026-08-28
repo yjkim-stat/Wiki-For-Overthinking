@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Gemini 2.0 Flash is used in these sources as an evaluated or judging model in reasoning-trace-quality benchmarks: LEGIT uses it (among other LLMs) in a Korean legal-reasoning-trace evaluation with hierarchical issue-tree rubrics, and ReTraceQA uses it in evaluating small-language-model reasoning traces on commonsense QA, without further characterization of the model itself.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

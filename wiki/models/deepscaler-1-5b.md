@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepScaleR-1.5B is cited in this archive as one of the models evaluated for robustness/failure modes: REST uses it (among 30+ models) to show that concatenating multiple questions into a single prompt substantially degrades reasoning-model accuracy, and it is separately discussed as a hybrid think/no-think model subject to the reward-hacking failure mode that TNT addresses. The sources do not describe DeepScaleR-1.5B's own training recipe.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

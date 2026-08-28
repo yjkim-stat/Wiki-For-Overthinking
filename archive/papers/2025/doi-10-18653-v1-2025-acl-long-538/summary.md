@@ -46,7 +46,7 @@ Experiments are confined to multi-hop QA tasks; applicability to mathematical pr
 
 - **Concepts**: error propagation (in linear KAR chains), verification bottleneck (explore-exploit trade-off in multi-branch reasoning), Bayesian Risk-Value function (regeneration-likelihood-based node scoring), risk-adaptive Monte Carlo Tree Search
 - **Methods**: [Monte Carlo Tree Search (MCTS)](../../../../wiki/methods/monte-carlo-tree-search-mcts.md), Bayesian Risk-Value function, retrieval-augmented generation (BM25), Query2Doc / Self-Ask / Verify-and-Edit / Auto-RAG (prompt-based baselines), Self-Consistency / RATT (search-based baselines)
-- **Datasets**: [HotpotQA](../../../../wiki/datasets/hotpotqa.md), 2WikiMultihopQA, [MusiQue](../../../../wiki/datasets/musique.md)
+- **Datasets**: [HotpotQA](../../../../wiki/datasets/hotpotqa.md), [2WikiMultihopQA](../../../../wiki/datasets/2wikimultihopqa.md), [MusiQue](../../../../wiki/datasets/musique.md)
 
 Tags: `test-time-scaling`, `monte-carlo-tree-search`, `retrieval-augmented-generation`, `multi-hop-reasoning`, `risk-adaptive-search`
 

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+LoRA (Low-Rank Adaptation) is used in these sources as the parameter-efficient fine-tuning mechanism behind adaptive-length reasoning adapters: AdaMix trains two separate LoRA adapters (a short adapter and a long adapter) and interpolates between them via task arithmetic, guided by a difficulty-aware router, to trade off reasoning length and accuracy.
 
 - **Kind**: method
+- **Also called**: Low-Rank Adaptation
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

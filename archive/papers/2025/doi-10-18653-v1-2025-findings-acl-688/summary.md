@@ -47,7 +47,7 @@ The datamix ablation analysis (Section 4.2) and part of the validation-set-align
 
 - **Concepts**: skill-dependent compute-optimal scaling, data-hungry vs. capacity-hungry skill, aggregate performance estimator (APE) vs. skill-specific compute optimum, IsoFLOP curve
 - **Methods**: IsoFLOP curve fitting (degree-2 polynomial per compute scale), skill-specific compute optimum (CO) estimation, aggregate performance estimator (APE) scaling-law comparison
-- **Datasets**: [TriviaQA](../../../../wiki/datasets/triviaqa.md), Natural Questions (NQ), SQuAD, [MMLU](../../../../wiki/datasets/mmlu.md), RepoBench, SWE-bench, [BigCodeBench](../../../../wiki/datasets/bigcodebench.md), CAT-LM, CrossCodeEval, MultiPL-E, [HumanEval](../../../../wiki/datasets/humaneval.md), MBXP, [MBPP](../../../../wiki/datasets/mbpp.md), FineWeb / FineWeb-Edu (validation), The Stack (validation)
+- **Datasets**: [TriviaQA](../../../../wiki/datasets/triviaqa.md), [Natural Questions (NQ)](../../../../wiki/datasets/natural-questions-nq.md), SQuAD, [MMLU](../../../../wiki/datasets/mmlu.md), RepoBench, SWE-bench, [BigCodeBench](../../../../wiki/datasets/bigcodebench.md), CAT-LM, CrossCodeEval, MultiPL-E, [HumanEval](../../../../wiki/datasets/humaneval.md), MBXP, [MBPP](../../../../wiki/datasets/mbpp.md), FineWeb / FineWeb-Edu (validation), The Stack (validation)
 
 Tags: `compute-optimal`, `scaling-laws`, `pretraining`, `data-mixing`, `skill-dependent-scaling`
 

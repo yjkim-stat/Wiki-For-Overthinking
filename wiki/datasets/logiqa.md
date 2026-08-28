@@ -8,7 +8,7 @@ LogiQA is a logic-heavy classification benchmark used in this archive by Prompt-
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [GPQA](gpqa.md), [TruthfulQA](truthfulqa.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [Best-of-N (baseline)](../methods/best-of-n-baseline.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [GPQA](gpqa.md), [TruthfulQA](truthfulqa.md)
 
 ## Appears in
 

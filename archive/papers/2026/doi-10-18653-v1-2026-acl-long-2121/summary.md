@@ -46,7 +46,7 @@ The current framework treats iterative refinement, sequential scaling, parallel 
 ## Entities
 
 - **Concepts**: token-level sampling cost, Prefix Diversity Coverage (PDC), dynamic Chain-of-Thought switching (DPO-trained), difficulty-aware parallel head partitioning
-- **Methods**: EconRL (Dynamic CoT Switching + Diverse Parallel-scaled RL), Direct Preference Optimization (DPO), Proximal Policy Optimization (PPO), iterative refinement (IR)
+- **Methods**: EconRL (Dynamic CoT Switching + Diverse Parallel-scaled RL), [Direct Preference Optimization (DPO)](../../../../wiki/methods/direct-preference-optimization-dpo.md), Proximal Policy Optimization (PPO), iterative refinement (IR)
 - **Datasets**: miniF2F-test/valid, ProofNet-test, LeanWorkbook, Goedel-Pset-v1
 
 Tags: `overthinking`, `automated-theorem-proving`, `test-time-scaling`, `reinforcement-learning`, `parallel-sampling`

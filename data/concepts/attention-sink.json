@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.",
       "title": "Prefix Sliding for efficient test-time scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.76",
+      "kind": "paper",
+      "note": "ZoomR fine-tunes a reasoning model to summarize its own thoughts after each paragraph, then at inference dynamically retrieves only a small, consensus-selected subset of full-resolution reasoning segments (zooming in) while keeping the rest as compressed summary keys -- cutting KV-cache GPU memory more than 4x versus a full cache with accuracy close to the vanilla full-KV baseline, and finds that attention-head consensus on which segments matter is itself a diagnostic signal correlated with answer correctness.",
+      "title": "ZoomR: Memory Efficient Reasoning through Multi-Granularity Key Value Retrieval"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "concept",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "attention sink",
   "related": [
     "bounded-constant-cost-per-new-token",
@@ -28,7 +34,20 @@
     "livecodebench-lcb-v5",
     "healthbench",
     "qwen3-1-7b",
-    "qwen3-7b-rl-trained"
+    "qwen3-7b-rl-trained",
+    "multi-granularity-kv-cache",
+    "reasoning-summarization-thought-compression",
+    "consensus-based-segment-retrieval",
+    "mean-summary-key",
+    "agreeability-attention-head-consensus-metric",
+    "zoomr-multi-granularity-dynamic-kv-selection",
+    "streamingllm-baseline",
+    "h2o-baseline",
+    "sumr-summary-only-ablation-baseline",
+    "lora-fine-tuning",
+    "bespoke-17k-augmented-with-summaries-fine-tuning-data",
+    "llama-3-1-8b-r1-distill",
+    "qwen2-5-7b-r1-distill"
   ],
   "related_authored": [],
   "schema_version": 1,

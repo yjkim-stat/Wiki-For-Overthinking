@@ -1,0 +1,48 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.739",
+      "kind": "paper",
+      "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+      "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "OpenAI o1-mini",
+  "related": [
+    "intrinsic-verifier-free-confidence-signal",
+    "confidence-based-rl-calibration",
+    "self-guided-tree-search",
+    "novelty-weighted-exploration",
+    "overconfidence-penalty",
+    "guided-by-gut-gg",
+    "diverse-verifier-tree-search-dvts",
+    "grpo",
+    "lora-fine-tuning",
+    "best-of-n-baseline",
+    "prm-guided-search-baseline-mathshepherd-7b-rlhflowllama3-1-8b-qwen2-5-mathprm-7b",
+    "aime-2024",
+    "aime-2025",
+    "math500",
+    "amc23",
+    "livecodebench",
+    "limo-rl-calibration-data",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-14b",
+    "deepseek-r1-distill-qwen-32b",
+    "deepseek-r1-distill-llama-70b",
+    "deepseek-r1-671b",
+    "qwen2-5-math-1-5b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "openai-o1-mini",
+  "topics": [
+    "overthinking"
+  ]
+}

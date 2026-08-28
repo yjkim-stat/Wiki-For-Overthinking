@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+'Math training' in these sources refers to the math-reasoning training/evaluation setups used by RL-based length-control and exploration methods, not a single named corpus: LC-R1 evaluates its Length/Compress Reward method's Valid Thinking rate on math reasoning, and ROSE reports results on AIME/MATH500/AMC23 for its semantic-entropy-branched MCTS exploration. The sources do not name a single canonical 'math training' dataset in common.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

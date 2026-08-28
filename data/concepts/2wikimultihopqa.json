@@ -2,7 +2,7 @@
   "aliases": [
     "2WikiMultiHopQA"
   ],
-  "definition": "",
+  "definition": "2WikiMultihopQA is used in this archive as a multi-hop question-answering benchmark for evaluating retrieval-augmented and knowledge-augmented reasoning methods. ARise uses it to evaluate risk-adaptive MCTS-guided retrieval reasoning, and Verbal-R3 uses it to evaluate whether rewriting retrieved documents into explicit logical annotations improves RAG accuracy.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.acl-long.538",
@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "Verbal-R3 shows that rewriting retrieved documents into 'Verbal Annotations' -- analytic narratives that explicitly state the logical connection between a query and a document, distilled from GPT-OSS-120B into a lightweight 1.5B/3B Verbal Reranker -- substantially improves RAG accuracy over both raw context injection and stylistic paraphrasing, and pairs this with a relevance-guided test-time-scaling method that allocates search-trajectory budget toward high-relevance-scored queries, beating Search-R1 by up to 18% F1 while cutting reranker calls ~45-54%.",
       "title": "Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1052",
+      "kind": "paper",
+      "note": "Self-Correcting RAG reformulates retrieval-augmented generation as constrained optimization: a Multi-dimensional Multiple-choice Knapsack Problem (MMKP) selects a diverse, non-redundant, token-budget-respecting document context (replacing greedy top-k), and an NLI-guided Monte Carlo Tree Search explores reasoning trajectories at inference time, penalizing branches whose generated claims contradict retrieved evidence -- improving average EM/F1 (37.1/45.8) and retrieval recall@5 (72.0%) over strong RAG baselines across six QA datasets while cutting the contradiction rate to 0.04.",
+      "title": "Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "2WikiMultihopQA",
   "related": [
     "error-propagation-in-linear-kar-chains",
@@ -55,7 +61,23 @@
     "qwen2-5-7b",
     "gpt-oss-120b-teacher",
     "gemini-2-5-pro-validator",
-    "gpt-4-1-judge"
+    "gpt-4-1-judge",
+    "multi-dimensional-multiple-choice-knapsack-problem-mmkp-for-context-selection",
+    "nli-guided-monte-carlo-tree-search",
+    "faithfulness-metrics-attribution-precision-contradiction-rate-support",
+    "test-time-compute-for-rag",
+    "semantic-redundancy-grouping",
+    "self-correcting-rag-mmkp-context-selection-nli-guided-mcts",
+    "naive-rag-baseline",
+    "hyde-baseline",
+    "rrr-baseline",
+    "rag-mmr-filco-recomp-longllmlingua-selection-reranking-baselines",
+    "ircot-self-rag-crag-drag-iterative-agentic-baselines",
+    "hotpotqa-distractor-setting",
+    "multihop-rag",
+    "qwen2-5-7b-instruct-backbone-generator",
+    "bge-small-en-v1-5-dense-retriever",
+    "roberta-large-mnli-nli-reward-model"
   ],
   "related_authored": [],
   "schema_version": 1,

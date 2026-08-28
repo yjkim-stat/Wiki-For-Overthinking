@@ -46,7 +46,7 @@ Experiments are conducted only on 1.5B and 7B models due to limited computationa
 ## Entities
 
 - **Concepts**: Key-Focus Heads (KFHs), Step Ranking Accuracy (SRA), Stepwise Outcome-level Advantage Rescaling, difficulty-aware advantage attenuation
-- **Methods**: ATTNPO (Attention-guided Policy Optimization), Key-Focus Heads (KFH) probing, GRPO / RLOO, TLMRE (baseline), ThinkPrune, DIET, ACPO, Laser (outcome-supervised baselines), LC-R1, VSRM-R++, S-GRPO, DEPO, DECS (process-supervised baselines)
+- **Methods**: ATTNPO (Attention-guided Policy Optimization), Key-Focus Heads (KFH) probing, GRPO / RLOO, [TLMRE (baseline)](../../../../wiki/methods/tlmre-baseline.md), ThinkPrune, DIET, ACPO, Laser (outcome-supervised baselines), LC-R1, VSRM-R++, S-GRPO, DEPO, DECS (process-supervised baselines)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [LiveCodeBench-v6](../../../../wiki/datasets/livecodebench-v6.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MMLU](../../../../wiki/datasets/mmlu.md), [DeepScaleR-Preview (training)](../../../../wiki/datasets/deepscaler-preview-training.md)
 
 Tags: `overthinking`, `process-supervision`, `attention-mechanism`, `reinforcement-learning`, `efficient-reasoning`

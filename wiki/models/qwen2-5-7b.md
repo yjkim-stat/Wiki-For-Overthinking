@@ -9,7 +9,7 @@ Alibaba's 7B Qwen2.5 checkpoint, the most frequently used mid-scale backbone in 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [GPT-4o](gpt-4o.md), [HotpotQA](../datasets/hotpotqa.md), [Llama-3.1-8B](llama-3-1-8b.md), [Llama-3-8B](llama-3-8b.md), [LoRA fine-tuning](../methods/lora-fine-tuning.md), [Mistral 7B](mistral-7b.md), [MuSiQue](../datasets/musique.md), [Natural Questions (NQ)](../datasets/natural-questions-nq.md), [TriviaQA](../datasets/triviaqa.md)
+**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [GPT-4o](gpt-4o.md), [HotpotQA](../datasets/hotpotqa.md), [Llama-3.1-8B](llama-3-1-8b.md), [Llama-3-8B](llama-3-8b.md), [LoRA fine-tuning](../methods/lora-fine-tuning.md), [Mistral 7B](mistral-7b.md), [MuSiQue](../datasets/musique.md), [Natural Questions (NQ)](../datasets/natural-questions-nq.md), [PopQA](../datasets/popqa.md), [Qwen2.5-32B](qwen2-5-32b.md), [TriviaQA](../datasets/triviaqa.md)
 
 ## Appears in
 

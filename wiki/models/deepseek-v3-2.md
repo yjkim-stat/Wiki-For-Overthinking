@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepSeek-V3.2 is used in these sources as an annotator/judge model rather than a subject of study: TRACE uses it (alongside Qwen3.5-Plus and KIMI-K2.5) as one of three LRMs annotating the safety of prompts, reasoning traces and responses. Timely Machine is a separate, unrelated source that happens to share this concept's promotion threshold but does not name DeepSeek-V3.2 specifically in its cited note.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

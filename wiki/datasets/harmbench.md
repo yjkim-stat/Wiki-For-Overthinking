@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+HarmBench is used in these sources as a standard safety benchmark against which jailbreak-attack success is measured: Mousetrap reports 87.5-93.13% attack success against Claude-Sonnet on standard safety benchmarks including HarmBench-style evaluation, and AutoRAN evaluates its safety-hijacking framework in the same family of benchmarks, though the specific per-benchmark breakdown is not detailed in the cited notes.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

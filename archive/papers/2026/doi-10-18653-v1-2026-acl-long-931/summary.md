@@ -12,9 +12,44 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.57
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+ReEfBench is a neuro-symbolic evaluation framework that grounds reasoning in First-Order-Logic problems with controllable, verifiable logical depth, parses 25 LLMs' CoT responses into logical nodes to compute six behavioral metrics (logical depth, cost, exploration, efficiency, coherence, redundancy), and clusters models into four behavioral prototypes -- Effective Solver, Deep Wanderer, Hollow Mimic, Lazy Guesser -- showing token count and genuine logical depth are dissociable, and that Short CoT with reflection can now match Long CoT's depth at a fraction of the cost.
+
+## Problem
+
+Current Chain-of-Thought evaluation relies mainly on binary output-validity metrics that cannot distinguish genuine deepened reasoning from mere verbosity ('overthinking'), and process-level evaluation approaches (human annotation, LLM-as-judge, rule-based statistics) are either too expensive, too noisy/biased, or too intrusive (requiring rigid output formats that limit model flexibility) and lack a formal, controllable, and knowledge-independent basis for what 'logical depth' even means.
+
+## Contributions
+
+- ReEfBench, the first neuro-symbolic evaluation framework combining scalable, controllable First-Order-Logic problem generation with a deterministic, non-intrusive pipeline for computing logical depth and process-level behavioral metrics from free-text LLM responses
+- six interpretable diagnostic metrics (Logical Depth, Cost, Exploration, Efficiency, Coherence, Redundancy) that jointly decouple 'how deep' reasoning actually went from 'how much text' it took
+- identification of four behavioral prototypes via clustering across 25 models, including two named failure modes (Hollow Mimic: verbose but shallow; Lazy Guesser: minimal effort/performative reasoning) distinct from the two successful strategies (Deep Wanderer's exhaustive search; Effective Solver's efficient search)
+- empirical findings that extended token generation is not a prerequisite for deep reasoning, that Short CoT with reflection can now approach Long CoT's logical depth, that mixing long/short training data risks premature saturation, and that distilling long-CoT behavior into small models replicates surface length/frequency without replicating logical efficacy due to intrinsic capacity limits
+
+## Method
+
+Constructs problems as First-Order-Logic (FOL) deduction chains: a stochastic backward-chaining process starts from a random conclusion node and recursively expands valid deduction rules (Modus Ponens plus conjunction/disjunction) backward until reaching a target logical depth (complexity level C, controllable from 3 to 11), yielding premises, intermediate steps, and a golden conclusion, with C extra invalid distractor premises added for difficulty. Target LLMs answer a true/false verification question given the premises; their free-text response is decomposed into sentences and parsed by an LLM parser (Qwen2.5-32B-Instruct, validated at 94.3% F1 against 95.1%-agreement human labels) into logical nodes tagged as actual (concrete inference steps) or planning, and sentences tagged as normal or reflection. A rule-based verifier then computes each actual node's correctness and logical depth (via backward chaining from its logical antecedents, even for nodes not in the golden solution), and functional utility of planning/reflection sentences is assessed by whether subsequent nodes show measurable depth/breadth gains within a local window. These are aggregated (via max-normalization) into six diagnostic scores: Logical Depth (S_ld, achieved reasoning capability), Cost (S_cost, tokens + reflection/planning frequency), Exploration (S_exp, unique correct nodes), Efficiency (S_eff, tokens per depth increment), Coherence (S_coh, whether meta-cognitive steps yield actual progress), and Redundancy (S_red, repetition at sentence/node level). K-means clustering (k=4) over the Logical-Depth-vs-Cost plane, using the full 25-model evaluation suite (proprietary and open-weight, both instruction-tuned and reasoning-enhanced), identifies four behavioral prototypes.
+
+## Results
+
+At the hardest complexity level (11), frontier reasoning models nearly reach the maximal logical depth (~11) but diverge sharply in behavior: Qwen3-235B-thinking consumes 16.8k tokens with exhaustive Exploration (1.00) and low Efficiency (0.47), forming the 'Deep Wanderer' prototype (high cost + high depth, trading efficiency for coverage, tolerating high Redundancy 0.77); Claude-Opus-4.5.long uses far fewer tokens (3.5k) with high Efficiency (0.60) and low Redundancy (0.28), forming the 'Effective Solver' prototype (high depth at low cost). Two failure-mode prototypes: 'Hollow Mimic' (e.g. DeepSeek-R1-Qwen-7B, QwQ-32B) invests significant cost (0.45-0.49) for mediocre depth (0.39-0.68), with low Efficiency and high Redundancy but critically low Exploration (~0.09-0.14) -- generating text without expanding the logical search breadth. 'Lazy Guesser' (e.g. Qwen2.5-32B-Instruct, small Qwen3 models) shows the lowest cost (0.16-0.29) and depth (0.28-0.62), with an artifactually high Efficiency score masking brevity rather than competence, and notable Redundancy (0.51) reflecting 'performative reasoning' -- explicit planning/reflection steps that are correctly triggered and structured (comparable Coherence to successful solvers, 0.42) but never translate into genuine logical progress. Comparing Long vs. Short CoT: while early high-token models held a large logical-depth advantage over short-CoT instruction models (QwQ-32B exceeding Qwen2.5-32B-Instruct by >97.1%), the gap has narrowed to under 10% in modern iterations, with Qwen3-235B-Instruct (short) trailing its thinking counterpart by a negligible 1.61% in logical depth -- convergence correlated with the inclusion of reasoning-style training data regardless of long/short generation mode. High-performing short-CoT models consistently incorporate reflection (Claude-Opus-4.5.short: 0.8% reflection rate reaching depth 7.8, vs. Lazy Guessers' Qwen2.5-32B-Instruct at 0.0% reflection reaching only depth 2.9), underscoring 'Short CoT + Reflection' as a specific, identifiable winning combination. Mixed long+short training data risks premature 'Saturation' -- e.g. mixed Qwen3-235B.long fails to scale token generation with complexity as robustly as the pure-thinking Qwen3-235B-thinking model, a pattern replicated at other scales (QwQ-32B vs. mixed Qwen3-32B.long, pure Qwen3-30B-thinking vs. mixed Qwen3-30B.long), suggesting short-CoT data interferes with the model's willingness to scale computation when actually needed. Distilling Long-CoT behavior into smaller models (14B/8B/4B, supervised by a 32B teacher) captures the *frequency* of reflection (smaller models sometimes generate reflection even more often than the teacher) but reflection *quality* degrades strictly with model size (32B > 14B > 8B > 4B) and fails to translate into matching logical depth -- 'behavioral mimicry' of length/frequency without the underlying capability, except at 14B which uniquely maintains both reflection quality and depth aligned with the teacher, suggesting a critical minimum parametric capacity threshold.
+
+## Limitations
+
+The paper does not discuss limitations in the excerpted sections beyond what is implicit in its scope: evaluation is restricted to First-Order-Logic verification tasks (deliberately decoupled from world knowledge), so results characterize pure logical/process reasoning behavior rather than knowledge-intensive or open-ended reasoning tasks; the LLM-based parser, while validated at 94.3% F1 against human labels, is not perfectly accurate and residual parsing noise could affect fine-grained metric values.
+
+## Why it matters here
+
+- **overthinking**: Directly and centrally relevant: it provides a formal, knowledge-independent (FOL-grounded) way to separate genuine reasoning depth from token expenditure, giving a principled measurement instrument for overthinking (the Deep Wanderer prototype is exactly high-cost-low-efficiency verbose exploration) and its opposite failure modes (Hollow Mimic, Lazy Guesser), and its finding that Short CoT plus reflection can now match Long CoT's depth directly informs mitigation strategy: the lever is not generation length per se but whether reflection/planning steps are functionally load-bearing.
+
+## Entities
+
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), logical depth, neuro-symbolic evaluation, behavioral prototype (Effective Solver / Deep Wanderer / Hollow Mimic / Lazy Guesser), performative reasoning, behavioral mimicry (distillation), process-centric evaluation
+- **Methods**: backward-chaining FOL problem generation, LLM-based response parsing (Qwen2.5-32B-Instruct), rule-based logical-depth verification, K-means clustering (behavioral prototypes)
+- **Datasets**: ReEfBench (new, FOL-based, complexity levels 3-11)
+
+Tags: `overthinking`, `evaluation-methodology`, `logical-reasoning`, `process-centric-evaluation`, `distillation`, `chain-of-thought`
 
 ## Abstract
 

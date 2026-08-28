@@ -46,7 +46,7 @@ Closed-source commercial models' hidden thinking traces could not be annotated d
 
 - **Concepts**: Subtask Parallelism (AND-branch), Trial Parallelism (OR-branch), [critical-path latency](../../../../wiki/concepts/critical-path-latency.md), parallelism-aware reward shaping
 - **Methods**: Parallelism-Aware Group Relative Policy Optimization (PA-GRPO), context-free-grammar-constrained parallel trajectory generation, SFT on annotated parallel traces, tool-call-based parallel execution (SGLang + XGrammar)
-- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [Math500](../../../../wiki/datasets/math500.md), [AMC](../../../../wiki/datasets/amc.md), OpenMathReasoning, Humanity's Last Exam (HLE), Polaris-53k
+- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [Math500](../../../../wiki/datasets/math500.md), [AMC](../../../../wiki/datasets/amc.md), [OpenMathReasoning](../../../../wiki/datasets/openmathreasoning.md), Humanity's Last Exam (HLE), Polaris-53k
 
 Tags: `parallel-reasoning`, `test-time-scaling`, `latency`, `reinforcement-learning`, `inference-engine`
 

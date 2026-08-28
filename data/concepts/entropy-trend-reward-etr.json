@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.799",
+      "kind": "paper",
+      "note": "ETR (Entropy Trend Reward) shows chain-of-thought efficiency is governed by the trajectory of predictive uncertainty (whether entropy trends downward over the trace) rather than its absolute magnitude, and trains a momentum-weighted, trajectory-aware GRPO reward that rewards steady entropy descent while tolerating local exploration -- improving DeepSeek-R1-Distill-7B's accuracy by 9.9% while cutting CoT length 67% across four benchmarks, and achieving the best accuracy-efficiency trade-off score against seven training-free and RL baselines.",
+      "title": "ETR: Entropy Trend Reward for Efficient Chain-of-Thought Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "Entropy Trend Reward (ETR)",
+  "related": [
+    "overthinking",
+    "entropy-trend-uncertainty-trajectory",
+    "momentum-based-entropy-trend-reward",
+    "instance-adaptive-termination",
+    "accuracy-efficiency-trade-off-score-aes",
+    "oscillatory-self-reflection",
+    "grpo",
+    "deer-baseline-training-free",
+    "nothink-baseline-training-free",
+    "lcpo-baseline-length-penalty-rl",
+    "o1-pruner-baseline-length-penalty-rl",
+    "pear-baseline-entropy-based-rl",
+    "deepmath-103k-training-difficulty-5-10",
+    "math500",
+    "amc23",
+    "aime-2024",
+    "gpqa-diamond",
+    "deepseek-r1-distill-qwen-7b",
+    "qwen3-4b",
+    "qwen3-8b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "entropy-trend-reward-etr",
+  "topics": [
+    "overthinking"
+  ]
+}

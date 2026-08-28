@@ -6,13 +6,14 @@ HellaSwag serves in this archive as a short-output control - a benchmark whose a
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 1
+- **Sources**: 2
 
-**Related**: [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Early Exit](../methods/early-exit.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [SVAMP](svamp.md)
+**Related**: [abstention](../concepts/abstention.md), [ARC-Challenge](arc-challenge.md), [ASDiv](asdiv.md), [C4](../methods/c4.md), [Confidence Calibration](../concepts/confidence-calibration.md), [DeepSeek-R1-Distill-Qwen-32B](../models/deepseek-r1-distill-qwen-32b.md), [Early Exit](../methods/early-exit.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [GSM-Hard](gsm-hard.md), [GSM-MC](gsm-mc.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Phi-4](../models/phi-4.md), [Qwen2.5-32B](../models/qwen2-5-32b.md), [SVAMP](svamp.md), [UMWP](umwp.md)
 
 ## Appears in
 
 - [Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models](../../archive/papers/2026/arxiv-2607-28166/summary.md) — C4 accelerates diffusion language model decoding with two separate gates: one that decides when the whole sequence may stop, by checking that the extracted answer span is both confident and unchanged for several steps, and one that decides which token positions a step may commit, by committing only a boundary-anchored run and confirming deferred positions one step later.
+- [Answering the Wrong Question: Reasoning Trace Inversion for Abstention in LLMs](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-608/summary.md) — TRACE INVERSION reframes abstention as query misalignment -- a hallucinating model answered a different (reconstructed) question than the one the user actually posed -- and detects this by reconstructing the implied query from a model's own reasoning trace and comparing it to the original via an ensemble of embedding-similarity, LLM-judged, and groundedness-detection metrics, beating five baselines in 33/36 settings across four LLMs and nine abstention datasets, while separately showing that CoT/reasoning-trace prompting itself degrades abstention accuracy by an average 2.6% versus non-reasoning prompting.
 
 <!-- auto:end -->
 

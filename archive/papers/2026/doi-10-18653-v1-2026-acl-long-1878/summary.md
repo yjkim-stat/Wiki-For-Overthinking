@@ -46,7 +46,7 @@ Evaluation is restricted to 26 LRMs in the text modality; benchmarking large vis
 
 - **Concepts**: intelligence-obedience trade-off, hard accuracy / soft accuracy, compositional constraints, instruction-constraint contextual distance dilution
 - **Methods**: MathIF (compositional Python-verifiable constraint benchmark), budget forcing (CoT-length inference-time extension), GRPO (RL training), constraint-repetition intervention
-- **Datasets**: MathIF (new, 420 constrained math queries), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), DeepScaler (training)
+- **Datasets**: MathIF (new, 420 constrained math queries), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [DeepScaler (training)](../../../../wiki/datasets/deepscaler-training.md)
 
 Tags: `overthinking`, `instruction-following`, `chain-of-thought-length`, `reasoning-oriented-training`, `controllability`
 

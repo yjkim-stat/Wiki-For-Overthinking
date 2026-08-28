@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GPT-o3 is used in these sources as a target model for safety-reasoning attacks and as a baseline for planning tasks: AutoRAN reports near-100% attack success hijacking gpt-o3/o4-mini's internal safety deliberation, and SCOPE reports large accuracy and cost/time gains over a chain-of-thought baseline on a multi-constraint planning benchmark (though that specific gain figure is reported for GPT-4o rather than o3 in the cited note).
 
 - **Kind**: model
 - **Also called**: GPT-o3
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdvBench](../datasets/advbench.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [GPT-5](gpt-5.md), [HarmBench](../datasets/harmbench.md), [Qwen3-8B](qwen3-8b.md), [StrongReject](../datasets/strongreject.md)
+**Related**: [AdvBench](../datasets/advbench.md), [Chain-of-Thought (CoT, baseline)](../methods/chain-of-thought-cot-baseline.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [GPT-5](gpt-5.md), [HarmBench](../datasets/harmbench.md), [Qwen3-8B](qwen3-8b.md), [StrongReject](../datasets/strongreject.md)
 
 ## Appears in
 

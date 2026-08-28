@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.",
       "title": "Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.101",
+      "kind": "paper",
+      "note": "AMO-Bench is a 50-problem, IMO-difficulty-or-harder, entirely original math benchmark built to avoid the saturation and memorization issues of AIME24/25, on which even the best of 36 evaluated LLMs (Gemini-3-Pro) reaches only 63.1% accuracy, model performance grows near-linearly with the logarithm of output length (still-unsaturated evidence that test-time scaling keeps paying off), and a manual failure analysis finds brute-force enumeration and improper strategy selection -- reasoning deficiency, not missing math knowledge -- as the dominant error modes.",
+      "title": "AMO-Bench: Large Language Models Still Struggle in High School Math Competitions"
     }
   ],
   "first_seen": "2026-08-27T13:56:46Z",
   "kind": "model",
-  "last_seen": "2026-08-27T13:56:46Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "Gemini-3-Pro",
   "related": [
     "subtask-parallelism-and-branch",
@@ -39,7 +45,28 @@
     "claude-opus-4-5",
     "gpt-5-5",
     "threadweaver-8b",
-    "multiverse-32b"
+    "multiverse-32b",
+    "benchmark-saturation",
+    "final-answer-based-automated-grading",
+    "test-time-scaling-headroom",
+    "reasoning-deficiency-vs-knowledge-deficiency",
+    "brute-force-enumeration-failure-mode",
+    "final-answer-based-automated-grading-parser-based-llm-based",
+    "avg-32-evaluation",
+    "paired-significance-testing-ranking-confidence-intervals",
+    "monte-carlo-simulation-sampling-variability-confidence-intervals",
+    "amo-bench-new-50-problems-en-ch-versions",
+    "hmmt25",
+    "deepseek-v3-2-speciale",
+    "qwen3-max-thinking",
+    "gpt-5-1-thinking-high",
+    "kimi-k2-thinking",
+    "glm-4-6",
+    "gpt-5-thinking-high",
+    "o4-mini",
+    "o3-mini",
+    "qwen3-max-instruct",
+    "longcat-flash"
   ],
   "related_authored": [],
   "schema_version": 1,

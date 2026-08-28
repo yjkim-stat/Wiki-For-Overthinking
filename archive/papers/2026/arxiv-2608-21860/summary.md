@@ -46,7 +46,7 @@ Stated: the work is offline preference optimization only; extension to online RL
 ## Entities
 
 - **Concepts**: [Overthinking](../../../../wiki/concepts/overthinking.md), Pseudo-Conciseness, Chain Length, Reasoning Path Merging, Pareto-Dominant Path Selection, Reward Synchronization Collapse, Gradient Entanglement, Direct Preference Optimization, LLM-as-a-Judge, [Redundant Reasoning Steps](../../../../wiki/concepts/redundant-reasoning-steps.md), Invalid Reflection
-- **Methods**: ChainPrune, Direct Preference Optimization (DPO), DPO + NLL regularization, [SimPO](../../../../wiki/methods/simpo.md), Supervised Fine-Tuning, Kimi-1.5 length reward, [DAST](../../../../wiki/methods/dast.md), Semantic node merging, Pareto dominance selection, LLM-as-a-Judge majority voting
+- **Methods**: ChainPrune, [Direct Preference Optimization (DPO)](../../../../wiki/methods/direct-preference-optimization-dpo.md), DPO + NLL regularization, [SimPO](../../../../wiki/methods/simpo.md), Supervised Fine-Tuning, Kimi-1.5 length reward, [DAST](../../../../wiki/methods/dast.md), Semantic node merging, Pareto dominance selection, LLM-as-a-Judge majority voting
 - **Datasets**: MATH (cleaned, 9,967 problem-answer pairs, training), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), LiveCodeBench (v5, Aug 2024 - Jan 2025)
 
 Tags: `overthinking`, `efficient reasoning`, `chain-of-thought`, `dpo`, `preference optimization`, `reasoning compression`, `pseudo-conciseness`, `chain length`, `llm-as-a-judge`

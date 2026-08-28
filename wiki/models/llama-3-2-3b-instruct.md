@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Llama-3.2-3B-Instruct is used in these sources as one of the evaluated LLMs in a preferences/opinions/beliefs benchmark (POBs), where models including it are found to lean progressive-collectivist with only limited reliability improvement from added reasoning or self-reflection prompting; a second source (ROSE) is unrelated to this specific model in its cited note.
 
 - **Kind**: model
 - **Also called**: Llama-3.2-3B-Instruct

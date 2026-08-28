@@ -9,7 +9,7 @@ A math dataset used for reinforcement-learning training of reasoning models, and
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdaptThink](../methods/adaptthink.md), [BBH (Big Bench Hard)](bbh-big-bench-hard.md), [DAPO](../methods/dapo.md), [DeepScaleR](deepscaler.md), [GFPO](../methods/gfpo.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [LC-R1](../methods/lc-r1.md), [MATH500](math500.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-Instruct](../methods/qwen2-5-instruct.md), [S-GRPO](../methods/s-grpo.md), [SuperGPQA](supergpqa.md), [TokenSkip](../methods/tokenskip.md)
+**Related**: [AdaptThink](../methods/adaptthink.md), [BBH (Big-Bench Hard)](bbh-big-bench-hard.md), [DAPO](../methods/dapo.md), [DeepScaleR](deepscaler.md), [GFPO](../methods/gfpo.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [LC-R1](../methods/lc-r1.md), [MATH500](math500.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-Instruct](../methods/qwen2-5-instruct.md), [S-GRPO](../methods/s-grpo.md), [SuperGPQA](supergpqa.md), [TokenSkip](../methods/tokenskip.md)
 
 ## Appears in
 

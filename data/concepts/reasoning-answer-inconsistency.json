@@ -1,0 +1,48 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.936",
+      "kind": "paper",
+      "note": "An empirical study of safety fine-tuning for LRMs finds directly distilling safe responses from DeepSeek-R1 barely reduces jailbreak Attack Success Rate, identifies five risky reasoning patterns responsible (including overthinking and 'weak vacillation' -- hesitating over superficially benign jailbreak framing, which survives safety filtering and is the key residual driver of failures), shows explicitly targeting these patterns in the distillation prompt cuts PAIR ASR from 63% to 13%, and finds short or template-based safety reasoning matches long-form reasoning's safety performance -- unlike math/code, safety does not benefit from longer reasoning chains.",
+      "title": "How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "reasoning-answer inconsistency",
+  "related": [
+    "risky-reasoning-pattern",
+    "weak-vacillation",
+    "strong-vacillation",
+    "overthinking-in-a-safety-reasoning-context",
+    "harmful-additions",
+    "safety-distillation-prompting",
+    "reasoningshield-safety-filtering",
+    "pap-pair-jailbreak-attacks",
+    "safety-response-distillation-default-realsafe-improved-short-template-no-cot",
+    "llamaguard3-asr-judge",
+    "harmbench-200-harmful-queries",
+    "advbench-safety-evaluation-subset-curated",
+    "xstest-150-benign-over-refusal-queries",
+    "math500",
+    "aime-2024",
+    "livecodebench",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-qwen-32b",
+    "qwen3-14b",
+    "deepseek-r1-distillation-source",
+    "gemini-2-5-pro-distillation-source",
+    "gpt-4o-distillation-source",
+    "claude-3-5-sonnet-distillation-source"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "reasoning-answer-inconsistency",
+  "topics": [
+    "overthinking"
+  ]
+}

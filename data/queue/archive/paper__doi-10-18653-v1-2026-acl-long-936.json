@@ -1,0 +1,133 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-936.pdf"
+  },
+  "completed_at": "2026-08-28T01:32:18Z",
+  "created_at": "2026-08-28T00:41:43Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.936",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models (LRMs) have achieved remarkable success on reasoning-intensive tasks such as mathematics and programming. However, their enhanced reasoning capabilities do not necessarily translate to improved safety performance—and in some cases, may even degrade it. This raises an important research question: how should we enhance the safety of LRMs? In this paper, we present a comprehensive empirical study on how to enhance the safety of LRMs through Supervised Fine-Tuning (SFT). Our investigation begins with an unexpected observation: directly distilling safe responses from DeepSeek-R1 fails to significantly enhance safety. We analyze this phenomenon and identify five key risky patterns that contribute to it. We then demonstrate that explicitly addressing these issues during the data distillation process can lead to substantial safety improvements. Next, we explore whether a long and complex reasoning process is necessary for achieving safety. Interestingly, we find that simply using short or template-based reasoning process can attain comparable safety performance. These findings prompt a deeper reflection on the role of reasoning in ensuring safety. Finally, we conduct a comprehensive ablation study to reveal the impact of different training configurations. Overall, we hope our empirical study could provide a more holistic picture on enhancing the safety of LRMs.",
+    "authors": [
+      "Zhexin Zhang",
+      "Xian Qi Loye",
+      "Victor Shea-Jay Huang",
+      "Junxiao Yang",
+      "Qi Zhu",
+      "Shiyao Cui",
+      "Fei Mi",
+      "Lifeng Shang",
+      "Yingkang Wang",
+      "Hongning Wang",
+      "Minlie Huang"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.936.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study",
+    "url": "https://aclanthology.org/2026.acl-long.936/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "risky reasoning pattern",
+      "weak vacillation",
+      "strong vacillation",
+      "overthinking (in a safety-reasoning context)",
+      "harmful additions",
+      "reasoning-answer inconsistency",
+      "safety distillation prompting"
+    ],
+    "contributions": [
+      "identification of five risky reasoning patterns (lack of safety awareness, strong/weak vacillation, harmful additions, reasoning-answer inconsistency) that compromise safety when present in distilled reasoning training data, several of which survive standard safety-response filtering",
+      "isolation of 'weak vacillation' -- hesitation over superficially benign jailbreak framing rather than the core harmful intent -- as the key residual driver of safety failures after filtering, via a targeted ablation",
+      "a distillation-prompt intervention (Improved CoT) that explicitly targets these risky patterns and cuts average PAIR jailbreak attack success rate from 63.0% to 13.0% across four models, with reasoning performance largely preserved",
+      "an empirical finding that short-form or fixed-template safety reasoning matches long-form reasoning's safety performance, but a complete absence of reasoning (No CoT) fails to help or actively hurts -- unlike math/code, safety scenarios do not benefit from longer/more intricate reasoning chains beyond a minimal threshold",
+      "a comprehensive ablation of training configuration (distillation source, dataset size, benign-data mixing, learning rate) for safety fine-tuning of LRMs"
+    ],
+    "datasets": [
+      "HarmBench (200 harmful queries)",
+      "AdvBench (safety evaluation subset, curated)",
+      "XSTest (150 benign over-refusal queries)",
+      "MATH-500",
+      "AIME 2024",
+      "LiveCodeBench"
+    ],
+    "limitations": "The paper does not discuss its own study's limitations explicitly in the excerpted sections; its risky-pattern taxonomy and ablations are derived and validated specifically on DeepSeek-R1-distilled reasoning traces and OpenAI O3 as the automated pattern-judging model, and safety evaluation relies on LlamaGuard3 and a specific subset of AdvBench/HarmBench/XSTest queries, so generalization to other judge models, attack types, or safety benchmarks is not directly tested within the paper's own reported experiments.",
+    "method": "Constructs harmful-query training data (200 HarmBench questions x 20 jailbreak templates) and distills safe responses from DeepSeek-R1 under a default prompt ('Default CoT'), filtered for safety via ReasoningShield, then fine-tunes DeepSeek-R1-Distill-Qwen-7B/Llama-8B/Qwen-32B and Qwen3-14B on this data. Measures Attack Success Rate (ASR, via LlamaGuard3) under None/PAP/PAIR jailbreak attacks against AdvBench queries, over-refusal rate on 150 benign XSTest queries, and reasoning performance on MATH500/AIME24/LiveCodeBench. After finding Default CoT fails to meaningfully reduce ASR, analyzes the filtered training data (using OpenAI O3 as an automated judge) and identifies five risky reasoning patterns that survive filtering and compromise safety when present in training data: (1) lack of safety awareness, (2) strong vacillation (hesitating over the core harmful intent itself), (2b) weak vacillation (hesitating over superficially benign contextual framing, e.g. a jailbreak persona), (2c) harmful additions (unintentionally providing harmful details), and (3) reasoning-answer inconsistency. Ablates which pattern drives residual ASR by comparing training sets with all patterns removed except weak vacillation vs. all patterns removed entirely. Then constructs an 'Improved CoT' dataset via an explicit distillation prompt targeting safety awareness plus the overthinking/inconsistency issues (instructing the model not to provide harmful information at any point, to refuse immediately without considering alternative framings, and to begin with a clear refusal marker), and separately tests whether reasoning complexity itself matters by constructing 'Short CoT' (GPT-4o, concise reasoning), 'Template CoT' (GPT-4o, fixed 8-category harm checklist), and 'No CoT' (a fixed rejection response with no reasoning) datasets.",
+    "methods": [
+      "ReasoningShield (safety filtering)",
+      "PAP / PAIR jailbreak attacks",
+      "safety response distillation (Default/RealSafe/Improved/Short/Template/No CoT)",
+      "LlamaGuard3 (ASR judge)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Llama-8B",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "Qwen3-14B",
+      "DeepSeek-R1 (distillation source)",
+      "Gemini-2.5-Pro (distillation source)",
+      "GPT-4o (distillation source)",
+      "Claude-3.5-Sonnet (distillation source)"
+    ],
+    "one_liner": "An empirical study of safety fine-tuning for LRMs finds directly distilling safe responses from DeepSeek-R1 barely reduces jailbreak Attack Success Rate, identifies five risky reasoning patterns responsible (including overthinking and 'weak vacillation' -- hesitating over superficially benign jailbreak framing, which survives safety filtering and is the key residual driver of failures), shows explicitly targeting these patterns in the distillation prompt cuts PAIR ASR from 63% to 13%, and finds short or template-based safety reasoning matches long-form reasoning's safety performance -- unlike math/code, safety does not benefit from longer reasoning chains.",
+    "problem": "Large reasoning models' enhanced reasoning capability does not translate to improved safety and can even degrade it (e.g. generating detailed criminal plans in reasoning steps or final outputs), yet a systematic understanding of how to safety-fine-tune LRMs -- which kinds of safety reasoning data work, and whether complex reasoning is even necessary for safety -- has been lacking.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant: overthinking is explicitly named as one of five risky reasoning patterns compromising safety training data (reasoning that acknowledges potential harm but engages in problematic elaboration), and the paper's central finding -- that safety-oriented reasoning does not benefit from longer or more intricate chains the way math/code reasoning does, with short/template-based reasoning matching long-form performance -- is a domain-specific counterexample sharpening the general overthinking question: whether more reasoning helps depends on whether the task's decision boundary is actually reachable through additional deliberation, and for a binary refuse/comply safety judgment it typically is not."
+    },
+    "results": "Default CoT (directly distilled safe responses) leaves ASR high post-fine-tuning (e.g. DeepSeek-R1-Distill-Qwen-7B: PAIR ASR only drops 66.0%->54.0%). Analyzing why: before ReasoningShield filtering, risky patterns are common (harmful_additions 51%, strong_vacillation 39%, weak_vacillation 33% of 1,000 samples); after filtering, most patterns drop sharply except weak vacillation, whose proportion nearly *doubles* (33%->66%) -- it survives filtering because it is not directly harmful itself, yet an ablation confirms it is the key residual driver: removing all risky patterns except weak vacillation yields no ASR improvement over the ReasoningShield-filtered baseline (45.0%), while additionally removing weak vacillation drops PAIR ASR to 21.0%. The Improved CoT prompt, which explicitly targets safety awareness plus overthinking/inconsistency, achieves a marked robustness improvement: average PAIR ASR (across 4 models, 7B-32B) drops from 63.0% (Default CoT) to 13.0%, comparable to reasoning performance largely preserved and only an acceptable increase in over-refusal (e.g. Qwen-7B: MATH500/AIME24/LiveCodeBench average 58.9 vs. Default CoT's 58.6, ASR avg 6.7 vs. 14.7, over-refusal 6.7 vs. 5.3). Whether long-form reasoning is needed for safety: Short CoT and Template CoT (concise or fixed-checklist reasoning from GPT-4o, no specialized reasoning fine-tuning) achieve safety performance comparable to Improved CoT across all four models, while reasoning performance stays close to baseline -- e.g. Qwen-7B Short CoT reaches 59.7 avg reasoning score (vs. Improved CoT's 58.9) with 7.3 avg ASR (vs. 6.7) and the same or better over-refusal in some models. No CoT (a fixed rejection template, no reasoning at all) either fails to improve safety or actively degrades it (e.g. Qwen-7B: 63.3 avg ASR, essentially unchanged from Raw's 63.3, and reasoning performance drops on some models), indicating a minimal degree of reasoning remains essential even though *more* reasoning does not help further -- unlike math/code domains, safety-oriented scenarios do not benefit substantially from longer or more intricate reasoning chains, since further elaboration (e.g. enumerating alternative interpretations of user intent) rarely changes the ultimate harmfulness judgment. Ablations (on DeepSeek-R1-Distill-Qwen-7B) show: conclusions hold consistently across different distillation source models (DeepSeek-R1/Gemini-2.5-Pro for Default/Improved CoT; GPT-4o/Claude-3.5-Sonnet for Short CoT); a moderate 1,000 safety training samples is sufficient to substantially reduce ASR versus 100 samples, with reasoning capability stable across all tested data sizes; mixing in 100 benign samples during training substantially reduces over-refusal (e.g. Template CoT: 54.7%->10.7%) while maintaining comparably strong safety (ASR 1.3%->4.0%) and largely unaffected reasoning ability; and a moderate learning rate (5x10^-6) consistently gives the best safety/reasoning/over-refusal balance across all three CoT settings, with higher rates degrading safety and reasoning, and the lowest rate improving reasoning marginally at the cost of substantially higher ASR.",
+    "tags": [
+      "safety-alignment",
+      "overthinking",
+      "chain-of-thought",
+      "jailbreak",
+      "supervised-fine-tuning",
+      "distillation"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-936",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

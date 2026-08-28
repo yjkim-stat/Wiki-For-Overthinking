@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "REST (Reasoning Evaluation through Simultaneous Testing) concatenates multiple questions from an existing benchmark into a single prompt to stress-test LRMs' multi-context reasoning; across 30+ models and 9 benchmarks it finds even SOTA models like DeepSeek-R1 degrade substantially (e.g. -31.6% on AIME25), that the 'overthinking trap' is a primary cause, that Long2Short-trained models are more robust, and that REST reveals sharp performance gaps among models that look identical under traditional single-question evaluation.",
       "title": "REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.101",
+      "kind": "paper",
+      "note": "AMO-Bench is a 50-problem, IMO-difficulty-or-harder, entirely original math benchmark built to avoid the saturation and memorization issues of AIME24/25, on which even the best of 36 evaluated LLMs (Gemini-3-Pro) reaches only 63.1% accuracy, model performance grows near-linearly with the logarithm of output length (still-unsaturated evidence that test-time scaling keeps paying off), and a manual failure analysis finds brute-force enumeration and improper strategy selection -- reasoning deficiency, not missing math knowledge -- as the dominant error modes.",
+      "title": "AMO-Bench: Large Language Models Still Struggle in High School Math Competitions"
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "model",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "o4-mini",
   "related": [
     "hidden-chain-of-thought-as-a-model-asset",
@@ -94,7 +100,28 @@
     "gpt-oss-20b-120b",
     "qwen3-30b-a3b",
     "o3-mini",
-    "gemini-2-5-flash-thinking"
+    "gemini-2-5-flash-thinking",
+    "benchmark-saturation",
+    "final-answer-based-automated-grading",
+    "test-time-scaling-headroom",
+    "reasoning-deficiency-vs-knowledge-deficiency",
+    "brute-force-enumeration-failure-mode",
+    "final-answer-based-automated-grading-parser-based-llm-based",
+    "avg-32-evaluation",
+    "paired-significance-testing-ranking-confidence-intervals",
+    "monte-carlo-simulation-sampling-variability-confidence-intervals",
+    "amo-bench-new-50-problems-en-ch-versions",
+    "hmmt25",
+    "gemini-3-pro",
+    "deepseek-v3-2-speciale",
+    "qwen3-max-thinking",
+    "gpt-5-1-thinking-high",
+    "kimi-k2-thinking",
+    "claude-opus-4-5",
+    "glm-4-6",
+    "gpt-5-thinking-high",
+    "qwen3-max-instruct",
+    "longcat-flash"
   ],
   "related_authored": [],
   "schema_version": 1,

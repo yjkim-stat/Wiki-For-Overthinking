@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.816",
+      "kind": "paper",
+      "note": "Root-token Policy Optimization (RPO) reframes adaptive thinking/non-thinking gating as a branching decision at a single root token (the newline choice right after <think>) and trains only that one token's probability with group-relative RL, cutting GRPO training compute to ~2% of a comparable adaptive-reasoning method while improving the accuracy-vs-thinking-rate tradeoff across model families.",
+      "title": "Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "root-token gating",
+  "related": [
+    "overthinking",
+    "difficulty-aware-policy-optimization",
+    "per-mode-group-relative-advantage",
+    "reasoning-per-accuracy-ratio-rar",
+    "root-token-policy-optimization-rpo",
+    "grpo",
+    "self-distillation-sft-for-mode-selection",
+    "adaptthink-baseline",
+    "thinkless-baseline",
+    "rejection-fine-tuning-baseline",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "livecodebench",
+    "openr1-math-sft-data-source",
+    "s1-compression-dataset-partial",
+    "qwen3-1-7b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "exaone4-1-2b",
+    "r1-1-5b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "root-token-gating",
+  "topics": [
+    "overthinking"
+  ]
+}

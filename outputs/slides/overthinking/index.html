@@ -213,6 +213,21 @@ th { background: var(--surface); }
 <p><strong>Why it matters.</strong> Central to the topic: proposes a fine-grained, causally-motivated (probability-gain) diagnostic for exactly which tokens in a reasoning trace are wasteful, and uses it to train models that cut tokens 80-87% with comparable or improved accuracy -- among the strongest length-reduction results in the archive -- plus a mechanistic account (transient correct-answer confidence followed by negative-utility-token-driven drift) for why overthinking happens at all.</p>
 </section>
 <section class="slide">
+<h2>Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning</h2>
+<p class="subtitle">Benteng Chen, Weida Wang, Shufei Zhang et al. · ACL · 2026</p>
+<blockquote>
+<p>Step-GRPO internalizes dynamic early-exit into a reasoning model&#x27;s own weights via a Dynamic Truncated Rollout exposing the model to short-yet-correct trajectories during RL training and a Step-Aware Relative Reward that penalizes redundant semantic steps relative to the group&#x27;s own correct-completion baseline, cutting Qwen3-8B token usage 32.0% with no accuracy loss and zero inference-time overhead.</p>
+</blockquote>
+<ul>
+<li>Step-GRPO, shifting the RL optimization objective for reasoning efficiency from raw token counts to semantic steps bounded by linguistic trigger markers</li>
+<li>a Dynamic Truncated Rollout mechanism that exposes the model to short-yet-correct trajectories during RL exploration itself, internalizing early-exit capability with zero inference-time overhead</li>
+<li>a Step-Aware Relative Reward using a dynamic, correct-completions-only group baseline that rewards below-average step counts and penalizes above-average ones, avoiding the syntactic blindness and capability collapse of static length penalties</li>
+<li>an ablation and structural (GPT-4o-judged) analysis showing the method selectively prunes redundant steps while preserving verification steps, unlike compared length-penalty and distillation baselines</li>
+</ul>
+<p><strong>Results.</strong> On Qwen3-8B, Step-GRPO reaches 82.1% overall accuracy across GSM8K/MATH-500/AMC23/AIME24/AIME25/GPQA (surpassing the 79.9% vanilla model) while cutting token usage 32.0% (compression rate 68.0%). On the hard AIME2025 benchmark specifically, Step-GRPO maintains 73.3% accuracy versus GRPO+LP (a length-penalty baseline)&#x27;s collapse to 60.0%, evidence the step-aware reward distinguishes redundancy from necessary logical complexity rather than indiscriminately cutting tokens. A DEER+SFT baseline (distilling concise rejection-sampled traces) generalizes poorly out-of-distribution: on GPQA it shows negative compression (&gt;120-200% of vanilla token count) with accuracy drops, meaning it produces longer, more hallucinated traces than the uncompressed vanilla model on unseen-distribution tasks. Results hold across three model scales (8B/4B/1.7B). Ablations on Qwen3-8B show removing the Step-Aware Reward rebounds token usage from 6901 to 7941 (verbosity returns), and removing the Dynamic Truncated Rollout drops average accuracy to 74.1% (the model cannot internalize correct stopping logic without training-time exposure to truncated trajectories) -- both components are necessary. A GPT-4o-based structural analysis of 100-200 sampled traces shows Step-GRPO selectively prunes &#x27;redundant&#x27; steps to the lowest level among all compared models (10.9%) while retaining a <em>higher</em> proportion of &#x27;verification&#x27; steps (22.9%) than a length-penalty baseline (21.7%), i.e. it cuts &#x27;syntactic fat&#x27; while preserving &#x27;cognitive muscle&#x27;.</p>
+<p><strong>Why it matters.</strong> Directly and centrally relevant: this paper names overthinking explicitly as its target problem, diagnoses why standard length-penalty RL fails (&#x27;syntactic blindness&#x27; causing &#x27;capability collapse&#x27;), and proposes a training-time mechanism (semantic-step segmentation plus a correct-only group-relative reward baseline) that measurably separates &#x27;redundant&#x27; from &#x27;verification&#x27; steps rather than treating all tokens as equally cuttable -- a mechanistic account of what should and shouldn&#x27;t be cut that is more precise than the token-count length penalties common elsewhere in this archive.</p>
+</section>
+<section class="slide">
 <h2>Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation</h2>
 <p class="subtitle">Yongshi Ye, Biao Fu, Chongxuan Huang et al. · ACL · 2026</p>
 <blockquote>
@@ -226,21 +241,6 @@ th { background: var(--surface); }
 </ul>
 <p><strong>Results.</strong> Quality is the mean of BLEU, COMET and CometKiwi; Tokens is the mean generated CoT length. In-domain (8 domains, averaged over En-&gt;Zh, Zh-&gt;En, De-&gt;En): TwT-14B 66.62 quality at 291 tokens and TwT-7B 66.27 at 274, against DeepSeek-R1 65.40 at 586, GPT-5 66.05 at 660, o3-mini 64.75 at 420, o1 65.58 at 433, QwQ-32B 63.55 at 693, and non-reasoning DeepSeek-V3 66.23 / Gemini-2.0-Flash 66.24 / GPT-4o 65.54. OOD (5 domains): TwT-7B 66.25 at 269 tokens vs DeepSeek-R1 65.62 at 561 (292 fewer tokens), Gemini-2.0-Flash-Thinking 66.71 at 1332, GPT-4o 67.25; TwT-14B 66.46 at 288. Against the same-paradigm RL baseline mExTrans-7B, TwT-7B is +4.45 quality with 50.27% fewer reasoning tokens. Multilingual: on 59 unseen FLORES+ languages, TwT-Gemma-2-9B-IT trained on 27K examples reaches 54.65 En-&gt;X and 67.04 X-&gt;En vs Tower-Plus-9B (same backbone, 286K examples) at 46.46/63.02, +8.19 on En-&gt;X; TwT-7B&#x27;s En-&gt;X score of 41.13 is weaker than Gemma-2-9B-IT&#x27;s own 54.28, so the multilingual result is carried by the Gemma backbone. Difficulty breakdown (Table 8, in-domain): TwT-7B Easy 67.93 at 216 tokens, Medium 64.85 at 272, Hard 62.78 at 332 — the trace does lengthen with difficulty; against General-CoT (Easy 61.54 at 311, Hard 56.53 at 551) that is 33% fewer tokens with +6.4 quality on Easy and +6.7 on Hard. Overall TwT is 32% below o3-mini and 60% below Gemini-2.0-Flash-Thinking in tokens, which is where the abstract&#x27;s &#x27;32-60%&#x27; comes from — it is a range across two named comparison models, not a range of measured savings. Ablation (Table 6, dataset-level averages on a different scale from Table 3): removing the difficulty-adaptive rewriting leaves quality essentially unchanged (64.68 vs 64.77 in-domain, 66.17 vs 66.28 OOD) while length rises from 278 to 748 tokens; removing cold start collapses length to 62 tokens and drops quality to 64.18; SFT-only with adaptive CoT reaches 62.47 vs 61.65 domain-aware and 61.39 general CoT; the repetition penalty is a small regularizer (64.52 -&gt; 64.77). Backbone transfer: Gemma-2-9B-IT 59.93 -&gt; 64.71 in-domain, Llama-3.1-8B 59.84 -&gt; 63.20. Redundancy audit by DeepSeek-V3.2 over 15 domains reports TwT resolving 87.3-97.2% of six redundancy types found in the SFT+RL baseline. Trace diversity: mean pairwise Sentence-BERT cosine similarity 0.89 for pure RL vs 0.51 for TwT. All numbers are software evaluations on A100 hardware; a small human/expert qualitative study covers 10 Zh-&gt;En examples.</p>
 <p><strong>Why it matters.</strong> On topic, and unusual for this archive in that it tests the length/accuracy tradeoff outside mathematics — the domain nearly every overthinking result we hold is measured in. Three things it adds. First, a clean negative result on the assumption that RL alone grows reasoning where reasoning helps: on translation, R1-Zero-style RL collapses traces to under 100 tokens of templated text regardless of KL, so &#x27;let RL find the right length&#x27; is not domain-general. Second, a measured allocation curve rather than a single average — TwT&#x27;s traces run 216 / 272 / 332 tokens on Easy / Medium / Hard inputs, which is the shape a difficulty-adaptive method should produce, and it holds quality above every LRM baseline at roughly a third to a fifth of their token counts. Third, a caution about where the adaptation actually comes from: the ablation shows dropping the difficulty-adaptive rewriting leaves quality within 0.1 points while length nearly triples (278 -&gt; 748), and there is no length reward in the RL objective at all, so the length control is entirely inherited from what the cold-start traces look like. That makes this a data-shaping result, not a learned stopping criterion, and it is worth contrasting with the probe-based exit methods we track, which decide at inference time. The honest counterweight is that on this task reasoning buys very little to begin with: a plain parallel-SFT model with no chain of thought scores 65.52 in-domain against TwT-7B&#x27;s 66.27, so the whole tradeoff is being measured over a range of under one quality point.</p>
-</section>
-<section class="slide">
-<h2>How Far Are We from Optimal Reasoning Efficiency?</h2>
-<p class="subtitle">NeurIPS 2025 · 2025</p>
-<blockquote>
-<p>Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.</p>
-</blockquote>
-<ul>
-<li>The reasoning efficiency frontier: an empirical accuracy-per-token-budget upper envelope over many fine-tunes of a fixed base LRM</li>
-<li>Reasoning Efficiency Gap (REG), one metric summing the shortfall from that frontier across all budgets, making accuracy-vs-length methods comparable</li>
-<li>A systematic finding that existing efficiency methods fail in one of two distinct ways: brevity bought with accuracy, or high accuracy bought with far more tokens than the frontier requires</li>
-<li>REO-RL, an RL algorithm approximating the full efficiency objective by numerical integration over a sparse set of token budgets (N=5 gives &lt;1% approximation error)</li>
-</ul>
-<p><strong>Results.</strong> Base models DeepSeek-R1-Distill-Qwen-1.5B/7B and Qwen3-4B/8B, trained on 135k problems from DeepScaleR and AReaL, max generation 32K tokens, evaluated on AMC23, AIME24, AIME25 and Minerva Math. On DeepSeek-R1-Distill-Qwen-7B: vanilla RL reaches 64.4% accuracy at 11,282.6 average tokens; REO-RL (Exp) reaches 62.9% (-1.5 points) at 5,966.0 tokens, a 55.9% REG reduction; RL with a fixed 4K token budget reaches 54.1% at 2,677.0 tokens for only 27.5% REG reduction. Abstract-level headline is 74.5% and 64.2% REG reduction over vanilla outcome-reward RL at 1.5B and 7B. REO-RL gives &gt;=50% REG reduction across all four models. Baselines compared: vanilla RL, RL with length-based rewards, hybrid reasoning (HGPO), SFT, and preference learning (SimPO). Note the frontier is constructed from the authors&#x27; own pool of fine-tunes, so REG is a relative measure and a method outside that pool could in principle sit above the frontier.</p>
-<p><strong>Why it matters.</strong> This is the measurement paper the topic needs. Every method in this area reports &#x27;X% fewer tokens at comparable accuracy&#x27;, and those numbers are not comparable across papers because each picks its own operating point on its own base model; REG replaces the pair with one number defined against a common frontier. Two findings matter for how the group reads other work here. First, the failure taxonomy — methods either buy brevity with accuracy or hit good accuracy at budgets far above what the frontier shows is attainable — means a paper reporting high accuracy is not thereby efficient, and vice versa. Second, targeting only five token budgets approximates the whole accuracy-per-budget curve to under 1% error, which says the tradeoff curve is smooth enough that dense supervision at every length is unnecessary. Caveat when citing: the frontier is the envelope of the authors&#x27; own fine-tune pool, so REG is a relative yardstick, and the evaluation is math-only.</p>
 </section>
 <section class="slide">
 <h2>Recurring ideas</h2>
@@ -306,34 +306,34 @@ th { background: var(--surface); }
 <li>Gijs Kassenaar, Zhao Yang, Vincent François-Lavet. <em>Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation</em>. cs.AI. 2026</li>
 <li><em>ARM: Adaptive Reasoning Model</em>. NeurIPS 2025. 2025</li>
 <li>Jiawei Li, Yang Gao, Huashan Sun et al.. <em>Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models</em>. ACL. 2026</li>
+<li>Benteng Chen, Weida Wang, Shufei Zhang et al.. <em>Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning</em>. ACL. 2026</li>
 <li>Yongshi Ye, Biao Fu, Chongxuan Huang et al.. <em>Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation</em>. ACL. 2026</li>
-<li><em>How Far Are We from Optimal Reasoning Efficiency?</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li><em>How Far Are We from Optimal Reasoning Efficiency?</em>. NeurIPS 2025. 2025</li>
 <li>Yanhao Li, Lu Ma, Jiaran Zhang et al.. <em>LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model</em>. ACL. 2026</li>
+<li>Taehyeon Kim, Hyunsoo Lee, Youngsoo Jang et al.. <em>Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking</em>. ACL. 2026</li>
 <li>Niklas Muennighoff, Zhengyang Wang, Zeyi Chen et al.. <em>Prefix Sliding for efficient test-time scaling</em>. cs.CL. 2026</li>
 <li>Wei Yu, Suxing Liu, Minjie Yu et al.. <em>Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models</em>. cs.AI. 2026</li>
 <li>Linh Dieu Le, Tong Chen, Shazia Sadiq et al.. <em>Towards Efficient Reasoning in LLM-Based Recommender Systems via Model Merging</em>. cs.IR. 2026</li>
 <li>Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. <em>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</em>. cs.AI. 2026</li>
 <li>Junlin Fang, Do Nguyen-Thanh, Xiaogang Xu et al.. <em>Reasoning Denoiser: Denoising Reasoning Traces for Hallucination Detection in Large Reasoning Models</em>. cs.AI. 2026</li>
-<li>Shu Zhou, Rui Ling, Junan Chen et al.. <em>When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling</em>. preprint. 2026</li>
-<li><em>Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking</em>. ICLR 2026. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Shu Zhou, Rui Ling, Junan Chen et al.. <em>When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling</em>. preprint. 2026</li>
+<li><em>Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking</em>. ICLR 2026. 2026</li>
 <li><em>TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling</em>. ICLR 2026. 2026</li>
 <li>Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al.. <em>Inverse Scaling in Test-Time Compute</em>. Transactions on Machine Learning Research (TMLR). 2025</li>
 <li>Alejandro Cuadron, Dacheng Li, Wenjie Ma et al.. <em>The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks</em>. International Conference on Machine Learning (ICML) 2025. 2025</li>
 <li><em>Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL</em>. NeurIPS 2025. 2025</li>
 <li><em>Mitigating Overthinking in Large Reasoning Models via Manifold Steering</em>. NeurIPS 2025. 2025</li>
 <li>Peisong Wang, Zhiwei Ma, Bowen Liu et al.. <em><span class="math">R^3</span>-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets</em>. cs.CL</li>
-<li>Zihao Wei, Liang Pang, Jiahao Liu et al.. <em>The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis</em>. ACL. 2026</li>
-<li>Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. <em>Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models</em>. ACL. 2026</li>
 </ul>
 </section>
 <section class="slide title-slide">

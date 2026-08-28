@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.76",
+      "kind": "paper",
+      "note": "ZoomR fine-tunes a reasoning model to summarize its own thoughts after each paragraph, then at inference dynamically retrieves only a small, consensus-selected subset of full-resolution reasoning segments (zooming in) while keeping the rest as compressed summary keys -- cutting KV-cache GPU memory more than 4x versus a full cache with accuracy close to the vanilla full-KV baseline, and finds that attention-head consensus on which segments matter is itself a diagnostic signal correlated with answer correctness.",
+      "title": "ZoomR: Memory Efficient Reasoning through Multi-Granularity Key Value Retrieval"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "Bespoke-17K (augmented with summaries, fine-tuning data)",
+  "related": [
+    "multi-granularity-kv-cache",
+    "reasoning-summarization-thought-compression",
+    "consensus-based-segment-retrieval",
+    "mean-summary-key",
+    "agreeability-attention-head-consensus-metric",
+    "attention-sink",
+    "zoomr-multi-granularity-dynamic-kv-selection",
+    "streamingllm-baseline",
+    "h2o-baseline",
+    "sumr-summary-only-ablation-baseline",
+    "lora-fine-tuning",
+    "gpqa-diamond",
+    "aime-2025",
+    "math500",
+    "llama-3-1-8b-r1-distill",
+    "qwen2-5-7b-r1-distill"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "bespoke-17k-augmented-with-summaries-fine-tuning-data",
+  "topics": [
+    "overthinking"
+  ]
+}

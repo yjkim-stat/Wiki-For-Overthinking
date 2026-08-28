@@ -47,7 +47,7 @@ Performance of both ReProbe and PRMs degrades (slightly for ReProbe) as reasonin
 
 - **Concepts**: Reasoning Probe (ReProbe), internal-state-based step verification, self-supervised step-level annotation, PRM/ReProbe complementarity
 - **Methods**: ReProbe (internal-state step-level probe), Process Reward Models (PRM baselines), unsupervised uncertainty quantification baselines, best-of-N and beam-search test-time scaling
-- **Datasets**: PRM800K, [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), ProofNet, Trip Planning, Meeting Planning, Calendar Scheduling, [StrategyQA](../../../../wiki/datasets/strategyqa.md), [ScienceQA](../../../../wiki/datasets/scienceqa.md)
+- **Datasets**: [PRM800K](../../../../wiki/datasets/prm800k.md), [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), ProofNet, Trip Planning, Meeting Planning, Calendar Scheduling, [StrategyQA](../../../../wiki/datasets/strategyqa.md), [ScienceQA](../../../../wiki/datasets/scienceqa.md)
 
 Tags: `test-time-scaling`, `process-reward-model`, `internal-state-probing`, `step-level-verification`, `efficient-reasoning`
 

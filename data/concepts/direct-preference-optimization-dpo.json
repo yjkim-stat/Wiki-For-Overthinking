@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Direct Preference Optimization (DPO) is used across these sources as the training objective for turning selected pairs of reasoning traces (e.g. a Pareto-dominant short path vs. a longer one, or a self-pruned trace vs. its original) into a fine-tuning signal that biases a model toward the preferred trace. ChainPrune builds DPO preference data from tree-merged reasoning paths plus an added NLL term; EconProver uses DPO-trained dynamic CoT-mode switching; SGP-CoT applies preference optimization to self-pruned traces identified via the model's own likelihood signals.",
   "evidence": [
     {
       "id": "arxiv:2608.21860",

@@ -9,7 +9,7 @@ The wall-clock cost of a reasoning trace measured as the length of its longest s
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Pareto Frontier](accuracy-efficiency-pareto-frontier.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [AMC23](../datasets/amc23.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPT-5.5](../models/gpt-5-5.md), [GRPO](../methods/grpo.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [OpenMathReasoning](../datasets/openmathreasoning.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [Reward Hacking](reward-hacking.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
+**Related**: [Accuracy-Efficiency Pareto Frontier](accuracy-efficiency-pareto-frontier.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [AMC23](../datasets/amc23.md), [Claude-Opus-4.5](../models/claude-opus-4-5.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [Gemini-3-Pro](../models/gemini-3-pro.md), [GPT-5.5](../models/gpt-5-5.md), [GRPO](../methods/grpo.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [OlympiadBench](../datasets/olympiadbench.md), [OpenMathReasoning](../datasets/openmathreasoning.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [Reward Hacking](reward-hacking.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

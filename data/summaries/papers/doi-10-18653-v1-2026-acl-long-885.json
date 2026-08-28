@@ -1,0 +1,60 @@
+{
+  "concepts": [
+    "reasoning hallucination",
+    "routing collapse",
+    "Routing Focus Score (RFS)",
+    "cross-phase attention correlation",
+    "reason flow (multi-hop backtracking)",
+    "self-confirmation loop"
+  ],
+  "contributions": [
+    "an empirical finding that attention 'routing collapse' -- where cross-step attention from answer to reasoning phases follows superficial semantic proximity rather than task-critical evidentiary steps -- is a strong, statistically significant indicator of reasoning hallucination in LRMs",
+    "the Routing Focus Score (RFS), a step-level metric quantifying this collapse by comparing attention-based and semantic-based correlation maps between reasoning and answer steps",
+    "RFS-Guard, a training-free hallucination detection and localization framework built on RFS, incorporating a multi-hop 'reason flow' backtracking mechanism to capture non-local information dependencies",
+    "state-of-the-art hallucination detection and localization results across multiple domains and model families, at substantially lower inference cost than sampling/ensemble-based baselines"
+  ],
+  "datasets": [
+    "MATH500",
+    "AIME25",
+    "minervamath",
+    "MATH (composite domain)",
+    "Science (domain)",
+    "MultiHopQA (domain)"
+  ],
+  "generated_at": "2026-08-28T01:31:16Z",
+  "generated_by": "queue",
+  "limitations": "The paper does not discuss limitations in the excerpted sections beyond what is implicit in its design: RFS relies on the model's own internal attention patterns being informative about hallucination risk, so its effectiveness could be architecture- or training-regime-dependent (validated only on DeepSeek-R1-Distill and Qwen3 model families); the semantic correlation map uses hidden-state cosine similarity as an approximation of true evidentiary relevance rather than ground-truth annotation of which reasoning steps genuinely support each answer step, which the ablation shows matters (the LLM-judged semantic-correlation variant performs somewhat differently than the default embedding-based one).",
+  "method": "First runs an empirical study finding that when attention routing from answer steps back to reasoning steps collapses toward simple semantic proximity (attending to reasoning steps that are merely similar-sounding, rather than to the specific evidentiary steps -- e.g. numeric quantities or stated constraints -- actually needed), this correlates strongly with hallucination: a Routing Focus Score (RFS) computed per answer step by comparing an attention-correlation map against a semantic-correlation map (cosine similarity between step-level hidden-state embeddings) is significantly higher for hallucinated steps than correct ones (Mann-Whitney U tests, R1-7B: p=1.5e-16; Qwen3-8B: p=9.7e-10). Builds RFS-Guard on this signal with three components: (1) Attention Correlation Module extracts step-level attention between reasoning and answer steps, selecting the most informative (lowest-entropy) attention heads per sample; (2) Reason Flow Module refines this into a multi-hop 'reason flow' via a backtracking mechanism that traces which earlier reasoning steps most influence each answer step (not just one-hop dependencies), calibrating the attention map to reflect this multi-hop support; (3) Routing Focus Scoring Module computes RFS as the accumulated calibrated attention mass on semantically-relevant entries (thresholded via the semantic correlation map), using the maximum RFS across answer steps as the sample-level hallucination score, and the per-step RFS for step-level localization. The whole pipeline is training-free, requiring no external tools, no repeated sampling, and no fine-tuning.",
+  "methods": [
+    "RFS-Guard (Routing Focus Score + Reason Flow)",
+    "SelfCheckGPT (baseline)",
+    "SINdex (baseline)",
+    "RACE (baseline)",
+    "P(True)/LNPE/PPL/CCP (uncertainty baselines)",
+    "EigenScore/AttentionScore/UQAC/RHD (self-aware baselines)",
+    "LengthScore (rule-based baseline)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "DeepSeek-R1-Distill-Qwen-14B",
+    "Qwen3-8B",
+    "Qwen3-14B",
+    "Qwen3-235B-A22B-Instruct-2507 (annotator)"
+  ],
+  "one_liner": "RFS-Guard detects and localizes reasoning hallucinations in LRMs training-free, using a Routing Focus Score (RFS) that measures how strongly cross-step attention between reasoning and answer phases collapses toward semantic-neighbor proximity (rather than task-critical evidence) -- finding this 'routing collapse' is a strong hallucination signal that beats sampling-based, uncertainty-based, and other self-aware baselines while remaining far more inference-efficient.",
+  "paper_id": "doi:10.18653/v1/2026.acl-long.885",
+  "problem": "Large reasoning models produce fluent, coherent-seeming reasoning traces and answers that nonetheless contain subtle hallucinated errors (arithmetic slips, constraint violations); existing hallucination detectors rely on external verification/ensemble sampling (computationally expensive, requiring many forward passes) or local token-level uncertainty signals (which can be misleading -- a model may assign high likelihood to a plausible continuation even after deviating from the correct path), and largely overlook whether the cross-phase information flow from reasoning to the final answer is structurally robust.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly relevant as a mechanistic account of reasoning-trace failure: 'routing collapse,' where a model's attention increasingly retrieves semantically-similar-but-not-evidentially-relevant reasoning content and the answer becomes a paraphrase of the ongoing trajectory rather than an independent verification, is a specific, measurable failure mode of long reasoning traces distinct from but related to overthinking's redundant-verification and unproductive-exploration patterns documented elsewhere in this archive -- and its finding that longer reasoning traces amplify the need to model multi-hop (non-local) information flow is direct evidence that trace length interacts with, and can compound, reasoning-quality failure."
+  },
+  "results": "Across four open-source LRMs (DeepSeek-R1-Distill-Qwen-7B/14B, Qwen3-8B/14B) and three domains (MATH, Science, MultiHopQA), RFS-Guard achieves the best hallucination-detection performance in every setting, improving over the strongest baseline by an average 5.28%/2.74%/3.81% (AUROC-based) on MATH/Science/MultiHopQA respectively, and by 16.63%/16.72%/21.09% specifically over RACE (a reasoning-answer-consistency baseline). RFS-Guard also achieves the strongest step-level hallucination *localization* performance (Hit@1/Hit@3 overlap with ground-truth erroneous steps), outperforming adapted baselines including SelfCheckGPT (best among baselines but far less efficient, requiring multiple diverse generations), LengthScore (competitive, supporting that longer traces tend to be more error-prone, but weaker than RFS-Guard), and uncertainty-based methods (P(True), PPL, CCP), which degrade sharply at the step level -- evidence that local token-level uncertainty is dominated by linguistic variability/syntactic ambiguity rather than tracking factual correctness. RFS-Guard is markedly more inference-efficient than ensemble/sampling-based baselines (e.g. RACE), needing no additional generations, achieving favorable accuracy-efficiency tradeoffs suited to latency-sensitive deployment. Ablations show removing the Reason Flow Module (multi-hop backtracking) causes the largest performance drop (-2.5%/-4.6% average for R1-7B/Qwen3-8B), with the effect most pronounced on datasets with longer reasoning traces (up to -5.9%/-5.3% on Qwen3-8B MATH/Science, which average ~100 reasoning steps), confirming that modeling long-range, non-local information flow (not just immediate step-to-step attention) is necessary; replacing the embedding-based semantic module with alternative aggregations (last-token hidden state, external embedding models, LLM-judged semantic correlation) or attention-aggregation strategies (max/sum pooling) all cause smaller but consistent performance declines relative to the full method. A human spot-check (postgraduate annotators auditing model-judged hallucination labels) shows 86% agreement with the Qwen3-235B judge model used to construct ground truth, and 92% of 100 randomly sampled hallucinated steps stem from concrete arithmetic mistakes or explicit constraint violations, validating that the labeled hallucinations are genuine, checkable errors rather than judge-model artifacts.",
+  "schema_version": 1,
+  "tags": [
+    "hallucination-detection",
+    "mechanistic-interpretability",
+    "attention-analysis",
+    "training-free",
+    "reasoning-trace-analysis"
+  ]
+}

@@ -47,7 +47,7 @@ Constrained by computational resources, experiments are limited to 7B-8B-scale m
 
 - **Concepts**: metacognitive knowledge (Flavell's framework: task/self/strategy), priority-aware reasoning, metacognition-guided rejection sampling, fine-grained metacognition + CoT reward
 - **Methods**: PAM (Priority-Aware Metacognition, SFT cold start + DPO/GRPO), metacognition-guided rejection sampling, LLM-as-judge fine-grained reward
-- **Datasets**: AlpacaEval2.0, [AdvBench](../../../../wiki/datasets/advbench.md), WildJailbreak, [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), UltraFeedback (training), SafeRLHF-10K (training), HelpSteer2 (training)
+- **Datasets**: AlpacaEval2.0, [AdvBench](../../../../wiki/datasets/advbench.md), [WildJailbreak](../../../../wiki/datasets/wildjailbreak.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), UltraFeedback (training), SafeRLHF-10K (training), HelpSteer2 (training)
 
 Tags: `alignment`, `metacognition`, `safety`, `large-reasoning-models`, `preference-optimization`
 

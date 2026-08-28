@@ -12,9 +12,44 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.40
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+AMO-Bench is a 50-problem, IMO-difficulty-or-harder, entirely original math benchmark built to avoid the saturation and memorization issues of AIME24/25, on which even the best of 36 evaluated LLMs (Gemini-3-Pro) reaches only 63.1% accuracy, model performance grows near-linearly with the logarithm of output length (still-unsaturated evidence that test-time scaling keeps paying off), and a manual failure analysis finds brute-force enumeration and improper strategy selection -- reasoning deficiency, not missing math knowledge -- as the dominant error modes.
+
+## Problem
+
+Existing math-competition benchmarks (AIME24/25, HMMT) are approaching performance saturation for top-tier LLMs (some exceeding 90% accuracy), making them ineffective for measuring further reasoning progress, while benchmarks incorporating harder Olympiad-level problems typically rely on proof-based questions requiring costly manual expert verification, hindering large-scale automated evaluation.
+
+## Contributions
+
+- AMO-Bench, a 50-problem, IMO-difficulty-or-harder, fully original math reasoning benchmark with final-answer-based automated grading, addressing both the saturation and the memorization-leakage risks of existing competition-math benchmarks
+- a formal variance-estimation methodology (paired significance testing for ranking confidence intervals, Monte Carlo simulation for AVG@k sampling variability) for reliable model comparison on a small, high-difficulty benchmark
+- evidence that AMO-Bench remains unsaturated, with model performance growing near-linearly in log-output-length even under controlled reasoning-effort settings, indicating continued benefit from test-time scaling
+- a manual failure-mode taxonomy across 69 cases identifying reasoning deficiency (brute-force enumeration, improper strategy selection, misinterpretation) rather than missing mathematical knowledge as the dominant cause of LLM failure on genuinely novel hard problems
+
+## Method
+
+Constructs AMO-Bench via a four-stage pipeline: (1) Data creation -- 50 problems independently authored by mathematics experts with MO-level competition backgrounds, each with a detailed human-written step-by-step solution; (2) Quality review -- blind review by 3+ experts for semantic clarity and logical correctness; (3) Originality review -- 10-gram matching against existing datasets (AIME24/25) plus web search, to exclude near-duplicates of prior competition problems; (4) Difficulty review -- requiring each problem to meet or exceed IMO difficulty as judged by experts, and requiring at least two of several advanced reasoning models (GPT/DeepSeek/Gemini series, 3 samples each) to fail to consistently solve it. All problems use final-answer-based grading (parser-based or LLM-based depending on answer type) for efficient automated scoring, unlike proof-based MO benchmarks. Evaluates 36 LLMs (proprietary and open-source, reasoning and non-reasoning) at AVG@32 (32 samples averaged per model, temperature 1.0 for reasoning models/0.7 for non-reasoning, to counter high sampling variance), with a formal variance-estimation methodology (paired significance tests for pairwise ranking confidence intervals; Monte Carlo simulation for sampling-variability confidence intervals). Also releases a Chinese-translated version for cross-lingual robustness analysis, and conducts a manual qualitative analysis of 69 failure cases across multiple models to categorize recurring failure modes.
+
+## Results
+
+The best-performing model (Gemini-3-Pro) reaches only 63.1% AVG@32 accuracy on AMO-Bench, and most of the 36 evaluated models score below 50% -- versus the same models scoring 80-99%+ on AIME24/25/MATH500/HMMT25 -- confirming AMO-Bench presents substantially more headroom than existing saturated benchmarks. Both proprietary and open-source reasoning models occupy top ranks; the best open-source model trails the top proprietary result by only ~3%, and the gap between top open-source and proprietary models has narrowed over time to within ~5% accuracy, tracked across model release dates. Some non-reasoning models (Qwen3-Max-Instruct, LongCat-Flash) outperform several reasoning models including o3-mini (Medium), indicating non-reasoning models retain meaningful headroom on complex reasoning tasks. Across six models, benchmarks correlate output length with difficulty: models use progressively more output tokens on harder benchmarks (highest on AMO-Bench, lowest on MATH500/AIME24), suggesting output length is itself an indicator of a benchmark's reasoning challenge. Directly controlling reasoning-effort settings for the same model (GPT-5, o4-mini, o3-mini at Low/Medium/High effort) shows AVG@32 grows near-linearly with the logarithm of average output length across all three models -- consistent with prior scaling observations on MATH500/AIME24 -- indicating AMO-Bench is not yet saturated and further test-time compute continues to drive measurable gains. Pairwise-ranking volatility analysis (paired significance tests) shows confidence intervals are tight enough to separate a large portion of the 32 evaluated models into a reliable ranking despite AMO-Bench's limited (50) question count, with Gemini-3-Pro, DeepSeek-V3.2-Speciale and Qwen3-Max-Thinking forming a clear top tier and lower-performing models remaining well below 20% AVG@32. Cross-lingual (English vs. Chinese) evaluation shows several models suffer substantial accuracy drops on the Chinese-translated version despite top-tier models showing strong consistency, indicating cross-lingual reasoning transfer remains an open challenge. Manual analysis of 69 failure cases identifies eight recurring failure modes, dominated by brute-force enumeration instead of genuine reasoning (26.1%), improper strategy selection (17.3%), and misinterpretation of problem conditions (15.9%) -- together with output formatting issues (14.5%), hallucinated assumptions (11.6%), calculation errors (5.8%), instruction-following failures (5.8%), and memory interference errors (2.9%) -- leading the authors to conclude the primary cause of failure is reasoning deficiency (models struggling to connect formal problem constraints to their internal knowledge, reverting to superficial pattern-matching or unsupported assumptions on highly original problems) rather than missing mathematical knowledge.
+
+## Limitations
+
+AMO-Bench contains only 50 problems, a deliberately small set given the cost of expert-authored, difficulty-verified, fully original problems; the paper's own volatility analysis is presented specifically to address the resulting sampling/ranking variance rather than denying it exists. The difficulty-filtering criterion (requiring at least two advanced reasoning models to fail) ties the benchmark's difficulty calibration to the specific model set available at construction time, which could affect long-term calibration as models improve. The manual failure-mode analysis covers only 69 cases, a qualitative rather than large-scale quantitative characterization.
+
+## Why it matters here
+
+- **overthinking**: Indirectly relevant, and a useful counterpoint: it is a benchmark-construction paper, not a mitigation method, but its finding that accuracy still grows near-linearly with log-output-length under controlled reasoning-effort settings on a genuinely unsaturated benchmark is direct evidence that more test-time compute is *not* wasted overthinking when a benchmark still has headroom -- complementing overthinking papers in this archive that document saturation and waste specifically on benchmarks (GSM8K, easier AIME items) that current models have already largely mastered. Its output-length-as-difficulty-indicator finding also supports treating trace length as a signal of task difficulty rather than of overthinking per se.
+
+## Entities
+
+- **Concepts**: benchmark saturation, final-answer-based automated grading, test-time-scaling headroom, reasoning deficiency vs. knowledge deficiency, brute-force enumeration failure mode
+- **Methods**: final-answer-based automated grading (parser-based / LLM-based), AVG@32 evaluation, paired significance testing (ranking confidence intervals), Monte Carlo simulation (sampling-variability confidence intervals)
+- **Datasets**: AMO-Bench (new, 50 problems, EN+CH versions), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [HMMT25](../../../../wiki/datasets/hmmt25.md), [MATH500](../../../../wiki/datasets/math500.md)
+
+Tags: `benchmark`, `mathematical-reasoning`, `test-time-scaling`, `evaluation-methodology`, `failure-analysis`
 
 ## Abstract
 

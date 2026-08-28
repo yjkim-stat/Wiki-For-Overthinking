@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-short.49",
+      "kind": "paper",
+      "note": "A skill-centric distillation framework maps math problems onto a hierarchical skill tree, samples the 1,000 SFT training examples inversely proportional to the student model's per-skill accuracy (so it trains more on skills it is weak at), and prepends the required skill chain to each example, beating random-sampling SFT baselines by 1.6/1.4 points average accuracy on Qwen3-4B/8B across five math benchmarks with the same 1K-example budget.",
+      "title": "Skill-Aware Data Selection and Fine-Tuning for Data-Efficient Reasoning Distillation"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "skill-aware training (explicit skill-chain prompting)",
+  "related": [
+    "skill-centric-distillation",
+    "hierarchical-skill-tree",
+    "skill-based-weakness-targeted-sampling",
+    "skill-tree-attribution",
+    "weakness-inverse-proportional-sampling",
+    "skill-chain-augmented-supervised-fine-tuning",
+    "openmathreasoning-100k-corpus",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "math-level-5",
+    "olympiadbench",
+    "math500",
+    "qwen3-4b",
+    "qwen3-8b",
+    "r1-distill-llama-8b-generalization-check"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "skill-aware-training-explicit-skill-chain-prompting",
+  "topics": [
+    "overthinking"
+  ]
+}

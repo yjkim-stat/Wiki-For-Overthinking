@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1052",
+      "kind": "paper",
+      "note": "Self-Correcting RAG reformulates retrieval-augmented generation as constrained optimization: a Multi-dimensional Multiple-choice Knapsack Problem (MMKP) selects a diverse, non-redundant, token-budget-respecting document context (replacing greedy top-k), and an NLI-guided Monte Carlo Tree Search explores reasoning trajectories at inference time, penalizing branches whose generated claims contradict retrieved evidence -- improving average EM/F1 (37.1/45.8) and retrieval recall@5 (72.0%) over strong RAG baselines across six QA datasets while cutting the contradiction rate to 0.04.",
+      "title": "Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "NLI-guided Monte Carlo Tree Search",
+  "related": [
+    "multi-dimensional-multiple-choice-knapsack-problem-mmkp-for-context-selection",
+    "faithfulness-metrics-attribution-precision-contradiction-rate-support",
+    "test-time-compute-for-rag",
+    "semantic-redundancy-grouping",
+    "self-correcting-rag-mmkp-context-selection-nli-guided-mcts",
+    "naive-rag-baseline",
+    "hyde-baseline",
+    "rrr-baseline",
+    "rag-mmr-filco-recomp-longllmlingua-selection-reranking-baselines",
+    "ircot-self-rag-crag-drag-iterative-agentic-baselines",
+    "natural-questions-nq",
+    "popqa",
+    "musique",
+    "2wikimultihopqa",
+    "hotpotqa-distractor-setting",
+    "multihop-rag",
+    "qwen2-5-7b-instruct-backbone-generator",
+    "bge-small-en-v1-5-dense-retriever",
+    "roberta-large-mnli-nli-reward-model"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "nli-guided-monte-carlo-tree-search",
+  "topics": [
+    "overthinking"
+  ]
+}

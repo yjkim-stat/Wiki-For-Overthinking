@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Claude Sonnet 4.5 appears in this archive as one of the LLMs deployed within multi-agent or long-horizon test-time-scaling systems studied by the sources -- Routed Graph Handoff uses it in its multi-agent delegation benchmarks, and FS-Researcher uses it within its file-system-based deep-research framework -- without further characterization from the sources themselves.
 
 - **Kind**: model
 - **Also called**: Claude-Sonnet-4.5

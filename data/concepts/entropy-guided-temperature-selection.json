@@ -1,0 +1,56 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.617",
+      "kind": "paper",
+      "note": "CurioSFT diagnoses that standard SFT causes 'entropy collapse' (overconfidence, narrowed exploration) that limits the subsequent RL stage in the SFT-then-RL pipeline, and fixes it with Self-Exploratory Distillation toward a self-generated, temperature-scaled teacher plus Entropy-Guided Temperature Selection that concentrates exploration on high-entropy reasoning-connector tokens while preserving low-entropy factual tokens, improving downstream RL accuracy by 5.0 points on average.",
+      "title": "Learning While Staying Curious: Entropy-Preserving Supervised Fine-Tuning via Adaptive Self-Distillation for Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "entropy-guided temperature selection",
+  "related": [
+    "entropy-collapse",
+    "sft-then-rl-paradigm",
+    "self-exploratory-distillation",
+    "ungrounded-entropy",
+    "knowledge-forgetting",
+    "curiosft-self-exploratory-distillation-entropy-guided-temperature-selection",
+    "grpo",
+    "vanilla-sft-with-entropy-regularization",
+    "gem",
+    "dft",
+    "psft",
+    "luffy-hybrid-sft-rl-baseline",
+    "prefix-rft-baseline",
+    "rl-plus-baseline",
+    "openr1-math-46k",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "math",
+    "minerva",
+    "olympiadbench",
+    "gpqa-diamond",
+    "mmlu-pro",
+    "arc-challenge",
+    "humaneval",
+    "mbpp",
+    "livecodebench",
+    "taco",
+    "leetcodedataset",
+    "qwen2-5-math-7b",
+    "qwen3-4b-base",
+    "llama-3-1-8b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "entropy-guided-temperature-selection",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -43,7 +43,7 @@ Not stated in the fetched abstract beyond the 1.5B-model scale tested; generaliz
 ## Entities
 
 - **Concepts**: question-level difficulty bias in GRPO, discriminative learning for RL fine-tuning, constrained KL-divergence optimization
-- **Methods**: Discriminative Constrained Optimization (DisCO), Group Relative Policy Optimization (GRPO, baseline), DAPO (baseline)
+- **Methods**: Discriminative Constrained Optimization (DisCO), Group Relative Policy Optimization (GRPO, baseline), [DAPO (baseline)](../../../../wiki/methods/dapo-baseline.md)
 - **Datasets**: _none recorded_
 
 Tags: `reinforcement-learning`, `GRPO`, `large-reasoning-models`, `training-stability`

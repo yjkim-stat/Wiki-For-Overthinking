@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Introduces greedy pruning, a likelihood-preserving token-deletion diagnostic that reveals LLMs encode a nontrivial token-level functional-importance structure in their reasoning chains -- preferentially preserving symbolic computation over referential/linguistic scaffolding -- and shows students distilled on greedily-pruned chains outperform a frontier-model-supervised pruning baseline (TokenSkip) at matched lengths.",
       "title": "Do LLMs Encode Functional Importance of Reasoning Tokens ?"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.76",
+      "kind": "paper",
+      "note": "ZoomR fine-tunes a reasoning model to summarize its own thoughts after each paragraph, then at inference dynamically retrieves only a small, consensus-selected subset of full-resolution reasoning segments (zooming in) while keeping the rest as compressed summary keys -- cutting KV-cache GPU memory more than 4x versus a full cache with accuracy close to the vanilla full-KV baseline, and finds that attention-head consensus on which segments matter is itself a diagnostic signal correlated with answer correctness.",
+      "title": "ZoomR: Memory Efficient Reasoning through Multi-Granularity Key Value Retrieval"
     }
   ],
   "first_seen": "2026-08-28T00:09:24Z",
   "kind": "method",
-  "last_seen": "2026-08-28T00:09:24Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "H2O (baseline)",
   "related": [
     "greedy-pruning-likelihood-preserving-token-deletion",
@@ -30,7 +36,23 @@
     "llama-3-1-8b-instruct",
     "qwen2-5-7b-instruct",
     "llama-2-7b-chat-hf",
-    "mistral-7b-instruct"
+    "mistral-7b-instruct",
+    "multi-granularity-kv-cache",
+    "reasoning-summarization-thought-compression",
+    "consensus-based-segment-retrieval",
+    "mean-summary-key",
+    "agreeability-attention-head-consensus-metric",
+    "attention-sink",
+    "zoomr-multi-granularity-dynamic-kv-selection",
+    "streamingllm-baseline",
+    "sumr-summary-only-ablation-baseline",
+    "lora-fine-tuning",
+    "bespoke-17k-augmented-with-summaries-fine-tuning-data",
+    "gpqa-diamond",
+    "aime-2025",
+    "math500",
+    "llama-3-1-8b-r1-distill",
+    "qwen2-5-7b-r1-distill"
   ],
   "related_authored": [],
   "schema_version": 1,

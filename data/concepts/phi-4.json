@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "phi-4"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -13,11 +15,17 @@
       "kind": "paper",
       "note": "ReProbe is a lightweight (<10M-parameter) transformer probe trained on a frozen LLM's internal states (hidden states, attention, logits) to predict step-level reasoning correctness, matching or exceeding Process Reward Models up to 810x larger for test-time-scaling verification, at 2.6-25x faster inference, and can be trained fully self-supervised (the model annotating its own reasoning) with no human labels or Monte Carlo rollouts.",
       "title": "ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.608",
+      "kind": "paper",
+      "note": "TRACE INVERSION reframes abstention as query misalignment -- a hallucinating model answered a different (reconstructed) question than the one the user actually posed -- and detects this by reconstructing the implied query from a model's own reasoning trace and comparing it to the original via an ensemble of embedding-similarity, LLM-judged, and groundedness-detection metrics, beating five baselines in 33/36 settings across four LLMs and nine abstention datasets, while separately showing that CoT/reasoning-trace prompting itself degrades abstention accuracy by an average 2.6% versus non-reasoning prompting.",
+      "title": "Answering the Wrong Question: Reasoning Trace Inversion for Abstention in LLMs"
     }
   ],
   "first_seen": "2026-08-28T00:09:24Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "Phi-4",
   "related": [
     "dense-benchmark-ranking-under-test-time-scaling",
@@ -73,7 +81,31 @@
     "qwen3-32b",
     "qwen3-14b",
     "deepseek-r1-annotator",
-    "gpt-oss-120b-annotator"
+    "gpt-oss-120b-annotator",
+    "query-misalignment",
+    "reasoning-trace-inversion",
+    "abstention",
+    "hallucination-as-wrong-question",
+    "groundedness-detection",
+    "trace-inversion-query-reconstruction-ensemble-distance",
+    "probs-calibration-baseline",
+    "askcali-calibration-baseline",
+    "reflect-prompting-baseline",
+    "cooperate-collaboration-baseline",
+    "compete-collaboration-baseline",
+    "mmlu",
+    "knowledge-crosswords",
+    "hellaswag",
+    "propaganda",
+    "bias-benchmark-for-qa-bbq",
+    "misconceptions-big-bench",
+    "quail",
+    "gsm-mc",
+    "umwp",
+    "qwen2-5-32b",
+    "deepseek-r1-distill-qwen-32b",
+    "gpt-oss-120b",
+    "granite-guardian-3-3-8b-groundedness-module"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -9,7 +9,7 @@ Redundant reasoning steps are steps in a chain of thought that repeat work alrea
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning length](adaptive-reasoning-length.md), [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [AMC23](../datasets/amc23.md), [DAST](../methods/dast.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [Direct Preference Optimization (DPO)](../methods/direct-preference-optimization-dpo.md), [GSM8K](../datasets/gsm8k.md), [LLM-as-a-Judge](../methods/llm-as-a-judge.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md), [SimPO](../methods/simpo.md), [supervised fine-tuning](supervised-fine-tuning.md)
+**Related**: [adaptive reasoning length](adaptive-reasoning-length.md), [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [AMC23](../datasets/amc23.md), [DAST](../methods/dast.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [Direct Preference Optimization (DPO)](../methods/direct-preference-optimization-dpo.md), [GPT-o1](../models/gpt-o1.md), [GSM8K](../datasets/gsm8k.md), [LLM-as-a-Judge](../methods/llm-as-a-judge.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md), [SimPO](../methods/simpo.md), [supervised fine-tuning](supervised-fine-tuning.md)
 
 ## What we have settled
 

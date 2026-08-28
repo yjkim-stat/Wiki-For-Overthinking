@@ -1,0 +1,78 @@
+{
+  "aliases": [
+    "ThinkLess (baseline)"
+  ],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.816",
+      "kind": "paper",
+      "note": "Root-token Policy Optimization (RPO) reframes adaptive thinking/non-thinking gating as a branching decision at a single root token (the newline choice right after <think>) and trains only that one token's probability with group-relative RL, cutting GRPO training compute to ~2% of a comparable adaptive-reasoning method while improving the accuracy-vs-thinking-rate tradeoff across model families.",
+      "title": "Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1095",
+      "kind": "paper",
+      "note": "ThinkBrake is a training-free decoding rule that injects </think> at sentence boundaries whenever the log-probability margin between the top continuation token and </think> narrows below a threshold, recovering most of an oracle stopping point's headroom (8% accuracy gain, 72% token reduction) with a theoretically grounded, model-agnostic criterion, and its generated trajectories can also train models via DPO for training-free-free efficient reasoning.",
+      "title": "ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "Thinkless (baseline)",
+  "related": [
+    "overthinking",
+    "root-token-gating",
+    "difficulty-aware-policy-optimization",
+    "per-mode-group-relative-advantage",
+    "reasoning-per-accuracy-ratio-rar",
+    "root-token-policy-optimization-rpo",
+    "grpo",
+    "self-distillation-sft-for-mode-selection",
+    "adaptthink-baseline",
+    "rejection-fine-tuning-baseline",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "livecodebench",
+    "openr1-math-sft-data-source",
+    "s1-compression-dataset-partial",
+    "qwen3-1-7b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "exaone4-1-2b",
+    "r1-1-5b",
+    "oracle-stopping-headroom",
+    "logit-margin-test",
+    "kl-regularized-test-time-realignment",
+    "spurious-reasoning",
+    "log-probability-margin",
+    "thinkbrake-log-margin-early-stopping",
+    "thinkbrake-p-raw-probability-gap-variant",
+    "nowait-baseline",
+    "dynasor-cot-baseline",
+    "deer-baseline",
+    "direct-preference-optimization-dpo-on-thinkbrake-data",
+    "gsm8k",
+    "arc-challenge",
+    "bfcl-v1",
+    "bfcl-v2",
+    "meta-tool",
+    "omni-math",
+    "dapo17k",
+    "qwen3-4b-thinking",
+    "qwen3-4b",
+    "qwen3-14b",
+    "qwen3-next-80b",
+    "deepseek-r1-7b",
+    "phi-4-reasoning"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "thinkless-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
       "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.917",
+      "kind": "paper",
+      "note": "WHISPER treats a large reasoning model purely as a black-box communicator and mitigates overthinking with no training or model access at all, using an iterative refinement loop over persuasive prompts (psychological, evidence-based, role-play, threat, instruction) that finds a single deployable prompt suffix cutting response length up to 3x on simple questions with preserved accuracy.",
+      "title": "Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "method",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "NoThinking (baseline)",
   "related": [
     "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
@@ -35,7 +41,28 @@
     "deepseek-r1-distill-qwen-2-5-7b-14b-32b",
     "deepseek-r1-distill-llama-8b",
     "qwen2-5-7b-14b-32b-short-cot-source",
-    "llama-3-1-8b-instruct-short-cot-source"
+    "llama-3-1-8b-instruct-short-cot-source",
+    "overthinking",
+    "black-box-persuasive-prompting",
+    "iterative-prompt-refinement",
+    "compression-ratio",
+    "whisper-iterative-persuasive-prompt-refinement",
+    "be-concise-prompting-baseline",
+    "chain-of-draft-baseline",
+    "gepa-reflective-prompt-optimization-baseline",
+    "deer-white-box-inference-intervention-reference",
+    "amc23",
+    "gpqa-diamond",
+    "commonsenseqa",
+    "prm800k-pdset-source",
+    "deepseek-r1-distill-qwen-14b",
+    "qwen3-14b",
+    "qwen3-4b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "claude-3-7-sonnet-thinking",
+    "gemini-2-5-pro-thinking",
+    "gpt-4o-prompt-generator"
   ],
   "related_authored": [],
   "schema_version": 1,

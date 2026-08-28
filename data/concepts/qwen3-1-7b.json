@@ -31,11 +31,23 @@
       "kind": "paper",
       "note": "ReProbe is a lightweight (<10M-parameter) transformer probe trained on a frozen LLM's internal states (hidden states, attention, logits) to predict step-level reasoning correctness, matching or exceeding Process Reward Models up to 810x larger for test-time-scaling verification, at 2.6-25x faster inference, and can be trained fully self-supervised (the model annotating its own reasoning) with no human labels or Monte Carlo rollouts.",
       "title": "ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.816",
+      "kind": "paper",
+      "note": "Root-token Policy Optimization (RPO) reframes adaptive thinking/non-thinking gating as a branching decision at a single root token (the newline choice right after <think>) and trains only that one token's probability with group-relative RL, cutting GRPO training compute to ~2% of a comparable adaptive-reasoning method while improving the accuracy-vs-thinking-rate tradeoff across model families.",
+      "title": "Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.990",
+      "kind": "paper",
+      "note": "Step-GRPO internalizes dynamic early-exit into a reasoning model's own weights via a Dynamic Truncated Rollout exposing the model to short-yet-correct trajectories during RL training and a Step-Aware Relative Reward that penalizes redundant semantic steps relative to the group's own correct-completion baseline, cutting Qwen3-8B token usage 32.0% with no accuracy loss and zero inference-time overhead.",
+      "title": "Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning"
     }
   ],
   "first_seen": "2026-08-26T02:14:28Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "Qwen3-1.7B",
   "related": [
     "multi-agent-decomposition",
@@ -123,7 +135,34 @@
     "qwen3-14b",
     "phi-4",
     "deepseek-r1-annotator",
-    "gpt-oss-120b-annotator"
+    "gpt-oss-120b-annotator",
+    "overthinking",
+    "root-token-gating",
+    "difficulty-aware-policy-optimization",
+    "per-mode-group-relative-advantage",
+    "reasoning-per-accuracy-ratio-rar",
+    "root-token-policy-optimization-rpo",
+    "grpo",
+    "self-distillation-sft-for-mode-selection",
+    "adaptthink-baseline",
+    "thinkless-baseline",
+    "rejection-fine-tuning-baseline",
+    "livecodebench",
+    "openr1-math-sft-data-source",
+    "s1-compression-dataset-partial",
+    "exaone4-1-2b",
+    "r1-1-5b",
+    "syntactic-blindness",
+    "capability-collapse",
+    "semantic-step",
+    "dynamic-truncated-rollout",
+    "step-aware-relative-reward",
+    "training-collapse",
+    "grpo-lp-length-penalty",
+    "grpo-sop-soft-overlong-punishment-dapo",
+    "deer-sft-rejection-sampling-distillation-baseline",
+    "amc23",
+    "dapo-math-17k-training"
   ],
   "related_authored": [
     "prefix-sliding",

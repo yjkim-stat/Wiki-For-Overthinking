@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAPO (baseline)](../methods/dapo-baseline.md), [DeepScaler (training)](../datasets/deepscaler-training.md), [HMMT25](../datasets/hmmt25.md), [LLaMA 3.2 3B Instruct](llama-3-2-3b-instruct.md), [Llama3.1-8B-Instruct](llama3-1-8b-instruct.md), [MATH (training)](../datasets/math-training.md), [MATH500](../datasets/math500.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Base](qwen3-4b-base.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAPO (baseline)](../methods/dapo-baseline.md), [DeepScaler (training)](../methods/deepscaler-training.md), [HMMT25](../datasets/hmmt25.md), [LLaMA 3.2 3B Instruct](llama-3-2-3b-instruct.md), [Llama3.1-8B-Instruct](llama3-1-8b-instruct.md), [MATH (training)](../datasets/math-training.md), [MATH500](../datasets/math500.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Base](qwen3-4b-base.md)
 
 ## Appears in
 

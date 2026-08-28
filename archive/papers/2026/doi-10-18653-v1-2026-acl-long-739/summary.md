@@ -12,9 +12,44 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.50
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.
+
+## Problem
+
+Test-time-scaling methods that improve LLM reasoning accuracy (Best-of-N sampling, tree search guided by Process/Outcome Reward Models) incur substantial inference costs -- BoN requires generating and scoring many full candidates, and PRM/ORM verifiers are themselves large models with training and generalizability overhead -- making cost-effective TTS for small-scale LLMs an open problem, further complicated by the fact that raw LLM confidence is often unreliable (overconfident, weakly correlated with correctness).
+
+## Contributions
+
+- Guided by Gut (GG), a test-time-scaling tree-search method guided entirely by an LLM's own intrinsic token-probability confidence and a novelty term, eliminating the need for an external Process/Outcome Reward Model
+- a GRPO-based confidence-calibration reward that asymmetrically penalizes overconfident incorrect answers, making raw model confidence reliable enough to guide search
+- empirical results showing 1.5B-7B calibrated models match or exceed 32B-70B CoT baselines and match multiple trained PRM verifiers, at 4-10x lower GPU memory and up to 8x faster inference than PRM-guided or Best-of-N search
+- evidence that RL-calibrated confidence transfers beyond its math training domain to a code-generation benchmark (LiveCodeBench)
+
+## Method
+
+Formulates a self-guided tree search (an adaptation of Diverse Verifier Tree Search, DVTS) driven entirely by two intrinsic, verifier-free signals computed per reasoning step: Confidence C(s^t), the exponentiated average log-probability the model itself assigned to the tokens of that step, and Novelty N(s^t), the proportion of new tokens a candidate step introduces relative to already-explored context (encouraging exploration), combined as reward r_t = C(s^t) + lambda_N * N(s^t). To fix the unreliability of raw confidence, a GRPO reinforcement-learning fine-tuning phase (on the LIMO dataset, via LoRA) explicitly calibrates confidence: the RL reward for a full reasoning chain is 1 + C(R_i)^4 if the final answer is correct, or 1 - 10*C(R_i)^4 if incorrect (the 4th power sharpens contrast near confidence extremes, and the 10x penalty multiplier strongly discourages high-confidence wrong answers), directly training the model to be less confident specifically when it is wrong. At inference, the calibrated confidence guides the DVTS tree search with no external verifier at all, and a model-specific termination signal (e.g. appending '**Final Answer**' for DeepSeek models) is injected to avoid incomplete outputs from overthinking near step/token limits.
+
+## Results
+
+On AIME24/AIME25, DS-R1-Qwen-1.5B(GG) matches DS-R1-Qwen-32B's accuracy and DS-R1-Qwen-7B(GG) approaches DS-R1-Llama-70B and surpasses OpenAI o1-mini on AIME24, using at N=32 only about one-sixth the VRAM of DS-R1-Llama-70B while running faster; only the far larger DS-R1-671B beats it, at ~10x more parameters but ~30x more memory. Against Best-of-N at matched sampling budgets (N=32/64) on AIME24/25/MATH500/AMC, GG matches or beats BoN across both budgets while using approximately 50% less KV-cache memory (e.g. DS-R1-Qwen-1.5B: GG reaches 61.7[66.7]%/42.2[46.7]% at N=64 with 4.5GB KV vs. BoN's 57.8[66.7]%/36.7[42.2]% at 13.7GB). Against PRM-guided DVTS search (using Qwen2.5-Math-1.5B-Instruct, a non-reasoning model, on AMC23/MATH500), GG matches or exceeds the performance of several trained PRMs (MathShepherd-7B, RLHFlowLlama3.1-8B, Qwen2.5-MathPRM-7B) while using under 5GB GPU memory and running 8x faster -- demonstrating the approach generalizes to non-reasoning models and that calibrated intrinsic signals alone can substitute for an external verifier. Ablations on AIME24 (DeepSeek-R1-Qwen-1.5B): the full confidence-based RL reward achieves 58.9% vs. 54.5% with no RL fine-tuning, 54.9% with a correctness-only reward, and 54.0% with confidence reward but no penalty for incorrect answers -- confirming the specific design (confidence signal plus an asymmetric penalty for overconfident errors) drives the gain, not RL fine-tuning alone. New-token-counting novelty outperforms cosine-similarity novelty (58.9 vs. 58.4) and is computationally lighter; a balanced novelty weight (lambda_N=0.5) beats no novelty (57.5) and novelty-dominant (lambda_N=1, 51.9), and beam width M=2 (16 subtrees) outperforms wider beams (M=4/8) at equal total path budget. RL fine-tuning substantially lowers mean confidence on incorrect outputs while largely preserving high confidence on correct ones (e.g. DS-R1-Qwen-7B: wrong-answer confidence 0.82->0.69 after RL; DS-R1-Qwen-1.5B: 0.95->0.88), widening the correct/incorrect confidence separation used to guide search. The calibration transfers beyond its math-only training domain: on LiveCodeBench (code generation), RL-calibrated confidence improves accuracy from 16.5% (uncalibrated GG) to 20.1%, versus 16.9% for standard CoT, despite RL calibration being performed solely on LIMO math data.
+
+## Limitations
+
+The intrinsic confidence signal does not inherently verify the actual correctness of a reasoning step -- there exist cases where the model assigns high confidence to an incorrect step, which is why the RL calibration phase is necessary rather than optional; the goal is a simple, efficient, verifier-free guide rather than a guarantee of the absolute correctness a strong PRM could provide. The paper does not claim universal cross-domain generalization from the code-generation transfer result (one benchmark, one model).
+
+## Why it matters here
+
+- **overthinking**: Directly relevant to test-time-compute efficiency: it shows a small, calibrated model can match much larger models' accuracy on hard reasoning benchmarks while using a fraction of the memory/compute of standard search-based test-time scaling (BoN, PRM-guided search), by replacing an expensive external verifier with a cheap, RL-calibrated internal signal -- complementary to length-penalty or early-stopping approaches to overthinking in this archive, since it targets the cost of the *search/sampling* process rather than a single trace's length, and its explicit termination-injection detail ('avoid incomplete outputs due to overthinking near the limits') is a direct, if brief, acknowledgment of the overthinking failure mode within a TTS system.
+
+## Entities
+
+- **Concepts**: intrinsic (verifier-free) confidence signal, confidence-based RL calibration, self-guided tree search, novelty-weighted exploration, overconfidence penalty
+- **Methods**: Guided by Gut (GG), Diverse Verifier Tree Search (DVTS), [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo.md), [LoRA fine-tuning](../../../../wiki/methods/lora-fine-tuning.md), Best-of-N (baseline), PRM-guided search (baseline: MathShepherd-7B, RLHFlowLlama3.1-8B, Qwen2.5-MathPRM-7B)
+- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), LIMO (RL calibration data)
+
+Tags: `test-time-scaling`, `confidence-calibration`, `tree-search`, `process-reward-model-free`, `reinforcement-learning`, `inference-efficiency`
 
 ## Abstract
 

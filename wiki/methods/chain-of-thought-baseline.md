@@ -9,7 +9,7 @@ The single-pass chain-of-thought generation against which test-time-scaling and 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [BBEH](../datasets/bbeh.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA](../datasets/gpqa.md), [HLE](../datasets/hle.md), [LogiQA](../datasets/logiqa.md), [MuSiQue](../datasets/musique.md), [Omni-MATH](../datasets/omni-math.md), [SuperGPQA](../datasets/supergpqa.md), [TruthfulQA](../datasets/truthfulqa.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [BBEH](../datasets/bbeh.md), [Best-of-N (baseline)](best-of-n-baseline.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [GPQA](../datasets/gpqa.md), [HLE](../datasets/hle.md), [LogiQA](../datasets/logiqa.md), [MuSiQue](../datasets/musique.md), [Omni-MATH](../datasets/omni-math.md), [SuperGPQA](../datasets/supergpqa.md), [TruthfulQA](../datasets/truthfulqa.md)
 
 ## Appears in
 

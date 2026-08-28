@@ -1,0 +1,138 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-617.pdf"
+  },
+  "completed_at": "2026-08-28T01:22:23Z",
+  "created_at": "2026-08-28T00:41:43Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.617",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "The standard post-training recipe for large reasoning models, supervised fine-tuning followed by reinforcement learning (SFT-then-RL), may limit the benefits of the RL stage: while SFT imitates expert demonstrations, it often causes overconfidence and reduces generation diversity, leaving RL with a narrowed solution space to explore. Adding entropy regularization during SFT is not a cure-all; it tends to flatten token distributions toward uniformity, increasing entropy without improving meaningful exploration capability. In this paper, we propose CurioSFT, an entropy-preserving SFT method designed to enhance exploration capabilities through intrinsic curiosity. It consists of (a) Self-Exploratory Distillation, which distills the model toward a self-generated, temperature-scaled teacher to encourage exploration within its capability; and (b) Entropy-Guided Temperature Selection, which adaptively adjusts distillation strength to mitigate knowledge forgetting by amplifying exploration at reasoning tokens while stabilizing factual tokens. Extensive experiments on mathematical reasoning tasks demonstrate that, in SFT stage, CurioSFT outperforms the vanilla SFT by 2.5 points on in-distribution tasks and 2.9 points on out-of-distribution tasks. We also verify that exploration capabilities preserved during SFT successfully translate into concrete gains in RL stage, yielding an average improvement of 5.0 points. Code is available at https://github.com/HaoooWang/CurioSFT.",
+    "authors": [
+      "Hao Wang",
+      "Hao Gu",
+      "Hongming Piao",
+      "Kaixiong Gong",
+      "Yuxiao Ye",
+      "Xiangyu Yue",
+      "Sirui Han",
+      "Yike Guo",
+      "Dapeng Wu"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning token"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.617.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Learning While Staying Curious: Entropy-Preserving Supervised Fine-Tuning via Adaptive Self-Distillation for Large Reasoning Models",
+    "url": "https://aclanthology.org/2026.acl-long.617/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "entropy collapse",
+      "SFT-then-RL paradigm",
+      "self-exploratory distillation",
+      "entropy-guided temperature selection",
+      "ungrounded entropy",
+      "knowledge forgetting"
+    ],
+    "contributions": [
+      "a diagnosis that standard cross-entropy SFT causes rapid entropy collapse that constricts the exploration space available to a subsequent RL stage, and that naive token-agnostic entropy regularization fails to fix this (it either does nothing or destabilizes training/forgets knowledge)",
+      "Self-Exploratory Distillation, aligning the model toward a self-generated, temperature-scaled higher-entropy teacher that preserves token-probability ordering, encouraging exploration only within the model's own valid space",
+      "Entropy-Guided Temperature Selection, adaptively assigning per-token teacher temperatures via binary search so exploration concentrates on high-entropy reasoning-connector tokens while low-entropy factual tokens stay stable",
+      "empirical results showing CurioSFT improves both SFT-stage accuracy and, more importantly, the ceiling reachable by subsequent RL (+5.0 points average), outperforming single-stage hybrid SFT+RL alternatives, across multiple model backbones and both math and code domains"
+    ],
+    "datasets": [
+      "OpenR1-Math-46K",
+      "AIME24",
+      "AIME25",
+      "AMC23",
+      "MATH",
+      "Minerva",
+      "OlympiadBench",
+      "GPQA-Diamond",
+      "MMLU-Pro",
+      "ARC-Challenge",
+      "HumanEval+",
+      "MBPP+",
+      "LiveCodeBench",
+      "TACO",
+      "LeetCodeDataset"
+    ],
+    "limitations": "CurioSFT incurs additional training overhead versus vanilla SFT (an extra forward pass to compute the teacher distribution and per-token temperature search), though the paper reports this stays within a practical range (43.2->53.9 seconds per step). The approach is bounded by the base model's own intrinsic capabilities, since it relies on self-distillation to preserve and amplify the model's own latent exploration rather than introducing external signals -- the paper states benefits may be smaller when the base model lacks sufficient prior knowledge, and leaves incorporating external exploration signals to future work.",
+    "method": "Self-Exploratory Distillation constructs a higher-entropy 'teacher' distribution by rescaling the current model's own logits with an increased temperature (exploiting that entropy increases monotonically with temperature), then distills the student toward this self-generated teacher via a KL-style loss (K2-loss) -- since the teacher strictly preserves the relative order of token probabilities, this encourages exploration only within the model's own valid exploration space rather than injecting uninformative entropy everywhere, and using a separate, EMA-updated teacher (rather than the live model) stabilizes the distillation target. Entropy-Guided Temperature Selection then adaptively assigns a per-token teacher temperature: for each token, an entropy increment is computed from a sigmoid function of how far the current token's entropy is above an 'entropy pivot' threshold, and a binary search finds the temperature that achieves that target entropy increment for the teacher distribution at that token -- so high-entropy tokens (reasoning connectors like 'wait') get a large entropy boost while low-entropy tokens (factual/deterministic content) are left nearly unchanged. Trained on OpenR1-Math-46K (Qwen2.5-Math-7B base) for SFT, then GRPO for the RL stage.",
+    "methods": [
+      "CurioSFT (Self-Exploratory Distillation + Entropy-Guided Temperature Selection)",
+      "GRPO",
+      "vanilla SFT with entropy regularization",
+      "GEM",
+      "DFT",
+      "PSFT",
+      "LUFFY (hybrid SFT+RL baseline)",
+      "Prefix-RFT (baseline)",
+      "RL-PLUS (baseline)"
+    ],
+    "models": [
+      "Qwen2.5-Math-7B",
+      "Qwen3-4B-Base",
+      "Llama-3.1-8B-Instruct"
+    ],
+    "one_liner": "CurioSFT diagnoses that standard SFT causes 'entropy collapse' (overconfidence, narrowed exploration) that limits the subsequent RL stage in the SFT-then-RL pipeline, and fixes it with Self-Exploratory Distillation toward a self-generated, temperature-scaled teacher plus Entropy-Guided Temperature Selection that concentrates exploration on high-entropy reasoning-connector tokens while preserving low-entropy factual tokens, improving downstream RL accuracy by 5.0 points on average.",
+    "problem": "The standard 'SFT-then-RL' post-training recipe for large reasoning models has SFT imitate expert demonstrations via cross-entropy loss, which drives overconfidence and narrows the model's generation diversity (entropy collapse), leaving the subsequent RL stage with a constricted search space to explore -- and naive entropy regularization during SFT is not a fix, since it indiscriminately flattens token distributions toward uniformity (including on low-entropy factual tokens) without improving meaningful exploration, and can induce knowledge forgetting.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Not directly about overthinking: this paper addresses accuracy/exploration in the SFT-then-RL training pipeline for large reasoning models, not reasoning-trace length or the inference-time accuracy/efficiency tradeoff. It is tangential background on how the training methods used to produce reasoning models (which several overthinking-mitigation papers build on or evaluate) are themselves optimized, but does not measure or mitigate overthinking itself."
+    },
+    "results": "In the SFT stage, CurioSFT improves the in-distribution average from vanilla SFT's 48.5% to 51.0% (+2.5 points across AIME24/25, AMC23, MATH, Minerva, OlympiadBench) and the out-of-distribution average from 51.3% to 54.2% (+2.9 points across GPQA, MMLU-Pro, ARC-Challenge), while preserving higher token entropy (0.31->0.43, +0.12 nats) than vanilla SFT -- outperforming both naive entropy-loss regularization (which either barely changes entropy at low weight or causes 'entropy explosion'/training destabilization at higher weight, and still underperforms) and other SFT variants (GEM, DFT, PSFT). In the subsequent RL stage, the CurioSFT+GRPO pipeline reaches 58.7% in-distribution average (vs. 53.7% for vanilla SFT+RL, +5.0 points) and 61.7% OOD average (+2.4 points vs. 59.3%), with the largest gains on the hardest AIME benchmarks (39.2% vs. 32.1% AIME24 for SFT+RL) -- evidence that a better-preserved exploration space during SFT unlocks a higher RL performance ceiling, and CurioSFT+GRPO also outperforms single-stage hybrid SFT+RL methods (LUFFY, Prefix-RFT, RL-PLUS) that fuse demonstrations and exploration into one stage. Ablations confirm both components matter: removing Entropy-Guided Temperature Selection (fixed temperature) causes a clear OOD drop (54.2%->52.2%), and removing the separate teacher model (using the live model as its own teacher) causes modest performance degradation, supporting the role of a stable teacher signal. Restricting a naive entropy loss to only the top-20%-highest-entropy tokens (rather than all tokens) substantially improves OOD performance (51.3%->52.3%) versus applying it to all tokens, corroborating the paper's mechanistic claim that low-entropy tokens encode deterministic facts where forced entropy weakens factual consistency, while high-entropy tokens act as reasoning connectors that are the natural targets for exploration. Results generalize across two additional backbones (Qwen3-4B-Base, Llama-3.1-8B-Instruct) and to code generation tasks (HumanEval+, MBPP+, LiveCodeBench: +1.3 points average over vanilla SFT).",
+    "tags": [
+      "SFT",
+      "reinforcement-learning",
+      "entropy-collapse",
+      "exploration",
+      "training-methodology"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-617",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

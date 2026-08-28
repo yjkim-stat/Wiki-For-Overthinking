@@ -44,7 +44,7 @@ The abstract does not name the specific benchmarks, generator/verifier model pai
 ## Entities
 
 - **Concepts**: verification granularity, beam search and Best-of-N as special cases of a granularity parameter, compute-efficiency in test-time scaling via verifier call frequency
-- **Methods**: Variable Granularity Search (VG-Search), beam search, [Best-of-N sampling](../../../../wiki/methods/best-of-n-sampling.md)
+- **Methods**: Variable Granularity Search (VG-Search), [beam search](../../../../wiki/methods/beam-search.md), [Best-of-N sampling](../../../../wiki/methods/best-of-n-sampling.md)
 - **Datasets**: _none recorded_
 
 Tags: `test-time-scaling`, `verification`, `search`, `compute-efficiency`, `beam-search`

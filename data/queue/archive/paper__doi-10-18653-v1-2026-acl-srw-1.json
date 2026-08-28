@@ -1,0 +1,115 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-srw-1.pdf"
+  },
+  "completed_at": "2026-08-28T01:33:18Z",
+  "created_at": "2026-08-28T00:41:43Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-srw.1",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Advances in inference methods have enabled language models to improve their predictions without additional training. These methods often prioritize raw performance over cost-effective compute usage. However, computational efficiency is key for real-world applications with resource constraints. We provide a systematic analysis of the inference scaling strategies self-consistency, self-refinement, multi-agent debate, and mixture-of-agents, to study their computational performance tradeoffs. We evaluate methods on two reasoning benchmarks (MMLU-Pro, BBH) and include extensive parameter configurations (e.g., scaling the number of parallel predictions, agents, and debate rounds) across different model sizes. Across 34 configurations and over 100 evaluations, we compute the Pareto-optimal front to select methods that achieve the best accuracy with the lowest computational budget.Notably, inference scaling improves accuracy by up to +7.1% points over chain-of-thought at the highest evaluated budgets (20× the CoT compute budget) on MMLU-Pro. With an equal computing budget, debate and mixture-of-agents outperform self-consistency by 1.3% and 2.7% points, respectively. While self-consistency saturates earlier, multi-agent gains persist, particularly on more complicated tasks. We identify a simple multi-agent design guideline: mixture-of-agents is most efficient when the number of parallel generations exceeds the number of sequential aggregations.",
+    "authors": [
+      "Florian Valentin Wunderlich",
+      "Lars Benedikt Kaesberg",
+      "Jan Philip Wahle",
+      "Terry Ruas",
+      "Bela Gipp"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-srw.1.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Multi-Agent Reasoning Improves Compute Efficiency: Pareto-Optimal Test-Time Scaling",
+    "url": "https://aclanthology.org/2026.acl-srw.1/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "compute-accuracy Pareto front",
+      "overthinking phenomenon (task-difficulty-dependent compute benefit)",
+      "difficulty-adaptive test-time-compute routing",
+      "mixture-of-agents (MoA) proposer/aggregator ratio",
+      "memory-transfer-aware compute estimation"
+    ],
+    "contributions": [
+      "a systematic, matched-compute-budget comparison of four test-time-scaling pipelines (self-consistency, self-refinement, debate, mixture-of-agents) across 34 configurations and over 100 evaluations, using a compute-cost estimate that accounts for memory-transfer time alongside FLOPs",
+      "identification of mixture-of-agents as the most Pareto-efficient pipeline overall, with a specific design guideline (proposer-model count exceeding layer count by one) for Pareto-optimal MoA configurations",
+      "evidence that harder tasks gain substantially more accuracy from added test-time compute than easy tasks, motivating difficulty-adaptive compute allocation",
+      "a negative result that self-refinement underperforms plain chain-of-thought despite using more compute, and that debate should scale agents (parallel) rather than rounds (sequential, context-accumulating)",
+      "a finding that, for the tested model family, a larger base model with no test-time scaling can be more compute-efficient than heavily test-time-scaling a smaller model, and that within MoA, proposer-model quality matters more than aggregator-model quality"
+    ],
+    "datasets": [
+      "MMLU-Pro",
+      "BBH (Big-Bench Hard)"
+    ],
+    "limitations": "Multi-agent systems are computationally expensive to run at scale, so the study uses a randomly-shuffled 1,000-question sample of MMLU-Pro rather than the full benchmark, with resulting confidence intervals reported in the paper's limitations section. Findings are demonstrated with models from a single family (Llama 3.1, 8B and 70B) specifically to isolate test-time-compute scaling effects from confounding model-capacity differences, so generalization to other model families or to substantially larger/smaller model pairs is not directly tested; the paper also notes quantization differences between the 8B and 70B setups may have affected the model-size comparison.",
+    "method": "Compares four inference-time-scaling pipelines under matched compute budgets, varying three scaling levers: pipeline choice, pipeline parameters (self-consistency sequences; self-refinement iterations; debate agents and rounds; MoA proposer models and layers), and model size (Llama 3.1 70B primary, 8B for robustness checks). Compute cost is estimated as runtime combining both FLOPs and memory-transfer time (weight movement from GPU memory to compute cores), a closer proxy to real deployment latency than FLOPs alone. Evaluated zero-shot (temperature 0.7, top-p 0.95) on MMLU-Pro (primary, 1,000 sampled questions) and BBH (robustness check), extracting final multiple-choice answers by highest log-likelihood. Task difficulty is estimated by CoT solve rate over 20 repetitions per question, binned into easy (>75%), medium (25-75%), hard (<25%), to analyze whether harder tasks benefit more from added test-time compute -- motivated explicitly by concern for an 'overthinking phenomenon' where some tasks might not benefit from, or could even suffer from, increased compute usage.",
+    "methods": [
+      "self-consistency",
+      "self-refinement",
+      "multi-agent debate",
+      "mixture-of-agents (MoA)",
+      "chain-of-thought (CoT, baseline)"
+    ],
+    "models": [
+      "Llama 3.1 70B",
+      "Llama 3.1 8B"
+    ],
+    "one_liner": "A systematic Pareto-front analysis of four test-time-scaling pipelines (self-consistency, self-refinement, debate, mixture-of-agents) across 34 configurations finds mixture-of-agents dominates the compute-accuracy frontier (+7.1pp over CoT at 15-20x compute, beating self-consistency and debate by 2.7pp/1.4pp at matched budgets), that debate should scale agents rather than rounds, that MoA is Pareto-optimal when proposer models outnumber layers by one, and that harder tasks benefit far more from added test-time compute than easy ones (+9.0pp vs. +2.2pp), while self-refinement underperforms even the plain chain-of-thought baseline throughout.",
+    "problem": "Inference-time scaling methods (self-consistency, self-refinement, debate, mixture-of-agents) are typically evaluated in isolation on raw accuracy rather than compute-accuracy tradeoffs, use wildly different and often unreported compute budgets, and existing efficiency studies mostly measure only FLOPs rather than accounting for memory-transfer costs that materially affect real runtime -- leaving practitioners without practical guidance on which method and parameterization to choose under a fixed compute budget.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant: the study is explicitly motivated by the possibility of an 'overthinking phenomenon' where some tasks do not benefit from, or even suffer from, increased test-time compute, and its difficulty-stratified results (large gains on hard tasks, marginal gains on easy ones) give a quantified, per-difficulty-tier picture of exactly where test-time compute stops paying off -- directly supporting difficulty-adaptive compute-routing approaches referenced elsewhere in this archive, and extending the accuracy/efficiency tradeoff question from single-trace length scaling to the choice and parameterization of multi-agent test-time-scaling architectures."
+    },
+    "results": "On MMLU-Pro, at the highest evaluated budgets (~15-20x CoT compute), MoA reaches 71.4% accuracy (5 models, 4 layers) versus CoT's 64.3% (+7.1pp), outperforming self-consistency's 68.7% (10 sequences, +4.4pp over CoT) and debate's 70.0% (4 agents, 2 rounds, +5.7pp over CoT); under directly comparable compute budgets, debate and MoA outperform self-consistency by +1.3pp and +2.7pp respectively. Self-refinement consistently underperforms the plain CoT baseline throughout, despite requiring more compute than CoT -- an explicit negative result for iterative self-improvement without external agents. Self-consistency and debate both saturate (around 10 sequences / 4 agents respectively), while MoA continues to improve nearly linearly up to 5 models and 4 layers, and MoA configurations consistently sit closer to the Pareto-front than self-consistency across the full tested compute range. Difficulty-stratified analysis confirms compute scaling helps harder tasks far more: at 15-20x CoT compute, easy tasks gain only +2.2pp (94.4%->96.6%), medium tasks gain +8.5pp (53.0%->62.1%, i.e. accuracy improves modestly in relative terms), and hard tasks gain +9.0pp (8.4%->17.4%, more than doubling relative accuracy) -- evidence that additional test-time compute is disproportionately valuable for challenging problems and that easy-task gains are marginal enough to motivate a difficulty-adaptive compute-routing approach. For debate specifically, scaling the number of agents up to four improves accuracy while scaling rounds (with agents retaining full prior-exchange memory, which expands context and compute) degrades or has no effect -- the practical recommendation is to prioritize scaling agents over rounds. For MoA, Pareto-optimal configurations are found specifically where the number of proposer models exceeds the number of layers by exactly one (3 models/2 layers, 4 models/3 layers, 5 models/4 layers), a pattern that holds (2 of 3 points on the Pareto-front) when replicated on BBH and with an 8B model. Comparing model scale versus test-time compute: the heavily-scaled 8B model never exceeds ~53% accuracy on MMLU-Pro across any tested pipeline/parameter configuration, remaining below even the plain 70B CoT baseline (64.3%) and about 13% less accurate than the 70B CoT pipeline at matched compute budget -- i.e. for this model family, choosing a larger base model is more compute-efficient than heavily scaling test-time compute on a smaller one, contrasting with some prior work reporting the opposite. Within MoA, proposer-model size matters far more than aggregator-model size: swapping only the aggregator from 70B to 8B drops accuracy just 71.4%->69.6%, while swapping only the proposers to 8B (keeping a 70B aggregator) drops it to 52.9%, and swapping both drops it to 51.2% -- because a strong aggregator cannot recover information quality already lost by weak proposers, and because the aggregator, appearing only once in the final layer, contributes a small fraction of total generations (1/16 in the 5-model/4-layer configuration) so its size affects total compute less.",
+    "tags": [
+      "test-time-scaling",
+      "multi-agent",
+      "compute-efficiency",
+      "pareto-optimality",
+      "overthinking"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-srw-1",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

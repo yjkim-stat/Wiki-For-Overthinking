@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "multi-agent debate"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Systematically compares 8 prompting strategies under equal sampling budget for majority-vote test-time scaling across 6 LLMs x 6 benchmarks, finding plain Chain-of-Thought eventually dominates every more elaborate strategy as sampling time N grows -- because CoT has more easy/fewer hard questions and a flatter wrong-answer distribution -- and shows combining per-question difficulty-adaptive scaling with per-question optimal-strategy selection lifts GSM8K accuracy from 86.0% to 97.4% (Majority@10) and MATH-500 from 15.2% to 61.0%.",
       "title": "Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-srw.1",
+      "kind": "paper",
+      "note": "A systematic Pareto-front analysis of four test-time-scaling pipelines (self-consistency, self-refinement, debate, mixture-of-agents) across 34 configurations finds mixture-of-agents dominates the compute-accuracy frontier (+7.1pp over CoT at 15-20x compute, beating self-consistency and debate by 2.7pp/1.4pp at matched budgets), that debate should scale agents rather than rounds, that MoA is Pareto-optimal when proposer models outnumber layers by one, and that harder tasks benefit far more from added test-time compute than easy ones (+9.0pp vs. +2.2pp), while self-refinement underperforms even the plain chain-of-thought baseline throughout.",
+      "title": "Multi-Agent Reasoning Improves Compute Efficiency: Pareto-Optimal Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "method",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "Multi-Agent Debate",
   "related": [
     "easy-moderate-hard-question-defined-via-answer-probability-structure-under-major",
@@ -38,7 +46,20 @@
     "glm-4-9b-chat",
     "phi-3-5-mini-instruct",
     "gemini-1-5-flash",
-    "gpt-4o-mini"
+    "gpt-4o-mini",
+    "compute-accuracy-pareto-front",
+    "overthinking-phenomenon-task-difficulty-dependent-compute-benefit",
+    "difficulty-adaptive-test-time-compute-routing",
+    "mixture-of-agents-moa-proposer-aggregator-ratio",
+    "memory-transfer-aware-compute-estimation",
+    "self-consistency",
+    "self-refinement",
+    "mixture-of-agents-moa",
+    "chain-of-thought-cot-baseline",
+    "mmlu-pro",
+    "bbh-big-bench-hard",
+    "llama-3-1-70b",
+    "llama-3-1-8b"
   ],
   "related_authored": [],
   "schema_version": 1,

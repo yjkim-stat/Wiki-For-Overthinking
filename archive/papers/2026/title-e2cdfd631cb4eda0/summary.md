@@ -44,7 +44,7 @@ The authors state the method is restricted to mathematical reasoning tasks while
 ## Entities
 
 - **Concepts**: reasoning outliers, [efficient reasoning](../../../../wiki/concepts/efficient-reasoning.md), chain-of-thought pruning, attention as a saliency signal, [token budget](../../../../wiki/concepts/token-budget.md), attention kurtosis / infinity norm
-- **Methods**: FROST, attention-weight pruning, TALE, [DRP](../../../../wiki/methods/drp.md), [SelfBudgeter](../../../../wiki/methods/selfbudgeter.md), [ThinkLess](../../../../wiki/methods/thinkless.md), [Phi-4-Reasoning](../../../../wiki/methods/phi-4-reasoning.md), [GPT-OSS-20B](../../../../wiki/methods/gpt-oss-20b.md)
+- **Methods**: FROST, attention-weight pruning, TALE, [DRP](../../../../wiki/methods/drp.md), [SelfBudgeter](../../../../wiki/methods/selfbudgeter.md), [ThinkLess](../../../../wiki/methods/thinkless.md), [Phi-4-Reasoning](../../../../wiki/methods/phi-4-reasoning.md), GPT-OSS-20B
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [Minerva](../../../../wiki/datasets/minerva.md)
 
 Tags: `overthinking`, `efficient-reasoning`, `chain-of-thought`, `attention`, `token-reduction`, `math-reasoning`, `training-free`

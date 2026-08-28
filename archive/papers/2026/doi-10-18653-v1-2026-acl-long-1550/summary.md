@@ -47,7 +47,7 @@ The model is built on GPT-2 small's parallel (non-incremental) Transformer compu
 
 - **Concepts**: resource-rational working memory constraint, representational uncertainty (Gaussian noise injection), precision-decay rate (theta), categorical vs. fine-grained encoding under memory constraint
 - **Methods**: Gaussian noise injection into self-attention value vectors, resource-rational hybrid training objective (cross-entropy + encoding-precision penalty), surprisal-based psychometric predictive power (delta log-likelihood), PCA-based representational-space analysis
-- **Datasets**: WikiText-103 (training), Provo Corpus, SPR Natural Stories Corpus, A-Maze Natural Stories Corpus (MazeNSC)
+- **Datasets**: WikiText-103 (training), [Provo Corpus](../../../../wiki/datasets/provo-corpus.md), SPR Natural Stories Corpus, A-Maze Natural Stories Corpus (MazeNSC)
 
 Tags: `working-memory`, `psycholinguistics`, `cognitive-modeling`, `sentence-processing`, `resource-rationality`
 

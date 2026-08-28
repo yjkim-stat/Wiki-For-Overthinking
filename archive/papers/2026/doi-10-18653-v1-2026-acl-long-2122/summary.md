@@ -47,7 +47,7 @@ Following most prior open-source hybrid-reasoning-model studies, training is con
 
 - **Concepts**: reward hacking in hybrid reasoning-mode training, per-query dynamic non-thinking token threshold, thinking mode / non-thinking mode classification, reward-hacking probability metric (thinking-verb detection)
 - **Methods**: Thinking-Based Non-Thinking (TNT), [GRPO](../../../../wiki/methods/grpo.md), Thinkless (baseline, SFT-based), AdaptThink (baseline, uniform token threshold), AutoThink (baseline)
-- **Datasets**: DeepScaleR (training, 40K math problems), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [Minerva](../../../../wiki/datasets/minerva.md), [AMC23](../../../../wiki/datasets/amc23.md), Olympiad
+- **Datasets**: DeepScaleR (training, 40K math problems), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [Minerva](../../../../wiki/datasets/minerva.md), [AMC23](../../../../wiki/datasets/amc23.md), [Olympiad](../../../../wiki/datasets/olympiad.md)
 
 Tags: `overthinking`, `reward-hacking`, `hybrid-reasoning-models`, `reinforcement-learning`, `adaptive-reasoning`
 

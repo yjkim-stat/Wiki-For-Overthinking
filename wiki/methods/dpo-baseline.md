@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DPO (as a baseline) is cited in these sources as a preference-tuning technique other length-control methods are compared against or build on: LC-R1 studies 'invalid thinking' (redundant post-answer double-checking) as a form of overthinking with GRPO-based rewards, and AdaMix trains separate short/long LoRA adapters, with DPO-based approaches named among the accuracy-efficiency baselines these methods are benchmarked against. The sources do not detail the DPO baseline's own configuration.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

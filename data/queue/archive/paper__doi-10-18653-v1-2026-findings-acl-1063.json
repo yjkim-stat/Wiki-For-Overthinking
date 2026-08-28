@@ -1,0 +1,128 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1063.pdf"
+  },
+  "completed_at": "2026-08-28T01:20:28Z",
+  "created_at": "2026-08-28T00:41:43Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1063",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Recently, large reasoning models demonstrate exceptional performance on various tasks. However, reasoning models always consume excessive tokens even for simple queries, leading to resource waste and prolonged user latency. To address this challenge, we propose SelfBudgeter - a self-adaptive reasoning strategy for efficient and controllable reasoning. Specifically, we first train the model to self-estimate the required reasoning budget based on the query. We then introduce budget-guided GRPO for reinforcement learning, which effectively maintains accuracy while reducing output length. Experimental results demonstrate that SelfBudgeter dynamically allocates budgets according to problem complexity, achieving an average response length compression of 61% on math reasoning tasks while maintaining accuracy. Furthermore, SelfBudgeter allows users to see how long generation will take and decide whether to continue or stop. Additionally, users can directly control the reasoning length by setting token budgets upfront.",
+    "authors": [
+      "Zheng Li",
+      "Qingxiu Dong",
+      "Jingyuan Ma",
+      "Di Zhang",
+      "Kai Jia",
+      "Zhifang Sui"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "reasoning length",
+      "large reasoning model",
+      "reasoning budget",
+      "token budget",
+      "adaptive reasoning"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1063.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.625
+    },
+    "title": "SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning",
+    "url": "https://aclanthology.org/2026.findings-acl.1063/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "self-estimated token budget",
+      "budget-guided GRPO",
+      "Precise Budget Control (PreB) Reward",
+      "reward hacking via loose length tolerance",
+      "dynamic alpha schedule"
+    ],
+    "contributions": [
+      "SelfBudgeter, an output format and training framework where a reasoning model explicitly predicts its own token budget before generating an answer, letting users see the estimated wait time or pre-fill a hard budget",
+      "the Precise Budget Control (PreB) Reward, tightening cosine-style length shaping with a tightness coefficient so response length converges to the minimally-sufficient length for correct answers while incentivizing longer analysis for incorrect ones",
+      "a dynamic alpha schedule that prevents a specific reward-hacking failure mode (the model inflating its predicted budget to trivially match an already-long actual output) that a fixed tolerance allows",
+      "empirical results showing ~61% average length compression on math benchmarks with preserved/improved accuracy at both 1.5B and 7B scale, and generalization to out-of-domain knowledge benchmarks (GPQA, SCoRE)"
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH500",
+      "AIME2025",
+      "s1k-1.1",
+      "STILL-3-Preview-RL-Data",
+      "GPQA",
+      "SCoRE"
+    ],
+    "limitations": "The paper notes only general limitations: the methodology, though theoretically sound, may face practical challenges in more complex or diverse real-world scenarios beyond the tested benchmarks, and unspecified external factors beyond the paper's scope could affect generalizability of the results. No quantitative discussion of failure cases or specific domains where budget estimation breaks down is given.",
+    "method": "Reformats output as <budget>an integer</budget><solution>response</solution>, so the model predicts its own token budget before generating an answer (or, if the user supplies a limit, that value pre-fills the budget field). Training has three stages: (1) data preprocessing computes each training question's maximum acceptable budget b_max -- the model's own response length if it answered correctly, or infinity if it answered incorrectly (so wrong answers don't constrain future budget learning); (2) a cold-start SFT phase teaches the new output format using the model's own correct responses (to avoid reinforcing wrong answers) from GSM8K/MATH/s1k-1.1; (3) budget-guided GRPO reinforcement learning combines a Format Penalty, a Budget Penalty (penalizing predicted budgets that exceed b_max), and a Precise Budget Control (PreB) Reward -- inspired by, but tighter than, cosine-reward length shaping -- which uses a tightness coefficient alpha to align actual response length with the self-predicted budget, peaking at a minimally-sufficient length for correct answers and rewarding longer chains for incorrect ones (to encourage deeper analysis when the model is wrong). A dynamic alpha schedule (linearly tightening from 6.0 to 0.1 over training) avoids reward hacking, where a fixed loose alpha lets the model inflate its predicted budget to trivially match its own actual (still-long) output.",
+    "methods": [
+      "GRPO (Group Relative Policy Optimization)",
+      "budget-guided GRPO with PreB Reward",
+      "cold-start SFT",
+      "L1 (baseline, prompt-templated length limit)",
+      "E1-Math (baseline, hard-truncation length control)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "Eurus-2-7B-PRIME",
+      "Qwen-2.5-7B-Simple-RL"
+    ],
+    "one_liner": "SelfBudgeter trains a reasoning model to emit its own predicted token budget before answering (<budget>N</budget><solution>...</solution>) via a cold-start plus budget-guided GRPO pipeline, cutting response length ~61% on math benchmarks while preserving or improving accuracy, and letting users see the estimated wait time or pre-fill a hard budget upfront.",
+    "problem": "Reasoning models consume excessive tokens even on simple queries (overthinking), and existing mitigations either lack precise length control (prompt-based instructions), fail to reliably satisfy user-specified length constraints (SFT/length-penalty RL), or add computational overhead (router-based architectures) -- none let the model both autonomously estimate an appropriate token budget for unconstrained queries and strictly adhere to it.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly and centrally relevant: it names overthinking explicitly and contributes a self-estimated-budget mechanism that both mitigates it (61% average compression with preserved accuracy) and makes it legible to the user upfront (an anticipated wait time before generation begins) -- a distinct design point from methods elsewhere in this archive that either impose a fixed external budget, use post-hoc early exit, or intervene only at a single decision token, and its documented reward-hacking failure mode (budget inflation under a loose tolerance) is a specific, transferable caution for any length-shaping reward design."
+    },
+    "results": "SelfBudgeter achieves an average response length compression of 61% on math reasoning tasks while maintaining accuracy. At 1.5B scale (built on DeepSeek-R1-Distill-Qwen-1.5B), SelfBudgeter-1.5B reaches 84.10% accuracy on GSM8K (vs. base model's 73.09%, an 11.01-point gain) while compressing response length to 43% of the original (1231.79 vs. 2865.08 tokens); on MATH500 it gains 3.54 accuracy points at 44% length; on AIME2025 it compresses to 30% of original length (4288.10 vs. 14444.03 tokens) while maintaining comparable accuracy (21.11% vs. 22.22%). Compared against L1 (explicit prompt-templated length limits) and E1 (hard truncation), SelfBudgeter achieves the best-or-second-best accuracy across all three benchmarks while L1 collapses on the hard AIME2025 benchmark and E1 degrades accuracy on the simpler GSM8K/MATH500 sets -- i.e. autonomous budget estimation beats both hard truncation and explicit prompted limits on the accuracy/length tradeoff. At 7B scale (built on DeepSeek-R1-Distill-Qwen-7B), SelfBudgeter-7B achieves the highest accuracy on MATH500 (86.87%) and AIME2025 (30.00%, best among all compared models including specialized RL baselines Eurus-2-7B-PRIME and Qwen-2.5-7B-Simple-RL), second-best on GSM8K (90.30%, only 0.68 points below the top baseline), at an average 48% compression ratio. An ablation shows all three reward components are necessary and complementary: format-only training collapses accuracy (1.64% on GSM8K) despite short outputs; adding correctness restores accuracy but compression becomes inconsistent on harder datasets (5327 tokens on MATH500); adding PreB improves budget adherence but harms accuracy on easier tasks; adding budget penalty gives good compression on easy tasks but sacrifices harder-task performance; only the full combination (SelfBudgeter) gives high accuracy with strong, stable compression across difficulty levels. Linear alpha scheduling outperforms fixed and cosine scheduling, maintaining accuracy while still achieving >61% compression (fixed/cosine over-compress and lose accuracy on harder problems). On out-of-domain general-knowledge benchmarks (GPQA, SCoRE), SelfBudgeter-1.5B substantially reduces reasoning length on both while remaining competitive in accuracy (best accuracy among compared methods on SCoRE, 16.26%), showing the approach transfers beyond mathematical reasoning.",
+    "tags": [
+      "overthinking",
+      "token-budget",
+      "reinforcement-learning",
+      "GRPO",
+      "length-control",
+      "adaptive-reasoning"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1063",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

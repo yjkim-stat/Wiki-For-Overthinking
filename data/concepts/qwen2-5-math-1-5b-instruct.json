@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "Introduces token-level marginal utility -- the per-token log-probability gain toward the ground-truth answer -- and MUTO, a training framework that penalizes trajectories and individual tokens that reduce this probability, cutting DeepSeek-R1-Distill-Qwen token usage by 87.1% (1.5B) / 80.2% (7B) with comparable or better accuracy.",
       "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.739",
+      "kind": "paper",
+      "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+      "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:09:24Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "Qwen2.5-Math-1.5B-Instruct",
   "related": [
     "linguistic-generalizability-of-test-time-scaling",
@@ -64,7 +70,26 @@
     "deepseek-r1",
     "gpt-4o",
     "o1-preview",
-    "o4-mini-high"
+    "o4-mini-high",
+    "intrinsic-verifier-free-confidence-signal",
+    "confidence-based-rl-calibration",
+    "self-guided-tree-search",
+    "novelty-weighted-exploration",
+    "overconfidence-penalty",
+    "guided-by-gut-gg",
+    "diverse-verifier-tree-search-dvts",
+    "grpo",
+    "lora-fine-tuning",
+    "best-of-n-baseline",
+    "prm-guided-search-baseline-mathshepherd-7b-rlhflowllama3-1-8b-qwen2-5-mathprm-7b",
+    "aime-2025",
+    "livecodebench",
+    "limo-rl-calibration-data",
+    "deepseek-r1-distill-qwen-14b",
+    "deepseek-r1-distill-qwen-32b",
+    "deepseek-r1-distill-llama-70b",
+    "deepseek-r1-671b",
+    "openai-o1-mini"
   ],
   "related_authored": [],
   "schema_version": 1,

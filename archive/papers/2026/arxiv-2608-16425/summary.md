@@ -47,7 +47,7 @@ Accuracy is not actually preserved in the strong sense the objective (min cost s
 ## Entities
 
 - **Concepts**: Temporal confidence, Answer-space convergence, Intermediate answer probing, Asynchronous branch control, Early retirement, Branch pruning, Adaptive forking, Confidence-weighted voting, Parallel test-time scaling, Critical-path (sequential) token cost, Self-consistency, Synchronization barrier
-- **Methods**: ParaTempo, Self-consistency (SC@16), ESC (early-stopping self-consistency), SAC (answer-convergence stopping), DeepConf (high and low), Parallel-Probe, Qwen3.5-35B-A3B, [GPT-OSS-20B](../../../../wiki/methods/gpt-oss-20b.md), [vLLM](../../../../wiki/methods/vllm.md), Nucleus sampling
+- **Methods**: ParaTempo, Self-consistency (SC@16), ESC (early-stopping self-consistency), SAC (answer-convergence stopping), DeepConf (high and low), Parallel-Probe, Qwen3.5-35B-A3B, GPT-OSS-20B, [vLLM](../../../../wiki/methods/vllm.md), Nucleus sampling
 - **Datasets**: [AIME 2026](../../../../wiki/datasets/aime-2026.md), HMMT November 2025, HMMT February 2026, [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `parallel-reasoning`, `test-time-scaling`, `early-stopping`, `self-consistency`, `confidence-signal`, `training-free`, `inference-efficiency`, `branch-pruning`, `latency`, `aime`, `gpqa`

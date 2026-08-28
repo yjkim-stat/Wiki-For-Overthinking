@@ -46,7 +46,7 @@ Greedy pruning's computational cost scales superlinearly in sequence length (eac
 ## Entities
 
 - **Concepts**: greedy pruning (likelihood-preserving token deletion), token-level functional importance, pruning-rank dynamics, attention-predictable pruning ranks
-- **Methods**: greedy pruning, TokenSkip (baseline), H2O (baseline), Surprisal (baseline), Uniform pruning (baseline), teacher-pruner-student distillation, attention-based MLP surrogate for pruning-rank prediction
+- **Methods**: greedy pruning, [TokenSkip (baseline)](../../../../wiki/methods/tokenskip-baseline.md), H2O (baseline), Surprisal (baseline), Uniform pruning (baseline), teacher-pruner-student distillation, attention-based MLP surrogate for pruning-rank prediction
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md)
 
 Tags: `reasoning-compression`, `token-pruning`, `distillation`, `attribution`, `efficient-reasoning`

@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.876",
+      "kind": "paper",
+      "note": "STOP (Super TOken for Pruning) is a lightweight, LoRA-based module that reads a frozen LRM's cached KV states via a single learnable [STOP] token to score and prune futile parallel-reasoning paths early -- at negligible inference overhead (0.59% latency) -- and is shown, via a proposed four-way taxonomy of path-pruning signal generators, to dominate external-signal and non-learnable internal-signal baselines in both accuracy and compute across model scales 1.5B-20B.",
+      "title": "Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-28T01:36:19Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T01:36:19Z",
+  "name": "STOP (Super TOken for Pruning)",
+  "related": [
+    "path-pruning-prefix-rejection",
+    "pruning-signal-generator-taxonomy",
+    "super-token-for-pruning",
+    "launch-check-resume-pipeline",
+    "monte-carlo-soft-label-supervision",
+    "majority-voting-consensus-aggregation",
+    "slimsc-type-i-baseline",
+    "deepprune-labor-type-ii-baselines",
+    "thinkprm-mav-type-ii-baselines",
+    "deepconf-adadec-think-just-enough-type-iii-baselines",
+    "aime-2024",
+    "aime-2025",
+    "brumo25",
+    "hmmt25",
+    "gpqa-diamond",
+    "zebralogic",
+    "aimo3-competition-problems",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-0528-qwen3-8b",
+    "gpt-oss-20b",
+    "gpt-oss-120b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "stop-super-token-for-pruning",
+  "topics": [
+    "overthinking"
+  ]
+}

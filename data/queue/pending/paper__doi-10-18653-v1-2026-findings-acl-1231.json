@@ -1,0 +1,69 @@
+{
+  "attachments": {},
+  "created_at": "2026-08-28T01:36:19Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1231",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models (LRMs) often suffer from overthinking, a phenomenon in which redundant reasoning steps are generated after a correct solution has already been reached. Existing early reasoning exit methods primarily rely on output-level heuristics or trained probing models to skip redundant reasoning steps, thereby mitigating overthinking. However, these approaches typically require additional rollout computation or externally labeled datasets. In this paper, we propose NEAT, a Neuron-based Early reAsoning exiT framework that monitors neuron-level activation dynamics to enable training-free early exits, without introducing any additional test-time computation. NEAT identifies exit-associated neurons and tracks their activation patterns during reasoning to dynamically trigger early exit or suppress reflection, thereby reducing unnecessary reasoning while preserving solution quality. Experiments on four reasoning benchmarks across six models with different scales and architectures show that, for each model, NEAT achieves an average token reduction of 22% to 28% when averaged over the four benchmarks, while maintaining accuracy.",
+    "authors": [
+      "Kang Liu",
+      "YongKang Liu",
+      "Xiaocui Yang",
+      "Peidong Wang",
+      "Wen Zhang",
+      "Shi Feng",
+      "Yifei Zhang",
+      "Daling Wang"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "large reasoning model",
+      "early exit"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1231.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.7
+    },
+    "title": "NEAT: Neuron-Based Early Exit for Large Reasoning Models",
+    "url": "https://aclanthology.org/2026.findings-acl.1231/",
+    "venue": "ACL"
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1231",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

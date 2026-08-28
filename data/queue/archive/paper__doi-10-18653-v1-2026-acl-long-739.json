@@ -1,0 +1,125 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-acl-long-739.pdf"
+  },
+  "completed_at": "2026-08-28T01:28:53Z",
+  "created_at": "2026-08-28T00:41:43Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.acl-long.739",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-Time Scaling (TTS) methods for enhancing Large Language Model (LLM) reasoning often incur substantial inference costs, due to reliance on long chain-of-thought (CoT) generation, self-consistency sampling methods, or searching under Process Reward Models (PRMs). This paper introduces Guided by Gut (GG), an efficient self-guided TTS framework that enables LLMs to perform step-by-step reasoning at a low cost, without any reward models or verifiers. GG performs a lightweight tree search guided solely by intrinsic confidence signals of the LLM at each reasoning step and improves the reliability of such internal confidence signals by reinforcement learning. Empirical evaluations on challenging mathematical reasoning benchmarks demonstrate that GG enables smaller models (e.g., 1.5B-7B parameters) to achieve accuracy matching or surpassing significantly larger models (e.g., 32B–70B parameters), while reducing GPU memory usage by up to 10×. Compared to TTS with PRMs, GG achieves comparable accuracy with 8× faster inference speeds and 4–5× lower memory usage. Additionally, GG reduces KV cache memory usage by approximately 50% compared to Best-of-N sampling, facilitating more efficient and practical deployment of TTS techniques.",
+    "authors": [
+      "Amirhosein Ghasemabadi",
+      "Keith G. Mills",
+      "Baochun Li",
+      "Di Niu"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.acl-long.739.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence",
+    "url": "https://aclanthology.org/2026.acl-long.739/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "intrinsic (verifier-free) confidence signal",
+      "confidence-based RL calibration",
+      "self-guided tree search",
+      "novelty-weighted exploration",
+      "overconfidence penalty"
+    ],
+    "contributions": [
+      "Guided by Gut (GG), a test-time-scaling tree-search method guided entirely by an LLM's own intrinsic token-probability confidence and a novelty term, eliminating the need for an external Process/Outcome Reward Model",
+      "a GRPO-based confidence-calibration reward that asymmetrically penalizes overconfident incorrect answers, making raw model confidence reliable enough to guide search",
+      "empirical results showing 1.5B-7B calibrated models match or exceed 32B-70B CoT baselines and match multiple trained PRM verifiers, at 4-10x lower GPU memory and up to 8x faster inference than PRM-guided or Best-of-N search",
+      "evidence that RL-calibrated confidence transfers beyond its math training domain to a code-generation benchmark (LiveCodeBench)"
+    ],
+    "datasets": [
+      "AIME24",
+      "AIME25",
+      "MATH500",
+      "AMC23",
+      "LiveCodeBench",
+      "LIMO (RL calibration data)"
+    ],
+    "limitations": "The intrinsic confidence signal does not inherently verify the actual correctness of a reasoning step -- there exist cases where the model assigns high confidence to an incorrect step, which is why the RL calibration phase is necessary rather than optional; the goal is a simple, efficient, verifier-free guide rather than a guarantee of the absolute correctness a strong PRM could provide. The paper does not claim universal cross-domain generalization from the code-generation transfer result (one benchmark, one model).",
+    "method": "Formulates a self-guided tree search (an adaptation of Diverse Verifier Tree Search, DVTS) driven entirely by two intrinsic, verifier-free signals computed per reasoning step: Confidence C(s^t), the exponentiated average log-probability the model itself assigned to the tokens of that step, and Novelty N(s^t), the proportion of new tokens a candidate step introduces relative to already-explored context (encouraging exploration), combined as reward r_t = C(s^t) + lambda_N * N(s^t). To fix the unreliability of raw confidence, a GRPO reinforcement-learning fine-tuning phase (on the LIMO dataset, via LoRA) explicitly calibrates confidence: the RL reward for a full reasoning chain is 1 + C(R_i)^4 if the final answer is correct, or 1 - 10*C(R_i)^4 if incorrect (the 4th power sharpens contrast near confidence extremes, and the 10x penalty multiplier strongly discourages high-confidence wrong answers), directly training the model to be less confident specifically when it is wrong. At inference, the calibrated confidence guides the DVTS tree search with no external verifier at all, and a model-specific termination signal (e.g. appending '**Final Answer**' for DeepSeek models) is injected to avoid incomplete outputs from overthinking near step/token limits.",
+    "methods": [
+      "Guided by Gut (GG)",
+      "Diverse Verifier Tree Search (DVTS)",
+      "GRPO (Group Relative Policy Optimization)",
+      "LoRA fine-tuning",
+      "Best-of-N (baseline)",
+      "PRM-guided search (baseline: MathShepherd-7B, RLHFlowLlama3.1-8B, Qwen2.5-MathPRM-7B)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-14B",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "DeepSeek-R1-Distill-Llama-70B",
+      "DeepSeek-R1-671B",
+      "OpenAI o1-mini",
+      "Qwen2.5-Math-1.5B-Instruct"
+    ],
+    "one_liner": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+    "problem": "Test-time-scaling methods that improve LLM reasoning accuracy (Best-of-N sampling, tree search guided by Process/Outcome Reward Models) incur substantial inference costs -- BoN requires generating and scoring many full candidates, and PRM/ORM verifiers are themselves large models with training and generalizability overhead -- making cost-effective TTS for small-scale LLMs an open problem, further complicated by the fact that raw LLM confidence is often unreliable (overconfident, weakly correlated with correctness).",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant to test-time-compute efficiency: it shows a small, calibrated model can match much larger models' accuracy on hard reasoning benchmarks while using a fraction of the memory/compute of standard search-based test-time scaling (BoN, PRM-guided search), by replacing an expensive external verifier with a cheap, RL-calibrated internal signal -- complementary to length-penalty or early-stopping approaches to overthinking in this archive, since it targets the cost of the *search/sampling* process rather than a single trace's length, and its explicit termination-injection detail ('avoid incomplete outputs due to overthinking near the limits') is a direct, if brief, acknowledgment of the overthinking failure mode within a TTS system."
+    },
+    "results": "On AIME24/AIME25, DS-R1-Qwen-1.5B(GG) matches DS-R1-Qwen-32B's accuracy and DS-R1-Qwen-7B(GG) approaches DS-R1-Llama-70B and surpasses OpenAI o1-mini on AIME24, using at N=32 only about one-sixth the VRAM of DS-R1-Llama-70B while running faster; only the far larger DS-R1-671B beats it, at ~10x more parameters but ~30x more memory. Against Best-of-N at matched sampling budgets (N=32/64) on AIME24/25/MATH500/AMC, GG matches or beats BoN across both budgets while using approximately 50% less KV-cache memory (e.g. DS-R1-Qwen-1.5B: GG reaches 61.7[66.7]%/42.2[46.7]% at N=64 with 4.5GB KV vs. BoN's 57.8[66.7]%/36.7[42.2]% at 13.7GB). Against PRM-guided DVTS search (using Qwen2.5-Math-1.5B-Instruct, a non-reasoning model, on AMC23/MATH500), GG matches or exceeds the performance of several trained PRMs (MathShepherd-7B, RLHFlowLlama3.1-8B, Qwen2.5-MathPRM-7B) while using under 5GB GPU memory and running 8x faster -- demonstrating the approach generalizes to non-reasoning models and that calibrated intrinsic signals alone can substitute for an external verifier. Ablations on AIME24 (DeepSeek-R1-Qwen-1.5B): the full confidence-based RL reward achieves 58.9% vs. 54.5% with no RL fine-tuning, 54.9% with a correctness-only reward, and 54.0% with confidence reward but no penalty for incorrect answers -- confirming the specific design (confidence signal plus an asymmetric penalty for overconfident errors) drives the gain, not RL fine-tuning alone. New-token-counting novelty outperforms cosine-similarity novelty (58.9 vs. 58.4) and is computationally lighter; a balanced novelty weight (lambda_N=0.5) beats no novelty (57.5) and novelty-dominant (lambda_N=1, 51.9), and beam width M=2 (16 subtrees) outperforms wider beams (M=4/8) at equal total path budget. RL fine-tuning substantially lowers mean confidence on incorrect outputs while largely preserving high confidence on correct ones (e.g. DS-R1-Qwen-7B: wrong-answer confidence 0.82->0.69 after RL; DS-R1-Qwen-1.5B: 0.95->0.88), widening the correct/incorrect confidence separation used to guide search. The calibration transfers beyond its math-only training domain: on LiveCodeBench (code generation), RL-calibrated confidence improves accuracy from 16.5% (uncalibrated GG) to 20.1%, versus 16.9% for standard CoT, despite RL calibration being performed solely on LIMO math data.",
+    "tags": [
+      "test-time-scaling",
+      "confidence-calibration",
+      "tree-search",
+      "process-reward-model-free",
+      "reinforcement-learning",
+      "inference-efficiency"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-acl-long-739",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

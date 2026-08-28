@@ -47,7 +47,7 @@ Experiments are conducted on models up to 8B parameters; scalability to larger a
 
 - **Concepts**: semantic entropy (semantic-divergence-weighted branching criterion), epsilon-exploration mechanism, segment-level advantage estimation, length-aware calibration
 - **Methods**: ROSE (semantic-entropy-guided MCTS rollout + length-aware segment advantage), GRPO / DAPO / Dr.GRPO (baselines), TreePO / FR3E (MCTS-based baselines)
-- **Datasets**: MATH (training), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md)
+- **Datasets**: [MATH (training)](../../../../wiki/datasets/math-training.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md)
 
 Tags: `overthinking`, `reinforcement-learning`, `monte-carlo-tree-search`, `exploration-diversity`, `efficient-reasoning`
 

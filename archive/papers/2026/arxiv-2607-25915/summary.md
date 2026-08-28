@@ -45,7 +45,7 @@ The recurrent depth K is fixed per run by validation, not chosen per input; the 
 ## Entities
 
 - **Concepts**: [Latent Reasoning](../../../../wiki/concepts/latent-reasoning.md), [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), [Recurrent Depth](../../../../wiki/concepts/recurrent-depth.md), [Accuracy-Efficiency Tradeoff](../../../../wiki/concepts/accuracy-efficiency-tradeoff.md), Chain-of-Thought Internalization, Looped Transformers
-- **Methods**: Penelope, localized latent recurrence, boundary memory with time-modulated GRU updates, recurrent readout states, progressive CoT-to-latent curriculum, [Coconut](../../../../wiki/methods/coconut.md), [CODI](../../../../wiki/methods/codi.md), LoRA, looped Transformers
+- **Methods**: Penelope, localized latent recurrence, boundary memory with time-modulated GRU updates, recurrent readout states, progressive CoT-to-latent curriculum, [Coconut](../../../../wiki/methods/coconut.md), [CODI](../../../../wiki/methods/codi.md), [LoRA](../../../../wiki/methods/lora.md), looped Transformers
 - **Datasets**: Deep ListOps (derived from ListOps / Long Range Arena; 4,800 train / 800 val / 1,600 test spanning depths 1-12), ProsQA (17,886 / 300 / 500), PrOntoQA (9,000 / 200 / 800), Llama-3.2-1B, Qwen3.5-0.8B-Base
 
 Tags: `latent reasoning`, `recurrent depth`, `test-time compute`, `chain-of-thought distillation`, `inference latency`, `decoder-only transformer`

@@ -51,6 +51,12 @@
       "title": "Thermometer of Thoughts: Enhancing LLM’s Exploration via Attention Temperature Modulation"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.1063",
+      "kind": "paper",
+      "note": "SelfBudgeter trains a reasoning model to emit its own predicted token budget before answering (<budget>N</budget><solution>...</solution>) via a cold-start plus budget-guided GRPO pipeline, cutting response length ~61% on math benchmarks while preserving or improving accuracy, and letting users see the estimated wait time or pre-fill a hard budget upfront.",
+      "title": "SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning"
+    },
+    {
       "id": "title:0bc5d9b198744bed",
       "kind": "paper",
       "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
@@ -125,7 +131,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-08-28T01:36:19Z",
   "name": "GPQA",
   "related": [
     "length-explosion",
@@ -282,6 +288,20 @@
     "qwen3-1-7b",
     "deepseek-r1-distilled-qwen-1-5b",
     "deepseek-r1-evaluator-judge",
+    "self-estimated-token-budget",
+    "budget-guided-grpo",
+    "precise-budget-control-preb-reward",
+    "reward-hacking-via-loose-length-tolerance",
+    "dynamic-alpha-schedule",
+    "budget-guided-grpo-with-preb-reward",
+    "cold-start-sft",
+    "l1-baseline-prompt-templated-length-limit",
+    "e1-math-baseline-hard-truncation-length-control",
+    "s1k-1-1",
+    "still-3-preview-rl-data",
+    "score",
+    "eurus-2-7b-prime",
+    "qwen-2-5-7b-simple-rl",
     "adaptive-thinking",
     "thinking-mode-switching",
     "reward-shaping",

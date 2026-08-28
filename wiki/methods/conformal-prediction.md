@@ -9,7 +9,7 @@ In this archive conformal prediction is used not to produce prediction sets but 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Confidence Thresholding](confidence-thresholding.md), [early stopping](../concepts/early-stopping.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [MATH](../datasets/math.md), [MMLU](../datasets/mmlu.md), [Overthinking](../concepts/overthinking.md), [rejection sampling](rejection-sampling.md), [Test-Time Compute](../concepts/test-time-compute.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
+**Related**: [abstention](../concepts/abstention.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [Confidence Calibration](../concepts/confidence-calibration.md), [Confidence Thresholding](confidence-thresholding.md), [early stopping](../concepts/early-stopping.md), [GPQA](../datasets/gpqa.md), [GSM-MC](../datasets/gsm-mc.md), [GSM8K](../datasets/gsm8k.md), [HLE](../datasets/hle.md), [MATH](../datasets/math.md), [MMLU](../datasets/mmlu.md), [Overthinking](../concepts/overthinking.md), [rejection sampling](rejection-sampling.md), [Test-Time Compute](../concepts/test-time-compute.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [UMWP](../datasets/umwp.md), [Uncertainty Quantification](../concepts/uncertainty-quantification.md)
 
 ## Appears in
 

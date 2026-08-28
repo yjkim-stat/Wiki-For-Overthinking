@@ -46,7 +46,7 @@ Leakage is evaluated only for English corpora, English-trained LMs, and reading-
 
 - **Concepts**: inverse scaling (LM size vs. surprisal-reading-time fit), data leakage (pretraining-corpus overlap with evaluation stimuli), Compacted Directed Acyclic Word Graph (CDAWG) overlap querying, leakage-free training data
 - **Methods**: Compacted Directed Acyclic Word Graph (CDAWG) sequence indexing, linear mixed-effects regression (surprisal fit to reading times), leakage-free data filtering, artificial leakage induction via fine-tuning
-- **Datasets**: Dundee Corpus, Brown Corpus (Smith and Levy), GECO, Provo Corpus, Natural Stories, The Pile (Pythia training subset), OpenWebText Corpus (GPT-2 replication)
+- **Datasets**: Dundee Corpus, Brown Corpus (Smith and Levy), GECO, [Provo Corpus](../../../../wiki/datasets/provo-corpus.md), Natural Stories, The Pile (Pythia training subset), OpenWebText Corpus (GPT-2 replication)
 
 Tags: `inverse-scaling`, `psycholinguistics`, `data-leakage`, `reading-times`, `surprisal`
 

@@ -1,0 +1,51 @@
+{
+  "concepts": [
+    "compute-accuracy Pareto front",
+    "overthinking phenomenon (task-difficulty-dependent compute benefit)",
+    "difficulty-adaptive test-time-compute routing",
+    "mixture-of-agents (MoA) proposer/aggregator ratio",
+    "memory-transfer-aware compute estimation"
+  ],
+  "contributions": [
+    "a systematic, matched-compute-budget comparison of four test-time-scaling pipelines (self-consistency, self-refinement, debate, mixture-of-agents) across 34 configurations and over 100 evaluations, using a compute-cost estimate that accounts for memory-transfer time alongside FLOPs",
+    "identification of mixture-of-agents as the most Pareto-efficient pipeline overall, with a specific design guideline (proposer-model count exceeding layer count by one) for Pareto-optimal MoA configurations",
+    "evidence that harder tasks gain substantially more accuracy from added test-time compute than easy tasks, motivating difficulty-adaptive compute allocation",
+    "a negative result that self-refinement underperforms plain chain-of-thought despite using more compute, and that debate should scale agents (parallel) rather than rounds (sequential, context-accumulating)",
+    "a finding that, for the tested model family, a larger base model with no test-time scaling can be more compute-efficient than heavily test-time-scaling a smaller model, and that within MoA, proposer-model quality matters more than aggregator-model quality"
+  ],
+  "datasets": [
+    "MMLU-Pro",
+    "BBH (Big-Bench Hard)"
+  ],
+  "generated_at": "2026-08-28T01:33:18Z",
+  "generated_by": "queue",
+  "limitations": "Multi-agent systems are computationally expensive to run at scale, so the study uses a randomly-shuffled 1,000-question sample of MMLU-Pro rather than the full benchmark, with resulting confidence intervals reported in the paper's limitations section. Findings are demonstrated with models from a single family (Llama 3.1, 8B and 70B) specifically to isolate test-time-compute scaling effects from confounding model-capacity differences, so generalization to other model families or to substantially larger/smaller model pairs is not directly tested; the paper also notes quantization differences between the 8B and 70B setups may have affected the model-size comparison.",
+  "method": "Compares four inference-time-scaling pipelines under matched compute budgets, varying three scaling levers: pipeline choice, pipeline parameters (self-consistency sequences; self-refinement iterations; debate agents and rounds; MoA proposer models and layers), and model size (Llama 3.1 70B primary, 8B for robustness checks). Compute cost is estimated as runtime combining both FLOPs and memory-transfer time (weight movement from GPU memory to compute cores), a closer proxy to real deployment latency than FLOPs alone. Evaluated zero-shot (temperature 0.7, top-p 0.95) on MMLU-Pro (primary, 1,000 sampled questions) and BBH (robustness check), extracting final multiple-choice answers by highest log-likelihood. Task difficulty is estimated by CoT solve rate over 20 repetitions per question, binned into easy (>75%), medium (25-75%), hard (<25%), to analyze whether harder tasks benefit more from added test-time compute -- motivated explicitly by concern for an 'overthinking phenomenon' where some tasks might not benefit from, or could even suffer from, increased compute usage.",
+  "methods": [
+    "self-consistency",
+    "self-refinement",
+    "multi-agent debate",
+    "mixture-of-agents (MoA)",
+    "chain-of-thought (CoT, baseline)"
+  ],
+  "models": [
+    "Llama 3.1 70B",
+    "Llama 3.1 8B"
+  ],
+  "one_liner": "A systematic Pareto-front analysis of four test-time-scaling pipelines (self-consistency, self-refinement, debate, mixture-of-agents) across 34 configurations finds mixture-of-agents dominates the compute-accuracy frontier (+7.1pp over CoT at 15-20x compute, beating self-consistency and debate by 2.7pp/1.4pp at matched budgets), that debate should scale agents rather than rounds, that MoA is Pareto-optimal when proposer models outnumber layers by one, and that harder tasks benefit far more from added test-time compute than easy ones (+9.0pp vs. +2.2pp), while self-refinement underperforms even the plain chain-of-thought baseline throughout.",
+  "paper_id": "doi:10.18653/v1/2026.acl-srw.1",
+  "problem": "Inference-time scaling methods (self-consistency, self-refinement, debate, mixture-of-agents) are typically evaluated in isolation on raw accuracy rather than compute-accuracy tradeoffs, use wildly different and often unreported compute budgets, and existing efficiency studies mostly measure only FLOPs rather than accounting for memory-transfer costs that materially affect real runtime -- leaving practitioners without practical guidance on which method and parameterization to choose under a fixed compute budget.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly relevant: the study is explicitly motivated by the possibility of an 'overthinking phenomenon' where some tasks do not benefit from, or even suffer from, increased test-time compute, and its difficulty-stratified results (large gains on hard tasks, marginal gains on easy ones) give a quantified, per-difficulty-tier picture of exactly where test-time compute stops paying off -- directly supporting difficulty-adaptive compute-routing approaches referenced elsewhere in this archive, and extending the accuracy/efficiency tradeoff question from single-trace length scaling to the choice and parameterization of multi-agent test-time-scaling architectures."
+  },
+  "results": "On MMLU-Pro, at the highest evaluated budgets (~15-20x CoT compute), MoA reaches 71.4% accuracy (5 models, 4 layers) versus CoT's 64.3% (+7.1pp), outperforming self-consistency's 68.7% (10 sequences, +4.4pp over CoT) and debate's 70.0% (4 agents, 2 rounds, +5.7pp over CoT); under directly comparable compute budgets, debate and MoA outperform self-consistency by +1.3pp and +2.7pp respectively. Self-refinement consistently underperforms the plain CoT baseline throughout, despite requiring more compute than CoT -- an explicit negative result for iterative self-improvement without external agents. Self-consistency and debate both saturate (around 10 sequences / 4 agents respectively), while MoA continues to improve nearly linearly up to 5 models and 4 layers, and MoA configurations consistently sit closer to the Pareto-front than self-consistency across the full tested compute range. Difficulty-stratified analysis confirms compute scaling helps harder tasks far more: at 15-20x CoT compute, easy tasks gain only +2.2pp (94.4%->96.6%), medium tasks gain +8.5pp (53.0%->62.1%, i.e. accuracy improves modestly in relative terms), and hard tasks gain +9.0pp (8.4%->17.4%, more than doubling relative accuracy) -- evidence that additional test-time compute is disproportionately valuable for challenging problems and that easy-task gains are marginal enough to motivate a difficulty-adaptive compute-routing approach. For debate specifically, scaling the number of agents up to four improves accuracy while scaling rounds (with agents retaining full prior-exchange memory, which expands context and compute) degrades or has no effect -- the practical recommendation is to prioritize scaling agents over rounds. For MoA, Pareto-optimal configurations are found specifically where the number of proposer models exceeds the number of layers by exactly one (3 models/2 layers, 4 models/3 layers, 5 models/4 layers), a pattern that holds (2 of 3 points on the Pareto-front) when replicated on BBH and with an 8B model. Comparing model scale versus test-time compute: the heavily-scaled 8B model never exceeds ~53% accuracy on MMLU-Pro across any tested pipeline/parameter configuration, remaining below even the plain 70B CoT baseline (64.3%) and about 13% less accurate than the 70B CoT pipeline at matched compute budget -- i.e. for this model family, choosing a larger base model is more compute-efficient than heavily scaling test-time compute on a smaller one, contrasting with some prior work reporting the opposite. Within MoA, proposer-model size matters far more than aggregator-model size: swapping only the aggregator from 70B to 8B drops accuracy just 71.4%->69.6%, while swapping only the proposers to 8B (keeping a 70B aggregator) drops it to 52.9%, and swapping both drops it to 51.2% -- because a strong aggregator cannot recover information quality already lost by weak proposers, and because the aggregator, appearing only once in the final layer, contributes a small fraction of total generations (1/16 in the 5-model/4-layer configuration) so its size affects total compute less.",
+  "schema_version": 1,
+  "tags": [
+    "test-time-scaling",
+    "multi-agent",
+    "compute-efficiency",
+    "pareto-optimality",
+    "overthinking"
+  ]
+}
