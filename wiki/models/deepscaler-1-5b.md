@@ -8,7 +8,7 @@ DeepScaleR-1.5B is cited in this archive as one of the models evaluated for robu
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [ARC-C](../datasets/arc-c.md), [BBH](../datasets/bbh.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [Olympiad](../datasets/olympiad.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [ARC-C](../datasets/arc-c.md), [BBH](../datasets/bbh.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [Gemini-2.5-Flash-Thinking](gemini-2-5-flash-thinking.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench (v5)](../datasets/livecodebench-v5.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [Olympiad](../datasets/olympiad.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md)
 
 ## Appears in
 

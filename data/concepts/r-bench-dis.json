@@ -1,0 +1,63 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1717",
+      "kind": "paper",
+      "note": "RECAP mitigates the general-capability forgetting (perception, grounding, safety) that RLVR-based reasoning fine-tuning causes in vision-language models, by replaying general-domain data alongside the reasoning objective and dynamically reweighting each objective's loss based on its recent convergence rate and instability -- an entropy-regularized priority allocation that provably reduces to a closed-form softmax -- preserving or improving general capabilities while matching or exceeding reasoning-only fine-tuning's math/reasoning performance, and, as a side effect, producing shorter, more concise reasoning rationales without compromising reasoning ability.",
+      "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "R-Bench-Dis",
+  "related": [
+    "general-capability-forgetting-in-rlvr-fine-tuning",
+    "experience-replay-for-rl-post-training",
+    "dynamic-objective-reweighting",
+    "convergence-rate-and-instability-signals",
+    "entropy-regularized-priority-allocation",
+    "recap-replay-enhanced-capability-preservation",
+    "grpo-rlvr-backbone",
+    "lwf-kl-regularization-baseline",
+    "uniform-sampling-baseline",
+    "propmix-baseline",
+    "coreset-replay-baseline",
+    "modomodo-upper-bound-reference",
+    "thinklite-vl-70k-hybrid-setting-reasoning-training",
+    "refcoco-llava-onevision-ocr-replayed-general-data",
+    "a-okvqa",
+    "aesbench",
+    "vstar",
+    "visonlyqa",
+    "ocrbench",
+    "lisa",
+    "mmmu-pro",
+    "ai2d",
+    "mathvista",
+    "mathvision",
+    "mathverse",
+    "mmbench",
+    "vizwiz",
+    "ocrbenchv2",
+    "sat",
+    "scienceqa",
+    "chartqa",
+    "infovqa",
+    "mmmu",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b",
+    "mimo-vl-7b-reference",
+    "vlaa-thinker-7b-reference",
+    "vision-r1-7b-reference",
+    "openvlthinker-7b-reference"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "r-bench-dis",
+  "topics": [
+    "overthinking"
+  ]
+}

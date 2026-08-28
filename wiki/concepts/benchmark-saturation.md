@@ -8,7 +8,7 @@ Benchmark saturation -- top models scoring so high on a benchmark (e.g. AIME24/2
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Claude-Opus-4.5](../models/claude-opus-4-5.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini-3-Pro](../models/gemini-3-pro.md), [GLM-4.6](../models/glm-4-6.md), [HMMT25](../datasets/hmmt25.md), [Kimi-K2-Thinking](../models/kimi-k2-thinking.md), [MATH500](../datasets/math500.md), [o3-mini](../models/o3-mini.md), [o4-mini](../models/o4-mini.md), [reasoning graph](reasoning-graph.md), [reasoning graph extraction](../methods/reasoning-graph-extraction.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Claude-Opus-4.5](../models/claude-opus-4-5.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-V3.2-Speciale](../models/deepseek-v3-2-speciale.md), [Gemini-3-Pro](../models/gemini-3-pro.md), [GLM-4.6](../models/glm-4-6.md), [HMMT25](../datasets/hmmt25.md), [Kimi-K2-Thinking](../models/kimi-k2-thinking.md), [MATH500](../datasets/math500.md), [o3-mini](../models/o3-mini.md), [o4-mini](../models/o4-mini.md), [reasoning graph](reasoning-graph.md), [reasoning graph extraction](../methods/reasoning-graph-extraction.md)
 
 ## Appears in
 

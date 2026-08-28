@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Pass@k"
+    "Pass@k",
+    "Pass@K"
   ],
   "definition": "The fraction of problems a model solves correctly in at least one of K independent samples, used to measure a model's capability ceiling under parallel test-time compute, as distinct from Pass@1's single-sample accuracy. The on-policy-distillation study uses pass@K/avg@K analysis to show distillation improves sampling efficiency at small K but not the capability boundary at large K; 'The Danger of Overthinking' uses it to evaluate agentic SWE-bench solutions.",
   "evidence": [
@@ -11,6 +12,12 @@
       "title": "Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.1766",
+      "kind": "paper",
+      "note": "TTC-aware training projects a model's expected validation accuracy under test-time compute (via an exponential-saturation curve fit to intermediate checkpoints) to identify an early-stopping point where an intermediate checkpoint plus TTC inference matches or exceeds a fully-trained checkpoint's accuracy at a fraction of training FLOPs -- up to 92% training-FLOP savings while preserving or improving accuracy, validated across TinyLlama, Pythia, FineMath, and a fine-tuned Qwen3-30B-A3B-Instruct.",
+      "title": "FLOP-Efficient Training: Early Stopping Based on Test-Time Compute Awareness"
+    },
+    {
       "id": "local:9f60265e5ada34cb",
       "kind": "paper",
       "note": "Defines and measures 'overthinking' in Large Reasoning Models on real software-engineering agent tasks, showing that favoring internal reasoning over environment interaction correlates with lower SWE-bench issue-resolution rates and can be mitigated at lower cost.",
@@ -19,7 +26,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "pass@K",
   "related": [
     "on-policy-distillation-opd",
@@ -39,6 +46,28 @@
     "aime-2025",
     "aime-2026",
     "dapo-math-17k-opd-training-set",
+    "test-time-compute-ttc-awareness",
+    "ttc-aware-early-stopping",
+    "exponential-saturation-accuracy-projection",
+    "optimal-sample-count-k-estimation",
+    "break-even-bound-training-vs-inference-compute",
+    "monotonic-fluctuation-filtering",
+    "ttc-aware-early-stopping-exponential-saturation-curve-fitting",
+    "sigmoid-fit-optimal-k-estimation",
+    "diverse-tree-search-dvts-naive-and-weighted",
+    "compute-optimal-search-cts",
+    "majority-voting",
+    "humaneval",
+    "drop",
+    "math500",
+    "gsm8k",
+    "slimpajama-starcoder-tinyllama-pretraining",
+    "the-pile-pythia-pretraining",
+    "fineweb-edu-finemath-continued-training",
+    "tinyllama-1b",
+    "pythia-1b-2-8b-6-9b",
+    "finemath-llama-3-based-10b-30b-40b-50b-token-checkpoints",
+    "qwen3-30b-a3b-instruct",
     "overthinking",
     "reasoning-action-dilemma",
     "analysis-paralysis",

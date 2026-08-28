@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+LC-R1 is used in these sources as a length-control RL baseline for efficient reasoning: SGP-CoT and SIGMA both compare their own methods' accuracy-length trade-offs against LC-R1 among other RL-based efficient-reasoning baselines; LC-R1's own contribution (elsewhere in this archive) is a dual Length Reward plus Compress Reward GRPO method targeting 'invalid thinking' (redundant post-answer double-checking).
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

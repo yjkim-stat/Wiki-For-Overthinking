@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1605",
+      "kind": "paper",
+      "note": "SpiralThinker interleaves explicit textual reasoning steps with implicit latent-token steps (rather than picking one mode exclusively, which the paper frames as risking overthinking in verbose textual frameworks or underthinking in purely latent ones), iteratively refining the latent representations across K passes with no new tokens generated, and stabilizes this via a progressive alignment objective that pulls each iteration's latent hidden state toward its corresponding explicit-reasoning-step hidden state (weighted to emphasize later, more consolidated iterations) -- beating five latent-reasoning baselines on GSM8K-Aug/ProsQA/StrategyQA, with ablations showing iteration alone can degrade performance and only iteration-plus-alignment together deliver the gains.",
+      "title": "SpiralThinker: Latent Reasoning through an Iterative Process with Text–Latent Interleaving"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "GSM8K-Aug",
+  "related": [
+    "overthinking-in-purely-textual-reasoning-frameworks",
+    "underthinking-in-purely-latent-reasoning",
+    "text-latent-interleaving",
+    "iterative-latent-reasoning",
+    "progressive-alignment-objective",
+    "latent-adapter",
+    "spiralthinker-iterative-latent-reasoning-progressive-alignment",
+    "icot-kd-baseline",
+    "icot-si-baseline",
+    "token-assorted-baseline",
+    "coconut-baseline",
+    "codi-baseline",
+    "pause-token-baseline",
+    "prosqa",
+    "strategyqa",
+    "llama-3-2-1b-backbone-lora-fine-tuned"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "gsm8k-aug",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -47,7 +47,7 @@ The Dynamic Truncated Rollout mechanism introduces a marginal increase in traini
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), syntactic blindness, capability collapse, semantic step, dynamic truncated rollout, step-aware relative reward, training collapse
 - **Methods**: [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo.md), GRPO+LP (length penalty), GRPO+SOP (Soft Overlong Punishment, DAPO), [GRPO-λ](../../../../wiki/methods/grpo.md), DEER+SFT (rejection-sampling distillation baseline), Dynamic Truncated Rollout, Step-Aware Relative Reward
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA (Diamond)](../../../../wiki/datasets/gpqa-diamond.md), DAPO-Math-17k (training)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA (Diamond)](../../../../wiki/datasets/gpqa-diamond.md), [DAPO-Math-17k (training)](../../../../wiki/datasets/dapo-math-17k-training.md)
 
 Tags: `overthinking`, `early-exit`, `reinforcement-learning`, `GRPO`, `reasoning-efficiency`, `length-control`
 

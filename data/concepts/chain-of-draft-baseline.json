@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "WHISPER treats a large reasoning model purely as a black-box communicator and mitigates overthinking with no training or model access at all, using an iterative refinement loop over persuasive prompts (psychological, evidence-based, role-play, threat, instruction) that finds a single deployable prompt suffix cutting response length up to 3x on simple questions with preserved accuracy.",
       "title": "Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1866",
+      "kind": "paper",
+      "note": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
+      "title": "Steering LLM Thinking with Budget Guidance"
     }
   ],
   "first_seen": "2026-08-28T01:36:19Z",
   "kind": "method",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "Chain-of-Draft (baseline)",
   "related": [
     "overthinking",
@@ -38,7 +44,26 @@
     "qwen3-32b",
     "claude-3-7-sonnet-thinking",
     "gemini-2-5-pro-thinking",
-    "gpt-4o-prompt-generator"
+    "gpt-4o-prompt-generator",
+    "budget-guidance-classifier-guidance-analog-for-llm-reasoning",
+    "budget-conditional-generation",
+    "auxiliary-thinking-length-predictor",
+    "gamma-distributed-remaining-length-modeling",
+    "soft-token-level-steering-vs-hard-budget-forcing",
+    "budget-guidance-classifier-guidance-inspired",
+    "budget-forcing-baseline",
+    "tale-ep-baseline",
+    "seal-baseline",
+    "dynasor-baseline",
+    "openr1-math-220k-training",
+    "amc",
+    "olympiadbench",
+    "folio",
+    "tablebench",
+    "livecodebench",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b",
+    "bert-base-predictor-backbone"
   ],
   "related_authored": [],
   "schema_version": 1,

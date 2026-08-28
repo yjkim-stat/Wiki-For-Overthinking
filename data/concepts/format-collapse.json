@@ -2,7 +2,7 @@
   "aliases": [
     "Format Collapse"
   ],
-  "definition": "",
+  "definition": "Format collapse is the failure mode, in adaptive-reasoning-format training, where a model trained via standard GRPO to choose among multiple reasoning formats disproportionately favors whichever format earns the highest reward during training and stops exploring the others. ARM2 addresses it directly with a format-encouragement reward term (in GRPO-alp) that scales reward inversely by how often a format already appears within its response group, and ARM's Ada-GRPO is cited as a related format-adaptive training approach facing the same risk.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1365",

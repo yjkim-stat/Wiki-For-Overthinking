@@ -8,7 +8,7 @@ Beam search is cited as one of several test-time search strategies whose behavio
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Best-of-N sampling](best-of-n-sampling.md), [best-of-n selection](best-of-n-selection.md), [COCONUT](coconut.md), [CODI](codi.md), [CoLaR](colar.md), [GSM8K-Test](../datasets/gsm8k-test.md), [majority voting (baseline)](majority-voting-baseline.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md)
+**Related**: [Best-of-N sampling](best-of-n-sampling.md), [best-of-n selection](best-of-n-selection.md), [COCONUT](coconut.md), [CODI](codi.md), [CoLaR](colar.md), [GSM8K-Hard](../datasets/gsm8k-hard.md), [GSM8K-Test](../datasets/gsm8k-test.md), [majority voting (baseline)](majority-voting-baseline.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md)
 
 ## Appears in
 

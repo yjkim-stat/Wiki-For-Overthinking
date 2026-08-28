@@ -1,0 +1,64 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-474.pdf"
+  },
+  "created_at": "2026-08-28T02:36:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.474",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large language models (LLMs) exhibit strong reasoning when guided by chain-of-thought exemplars, yet collecting large, high-quality reasoning datasets remains laborious and resource-intensive. We introduce Prompting Test-Time Scaling (P-TTS), a prompt-space data augmentation framework for enhancing LLM reasoning via fine-tuning. In P-TTS, scaling refers to systematic expansion of the prompt space during offline teacher-data generation, not to increased inference-time compute for the deployed student. Rather than collecting thousands of examples, P-TTS starts from a small pool of 90 manually selected reasoning instances and applies principled instruction templates and paraphrased prompt variants to elicit diverse reasoning trajectories from a teacher model, producing a compact synthetic training set. We fine-tune Qwen-2.5 models of multiple sizes on the resulting data. On reasoning benchmarks including AIME25, MATH500, and GPQA-Diamond, P-TTS consistently improves accuracy over competitive small-data baselines such as S1 and S1.1 (1K-shot), with the largest gains on AIME25 while remaining strong on MATH500 and GPQA-Diamond. P-TTS also improves generalization on out-of-domain reasoning evaluations. Ablations show that exemplar diversity and prompt-space scaling are critical drivers of improvement, suggesting that prompt scaling explores the latent space of reasoning patterns, amplifying LLM problem-solving with minimal annotation overhead. P-TTS offers a practical, low-cost way to elicit strong LLM reasoning in resource-constrained or rapidly evolving domains. Our code and data are available at https://github.com/VILA-Lab/PTTS.",
+    "authors": [
+      "Sondos Mahmoud Bsharat",
+      "Zhiqiang Shen"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.474.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Prompting Test-Time Scaling Is A Strong LLM Reasoning Data Augmentation",
+    "url": "https://aclanthology.org/2026.findings-acl.474/",
+    "venue": "ACL"
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-474",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

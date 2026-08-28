@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.196",
+      "kind": "paper",
+      "note": "DRP has a teacher LLM (e.g. GPT-4o) revise the *student's own* long, verbose reasoning traces -- first decomposed into skill-labeled steps (e.g. 'reading given quantity'), then keep/delete/rewrite/merge-pruned per step, preserving reasoning structure rather than collapsing it -- and distills the pruned, student-style trace back into the student, achieving both higher accuracy and 28-64% fewer tokens versus prompt-based, SFT-based, and RL-based token-efficient baselines, while a direct-distillation ablation (student trained on the teacher's own concise CoTs, not the student's pruned ones) generalizes far worse out-of-distribution.",
+      "title": "DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "style mismatch (teacher-student learnability gap)",
+  "related": [
+    "overthinking",
+    "skill-based-step-decomposition",
+    "step-level-pruning-keep-delete-rewrite-merge",
+    "trajectory-aware-distillation",
+    "reasoning-structure-preservation",
+    "distilled-reasoning-pruning-drp",
+    "tale-prompt-based-baseline",
+    "cot-valve-sft-based-baseline",
+    "thinkprune-rl-based-baseline",
+    "direct-distillation-ablation",
+    "gsm8k-training",
+    "prm12k-training",
+    "math500-ood",
+    "aime24-ood",
+    "amc23-ood",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "gpt-4o-primary-teacher",
+    "gemini-2-0-flash-teacher",
+    "chatgpt-teacher",
+    "deepseek-v3-teacher"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "style-mismatch-teacher-student-learnability-gap",
+  "topics": [
+    "overthinking"
+  ]
+}

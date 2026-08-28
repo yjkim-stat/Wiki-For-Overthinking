@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2098",
+      "kind": "paper",
+      "note": "Tandem replaces full LLM reasoning with a mentor-intern collaboration: a large LLM emits only compact, staged 'thinking insights' (Goal/Planning/Retrieval/Action, at increasing effort levels) rather than its full verbose trace, a small classifier reads the SLM's own perplexity/entropy statistics under each stage's guidance to judge when it is sufficient, and the SLM completes the reasoning and final answer -- reaching 2.56 points higher accuracy than the 32B LLM alone on MATH while using only 59% of its compute, transferring cross-family and cross-domain (MATH-trained classifier applied unmodified to HumanEval) without retraining.",
+      "title": "Tandem: Riding Together with Large and Small Language Models for Efficient Reasoning"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "mentor-intern architecture",
+  "related": [
+    "overthinking-mentor-intern-reasoning-collaboration-as-mitigation",
+    "thinking-insight-goal-planning-retrieval-action",
+    "cost-aware-continual-judgment",
+    "sufficiency-classification-via-perplexity-entropy-statistics",
+    "insight-cutoff-staged-effort-levels",
+    "tandem-mentor-intern-collaborative-reasoning",
+    "cost-aware-sufficiency-classifier-mlp-on-perplexity-entropy-features",
+    "fixed-effort-level-baselines-low-medium-high",
+    "math-7-5k-train-5k-test-seven-subjects",
+    "gsm8k",
+    "humaneval-cross-domain-evaluation-164-problems",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "gpt-4o-mini-api-mentor",
+    "gpt-oss-120b-api-mentor"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "mentor-intern-architecture",
+  "topics": [
+    "overthinking"
+  ]
+}

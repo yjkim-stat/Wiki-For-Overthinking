@@ -1,0 +1,145 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1717.pdf"
+  },
+  "completed_at": "2026-08-28T02:21:04Z",
+  "created_at": "2026-08-28T02:05:37Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1717",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) has delivered impressive gains in mathematical and multimodal reasoning and has become a standard post-training paradigm for contemporary language and vision-language models. However, the RLVR recipe introduces a significant risk of capability regression, where models forget foundational skills after prolonged training without employing regularization strategies. We empirically confirm this concern, observing that open-source reasoning models suffer performance degradation on core capabilities such as perception and faithfulness. While imposing regularization terms like KL divergence can help prevent deviation from the base model, these terms are calculated on the current task, thus they do not guarantee broader knowledge. Meanwhile, commonly used experience replay across heterogeneous domains makes it nontrivial to decide how much training focus each objective should receive. To address this, we propose RECAP—a replay strategy with dynamic objective reweighting for general knowledge preservation. Our reweighting mechanism adapts in an online manner using short-horizon signals of convergence and instability, shifting the post-training focus away from saturated objectives and toward underperforming or volatile ones. Our method is end-to-end and readily applicable to existing RLVR pipelines without training additional models or heavy tuning. Extensive experiments on benchmarks based on Qwen2.5-VL-3B and Qwen2.5-VL-7B demonstrate the effectiveness of our method, which not only preserves general capabilities but also improves reasoning by enabling more flexible trade-offs among in-task rewards.",
+    "authors": [
+      "Hoang Phan",
+      "Xianjun Yang",
+      "Yuanshun Yao",
+      "Jingyu Zhang",
+      "Shengjie Bi",
+      "Xiaocheng Tang",
+      "Madian Khabsa",
+      "Lijuan Liu",
+      "Deren Lei"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1717.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Beyond Reasoning Gains: Mitigating General-Capability Forgetting in Large Reasoning Models",
+    "url": "https://aclanthology.org/2026.findings-acl.1717/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "general-capability forgetting (in RLVR fine-tuning)",
+      "experience replay for RL post-training",
+      "dynamic objective reweighting",
+      "convergence rate and instability signals",
+      "entropy-regularized priority allocation"
+    ],
+    "contributions": [
+      "a systematic re-evaluation showing reasoning-focused RLVR/SFT fine-tuning of open-source vision-language reasoning models consistently regresses general (non-reasoning) capabilities such as perception and distribution-shift robustness, and that KL-divergence regularization does not reliably prevent this since it is computed only with respect to the current task",
+      "RECAP, a replay-based training strategy that mixes general-capability data into the RLVR objective and dynamically reweights all objectives (reasoning and general) based on each objective's measured convergence rate and instability over a sliding training window",
+      "a formal proof that this reweighting rule is the closed-form solution of an entropy-regularized priority-allocation optimization problem, giving the heuristic softmax weighting scheme a principled derivation",
+      "empirical results across RLVR-only and larger hybrid RLVR+SFT settings on two VLM scales showing RECAP preserves or improves general capabilities while matching or exceeding reasoning-only fine-tuning's reasoning performance, outperforming established continual-learning baselines (Uniform, PropMix, Coreset, LwF/KL-regularization) under matched pipelines"
+    ],
+    "datasets": [
+      "ThinkLite-VL-70k (hybrid-setting reasoning training)",
+      "RefCOCO / LLaVA-OneVision OCR (replayed general data)",
+      "A-OKVQA",
+      "AesBench",
+      "VStar",
+      "VisOnlyQA",
+      "OCRBench",
+      "R-Bench-Dis",
+      "LISA",
+      "MMMU-Pro",
+      "AI2D",
+      "MathVista",
+      "MathVision",
+      "MathVerse",
+      "MMBench",
+      "VizWiz",
+      "OCRBenchv2",
+      "SAT",
+      "ScienceQA",
+      "ChartQA",
+      "InfoVQA",
+      "MMMU"
+    ],
+    "limitations": "The paper's entropy-regularized reweighting introduces a temperature hyperparameter T controlling how sharply priorities concentrate on underperforming/unstable objectives versus approaching uniform mixing as T grows; the paper sets T=5 by default across experiments without an extensive per-setting sensitivity study reported in the excerpted material. The method's priority signals (convergence rate, instability) are computed over a sliding window of fixed length W, introducing another hyperparameter whose sensitivity is not deeply explored. Evaluation is conducted specifically on Qwen2.5-VL-3B/7B vision-language models across RLVR and hybrid RLVR+SFT settings; generalization to purely text-only large reasoning models or substantially different base architectures is not directly reported within the paper's own experiments.",
+    "method": "Confirms the forgetting problem empirically: reasoning-tuned variants of Qwen2.5-VL-3B/7B and other open-source reasoning VLMs generally underperform their base models on six non-reasoning benchmarks (knowledge-based VQA, image aesthetics, spatio-temporal reasoning, vision-only recognition, text recognition, distribution-shift robustness), with a consistent drop on VisOnlyQA across both model families and, in an initial RLVR-only Qwen2.5-VL-7B experiment, a 7-point perception-task degradation that intensifies over training steps (IoU dropping steadily from 65.1 to 57.6 over 500 steps under reasoning-only fine-tuning). RECAP (Replay-Enhanced CApability Preservation) replays general-domain data (object detection, segmentation, OCR) alongside the target reasoning task during RLVR, then dynamically reweights each objective's contribution to the total loss based on two measured signals computed over a sliding window: convergence rate c_k (how much an objective's loss has recently improved relative to an earlier window -- near-saturated objectives approach c~1) and inverse signal-to-noise ratio i_k (loss instability/coefficient of variation, larger when an objective is noisy or still fluctuating). These combine into a priority score s_k = c_k + i_k per objective, converted into normalized mixing weights lambda_k via a temperature-controlled softmax; the paper proves (Theorem 1) this reweighting rule is exactly the closed-form solution of an entropy-regularized priority-allocation optimization problem (maximizing a linear term favoring high-priority objectives plus an entropy term preventing collapse onto a single objective), not merely a heuristic normalization. The method requires no auxiliary models, is magnitude-agnostic across loss types (RL reward surrogates or supervised losses), and adds negligible overhead to existing RLVR pipelines. Evaluated in two settings: an RLVR-only setting (Qwen2.5-VL-3B, domain-specific RLVR per Liang et al. 2025's configuration, binary 0/1 rewards) and a larger hybrid setting (Qwen2.5-VL-7B, combining RLVR with SFT-style training on ThinkLite-VL-70k while jointly replaying perception-oriented data like RefCOCO and LLaVA-OneVision OCR).",
+    "methods": [
+      "RECAP (Replay-Enhanced CApability Preservation)",
+      "GRPO (RLVR backbone)",
+      "LwF / KL-regularization (baseline)",
+      "Uniform sampling (baseline)",
+      "PropMix (baseline)",
+      "Coreset replay (baseline)",
+      "MoDoMoDo (upper-bound reference)"
+    ],
+    "models": [
+      "Qwen2.5-VL-3B",
+      "Qwen2.5-VL-7B",
+      "MiMo-VL-7B (reference)",
+      "VLAA-Thinker-7B (reference)",
+      "Vision-R1-7B (reference)",
+      "OpenVLThinker-7B (reference)"
+    ],
+    "one_liner": "RECAP mitigates the general-capability forgetting (perception, grounding, safety) that RLVR-based reasoning fine-tuning causes in vision-language models, by replaying general-domain data alongside the reasoning objective and dynamically reweighting each objective's loss based on its recent convergence rate and instability -- an entropy-regularized priority allocation that provably reduces to a closed-form softmax -- preserving or improving general capabilities while matching or exceeding reasoning-only fine-tuning's math/reasoning performance, and, as a side effect, producing shorter, more concise reasoning rationales without compromising reasoning ability.",
+    "problem": "Reinforcement learning with verifiable rewards (RLVR) delivers strong gains in mathematical and multimodal reasoning for VLMs, but the paper confirms empirically that reasoning-focused RL fine-tuning causes measurable capability regression on non-target skills acquired during pretraining -- perception, spatio-temporal reasoning, OCR, distribution-shift robustness -- and that KL-divergence regularization toward the reference policy (the standard fix) does not guarantee preservation of this broader knowledge since it is computed only with respect to the current (reasoning) task, not general capability retention; separately, when general-capability data is replayed alongside the reasoning objective, deciding how much training focus each cross-domain objective should receive is non-trivial given their heterogeneous convergence behavior.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Only tangentially relevant: this paper's central concern is that reasoning-focused RL post-training degrades a vision-language model's non-reasoning perceptual and robustness capabilities, not reasoning-trace length or the accuracy/efficiency tradeoff of reasoning itself. Its brief, unexplored secondary finding -- that replaying general-capability data during RLVR yields shorter, more concise reasoning rationales without hurting reasoning ability -- is a data-mixture-level lever distinct from the length-penalty, budget, or step-level mechanisms this archive otherwise studies, worth noting but not elaborated by the paper itself."
+    },
+    "results": "In the RLVR-only setting, RECAP achieves the best or near-best performance across six benchmarks (SAT, ScienceQA, MathVista, ChartQA, InfoVQA, MMMU), notably lifting Qwen2.5-VL-3B's ScienceQA score from 6 (base model) to 71.99 -- exceeding even the compared open-source reasoning-specialized models and the reasoning-only fine-tuning baseline (65.74) -- while also achieving the best ChartQA (70.68) and InfoVQA (58.30) scores among the compared variants, evidence that RL training on the reasoning domain, when paired with replay, consistently enhances both reasoning and non-reasoning perception benchmarks simultaneously rather than trading one for the other. In the larger hybrid setting (Qwen2.5-VL-7B, nine perception/reasoning benchmarks), RECAP achieves the best or second-best score on nearly every benchmark except VizWiz (where it still improves over the base model by more than 10%), and specifically achieves the highest segmentation score (LISA IoU) among all compared methods and baselines, more than 2% above the base model's own score -- while naive reasoning-only fine-tuning (no replay) causes clear forgetting on tasks not requiring extensive reasoning, e.g. dropping LISA segmentation ability from 65.13 to 57.58. Compared against established continual-learning baselines under identical hyperparameters/pipelines (Uniform sampling, PropMix, Coreset replay, LwF/KL-regularization-based), RECAP outperforms all of them on the joint reasoning-and-perception evaluation; LwF (KL-regularization-based) achieves comparable scene-understanding performance to uniform sampling but noticeably lower reasoning-benchmark scores (e.g. 29.59 vs. RECAP/uniform's higher MMMU-PRO scores), consistent with the paper's claim that KL regularization toward the reference policy does not guarantee preserving broader (non-reasoning) knowledge since it constrains drift on the current task's distribution only. Training-dynamics analysis (tracking reward, convergence rate, and inverse signal-to-noise ratio for format, accuracy, IoU, and next-token-prediction objectives) directly validates the reweighting mechanism's motivating premise: the format-adherence reward is easiest to optimize and saturates within ~50 steps (convergence rate approaching 1, instability approaching 0), so RECAP automatically down-weights it once learned; the reasoning-accuracy reward remains the most volatile signal throughout training (~0.3 fluctuation) even after 100+ steps where other signals have plateaued, so it retains the highest RECAP priority and receives sustained training focus -- directly explaining why naive uniform or manually-tuned static weighting schemes are suboptimal in this cross-domain heterogeneous setting. As a secondary finding, replaying general-capability data during RLVR is observed to yield shorter, more concise reasoning rationales without compromising reasoning ability, though the paper does not further analyze the mechanism behind this length effect.",
+    "tags": [
+      "catastrophic-forgetting",
+      "reinforcement-learning",
+      "RLVR",
+      "vision-language-models",
+      "multi-objective-training",
+      "experience-replay"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1717",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

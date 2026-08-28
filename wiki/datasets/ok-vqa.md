@@ -8,7 +8,7 @@ A knowledge-based visual question answering benchmark used to evaluate vision-la
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [ARC-Challenge](arc-challenge.md), [Chain-of-Thought Distillation](../methods/chain-of-thought-distillation.md), [CommonsenseQA](commonsenseqa.md), [GQA](gqa.md), [GSM8K](gsm8k.md), [MATH](math.md), [Out-of-Distribution Generalization](../concepts/out-of-distribution-generalization.md), [StrategyQA](strategyqa.md)
+**Related**: [ARC-Challenge](arc-challenge.md), [Chain-of-Thought Distillation](../methods/chain-of-thought-distillation.md), [CommonsenseQA](commonsenseqa.md), [GQA](gqa.md), [GSM8K](gsm8k.md), [MATH](math.md), [Out-of-Distribution Generalization](../concepts/out-of-distribution-generalization.md), [StrategyQA](strategyqa.md), [VizWiz](vizwiz.md)
 
 ## Appears in
 

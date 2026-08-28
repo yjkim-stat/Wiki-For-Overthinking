@@ -45,8 +45,8 @@ The paper does not discuss limitations explicitly in the excerpted sections; its
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), exploration-exploitation reshaping (in token-efficient RL), self-imitation exploitation, compression ratio, dynamic priority table, self-guidance exploration
-- **Methods**: SIGMA (Self-Imitation and self-Guidance MechAnism), [GRPO](../../../../wiki/methods/grpo.md), SFT (baseline), [DPO (baseline)](../../../../wiki/methods/dpo-baseline.md), [DAPO (baseline)](../../../../wiki/methods/dapo-baseline.md), AdaptThink (baseline), LC-R1 (baseline), Laser-D / Laser-DE (baseline), JET (baseline)
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), exploration-exploitation reshaping (in token-efficient RL), self-imitation exploitation, [compression ratio](../../../../wiki/concepts/compression-ratio.md), dynamic priority table, self-guidance exploration
+- **Methods**: SIGMA (Self-Imitation and self-Guidance MechAnism), [GRPO](../../../../wiki/methods/grpo.md), [SFT (baseline)](../../../../wiki/methods/sft-baseline.md), [DPO (baseline)](../../../../wiki/methods/dpo-baseline.md), [DAPO (baseline)](../../../../wiki/methods/dapo-baseline.md), [AdaptThink (baseline)](../../../../wiki/methods/adaptthink-baseline.md), [LC-R1 (baseline)](../../../../wiki/methods/lc-r1-baseline.md), Laser-D / Laser-DE (baseline), JET (baseline)
 - **Datasets**: DeepScaleR-Preview-Dataset (training, ~40k problems), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AMC](../../../../wiki/datasets/amc.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `overthinking`, `reinforcement-learning`, `GRPO`, `self-imitation-learning`, `exploration-exploitation`, `length-control`

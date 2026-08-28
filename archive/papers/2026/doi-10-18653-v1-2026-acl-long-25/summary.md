@@ -46,7 +46,7 @@ Impact-score thresholds (tau_A, tau_C) require some tuning, though the paper rep
 ## Entities
 
 - **Concepts**: reasoning unit (semantic segmentation), Answer Impact / Coherence Impact (counterfactual likelihood scores), self-guided vs. externally-imposed pruning, coherence-aware buffered retention
-- **Methods**: SGP-CoT (Self-Guided Pruning + DPO), LC-R1 (baseline), L1-Exact / L1-Max (baseline), [Direct Preference Optimization (DPO)](../../../../wiki/methods/direct-preference-optimization-dpo.md)
+- **Methods**: SGP-CoT (Self-Guided Pruning + DPO), [LC-R1 (baseline)](../../../../wiki/methods/lc-r1-baseline.md), L1-Exact / L1-Max (baseline), [Direct Preference Optimization (DPO)](../../../../wiki/methods/direct-preference-optimization-dpo.md)
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MATH-500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), Mixture-of-Thoughts (science questions, training)
 
 Tags: `overthinking`, `efficient-reasoning`, `self-pruning`, `model-specific-redundancy`, `preference-optimization`

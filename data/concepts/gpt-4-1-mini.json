@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "GPT-4.1 Mini"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "LEGIT is a 24K-instance Korean legal-judgment-prediction benchmark that converts real court judgments into hierarchical legal issue trees, using them as fine-grained rubrics (issue coverage and issue correctness, alongside final-order correctness) to evaluate LLM reasoning traces with human-lawyer-level reliability, and shows retrieval-augmented generation and RL-with-rubrics have complementary effects on legal reasoning quality.",
       "title": "Evaluating Legal Reasoning Traces with Legal Issue Tree Rubrics"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1754",
+      "kind": "paper",
+      "note": "A test-time-compute-allocation framework unifies where to spend compute (which unresolved queries get more sampling) with how generation is performed there (conditioning new samples on in-context demonstrations retrieved, via semantic similarity, from other queries already solved during the same inference run) -- consistently beating uniform Best-of-N and a difficulty-adaptive elimination baseline in coverage-per-token across four model families and multiple math/coding/reasoning benchmarks, with gains concentrated early in test-time scaling.",
+      "title": "Adaptive Test-Time Compute Allocation with Evolving In-Context Demonstrations"
     }
   ],
   "first_seen": "2026-08-28T00:09:24Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:09:24Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "GPT-4.1-mini",
   "related": [
     "legal-issue-tree",
@@ -28,7 +36,26 @@
     "gemini-2-5-flash",
     "gemini-2-0-flash",
     "gemma-3-27b-12b-4b",
-    "exaone-3-5-32b-7-8b-2-4b"
+    "exaone-3-5-32b-7-8b-2-4b",
+    "adaptive-test-time-compute-allocation",
+    "evolving-in-context-demonstrations",
+    "self-adaptive-in-context-learning",
+    "coverage-test-time-scaling-metric",
+    "similarity-based-demonstration-selection",
+    "distributional-adaptation-vs-static-sampling",
+    "adaptive-test-time-compute-allocation-with-evolving-icl",
+    "best-of-n-uniform-baseline",
+    "elimination-elim-adaptive-allocation-baseline",
+    "temperature-adjustment-ablation-temp",
+    "self-consistency-aggregation",
+    "math500",
+    "livecodebench",
+    "minervamath",
+    "gpqa-diamond",
+    "reasoning-gym-custom-400-hard-difficulty-math-problems",
+    "gemini-2-5-flash-lite-thinking-and-non-thinking",
+    "gpt-5-nano",
+    "gemini-3-flash-reward-model"
   ],
   "related_authored": [],
   "schema_version": 1,

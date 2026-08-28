@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1956",
+      "kind": "paper",
+      "note": "Rhombus reformulates parallel test-time scaling as a communication-optimization problem: multiple Proposer instances and a central Synthesizer (all the same shared model, role-switched via system prompt) are co-trained end-to-end via GRPO with a hybrid local-plus-system reward and role-level advantage normalization, teaching Proposers to emit compact, decision-focused (rather than implicit, hard-to-verify) reasoning cues -- beating a token-budget-matched Long-CoT baseline by 6.0% accuracy while cutting wall-clock latency 39.4%, with the coordination gap between Proposer exploration potential and realized Synthesizer accuracy nearly eliminated (0.7% vs. 4.6% for an uncoordinated baseline).",
+      "title": "Rhombus: Incentivizing Coordination in Parallel Thinking through Reinforcement Learning"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "Rhombus (propose-and-synthesize co-training)",
+  "related": [
+    "coordination-gap",
+    "parallel-thinking-propose-and-synthesize",
+    "communication-optimization-in-multi-agent-rl",
+    "role-level-advantage-normalization",
+    "hybrid-local-plus-system-reward",
+    "communication-collapse",
+    "misleading-feedback-credit-assignment-failure-mode",
+    "grpo-with-role-level-advantage-normalization",
+    "long-cot-longcot-rl-baseline",
+    "parallel-r1-baseline",
+    "multiverse-baseline",
+    "parathinker-baseline",
+    "majority-voting-baseline-appendix",
+    "polaris-22k-sample-subset-training",
+    "deepscaler-preview-dataset-training",
+    "aime-2024",
+    "aime-2025",
+    "beyondaime",
+    "olympiadbench",
+    "prime-validation-split-apps-codecontests-codeforces-taco",
+    "qwen3-4b-instruct-2507",
+    "deepseek-r1-distilled-1-5b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "rhombus-propose-and-synthesize-co-training",
+  "topics": [
+    "overthinking"
+  ]
+}

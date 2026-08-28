@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DAPO-Math-17K is used in these sources as an RL training corpus for reasoning-efficiency methods: Step-GRPO selects its training data from it across three model scales, and the entropy-in-RLVR study trains Qwen2.5-Math-7B on it via GRPO to study clipping-threshold, off-policy-update, and data-diversity effects on entropy collapse.
 
 - **Kind**: dataset
 - **Also called**: DAPO-Math-17K (training)

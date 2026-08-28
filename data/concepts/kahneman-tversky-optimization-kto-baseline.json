@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.204",
+      "kind": "paper",
+      "note": "MR-ALIGN names and measures the 'reasoning-answer hit gap' -- a model surfaces the correct fact early in its thinking trace but discards it before the final answer -- and fixes it by segmenting reasoning into 15 cognitively-grounded meta-reasoning states (framing, backtracking, self-verification, retrieval, etc.), estimating a transition matrix between them via EM, and using KTO with an implicit reward reweighted by how much each segment's local state-transition probability deviates from the corpus-wide pattern; without any external verifier or retrieval, this improves accuracy and reduces misleading answers across three backbones and five factual-QA/long-form-factuality benchmarks, and post-alignment reasoning traces become measurably shorter and more concise as a side effect.",
+      "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "Kahneman-Tversky Optimization (KTO, baseline)",
+  "related": [
+    "reasoning-answer-hit-gap",
+    "meta-reasoning-state-taxonomy",
+    "atomic-reasoning-process-modeling",
+    "transition-aware-implicit-reward",
+    "kahneman-tversky-optimization-kto",
+    "state-transition-matrix-em-estimated",
+    "mr-align-transition-aware-kto",
+    "sft-baseline",
+    "self-refine-baseline",
+    "expectation-maximization-transition-matrix-estimation",
+    "open-search-retrieval-augmentation-serper-api",
+    "nq-open",
+    "sciq",
+    "simpleqa",
+    "truthfulqa",
+    "longfact",
+    "qwen3-8b",
+    "qwen3-4b",
+    "deepseek-r1-distill-qwen-7b",
+    "llama-3-1-nemotron-nano-4b-v1-1",
+    "qwen3-14b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "kahneman-tversky-optimization-kto-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

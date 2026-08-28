@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "AIME24/25"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Analyzing how answer tokens attend back to reasoning tokens ('self-reading') in thinking LLMs reveals a stable, structured 'benign self-reading' pattern strongly correlated with correctness -- a forward-drifting attention centroid plus persistent focus on key semantic anchors -- interpreted as internal certainty, versus diffuse/irregular attention in incorrect solutions; a training-free Self-Reading Quality (SRQ) score built from this pattern is used to select contrastive samples for activation-steering vectors that consistently improve accuracy (up to 2.6pp) across three models, three steering mechanisms, and multiple quantitative-reasoning benchmarks including out-of-domain transfer.",
       "title": "How Do Answer Tokens Read Reasoning Traces? Self-Reading Patterns in Thinking LLMs for Quantitative Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1684",
+      "kind": "paper",
+      "note": "Pru-CoT quantifies each reasoning step's causal contribution via gradient-based optimization of a learnable soft-masking weight on a frozen student LLM (masking a step toward a filler-token embedding and seeing how much the prediction loss spikes), then uses an LLM-guided pruning agent to synthesize a concise, logically-coherent chain anchored on the high-weight steps -- beating token-level, prompt-based, and search-based pruning baselines, improving DeepSeek-R1-Distill-Qwen-7B's average accuracy 2.4% while cutting tokens, and running 4.4x faster than the strongest search-based baseline (A*-Thought).",
+      "title": "Pru-CoT: Towards Efficient Reasoning Distillation via Pruning Chain-of-Thought"
     }
   ],
   "first_seen": "2026-08-28T02:05:37Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "AIME24-25",
   "related": [
     "self-reading-answer-to-reasoning-attention",
@@ -33,7 +41,25 @@
     "sciq",
     "r1-distill-qwen-7b",
     "r1-distill-llama-8b",
-    "qwen3-4b-thinking"
+    "qwen3-4b-thinking",
+    "overthinking-distillation-time",
+    "step-level-causal-contribution",
+    "gradient-based-soft-masking-probe",
+    "fidelity-constrained-llm-guided-pruning",
+    "semantic-anchor",
+    "pruning-agent-scale-mismatch",
+    "pru-cot-gradient-based-step-importance-probing-llm-guided-pruning",
+    "sft-baseline",
+    "btc-prompt-based-baseline",
+    "tokenskip-token-level-pruning-baseline",
+    "a-thought-search-based-baseline",
+    "openthoughts-114k-training-2-051-filtered-samples",
+    "amc23",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen2-5-7b-instruct-pruning-agent",
+    "qwen2-5-1-5b-instruct-pruning-agent",
+    "deepseek-v3-2-cross-scale-pruning-agent"
   ],
   "related_authored": [],
   "schema_version": 1,

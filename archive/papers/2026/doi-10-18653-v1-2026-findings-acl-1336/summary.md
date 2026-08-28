@@ -45,8 +45,8 @@ The paper does not discuss limitations explicitly in the excerpted sections; the
 
 ## Entities
 
-- **Concepts**: overthinking (via wasted parallel-reasoning compute), step-level trace scoring from hidden states, GPU-memory-triggered pruning, KV-cache waiting-queue bottleneck, weighted majority voting
-- **Methods**: STEP (Step-level Trace Evaluation and Pruning), self-consistency (SC, baseline), Slim-SC (baseline, similarity-based pruning), DeepConf (baseline, confidence-based pruning), PRM-weighted voting (Qwen2.5-Math-PRM-7B, comparison)
+- **Concepts**: overthinking (via wasted parallel-reasoning compute), step-level trace scoring from hidden states, GPU-memory-triggered pruning, KV-cache waiting-queue bottleneck, [weighted majority voting](../../../../wiki/concepts/weighted-majority-voting.md)
+- **Methods**: STEP (Step-level Trace Evaluation and Pruning), [self-consistency (SC, baseline)](../../../../wiki/methods/self-consistency-sc-baseline.md), Slim-SC (baseline, similarity-based pruning), DeepConf (baseline, confidence-based pruning), PRM-weighted voting (Qwen2.5-Math-PRM-7B, comparison)
 - **Datasets**: HMMT 2012-2023 (step-scorer training data), [AIME-25](../../../../wiki/datasets/aime-2025.md), HMMT-24, [HMMT-25](../../../../wiki/datasets/hmmt25.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), EquiBench, DivLogicEval
 
 Tags: `test-time-scaling`, `parallel-reasoning`, `mechanistic-interpretability`, `inference-systems`, `KV-cache`, `pruning`

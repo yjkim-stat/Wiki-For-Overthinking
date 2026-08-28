@@ -46,7 +46,7 @@ Compressed reasoning may still suppress useful verification on genuinely difficu
 ## Entities
 
 - **Concepts**: invalid thinking (post-answer redundant verification), Valid Thinking (VT) rate, Brevity and Sufficiency principles, dual-reward GRPO (Length Reward + Compress Reward)
-- **Methods**: LC-R1 (dual-reward GRPO), LC-Extractor (valid-thinking segment extraction), SFT (baseline), [DPO (baseline)](../../../../wiki/methods/dpo-baseline.md), [O1-Pruner (baseline)](../../../../wiki/methods/o1-pruner-baseline.md), ThinkPrune (baseline), SFT+O1-Pruner (baseline)
+- **Methods**: LC-R1 (dual-reward GRPO), LC-Extractor (valid-thinking segment extraction), [SFT (baseline)](../../../../wiki/methods/sft-baseline.md), [DPO (baseline)](../../../../wiki/methods/dpo-baseline.md), [O1-Pruner (baseline)](../../../../wiki/methods/o1-pruner-baseline.md), ThinkPrune (baseline), SFT+O1-Pruner (baseline)
 - **Datasets**: [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AMC](../../../../wiki/datasets/amc.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [MATH (training)](../../../../wiki/datasets/math-training.md)
 
 Tags: `overthinking`, `invalid-thinking`, `efficient-reasoning`, `GRPO`, `length-compression`

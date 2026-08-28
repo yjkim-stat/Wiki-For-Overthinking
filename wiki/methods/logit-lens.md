@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Logit lens -- projecting a model's intermediate-layer hidden states through the unembedding matrix to read off the model's evolving token predictions before the final layer -- is used in the multilingual-latent-reasoning paper to track how a gold answer's predicted rank changes across layers/languages, finding internal solution-formation dynamics are largely language-invariant despite differing surface-level accuracy; 'Think Deep, Not Just Long' uses a related late-layer-revision signal (the fraction of tokens still being revised in late layers) to measure reasoning effort, though its own note does not name logit lens explicitly.
 
 - **Kind**: method
 - **Also called**: Logit Lens, logit lens

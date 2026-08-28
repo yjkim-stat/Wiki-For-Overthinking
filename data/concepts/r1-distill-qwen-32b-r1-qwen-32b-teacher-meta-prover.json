@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1867",
+      "kind": "paper",
+      "note": "CoRD reframes long-CoT reasoning distillation from post-hoc curation (each teacher generates a complete trajectory, then the best one is picked) to step-wise collaborative decoding: heterogeneous teacher LRMs propose candidate next reasoning steps in a shared, prompt-guided step format, a meta-prover scores each candidate by the predictive perplexity of the ground-truth answer given that step, and beam search retains the top-B partial trajectories -- producing higher-quality composite reasoning data than either post-hoc curation or a GPT-mini-based post-hoc integrator, and distilling student models whose 32B version, trained on CoRD data from heterogeneous teachers, actually surpasses every individual teacher's own Pass@1 on AIME24/25.",
+      "title": "Distilling Long-CoT Reasoning through Collaborative Step-wise Multi-Teacher Decoding"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "R1-Distill-Qwen-32B (R1-Qwen-32B, teacher/meta-prover)",
+  "related": [
+    "step-wise-collaborative-decoding",
+    "multi-teacher-reasoning-distillation",
+    "prompt-guided-step-segmentation",
+    "predictive-perplexity-meta-prover-scoring",
+    "complementarity-exploitation-vs-collaborative-composition",
+    "teacher-specialization-by-reasoning-phase",
+    "cord-collaborative-reasoning-decoding",
+    "predictive-perplexity-step-selection",
+    "beam-search-decoding",
+    "curation-baseline-s1-limo-style-post-hoc-selection",
+    "integration-baseline-gpt5-mini-post-hoc-trajectory-merging",
+    "mcts-ablation-comparison",
+    "limo-v1-817-question-solution-pairs-primary-training",
+    "limo-v2",
+    "s1k-1-1",
+    "aime-2024",
+    "aime-2025",
+    "qwq-32b-teacher-meta-prover",
+    "phi4-reasoning-plus-teacher",
+    "r1-qwen-7b-14b-32b-student-models"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "r1-distill-qwen-32b-r1-qwen-32b-teacher-meta-prover",
+  "topics": [
+    "overthinking"
+  ]
+}

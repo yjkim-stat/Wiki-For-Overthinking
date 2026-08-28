@@ -1,0 +1,124 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1981.pdf"
+  },
+  "completed_at": "2026-08-28T02:28:28Z",
+  "created_at": "2026-08-28T02:05:37Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1981",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large reasoning models (LRMs) already possess a latent capacity for long chain-of-thought reasoning. Prior work has shown that outcome-based reinforcement learning (RL) can incidentally elicit advanced reasoning behaviors such as self-correction, backtracking, and verification–phenomena often referred to as the model’s ”aha moment”. However, the timing and consistency of these emergent behaviors remain unpredictable and uncontrollable, limiting the scalability and reliability of LRMs’ reasoning capabilities. To address these limitations, we move beyond reliance on prompts and unpredictable ”aha moments”. Instead, we explicitly align models with three meta-abilities: deduction, induction, and abduction, using automatically generated, self-verifiable tasks. Our three-stage pipeline (individual alignment, parameter-space merging, domain-specific reinforcement learning) boosts performance by over 10% relative to instruction-tuned baselines. Furthermore, domain-specific RL from the aligned checkpoint yields an additional gain in performance ceiling for both 7B and 32B models across math, coding, and science benchmarks, showing that explicit meta-ability alignment offers a scalable and dependable foundation for reasoning. Code and data can be found in Software and Data part in submission page.",
+    "authors": [
+      "Zhiyuan Hu",
+      "Yibo Wang",
+      "Hanze Dong",
+      "Yuhui Xu",
+      "Amrita Saha",
+      "Caiming Xiong",
+      "Bryan Hooi",
+      "Junnan Li"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1981.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Beyond ’Aha!’: Toward Systematic Meta-Abilities Alignment in Large Reasoning Models",
+    "url": "https://aclanthology.org/2026.findings-acl.1981/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "meta-ability alignment",
+      "aha moment (emergent reasoning behavior)",
+      "Peirce's inference triad (deduction/induction/abduction)",
+      "parameter-space merging (linear interpolation)",
+      "domain-specific RL (as a downstream evaluation of foundational training)",
+      "complementary specialist errors"
+    ],
+    "contributions": [
+      "a reframing of advanced LRM reasoning-behavior acquisition from relying on unpredictable, emergent 'aha moments' during outcome-based RL to explicit, controllable alignment with three domain-general meta-abilities (deduction, induction, abduction) drawn from Peirce's classical inference triad",
+      "a novel, automatically-generated and self-verifiable synthetic task suite (propositional satisfiability, masked-sequence completion, reverse rule-graph search) requiring no manual annotation, operationalizing each meta-ability in a unified (H,R,O) triplet format",
+      "a three-stage recipe (independent specialist alignment, linear parameter-space merging, domain-specific RL continuation) shown to generalize zero-shot to seven unseen math/coding/science benchmarks and to raise the attainable performance ceiling of subsequent domain-specific RL by ~2-4% over an instruction-tuned baseline, consistent at both 7B and 32B scale and from both instruction-tuned and base-model initializations"
+    ],
+    "datasets": [
+      "synthetic deduction/induction/abduction task suite (new, self-generated)",
+      "MATH500",
+      "AIME (1983-2024 corpus)",
+      "AIME24",
+      "AMC23",
+      "OlympiadBench (OmniMath subset)",
+      "LiveCodeBench",
+      "GPQA"
+    ],
+    "limitations": "The paper does not discuss limitations explicitly in the excerpted sections; the curriculum training schedule shows model-size-dependent saturation (the 7B model converges by difficulty Level 2 with no further reward improvement at higher levels, so training is restricted to Levels 1-2; the 32B model shows unstable reward curves at Level 3, so it is likewise restricted to the first two levels), indicating the synthetic task difficulty ceiling and curriculum design require some model-size-specific tuning rather than transferring uniformly. The optimal merge weights (lambda_d=1.0, lambda_i=0.2, lambda_a=0.1) are found empirically via a weight sweep rather than derived analytically, though the paper reports the optimum is broad/stable rather than sharply peaked.",
+    "method": "Draws on Peirce's classical inference triad -- deduction (H+R=>O, inferring specific outcomes from general rules and hypotheses), induction (H+O=>R, abstracting rules from repeated co-occurrences), and abduction (O+R=>H, inferring the most plausible explanation for surprising observations) -- as three domain-general meta-abilities forming a closed inferential loop for hypothesis generation, testing, and revision. Operationalizes each as an automatically-generated, self-verifiable synthetic task: deduction as propositional satisfiability (verify whether a truth assignment satisfies a set of nested Boolean clauses); induction as masked-sequence completion (infer a hidden generative rule governing a numeric/symbolic sequence to predict a missing element); abduction as reverse rule-graph search (given observations and a directed rule graph with forward inference deliberately obstructed, backchain to find the minimal consistent set of premises explaining the observation). All tasks are cast into a unified (H,R,O) triplet format with strict two-known-one-infer structure, generated and self-checked by an automated Generator/Verifier pipeline requiring no manual annotation, with a curriculum schedule training level-by-level from easy to hard. A three-stage training recipe: (A) Meta-Abilities Alignment -- independently trains a GRPO-based specialist for each of the three abilities on its respective synthetic task, using a rule-based reward combining a format reward (correct <think>/<answer> structure) and an answer reward (task-specific correctness criteria); (B) Parameter-Space Merging -- linearly interpolates the three specialists' weights (Theta_merge = lambda_d*Theta^(d) + lambda_i*Theta^(i) + lambda_a*Theta^(a)) into a single unified checkpoint, with mixture weights chosen empirically (optimal found at lambda_d=1.0, lambda_i=0.2, lambda_a=0.1, a deduction-heavy mixture); (C) Domain-Specific RL Training -- continues GRPO training the merged (or, for comparison, the plain instruction-tuned) checkpoint on downstream domain data (math, following SimpleRL-Zoo's setup for fair comparison), to test whether meta-ability alignment provides a stronger foundation for subsequent domain adaptation.",
+    "methods": [
+      "Meta-Abilities Alignment (GRPO on synthetic tasks)",
+      "parameter-space merging (linear interpolation)",
+      "TIES / DARE-TIES / Segmented SLERP (merge ablation baselines)",
+      "Domain-Specific RL (GRPO, SimpleRL-Zoo-matched setup)",
+      "AbsoluteZero (comparison baseline)"
+    ],
+    "models": [
+      "Qwen2.5-7B (Base and Instruct)",
+      "Qwen2.5-32B (Base and Instruct)"
+    ],
+    "one_liner": "Rather than relying on RL to spontaneously and unpredictably produce advanced reasoning behaviors (the 'aha moment'), this paper explicitly trains three separate specialists on synthetic, self-verifiable deduction/induction/abduction tasks (Peirce's classical inference triad), merges them via linear parameter-space interpolation, and shows this meta-ability-aligned checkpoint both generalizes zero-shot to seven unseen math/coding/science benchmarks and raises the attainable performance ceiling of subsequent domain-specific RL by ~2-4% over an instruction-tuned baseline at both 7B and 32B scale.",
+    "problem": "Pure outcome-based RL can spontaneously elicit advanced reasoning behaviors (self-correction, backtracking, verification -- the 'aha moment'), but the timing and consistency of these emergent behaviors are unpredictable and uncontrollable, since models may simply fail to consistently manifest them, limiting the scalability and reliability of large reasoning models built on relying on this emergence alone.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Not directly about overthinking: this paper targets how large reasoning models acquire generalizable reasoning *capability* (deduction, induction, abduction) in a controllable, non-emergent way, and evaluates purely on accuracy across math/coding/science benchmarks -- it does not measure or discuss reasoning-trace length, token efficiency, or the accuracy/efficiency tradeoff this archive centrally tracks. It is tangential background on how the RL-trained reasoning behaviors (self-correction, backtracking, verification) that other overthinking papers in this archive study as sources of redundancy can themselves be deliberately, rather than incidentally, instilled during training."
+    },
+    "results": "Individual meta-ability specialists, trained purely on their own synthetic diagnostic task with zero domain-specific data, transfer zero-shot to seven unseen math/coding/science benchmarks (MATH500, AIME 1983-2024 corpus, AIME24, AMC23, OlympiadBench, LiveCodeBench, GPQA) and each improves over the Qwen2.5-7B-Instruct baseline (38.8 math avg / 35.3 overall) by roughly 1-2 points individually, with complementary error patterns across specialists (e.g. RL-Deduction-Aligned gives the largest single math-task gains on AIME/AMC23, while RL-Induction-Aligned gives the largest average improvement). The linearly-merged model combines these constructively rather than diluting them, reaching 41.0 math avg / 37.8 overall (+2.2/+2.5 over baseline) at 7B, and an Oracle Ensemble (correct if any single aligned specialist succeeds) shows a further untapped 11.1-point math-average gap, indicating substantial complementarity the merge does not fully capture. Trained without any domain-specific data, the 7B merged model tops a concurrent method (AbsoluteZero) by 2.7-2.9 points despite using only 1,200 total training examples versus AbsoluteZero's 500x384 self-play (16,384 triplets), underscoring the efficiency of the factorize-then-interpolate approach. Scaling to 32B amplifies the pattern: each aligned specialist surpasses the Qwen2.5-32B-Instruct baseline (46.9 math / 44.6 overall), and the merged checkpoint reaches 51.3 math avg / 48.1 overall (+4.4/+3.5), with a full Oracle Ensemble reaching 57.7 math average -- the three meta-abilities remain complementary even at larger scale rather than converging to redundancy. For the central question of whether meta-ability alignment provides a better foundation for downstream RL: at 7B, continuing domain-specific RL from the meta-ability-merged checkpoint (Domain-RL-Meta) reaches 43.0 math / 39.0 overall, exceeding the same RL schedule started from the plain instruction-tuned model (Domain-RL-Ins, 41.2/37.8) by about 2 points; at 32B the gap widens to about 2.6 (math) / 1.4 (overall) points, with Domain-RL-Meta reaching 52.3 math / 48.8 overall -- confirming that meta-ability alignment both raises the pre-RL starting point and increases the marginal return from subsequent task-specific tuning, not merely offering a one-time head start that domain RL would erase. Ablations rule out simply-more-synthetic-data as the explanation: unified multi-task RL (one model trained jointly on the union of all three task types, via curriculum or mixed-per-batch) and SFT baselines on the same task generators/verifiers both underperform the factorized-align-then-merge pipeline, isolating that the gains come specifically from RL-based, factorized meta-ability alignment rather than mere data exposure. Merge-strategy ablations show linear interpolation consistently outperforms three nonlinear merge alternatives (TIES, DARE-TIES, Segmented SLERP) while requiring no extra computation, and a weight-sweep shows performance varies smoothly (not sharply/knife-edge) around the optimal deduction-heavy mixture, indicating the improvement is robust to moderate weighting choices rather than requiring precise tuning. A merge-timing ablation shows merging specialists before domain RL is more effective than merging after each specialist has separately undergone domain RL, since domain adaptation can homogenize specialists and reduce their complementarity if applied first. A base-model (non-instruction-tuned) initialization check confirms the pipeline's gains are not contingent on starting from an instruction-tuned checkpoint: the merged model built from base-model specialists still delivers large gains, and a light round of domain RL from that merged base exceeds a strong RL baseline (SimpleRL-Zoo) on most metrics. Behavioral analysis (using OpenAI o4-mini to identify cognitive behaviors per Gandhi et al.'s framework) shows meta-ability alignment reliably amplifies its targeted behavior category (e.g. deduction-related behavior ratio rises from 24.3% in the instruct baseline to 29.4% in the RL-Deduction-Aligned specialist and remains elevated at 28.3% in the merged model), and the merged model preserves (and for induction, slightly improves) these behavioral shifts rather than averaging them away.",
+    "tags": [
+      "meta-learning",
+      "reinforcement-learning",
+      "GRPO",
+      "model-merging",
+      "reasoning-capability",
+      "curriculum-learning"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1981",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

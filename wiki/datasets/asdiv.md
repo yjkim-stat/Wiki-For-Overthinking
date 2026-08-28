@@ -8,7 +8,7 @@ ASDiv is used in these sources as an easier-tier math-reasoning benchmark for me
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [Confidence Calibration](../concepts/confidence-calibration.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [Early Exit](../methods/early-exit.md), [greedy decoding](../methods/greedy-decoding.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Overthinking](../concepts/overthinking.md), [Qwen3-235B-A22B](../models/qwen3-235b-a22b.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [Qwen3-32B](../models/qwen3-32b.md), [SVAMP](svamp.md)
+**Related**: [ARC-Challenge](arc-challenge.md), [C4](../methods/c4.md), [Confidence Calibration](../concepts/confidence-calibration.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [Early Exit](../methods/early-exit.md), [greedy decoding](../methods/greedy-decoding.md), [GSM-Hard](gsm-hard.md), [GSM8K](gsm8k.md), [HellaSwag](hellaswag.md), [HumanEval](humaneval.md), [MATH](math.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Overthinking](../concepts/overthinking.md), [Qwen3-235B-A22B](../models/qwen3-235b-a22b.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [Qwen3-32B](../models/qwen3-32b.md), [SimpleQA](simpleqa.md), [SVAMP](svamp.md)
 
 ## Appears in
 

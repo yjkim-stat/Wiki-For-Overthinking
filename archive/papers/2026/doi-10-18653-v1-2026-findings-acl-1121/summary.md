@@ -47,7 +47,7 @@ Truncation is implemented at the sentence/step level (following prior work) rath
 ## Entities
 
 - **Concepts**: [latent reasoning](../../../../wiki/concepts/latent-reasoning.md), overthinking (in a multilingual latent-reasoning context), truncation-based latent reasoning identification, Gold-in-Trace rate, Latent Reasoning Score (LRS), English-centered latent reasoning pathway, memorization vs. genuine reasoning disentanglement
-- **Methods**: truncation-based latent reasoning identification, logit lens, NumEdit perturbation, Paraphrase perturbation
+- **Methods**: truncation-based latent reasoning identification, [logit lens](../../../../wiki/methods/logit-lens.md), NumEdit perturbation, Paraphrase perturbation
 - **Datasets**: MGSM (Multilingual Grade School Math, 250 problems, 11 languages), Multilingual AIME (AIME2024/2025 translated, 11 languages)
 
 Tags: `latent-reasoning`, `multilingual`, `mechanistic-interpretability`, `overthinking`, `memorization`

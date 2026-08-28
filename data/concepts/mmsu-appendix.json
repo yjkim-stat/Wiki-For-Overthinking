@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1640",
+      "kind": "paper",
+      "note": "Extends difficulty-adaptive reasoning-length control from text LLMs to Large Audio Language Models (LALMs), diagnosing that GRPO helps hard audio questions but SFT wins on easy ones (implying GRPO's reasoning on simple tasks is redundant/error-prone), then proposing two GRPO reward variants -- an outcome-based Group Ratio Difficulty Reward (GRDR) and a process-based, audio-attention-entropy-derived Group Audio Attention Difficulty Reward (GA2DR) -- that cut average reasoning length over 50% while improving accuracy, with GA2DR proving more robust to reward hacking because its difficulty signal is normalized per-batch from audio attention rather than from noisy rollout accuracy.",
+      "title": "Think Smart, Not Hard: Difficulty Adaptive Reasoning for Large Audio Language Models"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "MMSU (appendix)",
+  "related": [
+    "overthinking-in-large-audio-language-models",
+    "difficulty-adaptive-reasoning-length",
+    "group-ratio-difficulty-reward-grdr",
+    "group-audio-attention-difficulty-reward-ga2dr",
+    "audio-attention-entropy-as-a-difficulty-proxy",
+    "model-perspective-vs-human-perspective-difficulty",
+    "grpo",
+    "truncation-reward-tr-baseline",
+    "sft-baseline",
+    "fs-training-72k-examples-audiogrounding-vocalsound-tut2017-clotho-aqa-avqa",
+    "avqa-training",
+    "mmau-test-mini",
+    "mmau-test-mini-v05-15-25",
+    "mmar",
+    "qwen2-audio-7b-instruct",
+    "qwen2-5-omni-7b",
+    "kimi-audio-7b-instruct-compared",
+    "gemini2-5-pro-0506-compared"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "mmsu-appendix",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1828",
+      "kind": "paper",
+      "note": "Shows via t-SNE that verbose and concise chains-of-thought occupy visibly separable regions of a reasoning model's intermediate activation space, then learns a single, KL-trust-region-constrained steering vector (Contrastive Energy-Based Steering, CES) from only 100 verbose-concise CoT pairs by ranking concise traces below verbose ones in length-normalized energy under the steered model -- Activation-Steered Compression (ASC) cuts CoT length up to 69.35% with no accuracy loss across four model scales and multiple benchmarks, achieves 2.7x end-to-end wall-clock speedup, generalizes cross-task with 0.92 cosine similarity between dataset-specific steering vectors, and mitigates a documented 'underthinking' failure mode (excessive backtracking/path-switching without commitment) in QwQ-32B specifically.",
+      "title": "Activation Steering for Chain-of-Thought Compression"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "method",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "TCC (baseline)",
+  "related": [
+    "overthinking",
+    "underthinking-excessive-backtracking-without-commitment",
+    "verbosity-as-a-latent-steerable-dimension",
+    "activation-steering",
+    "contrastive-energy-based-steering-ces",
+    "length-normalized-energy",
+    "kl-trust-region",
+    "activation-steered-compression-asc",
+    "mean-of-differences-mod-baseline-steering-method",
+    "bipo-optimization-based-steering-baseline",
+    "deer-baseline",
+    "cod-chain-of-drafts-baseline",
+    "seal-baseline",
+    "math500",
+    "gsm8k",
+    "gsm8k-hard",
+    "aqua-rat",
+    "livecodebench",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-llama-8b",
+    "qwq-32b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "tcc-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

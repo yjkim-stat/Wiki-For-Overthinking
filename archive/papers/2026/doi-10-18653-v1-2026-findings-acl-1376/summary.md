@@ -46,7 +46,7 @@ The paper does not discuss limitations explicitly in the excerpted sections; cro
 ## Entities
 
 - **Concepts**: chronological (time-series) reasoning scoring, multi-scale temporal convolution, score-weighted majority voting, token-level negative-log-probability signal, uniform pooling vs. sequential modeling
-- **Methods**: Chronos (multi-scale temporal convolutional scorer), majority voting (baseline), DeepConf (baseline, confidence-weighted voting), score-weighted majority voting
+- **Methods**: Chronos (multi-scale temporal convolutional scorer), [majority voting (baseline)](../../../../wiki/methods/majority-voting-baseline.md), DeepConf (baseline, confidence-weighted voting), score-weighted majority voting
 - **Datasets**: AIME archive (2000-2023, training), [AIME25](../../../../wiki/datasets/aime-2025.md), HMMT25 (Feb), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `test-time-scaling`, `trajectory-scoring`, `confidence-calibration`, `time-series-modeling`, `parallel-reasoning`

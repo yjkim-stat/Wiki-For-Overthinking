@@ -1,0 +1,49 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1866",
+      "kind": "paper",
+      "note": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
+      "title": "Steering LLM Thinking with Budget Guidance"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "TableBench",
+  "related": [
+    "overthinking",
+    "budget-guidance-classifier-guidance-analog-for-llm-reasoning",
+    "budget-conditional-generation",
+    "auxiliary-thinking-length-predictor",
+    "gamma-distributed-remaining-length-modeling",
+    "soft-token-level-steering-vs-hard-budget-forcing",
+    "budget-guidance-classifier-guidance-inspired",
+    "budget-forcing-baseline",
+    "nothinking-baseline",
+    "chain-of-draft-baseline",
+    "tale-ep-baseline",
+    "seal-baseline",
+    "dynasor-baseline",
+    "openr1-math-220k-training",
+    "math500",
+    "aime-2024",
+    "amc",
+    "olympiadbench",
+    "gpqa-diamond",
+    "folio",
+    "livecodebench",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b",
+    "qwen3-8b",
+    "bert-base-predictor-backbone"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "tablebench",
+  "topics": [
+    "overthinking"
+  ]
+}

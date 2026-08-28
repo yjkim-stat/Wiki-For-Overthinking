@@ -47,7 +47,7 @@ ThinkBrake requires explicit reasoning delimiters (<think>/</think>) and access 
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), oracle stopping headroom, logit margin test, KL-regularized test-time realignment, spurious reasoning, log-probability margin
-- **Methods**: ThinkBrake (log-margin early stopping), ThinkBrake-p (raw probability-gap variant), NoWait (baseline), [ThinkLess (baseline)](../../../../wiki/methods/thinkless-baseline.md), Dynasor-CoT (baseline), DEER (baseline), Direct Preference Optimization (DPO) on ThinkBrake data
+- **Methods**: ThinkBrake (log-margin early stopping), ThinkBrake-p (raw probability-gap variant), NoWait (baseline), [ThinkLess (baseline)](../../../../wiki/methods/thinkless-baseline.md), [Dynasor-CoT (baseline)](../../../../wiki/methods/dynasor-cot-baseline.md), [DEER (baseline)](../../../../wiki/methods/deer-baseline.md), Direct Preference Optimization (DPO) on ThinkBrake data
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md), BFCL-v1, BFCL-v2, Meta-Tool, [Omni-MATH](../../../../wiki/datasets/omni-math.md), DAPO17K
 
 Tags: `overthinking`, `early-stopping`, `training-free`, `decoding-intervention`, `test-time-realignment`, `DPO`

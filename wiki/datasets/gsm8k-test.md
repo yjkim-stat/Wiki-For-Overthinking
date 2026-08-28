@@ -8,7 +8,7 @@ GSM8K (test) is referenced in these sources as one of the arithmetic/math reason
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [beam search](../methods/beam-search.md), [best-of-n selection](../methods/best-of-n-selection.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](gsm-hard.md), [Latent reasoning](../concepts/latent-reasoning.md), [majority voting (baseline)](../methods/majority-voting-baseline.md), [MATH500](math500.md), [MultiArith](multiarith.md), [RLOO](../methods/rloo.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
+**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [beam search](../methods/beam-search.md), [best-of-n selection](../methods/best-of-n-selection.md), [COCONUT](../methods/coconut.md), [CODI](../methods/codi.md), [CoLaR](../methods/colar.md), [GRPO](../methods/grpo.md), [GSM-Hard](gsm-hard.md), [GSM8K-Hard](gsm8k-hard.md), [Latent reasoning](../concepts/latent-reasoning.md), [majority voting (baseline)](../methods/majority-voting-baseline.md), [MATH500](math500.md), [MultiArith](multiarith.md), [RLOO](../methods/rloo.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Thinking Budget](../concepts/thinking-budget.md)
 
 ## Appears in
 

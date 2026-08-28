@@ -1,0 +1,57 @@
+{
+  "concepts": [
+    "algorithm-centric paradigm (vs. problem-centric)",
+    "strategic over-shift",
+    "necessary low-entropy token",
+    "maximum-entropy RL principle (tension with deterministic execution)",
+    "algorithmic reasoning taxonomy (Euclidean/non-Euclidean, optimization levels)",
+    "performance saturation vs. scaling headroom"
+  ],
+  "contributions": [
+    "AlgBench, the first algorithm-centric (rather than problem-centric) benchmark for evaluating LRM algorithmic reasoning, with 3,000+ expert-curated, contamination-free problems each isolating exactly one of 27 algorithms under a comprehensive structural/optimization taxonomy",
+    "an empirical finding that LRMs handle non-optimized and Euclidean-structured algorithms well but collapse sharply on global- and heuristic-optimization algorithms (e.g. dynamic programming), a pattern consistent across nearly all evaluated frontier models",
+    "a model-scaling analysis showing parameter scaling yields substantial gains in moderate-difficulty categories but negligible improvement in exactly the hardest (global-/heuristic-optimization) categories, implying current RL training paradigms have plateaued there rather than merely needing more scale",
+    "identification of 'strategic over-shifts' -- premature abandonment of a correct algorithmic design mid-execution -- and a token-entropy analysis showing these are specifically triggered by necessary low-entropy tokens (numeric constants, structural delimiters), which the prevailing maximum-entropy RL training paradigm implicitly penalizes as if they signaled insufficient exploration"
+  ],
+  "datasets": [
+    "AlgBench (new, 3,000+ problems, 27 algorithms)"
+  ],
+  "generated_at": "2026-08-28T02:25:10Z",
+  "generated_by": "queue",
+  "limitations": "The paper does not discuss its own study's limitations explicitly in the excerpted sections; its algorithm-centric problem construction, while designed to isolate exactly one algorithm per problem and avoid contamination, restricts coverage to 27 specific algorithms chosen by the curating experts, so conclusions about global- vs. local-optimization performance gaps are scoped to this particular taxonomy and problem set rather than an exhaustive survey of all algorithmic reasoning. The strategic-over-shift/low-entropy-token analysis is presented as an observational finding (entropy patterns correlated with abandonment events) rather than a causally validated intervention; the paper proposes possible remedies (assigning higher rewards to indispensable low-entropy tokens, or agent-style tool-assisted execution) but does not implement or evaluate either as a fix within the reported experiments.",
+  "method": "Adopts an algorithm-centric (rather than problem-centric) construction paradigm: ACM-competitor algorithm experts manually curate 3,000+ original problems spanning 27 distinct algorithms, each problem designed to require exactly one specific algorithm and verified to have no overlap with existing open-source platforms, organized under a taxonomy separating Structure-oriented ideas (Euclidean-structured vs. non-Euclidean-structured) from Optimization-oriented ideas (non-optimized/brute-force, locally-optimized/greedy, globally-optimized/dynamic-programming, and heuristic-optimized/A*-search). Each problem is further divided into three difficulty tiers by computational complexity. Evaluation samples k responses per model per problem (Pass@k), then normalizes scores across the taxonomy via a z-score-based rescaling (per-model, per-task normalization against the comparison-model pool) to control for disparate inherent task difficulty across categories. An automated error-analysis pipeline segments incorrect responses by double-newline delimiters, uses Qwen3-235B to aggregate segments into semantically coherent sections, and GPT-o3 to annotate each section with error categories (spanning Algorithm Design errors, Algorithm Execution errors, Instruction-inconsistent-Algorithm errors, and Information errors) to characterize failure modes beyond simple accuracy. A model-scaling analysis is run across the Qwen3 series (4B/8B/14B/32B/235B) to test whether parameter scaling closes taxonomy-specific performance gaps. A 'strategic over-shift' analysis computes token-level policy entropy around strategic-shift indicator words (e.g. 'wait', 'but', 'maybe') in globally-optimized-algorithm reasoning traces, specifically examining the entropy of low-entropy tokens (numeric constants, structural delimiters like brackets) in the vicinity of these shifts.",
+  "methods": [
+    "algorithm-centric benchmark construction",
+    "z-score-normalized Pass@k evaluation",
+    "automated error-taxonomy annotation pipeline (Qwen3-235B segmentation + GPT-o3 labeling)",
+    "token-entropy analysis around strategic-shift indicators"
+  ],
+  "models": [
+    "DeepSeek-v3.2-Speciale",
+    "Gemini-3-pro",
+    "grok4-vip",
+    "gpt-o3",
+    "Qwen3-235B",
+    "DeepSeek-R1",
+    "Gemini-2.5-pro",
+    "Claude Opus",
+    "gpt-oss-120B",
+    "Qwen3-4B/8B/14B/32B (scaling analysis)"
+  ],
+  "one_liner": "AlgBench replaces problem-centric algorithmic benchmarks (which conflate multiple algorithms per problem and risk contamination) with 3,000 expert-curated, contamination-free problems each isolating exactly one of 27 algorithms under a six-category taxonomy, finding LRMs handle non-optimized/Euclidean-structured algorithms well (up to 92%) but collapse on global-optimization tasks like dynamic programming (~49%), that model-parameter scaling barely helps in exactly those weak categories, and that 'strategic over-shifts' -- models abandoning a correct algorithmic design mid-execution -- are specifically triggered by necessary low-entropy tokens (numeric constants, structural delimiters) that standard maximum-entropy RL training penalizes as if they were uncertain, unproductive continuations.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.1885",
+  "problem": "Existing algorithmic-reasoning benchmarks draw problems from platforms like CodeForces/LeetCode where individual problems require integrating multiple algorithms simultaneously, making it impossible to isolate whether a model has mastered any single specific algorithm, and cover only a narrow subset of algorithms while being highly susceptible to data contamination since their problems are drawn from widely-available public sources -- so whether LRMs genuinely master algorithmic reasoning, as distinct from mathematical reasoning (which follows a deductive rather than procedural paradigm), remains unanswered.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly relevant as a distinct, mechanistically-grounded failure mode adjacent to overthinking: 'strategic over-shift' is specifically a model abandoning correct reasoning it has already constructed in favor of an alternative path, and the paper's entropy-based explanation -- that maximum-entropy RL training implicitly discourages the necessary low-entropy (deterministic) tokens that correct execution requires -- gives a concrete, falsifiable mechanistic account for exactly the kind of self-undermining mid-reasoning abandonment that overthinking-mitigation and entropy-based training methods elsewhere in this archive (e.g. the entropy-in-RLVR study, ETR) need to reckon with: not all low entropy is redundant confidence to be trained away, and treating it as such can actively induce over-shifting away from correct reasoning."
+  },
+  "results": "Leading LRMs (DeepSeek-v3.2-Speciale, Gemini-3-pro, grok4-vip, gpt-o3, Qwen3-235B, DeepSeek-R1, Gemini-2.5-pro, Claude Opus, gpt-oss-120B) show strong, consistent proficiency on non-optimized (up to 92% for DeepSeek-v3.2-Speciale) and Euclidean-structured (up to 88%) algorithms, but performance declines moderately on non-Euclidean-structured (70%) and local-optimization (69%) algorithms, and drops precipitously to around 49% on both global-optimization (e.g. dynamic programming) and heuristic-optimization (e.g. A*-search) algorithms for the best model -- a pattern consistent across nearly all evaluated models, establishing that algorithmic reasoning mastery is highly uneven rather than uniform, contrary to what aggregate scores on prior contaminated/multi-algorithm benchmarks might suggest. Model-parameter scaling analysis across the Qwen3 series (4B to 235B) shows scaling yields negligible benefit for non-optimized and Euclidean-structured problems (relative improvements under 20%, attributed to performance saturation -- these categories are already handled well, leaving little room for improvement) but substantial relative gains for local-optimized (>120%) and non-Euclidean-structured (>80%) problems (attributed to moderate observation-overhead/difficulty, where increased capacity is genuinely useful); critically, improvements in global- and heuristic-optimized algorithmic reasoning remain marginal despite scaling, and these categories also exhibit the lowest absolute performance -- direct evidence that current RL training/scaling paradigms have plateaued specifically on the hardest, most abstraction-dependent algorithmic categories. Error analysis attributes this stagnation largely to the prevailing problem-centric RL fine-tuning paradigm: for dynamic programming specifically, training exposes models to problem-solution pairs without any explicit mechanism to convey *why* a solution takes its particular structural form (the three formal DP conditions -- overlapping subproblems, optimal substructure, absence of aftereffects -- are never explicitly manifested in training data), so models cannot reliably reconstruct the appropriate states and transition functions for genuinely novel DP problems. A qualitative case study (Example 1) shows a model correctly beginning to construct a valid DP state definition and transition function, then abruptly abandoning this correct design mid-derivation ('Wait, maybe there is a better solution. Let me rethink about how to model this.') in favor of an alternative, less-productive strategy -- termed a 'strategic over-shift.' Token-entropy analysis around such strategic-shift indicator words in global-optimization reasoning traces reveals these shifts are specifically triggered near necessary low-entropy tokens (numeric constants, structural delimiters like brackets), which stand in tension with the maximum-entropy principle underlying prevailing RL training paradigms: because such training implicitly treats low-entropy (high-confidence, deterministic) tokens as signals of insufficient exploration to be penalized/discouraged, it inadvertently penalizes exactly the indispensable, deterministic tokens that correct algorithm execution requires, causing the model to prematurely abandon otherwise-correct algorithmic designs during execution rather than during design itself.",
+  "schema_version": 1,
+  "tags": [
+    "algorithmic-reasoning",
+    "evaluation-methodology",
+    "benchmark",
+    "entropy-analysis",
+    "reinforcement-learning"
+  ]
+}

@@ -46,7 +46,7 @@ On the MATH500 benchmark specifically, selfRef@4 (93.4%) marginally underperform
 ## Entities
 
 - **Concepts**: Refinement Gap, parallel self-refinement, generative self-refinement (as a learnable skill), candidate-quality ceiling, hybrid direct-solving-plus-refinement training
-- **Methods**: Generative Self-Refinement (GSR), majority voting (baseline), Best-of-N with reward models (SkyworkRM-27B, RM-R1-7B, RRM-7B baselines), Synthesizer-8B (baseline)
+- **Methods**: Generative Self-Refinement (GSR), [majority voting (baseline)](../../../../wiki/methods/majority-voting-baseline.md), Best-of-N with reward models (SkyworkRM-27B, RM-R1-7B, RRM-7B baselines), Synthesizer-8B (baseline)
 - **Datasets**: OpenMathReasoning (training corpus, 184K direct-solving + 184K refinement instances), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), AMC22-23, [MATH500](../../../../wiki/datasets/math500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), Knights and Knaves (K&K, out-of-domain logic puzzles)
 
 Tags: `test-time-scaling`, `self-refinement`, `parallel-reasoning`, `distillation`, `reward-model-free-aggregation`

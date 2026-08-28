@@ -19,11 +19,17 @@
       "kind": "paper",
       "note": "NEAT identifies a sparse set of 'exit-associated neurons' whose FFN activation dynamics causally predict the </think> termination token, then monitors these neurons training-free during inference to trigger graded early exit or reflection suppression -- cutting average token generation 22-28% across four benchmarks and six models with accuracy comparable to vanilla decoding, and 21-23% real wall-clock latency reduction versus vanilla and CGRS (which is 41-63% slower than vanilla despite shortening output, due to its own scoring overhead).",
       "title": "NEAT: Neuron-Based Early Exit for Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1866",
+      "kind": "paper",
+      "note": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
+      "title": "Steering LLM Thinking with Budget Guidance"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "method",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "NoThinking (baseline)",
   "related": [
     "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
@@ -81,7 +87,23 @@
     "cgrs-baseline",
     "vllm-inference-framework",
     "math-calibration-split",
-    "deepseek-r1-distill-qwen-7b"
+    "deepseek-r1-distill-qwen-7b",
+    "budget-guidance-classifier-guidance-analog-for-llm-reasoning",
+    "budget-conditional-generation",
+    "auxiliary-thinking-length-predictor",
+    "gamma-distributed-remaining-length-modeling",
+    "soft-token-level-steering-vs-hard-budget-forcing",
+    "budget-guidance-classifier-guidance-inspired",
+    "budget-forcing-baseline",
+    "tale-ep-baseline",
+    "seal-baseline",
+    "openr1-math-220k-training",
+    "amc",
+    "olympiadbench",
+    "folio",
+    "tablebench",
+    "deepseek-r1-distill-qwen-32b",
+    "bert-base-predictor-backbone"
   ],
   "related_authored": [],
   "schema_version": 1,

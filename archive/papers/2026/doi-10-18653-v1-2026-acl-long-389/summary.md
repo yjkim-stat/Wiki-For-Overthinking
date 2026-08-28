@@ -47,7 +47,7 @@ Empirical validation is centered on the Qwen3 family (4B and 30B-A3B, plus a con
 
 - **Concepts**: model interpolation (linear weight merging), three-stage evolutionary paradigm, Thinking Ratio (Think #R), layer- and module-localized reasoning capability
 - **Methods**: Model Interpolation (MI), Task Arithmetic (TA, baseline), TIES-Merging (baseline), DARE (baseline), SLERP (baseline)
-- **Datasets**: [AIME'25](../../../../wiki/datasets/aime-2025.md), IFEval, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+- **Datasets**: [AIME'25](../../../../wiki/datasets/aime-2025.md), [IFEval](../../../../wiki/datasets/ifeval.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `overthinking`, `model-merging`, `efficient-reasoning`, `controllable-reasoning-length`, `mechanistic-interpretability`
 

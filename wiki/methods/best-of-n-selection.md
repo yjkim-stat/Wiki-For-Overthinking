@@ -9,7 +9,7 @@ Best-of-N selection samples several complete attempts at a problem and picks one
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [beam search](beam-search.md), [COCONUT](coconut.md), [CODI](codi.md), [CoLaR](colar.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [GSM8K-Test](../datasets/gsm8k-test.md), [HMMT 2025](../datasets/hmmt-2025.md), [LiveCodeBench-v6](../datasets/livecodebench-v6.md), [majority voting (baseline)](majority-voting-baseline.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [Pass@1](../concepts/pass-1.md), [Self-Consistency](self-consistency.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
+**Related**: [beam search](beam-search.md), [COCONUT](coconut.md), [CODI](codi.md), [CoLaR](colar.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [GSM8K-Hard](../datasets/gsm8k-hard.md), [GSM8K-Test](../datasets/gsm8k-test.md), [HMMT 2025](../datasets/hmmt-2025.md), [LiveCodeBench-v6](../datasets/livecodebench-v6.md), [majority voting (baseline)](majority-voting-baseline.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [Pass@1](../concepts/pass-1.md), [Self-Consistency](self-consistency.md), [SWE-bench Verified](../datasets/swe-bench-verified.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [Uniform sampling baseline](uniform-sampling-baseline.md)
 
 ## Appears in
 

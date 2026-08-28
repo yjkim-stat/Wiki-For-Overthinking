@@ -47,7 +47,7 @@ The paper does not discuss limitations explicitly in a dedicated section within 
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), structural attribute optimization, conciseness as emergent property, readability / mathematical expression rate / syntactic compression / redundancy metrics, correctness-gated structural reward, Attribute-Guided Prompting
 - **Methods**: CLARO (Controlled Attribute-Driven Reasoning Optimization), Attribute-Guided Prompting, [GRPO](../../../../wiki/methods/grpo.md), L1-Max (baseline), s1 (baseline), DeepScaleR / DeepSeek-R1-Distill-Qwen (base models)
-- **Datasets**: DeepScaleR-Preview-Dataset (training, 3,840 of 40,315 pairs used), [AMC](../../../../wiki/datasets/amc.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MATH-500](../../../../wiki/datasets/math500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA](../../../../wiki/datasets/gpqa.md), LSAT, [MMLU](../../../../wiki/datasets/mmlu.md)
+- **Datasets**: DeepScaleR-Preview-Dataset (training, 3,840 of 40,315 pairs used), [AMC](../../../../wiki/datasets/amc.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MATH-500](../../../../wiki/datasets/math500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA](../../../../wiki/datasets/gpqa.md), [LSAT](../../../../wiki/datasets/lsat.md), [MMLU](../../../../wiki/datasets/mmlu.md)
 
 Tags: `overthinking`, `reinforcement-learning`, `GRPO`, `length-control`, `structural-attribute-optimization`, `prompting`
 

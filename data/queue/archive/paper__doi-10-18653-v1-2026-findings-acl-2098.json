@@ -1,0 +1,124 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-2098.pdf"
+  },
+  "completed_at": "2026-08-28T02:18:43Z",
+  "created_at": "2026-08-28T02:05:37Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.2098",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Recent advancements in large language models (LLMs) have catalyzed the rise of reasoningintensive inference paradigms, where models perform explicit step-by-step reasoning before generating final answers. While such approaches improve answer quality and interpretability, they incur substantial computational overhead due to the prolonged generation sequences. In this paper, we propose Tandem, a novel collaborative framework that synergizes large and small language models (LLMs and SLMs) to achieve high-quality reasoning with significantly reduced computational cost. Specifically, the LLM serves as a strategic coordinator, efficiently generating a compact set of critical reasoning insights. These insights are then used to guide a smaller, more efficient SLM in executing the full reasoning process and delivering the final response. To balance efficiency and reliability, Tandem introduces a cost-aware termination mechanism that adaptively determines when sufficient reasoning guidance has been accumulated, enabling early stopping of the LLM’s generation. Experiments on mathematical reasoning and code generation benchmarks demonstrate that Tandem reduces computational costs by approximately 40% compared to standalone LLM reasoning, while achieving superior or competitive performance. Furthermore, the sufficiency classifier trained on one domain transfers effectively to others without retraining. The code is available at: https://github.com/Applied-MachineLearning-Lab/ACL2026_Tandem.",
+    "authors": [
+      "Zichuan Fu",
+      "Xian Wu",
+      "Guojing Li",
+      "Yejing Wang",
+      "Yijun Chen",
+      "Zhao Zihao",
+      "Luo Yixuan",
+      "Hanyu Yan",
+      "Yefeng Zheng",
+      "Xiangyu Zhao"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "early stopping",
+      "efficient reasoning"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.2098.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Tandem: Riding Together with Large and Small Language Models for Efficient Reasoning",
+    "url": "https://aclanthology.org/2026.findings-acl.2098/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking (mentor-intern reasoning collaboration as mitigation)",
+      "mentor-intern architecture",
+      "thinking insight (Goal/Planning/Retrieval/Action)",
+      "cost-aware continual judgment",
+      "sufficiency classification via perplexity/entropy statistics",
+      "insight cutoff / staged effort levels"
+    ],
+    "contributions": [
+      "a mentor-intern collaborative reasoning paradigm where a large LLM emits only compact, staged, structurally-typed thinking insights rather than a full verbose reasoning chain, and a small LM executes the detailed reasoning and produces the final answer",
+      "a cost-aware continual judgment mechanism that uses the SLM's own perplexity/entropy statistics under partial guidance -- rather than a fixed thinking budget -- to decide when accumulated guidance is sufficient, enabling early termination of the (expensive) LLM's generation",
+      "empirical results showing the 7B+32B collaboration exceeds the 32B model's own standalone accuracy on MATH at 59% of its compute cost, with an explicit finding that effective collaboration requires a moderate, not extreme, capability gap between mentor and intern",
+      "demonstrated cross-family transfer (DeepSeek SLM with Qwen3 LLM mentor, and API-accessible closed-source mentors like GPT-4o-mini/gpt-oss-120b) and cross-domain transfer (a MATH-trained sufficiency classifier applied unmodified to HumanEval code generation) without any retraining"
+    ],
+    "datasets": [
+      "MATH (7.5K train / 5K test, seven subjects)",
+      "GSM8K",
+      "HumanEval (cross-domain evaluation, 164 problems)"
+    ],
+    "limitations": "Effective collaboration requires a moderate capability gap between mentor and intern models -- too large a gap leaves the SLM unable to fully utilize the LLM's abstract guidance (a comprehension bottleneck), while too small a gap yields only marginal gains from redundant reasoning styles, meaning Tandem's benefit is not uniform across arbitrary model-size pairings and requires some capability-alignment consideration when choosing which models to pair. The guidance-length-vs-accuracy relationship is non-monotonic and problem-dependent (fluctuating rather than smoothly increasing), so the cost-aware classifier's stage-wise judgment, while shown effective empirically, is a learned heuristic rather than a guaranteed-optimal stopping rule. On the HumanEval cross-domain test, Tandem's collaboration accuracy (85.37%) still falls short of the standalone 32B LLM's own accuracy (89.02%), showing the cost savings come with a real (if reduced, versus fixed-budget baselines) accuracy trade-off outside the training domain.",
+    "method": "Formalizes a mentor-intern collaboration: a large LLM (mentor) generates only lightweight, structured 'thinking insights' rather than a full reasoning chain, decomposed into four cognitive-architecture-inspired types -- Goal (the objective), Planning (high-level strategy/decomposition), Retrieval (relevant facts/knowledge), Action (concrete reasoning steps/calculations) -- produced across three increasing effort stages (low/medium/high), with each stage's insight set cumulatively built on the previous one. A small language model (intern, SLM) then completes the actual detailed reasoning and final answer using the question plus whatever insight set it has received so far. A cost-aware continual-judgment mechanism decides, after each stage, whether the current insight set is already sufficient for the SLM to answer reliably: it computes per-token perplexity and entropy statistics (mean/std/percentiles, plus trend indicators comparing the last 20 vs. first 20 tokens) from the SLM's own token-probability distribution when processing (question + insights so far), motivated by an empirical finding that lower perplexity/entropy in the SLM's guided processing correlates with eventually correct answers, with the separation between correct/incorrect distributions growing clearer at higher effort levels. A lightweight MLP classifier, trained on these distributional features with binary sufficiency labels (did the SLM answer correctly under this guidance), predicts a sufficiency score per stage; if sufficient, the LLM's generation is terminated early and the SLM produces the final answer immediately, skipping remaining (more expensive) stages; if no stage is judged sufficient, the configuration with the highest sufficiency score is used as a fallback.",
+    "methods": [
+      "Tandem (mentor-intern collaborative reasoning)",
+      "cost-aware sufficiency classifier (MLP on perplexity/entropy features)",
+      "fixed-effort-level baselines (low/medium/high)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "Qwen3-8B",
+      "Qwen3-32B",
+      "GPT-4o-mini (API mentor)",
+      "gpt-oss-120b (API mentor)"
+    ],
+    "one_liner": "Tandem replaces full LLM reasoning with a mentor-intern collaboration: a large LLM emits only compact, staged 'thinking insights' (Goal/Planning/Retrieval/Action, at increasing effort levels) rather than its full verbose trace, a small classifier reads the SLM's own perplexity/entropy statistics under each stage's guidance to judge when it is sufficient, and the SLM completes the reasoning and final answer -- reaching 2.56 points higher accuracy than the 32B LLM alone on MATH while using only 59% of its compute, transferring cross-family and cross-domain (MATH-trained classifier applied unmodified to HumanEval) without retraining.",
+    "problem": "Explicit chain-of-thought reasoning in large 'thinking' LLMs produces reasoning chains 5-10x longer than conventional outputs, driving dramatic latency and cost that obstructs real-time or budget-constrained deployment; reinforcement-fine-tuning approaches to shorten reasoning require continual retraining of the LLM (risking degraded general capability) and cannot be applied to closed-source, API-only models.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant as a distinct mitigation strategy: rather than shortening a single model's reasoning trace via a length penalty or early-stopping rule, Tandem restructures *who* does which part of the reasoning -- a large model's expensive full deliberation is replaced by a small set of compact guidance insights, with the actual detailed step-by-step reasoning delegated to a cheaper model -- and its cost-aware judgment mechanism (using the executing model's own perplexity/entropy as a sufficiency signal rather than a fixed budget or the guiding model's confidence) is methodologically close to other internal-signal-based stopping rules in this archive, applied here across two models instead of within one."
+    },
+    "results": "On the MATH benchmark (seven subjects) using DeepSeek-R1-Distill-Qwen-7B/32B as SLM/LLM, Tandem achieves the best average accuracy across all subjects (83.46%, +2.56 points over the 32B LLM alone at 80.90%) while requiring only 59% of the 32B model's computational cost (TFLOPs) -- outperforming both standalone models and fixed-effort-level baselines (7B+32B at low/medium/high effort, all of which trail Tandem's adaptive allocation on the accuracy-cost trade-off). Cross-family collaboration (DeepSeek-7B SLM paired with Qwen3-32B LLM mentor) reaches 79.96% accuracy on MATH, surpassing both standalone DeepSeek-7B (76.92%) and standalone Qwen3-32B (69.50%) while reducing inference cost to less than one-third of using Qwen3-32B alone -- direct evidence the structured insight format transfers meaningfully across model families rather than being an artifact of matched training. Capability-alignment analysis shows collaboration gains depend on the SLM-LLM capability gap being moderate: when the SLM is too weak relative to the LLM (e.g. 1.5B SLM with 32B guidance), accuracy only rises from 59.92% to 67.09%, failing to reach the 32B's standalone 82.07% -- attributed to a comprehension bottleneck where a weak SLM cannot fully parse or execute abstract high-level guidance; when SLM and LLM are similarly capable, gains are marginal since their reasoning styles overlap and provide redundant rather than complementary insight; the largest gains occur at a moderate capability gap where the SLM can follow guidance but still meaningfully benefits from reasoning it cannot produce independently. Guidance-length scaling analysis shows accuracy generally improves as more insight tokens accumulate, eventually surpassing the pure LLM baseline, but the curve fluctuates rather than rising monotonically -- indicating the optimal guidance amount is problem-dependent (simple problems solvable with brief hints, complex ones needing more detailed action steps), which directly motivates the cost-aware judgment mechanism over any fixed thinking-budget schedule. API-based collaboration experiments (DeepSeek-7B as local SLM, GPT-4o-mini and gpt-oss-120b accessed via API as mentors) confirm Tandem works without requiring access to model weights: combined systems consistently outperform both the local SLM alone and the remote LLM alone across tested MATH subjects (e.g. DeepSeek-7B+gpt-oss-120b: 95.79% vs. 82.14%/93.09% accuracy on Algebra, at lower cost than the API model alone), which the paper notes is particularly valuable for API deployments where verbose, token-based pricing directly penalizes long LLM outputs. Cross-domain generalization: the sufficiency classifier, trained entirely on MATH, is applied unmodified (no retraining) to HumanEval (code generation, 164 problems), where Tandem reaches 85.37% accuracy, surpassing the best fixed-effort-level baseline (83.54%) and both standalone models (65.24% SLM-only, 89.02% LLM-only, with the collaboration falling short of the standalone LLM here but exceeding the compared fixed-budget alternatives at lower cost) -- accuracy improves monotonically with guidance effort level, mirroring the math-domain pattern and supporting that the classifier's learned sufficiency signal generalizes across task domains rather than being MATH-specific.",
+    "tags": [
+      "overthinking",
+      "model-collaboration",
+      "reasoning-efficiency",
+      "mentor-intern",
+      "cost-aware-inference"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-2098",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

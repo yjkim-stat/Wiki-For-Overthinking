@@ -41,11 +41,17 @@
       "kind": "paper",
       "note": "ERRV defines a 'reasoning vector' -- the mean hidden-state difference between a question's shortest-correct and longest-incorrect sampled responses -- and instead of injecting it at inference (which limits autonomy and gives modest gains), steers RL rollouts with it during training via importance-sampling-corrected GRPO, letting the model internalize efficient reasoning so it needs no vector guidance at inference: ~30% length reduction with stable accuracy, and the vectors are shown to be stable across RL training (cosine similarity 0.83-0.83 pre/post-training) and to transfer across base, distilled, merged, and adaptive-reasoning models.",
       "title": "ERRV: Eliciting Efficient Reasoning through Reasoning Vectors for Policy Optimization in Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1572",
+      "kind": "paper",
+      "note": "Thought-Action Graph (TAG) distills past successful LLM-knowledge-graph interaction trajectories into a structured, reusable repository of fine-grained reasoning operators (a thought layer of abstract query patterns plus an action layer of concrete entity/relation parameters), letting TAG-Reasoning (TAGR) retrieve and assemble a query-specific reasoning blueprint offline instead of exploring the KG online -- outperforming 15 baselines on three KGQA benchmarks while using far fewer LLM calls (3, vs. up to 11.6) and generated tokens (65-71, vs. hundreds).",
+      "title": "Thought-Action Graph Reasoning: Faithful and Efficient Reasoning of Large Language Models via Reusing Past Experience"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "Qwen2.5 7B",
   "related": [
     "recurrent-depth-reasoning",
@@ -192,7 +198,20 @@
     "deepseek-r1-distill-qwen-7b",
     "qwen2-5-1-5b",
     "qwen2-5-1-5b-simple-zoo-rl-trained-counterpart",
-    "qwen2-5-7b-simple-zoo-rl-trained-counterpart"
+    "qwen2-5-7b-simple-zoo-rl-trained-counterpart",
+    "thought-action-graph-tag",
+    "meta-action-chain-mac",
+    "reasoning-experience-reuse",
+    "thought-layer-action-layer",
+    "kg-filtering-noise-reduction",
+    "thought-action-graph-tag-construction-and-retrieval",
+    "tag-reasoning-tagr",
+    "kg-filtering",
+    "tog-rog-effiqa-gnn-rag-kg-agent-dog-gcr-kbqa-o1-eog-sft-baselines",
+    "webqsp",
+    "cwq-complexwebquestions",
+    "grailqa",
+    "freebase-underlying-kg"
   ],
   "related_authored": [
     "qwen2-5-32b",

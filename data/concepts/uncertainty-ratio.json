@@ -1,0 +1,55 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2077",
+      "kind": "paper",
+      "note": "CoTJudger converts free-form CoTs into directed dependency graphs (capturing backtracking, repetition, and self-correction via classified node/edge types) and extracts the Shortest Effective Path (SEP) -- the minimal, verified-sufficient reasoning skeleton -- to compute a scale-invariant Redundancy Ratio; across 21 LRMs it finds redundancy pervasive but structurally distinct by model family (DeepSeek-R1's high-in-degree 'Cyclic Complexity' looping vs. Qwen3-Max's high-uncertainty 'Semantic Verbosity' vs. Gemini-3-Pro's low-degree 'Local Over-Optimization'), that distilled models inherit and often amplify their teacher's redundancy (a 'reasoning illusion' where distillation transfers verbosity without the underlying verification capability), and that post-answer redundancy specifically includes 'Destructive Revision' where a correct answer is unstably discarded for a wrong one.",
+      "title": "CoTJudger: A Graph-Driven Framework for Automatic Evaluation of Chain-of-Thought Efficiency and Redundancy in LRMs"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "Uncertainty Ratio",
+  "related": [
+    "overthinking",
+    "shortest-effective-path-sep",
+    "redundancy-ratio",
+    "cot-dependency-graph",
+    "cyclic-complexity-semantic-verbosity-local-over-optimization",
+    "logical-epicenters",
+    "reasoning-illusion-distillation-inherited-redundancy",
+    "destructive-revision-superfluous-verification-error-entrenchment-effective-backw",
+    "cotjudger-graph-driven-cot-redundancy-evaluation",
+    "shortest-effective-path-sep-extraction-dfs-llm-judged-validation",
+    "gpt-5-based-node-atomization-and-classification",
+    "cotjudger-evaluation-set-new-896-queries-math-general-reasoning-programming-pcb",
+    "cotjudger-core-development-set-new-2-688-cots",
+    "claude-sonnet-4-5",
+    "doubao-seed-1-6",
+    "doubao-seed-1-6-flash-thinking",
+    "gemini-2-5-flash-thinking",
+    "gemini-2-5-pro",
+    "gemini-3-pro",
+    "qwen3-max",
+    "deepseek-r1",
+    "deepseek-v3-2",
+    "glm-4-6",
+    "kimi-k2-thinking",
+    "qwen3-235b-a22b-thinking-2507",
+    "qwen3-30b-a3b-thinking-2507",
+    "gpt-oss-120b",
+    "gpt-oss-20b",
+    "deepseek-r1-0528-qwen3-8b",
+    "deepseek-r1-distill-llama-70b-8b",
+    "deepseek-r1-distill-qwen-14b-32b-7b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "uncertainty-ratio",
+  "topics": [
+    "overthinking"
+  ]
+}

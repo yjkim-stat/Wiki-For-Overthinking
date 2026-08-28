@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Majority voting (selecting the most common answer among sampled candidates) is used across these sources as the standard, unweighted aggregation baseline that confidence- or synthesis-based test-time-scaling methods are compared against: GSR's 'Refinement Gap' metric is explicitly defined as self-refinement accuracy minus majority-voting accuracy, to isolate genuine synthesis value beyond simple aggregation, and Chronos reports beating majority voting by up to 13.76 absolute accuracy points via its time-series-based trajectory scoring.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [beam search](beam-search.md), [best-of-n selection](best-of-n-selection.md), [COCONUT](coconut.md), [CODI](codi.md), [CoLaR](colar.md), [DeepSeek-R1-0528-Qwen3-8B](../models/deepseek-r1-0528-qwen3-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K-Test](../datasets/gsm8k-test.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [beam search](beam-search.md), [best-of-n selection](best-of-n-selection.md), [COCONUT](coconut.md), [CODI](codi.md), [CoLaR](colar.md), [DeepSeek-R1-0528-Qwen3-8B](../models/deepseek-r1-0528-qwen3-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K-Hard](../datasets/gsm8k-hard.md), [GSM8K-Test](../datasets/gsm8k-test.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md)
 
 ## Appears in
 

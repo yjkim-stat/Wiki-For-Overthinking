@@ -8,7 +8,7 @@ LiveCodeBench (v5) is a competitive-coding benchmark, version 5, used in this ar
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [ARC-C](arc-c.md), [BBH](bbh.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DeepScaleR-1.5B](../models/deepscaler-1-5b.md), [DeepSeek-R1](../models/deepseek-r1.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [Kimi-k1.5](../models/kimi-k1-5.md), [MATH500](math500.md), [MBPP](mbpp.md), [o3-mini](../models/o3-mini.md), [o4-mini](../models/o4-mini.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [QwQ](../models/qwq.md), [Sky-T1](../models/sky-t1.md), [StrongReject](strongreject.md), [WildJailbreak](wildjailbreak.md), [XSTest](xstest.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [ARC-C](arc-c.md), [BBH](bbh.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DeepScaleR-1.5B](../models/deepscaler-1-5b.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini-2.5-Flash-Thinking](../models/gemini-2-5-flash-thinking.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [Kimi-k1.5](../models/kimi-k1-5.md), [MATH500](math500.md), [MBPP](mbpp.md), [o3-mini](../models/o3-mini.md), [o4-mini](../models/o4-mini.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md), [QwQ](../models/qwq.md), [Sky-T1](../models/sky-t1.md), [StrongReject](strongreject.md), [WildJailbreak](wildjailbreak.md), [XSTest](xstest.md)
 
 ## Appears in
 

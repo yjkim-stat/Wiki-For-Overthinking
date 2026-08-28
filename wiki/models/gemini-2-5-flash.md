@@ -9,7 +9,7 @@ Gemini 2.5 Flash is cited in this archive as the prediction target for a lightwe
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AdvBench](../datasets/advbench.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [DeepSeek-R1](deepseek-r1.md), [Gemini-2.0-Flash](gemini-2-0-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini 3 Flash Preview](gemini-3-flash-preview.md), [gpt-o3](gpt-o3.md), [HarmBench](../datasets/harmbench.md), [Qwen3-0.6B](qwen3-0-6b.md), [Qwen3-8B](qwen3-8b.md), [StrongReject](../datasets/strongreject.md)
+**Related**: [AdvBench](../datasets/advbench.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [DeepSeek-R1](deepseek-r1.md), [Gemini-2.0-Flash](gemini-2-0-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini 3 Flash Preview](gemini-3-flash-preview.md), [GPT-4.1-mini](gpt-4-1-mini.md), [gpt-o3](gpt-o3.md), [HarmBench](../datasets/harmbench.md), [Qwen3-0.6B](qwen3-0-6b.md), [Qwen3-8B](qwen3-8b.md), [StrongReject](../datasets/strongreject.md)
 
 ## Appears in
 

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Dynasor-CoT is used in these sources as a training-free early-stopping baseline: ThinkBrake compares its log-probability-margin stopping rule against Dynasor-CoT (among other baselines) across six LRMs and eight benchmarks, and PACE includes it among the training-free pruning baselines it outperforms on the combined token-reduction-and-accuracy criterion.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+IFEval is used in these sources as an instruction-following benchmark for evaluating reasoning-efficiency methods' generalization beyond math: PACE reports out-of-domain accuracy and token-reduction gains on it (among GPQA-Diamond and LiveCodeBench-v6) despite training exclusively on math data, and the model-interpolation study and the entropy-in-RLVR paper both use it as one of several out-of-domain/instruction-following evaluation points.
 
 - **Kind**: dataset
 - **Also called**: IF-Eval

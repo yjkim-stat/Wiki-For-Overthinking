@@ -39,11 +39,17 @@
       "kind": "paper",
       "note": "VecCISC reduces the cost of Confidence-Informed Self-Consistency (CISC) -- which needs a separate critic-LLM call on every sampled reasoning trace to weight majority voting -- by embedding traces, clustering them per candidate answer, and sending only cluster-representative (nearest-centroid) traces to the critic, cutting critic calls 30-35% and total pipeline token usage 47% while matching or exceeding CISC's accuracy across five models and five datasets.",
       "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1572",
+      "kind": "paper",
+      "note": "Thought-Action Graph (TAG) distills past successful LLM-knowledge-graph interaction trajectories into a structured, reusable repository of fine-grained reasoning operators (a thought layer of abstract query patterns plus an action layer of concrete entity/relation parameters), letting TAG-Reasoning (TAGR) retrieve and assemble a query-specific reasoning blueprint offline instead of exploring the KG online -- outperforming 15 baselines on three KGQA benchmarks while using far fewer LLM calls (3, vs. up to 11.6) and generated tokens (65-71, vs. hundreds).",
+      "title": "Thought-Action Graph Reasoning: Faithful and Efficient Reasoning of Large Language Models via Reusing Past Experience"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "GPT-4o-mini",
   "related": [
     "easy-moderate-hard-question-defined-via-answer-probability-structure-under-major",
@@ -156,7 +162,20 @@
     "llama-3-1-8b",
     "llama-3-3-70b",
     "qwen2-5-7b",
-    "mistral-7b-v0-1"
+    "mistral-7b-v0-1",
+    "thought-action-graph-tag",
+    "meta-action-chain-mac",
+    "reasoning-experience-reuse",
+    "thought-layer-action-layer",
+    "kg-filtering-noise-reduction",
+    "thought-action-graph-tag-construction-and-retrieval",
+    "tag-reasoning-tagr",
+    "kg-filtering",
+    "tog-rog-effiqa-gnn-rag-kg-agent-dog-gcr-kbqa-o1-eog-sft-baselines",
+    "webqsp",
+    "cwq-complexwebquestions",
+    "grailqa",
+    "freebase-underlying-kg"
   ],
   "related_authored": [
     "token-budget-aware-llm-reasoning-tale",

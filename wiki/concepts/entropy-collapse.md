@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Entropy collapse -- an LLM's output-token-distribution entropy narrowing sharply during RL training, concentrating probability mass on a limited token subset and favoring exploitation over exploration -- is studied directly in the entropy-in-RLVR paper (which identifies positive-advantage tokens as its primary driver and proposes Positive-Advantage Reweighting to regulate it) and in CurioSFT, which shows standard SFT itself (before any RL) already induces entropy collapse that constrains the subsequent RL stage's achievable performance ceiling, motivating a self-exploratory distillation fix.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

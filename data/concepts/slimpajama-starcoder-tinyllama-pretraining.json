@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1766",
+      "kind": "paper",
+      "note": "TTC-aware training projects a model's expected validation accuracy under test-time compute (via an exponential-saturation curve fit to intermediate checkpoints) to identify an early-stopping point where an intermediate checkpoint plus TTC inference matches or exceeds a fully-trained checkpoint's accuracy at a fraction of training FLOPs -- up to 92% training-FLOP savings while preserving or improving accuracy, validated across TinyLlama, Pythia, FineMath, and a fine-tuned Qwen3-30B-A3B-Instruct.",
+      "title": "FLOP-Efficient Training: Early Stopping Based on Test-Time Compute Awareness"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "SlimPajama / StarCoder (TinyLlama pretraining)",
+  "related": [
+    "test-time-compute-ttc-awareness",
+    "ttc-aware-early-stopping",
+    "exponential-saturation-accuracy-projection",
+    "optimal-sample-count-k-estimation",
+    "break-even-bound-training-vs-inference-compute",
+    "monotonic-fluctuation-filtering",
+    "ttc-aware-early-stopping-exponential-saturation-curve-fitting",
+    "sigmoid-fit-optimal-k-estimation",
+    "pass-k",
+    "diverse-tree-search-dvts-naive-and-weighted",
+    "compute-optimal-search-cts",
+    "majority-voting",
+    "humaneval",
+    "drop",
+    "math500",
+    "gsm8k",
+    "the-pile-pythia-pretraining",
+    "fineweb-edu-finemath-continued-training",
+    "tinyllama-1b",
+    "pythia-1b-2-8b-6-9b",
+    "finemath-llama-3-based-10b-30b-40b-50b-token-checkpoints",
+    "qwen3-30b-a3b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "slimpajama-starcoder-tinyllama-pretraining",
+  "topics": [
+    "overthinking"
+  ]
+}

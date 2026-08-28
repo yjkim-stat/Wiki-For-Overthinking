@@ -9,7 +9,7 @@ Sequential revision denotes generating an answer, then revising it in further ge
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [Best-of-N (BoN) sampling](../methods/best-of-n-bon-sampling.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [DeepScaleR](../datasets/deepscaler.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [Length reward](length-reward.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md), [Qwen2.5-32B](../models/qwen2-5-32b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Test-Time Compute](test-time-compute.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [Best-of-N (BoN) sampling](../methods/best-of-n-bon-sampling.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [DeepScaleR](../datasets/deepscaler.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [difficulty-adaptive reasoning length](difficulty-adaptive-reasoning-length.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [Length reward](length-reward.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md), [Qwen2.5-32B](../models/qwen2-5-32b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Test-Time Compute](test-time-compute.md), [Test-Time Compute Scaling](test-time-compute-scaling.md)
 
 ## Appears in
 

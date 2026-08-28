@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Model merging (combining separately-trained models' parameters, e.g. via task arithmetic) is used in these sources as a reasoning-efficiency baseline: AdaMix compares its LoRA-adapter-interpolation approach against a model-merging baseline (among ShorterBetter/TLMRE/CoT-Valve/SwitchCoT) on an accuracy-efficiency score, and ERRV reports its reasoning-vector approach transfers across base, distilled, and merged models, implying model merging is one of the model-preparation regimes its method is validated against.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

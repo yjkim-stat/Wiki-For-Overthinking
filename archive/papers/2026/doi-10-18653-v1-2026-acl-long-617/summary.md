@@ -45,7 +45,7 @@ CurioSFT incurs additional training overhead versus vanilla SFT (an extra forwar
 
 ## Entities
 
-- **Concepts**: entropy collapse, SFT-then-RL paradigm, self-exploratory distillation, entropy-guided temperature selection, ungrounded entropy, knowledge forgetting
+- **Concepts**: [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), SFT-then-RL paradigm, self-exploratory distillation, entropy-guided temperature selection, ungrounded entropy, knowledge forgetting
 - **Methods**: CurioSFT (Self-Exploratory Distillation + Entropy-Guided Temperature Selection), [GRPO](../../../../wiki/methods/grpo.md), vanilla SFT with entropy regularization, GEM, DFT, PSFT, LUFFY (hybrid SFT+RL baseline), Prefix-RFT (baseline), RL-PLUS (baseline)
 - **Datasets**: OpenR1-Math-46K, [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH](../../../../wiki/datasets/math.md), [Minerva](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [ARC-Challenge](../../../../wiki/datasets/arc-challenge.md), [HumanEval+](../../../../wiki/datasets/humaneval.md), [MBPP+](../../../../wiki/datasets/mbpp.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [TACO](../../../../wiki/datasets/taco.md), LeetCodeDataset
 

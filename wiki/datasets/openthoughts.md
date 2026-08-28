@@ -8,7 +8,7 @@ A corpus of reasoning questions with traces, used in this archive in two unrelat
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [deepseek-v4-flash](../models/deepseek-v4-flash.md), [Direct Prompting](../methods/direct-prompting.md), [GLM-5.2](../models/glm-5-2.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [o4-mini](../models/o4-mini.md), [Qwen3.5-Plus](../models/qwen3-5-plus.md)
+**Related**: [deepseek-v4-flash](../models/deepseek-v4-flash.md), [Direct Prompting](../methods/direct-prompting.md), [GLM-5.2](../models/glm-5-2.md), [GPT-5-Nano](../models/gpt-5-nano.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [o4-mini](../models/o4-mini.md), [Qwen3.5-Plus](../models/qwen3-5-plus.md)
 
 ## Appears in
 

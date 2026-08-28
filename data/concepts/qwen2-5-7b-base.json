@@ -1,0 +1,51 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.165",
+      "kind": "paper",
+      "note": "ADaPT diagnoses that existing efficiency-oriented RL methods fail because sequence-level efficiency rewards implicitly penalize correct-but-long reasoning (a structural mismatch, since only the first token -- the fast/slow mode choice -- actually determines efficiency, while all subsequent tokens can only affect correctness), and fixes this by applying an efficiency reward exclusively to a dedicated mode-selection <think>/<answer> token via a CISPO-stabilized token-level GRPO variant -- cutting Qwen2.5-7B's average generation length from 1540 to 1031 tokens (SFT+GRPO baseline) with only a 0.4-point accuracy drop, tracing a genuine Pareto frontier other methods stay strictly inside, and letting a single trained model's efficiency be tuned post-hoc by adjusting the mode-token's decoding threshold with no retraining.",
+      "title": "ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "model",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "Qwen2.5-7B-Base",
+  "related": [
+    "overthinking",
+    "sequence-level-efficiency-correctness-coupling",
+    "token-level-mode-reward",
+    "mode-selection-token",
+    "dual-process-reasoning-fast-slow",
+    "balanced-dual-start-rollout",
+    "cispo-first-token-stabilization",
+    "efficiency-performance-pareto-frontier",
+    "adapt-token-level-dual-process-rl",
+    "adapt-grpo",
+    "cispo-first-token-ratio-constraint",
+    "grpo-baseline",
+    "sft-baseline",
+    "sft-grpo-baseline",
+    "tlmre-baseline",
+    "arm-baseline",
+    "r-4b-baseline",
+    "arm-team-long-short-cot-data-sft-stage",
+    "csqa",
+    "gsm8k",
+    "math-training-8-5k-verifiable-qa-pairs",
+    "csqa-arc-easy-eval",
+    "math500",
+    "mmlu-pro",
+    "olympiad",
+    "aime24-hard-eval",
+    "qwen2-5-3b-base"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "qwen2-5-7b-base",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -47,7 +47,7 @@ The paper's context-length isolation experiment is conducted on a single base mo
 
 - **Concepts**: overthinking (via short-context-induced reasoning compression), truncation-induced noisy credit assignment, step-level advantage selection, step-level confidence score, verifier-failed-but-correct rollout
 - **Methods**: Step-level Advantage Selection (SAS), [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo.md), L1-Max / LCPO (baseline), ThinkPrune-4K (baseline), LAPO-I (baseline)
-- **Datasets**: DeepScaleR-Preview-Dataset (training, ~40K problems: AIME 1984-2023, AMC pre-2023, Omni-MATH, Still), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH](../../../../wiki/datasets/math.md), [AMC](../../../../wiki/datasets/amc.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), LSAT, [MMLU](../../../../wiki/datasets/mmlu.md)
+- **Datasets**: DeepScaleR-Preview-Dataset (training, ~40K problems: AIME 1984-2023, AMC pre-2023, Omni-MATH, Still), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH](../../../../wiki/datasets/math.md), [AMC](../../../../wiki/datasets/amc.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [LSAT](../../../../wiki/datasets/lsat.md), [MMLU](../../../../wiki/datasets/mmlu.md)
 
 Tags: `overthinking`, `reinforcement-learning`, `GRPO`, `context-length`, `training-stability`, `step-level-credit-assignment`
 

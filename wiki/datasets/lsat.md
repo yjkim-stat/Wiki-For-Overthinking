@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+LSAT (logical reasoning and reading comprehension) is used in these sources as a general, non-mathematical out-of-domain benchmark for efficient-reasoning methods: CLARO reports it among eight benchmarks (alongside GPQA and MMLU) used to validate that its structural-attribute optimization generalizes beyond math, and SAS (Step-level Advantage Selection) similarly evaluates its short-context-training method's out-of-domain generalization on LSAT.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

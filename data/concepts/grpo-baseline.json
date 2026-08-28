@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "GRPO (Group Relative Policy Optimization) is used across these sources both as the RL algorithm several efficient-reasoning methods build on (e.g. ARM2's GRPO-alp variant) and as a plain baseline that alternatives are compared against: MINER reports gains of up to +4.58 Pass@1 and +6.66 Pass@K over vanilla GRPO with zero extra rollouts or inference cost, by converting per-token uncertainty on 'positive homogeneous' prompts (where GRPO's advantage collapses to zero) into an intrinsic reward.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.237",
@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "ARM2 extends adaptive reasoning-format selection (Direct Answer, Short CoT, Code-Text, Code-Exec, Long CoT) to multimodal (vision) inputs and lets executable code substitute for lengthy chain-of-thought on tasks with verifiable computation, trained via GRPO-alp (a format-collapse-resistant, length-aware GRPO variant), reducing token usage over 70% versus standard GRPO while matching its accuracy across six in-domain and six out-of-domain text and multimodal benchmarks.",
       "title": "ARM2: Adaptive Reasoning Model with Vision Understanding and Executable Code"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.165",
+      "kind": "paper",
+      "note": "ADaPT diagnoses that existing efficiency-oriented RL methods fail because sequence-level efficiency rewards implicitly penalize correct-but-long reasoning (a structural mismatch, since only the first token -- the fast/slow mode choice -- actually determines efficiency, while all subsequent tokens can only affect correctness), and fixes this by applying an efficiency reward exclusively to a dedicated mode-selection <think>/<answer> token via a CISPO-stabilized token-level GRPO variant -- cutting Qwen2.5-7B's average generation length from 1540 to 1031 tokens (SFT+GRPO baseline) with only a 0.4-point accuracy drop, tracing a genuine Pareto frontier other methods stay strictly inside, and letting a single trained model's efficiency be tuned post-hoc by adjusting the mode-token's decoding threshold with no retraining.",
+      "title": "ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "method",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "GRPO (baseline)",
   "related": [
     "positive-homogeneous-ph-prompt",
@@ -69,7 +75,31 @@
     "chartqa",
     "mmmu",
     "qwen2-5-vl-7b",
-    "mimo-7b-rl-and-sft-variants-backbone-comparison"
+    "mimo-7b-rl-and-sft-variants-backbone-comparison",
+    "sequence-level-efficiency-correctness-coupling",
+    "token-level-mode-reward",
+    "mode-selection-token",
+    "dual-process-reasoning-fast-slow",
+    "balanced-dual-start-rollout",
+    "cispo-first-token-stabilization",
+    "efficiency-performance-pareto-frontier",
+    "adapt-token-level-dual-process-rl",
+    "adapt-grpo",
+    "cispo-first-token-ratio-constraint",
+    "sft-baseline",
+    "sft-grpo-baseline",
+    "tlmre-baseline",
+    "arm-baseline",
+    "r-4b-baseline",
+    "arm-team-long-short-cot-data-sft-stage",
+    "csqa",
+    "math-training-8-5k-verifiable-qa-pairs",
+    "csqa-arc-easy-eval",
+    "mmlu-pro",
+    "olympiad",
+    "aime24-hard-eval",
+    "qwen2-5-7b-base",
+    "qwen2-5-3b-base"
   ],
   "related_authored": [],
   "schema_version": 1,

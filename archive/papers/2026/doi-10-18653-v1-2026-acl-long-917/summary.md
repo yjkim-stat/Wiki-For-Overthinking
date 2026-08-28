@@ -45,7 +45,7 @@ Due to computational constraints, experiments were not conducted on larger LRMs 
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), black-box persuasive prompting, iterative prompt refinement, compression ratio
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), black-box persuasive prompting, iterative prompt refinement, [compression ratio](../../../../wiki/concepts/compression-ratio.md)
 - **Methods**: WHISPER (iterative persuasive-prompt refinement), [NoThinking (baseline)](../../../../wiki/methods/nothinking-baseline.md), 'Be concise' prompting (baseline), Chain-of-Draft (baseline), GEPA (reflective prompt optimization, baseline), DEER (white-box inference intervention, reference)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), PRM800K (PDSet source)
 

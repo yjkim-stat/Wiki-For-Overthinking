@@ -8,7 +8,7 @@ Claude-Opus-4.5 appears in these sources as one of the frontier models used with
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [benchmark saturation](../concepts/benchmark-saturation.md), [critical-path latency](../concepts/critical-path-latency.md), [DeepSeek-R1](deepseek-r1.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GLM-4.6](glm-4-6.md), [GPT-5.5](gpt-5-5.md), [HMMT25](../datasets/hmmt25.md), [Kimi-K2-Thinking](kimi-k2-thinking.md), [MATH500](../datasets/math500.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [OpenMathReasoning](../datasets/openmathreasoning.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [benchmark saturation](../concepts/benchmark-saturation.md), [critical-path latency](../concepts/critical-path-latency.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-V3.2-Speciale](deepseek-v3-2-speciale.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GLM-4.6](glm-4-6.md), [GPT-5.5](gpt-5-5.md), [HMMT25](../datasets/hmmt25.md), [Kimi-K2-Thinking](kimi-k2-thinking.md), [MATH500](../datasets/math500.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [OpenMathReasoning](../datasets/openmathreasoning.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md)
 
 ## Appears in
 

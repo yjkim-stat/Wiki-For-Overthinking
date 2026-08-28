@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Grok-3 is used in these sources as an evaluated LRM: BloomEval reports it shows a hierarchy-jump rate of 0.185 even on correct answers (the highest among evaluated LRMs) under its Cognitive Hierarchy Trace analysis, illustrating that answer correctness does not guarantee coherent reasoning structure; Mousetrap's cited note does not name Grok-3 specifically.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdvBench](../datasets/advbench.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-V3](deepseek-v3.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [GSM8K](../datasets/gsm8k.md), [HarmBench](../datasets/harmbench.md), [Kimi-k1.5](kimi-k1-5.md), [MATH](../datasets/math.md), [o1](o1.md), [o1-mini](o1-mini.md), [o3-mini](o3-mini.md), [Omni-MATH](../datasets/omni-math.md), [OpenAI o1-mini](openai-o1-mini.md), [s1-32B](s1-32b.md), [StrongReject](../datasets/strongreject.md)
+**Related**: [AdvBench](../datasets/advbench.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-V3](deepseek-v3.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [GSM8K](../datasets/gsm8k.md), [HarmBench](../datasets/harmbench.md), [Kimi-k1.5](kimi-k1-5.md), [MATH](../datasets/math.md), [o1](o1.md), [o1-mini](o1-mini.md), [o3-mini](o3-mini.md), [Omni-MATH](../datasets/omni-math.md), [OpenAI o1-mini](openai-o1-mini.md), [Qwen3-Max](qwen3-max.md), [s1-32B](s1-32b.md), [StrongReject](../datasets/strongreject.md)
 
 ## Appears in
 

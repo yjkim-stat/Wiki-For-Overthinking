@@ -82,11 +82,17 @@
       "kind": "paper",
       "note": "CLARO treats conciseness as an emergent property of well-structured reasoning rather than a truncation target: it fine-tunes models via GRPO with two correctness-gated reward terms (structural attribute alignment -- readability, mathematical-notation density, syntactic compression, low redundancy -- plus a length-contribution term) within a user-specified token budget, outperforming length-controlled baselines (s1, L1-Max) by up to 63.6% relative accuracy under matched budgets across eight math and general-reasoning benchmarks, while a lightweight zero-shot prompting variant (Attribute-Guided Prompting) is shown to be far more robust than simply instructing a model to 'prioritize conciseness.'",
       "title": "CLARO: Controlled Attribute-Driven Reasoning Optimization for Efficient Chain-of-Thought"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1828",
+      "kind": "paper",
+      "note": "Shows via t-SNE that verbose and concise chains-of-thought occupy visibly separable regions of a reasoning model's intermediate activation space, then learns a single, KL-trust-region-constrained steering vector (Contrastive Energy-Based Steering, CES) from only 100 verbose-concise CoT pairs by ranking concise traces below verbose ones in length-normalized energy under the steered model -- Activation-Steered Compression (ASC) cuts CoT length up to 69.35% with no accuracy loss across four model scales and multiple benchmarks, achieves 2.7x end-to-end wall-clock speedup, generalizes cross-task with 0.92 cosine similarity between dataset-specific steering vectors, and mitigates a documented 'underthinking' failure mode (excessive backtracking/path-switching without commitment) in QwQ-32B specifically.",
+      "title": "Activation Steering for Chain-of-Thought Compression"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "DeepSeek-R1-Distill-Llama-8B",
   "related": [
     "overthinking",
@@ -302,7 +308,22 @@
     "claro-1-5b-built-on-l1-max-deepscaler-1-5b",
     "claro-7b-built-on-l1-max-deepseek-r1-distill-qwen-7b",
     "phi-4-3-8b",
-    "mathstral-7b"
+    "mathstral-7b",
+    "underthinking-excessive-backtracking-without-commitment",
+    "verbosity-as-a-latent-steerable-dimension",
+    "activation-steering",
+    "contrastive-energy-based-steering-ces",
+    "length-normalized-energy",
+    "kl-trust-region",
+    "activation-steered-compression-asc",
+    "mean-of-differences-mod-baseline-steering-method",
+    "bipo-optimization-based-steering-baseline",
+    "tcc-baseline",
+    "cod-chain-of-drafts-baseline",
+    "seal-baseline",
+    "gsm8k-hard",
+    "aqua-rat",
+    "qwq-32b"
   ],
   "related_authored": [],
   "schema_version": 1,

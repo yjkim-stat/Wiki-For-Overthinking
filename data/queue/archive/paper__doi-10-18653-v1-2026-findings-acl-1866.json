@@ -1,0 +1,128 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1866.pdf"
+  },
+  "completed_at": "2026-08-28T02:17:37Z",
+  "created_at": "2026-08-28T02:05:37Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1866",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Recent deep-thinking large language models often reason extensively to improve performance, but such lengthy reasoning is not always desirable, as it incurs excessive inference costs with disproportionate performance gains. Controlling reasoning length without sacrificing performance is therefore important, but remains challenging, especially under tight thinking budgets. We propose budget guidance, a simple yet effective method for steering the reasoning process of LLMs toward a target budget without requiring any LLM fine-tuning. Our approach introduces a lightweight predictor that models a Gamma distribution over the remaining thinking length during next-token generation. This signal is then used to guide generation in a soft, token-level manner, ensuring that the overall reasoning trace adheres to the specified thinking budget. Budget guidance enables natural control of the thinking length, along with significant token efficiency improvements over baseline methods on challenging math benchmarks. For instance, it achieves up to a 26% accuracy gain on the MATH-500 benchmark under tight budgets compared to baseline methods, while maintaining competitive accuracy with only 63% of the thinking tokens used by the full-thinking model. Budget guidance also generalizes to broader task domains and exhibits emergent capabilities, such as estimating question difficulty. We release our code and model weights at https://github.com/UMass-Embodied-AGI/BudgetGuidance.",
+    "authors": [
+      "Junyan Li",
+      "Wenshuo Zhao",
+      "Yang Zhang",
+      "Chuang Gan"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "reasoning length",
+      "thinking budget",
+      "thinking model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1866.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Steering LLM Thinking with Budget Guidance",
+    "url": "https://aclanthology.org/2026.findings-acl.1866/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "budget guidance (classifier-guidance analog for LLM reasoning)",
+      "budget-conditional generation",
+      "auxiliary thinking-length predictor",
+      "Gamma-distributed remaining-length modeling",
+      "soft token-level steering vs. hard budget forcing"
+    ],
+    "contributions": [
+      "budget guidance, the first transfer of diffusion-model-style classifier guidance to LLM generation, softly steering reasoning length toward a target budget via elementwise modulation of the LLM's own next-token distribution rather than fine-tuning or hard truncation",
+      "a lightweight, efficient auxiliary predictor that estimates a Gamma distribution over remaining reasoning length for every candidate next token simultaneously (via a closed-form CDF), applied only at paragraph boundaries to keep computational overhead negligible",
+      "state-of-the-art accuracy-under-budget results across three deep-thinking model families/scales and four math benchmarks versus training-free baselines including budget forcing, with the largest advantage under the tightest thinking budgets where hard-cutoff methods most often produce incomplete, incorrect reasoning",
+      "demonstrated cross-model and out-of-domain generalization -- a predictor trained only on math reasoning data transfers to a different model family and to non-math domains (science, logic, tabular, code reasoning) -- and evidence the predictor implicitly learns to estimate question difficulty from context alone"
+    ],
+    "datasets": [
+      "OpenR1-Math-220k (training)",
+      "MATH-500",
+      "AIME-2024",
+      "AMC",
+      "OlympiadBench",
+      "GPQA Diamond",
+      "FOLIO",
+      "TableBench",
+      "LiveCodeBench"
+    ],
+    "limitations": "The predictor requires access to the target LLM's internal hidden states (to condition the BERT-based prediction), so it cannot be applied to fully black-box/API-only models where hidden states are unavailable, unlike prompting-only baselines. Out-of-domain generalization, while present, shows smaller gains than in-domain math performance, and the paper explicitly leaves broadening the training-data domain mix as future work rather than addressing it in the current experiments. The method requires training a separate lightweight predictor per target LLM (or per LLM family with a sufficiently similar reasoning style, as shown for the Qwen3-8B cross-model transfer case), rather than being a purely training-free, zero-shot technique applicable to any model with no setup at all.",
+    "method": "Following the classifier-guidance framework from diffusion models, reframes budget-conditioned generation as modulating the LLM's own unconditional next-token distribution p(Y_t|X,Y_<t) by an auxiliary factor Pr(L_t <= l_bar - t | X, Y_<t, Y_t) -- the probability that the remaining thinking length L_t, if the next token were Y_t, would stay within budget l_bar -- via Bayes' rule, then renormalizing: the budget-conditional distribution is proportional to the unconditional LLM distribution times this remaining-length CDF term. A lightweight auxiliary predictor (BERT-base backbone, taking the target LLM's own concatenated hidden states for the last generated token as input) is trained to output, for every candidate next token in the vocabulary simultaneously, the two parameters (shape lambda, rate alpha) of a Gamma distribution over log(remaining length) -- modeling log-length rather than raw length for robustness to the wide dynamic range of reasoning lengths -- letting the needed cumulative probability (CDF up to the budget) be computed in closed form for all n vocabulary tokens without n separate distribution estimates. At each decoding step, this predicted CDF vector is elementwise-multiplied with the LLM's own output probabilities and renormalized to get the budget-conditional next-token distribution; to keep overhead negligible, this modulation is applied only at the start of each reasoning paragraph (detected via newline delimiters, where guidance is empirically most effective) rather than at every token. The predictor is trained (frozen target LLM, only the predictor updated) via maximum-likelihood on reasoning chains from the OpenR1-Math-220k dataset (DeepSeek-R1-generated), and evaluated on three deep-thinking models (DeepSeek-R1-Distill-Qwen-7B/32B, Qwen3-8B) using greedy decoding.",
+    "methods": [
+      "budget guidance (classifier-guidance-inspired)",
+      "budget forcing (baseline)",
+      "NoThinking (baseline)",
+      "Chain-of-Draft (baseline)",
+      "TALE-EP (baseline)",
+      "SEAL (baseline)",
+      "Dynasor (baseline)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Qwen-32B",
+      "Qwen3-8B",
+      "BERT-base (predictor backbone)"
+    ],
+    "one_liner": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
+    "problem": "Deep-thinking LLMs often reason far longer than needed, incurring latency costs disproportionate to their marginal accuracy gains, especially problematic in latency-sensitive settings; existing thinking-budget-control methods split into fine-tuning approaches (effective but computationally expensive, requiring LLM retraining, and risk unexpectedly altering model behavior such as safety) and inference-time approaches (no fine-tuning, but typically rely on simplistic heuristics -- e.g. budget forcing's hard token cutoff -- that abruptly interrupt reasoning mid-thought, cutting off unfinished reasoning and forcing premature, often-incorrect answers).",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly and centrally relevant: it explicitly targets overthinking's excessive-latency cost and contributes a training-free, inference-time steering mechanism that is neither a length-penalty RL reward nor a hard truncation rule, borrowing the classifier-guidance idea from diffusion models to smoothly bias generation toward a budget while letting the model complete a coherent (if compressed) thought -- and its finding that hard-cutoff budget forcing can perform worse than not thinking at all under tight budgets is a concrete, quantified argument for soft over hard length-control mechanisms, directly comparable to token-budget and early-stopping methods elsewhere in this archive."
+    },
+    "results": "Across four math benchmarks (MATH-500, AIME-2024, AMC, OlympiadBench) at matched thinking-budget levels, budget guidance consistently outperforms all training-free baselines (Chain-of-Draft, TALE-EP prompting baselines; SEAL, Dynasor, Budget Forcing behavior-modification baselines) in the majority of settings across all three model scales/families, with the largest advantage under the tightest budgets -- e.g. on MATH-500/DeepSeek-R1-Distill-Qwen-7B at ~half the full thinking length, budget guidance reaches 88.2% accuracy (vs. budget forcing's 86.0%, and up to 26% relative accuracy gain over baselines under the tightest budgets reported in the abstract) while using 1329 tokens versus the full-thinking model's 2598 (a 37% reduction with minimal accuracy loss, 91.6%->88.2%). On the harder AMC benchmark with DeepSeek-R1-Distill-Qwen-7B, budget guidance reaches 60.2% accuracy (best among all compared methods) at 1768 tokens. Gains hold across model scale (7B to 32B) and family (DeepSeek-R1-distill vs. Qwen3), and notably a predictor trained only on DeepSeek-R1-generated traces still performs well when applied to Qwen3-8B, suggesting the training data can be model-agnostic when the target LLM exhibits a similar reasoning style (e.g. using words like 'wait' or 'alternatively' to structure its process). Accuracy-vs-thinking-length trade-off curves (across a range of token budgets) show budget guidance achieves consistently better token efficiency than budget forcing across most benchmarks, with the advantage most pronounced under stricter budgets; budget forcing's abrupt hard-cutoff can occasionally perform *worse* than a no-thinking baseline under very strict budgets (e.g. MATH-500 on the 32B model), because it truncates reasoning mid-thought and forces a premature guess, while budget guidance avoids this failure mode entirely by softly steering generation toward a budget-aligned but still-complete reasoning trajectory rather than forcibly cutting it off. Controllability analysis (MATH-500) shows budget guidance respects the specified budget about as reliably as budget forcing (at least 75% of answers within budget, median thinking length closely aligned to the target) despite not enforcing a hard cutoff, indicating the soft steering mechanism achieves comparable budget adherence without the abrupt-truncation failure mode. Out-of-domain transferability: despite being trained exclusively on math reasoning data, budget guidance generalizes to four non-math benchmarks (GPQA Diamond/scientific reasoning, FOLIO/logical reasoning, TableBench/tabular reasoning, LiveCodeBench/code reasoning) at matched average thinking length, outperforming budget forcing on GPQA Diamond (49.0% vs. 39.9%), FOLIO (61.6% vs. 60.1%), TableBench (26.7% vs. 22.4%), and LiveCodeBench (29.4% vs. 28.8%) -- though the paper notes out-of-domain gains are smaller than in-domain math gains, and suggests broader training-domain coverage could further improve this. Probing what the predictor learns: its estimated thinking length at the very first reasoning token correlates with both task difficulty (harder problems get longer predicted budgets) and prompt/instruction type, indicating the predictor has implicitly learned to estimate question difficulty from context alone -- an emergent capability not explicitly supervised during training.",
+    "tags": [
+      "overthinking",
+      "budget-control",
+      "inference-time-steering",
+      "training-free",
+      "reasoning-length"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1866",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

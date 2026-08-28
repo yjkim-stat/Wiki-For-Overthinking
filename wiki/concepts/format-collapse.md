@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Format collapse is the failure mode, in adaptive-reasoning-format training, where a model trained via standard GRPO to choose among multiple reasoning formats disproportionately favors whichever format earns the highest reward during training and stops exploring the others. ARM2 addresses it directly with a format-encouragement reward term (in GRPO-alp) that scales reward inversely by how often a format already appears within its response group, and ARM's Ada-GRPO is cited as a related format-adaptive training approach facing the same risk.
 
 - **Kind**: concept
 - **Also called**: Format Collapse
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [Ada-GRPO](../methods/ada-grpo.md), [adaptive reasoning format selection](adaptive-reasoning-format-selection.md), [AIME 2025](../datasets/aime-2025.md), [AQuA-RAT](../datasets/aqua-rat.md), [BBH](../datasets/bbh.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA](../datasets/gpqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](../methods/grpo.md), [GRPO (baseline)](../methods/grpo-baseline.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [MMMU](../datasets/mmmu.md), [OpenBookQA](../datasets/openbookqa.md), [Overthinking](overthinking.md), [StrategyQA](../datasets/strategyqa.md), [supervised fine-tuning](supervised-fine-tuning.md), [SVAMP](../datasets/svamp.md), [Token Budget](token-budget.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [Ada-GRPO](../methods/ada-grpo.md), [adaptive reasoning format selection](../methods/adaptive-reasoning-format-selection.md), [AIME 2025](../datasets/aime-2025.md), [AQuA-RAT](../datasets/aqua-rat.md), [BBH](../datasets/bbh.md), [ChartQA](../datasets/chartqa.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA](../datasets/gpqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GRPO](../methods/grpo.md), [GRPO (baseline)](../methods/grpo-baseline.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [MMMU](../datasets/mmmu.md), [OpenBookQA](../datasets/openbookqa.md), [Overthinking](overthinking.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [StrategyQA](../datasets/strategyqa.md), [supervised fine-tuning](supervised-fine-tuning.md), [SVAMP](../datasets/svamp.md), [Token Budget](token-budget.md)
 
 ## Appears in
 

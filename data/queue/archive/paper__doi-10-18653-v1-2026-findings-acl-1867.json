@@ -1,0 +1,123 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1867.pdf"
+  },
+  "completed_at": "2026-08-28T02:35:09Z",
+  "created_at": "2026-08-28T02:05:37Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1867",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Distilling large reasoning models (LRMs) has become essential for making their Long-CoT reasoning capabilities practical, as full-scale inference remains computationally prohibitive. Existing curation-based approaches, which select complete reasoning traces post-hoc, overlook the collaborative potential of heterogeneous teachers and fail to adapt exploration dynamically, often leading to redundant sampling and missed opportunities for complementary reasoning. To address this, we introduce CoRD, a collaborative multi-teacher decoding framework that performs step-wise reasoning synthesis guided by predictive perplexity–based scoring and beam search. This approach enables heterogeneous LRMs to jointly construct coherent reasoning trajectories while maintaining diverse, high-potential hypotheses efficiently. Experiments show that CoRD generates higher-quality reasoning data and achieves student performance approaching teacher-level results, demonstrating that fine-grained collaboration among diverse LRMs yields structured, efficient, and robust reasoning distillation. The dataset and model are available at https://github.com/DISL-Lab/CoRD",
+    "authors": [
+      "Taewon Yun",
+      "Jisu Shin",
+      "Jeonghwan Choi",
+      "Seunghwan Bang",
+      "Hwanjun Song"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1867.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "Distilling Long-CoT Reasoning through Collaborative Step-wise Multi-Teacher Decoding",
+    "url": "https://aclanthology.org/2026.findings-acl.1867/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "step-wise collaborative decoding",
+      "multi-teacher reasoning distillation",
+      "prompt-guided step segmentation",
+      "predictive perplexity (meta-prover scoring)",
+      "complementarity exploitation vs. collaborative composition",
+      "teacher specialization by reasoning phase"
+    ],
+    "contributions": [
+      "CoRD, a reformulation of multi-teacher long-CoT reasoning distillation from post-hoc trajectory curation into step-wise collaborative decoding, letting heterogeneous teacher LRMs jointly construct reasoning trajectories that combine complementary strategies no single teacher would produce alone",
+      "prompt-guided step segmentation, ensuring semantically coherent, style-consistent reasoning steps across architecturally diverse teacher models, shown via ablation to outperform line-break and prefix-marker-based segmentation",
+      "a predictive-perplexity-based step-selection criterion (via a meta-prover model) that evaluates partial reasoning trajectories' expected progress toward the correct answer without requiring complete rollouts, combined with beam search for a favorable exploration-cost tradeoff versus MCTS",
+      "empirical results showing CoRD produces higher-quality distillation data than post-hoc curation and integration baselines, with teacher-selection-hit-rate analysis revealing genuine phase-specific specialization among teachers, and distilled students (notably a 32B student under heterogeneous teachers) that surpass every individual teacher model's own accuracy on AIME24/25"
+    ],
+    "datasets": [
+      "LIMO-v1 (817 question-solution pairs, primary training)",
+      "LIMO-v2",
+      "S1k-1.1",
+      "AIME24",
+      "AIME25"
+    ],
+    "limitations": "CoRD's step-wise collaborative decoding incurs higher computational complexity (O(TKMB)) than either greedy decoding or curation-based approaches (O(TKB)), though the paper argues this overhead remains practically manageable and is outweighed by the resulting reasoning-quality improvement, and that the meta-prover scoring overhead (M) is negligible in practice. The method's quality gains rely on having access to multiple (ideally heterogeneous, architecturally diverse) teacher LRMs during data construction; the paper's own results show gains are more pronounced under heterogeneous than homogeneous teacher configurations, implying the approach is most beneficial when a genuinely diverse teacher pool is available rather than multiple samples from one model. The meta-prover itself is chosen as the strongest available teacher LRM in the pool (e.g. QwQ-32B), so the quality of the selection signal is bounded by that model's own capability, though the paper notes results with alternative meta-provers are reported in an appendix.",
+    "method": "Formalizes reasoning distillation as step-wise auto-regressive decoding, where each reasoning step acts as a 'token' and the set of steps proposed by all K teacher LRMs at a given point forms the decoding vocabulary. Three core components: (1) Prompt-guided step segmentation -- rather than segmenting by line breaks (uniform structure, little semantic coherence) or prefix markers like 'wait' (semantically cued but inconsistent frequency/content across LRMs), embeds an explicit '<think> ### Step' marker into the initial prompt, guiding all teacher LRMs to structure their reasoning into clearly separated, semantically coherent, functionally consistent steps regardless of which model generated them, enabling faithful cross-model comparison; (2) Perplexity-based step selection -- at each decoding step t, each of K teachers proposes a candidate next step s_t^(k) conditioned on the shared prefix; a separate 'meta-prover' model (the strongest available LRM in the teacher pool, e.g. QwQ-32B) scores each candidate extended trajectory by the predictive perplexity of the ground-truth answer tokens given that extended prefix -- a bounded [0,1] score reflecting how well the reasoning-so-far is expected to progress toward the correct solution, allowing early identification of promising vs. unpromising steps without needing complete trajectories; (3) Step-wise decoding with beam search -- rather than greedily committing to the single locally-optimal step at each position (which can prematurely discard alternatives enabling later strategic shifts), a beam of size B is maintained, extending all B current partial trajectories with each teacher's proposed next step (B*K total candidates) and retaining only the top-B by predictive-perplexity score, balancing MCTS's long-term-payoff awareness against its prohibitive computational cost for long trajectories (O(TKMB) for CoRD vs. O(TK*log(TMB)) for MCTS at matched budget, where MCTS's per-step full-rollout cost dominates). Reasoning generation is capped at 20,480 tokens (16,384 for <think> reasoning, 4,096 reserved for the final answer, explicitly to prevent overthinking from consuming the entire budget).",
+    "methods": [
+      "CoRD (Collaborative Reasoning Decoding)",
+      "prompt-guided step segmentation",
+      "predictive-perplexity step selection",
+      "beam search decoding",
+      "Curation (baseline, S1/LIMO-style post-hoc selection)",
+      "Integration (baseline, GPT5-mini post-hoc trajectory merging)",
+      "MCTS (ablation comparison)"
+    ],
+    "models": [
+      "R1-Distill-Qwen-32B (R1-Qwen-32B, teacher/meta-prover)",
+      "QwQ-32B (teacher/meta-prover)",
+      "Phi4-Reasoning-Plus (teacher)",
+      "R1-Qwen-7B/14B/32B (student models)"
+    ],
+    "one_liner": "CoRD reframes long-CoT reasoning distillation from post-hoc curation (each teacher generates a complete trajectory, then the best one is picked) to step-wise collaborative decoding: heterogeneous teacher LRMs propose candidate next reasoning steps in a shared, prompt-guided step format, a meta-prover scores each candidate by the predictive perplexity of the ground-truth answer given that step, and beam search retains the top-B partial trajectories -- producing higher-quality composite reasoning data than either post-hoc curation or a GPT-mini-based post-hoc integrator, and distilling student models whose 32B version, trained on CoRD data from heterogeneous teachers, actually surpasses every individual teacher's own Pass@1 on AIME24/25.",
+    "problem": "Distilling long-CoT reasoning from large teacher models into smaller students is essential for practical deployment, but existing curation-based approaches (S1, LIMO) generate complete reasoning trajectories from multiple teachers post-hoc and select the highest-scoring one -- wasting computation on discarded candidates and structurally unable to let teachers collaboratively construct trajectories that combine complementary reasoning strategies no single teacher could produce alone; process-reward-model or Monte Carlo Tree Search approaches that work well for short, static reasoning become impractical for long-CoT, since reward shaping can prematurely eliminate paths that initially look suboptimal but are essential for later strategic shifts, and MCTS's search space grows exponentially with trajectory length.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Only tangentially relevant: this paper's central concern is producing higher-quality long-CoT training data for distillation by having multiple teacher models collaboratively construct reasoning trajectories, not controlling or reducing reasoning-trace length or the accuracy/efficiency tradeoff of a single model's inference. It does explicitly reserve a fixed token budget split (16,384 for reasoning, 4,096 for the answer) 'to prevent overthinking' during its own reasoning-data generation step, a brief operational acknowledgment of the phenomenon rather than a studied contribution, so it is background/tooling context for the archive's central topic rather than a direct treatment of it."
+    },
+    "results": "Distillation-data quality comparison (Table 2, homogeneous and heterogeneous teacher configurations) shows CoRD achieves the highest answer accuracy and predictive perplexity of its generated Long-CoT reasoning among three pipelines (Curation, Integration -- a GPT5-mini-based post-hoc trajectory merger, and CoRD): under heterogeneous teachers (R1-Qwen-32B, QwQ-32B, Phi4-Reasoning-Plus), CoRD reaches 93.1% answer accuracy / 0.774 predictive perplexity versus Curation's 84.8%/0.652 and Integration's 91.2%/0.223 -- Integration achieves higher accuracy than Curation by merging trajectories post-hoc but at drastically lower predictive perplexity, because it compresses reasoning into less-deliberative short-CoT-like forms and loses valuable step-level supervision signal, whereas CoRD's incremental step-wise composition preserves deeper, more coherent trajectories retaining the benefits of test-time scaling. Teacher-selection-hit-rate analysis (Figure 2) shows CoRD exhibits specialized, non-uniform allocation across reasoning phases: R1-Qwen-32B and QwQ-32B dominate step selection in early phases (problem formulation, constraint analysis, <=40% trajectory progress) while Phi4-Reasoning-Plus increasingly takes over in late phases (>=80%, synthesizing prior steps into a conclusion) -- direct evidence of genuine complementary specialization rather than uniform sampling from a shared pool. Student distillation results (LIMO-v1-based training, R1-Qwen-7B/14B/32B students) show CoRD consistently delivers the highest Pass@1 across all student sizes and both teacher configurations on AIME24/AIME25, with gains most pronounced under heterogeneous teachers; remarkably, the CoRD-Hetero-distilled 32B student (79.6% AIME24, 70.2% AIME25) surpasses the Pass@1 of every individual teacher model it was distilled from (R1-Qwen-32B: 71.6%/53.8%; QwQ-32B: 77.9%/66.7%; Phi4-Reasoning-Plus: 78.9%/67.9%), indicating the collaborative step-wise signals distilled through CoRD go beyond simple teacher imitation. Comparison against curated public datasets (S1k-1.1, LIMO-v1/v2), applying CoRD to reprocess the same underlying question sets at matched data scale, shows the CoRD-processed version consistently outperforms the original curated dataset on Pass@1 for the same student model (R1-Qwen-32B) across all three source datasets, with particularly larger gains on the harder AIME25 benchmark -- direct evidence CoRD's collaborative decoding produces higher-quality reasoning supervision than static curation-based dataset construction, regardless of the underlying question set. Component ablations (heterogeneous teacher setup, R1-Qwen-32B student) isolate each design choice: prompt-guided step segmentation outperforms both line-break (88.4% acc/0.734 PP) and prefix-based (91.3%/0.747) segmentation (93.1%/0.774), confirming style-consistent, semantically-coherent segmentation is necessary for effective cross-model collaboration; predictive-perplexity-based selection outperforms four alternatives (random selection, max-length selection, PRM-based filtering, LLM-based binary judgment), with random/max-length introducing noise, PRM often removing correctable-via-self-correction trajectories, and binary judgment providing only a sparse discrete signal versus perplexity's continuous, forward-looking score; beam search decoding outperforms both greedy decoding (short-sighted, unstable single-hypothesis commitment) and MCTS (using the same perplexity scoring but UCB-based expansion/backpropagation, matched to the same 4-trajectory compute budget), delivering the strongest reasoning quality and distillation performance of the three decoding strategies tested.",
+    "tags": [
+      "reasoning-distillation",
+      "multi-teacher-collaboration",
+      "beam-search",
+      "long-chain-of-thought",
+      "test-time-scaling-distillation"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1867",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

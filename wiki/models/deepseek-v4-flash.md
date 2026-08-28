@@ -9,7 +9,7 @@ A DeepSeek reasoning model used in this archive as an API-accessed backbone whos
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [deepseek-v4-pro](deepseek-v4-pro.md), [Direct Prompting](../methods/direct-prompting.md), [GAIA](../datasets/gaia.md), [GLM-5.2](glm-5-2.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [o4-mini](o4-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen2.5-72B-Instruct](qwen2-5-72b-instruct.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Self-verification](../methods/self-verification.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
+**Related**: [deepseek-v4-pro](deepseek-v4-pro.md), [Direct Prompting](../methods/direct-prompting.md), [GAIA](../datasets/gaia.md), [GLM-5.2](glm-5-2.md), [GPT-5-Nano](gpt-5-nano.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [o4-mini](o4-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen2.5-72B-Instruct](qwen2-5-72b-instruct.md), [Qwen3.5-Plus](qwen3-5-plus.md), [Self-verification](../methods/self-verification.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
 
 ## Appears in
 

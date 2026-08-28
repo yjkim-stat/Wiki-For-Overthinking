@@ -44,9 +44,9 @@ The clustering and confidence-scoring approach as instantiated requires access t
 
 ## Entities
 
-- **Concepts**: think-twice paradigm, Confidence-Informed Self-Consistency (CISC), reasoning-trace embedding clustering, min-centroid representative selection, weighted majority voting
-- **Methods**: VecCISC (+KMeans / +HAC), Confidence-Informed Self-Consistency (CISC, baseline), Self-Consistency (SC, baseline), VecCISC (random), ablation
-- **Datasets**: AQuA-RAT, [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), ARC-Challenging, [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [GPQA](../../../../wiki/datasets/gpqa.md)
+- **Concepts**: think-twice paradigm, Confidence-Informed Self-Consistency (CISC), reasoning-trace embedding clustering, min-centroid representative selection, [weighted majority voting](../../../../wiki/concepts/weighted-majority-voting.md)
+- **Methods**: VecCISC (+KMeans / +HAC), Confidence-Informed Self-Consistency (CISC, baseline), [Self-Consistency (SC, baseline)](../../../../wiki/methods/self-consistency-sc-baseline.md), VecCISC (random), ablation
+- **Datasets**: [AQuA-RAT](../../../../wiki/datasets/aqua-rat.md), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), ARC-Challenging, [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [GPQA](../../../../wiki/datasets/gpqa.md)
 
 Tags: `test-time-scaling`, `self-consistency`, `confidence-calibration`, `clustering`, `inference-cost-reduction`
 

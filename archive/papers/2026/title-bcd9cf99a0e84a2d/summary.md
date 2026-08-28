@@ -44,7 +44,7 @@ The paper's own appendix records the caveat that matters most: within the GPT-OS
 ## Entities
 
 - **Concepts**: Deep-Thinking Tokens, [Reasoning Effort](../../../../wiki/concepts/reasoning-effort.md), Settling Depth, [Overthinking](../../../../wiki/concepts/overthinking.md), [Test-Time Compute Scaling](../../../../wiki/concepts/test-time-compute-scaling.md), Self-Consistency, Logit Lens, Reasoning Length as Proxy
-- **Methods**: deep-thinking ratio (DTR), settling depth, logit lens, Jensen-Shannon divergence over layer-wise predictive distributions, Think@n, self-consistency / consensus@n, self-certainty, prefix-based early rejection
+- **Methods**: deep-thinking ratio (DTR), settling depth, [logit lens](../../../../wiki/methods/logit-lens.md), Jensen-Shannon divergence over layer-wise predictive distributions, Think@n, self-consistency / consensus@n, self-certainty, prefix-based early rejection
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [HMMT 2025](../../../../wiki/datasets/hmmt-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `overthinking`, `test-time-compute`, `reasoning-effort`, `interpretability`, `logit-lens`, `self-consistency`, `chain-of-thought`, `inference-efficiency`, `llm`

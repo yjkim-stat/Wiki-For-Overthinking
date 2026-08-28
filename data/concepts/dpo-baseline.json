@@ -25,11 +25,17 @@
       "kind": "paper",
       "note": "SIGMA reframes token-efficient RL as a classical exploration-exploitation problem: a self-imitation exploitation module prioritizes training on prompts/rollouts with high compression potential via a dynamic priority table and a compression-ratio-weighted self-imitation loss, while a self-guidance exploration module directs otherwise-undirected long-response exploration via prompt-based token-budget regeneration or random truncation -- improving average accuracy by 7.9%/2.9% while cutting average reasoning length 43.4%/40.3% on 1.5B/7B DeepSeek-R1-Distill models across six benchmarks, beating eight RL-based efficient-reasoning baselines.",
       "title": "Exploration-Exploitation Reshaping towards Efficient Reasoning for Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2078",
+      "kind": "paper",
+      "note": "A controlled study across five behavioral tasks (bias, risk-seeking/averse, reward hacking, sampling behavior, performance under pressure) trains Qwen2.5-7B-Instruct via SFT, DPO, and GRPO on latent-policy-inducing data, then measures whether reasoning traces faithfully reflect the model's own answers (RGR, correlation), whether models can explicitly articulate learned behaviors (reflective self-awareness), and whether learned policies transfer to structurally analogous but semantically different domains -- finding RL-trained (GRPO) models show both stronger explicit self-awareness and stronger cross-domain policy transfer than SFT, but simultaneously the weakest reasoning-answer faithfulness, and that under simulated pressure a model's stated reasoning and its actual action diverge in a direction consistent with the scenario's incentive structure (contemplating deception while its output conceals it).",
+      "title": "The Inner Monologue of Language Models: When Reasoning Traces Reveal More Than They Hide"
     }
   ],
   "first_seen": "2026-08-28T00:09:24Z",
   "kind": "method",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-08-28T02:36:33Z",
   "name": "DPO (baseline)",
   "related": [
     "invalid-thinking-post-answer-redundant-verification",
@@ -104,7 +110,24 @@
     "laser-d-laser-de-baseline",
     "jet-baseline",
     "deepscaler-preview-dataset-training-40k-problems",
-    "qwen3-8b-additional-experiment"
+    "qwen3-8b-additional-experiment",
+    "reflective-behavioral-self-awareness",
+    "reflective-gain-ratio-rgr",
+    "chain-of-thought-faithfulness-behavioral",
+    "latent-policy-transfer-ood-generalization-of-learned-behavior",
+    "strategic-deception-under-pressure",
+    "reward-hacking-behavioral-transfer",
+    "grpo-outcome-reward-only",
+    "gpt-4o-based-think-answer-correctness-evaluation-human-verified",
+    "bias-induction-new-gender-nationality-bias-mcqs",
+    "risk-awareness-new-risk-seeking-risk-averse-decision-scenarios",
+    "reward-hacking-new-hardcoded-test-case-code-samples",
+    "sampling-behavior-rock-paper-scissors-table-bed-chair-new",
+    "performance-under-pressure-insider-trading-agentic-scenario-adapted-from-scheure",
+    "qwen-2-5-7b-instruct",
+    "deepseek-r1-frontier-reference",
+    "gemma-2-2b-it-appendix",
+    "gpt-oss-20b-appendix"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -46,7 +46,7 @@ The paper does not discuss limitations explicitly in the excerpted sections; its
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), reasoning vector, steering vector (activation engineering), training-time vector-guided rollout steering, importance-sampling correction for off-policy rollouts, cosine-annealed vector reliance
-- **Methods**: ERRV (Reasoning Vector-guided RL), ERRV-IS (with importance sampling), [GRPO](../../../../wiki/methods/grpo.md), ModelMerging (baseline), [TLMRE (baseline)](../../../../wiki/methods/tlmre-baseline.md), [DPO (baseline)](../../../../wiki/methods/dpo-baseline.md), AdaptThink (reference, excluded from head-to-head)
+- **Methods**: ERRV (Reasoning Vector-guided RL), ERRV-IS (with importance sampling), [GRPO](../../../../wiki/methods/grpo.md), [ModelMerging (baseline)](../../../../wiki/methods/modelmerging-baseline.md), [TLMRE (baseline)](../../../../wiki/methods/tlmre-baseline.md), [DPO (baseline)](../../../../wiki/methods/dpo-baseline.md), AdaptThink (reference, excluded from head-to-head)
 - **Datasets**: DeepScaleR (training, ~40K problems: AIME 1984-2023, AMC, Omni-MATH, STILL), [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [LiveCodeBench-v6](../../../../wiki/datasets/livecodebench-v6.md), [MMLU](../../../../wiki/datasets/mmlu.md)
 
 Tags: `overthinking`, `mechanistic-interpretability`, `steering-vector`, `reinforcement-learning`, `GRPO`, `reasoning-efficiency`

@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.1885",
+      "kind": "paper",
+      "note": "AlgBench replaces problem-centric algorithmic benchmarks (which conflate multiple algorithms per problem and risk contamination) with 3,000 expert-curated, contamination-free problems each isolating exactly one of 27 algorithms under a six-category taxonomy, finding LRMs handle non-optimized/Euclidean-structured algorithms well (up to 92%) but collapse on global-optimization tasks like dynamic programming (~49%), that model-parameter scaling barely helps in exactly those weak categories, and that 'strategic over-shifts' -- models abandoning a correct algorithmic design mid-execution -- are specifically triggered by necessary low-entropy tokens (numeric constants, structural delimiters) that standard maximum-entropy RL training penalizes as if they were uncertain, unproductive continuations.",
+      "title": "AlgBench: To What Extent Do Large Reasoning Models Understand Algorithms?"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "concept",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "performance saturation vs. scaling headroom",
+  "related": [
+    "algorithm-centric-paradigm-vs-problem-centric",
+    "strategic-over-shift",
+    "necessary-low-entropy-token",
+    "maximum-entropy-rl-principle-tension-with-deterministic-execution",
+    "algorithmic-reasoning-taxonomy-euclidean-non-euclidean-optimization-levels",
+    "algorithm-centric-benchmark-construction",
+    "z-score-normalized-pass-k-evaluation",
+    "automated-error-taxonomy-annotation-pipeline-qwen3-235b-segmentation-gpt-o3-labe",
+    "token-entropy-analysis-around-strategic-shift-indicators",
+    "algbench-new-3-000-problems-27-algorithms",
+    "deepseek-v3-2-speciale",
+    "gemini-3-pro",
+    "grok4-vip",
+    "gpt-o3",
+    "qwen3-235b-a22b",
+    "deepseek-r1",
+    "gemini-2-5-pro",
+    "claude-opus",
+    "gpt-oss-120b",
+    "qwen3-4b-8b-14b-32b-scaling-analysis"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "performance-saturation-vs-scaling-headroom",
+  "topics": [
+    "overthinking"
+  ]
+}

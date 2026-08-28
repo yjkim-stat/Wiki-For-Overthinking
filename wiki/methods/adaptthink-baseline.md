@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+AdaptThink is used in these sources as a representative adaptive-reasoning (think/no-think gating) RL baseline that newer efficient-reasoning methods compare against: RPO reports its own root-token-only training uses ~2% of AdaptThink's compute while improving the accuracy-vs-thinking-rate tradeoff; SIGMA and PACE both include AdaptThink among the RL-based efficient-reasoning baselines they outperform on the accuracy-length Pareto frontier.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -1,0 +1,56 @@
+{
+  "concepts": [
+    "overthinking (distillation-time)",
+    "step-level causal contribution",
+    "gradient-based soft-masking probe",
+    "fidelity-constrained LLM-guided pruning",
+    "semantic anchor",
+    "pruning-agent scale mismatch"
+  ],
+  "contributions": [
+    "Pru-CoT, a two-stage CoT-pruning framework for reasoning distillation that quantifies each step's causal contribution via gradient-based optimization of a learnable soft-masking weight on a frozen student model, rather than relying on rigid local heuristics or expensive global search",
+    "an LLM-guided pruning stage that uses the high-importance steps identified by global optimization as semantic anchors, synthesizing a concise but logically coherent compressed chain rather than naively deleting low-weight steps",
+    "state-of-the-art accuracy-efficiency trade-off (ACU) across model scales and token budgets versus prompt-based, token-level, and search-based pruning baselines, with a 4.4x speedup over the strongest search-based baseline (A*-Thought)",
+    "an empirical finding that pruning-agent scale must be matched to the student model's capability -- an over-capable pruning agent prunes steps that are 'obvious' to itself but necessary scaffolding for a weaker student, degrading rather than improving distillation quality"
+  ],
+  "datasets": [
+    "OpenThoughts-114k (training, 2,051 filtered samples)",
+    "AIME24/25",
+    "AMC23",
+    "MATH500"
+  ],
+  "generated_at": "2026-08-28T02:16:22Z",
+  "generated_by": "queue",
+  "limitations": "The paper does not discuss limitations explicitly in a dedicated section within the excerpted material; the cross-agent-scale experiment shows Pru-CoT's effectiveness depends on aligning the pruning agent's scale/capability to the student model's capability, since a substantially more powerful agent can prune steps that are 'obvious' to itself but necessary scaffolding for a weaker student -- an important but non-obvious hyperparameter-like sensitivity, since naively using the most capable available agent for pruning is shown to hurt rather than help. Step segmentation relies on a fixed delimiter ('\\n\\n'), matching the observed generation pattern of the DeepSeek-R1 series specifically, and the importance-weight probing phase requires several epochs of gradient-based optimization per training sample, adding preprocessing cost beyond a single forward pass (though the paper's efficiency comparison shows this remains far cheaper than full search-based pruning).",
+  "method": "For each reasoning chain (S sequential steps, split by double-newline delimiters), assigns a learnable importance vector w=(w_1,...,w_S) in [0,1]^S, one weight per step, that acts as a soft gate fusing each step's token embeddings with a filler-token ('.') noise embedding: e_tilde = w_t * e_t + (1-w_t) * n. In a probing phase, the language model's own parameters are frozen and only this sample-specific importance vector is optimized (via SGD for 3 epochs) to minimize cross-entropy loss on the solution sequence -- so masking a step toward pure noise and observing how much the prediction loss spikes (and thus how strongly the gradient pushes that step's weight back toward 1 to restore semantics) directly quantifies that step's causal necessity, distinct from isolated token-level salience: masking a genuinely critical step disrupts the reasoning path and produces strong corrective gradients, while masking a redundant or negative step produces negligible gradient flow, so its weight stays near its 0.5 initialization or converges toward 0. Steps whose optimized weight falls below a threshold tau (0.5) become pruning candidates; an LLM-guided pruning agent (Qwen2.5-Instruct, scale-matched to the student: 7B agent for the 7B student, 1.5B for the 1.5B student) is then given the question, original CoT, candidate-step annotations, and final answer, and outputs the final pruned subset, using the retained high-importance steps as semantic anchors to ensure the resulting compressed chain stays logically coherent and fluent rather than merely deleting flagged steps outright.",
+  "methods": [
+    "Pru-CoT (gradient-based step-importance probing + LLM-guided pruning)",
+    "SFT (baseline)",
+    "BtC (prompt-based baseline)",
+    "Tokenskip (token-level pruning baseline)",
+    "A*-Thought (search-based baseline)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "Qwen2.5-7B-Instruct (pruning agent)",
+    "Qwen2.5-1.5B-Instruct (pruning agent)",
+    "DeepSeek-V3.2 (cross-scale pruning agent)"
+  ],
+  "one_liner": "Pru-CoT quantifies each reasoning step's causal contribution via gradient-based optimization of a learnable soft-masking weight on a frozen student LLM (masking a step toward a filler-token embedding and seeing how much the prediction loss spikes), then uses an LLM-guided pruning agent to synthesize a concise, logically-coherent chain anchored on the high-weight steps -- beating token-level, prompt-based, and search-based pruning baselines, improving DeepSeek-R1-Distill-Qwen-7B's average accuracy 2.4% while cutting tokens, and running 4.4x faster than the strongest search-based baseline (A*-Thought).",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.1684",
+  "problem": "Distilling large reasoning models' chain-of-thought into smaller student models is undermined by teacher-generated CoT traces containing redundant steps (repetitive verification, trivial derivations -- overthinking), which small students tend to overfit as surface syntactic patterns rather than internalizing the core causal logic, making distilled students computationally inefficient and hallucination-prone; existing CoT-pruning methods either use local heuristic rules (rigid, limited search space, unable to capture global causal dependencies between steps) or global search-based methods (capture long-range dependencies but incur prohibitive computational overhead for large-scale data processing).",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly and centrally relevant: it names overthinking explicitly as the source of redundant distillation data and contributes a distinct, gradient-based method for measuring a reasoning step's genuine causal necessity (via how much a prediction-loss spike its removal induces) rather than relying on rules, perplexity heuristics, or expensive search -- and its case study and cross-agent-scale ablation give a concrete, transferable lesson (a step 'obvious' to a strong pruning agent can still be necessary scaffolding for a weaker student) relevant to any distillation- or pruning-based overthinking mitigation elsewhere in this archive that assumes a fixed notion of step importance independent of the consuming model's capability."
+  },
+  "results": "Trained on 2,051 filtered samples from OpenThoughts-114k (DeepSeek-R1-derived reasoning chains) and evaluated on AIME24/25, AMC23, and MATH500 under an 8K-token budget: on DeepSeek-R1-Distill-Qwen-7B, Pru-CoT achieves the highest average accuracy (65.3%, +2.4pp over SFT's 60.5%) and average token count (4871, second-lowest after A*-Thought's 4868) among all compared methods (SFT, BtC, Tokenskip, A*-Thought), giving it the best ACU (accuracy/tokens efficiency score, 1.34) -- with a notably large gain on the hardest benchmark, AIME24/25 accuracy improving 7.5 points over baselines while maintaining strong performance on AMC23/MATH500. On the smaller DeepSeek-R1-Distill-Qwen-1.5B student, Pru-CoT ties A*-Thought for the best ACU (0.98) while retaining higher average accuracy (48.1% vs. A*-Thought's 45.4%), though it does not achieve the single highest raw accuracy (SFT reaches 48.8% at higher token cost) -- the paper attributes the smaller student's slightly lower absolute accuracy to its limited capacity to sustain performance trade-offs under aggressive compression, while still delivering a ~9.5% average reasoning-length reduction versus SFT. Across a scan of maximum inference token budgets from 4,096 to 12,288, Pru-CoT consistently achieves the highest accuracy and the best ACU (performance-efficiency trade-off) at every budget level versus Tokenskip and A*-Thought, and shows the most gradual ACU decay as budget increases, indicating it converts additional reasoning length into marginal utility more effectively than competing methods rather than the advantage being confined to one specific budget. An ablation isolating the two pipeline stages (Table 2, DeepSeek-R1-Distill-Qwen-7B): 'Opt. Only' (pruning directly by thresholding the global-optimization importance weights, no LLM-guided synthesis stage) shows a slight accuracy decline versus the full method but still outperforms all other baselines, showing the global-optimization signal alone captures meaningful causal structure; 'LLM Only' (directly prompting an LLM to compress the chain to a target pruning ratio, without the global-optimization-derived importance weights as anchors) shows significant deterioration, since absent the semantic anchors the LLM struggles to identify which nodes are truly critical and fails to maintain a logically coherent path -- confirming both stages are necessary, with global optimization identifying prunable segments and the LLM executing precise, coherence-preserving pruning around those anchors. A cross-agent-scale experiment shows using a substantially more powerful pruning agent (DeepSeek-V3.2) than the scale-matched default meaningfully *lowers* average student accuracy despite similar ACU, hypothesized to occur because a more capable agent internalizes certain reasoning steps as 'obvious' and prunes them, even though those steps represent necessary scaffolding for the less-capable student -- a mismatch cost that is not offset by the far larger agent's substantial extra computational cost. Efficiency analysis shows Pru-CoT's two-stage pipeline achieves a 4.4x total speedup over the search-based A*-Thought baseline (1.82 vs. 7.99 GPU hours on the training dataset with the 1.5B model), since Pru-CoT's global optimization phase is a lightweight gradient-based procedure rather than a full search. A worked case study (tennis-tournament combinatorics problem) shows steps that merely restate the problem or reiterate an already-derived answer receive weight 0.0 and are pruned, while a step containing an alternative derivation approach (weight 0.02, marked for pruning by the raw threshold) is nonetheless *retained* by the LLM-guided phase because it provides necessary contextual antecedent for a later step ('let me test another example', which presupposes an example was already discussed) -- illustrating that the LLM-guided stage can override the raw importance score when local coherence requires it.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "chain-of-thought-pruning",
+    "knowledge-distillation",
+    "reasoning-efficiency",
+    "gradient-based-attribution"
+  ]
+}

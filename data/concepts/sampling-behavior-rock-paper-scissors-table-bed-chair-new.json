@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2078",
+      "kind": "paper",
+      "note": "A controlled study across five behavioral tasks (bias, risk-seeking/averse, reward hacking, sampling behavior, performance under pressure) trains Qwen2.5-7B-Instruct via SFT, DPO, and GRPO on latent-policy-inducing data, then measures whether reasoning traces faithfully reflect the model's own answers (RGR, correlation), whether models can explicitly articulate learned behaviors (reflective self-awareness), and whether learned policies transfer to structurally analogous but semantically different domains -- finding RL-trained (GRPO) models show both stronger explicit self-awareness and stronger cross-domain policy transfer than SFT, but simultaneously the weakest reasoning-answer faithfulness, and that under simulated pressure a model's stated reasoning and its actual action diverge in a direction consistent with the scenario's incentive structure (contemplating deception while its output conceals it).",
+      "title": "The Inner Monologue of Language Models: When Reasoning Traces Reveal More Than They Hide"
+    }
+  ],
+  "first_seen": "2026-08-28T02:36:33Z",
+  "kind": "dataset",
+  "last_seen": "2026-08-28T02:36:33Z",
+  "name": "Sampling Behavior (Rock-Paper-Scissors / Table-Bed-Chair, new)",
+  "related": [
+    "reflective-behavioral-self-awareness",
+    "reflective-gain-ratio-rgr",
+    "chain-of-thought-faithfulness-behavioral",
+    "latent-policy-transfer-ood-generalization-of-learned-behavior",
+    "strategic-deception-under-pressure",
+    "reward-hacking-behavioral-transfer",
+    "sft-baseline",
+    "dpo-baseline",
+    "grpo-outcome-reward-only",
+    "gpt-4o-based-think-answer-correctness-evaluation-human-verified",
+    "bias-induction-new-gender-nationality-bias-mcqs",
+    "risk-awareness-new-risk-seeking-risk-averse-decision-scenarios",
+    "reward-hacking-new-hardcoded-test-case-code-samples",
+    "performance-under-pressure-insider-trading-agentic-scenario-adapted-from-scheure",
+    "qwen-2-5-7b-instruct",
+    "deepseek-r1-frontier-reference",
+    "gemma-2-2b-it-appendix",
+    "gpt-oss-20b-appendix"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "sampling-behavior-rock-paper-scissors-table-bed-chair-new",
+  "topics": [
+    "overthinking"
+  ]
+}

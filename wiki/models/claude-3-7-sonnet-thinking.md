@@ -8,7 +8,7 @@ Claude-3.7-Sonnet-Thinking appears in these sources both as an evaluated model a
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [CommonsenseQA](../datasets/commonsenseqa.md), [compression ratio](../concepts/compression-ratio.md), [DeepSeek-R1-0528](deepseek-r1-0528.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-o1](gpt-o1.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [NoThinking (baseline)](../methods/nothinking-baseline.md), [Overthinking](../concepts/overthinking.md), [Qwen3-14B](qwen3-14b.md), [Qwen3-235B-A22B](qwen3-235b-a22b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-4B](qwen3-4b.md), [Qwen3-8B](qwen3-8b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [Chain-of-Draft (baseline)](../methods/chain-of-draft-baseline.md), [CommonsenseQA](../datasets/commonsenseqa.md), [compression ratio](../concepts/compression-ratio.md), [DeepSeek-R1-0528](deepseek-r1-0528.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-o1](gpt-o1.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [NoThinking (baseline)](../methods/nothinking-baseline.md), [Overthinking](../concepts/overthinking.md), [Qwen3-14B](qwen3-14b.md), [Qwen3-235B-A22B](qwen3-235b-a22b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-4B](qwen3-4b.md), [Qwen3-8B](qwen3-8b.md)
 
 ## Appears in
 

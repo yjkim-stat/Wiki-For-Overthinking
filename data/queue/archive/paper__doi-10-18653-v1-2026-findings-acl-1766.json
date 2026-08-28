@@ -1,0 +1,125 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-1766.pdf"
+  },
+  "completed_at": "2026-08-28T02:14:10Z",
+  "created_at": "2026-08-28T02:05:37Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.1766",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Scaling training compute, measured in FLOPs, has long been shown to improve the accuracy of large language models, yet training remains resource-intensive. Prior work shows that increasing test-time compute (TTC)—for example through iterative sampling—can allow smaller models to rival or surpass much larger ones at lower overall cost. We introduce TTC-aware training, where an intermediate checkpoint and a corresponding TTC configuration can together match or exceed the accuracy of a fully trained model while requiring substantially fewer training FLOPs. Building on this insight, we propose an early stopping algorithm that jointly selects a checkpoint and TTC configuration to minimize training compute without sacrificing accuracy. To make this practical, we develop an efficient TTC evaluation method that avoids exhaustive search, and we formalize a break-even bound that identifies when increased inference compute compensates for reduced training compute. Experiments demonstrate up to 92% reductions in training FLOPs while maintaining and sometimes remarkably improving accuracy. These results highlight a new perspective for balancing training and inference compute in model development, enabling faster deployment cycles and more frequent model refreshes.",
+    "authors": [
+      "Hossam Amer",
+      "Maryam Dialameh",
+      "Hossein Rajabzadeh",
+      "Walid Ahmed",
+      "Weiwei Zhang",
+      "Yang Liu"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test-time compute",
+      "early stopping"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.1766.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.6667
+    },
+    "title": "FLOP-Efficient Training: Early Stopping Based on Test-Time Compute Awareness",
+    "url": "https://aclanthology.org/2026.findings-acl.1766/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "test-time compute (TTC) awareness",
+      "TTC-aware early stopping",
+      "exponential saturation accuracy projection",
+      "optimal sample count (K*) estimation",
+      "break-even bound (training vs. inference compute)",
+      "monotonic-fluctuation filtering"
+    ],
+    "contributions": [
+      "the TTC-awareness insight: an intermediate training checkpoint combined with an appropriately-chosen test-time-compute configuration can match or exceed a fully-trained checkpoint's accuracy at substantially fewer training FLOPs, demonstrated across multiple model families, sizes, and tasks",
+      "a TTC-aware early-stopping algorithm that fits a saturating accuracy-vs-training-FLOPs curve and a sigmoid accuracy-vs-K curve (queried at only small K values) to jointly decide when to stop training and what TTC sample budget to deploy with",
+      "a break-even bound identifying how much downstream inference volume can be served under TTC before its cost exceeds that of training a model fully without TTC, informing model-refresh cadence decisions",
+      "empirical validation of up to 92% training-FLOP reduction while maintaining or improving accuracy, across pretraining (TinyLlama, Pythia), continued training (FineMath) with multiple TTC aggregation methods, and a large-model fine-tuning setting (Qwen3-30B-A3B-Instruct)"
+    ],
+    "datasets": [
+      "HumanEval",
+      "DROP",
+      "Math-500",
+      "GSM8K",
+      "SlimPajama / StarCoder (TinyLlama pretraining)",
+      "The Pile (Pythia pretraining)",
+      "FineWeb-Edu / FineMath (continued training)"
+    ],
+    "limitations": "TTC-aware training's benefit is demonstrated primarily on smaller, publicly-available-intermediate-checkpoint model families (TinyLlama, Pythia, FineMath) because reproducing training for most large-scale frontier models with intermediate checkpoints would be prohibitively expensive; evaluation on a genuinely large frontier model uses only a single fine-tuning setting (Qwen3-30B-A3B-Instruct, 1 epoch on GSM8K) rather than full pretraining. The TinyLlama-on-Math-500 experiment required additional targeted training to include sufficient math-domain data (since the originally fully-trained checkpoint scored 0%), and even then only a partial subset of intermediate checkpoints was usable due to compute constraints -- the paper states this as a practical limitation of fully exploiting the method across models and checkpoints, calling for more appropriate training resources/setup in future work. The break-even bound assumes a fixed ~6x ratio of training to inference FLOPs per token and a single serving-cost multiplier lambda, simplifications the paper does not further stress-test against real deployment cost variability.",
+    "method": "Proposes TTC-aware training: during training, validation accuracy is collected from intermediate checkpoints and fit to an exponential saturation curve A_hat(B) = a(1-e^{-bB}) + c projecting expected final accuracy at a given training-FLOPs budget B, using only monotonically-non-decreasing validation points to filter training-induced fluctuation noise. A TTC-aware early-stopping algorithm (Algorithm 1) then, at each checkpoint, searches for the minimum sample count K* such that (i) the combined training-plus-TTC-inference FLOPs at that checkpoint stay below the full-budget-without-TTC cost, and (ii) the checkpoint's TTC-projected accuracy at K* meets or exceeds the projected final accuracy A_hat(B); training halts once this holds for a patience window of p consecutive checkpoints. To make per-checkpoint TTC evaluation practical without exhaustively sampling every K, a sigmoid curve A_hat_K(t) = L/(1+e^{-k(K-x0)}) is fit from a handful of small-K query points (K in {1,2,4}, which implicitly also yields results for all K'<=K), letting the optimal K* be extrapolated rather than searched exhaustively. A break-even bound is derived (assuming training FLOPs per token are ~6x inference FLOPs per token) giving the maximum downstream inference volume N_infer that can be served under TTC before the accumulated training-plus-serving cost exceeds that of a fully-trained baseline without TTC, expressed as a function of the training-FLOPs-savings ratio r and the relative TTC inference-cost multiplier lambda.",
+    "methods": [
+      "TTC-aware early stopping (exponential-saturation curve fitting)",
+      "sigmoid-fit optimal-K estimation",
+      "Pass@K",
+      "Diverse Tree Search (DVTS, naive and weighted)",
+      "Compute-Optimal Search (CTS)",
+      "majority voting"
+    ],
+    "models": [
+      "TinyLlama (1B)",
+      "Pythia (1B/2.8B/6.9B)",
+      "FineMath (LLaMA-3-based, 10B/30B/40B/50B token checkpoints)",
+      "Qwen3-30B-A3B-Instruct"
+    ],
+    "one_liner": "TTC-aware training projects a model's expected validation accuracy under test-time compute (via an exponential-saturation curve fit to intermediate checkpoints) to identify an early-stopping point where an intermediate checkpoint plus TTC inference matches or exceeds a fully-trained checkpoint's accuracy at a fraction of training FLOPs -- up to 92% training-FLOP savings while preserving or improving accuracy, validated across TinyLlama, Pythia, FineMath, and a fine-tuned Qwen3-30B-A3B-Instruct.",
+    "problem": "Prior work shows test-time compute (TTC) -- iterative sampling, verifier-guided search -- lets smaller models rival or surpass larger ones at lower total cost, but existing training studies compare only fully-trained models of different sizes, overlooking how performance evolves with training FLOPs within a single model; existing early-stopping methods remain TTC-agnostic (they optimize only single-inference validation accuracy) and existing TTC techniques (especially repeated sampling) do not predict an efficient number of samples K, so training and inference compute are optimized separately rather than jointly.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Only indirectly relevant: this paper is about training-time compute efficiency (how much pretraining/fine-tuning FLOPs are needed before a checkpoint plus a fixed test-time-compute budget matches a fully-trained model), not about single-response reasoning-trace length or the inference-time overthinking behavior this archive centrally tracks. Its shared vocabulary (test-time compute, Pass@K, early stopping) reflects the same broader test-time-scaling literature this archive draws on, but the object being optimized (a training schedule, not a reasoning trace) is a different question."
+    },
+    "results": "Across TinyLlama (HumanEval, DROP), Pythia (1B/2.8B/6.9B, HumanEval, GSM8K), and a continued-training FineMath setup (10B/30B/40B/50B tokens, Math-500), the TTC-aware effect is consistent: an intermediate checkpoint using TTC (e.g. Pass@8) matches or exceeds a fully-trained baseline's accuracy without TTC, at substantially fewer training FLOPs -- e.g. TinyLlama/HumanEval: an intermediate checkpoint achieves a +0.45 percentage-point accuracy gain over the final checkpoint at 92.44% training-FLOP savings (85.5% net savings after accounting for the extra TTC-inference FLOPs consumed during training itself); Pythia-2.8B at 80k training steps with Pass@8 (8.84% HumanEval) not only matches but surpasses its own 143k-step baseline (6.7%) and even the much larger 6.9B baseline at 143k steps (6.8%). A recurring cross-model-size pattern: when an intermediate checkpoint uses a larger K than the fully-trained baseline (e.g. Pass@8 vs. the baseline's Pass@4), it can often match or surpass the baseline's accuracy while still saving FLOPs; comparing checkpoints at the *same* K, the fully-trained baseline always wins, but only at the cost of substantially more FLOPs. In the FineMath continued-training setting, even a lower-budget checkpoint at a larger K frequently surpasses a higher-budget checkpoint evaluated at smaller K (e.g. at K=4, the 10B-token checkpoint's 24.73% exceeds the 50B-token checkpoint's K=2 result of 18.28%), a pattern that recurs across multiple budget pairs and holds across simple Pass@K, majority voting, Diverse Tree Search (naive and weighted), and Compute-Optimal Search aggregation methods, not just raw Pass@K -- DVTS-Weighted consistently gives the best overall TTC performance and Compute-Optimal Search an approximate upper bound. The insight extends to a large-model fine-tuning scenario (Qwen3-30B-A3B-Instruct on GSM8K, 1 epoch): Pass@K over intermediate checkpoints is non-monotonic, and TTC-aware selection identifies an intermediate checkpoint with Pass@2 outperforming the final checkpoint by more than 10 percentage points. The full early-stopping algorithm (with monotonic-fluctuation filtering) substantially outperforms naive PyTorch-style early stopping: on TinyLlama-HumanEval, the naive baseline either halts too early (large FLOPs savings but a meaningful accuracy drop) or barely saves compute at all depending on patience, while the proposed method achieves up to 92% FLOPs savings while *improving* accuracy by 0.44%; ablating the fluctuation-filtering step shows it specifically matters -- with filtering, HumanEval/DROP FLOPs savings reach 90.7%/87.0% at +0.6%/+1.0% accuracy gain, versus 56.8%/72.7% savings at +2.05%/+2.08% gain without it (filtering trades a smaller accuracy margin for substantially larger compute savings by avoiding stopping at a noisy local peak). Patience-sensitivity analysis shows a mid-range patience value (~10) gives the best trade-off; patience 0 stops too early (large negative accuracy delta), while very high patience approaches the full-training baseline with diminishing FLOPs savings. The derived break-even bound, applied illustratively at r~0.2 (80% training savings) and lambda~1.2 (20% relative TTC-serving overhead), implies TTC-aware training and deployment remains cost-favorable for up to ~70B downstream inference samples before the model needs to be refreshed via further training.",
+    "tags": [
+      "test-time-compute",
+      "training-efficiency",
+      "early-stopping",
+      "compute-optimal-scaling",
+      "pass-at-k"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-1766",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

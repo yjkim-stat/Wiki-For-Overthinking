@@ -46,9 +46,9 @@ The paper does not discuss limitations explicitly in the excerpted sections; all
 
 ## Entities
 
-- **Concepts**: entropy collapse, positive-advantage token, clipping threshold (Clip-Higher/Lower/Tighter/Free), off-policy updates, training-data diversity, Positive-Advantage Reweighting, miscalibration (entropy collapse and confidence)
+- **Concepts**: [entropy collapse](../../../../wiki/concepts/entropy-collapse.md), positive-advantage token, clipping threshold (Clip-Higher/Lower/Tighter/Free), off-policy updates, training-data diversity, Positive-Advantage Reweighting, miscalibration (entropy collapse and confidence)
 - **Methods**: [GRPO (Group Relative Policy Optimization)](../../../../wiki/methods/grpo.md), Positive-Advantage Reweighting (Stage-based/Epoch-wise/Entropy-guided), Adaptive Entropy Regularization (baseline), Clip-Cov / KL-Cov (baseline), Rand-Pos-Clip (baseline), DAPO (Clip-Higher, reference)
-- **Datasets**: DAPO-Math-17K (training), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC2023](../../../../wiki/datasets/amc23.md), [Minerva Math](../../../../wiki/datasets/minerva.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), IF-Eval
+- **Datasets**: [DAPO-Math-17K (training)](../../../../wiki/datasets/dapo-math-17k-training.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC2023](../../../../wiki/datasets/amc23.md), [Minerva Math](../../../../wiki/datasets/minerva.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [IF-Eval](../../../../wiki/datasets/ifeval.md)
 
 Tags: `entropy-collapse`, `reinforcement-learning`, `GRPO`, `RLVR`, `training-dynamics`, `calibration`
 

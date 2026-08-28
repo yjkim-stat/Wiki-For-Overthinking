@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Llama 3.3 70B is used in these sources as an evaluated LLM: the cross-cultural-measurement-systems study finds it (like other large models) suffers accuracy drops when queried in a non-default (non-Western) measurement system, and that chain-of-thought reasoning stabilizes accuracy back toward the default level but at 180-300% more test-time compute -- a cost that disproportionately burdens users outside the model's default cultural context; VecCISC also evaluates on Llama 3.3 70B among its five models.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AQuA-RAT](../datasets/aqua-rat.md), [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](gpt-4o-mini.md), [Llama-3.1-8B](llama-3-1-8b.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Qwen2.5 7B](qwen2-5-7b.md), [Self-Consistency (SC, baseline)](../methods/self-consistency-sc-baseline.md), [weighted majority voting](../concepts/weighted-majority-voting.md)
+**Related**: [AQuA-RAT](../datasets/aqua-rat.md), [chain-of-thought prompting](../concepts/chain-of-thought-prompting.md), [CommonsenseQA](../datasets/commonsenseqa.md), [Confidence-Informed Self-Consistency (CISC, baseline)](../methods/confidence-informed-self-consistency-cisc-baseline.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](gpt-4o-mini.md), [Llama-3.1-8B](llama-3-1-8b.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Qwen2.5 7B](qwen2-5-7b.md), [Self-Consistency (SC, baseline)](../methods/self-consistency-sc-baseline.md), [weighted majority voting](../concepts/weighted-majority-voting.md)
 
 ## Appears in
 

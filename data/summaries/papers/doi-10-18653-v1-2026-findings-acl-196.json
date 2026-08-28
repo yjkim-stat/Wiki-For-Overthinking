@@ -1,0 +1,59 @@
+{
+  "concepts": [
+    "overthinking",
+    "skill-based step decomposition",
+    "step-level pruning (Keep/Delete/Rewrite/Merge)",
+    "trajectory-aware distillation",
+    "style mismatch (teacher-student learnability gap)",
+    "reasoning-structure preservation"
+  ],
+  "contributions": [
+    "Distilled Reasoning Pruning (DRP), a hybrid framework combining step-level pruning and distillation that has a teacher LLM revise the student's own reasoning trajectories rather than distilling from a differently-styled teacher-generated trace, addressing the style-mismatch/learnability gap of direct distillation",
+    "skill-based step decomposition, segmenting reasoning traces into semantically coherent, skill-labeled units that provide a more stable basis for pruning than naive sentence-level or default step-level segmentation",
+    "empirical results across two student model scales and four math benchmarks showing DRP simultaneously improves accuracy and reduces token usage 28-64%, outperforming prompt-based (TALE), SFT-based (CoT-Valve), and RL-based (ThinkPrune) token-efficient baselines particularly on out-of-distribution generalization",
+    "an ablation-based demonstration that DRP's advantage over direct distillation stems specifically from preserving reasoning structure (verified via trace-pattern and linguistic-style similarity analysis) rather than from more aggressive compression, and that effective pruning depends on how structural information is leveraged rather than on raw teacher strength or teacher-student similarity alone"
+  ],
+  "datasets": [
+    "GSM8K (training)",
+    "PRM12K (training)",
+    "MATH500 (OOD)",
+    "AIME24 (OOD)",
+    "AMC23 (OOD)"
+  ],
+  "generated_at": "2026-08-28T02:27:21Z",
+  "generated_by": "queue",
+  "limitations": "The paper does not discuss limitations explicitly in a dedicated section within the excerpted material; DRP's accuracy remains unchanged (not improved) on the hardest evaluated benchmark, AIME24, under the 7B setting, which the paper attributes to the benchmark's inherent difficulty rather than a mechanism failure, suggesting the approach's accuracy gains may plateau on sufficiently hard problems even as token reduction continues. The method requires an external teacher LLM at training-data-construction time for both decomposition and pruning, an added pipeline dependency and cost versus purely self-contained RL or prompt-based methods, though this cost is incurred once (offline) rather than at every inference call.",
+  "method": "Distilled Reasoning Pruning (DRP) has the teacher operate directly on the student's own generated reasoning trace, rather than generating a fresh, differently-styled trace from scratch, so the resulting supervision stays grounded in the student's actual reasoning behavior (conceptually related to on-policy distillation, but performed offline to avoid full on-policy training's compute cost). Three stages: (1) Skill-Based Step Decomposition -- the student's raw <think> trace is segmented by a teacher LLM into non-overlapping steps, each labeled with the specific mathematical problem-solving skill it exercises (e.g. 'reading given quantity', 'algebraic representation'), chosen over naive sentence-splitting because it yields more stable step boundaries and preserves semantic coherence; (2) Step-Level Pruning -- for each skill-labeled step, the teacher chooses one of four actions: Keep (unchanged), Delete (remove if redundant/uninformative, e.g. unnecessary backtracking), Rewrite (replace with a more concise version conveying the same logic), or Merge (combine with adjacent steps if they form one coherent atomic unit) -- yielding a pruned trace, which the teacher then rewrites into a fluent, coherent whole preserving the student's own tone/speaking style (not the teacher's), and optionally revises the final answer summary for consistency; (3) Supervised Fine-Tuning -- the student is fine-tuned (via LoRA) on (question, teacher-pruned-and-revised-response) pairs with a standard teacher-forced negative-log-likelihood objective, training the student to internalize skill-aligned, token-efficient reasoning while staying consistent with its own final answer.",
+  "methods": [
+    "Distilled Reasoning Pruning (DRP)",
+    "skill-based step decomposition",
+    "TALE (prompt-based baseline)",
+    "CoT-Valve (SFT-based baseline)",
+    "ThinkPrune (RL-based baseline)",
+    "direct distillation (ablation)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "GPT-4o (primary teacher)",
+    "Gemini 2.0 Flash (teacher)",
+    "ChatGPT (teacher)",
+    "DeepSeek-V3 (teacher)"
+  ],
+  "one_liner": "DRP has a teacher LLM (e.g. GPT-4o) revise the *student's own* long, verbose reasoning traces -- first decomposed into skill-labeled steps (e.g. 'reading given quantity'), then keep/delete/rewrite/merge-pruned per step, preserving reasoning structure rather than collapsing it -- and distills the pruned, student-style trace back into the student, achieving both higher accuracy and 28-64% fewer tokens versus prompt-based, SFT-based, and RL-based token-efficient baselines, while a direct-distillation ablation (student trained on the teacher's own concise CoTs, not the student's pruned ones) generalizes far worse out-of-distribution.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.196",
+  "problem": "Large reasoning models, especially smaller ones, overgenerate verbose reasoning chains with unnecessary tracebacks and redundant paths (overthinking), increasing token usage and sometimes causing 'reasoning drift' that harms accuracy; existing token-efficient methods trade off accuracy for brevity (inference-time pruning risks prematurely halting reasoning; RL-based length penalties can degrade out-of-domain generalization), and standard teacher-student distillation for conciseness suffers a style-mismatch/learnability gap when a Long-CoT student (verbose, self-correcting) is trained directly on a Short-CoT teacher's polished, differently-styled reasoning, since the teacher's concise style doesn't align with the student's own policy.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Directly and centrally relevant: it names overthinking explicitly as the target problem and its core methodological insight -- that pruning supervision must be grounded in the *student's own* reasoning trajectory rather than a differently-styled teacher trace, since direct distillation from a stylistically mismatched teacher generalizes far worse out-of-distribution -- is a specific, transferable lesson for the many other distillation-based and prompt/pruning-based overthinking-mitigation methods elsewhere in this archive (e.g. Pru-CoT, STACK, skill-aware data selection) that must decide whose reasoning trace to prune or imitate."
+  },
+  "results": "On DeepSeek-R1-Distill-Qwen-7B, DRP achieves the best accuracy on GSM8K (94.1% vs. base's 91.7%) while cutting tokens 64% (917->328); on out-of-domain MATH500 it reaches 93.0% (vs. base's 92.4%) at 28% fewer tokens (2486->1781); on out-of-domain AMC it reaches 33/40 (vs. base's 31/40) at 33% fewer tokens; on AIME24 accuracy is unchanged (15/30, matching base) while tokens drop 43% -- DRP is the only compared method to preserve or improve accuracy across nearly every benchmark while simultaneously reducing tokens substantially, with gains more pronounced on the smaller 1.5B student model (GSM8K accuracy 70.7%->83.4%, AIME24/AMC each solving 4 more problems than base). Against three representative token-efficient baselines: TALE (prompt-based token-budget constraint) gives only modest reductions with limited control on harder tasks (notable accuracy drop on AIME24/7B); CoT-Valve (SFT on the teacher's own compressed CoTs) achieves consistent token reduction but at accuracy cost on MATH500/AMC, illustrating the direct-distillation style-mismatch problem; ThinkPrune (RL-based length-targeted training) achieves comparable or slightly better raw compression than DRP on some tasks (leveraging its explicit length-target optimization) but DRP achieves notably higher accuracy across the board, attributed to DRP's use of high-quality, teacher-guided (rather than purely reward-driven) pruning. A direct-distillation ablation (student trained on the teacher's own concise CoTs generated from scratch, rather than the student's own pruned traces) shows large token reductions and minimal accuracy loss in-distribution (GSM8K) but notable degradation on out-of-distribution benchmarks (MATH500, AIME24, AMC), confirming that aggressive compression alone is insufficient and that direct distillation removes intermediate reasoning steps critical for robust transfer; a response-similarity analysis (trace-pattern and linguistic-style similarity, Table 5) shows direct distillation substantially alters both the student's reasoning trajectory pattern and its linguistic style relative to the base model, whereas DRP stays much closer to the base model along both dimensions -- explaining DRP's superior out-of-distribution generalization as coming from reducing redundancy without collapsing the underlying reasoning structure. Decomposition-granularity ablation (Table 2) shows sentence-level decomposition (finest granularity) consistently degrades performance versus skill-based decomposition despite producing more decomposition units, because sentence-level segmentation induces more aggressive pruning that frequently removes linguistically-redundant-but-logically-supportive transitional phrases (e.g. 'let me think again'), whose removal produces less coherent traces -- confirming decomposition granularity alone does not determine effectiveness; skill-based decomposition specifically balances granularity against semantic integrity better than either coarser step-based or finer sentence-based alternatives. Token-length-distribution analysis (Figure 3) shows DRP shifts the density of token lengths leftward across all benchmarks and specifically eliminates a bimodal secondary peak of unnecessarily long-but-valid reasoning paths (on AMC) and reduces degenerate near-max-length looping outputs (on AIME/AMC), improving robustness (the model's ability to terminate reasonably when it cannot reach a correct solution) rather than only shortening the typical case. Teacher-choice robustness (four different pruning teachers: GPT-4o, Gemini 2.0 Flash, ChatGPT, DeepSeek-V3) shows all four consistently improve both accuracy and token efficiency over the base student, but a joint analysis of teacher strength and teacher-student similarity shows DRP remains effective even with a relatively weaker teacher (ChatGPT), while higher teacher strength or higher teacher-student trace/style similarity alone does not guarantee larger gains (DeepSeek-V3 achieves high similarity to the student but comparatively limited improvement) -- indicating effective pruning depends specifically on how well structural (skill-based) information is leveraged, not merely on raw teacher capability or stylistic closeness.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "chain-of-thought-pruning",
+    "knowledge-distillation",
+    "supervised-fine-tuning",
+    "reasoning-efficiency"
+  ]
+}
