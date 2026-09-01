@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+SFT (Supervised Fine-Tuning) is used across sources both as a standard training-pipeline stage (e.g. the pre-RL stage in SFT-then-RL pipelines) and as a comparison baseline for reasoning-length/efficiency methods -- e.g. Think Smart Not Hard finds SFT wins over GRPO on easy audio questions while GRPO wins on hard ones, and multiple efficient-reasoning papers (Pru-CoT, O1-Pruner) compare their RL-based or pruning-based methods against a plain-SFT baseline.
 
 - **Kind**: method
+- **Also called**: SFT
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 8
 

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Selective loss masking is a training technique that restricts the SFT loss to specific segments of a long reasoning trace rather than the whole sequence -- used in Segment-Level Attribution (which picks segments via integrated-gradient token attribution aggregated into per-segment strength/direction-consistency scores) and referenced in the context of 'Self-Jailbreak', where decomposing reasoning traces into risk-awareness/risk-analysis/response-strategy stages reveals models that correctly identify harmful intent early but fail to act on it later.
 
 - **Kind**: method
 - **Also called**: Selective Loss Masking

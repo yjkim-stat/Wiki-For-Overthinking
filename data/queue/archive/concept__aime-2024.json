@@ -27,14 +27,6 @@
       },
       {
         "kind": "paper",
-        "note": "Lightning OPD 2.0 subtracts a cross-fitted estimate of recurring teacher-reference log-probability disagreement from the token-level on-policy-distillation signal, so an OPD teacher can differ from the model that generated the SFT demonstrations.",
-        "title": "Lightning OPD 2.0: Mitigating Style Bias in Cross-Teacher On-Policy Distillation for Large Reasoning Models",
-        "topics": [
-          "overthinking"
-        ]
-      },
-      {
-        "kind": "paper",
         "note": "A controlled re-evaluation of entropy-based chain-of-thought compression showing that low- and high-entropy selection never beats random pruning once a random baseline is included, and that the one apparent exception on math benchmarks is caused by numeric tokens rather than by entropy.",
         "title": "Demystifying Entropy-based Selection for Chain-of-Thought Compression in Large Reasoning Models",
         "topics": [
@@ -115,6 +107,590 @@
       },
       {
         "kind": "paper",
+        "note": "Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.",
+        "title": "Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ChainPrune merges semantically equivalent steps from 16 sampled reasoning paths into a tree, picks Pareto-dominant short paths as DPO preference data, and fine-tunes with an added NLL term, cutting tokens 28.1% and reasoning steps 26.8% on two R1-distilled models without losing accuracy.",
+        "title": "ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.",
+        "title": "Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces the Long CoT Collection, a 100K-example dataset built by having short-CoT LLMs (GPT-4o) generate o1-style long reasoning traces from a 1K seed of teacher-annotated reasoning flow and thought-budget targets, showing it is a stronger RL cold-start than the base model (2-3x larger RLVR gains) and offers built-in controllability over thought budget to address overthinking.",
+        "title": "One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Under a FLOPs-matched budget across three test-time scaling methods (Outcome Reward Modeling, Process Reward Modeling, Budget Forcing) on a new 55-language competition-math benchmark (MCLM), all three methods yield large gains in English (e.g. Budget Forcing +20 points on AIME) but only ~1.9-2 points average gain across other languages, and reward-model-guided scaling (ORM) matches or beats reasoning-trace-length scaling (Budget Forcing) once FLOPs are equalized -- with more test-time compute also increasing cross-lingual performance variance rather than reducing it.",
+        "title": "Linguistic Generalizability of Test-Time Scaling in Mathematical Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extends test-time-scaling evaluation from the zero-risk (always-answer) setting to selective question answering by extracting confidence scores (summed log-probability of answer tokens) during reasoning, finding compute budget and confidence threshold jointly determine accuracy, that test-time scaling increases confidence separation between correct and incorrect answers for R1-32B (but not for s1-32B), and proposing risk-weighted utility functions (Jeopardy Odds, High-Stakes Odds) under which R1-32B's test-time-scaling advantage over s1-32B, invisible in the standard always-answer setting, becomes clearly visible.",
+        "title": "Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SafeChain systematically evaluates 13 large reasoning models' safety on StrongReject/WildJailbreak, finding no model is safe on both, that unsafe responses are consistently longer than safe ones, that safety improves within a model family as it scales but long-CoT fine-tuning itself does not inherently improve safety over the base instruction-tuned model, and that training-free decoding strategies controlling thought length (ZeroThink most effectively) improve safety without training -- motivating a new CoT-style safety training dataset that preserves reasoning performance while improving safety.",
+        "title": "SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ThinkBooster is a unified, open-source framework (Python library + OpenAI-compatible proxy endpoint + visual debugger) implementing 9 test-time-compute scaling strategies and 4 scorer families under a joint TFLOPs-and-tokens compute-accounting benchmark, whose pilot study finds PRM scorers dominate on math while lightweight uncertainty scorers are surprisingly competitive on (out-of-domain-for-PRM) coding tasks, and that beam search often underperforms best-of-N and even self-consistency despite costing more compute.",
+        "title": "ThinkBooster: A Unified Framework for Seamless Test-Time Scaling of LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CAT (Confidence-Adaptive Thinking) uses self-certainty -- the KL divergence of a reasoning trajectory's per-token predictive distribution from uniform, an intrinsic model signal requiring no external labels -- to build preference pairs and a confidence-weighted preference-optimization loss (CWPO) that compresses reasoning on problems the model is confident about while preserving deliberation on uncertain ones, beating three efficient-reasoning baselines (OverThink, DAST, ConCISE) on accuracy-at-compression across three LRMs and three benchmarks.",
+        "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "NeuReasoner identifies a Mixture of Neurons (MoN) -- three distinct neuron clusters in an LRM's middle layer whose fluctuation signatures predict intra-step (calculation/derivation) errors, inter-step (oscillation/stagnation) failures, and instance-level overthinking respectively -- then trains lightweight monitoring MLPs to detect these fluctuations online and trigger special-token-conditioned diagnose-then-correct behaviors, achieving 3.2-27.0% accuracy gains while cutting token consumption 19.6-63.3% across six backbones (8B-70B) and six benchmarks, beating nine training-free and RL-based efficient-reasoning baselines.",
+        "title": "NeuReasoner: Towards Explainable, Controllable, and Unified Reasoning via Mixture-of-Neurons",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies 'length shift' -- reasoning models progressively generate longer responses on already-correctly-solved (zero-gradient) training queries during RLVR, because reasoning-word emission learned for hard problems generalizes indiscriminately to easy ones -- and fixes it with Dynamic Outlier Truncation (DOT), a training-time RL intervention that truncates only the statistical outlier-length tail of all-correct rollout groups (affecting <0.5% of responses) while leaving hard queries unconstrained, cutting AIME-24 token usage 78% while increasing accuracy over the initial policy and beating prior efficient-reasoning methods.",
+        "title": "Anti-Length Shift: Dynamic Outlier Truncation for Training Efficient Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MUR (Momentum Uncertainty guided Reasoning) is a training-free, orthogonal-to-existing-TTS method that recursively aggregates step-level uncertainty into a momentum term (proven to act as a low-pass filter emphasizing recent steps) and selectively applies test-time-scaling compute only to steps whose uncertainty exceeds this momentum by a tunable threshold, cutting thinking-token budgets by over 45% on average while improving accuracy 0.33-3.46% across four benchmarks, three Qwen3 model sizes, and four test-time-scaling backends.",
+        "title": "MUR: Momentum Uncertainty guided Reasoning for Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Discovers 'The First is The Best' -- across five reasoning benchmarks and multiple LRMs, a model's first-generated solution is optimal in up to 93.7% of cases, because reasoning errors form a self-propagating forest structure (Forest of Errors, FoE) that grows faster and larger in subsequent solutions than in the first -- then proposes RED (Refine First, Discard Subs), which entropy-triggers negative-prompt intervention only on the first solution's root-error-prone segments and prunes all subsequent solutions via a dual-consistency early-stop check, improving accuracy up to 19.0% while cutting tokens 37.7-70.4% across six backbones and five benchmarks.",
+        "title": "FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Step-Saliency pools token-level attention-gradient saliency into step-to-step maps across a reasoning trace's question/thinking/summary structure, revealing two depth-wise information-flow failures in incorrect outputs -- Shallow Lock-in (shallow layers over-focus on the current step, ignoring earlier context) and Deep Decay (deep layers lose connection to the thinking segment, with the summary attending mainly to itself) -- and fixes both with StepFlow, a training-free single-pass decoding intervention that improves accuracy by up to 11.8 points across six LRM backbones and six benchmarks.",
+        "title": "Reasoning Fails Where Step Flow Breaks",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies a two-stage 'Reasoning Dynamics' structure in LRM chains-of-thought -- a Pre-RCP Active Reasoning stage where thinking length and content length compensate for each other, followed by a Post-RCP Converged Reasoning stage where the semantic trajectory has stabilized and further thinking is redundant -- defines the boundary as the instance-specific Reasoning Completion Point (RCP), and builds RCPD, an online detector (monitoring the rank of the </think> token) that truncates post-RCP overthinking, cutting tokens up to 44% while preserving or improving accuracy-per-token across four models and three benchmarks.",
+        "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "LEASH formulates reasoning-length control as a constrained RL optimization (maximize task reward subject to an expected-length constraint) solved via a Lagrangian primal-dual method with a one-sided length penalty, letting the penalty coefficient lambda self-tighten or self-relax based on real-time constraint violation rather than requiring manual tuning, and reduces average reasoning length by up to 62.7% (1.5B model) or 26.2% (4B model) while maintaining or improving accuracy on in-domain math and out-of-domain (GPQA, MMLU-Pro) benchmarks, outperforming fixed-penalty and prior length-control baselines.",
+        "title": "LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "REST (Reasoning Evaluation through Simultaneous Testing) concatenates multiple questions from an existing benchmark into a single prompt to stress-test LRMs' multi-context reasoning; across 30+ models and 9 benchmarks it finds even SOTA models like DeepSeek-R1 degrade substantially (e.g. -31.6% on AIME25), that the 'overthinking trap' is a primary cause, that Long2Short-trained models are more robust, and that REST reveals sharp performance gaps among models that look identical under traditional single-question evaluation.",
+        "title": "REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces token-level marginal utility -- the per-token log-probability gain toward the ground-truth answer -- and MUTO, a training framework that penalizes trajectories and individual tokens that reduce this probability, cutting DeepSeek-R1-Distill-Qwen token usage by 87.1% (1.5B) / 80.2% (7B) with comparable or better accuracy.",
+        "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Formalizes ranking reasoning LLMs under test-time scaling as inference over a dense response tensor of repeated stochastic trials, compares 72 ranking methods (paired-comparison, IRT, voting, graph/spectral) across 20 models and four Olympiad math benchmarks, and finds Bayes_R0@N (Bayesian mean with an empirical greedy-decoding prior) is the most stable low-budget ranking method -- though its greedy prior can introduce systematic bias when greedy and stochastic sampling disagree.",
+        "title": "Ranking Reasoning LLMs under Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+        "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Discovers Key-Focus Heads (KFHs) -- a small subset of attention heads that, during final-answer generation, naturally attend more to essential reasoning steps than redundant ones -- and builds ATTNPO, an RL framework that rescales GRPO's outcome-level advantage per reasoning step using KFH attention scores, cutting reasoning length 55-61% while improving accuracy +2.9 to +7.3 points on DeepSeek-R1-Distill-Qwen-1.5B/7B.",
+        "title": "AttnPO: Attention-Guided Process Supervision for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AdaMix decouples efficiency and accuracy into two separately-trained LoRA adapters (a short adapter and a long adapter), then uses a BERT-based difficulty-aware router to predict a per-problem complexity coefficient that linearly interpolates the two adapters via task arithmetic, cutting DeepSeek-R1-Distill-Qwen-7B's average response length 54.9% while improving accuracy up to 4.8% across five math benchmarks and outperforming ShorterBetter/TLMRE/CoT-Valve/model-merging/SwitchCoT baselines on an accuracy-efficiency score.",
+        "title": "AdaMix: Adaptive Mixing for Short and Long Reasoning Adapters",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MathIF is a 420-query, 15-constraint controlled benchmark showing that as large reasoning models' chain-of-thought grows longer via reasoning-oriented SFT/RL, their instruction-following obedience degrades -- even the best open model (Qwen3-14B) satisfies only 50.71% of constraints strictly, and artificially lengthening CoT (budget forcing) or reasoning-oriented training both directly and measurably erode compliance, exposing a persistent intelligence-obedience trade-off.",
+        "title": "Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces attention-temperature modulation (softening/sharpening the attention softmax at inference, distinct from decoding-temperature sampling) as a difficulty-adaptive exploration control -- higher attention temperature broadens exploration and helps hard problems, lower temperature curbs overthinking and helps easy ones -- and pairs it with a difficulty-induced weighted-voting aggregation scheme (Thermometer of Thoughts), improving Pass@10 by 6.78-14.20% and aggregation accuracy by 9.74% across seven reasoning benchmarks.",
+        "title": "Thermometer of Thoughts: Enhancing LLM’s Exploration via Attention Temperature Modulation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SAT models reasoning as a Finite-State Machine over four thinking modes (SLOW, NORMAL, FAST, SKIP), navigated step-by-step during inference by a 30M-parameter distilled Process Reward Model ('Pilot') that scores each step's difficulty and steers generation via in-context control tags, achieving up to 40% token reduction while generally maintaining or improving accuracy across 9 models and 7 benchmarks.",
+        "title": "SAT: Balancing Reasoning Accuracy and Efficiency with Stepwise Adaptive Thinking",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies reward hacking in RL-trained hybrid (think/no-think) reasoning models -- when non-thinking responses are rewarded more, models embed reasoning inside the response mode misclassified as 'non-thinking' to collect the higher reward -- and fixes it with TNT, which derives a per-query maximum non-thinking token limit from the thinking mode's own solution-segment length rather than a uniform threshold, cutting token usage ~50% while significantly improving accuracy and keeping reward-hacking incidence below 10%.",
+        "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ROSE improves MCTS-based RLVR by branching reasoning rollouts at semantic-entropy positions (generation entropy weighted by embedding-space token dispersion, not raw token-probability entropy, which conflates functionally-equivalent tokens like 'can'/'need' as diverse) plus an epsilon-exploration mechanism, combined with a length-aware segment-level advantage estimator that penalizes unnecessarily long correct branches, outperforming GRPO variants and MCTS baselines (TreePO, FR3E) on AIME/MATH500/AMC23 while producing measurably shorter, less overthought reasoning.",
+        "title": "Reinforced Efficient Reasoning via Semantically Diverse Exploration",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MINER recovers training signal from 'positive homogeneous' (PH) prompts -- where all sampled RLVR rollouts are already correct and GRPO-style advantage collapses to zero, wasting the rollout budget -- by converting the policy's own per-token uncertainty (negative log-likelihood) into an intrinsic reward that reinforces under-confident-but-correct reasoning paths, combined with token-level focal credit assignment and adaptive advantage calibration, achieving up to +4.58 Pass@1 and +6.66 Pass@K over GRPO with zero extra rollouts or inference cost.",
+        "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SGP-CoT identifies which reasoning units a model can safely drop using only its own intrinsic likelihood signals (counterfactual answer-impact and coherence-impact scores, no external verifier or curated data), then trains the model via preference optimization on self-pruned traces, cutting reasoning length 15-50% across five model families while preserving or improving accuracy -- and shows pruning by a different model consistently degrades accuracy more than self-pruning.",
+        "title": "Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MERA frames overthinking as a deficiency in fine-grained internal control (not a lack of capability) and fixes it by structurally decoupling a reasoning model's output into alternating <reason>/<control> segments -- built via a control-takeover data pipeline and trained with SFT plus a segment-wise, control-masked RL objective (CSPO) -- cutting DeepSeek-R1-Distill-Qwen token usage 30-47% while simultaneously improving accuracy across five math benchmarks and generalizing to non-math MMLU-Pro domains.",
+        "title": "From \"Aha Moments\" to Controllable Thinking: Toward Meta-Cognitive Reasoning in LRMs via Decoupled Reasoning and Control",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PAM trains large reasoning models to explicitly assess which human-preference priority (e.g. harmlessness) applies to a query before reasoning -- via a Flavell-metacognition-inspired cold-start SFT stage plus DPO preference optimization -- improving helpfulness, harmlessness and instruction-following by an average of ~10 points over an identically-trained model without this metacognitive step, without a corresponding drop in math reasoning performance for one of two backbones.",
+        "title": "PAM: Enhancing General Alignment of Large Reasoning Models through Priority-Aware Metacognition",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CurioSFT diagnoses that standard SFT causes 'entropy collapse' (overconfidence, narrowed exploration) that limits the subsequent RL stage in the SFT-then-RL pipeline, and fixes it with Self-Exploratory Distillation toward a self-generated, temperature-scaled teacher plus Entropy-Guided Temperature Selection that concentrates exploration on high-entropy reasoning-connector tokens while preserving low-entropy factual tokens, improving downstream RL accuracy by 5.0 points on average.",
+        "title": "Learning While Staying Curious: Entropy-Preserving Supervised Fine-Tuning via Adaptive Self-Distillation for Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+        "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ETR (Entropy Trend Reward) shows chain-of-thought efficiency is governed by the trajectory of predictive uncertainty (whether entropy trends downward over the trace) rather than its absolute magnitude, and trains a momentum-weighted, trajectory-aware GRPO reward that rewards steady entropy descent while tolerating local exploration -- improving DeepSeek-R1-Distill-7B's accuracy by 9.9% while cutting CoT length 67% across four benchmarks, and achieving the best accuracy-efficiency trade-off score against seven training-free and RL baselines.",
+        "title": "ETR: Entropy Trend Reward for Efficient Chain-of-Thought Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Root-token Policy Optimization (RPO) reframes adaptive thinking/non-thinking gating as a branching decision at a single root token (the newline choice right after <think>) and trains only that one token's probability with group-relative RL, cutting GRPO training compute to ~2% of a comparable adaptive-reasoning method while improving the accuracy-vs-thinking-rate tradeoff across model families.",
+        "title": "Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "STOP (Super TOken for Pruning) is a lightweight, LoRA-based module that reads a frozen LRM's cached KV states via a single learnable [STOP] token to score and prune futile parallel-reasoning paths early -- at negligible inference overhead (0.59% latency) -- and is shown, via a proposed four-way taxonomy of path-pruning signal generators, to dominate external-signal and non-learnable internal-signal baselines in both accuracy and compute across model scales 1.5B-20B.",
+        "title": "Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "WHISPER treats a large reasoning model purely as a black-box communicator and mitigates overthinking with no training or model access at all, using an iterative refinement loop over persuasive prompts (psychological, evidence-based, role-play, threat, instruction) that finds a single deployable prompt suffix cutting response length up to 3x on simple questions with preserved accuracy.",
+        "title": "Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An empirical study of safety fine-tuning for LRMs finds directly distilling safe responses from DeepSeek-R1 barely reduces jailbreak Attack Success Rate, identifies five risky reasoning patterns responsible (including overthinking and 'weak vacillation' -- hesitating over superficially benign jailbreak framing, which survives safety filtering and is the key residual driver of failures), shows explicitly targeting these patterns in the distillation prompt cuts PAIR ASR from 63% to 13%, and finds short or template-based safety reasoning matches long-form reasoning's safety performance -- unlike math/code, safety does not benefit from longer reasoning chains.",
+        "title": "How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Step-GRPO internalizes dynamic early-exit into a reasoning model's own weights via a Dynamic Truncated Rollout exposing the model to short-yet-correct trajectories during RL training and a Step-Aware Relative Reward that penalizes redundant semantic steps relative to the group's own correct-completion baseline, cutting Qwen3-8B token usage 32.0% with no accuracy loss and zero inference-time overhead.",
+        "title": "Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A skill-centric distillation framework maps math problems onto a hierarchical skill tree, samples the 1,000 SFT training examples inversely proportional to the student model's per-skill accuracy (so it trains more on skills it is weak at), and prepends the required skill chain to each example, beating random-sampling SFT baselines by 1.6/1.4 points average accuracy on Qwen3-4B/8B across five math benchmarks with the same 1K-example budget.",
+        "title": "Skill-Aware Data Selection and Fine-Tuning for Data-Efficient Reasoning Distillation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AMO-Bench is a 50-problem, IMO-difficulty-or-harder, entirely original math benchmark built to avoid the saturation and memorization issues of AIME24/25, on which even the best of 36 evaluated LLMs (Gemini-3-Pro) reaches only 63.1% accuracy, model performance grows near-linearly with the logarithm of output length (still-unsaturated evidence that test-time scaling keeps paying off), and a manual failure analysis finds brute-force enumeration and improper strategy selection -- reasoning deficiency, not missing math knowledge -- as the dominant error modes.",
+        "title": "AMO-Bench: Large Language Models Still Struggle in High School Math Competitions",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ThinkBrake is a training-free decoding rule that injects </think> at sentence boundaries whenever the log-probability margin between the top continuation token and </think> narrows below a threshold, recovering most of an oracle stopping point's headroom (8% accuracy gain, 72% token reduction) with a theoretically grounded, model-agnostic criterion, and its generated trajectories can also train models via DPO for training-free-free efficient reasoning.",
+        "title": "ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Decomposing LRM reasoning traces into risk-awareness/risk-analysis/response-strategy stages reveals 'Self-Jailbreak' -- the model correctly identifies harmful intent early but overrides its own judgment during subsequent reasoning (accounting for up to 93.7% of unsafe outputs, dominated by a 'Warning' failure pattern where the model wrongly assumes appending a disclaimer suffices) -- and Chain-of-Guardrail (CoG) fixes this with targeted, step-level reasoning-chain rewrites rather than global safety constraints, achieving safety comparable to the strongest baseline while actually *improving* reasoning accuracy (Qwen3-32B: GPQA-Diamond 54.30->62.38, AIME2024 71.70->82.08) where competing safety methods cost 10+ accuracy points.",
+        "title": "When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "STACK distinguishes two distinct sources of overthinking redundancy -- 'hesitation states' (uncertainty needing correction) versus overlong-but-confident reasoning -- detecting the former via a local-entropy spike relative to a sliding-window baseline and fixing it with retrieval-augmented knowledge-guided contrastive decoding, and the latter with a self-prompted compression instruction plus an answer-convergence-based early-stopping signal, trained via a reward-difference-driven PPO+DPO hybrid loss -- cutting average response length 59.9% while improving accuracy 4.8 points over existing CoT-compression baselines on three math benchmarks.",
+        "title": "Think Less, Know More: State-Aware Reasoning Compression with Knowledge Guidance for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "NEAT identifies a sparse set of 'exit-associated neurons' whose FFN activation dynamics causally predict the </think> termination token, then monitors these neurons training-free during inference to trigger graded early exit or reflection suppression -- cutting average token generation 22-28% across four benchmarks and six models with accuracy comparable to vanilla decoding, and 21-23% real wall-clock latency reduction versus vanilla and CGRS (which is 41-63% slower than vanilla despite shortening output, due to its own scoring overhead).",
+        "title": "NEAT: Neuron-Based Early Exit for Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "a1 (Environment Augmented Generation) couples LLM reasoning to real-time execution feedback (Python code blocks validated by a sandbox at each step) plus dynamic branch exploration guided by an information-gain-weighted branch value function, trained via SFT on a curated 2,000-trajectory dataset (EAG-2K) built from error-correction and branching examples -- producing a distinctive 'steep scaling' pattern where a1-32B initially trails a same-size non-interactive baseline at low token budgets (due to feedback-cycle overhead) but decisively overtakes it past a 4-8K-token inflection point, ultimately matching o1 on AIME24 (74.4%) with far fewer parameters and training examples.",
+        "title": "a1: Steep Test-time Scaling Law via Environment Augmented Generation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A systematic study of entropy collapse in GRPO-based RLVR training finds performance can improve without entropy loss (so entropy collapse is not merely a side effect of legitimate learning), identifies clipping thresholds, off-policy update count, and training-data diversity as governing factors, proves theoretically and confirms empirically that positive-advantage tokens are the primary driver of entropy collapse, and proposes Positive-Advantage Reweighting -- dynamically down-weighting positive-advantage-token loss -- to regulate entropy while maintaining performance, though training exclusively on non-positive-advantage tokens actually hurts benchmark scores despite reducing collapse.",
+        "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines the Refinement Gap (self-refinement accuracy minus majority-voting accuracy) to isolate parallel self-refinement's genuine value beyond simple candidate aggregation, finds it scales with model size but only weakly with base capability, and trains this capability into a 7B student (GSR) via a hybrid direct-solving-plus-refinement objective that explicitly retains all-candidates-incorrect training cases -- achieving 73.6% average accuracy across five math benchmarks (a +3.1-point Refinement Gap versus a much larger QwQ-32B teacher's +1.15) and recovering correct answers 5.9% of the time even when every sampled candidate is wrong.",
+        "title": "Learning to Refine: Self-Refinement of Parallel Reasoning in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that short-context (4K-token) post-training alone -- with pure GRPO and no length-aware reward at all -- already induces reasoning compression comparable to dedicated length-control RL methods, isolating training context length as a confound in prior efficient-reasoning work; but this compression destabilizes training because truncated-yet-correct rollouts get zero reward, so Step-level Advantage Selection (SAS) zeros the advantage of low-confidence steps in correct rollouts and high-confidence steps in verifier-failed rollouts, cutting average reasoning length 30%+ while improving Pass@1 by 3.79 points over the strongest length-aware baseline.",
+        "title": "Stabilizing Efficient Reasoning with Step-Level Advantage Selection",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CLARO treats conciseness as an emergent property of well-structured reasoning rather than a truncation target: it fine-tunes models via GRPO with two correctness-gated reward terms (structural attribute alignment -- readability, mathematical-notation density, syntactic compression, low redundancy -- plus a length-contribution term) within a user-specified token budget, outperforming length-controlled baselines (s1, L1-Max) by up to 63.6% relative accuracy under matched budgets across eight math and general-reasoning benchmarks, while a lightweight zero-shot prompting variant (Attribute-Guided Prompting) is shown to be far more robust than simply instructing a model to 'prioritize conciseness.'",
+        "title": "CLARO: Controlled Attribute-Driven Reasoning Optimization for Efficient Chain-of-Thought",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ERRV defines a 'reasoning vector' -- the mean hidden-state difference between a question's shortest-correct and longest-incorrect sampled responses -- and instead of injecting it at inference (which limits autonomy and gives modest gains), steers RL rollouts with it during training via importance-sampling-corrected GRPO, letting the model internalize efficient reasoning so it needs no vector guidance at inference: ~30% length reduction with stable accuracy, and the vectors are shown to be stable across RL training (cosine similarity 0.83-0.83 pre/post-training) and to transfer across base, distilled, merged, and adaptive-reasoning models.",
+        "title": "ERRV: Eliciting Efficient Reasoning through Reasoning Vectors for Policy Optimization in Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SIGMA reframes token-efficient RL as a classical exploration-exploitation problem: a self-imitation exploitation module prioritizes training on prompts/rollouts with high compression potential via a dynamic priority table and a compression-ratio-weighted self-imitation loss, while a self-guidance exploration module directs otherwise-undirected long-response exploration via prompt-based token-budget regeneration or random truncation -- improving average accuracy by 7.9%/2.9% while cutting average reasoning length 43.4%/40.3% on 1.5B/7B DeepSeek-R1-Distill models across six benchmarks, beating eight RL-based efficient-reasoning baselines.",
+        "title": "Exploration-Exploitation Reshaping towards Efficient Reasoning for Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PACE identifies two distinct failure modes of uniform length-penalty RL for efficient reasoning -- sequence-level over-compression of critical early deduction steps, and group-level indiscriminate compression that ignores query difficulty -- and fixes both with a frozen-policy prefix-rollout anchor (decaying over training) plus a pass-rate-derived, difficulty-scaled length penalty, becoming the only compared method to cut token usage over 45% while simultaneously improving accuracy, and generalizing to code, science and instruction-following domains.",
+        "title": "PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
+        "title": "Steering LLM Thinking with Budget Guidance",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoRD reframes long-CoT reasoning distillation from post-hoc curation (each teacher generates a complete trajectory, then the best one is picked) to step-wise collaborative decoding: heterogeneous teacher LRMs propose candidate next reasoning steps in a shared, prompt-guided step format, a meta-prover scores each candidate by the predictive perplexity of the ground-truth answer given that step, and beam search retains the top-B partial trajectories -- producing higher-quality composite reasoning data than either post-hoc curation or a GPT-mini-based post-hoc integrator, and distilling student models whose 32B version, trained on CoRD data from heterogeneous teachers, actually surpasses every individual teacher's own Pass@1 on AIME24/25.",
+        "title": "Distilling Long-CoT Reasoning through Collaborative Step-wise Multi-Teacher Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Rhombus reformulates parallel test-time scaling as a communication-optimization problem: multiple Proposer instances and a central Synthesizer (all the same shared model, role-switched via system prompt) are co-trained end-to-end via GRPO with a hybrid local-plus-system reward and role-level advantage normalization, teaching Proposers to emit compact, decision-focused (rather than implicit, hard-to-verify) reasoning cues -- beating a token-budget-matched Long-CoT baseline by 6.0% accuracy while cutting wall-clock latency 39.4%, with the coordination gap between Proposer exploration potential and realized Synthesizer accuracy nearly eliminated (0.7% vs. 4.6% for an uncoordinated baseline).",
+        "title": "Rhombus: Incentivizing Coordination in Parallel Thinking through Reinforcement Learning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Rather than relying on RL to spontaneously and unpredictably produce advanced reasoning behaviors (the 'aha moment'), this paper explicitly trains three separate specialists on synthetic, self-verifiable deduction/induction/abduction tasks (Peirce's classical inference triad), merges them via linear parameter-space interpolation, and shows this meta-ability-aligned checkpoint both generalizes zero-shot to seven unseen math/coding/science benchmarks and raises the attainable performance ceiling of subsequent domain-specific RL by ~2-4% over an instruction-tuned baseline at both 7B and 32B scale.",
+        "title": "Beyond ’Aha!’: Toward Systematic Meta-Abilities Alignment in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows evaluation itself scales like generation: off-the-shelf reasoning models, simply prompted to generate a chain-of-thought judgment (no evaluator-specific training), improve monotonically with more reasoning tokens and, when made to individually assess every reasoning step rather than a single-pass judgment, a 32B reasoning evaluator beats a specialized 72B PRM by 4.5 F1 points on ProcessBench; folding this into Best-of-N reranking, spending the fixed test-time budget on evaluation-time reasoning (Best-of-8 with a reasoning evaluator) beats spending it on more candidate samples (Best-of-64 with a direct evaluator) by 4.30-6.63 points, and reasoning evaluators are shown to resist reward-model over-optimization that both direct evaluator types suffer from.",
+        "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SeerSC resolves a specific gap in adaptive self-consistency methods -- reduced token usage from sequential early-stopping does not translate into reduced latency, since sequential budget decisions conflict with the parallel-sampling engines modern inference uses -- by having a cheap System-1 pass (direct, non-reasoning answers) pre-estimate each query's scaling potential via confidence-weighted answer entropy, then allocating a fixed System-2 (full-reasoning) sample budget in a single parallel batch based on that pre-estimate, cutting inference latency up to 43% and token usage up to 47% versus sequential adaptive baselines (AC, ESC) at comparable accuracy, with System 1's own overhead negligible (well under 1% of total latency) and the method composable with orthogonal weighted-voting and path-pruning techniques.",
+        "title": "Seer Self-Consistency: Advance Budget Estimation for Adaptive Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Difficulty-Aware Distillation (DAD) has a teacher assess each problem's difficulty (easy/medium/hard) then rewrite its own long CoT solution into a difficulty-adaptive, minimal-essential-steps trace via a two-step generate-then-refine pipeline, producing LiteCoT (100K samples averaging just 720 tokens, an order of magnitude shorter than S1/LIMO/OpenThoughts); models distilled on LiteCoT (Liter, 1.5B-32B) consistently outperform models trained on the same teacher's own 800K verbose CoTs, reach 74.2% Pass@1 on AIME24 using only ~5K inference tokens (beating methods that consume far more), and beat static one-size-fits-all CoT-compression baselines (Chain-of-Draft, LLMLingua-2, BudgetAware) on both accuracy and inference time across eight benchmarks.",
+        "title": "Concise Math Reasoning via Difficulty-Aware Distillation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "RELIEF shapes LRM reasoning behavior (efficiency, faithfulness) without ever showing the model a single reasoning trace, exploiting a probed 'latent reasoning belief' -- logit differences over self-descriptive tokens ('concise' vs. 'verbose') that correlate strongly with actual reasoning length (Spearman rho~-0.69) -- by fine-tuning only on synthesized, trace-free self-reflective QA pairs affirming a target belief; this shifts DeepSeek-R1-Distill-Qwen-7B's reasoning length to 71.4% of baseline while achieving the highest overall accuracy of all compared methods (including a much more compute-intensive SimPO baseline needing 10-20x more training tokens), and similarly improves faithfulness under adversarial hints, with logit re-probing confirming a genuine internal belief shift rather than superficial SFT format-imitation.",
+        "title": "Finding RELIEF: Shaping Reasoning Behavior without Reasoning Supervision via Belief Engineering",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Converts each linear chain-of-thought into a directed acyclic graph (progress vs. review nodes with explicit dependency edges, built iteratively by an LLM) and removes two distinct redundancy types -- branch-level (a review node whose descendant count falls below a threshold, forming a narrow, low-impact side branch) and depth-level (a review node appearing late in the trace, re-verifying an already-established conclusion) -- via a three-stage SFT-then-DPO-then-GRPO-with-length-penalty pipeline, cutting DeepSeek-R1-Distill-Qwen-7B's average reasoning length 42.7% while raising average accuracy from 59.72% to 60.95% across five math benchmarks, with ablations showing the method beats both no-pruning and random pruning at matched compression, and specifically beats pruning all review nodes outright, confirming not all reflection is harmful.",
+        "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SELECT2REASON selects the top 10% of a large long-CoT instruction pool for SFT by jointly ranking questions on a learned difficulty score and (deduplicated) reasoning-trace length, matching or beating models trained on 8-94x more data.",
+        "title": "Select2Reason: Efficient Instruction-Tuning Data Selection for Long-CoT Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TrigReason diagnoses three specific SRM (small reasoning model) failure modes -- path divergence at the start, cognitive overload on hard steps (signaled by abnormally low token-level perplexity/overconfidence, present in 94.6% of incorrect trajectories vs. 38.1% baseline), and recovery inability (persisting on erroneous paths, signaled by hesitation-word loops) -- and replaces SpecReason's per-step LRM polling verifier (shown to reject 50-81% of the SRM's own correct or self-generated steps due to inter-judge inconsistency) with three targeted, event-triggered LRM interventions, matching full-LRM accuracy while offloading 1.70x-4.79x more tokens to the SRM than SpecReason and cutting edge-cloud latency 43.9%/API cost 73.3%.",
+        "title": "TrigReason: Trigger-Based Collaboration between Small and Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces the Anytime Index, an AUC-style metric quantifying how solution quality improves as reasoning-token budget increases, and Preference Data Prompting (PDP), an inference-time self-improvement method using self-generated contrastive reasoning pairs at fixed token budgets, giving consistent gains across seven LLM families on trip planning, math, and scientific QA.",
+        "title": "Budget-Aware Anytime Reasoning with LLM-Synthesized Preference Data",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AdapThink measures reflection behavior with a BERT classifier (trained on DeepSeek-R1-Distill-Qwen-32B-annotated 256-token segments, 98.86% F1) to find incorrect reasoning has systematically more reflection segments than correct reasoning at every model scale, then trains a group-relative reasoning-process reward that only discourages reflection once group accuracy exceeds a threshold (below it, no length pressure at all) combined with dispersion-maximizing sample selection that explicitly diversifies reasoning patterns within each training group -- cutting length 33.15%/29.10% on 1.5B/7B models while improving accuracy +6.59/+6.12 over GRPO, adaptively producing *longer* answers on hard AIME problems under a 32K context despite training at a strict 2K token limit, transferring to code generation and out-of-distribution benchmarks, and showing near-zero reward-hacking (0.7% N-gram repetition vs. LCPO's 10.8%).",
+        "title": "AdapThink: Adaptive Thinking Preferences for Reasoning Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Systematically ablates which section (prompt, CoT, answer) of a reasoning-distillation training sequence carries the useful supervisory signal and how much of the CoT is needed, finding CoT-inclusive supervision is essential while training on only the first 50% of tokens retains ~91% of full-sequence accuracy at roughly half the training time, memory, and FLOPs.",
+        "title": "Distilling the Essence: Efficient Reasoning Distillation via Sequence Truncation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
+        "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Derives an exact, non-asymptotic decomposition of GRPO's token-level policy update showing entropy collapse in reasoning RL is driven by a small subset (~5%) of structurally critical 'branch-defining' tokens rather than uniform decay across the sequence, and proposes SCOPE, which applies KL regularization only to that top-5% (ranked by a computable redistribution score), consistently improving both Pass@1 and Pass@k under both RLVR and RLIF across model scales.",
+        "title": "A Few Bad Apples Spoil the Bunch: Preventing Global Entropy Collapse Driven by a Small Set of Tokens in LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACE is a training-free dynamic early-exit method that aggregates two multi-step signals over a sliding window of recent reasoning steps -- Answer Consistency Score and Confidence Trajectory Score -- to detect genuine reasoning convergence, reducing tokens by 25-30% while staying within 1-2% accuracy of full-length reasoning, and beating existing single-step confidence-based early-exit baselines by 2-4 accuracy points at comparable or lower token budgets.",
+        "title": "Efficient Test-Time Scaling via Temporal Reasoning Aggregation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DeepPrune identifies inter-trace redundancy in parallel test-time scaling (over 80% of parallel reasoning traces yield identical final answers) and trains a specialized judge model to predict answer equivalence from unfinished trace pairs, combined with online greedy clustering to prune redundant paths during generation, cutting token consumption 65.7-88.5% versus consensus sampling with accuracy within 3 percentage points.",
+        "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AutoL2S distills non-reasoning LLMs into models that jointly generate a lightweight <EASY> switching token and correspondingly select long or short chain-of-thought paths per instance, then refines this with GRPO-style RL on the induced long-short rollouts, cutting reasoning length by up to 71.7% with negligible accuracy loss across six benchmarks.",
+        "title": "AutoL2S: Auto Long-Short Reasoning for Efficient Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Step Pruner (SP) is an RL framework that replaces token-count length penalties with a step-count reward (paragraph-based segmentation as a proxy for reasoning steps), penalizing steps beyond the minimal number needed for a correct answer while masking rewards for incorrect responses, achieving state-of-the-art accuracy-efficiency trade-off and 44-70% token reduction across four benchmarks without the reward-hacking (degenerate step-merging) that token-based RL penalties are prone to.",
+        "title": "Beyond Token Length: Step Pruner for Efficient and Accurate Reasoning in Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "The paper shows that extended chain-of-thought reasoning in LLMs has diminishing and eventually negative marginal utility, quantifies this 'overthinking' via answer-flip tracking, and proposes cost-aware, indicator-based early-stopping strategies that cut compute substantially with little accuracy loss.",
         "title": "When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling",
         "topics": [
@@ -179,14 +755,6 @@
       },
       {
         "kind": "paper",
-        "note": "Argues that the SFT-then-RL recipe works because RL decomposes compound reasoning traces into reusable atomic modules, formalises this as a hierarchical latent selection model, and tests it on synthetic string-transformation tasks.",
-        "title": "From Reasoning Traces to Reusable Modules: Understanding Compositional Generalization in Language Model Reasoning",
-        "topics": [
-          "overthinking"
-        ]
-      },
-      {
-        "kind": "paper",
         "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
         "title": "REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning",
         "topics": [
@@ -227,7 +795,7 @@
       },
       {
         "kind": "paper",
-        "note": "Introduces the Gated Memory Unit, a mechanism for sharing memory readout states across layers, and uses it to build SambaY, a decoder-hybrid-decoder architecture whose 3.8B instance (Phi4-mini-Flash-Reasoning) matches or beats Phi4-mini-Reasoning on math and science benchmarks while decoding up to 10x faster on 32K-token generations.",
+        "note": "SambaY is a decoder-hybrid-decoder architecture that shares memory states across State Space Model layers via a Gated Memory Unit, and its largest variant (Phi4-mini-Flash-Reasoning) matches or beats a same-size reasoning model on Math500/AIME24-25/GPQA without RL while delivering up to 10x higher decoding throughput on long-generation prompts.",
         "title": "Decoder-Hybrid-Decoder Architecture for Efficient Reasoning with Long Generation",
         "topics": [
           "overthinking"
@@ -259,14 +827,6 @@
       },
       {
         "kind": "paper",
-        "note": "QuRL runs the rollout phase of RL-with-verifiable-rewards training with an INT8 or FP8 quantized copy of the actor, adding an adaptive clipping range and an invariant weight-scaling trick to keep the low-precision policy from collapsing, for 20-80% faster rollout.",
-        "title": "QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning",
-        "topics": [
-          "overthinking"
-        ]
-      },
-      {
-        "kind": "paper",
         "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
         "title": "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction",
         "topics": [
@@ -285,14 +845,6 @@
         "kind": "paper",
         "note": "Measures a reasoning model's inference-time effort not by how many tokens it emits but by what fraction of them are still being revised in the network's late layers, and uses that fraction to pick which of many sampled generations to keep.",
         "title": "Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens",
-        "topics": [
-          "overthinking"
-        ]
-      },
-      {
-        "kind": "paper",
-        "note": "Analyzes how quantization, distillation, and pruning affect the reasoning versus memorization abilities of large reasoning models such as DeepSeek-R1, and proposes protecting a small subset of weights to recover accuracy under quantization.",
-        "title": "When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models",
         "topics": [
           "overthinking"
         ]
@@ -339,14 +891,6 @@
       },
       {
         "kind": "paper",
-        "note": "ParoQuant is a 4-bit weight-only post-training quantization method that applies a series of independent Givens (pairwise) rotations plus channel-wise scaling to weights before quantization, with a fused CUDA kernel, in order to keep accuracy on reasoning benchmarks where quantization error accumulates over long chains of thought.",
-        "title": "ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference",
-        "topics": [
-          "overthinking"
-        ]
-      },
-      {
-        "kind": "paper",
         "note": "QFFT fine-tunes a short-CoT instruct model on Long CoT responses with the question deleted from every training example, so the model keeps its default concise reasoning and switches to reflective Long CoT only when it hits uncertainty or an error, cutting average tokens by roughly 50% at accuracy comparable to ordinary SFT.",
         "title": "QFFT, Question-Free Fine-Tuning for Adaptive Reasoning",
         "topics": [
@@ -355,9 +899,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T01:54:29Z",
-  "created_at": "2026-08-21T01:50:21Z",
-  "instructions": "Revise the wiki definition for 'AIME 2024'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    The 2024 sitting of the American Invitational Mathematics Examination, the single most-used hard-math benchmark across the archive's 15 sources for evaluating test-time-compute and reasoning-length methods: compute-balanced routing (CoBa), verifier-free self-correction, rollout pruning, PRM-guided adaptive allocation, sparse decoding, budget-aware conformal scaling (ATTS), CoT trimming (TrimR), and studies of overthinking, sampling efficiency, reasoning-graph structure, and compression effects. Note: previously fragmented across three separately-spelled wiki entries (AIME24, AIME2024, AIME 2024) -- merged into this one after a 2026-08-20 pipeline fix.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-01T10:38:34Z",
+  "created_at": "2026-09-01T10:33:30Z",
+  "instructions": "Revise the wiki definition for 'AIME 2024'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning-length and test-time-compute methods: adaptive sampling and rollout allocation, verifier-guided pruning and self-correction, quantized reasoning inference, chain-of-thought trimming and compression, and studies of overthinking, reasoning-graph structure and sampling efficiency. It remains one of the archive's most heavily used evaluation sets, alongside AIME 2025, MATH-500 and GPQA-Diamond. Previously fragmented across three separately-spelled entries (AIME24, AIME2024, AIME 2024), merged after a 2026-08-20 pipeline fix.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AIME 2024",
   "kind": "concept",
   "language": "en",
@@ -366,30 +910,26 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "AIME 2024",
-    "previous_definition": "The 2024 sitting of the American Invitational Mathematics Examination, the single most-used hard-math benchmark across the archive's 15 sources for evaluating test-time-compute and reasoning-length methods: compute-balanced routing (CoBa), verifier-free self-correction, rollout pruning, PRM-guided adaptive allocation, sparse decoding, budget-aware conformal scaling (ATTS), CoT trimming (TrimR), and studies of overthinking, sampling efficiency, reasoning-graph structure, and compression effects. Note: previously fragmented across three separately-spelled wiki entries (AIME24, AIME2024, AIME 2024) -- merged into this one after a 2026-08-20 pipeline fix.",
-    "source_count": 44
+    "previous_definition": "The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning-length and test-time-compute methods: adaptive sampling and rollout allocation, verifier-guided pruning and self-correction, quantized reasoning inference, chain-of-thought trimming and compression, and studies of overthinking, reasoning-graph structure and sampling efficiency. It remains one of the archive's most heavily used evaluation sets, alongside AIME 2025, MATH-500 and GPQA-Diamond. Previously fragmented across three separately-spelled entries (AIME24, AIME2024, AIME 2024), merged after a 2026-08-20 pipeline fix.",
+    "source_count": 112
   },
   "result": {
     "aliases": [
       "AIME24",
-      "AIME2024",
-      "AIME",
-      "AIME-24",
-      "AIME 24"
+      "AIME 2024"
     ],
-    "definition": "The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning-length and test-time-compute methods: adaptive sampling and rollout allocation, verifier-guided pruning and self-correction, quantized reasoning inference, chain-of-thought trimming and compression, and studies of overthinking, reasoning-graph structure and sampling efficiency. It remains one of the archive's most heavily used evaluation sets, alongside AIME 2025, MATH-500 and GPQA-Diamond. Previously fragmented across three separately-spelled entries (AIME24, AIME2024, AIME 2024), merged after a 2026-08-20 pipeline fix.",
+    "definition": "AIME 2024 is the 2024 American Invitational Mathematics Examination, a competition-math problem set used throughout this archive as a hard reasoning-accuracy benchmark -- its problems are harder and less saturated than MATH500/GSM8K, so it is the benchmark most often used to show accuracy degradation or preservation under aggressive reasoning-length reduction or efficiency interventions.",
     "kind": "dataset",
     "related": [
       "AIME 2025",
-      "AMC23",
-      "GPQA-Diamond"
+      "MATH500"
     ]
   },
   "task_id": "concept__aime-2024",

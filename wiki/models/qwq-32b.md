@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-QwQ-32B is a reasoning model used as a study subject for the tension between reasoning faithfulness and safety (Risky Business, which finds two independently steerable residual-stream directions in it), for activation-space reflection/reasoning separation (Reflection Steering, cutting its thinking tokens 16.9% on average with no accuracy loss), for cold-start RLVR dataset comparisons (Long CoT Collection), and as a backbone for search-tree-based reasoning-trace compression (A*-Thought).
+QwQ-32B is a widely used open reasoning model in this archive, appearing as an evaluated model, a distillation teacher (e.g. in fs1's knowledge-graph-grounded reasoning distillation and When Internalization Fails' ICoT-curriculum study), and a comparison point across dozens of test-time-scaling, reasoning-trace-analysis, and efficient-reasoning papers -- one of the two most common non-DeepSeek reasoning-model teachers/backbones in the archive, alongside DeepSeek-R1.
 
 - **Kind**: model
+- **Also called**: QwQ-32B
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 15
 

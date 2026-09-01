@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-An open-weight reasoning model used across several sources as a subject of mechanistic/behavioral study: to probe faithfulness-safety tension via targeted reasoning-trace replacement, to test router-guided test-time scaling for software agents, to evaluate retrieval-grounded voting for search agents, and to test predicting a query's self-consistency from prefill hidden state to set a thinking budget in advance. Sources do not define the model itself beyond using it as an evaluation subject.
+GPT-oss-120B is an open-weight large reasoning model used across this archive as an evaluated model in test-time-scaling, entropy-dynamics, and prompt-ambiguity studies -- notably as the primary model in Think Earlier Not Longer's controlled prompt-ambiguity experiments (across three reasoning-effort levels), and as a model whose reasoning-token usage and accuracy are tracked under difficulty-adaptive interventions.
 
 - **Kind**: model
 - **Also called**: GPT-OSS-120B, GPT-oss-120B, gpt-oss-120B

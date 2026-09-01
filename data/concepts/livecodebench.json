@@ -1,9 +1,10 @@
 {
   "aliases": [
     "LiveCodeBench-v6",
-    "LCB"
+    "LCB",
+    "LiveCodeBench"
   ],
-  "definition": "A contamination-resistant code-generation benchmark built from continuously collected competitive-programming problems, used in this archive as the standard out-of-domain check for methods trained on mathematics. That is its main role here: several papers report that a length-reduction or difficulty-adaptation method trained on maths transfers to it less well than to other held-out sets, which is the evidence that the adaptation is partly domain-specific. Sources also use it where a verifiable non-numeric answer is needed, since execution-based grading gives a per-rollout pass rate rather than a single exact-match label.",
+  "definition": "LiveCodeBench is a contamination-resistant, continuously-updated code-generation benchmark used throughout this archive as the primary code-reasoning accuracy test -- frequently paired with math benchmarks (AIME, MATH500) to check whether an efficient-reasoning or length-control method's gains and losses generalize from mathematical to programming reasoning, and its v6 revision is also referenced separately in some sources.",
   "evidence": [
     {
       "id": "arxiv:2608.20055",
@@ -604,9 +605,7 @@
     "best-of-n-sampling-analysis"
   ],
   "related_authored": [
-    "livecodebench-pro",
-    "mbpp",
-    "humaneval"
+    "livecodebench-v6"
   ],
   "schema_version": 1,
   "slug": "livecodebench",

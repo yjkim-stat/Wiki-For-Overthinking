@@ -260,19 +260,19 @@ th { background: var(--surface); }
 <li><strong>Self-Consistency</strong> — Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is t...</li>
 <li><strong>Best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>
 <li><strong>process reward model</strong> — A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search a...</li>
-<li><strong>SFT (baseline)</strong></li>
+<li><strong>SFT (baseline)</strong> — SFT (Supervised Fine-Tuning) is used across sources both as a standard training-pipeline stage (e.g. the pre-RL stage in SFT-then-RL pipe...</li>
 <li><strong>best-of-N</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Benchmarks and datasets</h2>
 <ul>
-<li><strong>MATH500</strong> — A 500-problem competition-mathematics test set drawn from the MATH dataset, and the archive&#x27;s default mid-difficulty maths benchmark: it...</li>
-<li><strong>AIME 2024</strong> — The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning...</li>
-<li><strong>AIME 2025</strong> — The 2025 sitting of the American Invitational Mathematics Examination, the archive&#x27;s single most-used hard-math benchmark. It appears acr...</li>
-<li><strong>GSM8K</strong> — A grade-school math word-problem benchmark used throughout the archive as an &#x27;easy&#x27; reasoning testbed, in contrast to harder benchmarks l...</li>
-<li><strong>GPQA-Diamond</strong> — The 198-question &#x27;Diamond&#x27; subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the arc...</li>
-<li><strong>AMC23</strong> — The 40 problems of the 2023 American Mathematics Competitions, used across the archive as the middle rung of a near-standard math evaluat...</li>
+<li><strong>MATH500</strong> — MATH500 is a 500-problem subset of the MATH competition-mathematics benchmark (Hendrycks et al.), used throughout this archive as a stand...</li>
+<li><strong>AIME 2024</strong> — AIME 2024 is the 2024 American Invitational Mathematics Examination, a competition-math problem set used throughout this archive as a har...</li>
+<li><strong>AIME 2025</strong> — AIME 2025 is the 2025 American Invitational Mathematics Examination, used identically to AIME 2024 across this archive as a hard, less-sa...</li>
+<li><strong>GSM8K</strong> — GSM8K is a grade-school math word-problem benchmark, used throughout this archive as the &#x27;easy&#x27; end of the math-reasoning difficulty spec...</li>
+<li><strong>GPQA-Diamond</strong> — GPQA-Diamond is a graduate-level, expert-written multiple-choice science-question benchmark (the hardest subset of GPQA), used throughout...</li>
+<li><strong>AMC23</strong> — AMC23 is the 2023 American Mathematics Competition problem set, used throughout this archive as a mid-difficulty competition-math benchma...</li>
 </ul>
 </section>
 <section class="slide">

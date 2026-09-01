@@ -8,7 +8,7 @@ Confidence-Informed Self-Consistency (CISC) weights majority voting over sampled
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AQuA-RAT](../datasets/aqua-rat.md), [BrowseComp](../datasets/browsecomp.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama 3.3 70B](../models/llama-3-3-70b.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Self-Consistency (baseline)](self-consistency-baseline.md), [Self-Consistency (SC, baseline)](self-consistency-sc-baseline.md), [weighted majority voting](../concepts/weighted-majority-voting.md)
+**Related**: [AQuA-RAT](../datasets/aqua-rat.md), [BrowseComp](../datasets/browsecomp.md), [CommonsenseQA](../datasets/commonsenseqa.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama 3.3 70B](../models/llama-3-3-70b.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Self-Consistency (baseline)](self-consistency-baseline.md), [Self-Consistency (SC, baseline)](self-consistency-sc-baseline.md), [weighted majority voting](weighted-majority-voting.md)
 
 ## Appears in
 

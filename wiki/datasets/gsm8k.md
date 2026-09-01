@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A grade-school math word-problem benchmark used throughout the archive as an 'easy' reasoning testbed, in contrast to harder benchmarks like AIME or GPQA-Diamond. It anchors the literature on overthinking on easy questions, including the archive's foundational 'Do NOT Think That Much for 2+3=?' paper, and studies showing GSM8K/GSM-Plus performance does not predict basic-arithmetic accuracy elsewhere. Beyond that it is a standard evaluation set across self-braking tuning, verifier-quality analysis, reasoning-graph topology, state-machine reasoning steering, KV-cache compression, and diffusion-LLM test-time scaling work.
+GSM8K is a grade-school math word-problem benchmark, used throughout this archive as the 'easy' end of the math-reasoning difficulty spectrum -- its problems are short and largely saturated by modern reasoning models, making it the benchmark of choice for demonstrating that a method does not sacrifice performance on simple problems even while cutting reasoning length aggressively, in contrast to harder sets like AIME and GPQA.
 
 - **Kind**: dataset
-- **Also called**: GSM-8K
+- **Also called**: GSM-8K, GSM8K
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 90
 

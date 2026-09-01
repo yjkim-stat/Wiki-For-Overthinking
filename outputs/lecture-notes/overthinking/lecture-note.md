@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 443 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-08-26. 440 of the papers have been read in full.
+Built from 443 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-08-26. 443 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`.
 
@@ -142,7 +142,7 @@ Seen in: ARM: Adaptive Reasoning Model; How Far Are We from Optimal Reasoning Ef
 | Self-Consistency | 11 | Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is the baseline every parallel test-time-sca... |
 | Best-of-N sampling | 8 | A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority vote), trading inference compute for accu... |
 | process reward model | 8 | A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search and to decide where compute should go. It... |
-| SFT (baseline) | 8 | _pending_ |
+| SFT (baseline) | 8 | SFT (Supervised Fine-Tuning) is used across sources both as a standard training-pipeline stage (e.g. the pre-RL stage in SFT-then-RL pipelines) and as a comparison baseline for... |
 | best-of-N | 7 | A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In the sources tagged separately under thi... |
 | Early Exit | 7 | Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archive tracks, that computation is a reasoni... |
 | O1-Pruner (baseline) | 7 | O1-Pruner (baseline) is a PPO-like offline fine-tuning method for compressing chain-of-thought length, used in this archive as a comparison baseline by LC-R1 (which achieves a m... |
@@ -163,15 +163,15 @@ Seen in: ARM: Adaptive Reasoning Model; How Far Are We from Optimal Reasoning Ef
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
-| MATH500 | 127 | A 500-problem competition-mathematics test set drawn from the MATH dataset, and the archive's default mid-difficulty maths benchmark: it appears in nearly every efficiency evalu... |
-| AIME 2024 | 112 | The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning-length and test-time-compute methods: a... |
-| AIME 2025 | 103 | The 2025 sitting of the American Invitational Mathematics Examination, the archive's single most-used hard-math benchmark. It appears across nearly every category of reasoning-e... |
-| GSM8K | 90 | A grade-school math word-problem benchmark used throughout the archive as an 'easy' reasoning testbed, in contrast to harder benchmarks like AIME or GPQA-Diamond. It anchors the... |
-| GPQA-Diamond | 72 | The 198-question 'Diamond' subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the archive tracks separately, and the standard... |
-| AMC23 | 53 | The 40 problems of the 2023 American Mathematics Competitions, used across the archive as the middle rung of a near-standard math evaluation suite that runs GSM8K and MATH-500 a... |
-| OlympiadBench | 33 | The olympiad-level competition-mathematics set that 14 archived efficient-reasoning papers use as the hard end of their maths suite, above MATH-500, AMC23 and GSM8K and alongsid... |
-| GPQA | 29 | A graduate-level multiple-choice science-question benchmark, used across the archive as the science column of an otherwise mathematical evaluation suite — the out-of-domain chec... |
-| LiveCodeBench | 27 | A contamination-resistant code-generation benchmark built from continuously collected competitive-programming problems, used in this archive as the standard out-of-domain check... |
+| MATH500 | 127 | MATH500 is a 500-problem subset of the MATH competition-mathematics benchmark (Hendrycks et al.), used throughout this archive as a standard evaluation set for reasoning accurac... |
+| AIME 2024 | 112 | AIME 2024 is the 2024 American Invitational Mathematics Examination, a competition-math problem set used throughout this archive as a hard reasoning-accuracy benchmark -- its pr... |
+| AIME 2025 | 103 | AIME 2025 is the 2025 American Invitational Mathematics Examination, used identically to AIME 2024 across this archive as a hard, less-saturated competition-math benchmark for t... |
+| GSM8K | 90 | GSM8K is a grade-school math word-problem benchmark, used throughout this archive as the 'easy' end of the math-reasoning difficulty spectrum -- its problems are short and large... |
+| GPQA-Diamond | 72 | GPQA-Diamond is a graduate-level, expert-written multiple-choice science-question benchmark (the hardest subset of GPQA), used throughout this archive alongside AIME as a hard r... |
+| AMC23 | 53 | AMC23 is the 2023 American Mathematics Competition problem set, used throughout this archive as a mid-difficulty competition-math benchmark -- harder than GSM8K/MATH500 but gene... |
+| OlympiadBench | 33 | OlympiadBench is a challenging olympiad-level math/science benchmark used throughout this archive as a hard reasoning-accuracy test, comparable in difficulty to AIME -- used e.g... |
+| GPQA | 29 | GPQA is a graduate-level, expert-written multiple-choice science-question benchmark, used throughout this archive as a hard, non-math reasoning-accuracy test -- its Diamond subs... |
+| LiveCodeBench | 27 | LiveCodeBench is a contamination-resistant, continuously-updated code-generation benchmark used throughout this archive as the primary code-reasoning accuracy test -- frequently... |
 | MATH | 25 | The 12,500-problem competition-mathematics dataset of Hendrycks et al., used in this archive far more often as a training corpus and a probe set than as a test set -- reinforcem... |
 | MMLU-Pro | 18 | The harder successor to MMLU, used across the archive as the non-mathematical, wide-headroom benchmark on which adaptive-reasoning and efficiency methods are stress-tested. The... |
 | Minerva | 16 | A quantitative-reasoning maths benchmark used in this archive almost exclusively as an out-of-domain evaluation: papers train on MATH500, AMC or AIME data and report Minerva alo... |

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+QwQ-32B-Preview is an early reasoning-model release used in Step-Saliency (pooling token-level attention-gradient saliency into step-to-step maps revealing depth-wise reasoning patterns), a study of evaluation-time compute scaling for LLM-as-judge, and O1-Pruner (which identifies 'length disharmony' and applies its Length-Harmonizing Fine-Tuning to QwQ-32B-Preview as one of its two fine-tuned models).
 
 - **Kind**: model
+- **Also called**: QwQ-32B-Preview
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 

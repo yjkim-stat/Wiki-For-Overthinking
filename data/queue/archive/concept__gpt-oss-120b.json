@@ -27,6 +27,110 @@
       },
       {
         "kind": "paper",
+        "note": "ThinkBooster is a unified, open-source framework (Python library + OpenAI-compatible proxy endpoint + visual debugger) implementing 9 test-time-compute scaling strategies and 4 scorer families under a joint TFLOPs-and-tokens compute-accounting benchmark, whose pilot study finds PRM scorers dominate on math while lightweight uncertainty scorers are surprisingly competitive on (out-of-domain-for-PRM) coding tasks, and that beam search often underperforms best-of-N and even self-consistency despite costing more compute.",
+        "title": "ThinkBooster: A Unified Framework for Seamless Test-Time Scaling of LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Thinking with Reasoning Skills (TRS) is a training-free, black-box-compatible framework that offline-distills long deliberation trajectories (successes and failures) into compact, retrievable 'skill cards' (Trigger/Do/Avoid/Check/Risk), retrieves and injects the most relevant cards into a new query's prompt at inference time instead of forcing the model to re-derive solution logic from scratch, and empirically reduces reasoning tokens while matching or improving accuracy versus standard CoT across multiple LLMs on math and coding benchmarks -- with gains growing on harder problems, unlike budget-forcing baselines (TALE, Chain-of-Draft) which collapse below baseline accuracy as difficulty increases.",
+        "title": "Thinking with Reasoning Skills: Fewer Tokens, More Accuracy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "GENCLUSTER is a scalable test-time-compute pipeline (parallel generation, behavioral clustering by execution output, LLM-tournament ranking, round-robin submission) that lets an open-weight model (gpt-oss-120b) achieve gold-medal-level performance at the International Olympiad in Informatics 2025 for the first time, by generating up to 5,000 candidate solutions per subtask.",
+        "title": "Scaling Test-Time Compute to Achieve IOI Gold Medal with Open-Weight Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACE INVERSION reframes abstention as query misalignment -- a hallucinating model answered a different (reconstructed) question than the one the user actually posed -- and detects this by reconstructing the implied query from a model's own reasoning trace and comparing it to the original via an ensemble of embedding-similarity, LLM-judged, and groundedness-detection metrics, beating five baselines in 33/36 settings across four LLMs and nine abstention datasets, while separately showing that CoT/reasoning-trace prompting itself degrades abstention accuracy by an average 2.6% versus non-reasoning prompting.",
+        "title": "Answering the Wrong Question: Reasoning Trace Inversion for Abstention in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "STOP (Super TOken for Pruning) is a lightweight, LoRA-based module that reads a frozen LRM's cached KV states via a single learnable [STOP] token to score and prune futile parallel-reasoning paths early -- at negligible inference overhead (0.59% latency) -- and is shown, via a proposed four-way taxonomy of path-pruning signal generators, to dominate external-signal and non-learnable internal-signal baselines in both accuracy and compute across model scales 1.5B-20B.",
+        "title": "Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces Effective Token Cost (ETC), a hardware/pricing-aware metric weighting cached vs. non-cached input and output tokens, to study how deep-search agents should allocate test-time budget between listwise document reranking depth and agent reasoning effort -- finding moderate reranking depth is consistently more cost-effective than increasing search-time reasoning, and that a lightweight cross-encoder reranker recovers most of listwise reranking's end-to-end accuracy gain at substantially lower cost.",
+        "title": "Rerank Before You Reason: Analyzing Reranking Tradeoffs through Effective Token Cost in Deep Search Agents",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReasonIF is a 300-sample, six-instruction-type benchmark (multilinguality, word limit, disclaimer, JSON formatting, uppercase-only, remove-commas) showing large reasoning models comply with instructions far less inside their reasoning trace (average IFS 15.6%) than in their main response (57.3%), that reasoning instruction-following degrades further as problem difficulty rises (positive correlation up to 0.863 with accuracy), and that both multi-turn self-reflection and supervised fine-tuning on synthetic reasoning-instruction data (RIF) only partially close the gap, the latter trading a measurable accuracy drop for the IFS gain.",
+        "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AlgBench replaces problem-centric algorithmic benchmarks (which conflate multiple algorithms per problem and risk contamination) with 3,000 expert-curated, contamination-free problems each isolating exactly one of 27 algorithms under a six-category taxonomy, finding LRMs handle non-optimized/Euclidean-structured algorithms well (up to 92%) but collapse on global-optimization tasks like dynamic programming (~49%), that model-parameter scaling barely helps in exactly those weak categories, and that 'strategic over-shifts' -- models abandoning a correct algorithmic design mid-execution -- are specifically triggered by necessary low-entropy tokens (numeric constants, structural delimiters) that standard maximum-entropy RL training penalizes as if they were uncertain, unproductive continuations.",
+        "title": "AlgBench: To What Extent Do Large Reasoning Models Understand Algorithms?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoTJudger converts free-form CoTs into directed dependency graphs (capturing backtracking, repetition, and self-correction via classified node/edge types) and extracts the Shortest Effective Path (SEP) -- the minimal, verified-sufficient reasoning skeleton -- to compute a scale-invariant Redundancy Ratio; across 21 LRMs it finds redundancy pervasive but structurally distinct by model family (DeepSeek-R1's high-in-degree 'Cyclic Complexity' looping vs. Qwen3-Max's high-uncertainty 'Semantic Verbosity' vs. Gemini-3-Pro's low-degree 'Local Over-Optimization'), that distilled models inherit and often amplify their teacher's redundancy (a 'reasoning illusion' where distillation transfers verbosity without the underlying verification capability), and that post-answer redundancy specifically includes 'Destructive Revision' where a correct answer is unstably discarded for a wrong one.",
+        "title": "CoTJudger: A Graph-Driven Framework for Automatic Evaluation of Chain-of-Thought Efficiency and Redundancy in LRMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "BrowseConf shows that despite web-search agents being poorly calibrated in absolute terms (verbalized confidence systematically exceeds actual accuracy), their confidence is strongly rank-correlated with correctness -- near-zero accuracy below 70% confidence, more than double the average accuracy above 95% -- and exploits this by triggering additional search attempts only when confidence falls below a calibrated threshold rather than always sampling a fixed number, matching or beating fixed-budget Self-Consistency/CISC on BrowseComp while cutting average attempts from a fixed 10 down to 2.06-5.72.",
+        "title": "BrowseConf: Confidence-Guided Test-Time Scaling for Web Agents",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARISE fixes a specific flaw in prior slope-based test-time-scaling metrics -- they operate only at the aggregate-accuracy level and paradoxically reward models that waste more tokens for worse results under negative scaling -- by scoring each sample's individual accuracy transitions across scaling iterations with a ratio-based, asymmetric weight that penalizes wasted computation more heavily than it rewards gains, paired with a variance-adaptive sampling protocol; across proprietary and open reasoning models it reveals genuine negative scaling (e.g. GPT-OSS-20B: -0.403 ARISE on AIME, DeepSeek-R1: -0.049 on GPQA-Diamond) that a conventional scaling metric registers as positive because it cannot distinguish wasted computation from productive computation.",
+        "title": "ARISE: An Adaptive Resolution-Aware Metric for Test-Time Scaling Evaluation in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces the Anytime Index, an AUC-style metric quantifying how solution quality improves as reasoning-token budget increases, and Preference Data Prompting (PDP), an inference-time self-improvement method using self-generated contrastive reasoning pairs at fixed token budgets, giving consistent gains across seven LLM families on trip planning, math, and scientific QA.",
+        "title": "Budget-Aware Anytime Reasoning with LLM-Synthesized Preference Data",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that prompt ambiguity causes 'unhealthy exploration' -- an elevated, delayed early-stage entropy peak in a model's token-level entropy trajectory that inflates token usage without improving accuracy or self-consistency -- and trains a lightweight prompt optimizer via entropy-dynamics-guided multi-turn RL to generate concise clarifications, improving reasoning efficiency up to 52.9% in-domain and 38.5% out-of-domain without sacrificing accuracy.",
+        "title": "Think Earlier, Not Longer: Prompt Optimization via Reducing Unhealthy Exploration",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
         "title": "Adaptive Thinking: Large Language Models Know When to Think in Latent Space",
         "topics": [
@@ -35,9 +139,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-27T22:29:39Z",
-  "created_at": "2026-08-27T13:56:48Z",
-  "instructions": "Revise the wiki definition for 'gpt-oss-120b'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    gpt-oss-120b is an open-weight language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight reasoning models on HazMart (77 hand-written agentic shopkeeper scenarios, 11 harm categories, 5 runs each) scoring chain-of-thought faithfulness against safe action under Targeted Reasoning Replacement -- the comparison in which four of the seven models exceed 80% faithfulness, QwQ-32B is best on both axes at about 75%, and DeepSeek-R1-Distill-Llama-70B is the most faithful at 97.5% while acting safely in only 12.3% of cases; the model's own figures are not given in the archived record. Adaptive Thinking uses it as one of four backbones, with Qwen3-8B, Qwen3-235B-A22B and Intern-S1-mini, for Sonata, an adapter that predicts a query's self-consistency from last-layer hidden states at prefill and sets the thinking budget before any thinking tokens are generated. Neither paper says anything about the model's architecture, training or provenance: it appears only as something to run a method on.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-01T10:46:12Z",
+  "created_at": "2026-09-01T10:43:53Z",
+  "instructions": "Revise the wiki definition for 'gpt-oss-120b'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    An open-weight reasoning model used across several sources as a subject of mechanistic/behavioral study: to probe faithfulness-safety tension via targeted reasoning-trace replacement, to test router-guided test-time scaling for software agents, to evaluate retrieval-grounded voting for search agents, and to test predicting a query's self-consistency from prefill hidden state to set a thinking budget in advance. Sources do not define the model itself beyond using it as an evaluation subject.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "gpt-oss-120b",
   "kind": "concept",
   "language": "en",
@@ -53,17 +157,17 @@
   },
   "payload": {
     "name": "gpt-oss-120b",
-    "previous_definition": "gpt-oss-120b is an open-weight language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight reasoning models on HazMart (77 hand-written agentic shopkeeper scenarios, 11 harm categories, 5 runs each) scoring chain-of-thought faithfulness against safe action under Targeted Reasoning Replacement -- the comparison in which four of the seven models exceed 80% faithfulness, QwQ-32B is best on both axes at about 75%, and DeepSeek-R1-Distill-Llama-70B is the most faithful at 97.5% while acting safely in only 12.3% of cases; the model's own figures are not given in the archived record. Adaptive Thinking uses it as one of four backbones, with Qwen3-8B, Qwen3-235B-A22B and Intern-S1-mini, for Sonata, an adapter that predicts a query's self-consistency from last-layer hidden states at prefill and sets the thinking budget before any thinking tokens are generated. Neither paper says anything about the model's architecture, training or provenance: it appears only as something to run a method on.",
-    "source_count": 4
+    "previous_definition": "An open-weight reasoning model used across several sources as a subject of mechanistic/behavioral study: to probe faithfulness-safety tension via targeted reasoning-trace replacement, to test router-guided test-time scaling for software agents, to evaluate retrieval-grounded voting for search agents, and to test predicting a query's self-consistency from prefill hidden state to set a thinking budget in advance. Sources do not define the model itself beyond using it as an evaluation subject.",
+    "source_count": 17
   },
   "result": {
-    "aliases": [],
-    "definition": "An open-weight reasoning model used across several sources as a subject of mechanistic/behavioral study: to probe faithfulness-safety tension via targeted reasoning-trace replacement, to test router-guided test-time scaling for software agents, to evaluate retrieval-grounded voting for search agents, and to test predicting a query's self-consistency from prefill hidden state to set a thinking budget in advance. Sources do not define the model itself beyond using it as an evaluation subject.",
+    "aliases": [
+      "GPT-oss-120B"
+    ],
+    "definition": "GPT-oss-120B is an open-weight large reasoning model used across this archive as an evaluated model in test-time-scaling, entropy-dynamics, and prompt-ambiguity studies -- notably as the primary model in Think Earlier Not Longer's controlled prompt-ambiguity experiments (across three reasoning-effort levels), and as a model whose reasoning-token usage and accuracy are tracked under difficulty-adaptive interventions.",
     "kind": "model",
     "related": [
-      "Risky Business",
-      "Sonata",
-      "Retrieval-Grounded Voting (RGV)"
+      "GPT-oss-20B"
     ]
   },
   "task_id": "concept__gpt-oss-120b",

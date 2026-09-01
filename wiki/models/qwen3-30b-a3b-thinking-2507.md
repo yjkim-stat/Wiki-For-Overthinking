@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen3-30B-A3B-Thinking-2507 is a mixture-of-experts reasoning model used in Bloom's-taxonomy cognitive profiling of LRM reasoning traces (labeling each step with one of six cognitive levels) and CoTJudger (converting free-form CoTs into dependency graphs to detect backtracking, repetition, and self-correction).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

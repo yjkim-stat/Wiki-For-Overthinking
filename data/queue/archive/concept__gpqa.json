@@ -19,6 +19,126 @@
       },
       {
         "kind": "paper",
+        "note": "Systematically compares 8 prompting strategies under equal sampling budget for majority-vote test-time scaling across 6 LLMs x 6 benchmarks, finding plain Chain-of-Thought eventually dominates every more elaborate strategy as sampling time N grows -- because CoT has more easy/fewer hard questions and a flatter wrong-answer distribution -- and shows combining per-question difficulty-adaptive scaling with per-question optimal-strategy selection lifts GSM8K accuracy from 86.0% to 97.4% (Majority@10) and MATH-500 from 15.2% to 61.0%.",
+        "title": "Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CAT (Confidence-Adaptive Thinking) uses self-certainty -- the KL divergence of a reasoning trajectory's per-token predictive distribution from uniform, an intrinsic model signal requiring no external labels -- to build preference pairs and a confidence-weighted preference-optimization loss (CWPO) that compresses reasoning on problems the model is confident about while preserving deliberation on uncertain ones, beating three efficient-reasoning baselines (OverThink, DAST, ConCISE) on accuracy-at-compression across three LRMs and three benchmarks.",
+        "title": "CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "LEASH formulates reasoning-length control as a constrained RL optimization (maximize task reward subject to an expected-length constraint) solved via a Lagrangian primal-dual method with a one-sided length penalty, letting the penalty coefficient lambda self-tighten or self-relax based on real-time constraint violation rather than requiring manual tuning, and reduces average reasoning length by up to 62.7% (1.5B model) or 26.2% (4B model) while maintaining or improving accuracy on in-domain math and out-of-domain (GPQA, MMLU-Pro) benchmarks, outperforming fixed-penalty and prior length-control baselines.",
+        "title": "LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces token-level marginal utility -- the per-token log-probability gain toward the ground-truth answer -- and MUTO, a training framework that penalizes trajectories and individual tokens that reduce this probability, cutting DeepSeek-R1-Distill-Qwen token usage by 87.1% (1.5B) / 80.2% (7B) with comparable or better accuracy.",
+        "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+        "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces attention-temperature modulation (softening/sharpening the attention softmax at inference, distinct from decoding-temperature sampling) as a difficulty-adaptive exploration control -- higher attention temperature broadens exploration and helps hard problems, lower temperature curbs overthinking and helps easy ones -- and pairs it with a difficulty-induced weighted-voting aggregation scheme (Thermometer of Thoughts), improving Pass@10 by 6.78-14.20% and aggregation accuracy by 9.74% across seven reasoning benchmarks.",
+        "title": "Thermometer of Thoughts: Enhancing LLM’s Exploration via Attention Temperature Modulation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SelfBudgeter trains a reasoning model to emit its own predicted token budget before answering (<budget>N</budget><solution>...</solution>) via a cold-start plus budget-guided GRPO pipeline, cutting response length ~61% on math benchmarks while preserving or improving accuracy, and letting users see the estimated wait time or pre-fill a hard budget upfront.",
+        "title": "SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "STACK distinguishes two distinct sources of overthinking redundancy -- 'hesitation states' (uncertainty needing correction) versus overlong-but-confident reasoning -- detecting the former via a local-entropy spike relative to a sliding-window baseline and fixing it with retrieval-augmented knowledge-guided contrastive decoding, and the latter with a self-prompted compression instruction plus an answer-convergence-based early-stopping signal, trained via a reward-difference-driven PPO+DPO hybrid loss -- cutting average response length 59.9% while improving accuracy 4.8 points over existing CoT-compression baselines on three math benchmarks.",
+        "title": "Think Less, Know More: State-Aware Reasoning Compression with Knowledge Guidance for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "VecCISC reduces the cost of Confidence-Informed Self-Consistency (CISC) -- which needs a separate critic-LLM call on every sampled reasoning trace to weight majority voting -- by embedding traces, clustering them per candidate answer, and sending only cluster-representative (nearest-centroid) traces to the critic, cutting critic calls 30-35% and total pipeline token usage 47% while matching or exceeding CISC's accuracy across five models and five datasets.",
+        "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CLARO treats conciseness as an emergent property of well-structured reasoning rather than a truncation target: it fine-tunes models via GRPO with two correctness-gated reward terms (structural attribute alignment -- readability, mathematical-notation density, syntactic compression, low redundancy -- plus a length-contribution term) within a user-specified token budget, outperforming length-controlled baselines (s1, L1-Max) by up to 63.6% relative accuracy under matched budgets across eight math and general-reasoning benchmarks, while a lightweight zero-shot prompting variant (Attribute-Guided Prompting) is shown to be far more robust than simply instructing a model to 'prioritize conciseness.'",
+        "title": "CLARO: Controlled Attribute-Driven Reasoning Optimization for Efficient Chain-of-Thought",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Rather than relying on RL to spontaneously and unpredictably produce advanced reasoning behaviors (the 'aha moment'), this paper explicitly trains three separate specialists on synthetic, self-verifiable deduction/induction/abduction tasks (Peirce's classical inference triad), merges them via linear parameter-space interpolation, and shows this meta-ability-aligned checkpoint both generalizes zero-shot to seven unseen math/coding/science benchmarks and raises the attainable performance ceiling of subsequent domain-specific RL by ~2-4% over an instruction-tuned baseline at both 7B and 32B scale.",
+        "title": "Beyond ’Aha!’: Toward Systematic Meta-Abilities Alignment in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows evaluation itself scales like generation: off-the-shelf reasoning models, simply prompted to generate a chain-of-thought judgment (no evaluator-specific training), improve monotonically with more reasoning tokens and, when made to individually assess every reasoning step rather than a single-pass judgment, a 32B reasoning evaluator beats a specialized 72B PRM by 4.5 F1 points on ProcessBench; folding this into Best-of-N reranking, spending the fixed test-time budget on evaluation-time reasoning (Best-of-8 with a reasoning evaluator) beats spending it on more candidate samples (Best-of-64 with a direct evaluator) by 4.30-6.63 points, and reasoning evaluators are shown to resist reward-model over-optimization that both direct evaluator types suffer from.",
+        "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Difficulty-Aware Distillation (DAD) has a teacher assess each problem's difficulty (easy/medium/hard) then rewrite its own long CoT solution into a difficulty-adaptive, minimal-essential-steps trace via a two-step generate-then-refine pipeline, producing LiteCoT (100K samples averaging just 720 tokens, an order of magnitude shorter than S1/LIMO/OpenThoughts); models distilled on LiteCoT (Liter, 1.5B-32B) consistently outperform models trained on the same teacher's own 800K verbose CoTs, reach 74.2% Pass@1 on AIME24 using only ~5K inference tokens (beating methods that consume far more), and beat static one-size-fits-all CoT-compression baselines (Chain-of-Draft, LLMLingua-2, BudgetAware) on both accuracy and inference time across eight benchmarks.",
+        "title": "Concise Math Reasoning via Difficulty-Aware Distillation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SELECT2REASON selects the top 10% of a large long-CoT instruction pool for SFT by jointly ranking questions on a learned difficulty score and (deduplicated) reasoning-trace length, matching or beating models trained on 8-94x more data.",
+        "title": "Select2Reason: Efficient Instruction-Tuning Data Selection for Long-CoT Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DeepPrune identifies inter-trace redundancy in parallel test-time scaling (over 80% of parallel reasoning traces yield identical final answers) and trains a specialized judge model to predict answer equivalence from unfinished trace pairs, combined with online greedy clustering to prune redundant paths during generation, cutting token consumption 65.7-88.5% versus consensus sampling with accuracy within 3 percentage points.",
+        "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
         "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL",
         "topics": [
@@ -67,7 +187,7 @@
       },
       {
         "kind": "paper",
-        "note": "WebThinker gives large reasoning models an autonomous web-search-and-report-drafting loop, trained via iterative online DPO, for knowledge-intensive deep research tasks.",
+        "note": "WebThinker gives large reasoning models a Deep Web Explorer module and an Autonomous Think-Search-and-Draft strategy so they can search, navigate, and draft research reports interleaved with reasoning, trained via iterative online DPO, and it outperforms existing methods and strong proprietary systems on complex reasoning and report-generation benchmarks.",
         "title": "WebThinker: Empowering Large Reasoning Models with Deep Research Capability",
         "topics": [
           "overthinking"
@@ -115,9 +235,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T02:02:31Z",
-  "created_at": "2026-08-21T01:54:34Z",
-  "instructions": "Revise the wiki definition for 'GPQA'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A graduate-level multiple-choice science-question benchmark used across the archive as a hard-reasoning evaluation set, referenced by the foundational overthinking paper ('Do NOT Think That Much for 2+3=?'), WebThinker, and TrimR's verifier-based thinking-trimming method. Note: distinct wiki entry from 'GPQA Diamond', the harder curated subset most other archived sources actually evaluate on -- not merged.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-01T10:46:11Z",
+  "created_at": "2026-09-01T10:43:53Z",
+  "instructions": "Revise the wiki definition for 'GPQA'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A graduate-level multiple-choice science-question benchmark, used across the archive as the science column of an otherwise mathematical evaluation suite — the out-of-domain check on whether a token-reduction or adaptive-reasoning method developed on math still holds — and, in the agentic sources, as a knowledge-intensive target for web-search deep research and for statistical stopping rules on ill-posed queries. This entry covers the sources that write the name unqualified; the harder curated subset has its own entry as GPQA Diamond and the two are deliberately not merged, so an unqualified mention filed here is not evidence about which split the paper actually ran. It is where efficiency claims most often thin out: length-aware rollout resampling compresses it 33-38%, about as much as it compresses GSM8K and MATH-500, and question-free fine-tuning improves it out of domain (65.7 against 60.6 for ordinary SFT), but a reward-coordinated KV-cache and early-stopping method that gains on all five of its math sets shows no gain at all on GPQA, the only non-math set in its suite (33.8% for both the compressed and the full-CoT run). Figures reported for it are otherwise mostly relative rather than absolute — excess-length reductions of 23.7% to 79.7% under group-filtered policy optimization, up to 70% runtime under verifier-based trimming — and the archive's earliest overthinking study already used it as one of four benchmarks without giving numbers for it.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPQA",
   "kind": "concept",
   "language": "en",
@@ -126,29 +246,25 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "GPQA",
-    "previous_definition": "A graduate-level multiple-choice science-question benchmark used across the archive as a hard-reasoning evaluation set, referenced by the foundational overthinking paper ('Do NOT Think That Much for 2+3=?'), WebThinker, and TrimR's verifier-based thinking-trimming method. Note: distinct wiki entry from 'GPQA Diamond', the harder curated subset most other archived sources actually evaluate on -- not merged.",
-    "source_count": 14
+    "previous_definition": "A graduate-level multiple-choice science-question benchmark, used across the archive as the science column of an otherwise mathematical evaluation suite — the out-of-domain check on whether a token-reduction or adaptive-reasoning method developed on math still holds — and, in the agentic sources, as a knowledge-intensive target for web-search deep research and for statistical stopping rules on ill-posed queries. This entry covers the sources that write the name unqualified; the harder curated subset has its own entry as GPQA Diamond and the two are deliberately not merged, so an unqualified mention filed here is not evidence about which split the paper actually ran. It is where efficiency claims most often thin out: length-aware rollout resampling compresses it 33-38%, about as much as it compresses GSM8K and MATH-500, and question-free fine-tuning improves it out of domain (65.7 against 60.6 for ordinary SFT), but a reward-coordinated KV-cache and early-stopping method that gains on all five of its math sets shows no gain at all on GPQA, the only non-math set in its suite (33.8% for both the compressed and the full-CoT run). Figures reported for it are otherwise mostly relative rather than absolute — excess-length reductions of 23.7% to 79.7% under group-filtered policy optimization, up to 70% runtime under verifier-based trimming — and the archive's earliest overthinking study already used it as one of four benchmarks without giving numbers for it.",
+    "source_count": 29
   },
   "result": {
-    "aliases": [],
-    "definition": "A graduate-level multiple-choice science-question benchmark, used across the archive as the science column of an otherwise mathematical evaluation suite — the out-of-domain check on whether a token-reduction or adaptive-reasoning method developed on math still holds — and, in the agentic sources, as a knowledge-intensive target for web-search deep research and for statistical stopping rules on ill-posed queries. This entry covers the sources that write the name unqualified; the harder curated subset has its own entry as GPQA Diamond and the two are deliberately not merged, so an unqualified mention filed here is not evidence about which split the paper actually ran. It is where efficiency claims most often thin out: length-aware rollout resampling compresses it 33-38%, about as much as it compresses GSM8K and MATH-500, and question-free fine-tuning improves it out of domain (65.7 against 60.6 for ordinary SFT), but a reward-coordinated KV-cache and early-stopping method that gains on all five of its math sets shows no gain at all on GPQA, the only non-math set in its suite (33.8% for both the compressed and the full-CoT run). Figures reported for it are otherwise mostly relative rather than absolute — excess-length reductions of 23.7% to 79.7% under group-filtered policy optimization, up to 70% runtime under verifier-based trimming — and the archive's earliest overthinking study already used it as one of four benchmarks without giving numbers for it.",
+    "aliases": [
+      "GPQA"
+    ],
+    "definition": "GPQA is a graduate-level, expert-written multiple-choice science-question benchmark, used throughout this archive as a hard, non-math reasoning-accuracy test -- its Diamond subset (GPQA-Diamond) is the most commonly reported variant, used alongside AIME and MATH500 to check whether a reasoning-length or efficiency method's gains generalize beyond mathematics to broader scientific reasoning.",
     "kind": "dataset",
     "related": [
-      "GPQA Diamond",
-      "SuperGPQA",
-      "MMLU-Pro",
-      "MATH-500",
-      "AIME 2024",
-      "OlympiadBench",
-      "Overthinking",
-      "Test-Time Compute Scaling"
+      "GPQA-Diamond",
+      "AIME 2024"
     ]
   },
   "task_id": "concept__gpqa",

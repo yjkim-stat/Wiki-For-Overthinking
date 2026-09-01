@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen3-235B-A22B is a large mixture-of-experts reasoning model (235B total / 22B active parameters) used as an evaluated model across several reasoning-trace analysis papers, including Thought Injection (testing whether injected reasoning snippets causally change final answers), RFMDataset (revealing failure modes in mathematical proof reasoning), TRACE (decomposing reasoning traces into sub-thought progression graphs), and AlgBench (testing algorithmic understanding).
 
 - **Kind**: model
 - **Also called**: Qwen3-235B
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 5
 
-**Related**: [adaptive test-time compute](../concepts/adaptive-test-time-compute.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [ASDiv](../datasets/asdiv.md), [Claude-3.7-Sonnet-Thinking](claude-3-7-sonnet-thinking.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-0528](deepseek-r1-0528.md), [DeepSeek-R1-Distill-Llama-70B](deepseek-r1-distill-llama-70b.md), [DeepSeek-V3.2-Speciale](deepseek-v3-2-speciale.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GPQA](../datasets/gpqa.md), [GPT-o1](gpt-o1.md), [gpt-o3](gpt-o3.md), [gpt-oss-120b](gpt-oss-120b.md), [greedy decoding](../methods/greedy-decoding.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-8B](qwen3-8b.md), [Self-Consistency](../methods/self-consistency.md), [SimpleQA](../datasets/simpleqa.md)
+**Related**: [adaptive test-time compute](../concepts/adaptive-test-time-compute.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [ASDiv](../datasets/asdiv.md), [Claude-3.7-Sonnet-Thinking](claude-3-7-sonnet-thinking.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-0528](deepseek-r1-0528.md), [DeepSeek-R1-Distill-Llama-70B](deepseek-r1-distill-llama-70b.md), [DeepSeek-V3.2-Speciale](deepseek-v3-2-speciale.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GPQA](../datasets/gpqa.md), [GPT-o1](gpt-o1.md), [gpt-o3](gpt-o3.md), [gpt-oss-120b](gpt-oss-120b.md), [greedy decoding](../methods/greedy-decoding.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen3-235B-A22B-Thinking-2507](qwen3-235b-a22b-thinking-2507.md), [Qwen3-30B-A3B](qwen3-30b-a3b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-8B](qwen3-8b.md), [Self-Consistency](../methods/self-consistency.md), [SimpleQA](../datasets/simpleqa.md)
 
 ## Appears in
 

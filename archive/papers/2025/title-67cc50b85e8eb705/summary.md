@@ -43,7 +43,7 @@ Not stated in the fetched abstract beyond the compressed-sensing theoretical fra
 ## Entities
 
 - **Concepts**: sparse autoencoder (SAE) encoder insufficiency, compressed sensing theory applied to interpretability, amortization gap in sparse inference
-- **Methods**: sparse autoencoders (SAEs), compressed sensing theory, decoupled encoder/decoder inference
+- **Methods**: [sparse autoencoders (SAEs)](../../../../wiki/methods/sparse-autoencoders-saes.md), compressed sensing theory, decoupled encoder/decoder inference
 - **Datasets**: _none recorded_
 
 Tags: `interpretability`, `sparse-autoencoders`, `compute-optimal-inference`, `compressed-sensing`

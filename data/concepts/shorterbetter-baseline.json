@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "ShorterBetter"
+  ],
+  "definition": "ShorterBetter is an efficient-reasoning baseline method referenced in AdaMix (decoupling efficiency and accuracy into separately-trained short/long LoRA adapters routed by difficulty) and Step Pruner (which replaces token-count length penalties with a step-count reward), both comparing their approach against ShorterBetter as a prior length-reduction method.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.1864",
@@ -61,7 +63,9 @@
     "deepseek-r1-distill-qwen-2-5-1-5b",
     "llama-3-1-8b-r1-llama-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "o1-pruner-baseline"
+  ],
   "schema_version": 1,
   "slug": "shorterbetter-baseline",
   "topics": [

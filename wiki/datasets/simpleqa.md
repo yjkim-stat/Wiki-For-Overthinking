@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+SimpleQA is a factuality-focused QA benchmark used in TRACE (finding thinking helps only within a narrow middle difficulty band), MR-ALIGN (measuring the 'reasoning-answer hit gap' where a model surfaces then discards a correct fact), and fs1 (grounding reasoning traces in knowledge-graph paths to improve factual accuracy).
 
 - **Kind**: dataset
+- **Also called**: SimpleQA
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 

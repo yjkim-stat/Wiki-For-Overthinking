@@ -27,6 +27,94 @@
       },
       {
         "kind": "paper",
+        "note": "Introduces token-level marginal utility -- the per-token log-probability gain toward the ground-truth answer -- and MUTO, a training framework that penalizes trajectories and individual tokens that reduce this probability, cutting DeepSeek-R1-Distill-Qwen token usage by 87.1% (1.5B) / 80.2% (7B) with comparable or better accuracy.",
+        "title": "Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReasoningGuard is a training-free, inference-time jailbreak defense for large reasoning models that uses an attention-sink signal to locate the moment reasoning shifts from problem restatement to exploration, injects a crafted 'safety aha' phrase there, then samples multiple continuations and selects the one with the highest sustained attention to that safety phrase -- outperforming nine existing defenses at only 5-9% extra inference cost.",
+        "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names 'invalid thinking' -- redundant double-checking after a reasoning model has already derived the correct answer -- as a specific, measurable form of overthinking (Valid Thinking rate as low as 57.5-65.3% on four SOTA LRMs), and introduces LC-R1, a GRPO method with a dual Length Reward (global conciseness) and Compress Reward (targeted removal of the redundant tail), achieving ~46-52% length reduction for only 1.8-2.1% accuracy loss and 97%+ Valid Thinking rate.",
+        "title": "Optimizing Length Compression in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MathIF is a 420-query, 15-constraint controlled benchmark showing that as large reasoning models' chain-of-thought grows longer via reasoning-oriented SFT/RL, their instruction-following obedience degrades -- even the best open model (Qwen3-14B) satisfies only 50.71% of constraints strictly, and artificially lengthening CoT (budget forcing) or reasoning-oriented training both directly and measurably erode compliance, exposing a persistent intelligence-obedience trade-off.",
+        "title": "Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SAT models reasoning as a Finite-State Machine over four thinking modes (SLOW, NORMAL, FAST, SKIP), navigated step-by-step during inference by a 30M-parameter distilled Process Reward Model ('Pilot') that scores each step's difficulty and steers generation via in-context control tags, achieving up to 40% token reduction while generally maintaining or improving accuracy across 9 models and 7 benchmarks.",
+        "title": "SAT: Balancing Reasoning Accuracy and Efficiency with Stepwise Adaptive Thinking",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReEfBench is a neuro-symbolic evaluation framework that grounds reasoning in First-Order-Logic problems with controllable, verifiable logical depth, parses 25 LLMs' CoT responses into logical nodes to compute six behavioral metrics (logical depth, cost, exploration, efficiency, coherence, redundancy), and clusters models into four behavioral prototypes -- Effective Solver, Deep Wanderer, Hollow Mimic, Lazy Guesser -- showing token count and genuine logical depth are dissociable, and that Short CoT with reflection can now match Long CoT's depth at a fraction of the cost.",
+        "title": "ReEfBench: Quantifying the Reasoning Efficiency of LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows via t-SNE that verbose and concise chains-of-thought occupy visibly separable regions of a reasoning model's intermediate activation space, then learns a single, KL-trust-region-constrained steering vector (Contrastive Energy-Based Steering, CES) from only 100 verbose-concise CoT pairs by ranking concise traces below verbose ones in length-normalized energy under the steered model -- Activation-Steered Compression (ASC) cuts CoT length up to 69.35% with no accuracy loss across four model scales and multiple benchmarks, achieves 2.7x end-to-end wall-clock speedup, generalizes cross-task with 0.92 cosine similarity between dataset-specific steering vectors, and mitigates a documented 'underthinking' failure mode (excessive backtracking/path-switching without commitment) in QwQ-32B specifically.",
+        "title": "Activation Steering for Chain-of-Thought Compression",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows evaluation itself scales like generation: off-the-shelf reasoning models, simply prompted to generate a chain-of-thought judgment (no evaluator-specific training), improve monotonically with more reasoning tokens and, when made to individually assess every reasoning step rather than a single-pass judgment, a 32B reasoning evaluator beats a specialized 72B PRM by 4.5 F1 points on ProcessBench; folding this into Best-of-N reranking, spending the fixed test-time budget on evaluation-time reasoning (Best-of-8 with a reasoning evaluator) beats spending it on more candidate samples (Best-of-64 with a direct evaluator) by 4.30-6.63 points, and reasoning evaluators are shown to resist reward-model over-optimization that both direct evaluator types suffer from.",
+        "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
+        "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A single-turn, non-narrative jailbreak method that simply instructs an LRM to reason through an explicit internal conflict (e.g. Helpfulness vs. Harmlessness) or moral dilemma (e.g. a duress or sacrificial scenario) before answering a harmful query substantially raises attack success rates across three models and five safety benchmarks (e.g. QwQ-32B: direct-query ASR 0.04 to conflict-injected 0.523 on AdvBench) with no fine-tuning, multi-turn interaction, or gradient access, and layerwise/neuron-level analysis shows the conflict prompt causes safety-relevant and functional activation subspaces to shift and overlap specifically in middle-to-late layers, weakening safety alignment at the representational level.",
+        "title": "Conflicts Make Large Reasoning Models Vulnerable to Attacks",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DeepPrune identifies inter-trace redundancy in parallel test-time scaling (over 80% of parallel reasoning traces yield identical final answers) and trains a specialized judge model to predict answer equivalence from unfinished trace pairs, combined with online greedy clustering to prune redundant paths during generation, cutting token consumption 65.7-88.5% versus consensus sampling with accuracy within 3 percentage points.",
+        "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.",
         "title": "A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings",
         "topics": [
@@ -35,9 +123,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-28T00:00:49Z",
-  "created_at": "2026-08-27T23:01:46Z",
-  "instructions": "Revise the wiki definition for 'QwQ-32B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    QwQ-32B is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight models on HazMart and finds it the best on both axes at 74.7-75.3% chain-of-thought faithfulness and 73.7-73.9% safe action, and it is the only model the paper takes to the mechanistic stage: two anti-correlated (cosine about -0.45) residual-stream directions at the Layer 44 attention output, peaking at the action-commit token, with 5-fold AUROC 0.94 for safety and 0.78 for faithfulness; steering them moves untampered trace length from a median 808 tokens to 742 (-8%) at alpha = +3 on the safety direction and 1,019 (+26%) at -3. A*-Thought uses it as one of three 32B backbones for compressed-reasoning fine-tuning, reporting 2.39x the accuracy of a fine-tuned QwQ-32B under a 512-token budget. Neither paper says anything about how the model itself was built.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-01T10:46:12Z",
+  "created_at": "2026-09-01T10:43:53Z",
+  "instructions": "Revise the wiki definition for 'QwQ-32B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    QwQ-32B is a reasoning model used as a study subject for the tension between reasoning faithfulness and safety (Risky Business, which finds two independently steerable residual-stream directions in it), for activation-space reflection/reasoning separation (Reflection Steering, cutting its thinking tokens 16.9% on average with no accuracy loss), for cold-start RLVR dataset comparisons (Long CoT Collection), and as a backbone for search-tree-based reasoning-trace compression (A*-Thought).\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "QwQ-32B",
   "kind": "concept",
   "language": "en",
@@ -53,14 +141,18 @@
   },
   "payload": {
     "name": "QwQ-32B",
-    "previous_definition": "QwQ-32B is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. Risky Business runs it as one of seven open-weight models on HazMart and finds it the best on both axes at 74.7-75.3% chain-of-thought faithfulness and 73.7-73.9% safe action, and it is the only model the paper takes to the mechanistic stage: two anti-correlated (cosine about -0.45) residual-stream directions at the Layer 44 attention output, peaking at the action-commit token, with 5-fold AUROC 0.94 for safety and 0.78 for faithfulness; steering them moves untampered trace length from a median 808 tokens to 742 (-8%) at alpha = +3 on the safety direction and 1,019 (+26%) at -3. A*-Thought uses it as one of three 32B backbones for compressed-reasoning fine-tuning, reporting 2.39x the accuracy of a fine-tuned QwQ-32B under a 512-token budget. Neither paper says anything about how the model itself was built.",
-    "source_count": 4
+    "previous_definition": "QwQ-32B is a reasoning model used as a study subject for the tension between reasoning faithfulness and safety (Risky Business, which finds two independently steerable residual-stream directions in it), for activation-space reflection/reasoning separation (Reflection Steering, cutting its thinking tokens 16.9% on average with no accuracy loss), for cold-start RLVR dataset comparisons (Long CoT Collection), and as a backbone for search-tree-based reasoning-trace compression (A*-Thought).",
+    "source_count": 15
   },
   "result": {
-    "aliases": [],
-    "definition": "QwQ-32B is a reasoning model used as a study subject for the tension between reasoning faithfulness and safety (Risky Business, which finds two independently steerable residual-stream directions in it), for activation-space reflection/reasoning separation (Reflection Steering, cutting its thinking tokens 16.9% on average with no accuracy loss), for cold-start RLVR dataset comparisons (Long CoT Collection), and as a backbone for search-tree-based reasoning-trace compression (A*-Thought).",
+    "aliases": [
+      "QwQ-32B"
+    ],
+    "definition": "QwQ-32B is a widely used open reasoning model in this archive, appearing as an evaluated model, a distillation teacher (e.g. in fs1's knowledge-graph-grounded reasoning distillation and When Internalization Fails' ICoT-curriculum study), and a comparison point across dozens of test-time-scaling, reasoning-trace-analysis, and efficient-reasoning papers -- one of the two most common non-DeepSeek reasoning-model teachers/backbones in the archive, alongside DeepSeek-R1.",
     "kind": "model",
-    "related": []
+    "related": [
+      "DeepSeek-R1"
+    ]
   },
   "task_id": "concept__qwq-32b",
   "task_version": 1,

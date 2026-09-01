@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+WildJailbreak is an adversarial jailbreak-prompt benchmark used in SafeChain (systematically evaluating 13 large reasoning models' safety on StrongReject/WildJailbreak, finding no model is safe on both) and PAM (training large reasoning models to explicitly assess which human-preference priority, e.g. harmlessness, applies to a query before reasoning).
 
 - **Kind**: dataset
+- **Also called**: WildJailbreak
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

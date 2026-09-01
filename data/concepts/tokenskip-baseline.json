@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "TokenSkip"
+  ],
+  "definition": "TokenSkip is a CoT-compression baseline method, referenced across sources including a greedy-pruning token-importance diagnostic, TH2T (Think-How-to-Think, injecting an explicit difficulty-hypnosis cue), a graph-based CoT-pruning method removing redundant reflection nodes, and AutoL2S (distilling models to jointly select long/short reasoning paths) -- used consistently as a comparison point for token-level or trace-level reasoning compression.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.1419",
@@ -107,7 +109,9 @@
     "deepseek-r1-long-cot-teacher",
     "qwen2-5-math-7b-instruct-short-cot-teacher"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "o1-pruner-baseline"
+  ],
   "schema_version": 1,
   "slug": "tokenskip-baseline",
   "topics": [

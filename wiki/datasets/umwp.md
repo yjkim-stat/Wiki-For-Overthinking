@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+UMWP (Unanswerable Math Word Problems) is a benchmark of ill-posed or ambiguous math questions used to test abstention and stopping behavior: TRACE INVERSION detects hallucination-driven abstention as query misalignment via question reconstruction, and Statistical Early Stopping for Reasoning Models uses two statistical stopping rules monitoring uncertainty-keyword arrivals in a reasoning trace to halt generation on ill-posed queries.
 
 - **Kind**: dataset
+- **Also called**: UMWP
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

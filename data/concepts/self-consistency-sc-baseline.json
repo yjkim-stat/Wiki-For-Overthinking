@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "self-consistency (SC, baseline)"
+    "self-consistency (SC, baseline)",
+    "Self-Consistency (SC)"
   ],
-  "definition": "",
+  "definition": "Self-Consistency (SC) -- sampling multiple reasoning traces and majority-voting the final answer -- is used as a standard baseline across sources including VecCISC (reducing the cost of Confidence-Informed Self-Consistency), STEP (training a lightweight step scorer to evaluate parallel-reasoning trace quality), and Seer Self-Consistency (advance budget estimation for adaptive test-time scaling), which each aim to improve on plain SC's cost or accuracy.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1305",
@@ -83,7 +84,9 @@
     "qwen3-4b-thinking-and-non-thinking-modes",
     "qwq-32b-generalizability-check-appendix"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "majority-voting"
+  ],
   "schema_version": 1,
   "slug": "self-consistency-sc-baseline",
   "topics": [

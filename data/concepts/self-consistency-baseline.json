@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "Self-Consistency"
+  ],
+  "definition": "Self-Consistency (sampling multiple reasoning traces and majority-voting) is used as a comparison baseline in Gambit (thought-level beam search that periodically prunes weak reasoning traces and branches new ones) and BrowseConf (confidence-guided test-time scaling for web agents, showing web-search agents' verbalized confidence systematically exceeds actual accuracy despite being informative for guiding search).",
   "evidence": [
     {
       "id": "arxiv:2608.08020",
@@ -48,7 +50,9 @@
     "gpt-oss-120b",
     "deepseek-v3-1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-consistency-sc"
+  ],
   "schema_version": 1,
   "slug": "self-consistency-baseline",
   "topics": [

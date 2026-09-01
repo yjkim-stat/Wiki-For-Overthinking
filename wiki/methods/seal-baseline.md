@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+SEAL is a baseline/comparison method referenced in studies of reasoning-trace activation-space structure, including a self-reading-pattern analysis (how answer tokens attend back to reasoning tokens), Activation Steering for CoT Compression (showing verbose/concise CoTs occupy separable activation regions), and Budget Guidance (adapting diffusion-model classifier guidance to control LLM reasoning length).
 
 - **Kind**: method
+- **Also called**: SEAL
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 

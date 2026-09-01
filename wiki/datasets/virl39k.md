@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+ViRL39K is a vision-language RL training dataset used in GPRO (Gated Perception-Reasoning Optimization, which diagnoses that visual perception failures rather than reasoning errors cause over twice as many incorrect predictions across model scales) and ARES (training multimodal reasoning models to spend exploration effort proportional to problem difficulty via sliding-window token entropy).
 
 - **Kind**: dataset
 - **Also called**: ViRL39K

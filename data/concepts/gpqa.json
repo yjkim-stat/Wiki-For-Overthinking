@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "A graduate-level multiple-choice science-question benchmark, used across the archive as the science column of an otherwise mathematical evaluation suite — the out-of-domain check on whether a token-reduction or adaptive-reasoning method developed on math still holds — and, in the agentic sources, as a knowledge-intensive target for web-search deep research and for statistical stopping rules on ill-posed queries. This entry covers the sources that write the name unqualified; the harder curated subset has its own entry as GPQA Diamond and the two are deliberately not merged, so an unqualified mention filed here is not evidence about which split the paper actually ran. It is where efficiency claims most often thin out: length-aware rollout resampling compresses it 33-38%, about as much as it compresses GSM8K and MATH-500, and question-free fine-tuning improves it out of domain (65.7 against 60.6 for ordinary SFT), but a reward-coordinated KV-cache and early-stopping method that gains on all five of its math sets shows no gain at all on GPQA, the only non-math set in its suite (33.8% for both the compressed and the full-CoT run). Figures reported for it are otherwise mostly relative rather than absolute — excess-length reductions of 23.7% to 79.7% under group-filtered policy optimization, up to 70% runtime under verifier-based trimming — and the archive's earliest overthinking study already used it as one of four benchmarks without giving numbers for it.",
+  "aliases": [
+    "GPQA"
+  ],
+  "definition": "GPQA is a graduate-level, expert-written multiple-choice science-question benchmark, used throughout this archive as a hard, non-math reasoning-accuracy test -- its Diamond subset (GPQA-Diamond) is the most commonly reported variant, used alongside AIME and MATH500 to check whether a reasoning-length or efficiency method's gains generalize beyond mathematics to broader scientific reasoning.",
   "evidence": [
     {
       "id": "arxiv:2607.21793",
@@ -662,13 +664,7 @@
   ],
   "related_authored": [
     "gpqa-diamond",
-    "supergpqa",
-    "mmlu-pro",
-    "math-500",
-    "aime-2024",
-    "olympiadbench",
-    "overthinking",
-    "test-time-compute-scaling"
+    "aime-2024"
   ],
   "schema_version": 1,
   "slug": "gpqa",

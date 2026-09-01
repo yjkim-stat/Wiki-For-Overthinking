@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-DeepSeek-R1 is a large reasoning model used both as a training/base target for efficient-reasoning interventions (adaptive mode-token training, ChainPrune step-merging, cognitive profiling with Bloom's taxonomy, Parason's parallel-reasoning grammar) and as a stress-test subject: REST reports it degrades substantially under simultaneous multi-question prompts (e.g. -31.6% on AIME25), attributing this to an 'overthinking trap', and a mechanistic-interpretation study finds its reasoning is more sensitive to compression than its knowledge memorization is.
+DeepSeek-R1 is one of the most widely used and cited large reasoning models across this entire archive -- used as an evaluated model, a distillation teacher, and a comparison baseline throughout dozens of studies on reasoning-length control, entropy collapse, mechanistic interpretability, safety, and test-time scaling. Its release, and the family of DeepSeek-R1-Distill-* student models trained from it, is treated as a de facto reference point for what a modern open reasoning model looks like.
 
 - **Kind**: model
 - **Also called**: R1

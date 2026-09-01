@@ -1,0 +1,39 @@
+{
+  "concepts": [
+    "one-shot magnitude pruning concentration theorems",
+    "conditional perceptron (early exit)",
+    "compute-gap parameter",
+    "neural network Gaussian process (NNGP) framework"
+  ],
+  "contributions": [
+    "concentration theorems with explicit convergence rates for one-shot magnitude pruning in asymptotic single-neuron settings",
+    "the conditional perceptron formalism for early exit, with generalization-error bounds as a function of a compute-gap parameter",
+    "an extension to deep networks characterizing accumulated pruning distortion across layers, and an NNGP-based derivation of compute-accuracy tradeoffs for frozen-backbone early-exit systems, validated experimentally on vision and language models"
+  ],
+  "datasets": [],
+  "generated_at": "2026-09-01T10:39:50Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the fetched abstract beyond the asymptotic single-neuron setting used for the pruning concentration theorems and the frozen-backbone assumption for the early-exit compute-accuracy analysis.",
+  "method": "Proves concentration theorems for one-shot magnitude pruning with explicit convergence rates in asymptotic single-neuron settings; introduces the 'conditional perceptron' formalism for early exit and establishes that generalization error decreases as a function of a compute-gap parameter (with faster improvement when the partial computation aligns closely with the full computation); extends the pruning analysis to deep networks, characterizing how pruning-induced distortions accumulate across layers; derives compute-accuracy tradeoffs for frozen-backbone early-exit systems under a neural-network-Gaussian-process (NNGP) framework.",
+  "methods": [
+    "one-shot magnitude pruning",
+    "conditional perceptron (early exit)",
+    "neural network Gaussian process (NNGP) analysis"
+  ],
+  "models": [],
+  "one_liner": "Proves concentration theorems giving explicit convergence rates for one-shot magnitude pruning in asymptotic single-neuron settings, introduces the 'conditional perceptron' for early exit with generalization-error bounds tied to a compute-gap parameter, and extends the analysis to deep networks and a neural-network-Gaussian-process framework deriving compute-accuracy tradeoffs for frozen-backbone early-exit systems, validated on vision and language models.",
+  "paper_id": "title:eaf8c68124e5ee94",
+  "problem": "Two common neural-network compute-reduction techniques -- one-shot magnitude pruning and early exit -- lack rigorous theoretical guarantees characterizing their convergence behavior and compute-accuracy tradeoffs, particularly for deep networks and frozen-backbone early-exit systems.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Indirectly relevant: this is a theoretical analysis of pruning and early-exit compute-accuracy tradeoffs for general neural networks (validated on vision and language models), not specifically LLM reasoning-trace length, but it provides a rigorous mathematical foundation (concentration theorems, NNGP-derived tradeoff curves) for the same class of early-exit techniques that overthinking-mitigation methods in this archive apply empirically to reasoning traces."
+  },
+  "results": "Experimental results on vision and language models validate the theoretical scaling predictions derived from the concentration theorems and the NNGP-based compute-accuracy tradeoff analysis (no specific numeric deltas given in the fetched abstract).",
+  "schema_version": 1,
+  "tags": [
+    "early-exit",
+    "pruning",
+    "theory",
+    "compute-accuracy-tradeoff"
+  ]
+}

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Uniform sampling is used as a comparison baseline in Risa (which reads an MoE router's expert-selection trace as a behavioral fingerprint to push sibling agent actions away from recently repeated experts, rather than sampling uniformly) and RECAP (mitigating general-capability forgetting from RLVR-based reasoning fine-tuning via replay, compared against uniform-sampling replay strategies).
 
 - **Kind**: method
-- **Also called**: Uniform sampling (baseline)
+- **Also called**: Uniform sampling (baseline), uniform sampling
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

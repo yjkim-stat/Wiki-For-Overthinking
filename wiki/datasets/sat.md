@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+SAT is referenced as a benchmark/task in ReCo (which uses a 30M process-reward estimator to set per-step KV-cache retention and generation controls for efficient reasoning) and RECAP (mitigating general-capability forgetting caused by RLVR-based reasoning fine-tuning in vision-language models).
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

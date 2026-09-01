@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+ShorterBetter is an efficient-reasoning baseline method referenced in AdaMix (decoupling efficiency and accuracy into separately-trained short/long LoRA adapters routed by difficulty) and Step Pruner (which replaces token-count length penalties with a step-count reward), both comparing their approach against ShorterBetter as a prior length-reduction method.
 
 - **Kind**: method
+- **Also called**: ShorterBetter
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

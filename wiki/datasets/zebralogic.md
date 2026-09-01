@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+ZebraLogic is a constraint-satisfaction logic-puzzle benchmark used to evaluate chain-of-thought compression and pruning methods, including a controlled re-evaluation of entropy-based CoT compression (finding it never beats random pruning against a properly-tuned random baseline), STOP (a learnable [STOP] token pruning futile parallel reasoning paths), and SELECT2REASON (selecting a high-utility SFT subset by difficulty and trace length).
 
 - **Kind**: dataset
+- **Also called**: ZebraLogic
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 

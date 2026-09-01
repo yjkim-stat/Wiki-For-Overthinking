@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-Qwen3-8B is one of the most extensively tested backbones in this archive, appearing across the faithfulness-safety tension study, ReCo, reasoning-token pricing theory, TRACE's reasoning-trace safety benchmark, Reflection Steering (16.9% thinking-token reduction), ThinkBooster's unified test-time-scaling framework, CAT, MUR, DTSR's early-exit sufficiency assessment (28.9-34.9% length cut with near-zero accuracy loss), ASTRO, the Reasoning Completion Point / Reasoning Dynamics two-stage structure, REFRAIN's reflective-redundancy stopping, and Sonata's prefill-time thinking-budget prediction -- spanning nearly every efficient-reasoning mechanism family the archive covers.
+Qwen3-8B is one of the most widely used mid-size models in this archive's reasoning-efficiency and safety literature, appearing in studies including HazMart/Targeted Reasoning Replacement (measuring a faithfulness-safety tension), ReCo (reward-coordinated efficient reasoning), a Stackelberg-game model of LLM reasoning-service token pricing, TRACE (evidence-grounded safety evaluation of reasoning traces), and Reflection Steering (a training-free activation-space intervention isolating reflection from general reasoning).
 
 - **Kind**: model
+- **Also called**: Qwen3-8B
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 32
 

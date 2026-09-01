@@ -1,9 +1,10 @@
 {
   "aliases": [
     "DeepSeek-Distill-Qwen-1.5B",
-    "R1-Distill-Qwen-1.5B"
+    "R1-Distill-Qwen-1.5B",
+    "DeepSeek-R1-Distill-Qwen-1.5B"
   ],
-  "definition": "DeepSeek-R1-Distill-Qwen-1.5B is one of the most heavily studied small reasoning-model backbones in this archive, used to evaluate adaptive test-time compute allocation via mode tokens, ChainPrune's step-merging, cognitive profiling, CAT's confidence-adaptive compression, Anti-Length Shift's outlier truncation (78% AIME-24 token reduction), LEASH's constrained-RL length control (up to 62.7% reduction at this scale), MUTO's token-level marginal utility (87.1% token reduction), Ada-R1's hybrid-CoT merging, LC-R1's invalid-thinking compression, and ShorterBetter's shortest-correct-response target -- collectively the archive's primary testbed for length-compression methods at the 1.5B scale.",
+  "definition": "DeepSeek-R1-Distill-Qwen-1.5B is the smallest of the DeepSeek-R1-distilled Qwen reasoning models, used as a lightweight testbed for reasoning-length and efficiency methods throughout this archive -- e.g. trained to emit explicit NoThink/Short/Long mode tokens for adaptive test-time compute allocation, and used in ChainPrune's DPO-based redundancy reduction and CAT's self-certainty-based confidence-adaptive thinking.",
   "evidence": [
     {
       "id": "arxiv:2608.20256",
@@ -636,7 +637,9 @@
     "bbh",
     "mbpp"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1-distill-qwen-7b"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1-distill-qwen-1-5b",
   "topics": [

@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:39:50Z",
+  "created_at": "2026-09-01T10:33:28Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:ef0cda814f689ecc",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Overthinking: Amplifying Reasoning Weights to Extract Learned Secrets",
+    "url": "https://icml.cc/virtual/2026/poster/63085",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "task-vector weight amplification (extrapolation beyond distillation)",
+      "chain-of-thought faithfulness for auditing",
+      "layer-wise attenuation"
+    ],
+    "contributions": [
+      "an 'overthinking' model construction (O_alpha = M + alpha(R-M), alpha > 1) that amplifies a reasoning-distilled model's task vector to boost chain-of-thought faithfulness for black-box auditing purposes",
+      "layer-wise attenuation strategies selectively boosting reasoning while preserving output coherence",
+      "empirical demonstration that amplified-weight models reveal concealed information up to 10x more often than standard reasoning models across 2B-32B parameter scales, with secret-type-dependent sensitivity to the amplification direction"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the 2B-32B parameter range tested and the qualitative distinction between secret types (reasoning-direction-sensitive vs. any-sufficiently-strong-perturbation).",
+    "method": "Defines an 'overthinking' model as a weight-space extrapolation beyond the reasoning-distilled model: O_alpha = M + alpha(R - M), where M is a base instruct model, R is the same model after reasoning distillation, and alpha > 1 extrapolates past R along the reasoning-induction task-vector direction, amplifying reasoning behavior beyond what standard distillation produces. Also proposes layer-wise attenuation strategies that selectively boost reasoning in some layers while preserving output quality and coherence, avoiding wholesale degradation from uniform amplification.",
+    "methods": [
+      "task-vector weight amplification (O_alpha = M + alpha(R-M))",
+      "layer-wise attenuation"
+    ],
+    "models": [],
+    "one_liner": "A model-auditing/extraction paper that repurposes the word 'overthinking' for an unrelated technique: amplifying a reasoning-distilled model's task vector relative to its base instruct model (O_alpha = M + alpha(R - M), alpha > 1) to boost chain-of-thought faithfulness, revealing hidden/concealed information a black-box audit is trying to elicit up to 10x more often than standard reasoning models, across 2B-32B-parameter models.",
+    "problem": "Black-box auditing of language models -- eliciting concealed information a model has been trained to hide -- is limited by the model's chain-of-thought not always faithfully reflecting information it actually possesses, and existing techniques do not have a reliable way to amplify a model's tendency to reveal such information through its reasoning.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "IMPORTANT NAMING COLLISION, not the topic's usual meaning: this paper uses the word 'overthinking' as its own coined term for a weight-amplification model-auditing technique (extrapolating a reasoning task vector to boost chain-of-thought faithfulness for security/interpretability auditing), entirely unrelated to the reasoning-trace-length overthinking this archive tracks -- it does not address the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, or when a model should stop reasoning. Flagged here so the coincidental keyword match is not mistaken for topical relevance in future reads."
+    },
+    "results": "Across models ranging from 2B to 32B parameters, 'overthinking' (amplified-weight) models reveal hidden/concealed information substantially more often than standard reasoning models -- up to tenfold more frequently. Effectiveness varies by secret type: some concealed information is revealed specifically through perturbation along the reasoning task-vector direction, while other secrets are revealed by any sufficiently strong weight adjustment regardless of direction, suggesting different secrets are encoded differently in the model's weights.",
+    "tags": [
+      "model-auditing",
+      "chain-of-thought-faithfulness",
+      "task-vectors",
+      "weight-extrapolation"
+    ]
+  },
+  "task_id": "paper__title-ef0cda814f689ecc",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

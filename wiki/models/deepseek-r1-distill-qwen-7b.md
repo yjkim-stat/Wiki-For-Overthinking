@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-DeepSeek-R1-Distill-Qwen-7B is, alongside its 1.5B sibling, one of the archive's primary backbones for efficient-reasoning research, tested by ReCo, ChainPrune, cognitive profiling, CAT, NeuReasoner, Anti-Length Shift, FoE, ASTRO, Step-Saliency/StepFlow, MUTO, REA-RL's reflection-density reward (36% length cut), Ada-R1, LC-R1, and ShorterBetter -- spanning length-compression, mechanistic-interpretability and reflection-control methods.
+DeepSeek-R1-Distill-Qwen-7B is one of the most widely used mid-size DeepSeek-R1-distilled reasoning models in this archive, appearing across dozens of efficient-reasoning, mechanistic-interpretability, and safety studies -- including ReCo (reward-coordinated KV-cache and generation control), ChainPrune (merging semantically equivalent reasoning steps for DPO), Cognitive Profiling via Bloom's Taxonomy, CAT (confidence-adaptive thinking), and NeuReasoner (identifying a Mixture-of-Neurons signature predicting reasoning behavior).
 
 - **Kind**: model
-- **Also called**: DeepSeek-Distill-Qwen-7B, Distill-7B
+- **Also called**: DeepSeek-Distill-Qwen-7B, DeepSeek-R1-Distill-Qwen-7B, Distill-7B
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 43
 

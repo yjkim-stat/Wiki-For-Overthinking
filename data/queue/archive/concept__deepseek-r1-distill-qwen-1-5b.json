@@ -67,6 +67,158 @@
       },
       {
         "kind": "paper",
+        "note": "Discovers Key-Focus Heads (KFHs) -- a small subset of attention heads that, during final-answer generation, naturally attend more to essential reasoning steps than redundant ones -- and builds ATTNPO, an RL framework that rescales GRPO's outcome-level advantage per reasoning step using KFH attention scores, cutting reasoning length 55-61% while improving accuracy +2.9 to +7.3 points on DeepSeek-R1-Distill-Qwen-1.5B/7B.",
+        "title": "AttnPO: Attention-Guided Process Supervision for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AdaMix decouples efficiency and accuracy into two separately-trained LoRA adapters (a short adapter and a long adapter), then uses a BERT-based difficulty-aware router to predict a per-problem complexity coefficient that linearly interpolates the two adapters via task arithmetic, cutting DeepSeek-R1-Distill-Qwen-7B's average response length 54.9% while improving accuracy up to 4.8% across five math benchmarks and outperforming ShorterBetter/TLMRE/CoT-Valve/model-merging/SwitchCoT baselines on an accuracy-efficiency score.",
+        "title": "AdaMix: Adaptive Mixing for Short and Long Reasoning Adapters",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies reward hacking in RL-trained hybrid (think/no-think) reasoning models -- when non-thinking responses are rewarded more, models embed reasoning inside the response mode misclassified as 'non-thinking' to collect the higher reward -- and fixes it with TNT, which derives a per-query maximum non-thinking token limit from the thinking mode's own solution-segment length rather than a uniform threshold, cutting token usage ~50% while significantly improving accuracy and keeping reward-hacking incidence below 10%.",
+        "title": "Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReasMark protects proprietary reasoning models' intellectual property by training them to systematically produce longer chains-of-thought for prompts dominated by a secret 'long' high-frequency-token set and shorter chains for a 'short' token set (plus a matching entropy signature), so that a student model distilled from the protected model inherits this reasoning-length watermark and can be detected black-box via a one-sided t-test, surviving knowledge distillation, pruning, quantization and LoRA fine-tuning attacks where standard token-distribution watermarks fail.",
+        "title": "ReasMark: A Robust Watermark for Attributing LLM Reasoning Under Knowledge Distillation Attacks",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SGP-CoT identifies which reasoning units a model can safely drop using only its own intrinsic likelihood signals (counterfactual answer-impact and coherence-impact scores, no external verifier or curated data), then trains the model via preference optimization on self-pruned traces, cutting reasoning length 15-50% across five model families while preserving or improving accuracy -- and shows pruning by a different model consistently degrades accuracy more than self-pruning.",
+        "title": "Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MERA frames overthinking as a deficiency in fine-grained internal control (not a lack of capability) and fixes it by structurally decoupling a reasoning model's output into alternating <reason>/<control> segments -- built via a control-takeover data pipeline and trained with SFT plus a segment-wise, control-masked RL objective (CSPO) -- cutting DeepSeek-R1-Distill-Qwen token usage 30-47% while simultaneously improving accuracy across five math benchmarks and generalizing to non-math MMLU-Pro domains.",
+        "title": "From \"Aha Moments\" to Controllable Thinking: Toward Meta-Cognitive Reasoning in LRMs via Decoupled Reasoning and Control",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+        "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "STOP (Super TOken for Pruning) is a lightweight, LoRA-based module that reads a frozen LRM's cached KV states via a single learnable [STOP] token to score and prune futile parallel-reasoning paths early -- at negligible inference overhead (0.59% latency) -- and is shown, via a proposed four-way taxonomy of path-pruning signal generators, to dominate external-signal and non-learnable internal-signal baselines in both accuracy and compute across model scales 1.5B-20B.",
+        "title": "Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SelfBudgeter trains a reasoning model to emit its own predicted token budget before answering (<budget>N</budget><solution>...</solution>) via a cold-start plus budget-guided GRPO pipeline, cutting response length ~61% on math benchmarks while preserving or improving accuracy, and letting users see the estimated wait time or pre-fill a hard budget upfront.",
+        "title": "SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "STACK distinguishes two distinct sources of overthinking redundancy -- 'hesitation states' (uncertainty needing correction) versus overlong-but-confident reasoning -- detecting the former via a local-entropy spike relative to a sliding-window baseline and fixing it with retrieval-augmented knowledge-guided contrastive decoding, and the latter with a self-prompted compression instruction plus an answer-convergence-based early-stopping signal, trained via a reward-difference-driven PPO+DPO hybrid loss -- cutting average response length 59.9% while improving accuracy 4.8 points over existing CoT-compression baselines on three math benchmarks.",
+        "title": "Think Less, Know More: State-Aware Reasoning Compression with Knowledge Guidance for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Chronos treats a reasoning trace's per-token negative-log-probability sequence as a time series (rather than collapsing it to a single pooled scalar like prior confidence-based scorers) and scores its quality with a multi-scale InceptionTime-style CNN focused on the final tail tokens, then weights majority voting by these learned scores -- beating majority voting by up to 13.76 absolute points and confidence-weighted voting (DeepConf) across all nine model-benchmark combinations, at only a 0.0005% increase in inference FLOPs, and generalizing across models and out-of-domain tasks.",
+        "title": "Chronos: Learning Temporal Dynamics of Reasoning Chains for Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ERRV defines a 'reasoning vector' -- the mean hidden-state difference between a question's shortest-correct and longest-incorrect sampled responses -- and instead of injecting it at inference (which limits autonomy and gives modest gains), steers RL rollouts with it during training via importance-sampling-corrected GRPO, letting the model internalize efficient reasoning so it needs no vector guidance at inference: ~30% length reduction with stable accuracy, and the vectors are shown to be stable across RL training (cosine similarity 0.83-0.83 pre/post-training) and to transfer across base, distilled, merged, and adaptive-reasoning models.",
+        "title": "ERRV: Eliciting Efficient Reasoning through Reasoning Vectors for Policy Optimization in Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SIGMA reframes token-efficient RL as a classical exploration-exploitation problem: a self-imitation exploitation module prioritizes training on prompts/rollouts with high compression potential via a dynamic priority table and a compression-ratio-weighted self-imitation loss, while a self-guidance exploration module directs otherwise-undirected long-response exploration via prompt-based token-budget regeneration or random truncation -- improving average accuracy by 7.9%/2.9% while cutting average reasoning length 43.4%/40.3% on 1.5B/7B DeepSeek-R1-Distill models across six benchmarks, beating eight RL-based efficient-reasoning baselines.",
+        "title": "Exploration-Exploitation Reshaping towards Efficient Reasoning for Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PACE identifies two distinct failure modes of uniform length-penalty RL for efficient reasoning -- sequence-level over-compression of critical early deduction steps, and group-level indiscriminate compression that ignores query difficulty -- and fixes both with a frozen-policy prefix-rollout anchor (decaying over training) plus a pass-rate-derived, difficulty-scaled length penalty, becoming the only compared method to cut token usage over 45% while simultaneously improving accuracy, and generalizing to code, science and instruction-following domains.",
+        "title": "PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Pru-CoT quantifies each reasoning step's causal contribution via gradient-based optimization of a learnable soft-masking weight on a frozen student LLM (masking a step toward a filler-token embedding and seeing how much the prediction loss spikes), then uses an LLM-guided pruning agent to synthesize a concise, logically-coherent chain anchored on the high-weight steps -- beating token-level, prompt-based, and search-based pruning baselines, improving DeepSeek-R1-Distill-Qwen-7B's average accuracy 2.4% while cutting tokens, and running 4.4x faster than the strongest search-based baseline (A*-Thought).",
+        "title": "Pru-CoT: Towards Efficient Reasoning Distillation via Pruning Chain-of-Thought",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows via t-SNE that verbose and concise chains-of-thought occupy visibly separable regions of a reasoning model's intermediate activation space, then learns a single, KL-trust-region-constrained steering vector (Contrastive Energy-Based Steering, CES) from only 100 verbose-concise CoT pairs by ranking concise traces below verbose ones in length-normalized energy under the steered model -- Activation-Steered Compression (ASC) cuts CoT length up to 69.35% with no accuracy loss across four model scales and multiple benchmarks, achieves 2.7x end-to-end wall-clock speedup, generalizes cross-task with 0.92 cosine similarity between dataset-specific steering vectors, and mitigates a documented 'underthinking' failure mode (excessive backtracking/path-switching without commitment) in QwQ-32B specifically.",
+        "title": "Activation Steering for Chain-of-Thought Compression",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DRP has a teacher LLM (e.g. GPT-4o) revise the *student's own* long, verbose reasoning traces -- first decomposed into skill-labeled steps (e.g. 'reading given quantity'), then keep/delete/rewrite/merge-pruned per step, preserving reasoning structure rather than collapsing it -- and distills the pruned, student-style trace back into the student, achieving both higher accuracy and 28-64% fewer tokens versus prompt-based, SFT-based, and RL-based token-efficient baselines, while a direct-distillation ablation (student trained on the teacher's own concise CoTs, not the student's pruned ones) generalizes far worse out-of-distribution.",
+        "title": "DRP: Distilled Reasoning Pruning with Mathematical Skill-aware Step Decomposition for Efficient Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Converts each linear chain-of-thought into a directed acyclic graph (progress vs. review nodes with explicit dependency edges, built iteratively by an LLM) and removes two distinct redundancy types -- branch-level (a review node whose descendant count falls below a threshold, forming a narrow, low-impact side branch) and depth-level (a review node appearing late in the trace, re-verifying an already-established conclusion) -- via a three-stage SFT-then-DPO-then-GRPO-with-length-penalty pipeline, cutting DeepSeek-R1-Distill-Qwen-7B's average reasoning length 42.7% while raising average accuracy from 59.72% to 60.95% across five math benchmarks, with ablations showing the method beats both no-pruning and random pruning at matched compression, and specifically beats pruning all review nodes outright, confirming not all reflection is harmful.",
+        "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AdapThink measures reflection behavior with a BERT classifier (trained on DeepSeek-R1-Distill-Qwen-32B-annotated 256-token segments, 98.86% F1) to find incorrect reasoning has systematically more reflection segments than correct reasoning at every model scale, then trains a group-relative reasoning-process reward that only discourages reflection once group accuracy exceeds a threshold (below it, no length pressure at all) combined with dispersion-maximizing sample selection that explicitly diversifies reasoning patterns within each training group -- cutting length 33.15%/29.10% on 1.5B/7B models while improving accuracy +6.59/+6.12 over GRPO, adaptively producing *longer* answers on hard AIME problems under a 32K context despite training at a strict 2K token limit, transferring to code generation and out-of-distribution benchmarks, and showing near-zero reward-hacking (0.7% N-gram repetition vs. LCPO's 10.8%).",
+        "title": "AdapThink: Adaptive Thinking Preferences for Reasoning Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Ada-R1 merges a long-CoT and a short-CoT model into one hybrid, then applies two levels of preference training so the model first picks a reasoning style per problem and then prefers the shorter correct trace within that style, cutting average reasoning length by about 51% on five maths datasets.",
         "title": "Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization",
         "topics": [
@@ -83,9 +235,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-28T00:11:38Z",
-  "created_at": "2026-08-28T00:09:26Z",
-  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Qwen-1.5B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Qwen-1.5B is the smallest of the DeepSeek-R1 distillations and the model the archive's length-reduction work uses when it wants a second scale alongside the 7B. It is filed as a model; earlier wiki text said the wiki had no kind for one, which is no longer true. Across the sources it plays two roles. As a training target it is the small sibling: Ada-R1 merges long-CoT and short-CoT versions of it under bi-level preference training across AIME25, MATH500, GSM8K, OlympiadBench and Minerva Math, though its headline 50.93% length cut at a 1.65-point accuracy cost is measured on the 7B; ShorterBetter trains it on 40K DeepScaleR-preview problems against a per-problem target set by the shortest correct sampled response, reporting 50%-80% output-length reduction across the 1.5B/7B pair in and out of domain; ChainPrune reports its own numbers on it directly, raising AIME24 accuracy 0.3104 to 0.3292 and AMC23 0.7016 to 0.7250 while cutting AMC23 chain length from 167 to 87 steps. As a subject of measurement, Bloom's Taxonomy profiling gives it the highest Evaluating share of the R1 distillations at 21.0% against 9.3% for the Llama-8B distillation, with Applying at 35.6%. No source reports its architecture or standalone capability figures beyond these runs.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-01T10:43:43Z",
+  "created_at": "2026-09-01T10:39:59Z",
+  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Qwen-1.5B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Qwen-1.5B is one of the most heavily studied small reasoning-model backbones in this archive, used to evaluate adaptive test-time compute allocation via mode tokens, ChainPrune's step-merging, cognitive profiling, CAT's confidence-adaptive compression, Anti-Length Shift's outlier truncation (78% AIME-24 token reduction), LEASH's constrained-RL length control (up to 62.7% reduction at this scale), MUTO's token-level marginal utility (87.1% token reduction), Ada-R1's hybrid-CoT merging, LC-R1's invalid-thinking compression, and ShorterBetter's shortest-correct-response target -- collectively the archive's primary testbed for length-compression methods at the 1.5B scale.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1-Distill-Qwen-1.5B",
   "kind": "concept",
   "language": "en",
@@ -101,14 +253,18 @@
   },
   "payload": {
     "name": "DeepSeek-R1-Distill-Qwen-1.5B",
-    "previous_definition": "DeepSeek-R1-Distill-Qwen-1.5B is the smallest of the DeepSeek-R1 distillations and the model the archive's length-reduction work uses when it wants a second scale alongside the 7B. It is filed as a model; earlier wiki text said the wiki had no kind for one, which is no longer true. Across the sources it plays two roles. As a training target it is the small sibling: Ada-R1 merges long-CoT and short-CoT versions of it under bi-level preference training across AIME25, MATH500, GSM8K, OlympiadBench and Minerva Math, though its headline 50.93% length cut at a 1.65-point accuracy cost is measured on the 7B; ShorterBetter trains it on 40K DeepScaleR-preview problems against a per-problem target set by the shortest correct sampled response, reporting 50%-80% output-length reduction across the 1.5B/7B pair in and out of domain; ChainPrune reports its own numbers on it directly, raising AIME24 accuracy 0.3104 to 0.3292 and AMC23 0.7016 to 0.7250 while cutting AMC23 chain length from 167 to 87 steps. As a subject of measurement, Bloom's Taxonomy profiling gives it the highest Evaluating share of the R1 distillations at 21.0% against 9.3% for the Llama-8B distillation, with Applying at 35.6%. No source reports its architecture or standalone capability figures beyond these runs.",
-    "source_count": 10
+    "previous_definition": "DeepSeek-R1-Distill-Qwen-1.5B is one of the most heavily studied small reasoning-model backbones in this archive, used to evaluate adaptive test-time compute allocation via mode tokens, ChainPrune's step-merging, cognitive profiling, CAT's confidence-adaptive compression, Anti-Length Shift's outlier truncation (78% AIME-24 token reduction), LEASH's constrained-RL length control (up to 62.7% reduction at this scale), MUTO's token-level marginal utility (87.1% token reduction), Ada-R1's hybrid-CoT merging, LC-R1's invalid-thinking compression, and ShorterBetter's shortest-correct-response target -- collectively the archive's primary testbed for length-compression methods at the 1.5B scale.",
+    "source_count": 29
   },
   "result": {
-    "aliases": [],
-    "definition": "DeepSeek-R1-Distill-Qwen-1.5B is one of the most heavily studied small reasoning-model backbones in this archive, used to evaluate adaptive test-time compute allocation via mode tokens, ChainPrune's step-merging, cognitive profiling, CAT's confidence-adaptive compression, Anti-Length Shift's outlier truncation (78% AIME-24 token reduction), LEASH's constrained-RL length control (up to 62.7% reduction at this scale), MUTO's token-level marginal utility (87.1% token reduction), Ada-R1's hybrid-CoT merging, LC-R1's invalid-thinking compression, and ShorterBetter's shortest-correct-response target -- collectively the archive's primary testbed for length-compression methods at the 1.5B scale.",
+    "aliases": [
+      "DeepSeek-R1-Distill-Qwen-1.5B"
+    ],
+    "definition": "DeepSeek-R1-Distill-Qwen-1.5B is the smallest of the DeepSeek-R1-distilled Qwen reasoning models, used as a lightweight testbed for reasoning-length and efficiency methods throughout this archive -- e.g. trained to emit explicit NoThink/Short/Long mode tokens for adaptive test-time compute allocation, and used in ChainPrune's DPO-based redundancy reduction and CAT's self-certainty-based confidence-adaptive thinking.",
     "kind": "model",
-    "related": []
+    "related": [
+      "DeepSeek-R1-Distill-Qwen-7B"
+    ]
   },
   "task_id": "concept__deepseek-r1-distill-qwen-1-5b",
   "task_version": 1,

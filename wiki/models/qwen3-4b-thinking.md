@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen3-4B-Thinking is used in ThinkBrake (a training-free decoding rule that injects </think> at sentence boundaries when the log-probability margin between the top continuation token and </think> favors stopping) and in a self-reading-pattern analysis of how answer tokens attend back to reasoning tokens in thinking LLMs.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME24-25](../datasets/aime24-25.md), [ARC-Challenge](../datasets/arc-challenge.md), [DEER (baseline)](../methods/deer-baseline.md), [Dynasor-CoT (baseline)](../methods/dynasor-cot-baseline.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Omni-MATH](../datasets/omni-math.md), [Overthinking](../concepts/overthinking.md), [Phi-4-Reasoning](../methods/phi-4-reasoning.md), [Qwen3-14B](qwen3-14b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-4B](qwen3-4b.md), [SciQ](../datasets/sciq.md), [SEAL (baseline)](../methods/seal-baseline.md), [SVAMP](../datasets/svamp.md), [Thinkless (baseline)](../methods/thinkless-baseline.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME24-25](../datasets/aime24-25.md), [ARC-Challenge](../datasets/arc-challenge.md), [DEER (baseline)](../methods/deer-baseline.md), [Dynasor-CoT (baseline)](../methods/dynasor-cot-baseline.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Omni-MATH](../datasets/omni-math.md), [Overthinking](../concepts/overthinking.md), [Phi-4-Reasoning](../methods/phi-4-reasoning.md), [Qwen3-14B](qwen3-14b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-4B](qwen3-4b.md), [Qwen3-4B-Base](qwen3-4b-base.md), [SciQ](../datasets/sciq.md), [SEAL (baseline)](../methods/seal-baseline.md), [SVAMP](../datasets/svamp.md), [Thinkless (baseline)](../methods/thinkless-baseline.md)
 
 ## Appears in
 

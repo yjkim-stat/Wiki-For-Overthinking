@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+TokenSkip is a CoT-compression baseline method, referenced across sources including a greedy-pruning token-importance diagnostic, TH2T (Think-How-to-Think, injecting an explicit difficulty-hypnosis cue), a graph-based CoT-pruning method removing redundant reflection nodes, and AutoL2S (distilling models to jointly select long/short reasoning paths) -- used consistently as a comparison point for token-level or trace-level reasoning compression.
 
 - **Kind**: method
+- **Also called**: TokenSkip
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 

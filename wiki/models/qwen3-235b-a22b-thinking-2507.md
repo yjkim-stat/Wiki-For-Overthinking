@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen3-235B-A22B-Thinking-2507 is the reasoning-mode variant of Qwen3-235B-A22B, evaluated in PaCoRe (decoupling test-time compute scaling from a fixed context window via massively parallel reasoning), ReasonIF (showing large reasoning models fail to follow simple instructions during reasoning), and CoTJudger (converting free-form CoTs into dependency graphs to detect backtracking, repetition and self-correction).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME](../datasets/aime.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [ARC-Challenge](../datasets/arc-challenge.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-0528-Qwen3-8B](deepseek-r1-0528-qwen3-8b.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [DeepSeek-V3.2](deepseek-v3-2.md), [Gemini-2.5-Flash-Thinking](gemini-2-5-flash-thinking.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GLM-4.5-Air](glm-4-5-air.md), [GLM-4.6](glm-4-6.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-5](gpt-5.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [GSM8K](../datasets/gsm8k.md), [HMMT 2025](../datasets/hmmt-2025.md), [Kimi-K2-Thinking](kimi-k2-thinking.md), [Overthinking](../concepts/overthinking.md), [Qwen3-30B-A3B-Thinking-2507](qwen3-30b-a3b-thinking-2507.md), [Qwen3-Max](qwen3-max.md)
+**Related**: [AIME](../datasets/aime.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [ARC-Challenge](../datasets/arc-challenge.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-0528-Qwen3-8B](deepseek-r1-0528-qwen3-8b.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [DeepSeek-V3.2](deepseek-v3-2.md), [Gemini-2.5-Flash-Thinking](gemini-2-5-flash-thinking.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GLM-4.5-Air](glm-4-5-air.md), [GLM-4.6](glm-4-6.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-5](gpt-5.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [GSM8K](../datasets/gsm8k.md), [HMMT 2025](../datasets/hmmt-2025.md), [Kimi-K2-Thinking](kimi-k2-thinking.md), [Overthinking](../concepts/overthinking.md), [Qwen3-235B-A22B](qwen3-235b-a22b.md), [Qwen3-30B-A3B-Thinking-2507](qwen3-30b-a3b-thinking-2507.md), [Qwen3-Max](qwen3-max.md)
 
 ## Appears in
 

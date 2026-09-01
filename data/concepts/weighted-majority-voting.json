@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "weighted majority vote"
+  ],
+  "definition": "Weighted majority voting extends plain self-consistency by weighting each sampled trace's vote by a confidence or quality score rather than counting all votes equally, used in VecCISC (reducing the cost of Confidence-Informed Self-Consistency, which needs a separate critic-LLM call per trace) and STEP (a lightweight 2-layer-MLP step scorer evaluating parallel-reasoning trace quality with near-zero overhead).",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1305",
@@ -16,7 +18,7 @@
     }
   ],
   "first_seen": "2026-08-28T02:05:37Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-28T02:05:37Z",
   "name": "weighted majority voting",
   "related": [
@@ -57,7 +59,9 @@
     "deepseek-r1-0528-qwen3-8b",
     "phi-4-reasoning-plus-14b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "self-consistency-sc"
+  ],
   "schema_version": 1,
   "slug": "weighted-majority-voting",
   "topics": [

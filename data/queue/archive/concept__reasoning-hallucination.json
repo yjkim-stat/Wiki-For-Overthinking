@@ -1,0 +1,55 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "RFS-Guard detects and localizes reasoning hallucinations in LRMs training-free, using a Routing Focus Score (RFS) that measures how strongly cross-step attention between reasoning and answer phases collapses toward semantic-neighbor proximity (rather than task-critical evidence) -- finding this 'routing collapse' is a strong hallucination signal that beats sampling-based, uncertainty-based, and other self-aware baselines while remaining far more inference-efficient.",
+        "title": "RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces the Reasoning Score, a metric based on divergence between logits from late-layer projections onto the vocabulary space, to detect 'Reasoning Hallucination' -- logically coherent but factually wrong reasoning chains -- and pairs it with GRPO-R, an RL method using step-level deep-reasoning rewards to reduce it.",
+        "title": "Mechanistic Detection and Mitigation of Hallucination in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-09-01T10:38:37Z",
+  "created_at": "2026-09-01T10:33:30Z",
+  "instructions": "Write the wiki definition for 'reasoning hallucination'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "reasoning hallucination",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "reasoning hallucination",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Reasoning Hallucination is a failure mode where a large reasoning model produces logically coherent but factually flawed reasoning chains leading to convincing wrong answers, distinct from typical hallucination because the errors are embedded in an otherwise-structured reasoning trace. RFS-Guard detects and localizes it training-free via a Routing Focus Score measuring cross-step attention concentration, while a separate paper introduces the Reasoning Score (logit divergence from late-layer vocabulary projections) to detect it and pairs this with GRPO-R, an RL method with step-level deep-reasoning rewards to reduce it.",
+    "kind": "concept",
+    "related": [
+      "backtracking to flawed reasoning steps"
+    ]
+  },
+  "task_id": "concept__reasoning-hallucination",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

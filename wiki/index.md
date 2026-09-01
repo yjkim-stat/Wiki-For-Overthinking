@@ -6,7 +6,7 @@
 
 - [Overthinking](topics/overthinking.md) — `overthinking`
 
-## Concepts (97)
+## Concepts (96)
 
 - [abstention](concepts/abstention.md) — 2 source(s)
 - [Accuracy-Efficiency Pareto Frontier](concepts/accuracy-efficiency-pareto-frontier.md) — 1 source(s)
@@ -103,10 +103,9 @@
 - [Uncertainty Quantification](concepts/uncertainty-quantification.md) — 1 source(s)
 - [underthinking](concepts/underthinking.md) — 7 source(s)
 - [visual grounding](concepts/visual-grounding.md) — 2 source(s)
-- [weighted majority voting](concepts/weighted-majority-voting.md) — 2 source(s)
 - [weighted voting](concepts/weighted-voting.md) — 2 source(s)
 
-## Methods (135)
+## Methods (136)
 
 - [A*-Thought](methods/a-thought.md) — 2 source(s)
 - [activation steering](methods/activation-steering.md) — 5 source(s)
@@ -243,6 +242,7 @@
 - [VeriThinker](methods/verithinker.md) — 2 source(s)
 - [veRL](methods/verl.md) — 2 source(s)
 - [vLLM](methods/vllm.md) — 4 source(s)
+- [weighted majority voting](methods/weighted-majority-voting.md) — 2 source(s)
 
 ## Datasets (125)
 

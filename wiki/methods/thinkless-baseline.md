@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Thinkless is a baseline method for adaptive thinking/non-thinking mode selection, referenced in Root-token Policy Optimization (RPO, which reframes the thinking/non-thinking gate as a branching decision at a single root token right after <think>) and ThinkBrake (a training-free log-probability-margin-guided decoding rule for stopping reasoning early).
 
 - **Kind**: method
-- **Also called**: ThinkLess (baseline)
+- **Also called**: ThinkLess (baseline), Thinkless
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Qwen3-4B-Base is used as a base model in studies of RL training dynamics for efficient reasoning, including ROSE (branching MCTS rollouts at semantic-entropy positions), MINER (recovering training signal from 'positive homogeneous' prompts where GRPO advantage collapses to zero), Revisiting Model Interpolation (showing linear interpolation between Instruct and Thinking model weights does not smoothly trade off performance and verbosity), and CurioSFT (diagnosing SFT-induced entropy collapse).",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.2216",
@@ -111,7 +111,9 @@
     "qwen2-5-math-7b",
     "llama-3-1-8b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-4b-thinking"
+  ],
   "schema_version": 1,
   "slug": "qwen3-4b-base",
   "topics": [

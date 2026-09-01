@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Self-Consistency (sampling multiple reasoning traces and majority-voting) is used as a comparison baseline in Gambit (thought-level beam search that periodically prunes weak reasoning traces and branches new ones) and BrowseConf (confidence-guided test-time scaling for web agents, showing web-search agents' verbalized confidence systematically exceeds actual accuracy despite being informative for guiding search).
 
 - **Kind**: method
+- **Also called**: Self-Consistency
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

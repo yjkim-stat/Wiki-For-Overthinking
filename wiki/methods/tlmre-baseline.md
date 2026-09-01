@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+TLMRE is a baseline method referenced in AttnPO (which discovers Key-Focus Heads attending more to essential reasoning steps), AdaMix (decoupling efficiency and accuracy into separately-trained short/long LoRA adapters), ERRV (defining a 'reasoning vector' from shortest-correct vs. longest-incorrect hidden-state differences), and ADaPT (diagnosing that sequence-level efficiency rewards penalize correct-but-long reasoning) as a prior efficient-reasoning method these papers compare against.
 
 - **Kind**: method
+- **Also called**: TLMRE
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 

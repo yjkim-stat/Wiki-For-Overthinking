@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen3-8B-Base is used as a base model in ROSE (branching MCTS-based RLVR rollouts at semantic-entropy positions) and MINER (recovering training signal from 'positive homogeneous' prompts where GRPO-style advantage collapses to zero).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

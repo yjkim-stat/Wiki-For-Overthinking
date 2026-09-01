@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Sparse autoencoders (SAEs) are a mechanistic-interpretability tool for extracting interpretable features from neural network activations, discussed in a survey organizing mechanistic-interpretability research on large reasoning models, and shown by a compressed-sensing-theoretic analysis to have an inherent encoder-insufficiency limitation for accurate sparse inference, which a decoupled encoder/decoder approach with more expressive inference techniques can substantially improve.
 
 - **Kind**: method
+- **Also called**: SAEs
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

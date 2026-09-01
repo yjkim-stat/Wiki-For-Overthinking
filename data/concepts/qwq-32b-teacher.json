@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "QwQ-32B is used as a teacher model for reasoning-trace distillation across sources, including Learning to Refine (defining the Refinement Gap to isolate parallel self-refinement's genuine value), fs1 (grounding distilled reasoning traces in knowledge-graph paths), and When Internalization Fails (testing whether ICoT-style curriculum internalization scales from simple to long, diverse competition-math traces).",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1291",
@@ -80,7 +80,9 @@
     "openr1-math-subsample-pairing-deepseek-r1-traces-with-numinamath-1-5-problems",
     "qwen2-5-7b-base-student"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1-teacher"
+  ],
   "schema_version": 1,
   "slug": "qwq-32b-teacher",
   "topics": [

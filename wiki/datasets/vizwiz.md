@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+VizWiz is a visual-question-answering benchmark used to evaluate FREE (which adds GAN-based early exits to frozen-backbone vision-language models, training an exit-transformer generator to mimic final-layer representations) and RECAP (mitigating RLVR-induced general-capability forgetting -- perception, grounding, safety -- in vision-language models).
 
 - **Kind**: dataset
+- **Also called**: VizWiz
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

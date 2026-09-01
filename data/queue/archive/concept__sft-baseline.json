@@ -1,0 +1,105 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Names 'invalid thinking' -- redundant double-checking after a reasoning model has already derived the correct answer -- as a specific, measurable form of overthinking (Valid Thinking rate as low as 57.5-65.3% on four SOTA LRMs), and introduces LC-R1, a GRPO method with a dual Length Reward (global conciseness) and Compress Reward (targeted removal of the redundant tail), achieving ~46-52% length reduction for only 1.8-2.1% accuracy loss and 97%+ Valid Thinking rate.",
+        "title": "Optimizing Length Compression in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SIGMA reframes token-efficient RL as a classical exploration-exploitation problem: a self-imitation exploitation module prioritizes training on prompts/rollouts with high compression potential via a dynamic priority table and a compression-ratio-weighted self-imitation loss, while a self-guidance exploration module directs otherwise-undirected long-response exploration via prompt-based token-budget regeneration or random truncation -- improving average accuracy by 7.9%/2.9% while cutting average reasoning length 43.4%/40.3% on 1.5B/7B DeepSeek-R1-Distill models across six benchmarks, beating eight RL-based efficient-reasoning baselines.",
+        "title": "Exploration-Exploitation Reshaping towards Efficient Reasoning for Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Extends difficulty-adaptive reasoning-length control from text LLMs to Large Audio Language Models (LALMs), diagnosing that GRPO helps hard audio questions but SFT wins on easy ones (implying GRPO's reasoning on simple tasks is redundant/error-prone), then proposing two GRPO reward variants -- an outcome-based Group Ratio Difficulty Reward (GRDR) and a process-based, audio-attention-entropy-derived Group Audio Attention Difficulty Reward (GA2DR) -- that cut average reasoning length over 50% while improving accuracy, with GA2DR proving more robust to reward hacking because its difficulty signal is normalized per-batch from audio attention rather than from noisy rollout accuracy.",
+        "title": "Think Smart, Not Hard: Difficulty Adaptive Reasoning for Large Audio Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ADaPT diagnoses that existing efficiency-oriented RL methods fail because sequence-level efficiency rewards implicitly penalize correct-but-long reasoning (a structural mismatch, since only the first token -- the fast/slow mode choice -- actually determines efficiency, while all subsequent tokens can only affect correctness), and fixes this by applying an efficiency reward exclusively to a dedicated mode-selection <think>/<answer> token via a CISPO-stabilized token-level GRPO variant -- cutting Qwen2.5-7B's average generation length from 1540 to 1031 tokens (SFT+GRPO baseline) with only a 0.4-point accuracy drop, tracing a genuine Pareto frontier other methods stay strictly inside, and letting a single trained model's efficiency be tuned post-hoc by adjusting the mode-token's decoding threshold with no retraining.",
+        "title": "ADaPT: Token-Level Decoupling for Efficient Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Pru-CoT quantifies each reasoning step's causal contribution via gradient-based optimization of a learnable soft-masking weight on a frozen student LLM (masking a step toward a filler-token embedding and seeing how much the prediction loss spikes), then uses an LLM-guided pruning agent to synthesize a concise, logically-coherent chain anchored on the high-weight steps -- beating token-level, prompt-based, and search-based pruning baselines, improving DeepSeek-R1-Distill-Qwen-7B's average accuracy 2.4% while cutting tokens, and running 4.4x faster than the strongest search-based baseline (A*-Thought).",
+        "title": "Pru-CoT: Towards Efficient Reasoning Distillation via Pruning Chain-of-Thought",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MR-ALIGN names and measures the 'reasoning-answer hit gap' -- a model surfaces the correct fact early in its thinking trace but discards it before the final answer -- and fixes it by segmenting reasoning into 15 cognitively-grounded meta-reasoning states (framing, backtracking, self-verification, retrieval, etc.), estimating a transition matrix between them via EM, and using KTO with an implicit reward reweighted by how much each segment's local state-transition probability deviates from the corpus-wide pattern; without any external verifier or retrieval, this improves accuracy and reduces misleading answers across three backbones and five factual-QA/long-form-factuality benchmarks, and post-alignment reasoning traces become measurably shorter and more concise as a side effect.",
+        "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A controlled study across five behavioral tasks (bias, risk-seeking/averse, reward hacking, sampling behavior, performance under pressure) trains Qwen2.5-7B-Instruct via SFT, DPO, and GRPO on latent-policy-inducing data, then measures whether reasoning traces faithfully reflect the model's own answers (RGR, correlation), whether models can explicitly articulate learned behaviors (reflective self-awareness), and whether learned policies transfer to structurally analogous but semantically different domains -- finding RL-trained (GRPO) models show both stronger explicit self-awareness and stronger cross-domain policy transfer than SFT, but simultaneously the weakest reasoning-answer faithfulness, and that under simulated pressure a model's stated reasoning and its actual action diverge in a direction consistent with the scenario's incentive structure (contemplating deception while its output conceals it).",
+        "title": "The Inner Monologue of Language Models: When Reasoning Traces Reveal More Than They Hide",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "O1-Pruner identifies 'length disharmony' -- shorter responses often achieve equal or higher accuracy than longer ones, at both the instance and distribution level -- and fine-tunes long-thought models with a PPO-style Length-Harmonizing Reward that rewards brevity relative to a reference model's own pre-sampled length/accuracy baseline, subject to an accuracy non-degradation constraint, cutting solution length by 34.7-40.5% while improving accuracy.",
+        "title": "O1-Pruner: Length-Harmonizing Fine-Tuning for O1-Like Reasoning Pruning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-09-01T10:38:35Z",
+  "created_at": "2026-09-01T10:33:30Z",
+  "instructions": "Write the wiki definition for 'SFT (baseline)'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "SFT (baseline)",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "SFT (baseline)",
+    "source_count": 8
+  },
+  "result": {
+    "aliases": [
+      "SFT"
+    ],
+    "definition": "SFT (Supervised Fine-Tuning) is used across sources both as a standard training-pipeline stage (e.g. the pre-RL stage in SFT-then-RL pipelines) and as a comparison baseline for reasoning-length/efficiency methods -- e.g. Think Smart Not Hard finds SFT wins over GRPO on easy audio questions while GRPO wins on hard ones, and multiple efficient-reasoning papers (Pru-CoT, O1-Pruner) compare their RL-based or pruning-based methods against a plain-SFT baseline.",
+    "kind": "method",
+    "related": [
+      "GRPO"
+    ]
+  },
+  "task_id": "concept__sft-baseline",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

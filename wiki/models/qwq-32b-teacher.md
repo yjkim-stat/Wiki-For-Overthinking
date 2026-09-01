@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+QwQ-32B is used as a teacher model for reasoning-trace distillation across sources, including Learning to Refine (defining the Refinement Gap to isolate parallel self-refinement's genuine value), fs1 (grounding distilled reasoning traces in knowledge-graph paths), and When Internalization Fails (testing whether ICoT-style curriculum internalization scales from simple to long, diverse competition-math traces).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

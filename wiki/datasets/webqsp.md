@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+WebQSP is a knowledge-graph question-answering benchmark used to evaluate Thought-Action Graph (TAG, distilling successful LLM-knowledge-graph interaction trajectories into reusable reasoning operators) and fs1 (fine-tuning on knowledge-graph-path-grounded reasoning traces to improve factual accuracy).
 
 - **Kind**: dataset
+- **Also called**: WebQSP
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

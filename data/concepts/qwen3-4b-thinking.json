@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Qwen3-4B-Thinking is used in ThinkBrake (a training-free decoding rule that injects </think> at sentence boundaries when the log-probability margin between the top continuation token and </think> favors stopping) and in a self-reading-pattern analysis of how answer tokens attend back to reasoning tokens in thinking LLMs.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1095",
@@ -69,7 +69,9 @@
     "r1-distill-qwen-7b",
     "r1-distill-llama-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-4b-base"
+  ],
   "schema_version": 1,
   "slug": "qwen3-4b-thinking",
   "topics": [

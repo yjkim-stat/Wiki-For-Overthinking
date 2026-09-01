@@ -3,9 +3,10 @@
     "MATH-500",
     "Math500",
     "MATH 500",
-    "Math-500"
+    "Math-500",
+    "MATH500"
   ],
-  "definition": "A 500-problem competition-mathematics test set drawn from the MATH dataset, and the archive's default mid-difficulty maths benchmark: it appears in nearly every efficiency evaluation here, almost always beside GSM8K below it and AIME above it. Sources use it as the point where accuracy is high but not saturated, which is why length-reduction methods report their cleanest wins on it and why several papers subsample it (100/50/50 questions) when generating many traces per prompt. It is not the same thing as MATH, of which it is a 500-problem subset; papers that report both keep them apart, and merging them would make the archive unable to say which one a number was measured on.",
+  "definition": "MATH500 is a 500-problem subset of the MATH competition-mathematics benchmark (Hendrycks et al.), used throughout this archive as a standard evaluation set for reasoning accuracy under test-time scaling, length-control, and efficient-reasoning methods -- almost universally reported alongside GSM8K, AIME, and GPQA as one of the core math-reasoning accuracy benchmarks a method is checked against.",
   "evidence": [
     {
       "id": "arxiv:2602.00425",
@@ -2593,9 +2594,8 @@
     "llm-aggrefact"
   ],
   "related_authored": [
-    "math",
-    "gsm8k",
-    "aime-2024"
+    "math-training",
+    "aime"
   ],
   "schema_version": 1,
   "slug": "math500",

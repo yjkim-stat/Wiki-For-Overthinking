@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Self-Consistency (SC) -- sampling multiple reasoning traces and majority-voting the final answer -- is used as a standard baseline across sources including VecCISC (reducing the cost of Confidence-Informed Self-Consistency), STEP (training a lightweight step scorer to evaluate parallel-reasoning trace quality), and Seer Self-Consistency (advance budget estimation for adaptive test-time scaling), which each aim to improve on plain SC's cost or accuracy.
 
 - **Kind**: method
-- **Also called**: self-consistency (SC, baseline)
+- **Also called**: Self-Consistency (SC), self-consistency (SC, baseline)
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [AQuA-RAT](../datasets/aqua-rat.md), [CommonsenseQA](../datasets/commonsenseqa.md), [Confidence-Informed Self-Consistency (CISC, baseline)](confidence-informed-self-consistency-cisc-baseline.md), [DeepSeek-R1-0528-Qwen3-8B](../models/deepseek-r1-0528-qwen3-8b.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA](../datasets/gpqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [HMMT25](../datasets/hmmt25.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama 3.3 70B](../models/llama-3-3-70b.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [weighted majority voting](../concepts/weighted-majority-voting.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [AQuA-RAT](../datasets/aqua-rat.md), [CommonsenseQA](../datasets/commonsenseqa.md), [Confidence-Informed Self-Consistency (CISC, baseline)](confidence-informed-self-consistency-cisc-baseline.md), [DeepSeek-R1-0528-Qwen3-8B](../models/deepseek-r1-0528-qwen3-8b.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA](../datasets/gpqa.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [HMMT25](../datasets/hmmt25.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama 3.3 70B](../models/llama-3-3-70b.md), [majority voting](majority-voting.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [weighted majority voting](weighted-majority-voting.md)
 
 ## Appears in
 

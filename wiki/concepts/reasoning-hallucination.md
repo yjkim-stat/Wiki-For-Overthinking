@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Reasoning Hallucination is a failure mode where a large reasoning model produces logically coherent but factually flawed reasoning chains leading to convincing wrong answers, distinct from typical hallucination because the errors are embedded in an otherwise-structured reasoning trace. RFS-Guard detects and localizes it training-free via a Routing Focus Score measuring cross-step attention concentration, while a separate paper introduces the Reasoning Score (logit divergence from late-layer vocabulary projections) to detect it and pairs this with GRPO-R, an RL method with step-level deep-reasoning rewards to reduce it.
 
 - **Kind**: concept
 - **Also called**: Reasoning Hallucination

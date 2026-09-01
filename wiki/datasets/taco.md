@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+TACO is a code-generation/reasoning benchmark used to evaluate EvoThink (which cuts overthinking via Self-Pruning Training that deletes reasoning steps repeating a prior step's conclusion) and CurioSFT (an entropy-preserving SFT method addressing SFT-induced entropy collapse that limits subsequent RL).
 
 - **Kind**: dataset
+- **Also called**: TACO
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
