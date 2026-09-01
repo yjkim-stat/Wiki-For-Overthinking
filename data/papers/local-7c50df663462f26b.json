@@ -1,6 +1,6 @@
 {
   "abstract": "Test-time scaling via explicit reasoning trajectories significantly boosts large language model (LLM) performance but often triggers overthinking. To explore this, we analyze reasoning through two lenses: Reasoning Length Dynamics, which reveals a compensatory trade-off between thinking and answer content length that eventually leads to thinking redundancy, and Reasoning Semantic Dynamics, which identifies semantic convergence and repetitive oscillations. These dynamics uncover an instance-specific Reasoning Completion Point (RCP), beyond which computation continues without further performance gain. Since the RCP varies across instances, we propose a Reasoning Completion Point Detector (RCPD), an inference-time early-exit method that identifies the RCP by monitoring the rank dynamics of termination tokens (e.g., lt;/think gt;). Across AIME and GPQA benchmarks using Qwen3 and DeepSeek-R1, RCPD reduces token usage by up to 44% while preserving accuracy, offering a principled approach to efficient test-time scaling.",
-  "arxiv_id": "",
+  "arxiv_id": "2508.17627v2",
   "authors": [
     "Zihao Wei",
     "Liang Pang",
@@ -16,10 +16,10 @@
   ],
   "categories": [],
   "doi": "10.18653/v1/2026.acl-long.1239",
-  "first_seen": "2026-08-26T22:03:54Z",
-  "id": "doi:10.18653/v1/2026.acl-long.1239",
+  "first_seen": "2026-09-01T23:21:53Z",
+  "id": "local:7c50df663462f26b",
   "last_seen": "2026-09-01T22:03:42Z",
-  "local_path": "data/pdfs/read/doi-10-18653-v1-2026-acl-long-1239.pdf",
+  "local_path": "data/pdfs/read/local-7c50df663462f26b.pdf",
   "matched_keywords": [
     "overthinking",
     "reasoning length",
@@ -27,13 +27,13 @@
     "early exit"
   ],
   "pdf_url": "https://aclanthology.org/2026.acl-long.1239.pdf",
-  "published": "",
+  "published": "2026-01-01",
   "schema_version": 1,
   "scores": {
     "overthinking": 0.6667
   },
-  "source": "anthology",
-  "source_id": "2026.acl-long.1239",
+  "source": "local+anthology",
+  "source_id": "arxiv-2508.17627v2-evolution-of-thought.pdf",
   "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis",
   "topics": [
     "overthinking"
