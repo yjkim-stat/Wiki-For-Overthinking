@@ -45,7 +45,7 @@ GRDR's outcome-based difficulty estimation is shown to be noise-sensitive and pr
 
 ## Entities
 
-- **Concepts**: overthinking (in large audio language models), difficulty-adaptive reasoning length, Group Ratio Difficulty Reward (GRDR), Group Audio Attention Difficulty Reward (GA2DR), audio-attention entropy as a difficulty proxy, model-perspective vs. human-perspective difficulty
+- **Concepts**: overthinking (in large audio language models), [difficulty-adaptive reasoning length](../../../../wiki/concepts/difficulty-adaptive-reasoning-length.md), Group Ratio Difficulty Reward (GRDR), Group Audio Attention Difficulty Reward (GA2DR), audio-attention entropy as a difficulty proxy, model-perspective vs. human-perspective difficulty
 - **Methods**: [GRPO](../../../../wiki/methods/grpo.md), Group Ratio Difficulty Reward (GRDR), Group Audio Attention Difficulty Reward (GA2DR), Truncation Reward (TR, baseline), [SFT (baseline)](../../../../wiki/methods/sft-baseline.md)
 - **Datasets**: FS (training, ~72K examples: AudioGrounding, VocalSound, TUT2017, Clotho-AQA, AVQA), AVQA (training), MMAU-Test-Mini, MMAU-Test-Mini-v05.15.25, MMAR, MMSU (appendix)
 

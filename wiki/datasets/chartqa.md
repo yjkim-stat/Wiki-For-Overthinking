@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+ChartQA (chart-based visual question answering) is used in these sources as a multimodal out-of-domain evaluation benchmark: ARM2 reports accuracy and token-efficiency results on it among its twelve in-/out-of-domain text and multimodal benchmarks, and RECAP includes it among the general-capability benchmarks used to test whether reasoning-focused RL fine-tuning causes forgetting in vision-language models.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning format selection](../methods/adaptive-reasoning-format-selection.md), [AI2D](ai2d.md), [AQuA-RAT](aqua-rat.md), [CommonsenseQA](commonsenseqa.md), [format collapse](../concepts/format-collapse.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO (baseline)](../methods/grpo-baseline.md), [GSM8K](gsm8k.md), [LISA](lisa.md), [MATH500](math500.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMMU](mmmu.md), [MMMU-Pro](mmmu-pro.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [SAT](sat.md), [ScienceQA](scienceqa.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md), [VizWiz](vizwiz.md)
+**Related**: [adaptive reasoning format selection](../methods/adaptive-reasoning-format-selection.md), [AI2D](ai2d.md), [AQuA-RAT](aqua-rat.md), [CommonsenseQA](commonsenseqa.md), [format collapse](../concepts/format-collapse.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO (baseline)](../methods/grpo-baseline.md), [GSM8K](gsm8k.md), [LISA](lisa.md), [MATH500](math500.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMMU](mmmu.md), [MMMU-Pro](mmmu-pro.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [SAT](sat.md), [ScienceQA](scienceqa.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md), [VizWiz](vizwiz.md)
 
 ## Appears in
 

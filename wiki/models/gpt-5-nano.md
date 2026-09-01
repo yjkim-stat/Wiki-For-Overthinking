@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GPT-5 Nano is used as one of four model configurations evaluated in the evolving-in-context-demonstration adaptive-test-time-compute-allocation study, tested on math, coding, and reasoning benchmarks; EchoCoT's cited note (a security study on recovering hidden reasoning traces via tool-calling) does not name GPT-5 Nano specifically.
 
 - **Kind**: model
 - **Also called**: GPT-5 Nano
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive test-time compute allocation](../concepts/adaptive-test-time-compute-allocation.md), [deepseek-v4-flash](deepseek-v4-flash.md), [Direct Prompting](../methods/direct-prompting.md), [GLM-5.2](glm-5-2.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4.1-mini](gpt-4-1-mini.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [minervamath](../datasets/minervamath.md), [o4-mini](o4-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen3.5-Plus](qwen3-5-plus.md)
+**Related**: [adaptive test-time compute allocation](../methods/adaptive-test-time-compute-allocation.md), [deepseek-v4-flash](deepseek-v4-flash.md), [Direct Prompting](../methods/direct-prompting.md), [GLM-5.2](glm-5-2.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4.1-mini](gpt-4-1-mini.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [minervamath](../datasets/minervamath.md), [o4-mini](o4-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen3.5-Plus](qwen3-5-plus.md)
 
 ## Appears in
 

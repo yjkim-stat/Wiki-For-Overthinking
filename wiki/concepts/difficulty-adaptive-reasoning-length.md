@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Difficulty-adaptive reasoning length is the principle that a reasoning model's token budget or exploration effort should scale with a query's actual difficulty rather than being applied uniformly. The LALM (audio) difficulty-adaptive paper operationalizes this via GRPO reward variants (GRDR, GA2DR) that scale a length reward by rollout-accuracy- or attention-entropy-derived difficulty, cutting reasoning length over 50% while improving accuracy; REA-RL applies a related idea via a distilled reflection model supplying parallel samples and truncated sequential revisions plus a reflection-density reward, cutting response length ~36% without losing accuracy.
 
 - **Kind**: concept
 - **Also called**: Difficulty-adaptive reasoning length

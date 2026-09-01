@@ -9,7 +9,7 @@ GPT-5-mini appears in these sources as one of the LLMs used within multi-agent/l
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [BrowseComp](../datasets/browsecomp.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-5](gpt-5.md)
+**Related**: [BFCL v3](../datasets/bfcl-v3.md), [BrowseComp](../datasets/browsecomp.md), [Claude Sonnet 4.5](claude-sonnet-4-5.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-5](gpt-5.md)
 
 ## Appears in
 

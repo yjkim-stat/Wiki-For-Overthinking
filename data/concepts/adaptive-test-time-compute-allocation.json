@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Adaptive test-time compute allocation refers to methods that dynamically decide how much inference-time compute (sampling, reasoning mode, or search budget) to spend per query rather than applying a fixed budget uniformly. 'Learning When to Think' trains a 1.5B model to emit one of three mode tokens (NoThink/Short/Long) as its very first token, learned end-to-end inside GRPO with no separate router; a second source unifies allocation (which queries get more sampling) with in-context-demonstration-based distributional adaptation, beating uniform Best-of-N in coverage-per-token.",
   "evidence": [
     {
       "id": "arxiv:2608.20256",
@@ -16,7 +16,7 @@
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
-  "kind": "concept",
+  "kind": "method",
   "last_seen": "2026-08-28T02:36:33Z",
   "name": "adaptive test-time compute allocation",
   "related": [

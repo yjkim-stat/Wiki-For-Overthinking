@@ -9,7 +9,7 @@ Prompting an LLM to answer a question directly without any explicit reasoning st
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME](../datasets/aime.md), [chain-of-thought baseline](chain-of-thought-baseline.md), [deepseek-v4-flash](../models/deepseek-v4-flash.md), [GLM-5.2](../models/glm-5-2.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GPT-5-Nano](../models/gpt-5-nano.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [majority voting / self-consistency](majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [Multi-Agent Debate](multi-agent-debate.md), [o4-mini](../models/o4-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3.5-Plus](../models/qwen3-5-plus.md), [self-refine](self-refine.md)
+**Related**: [AIME](../datasets/aime.md), [chain-of-thought baseline](chain-of-thought-baseline.md), [deepseek-v4-flash](../models/deepseek-v4-flash.md), [GLM-5.2](../models/glm-5-2.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GPT-5-Nano](../models/gpt-5-nano.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [LiveCodeBench](../datasets/livecodebench.md), [LLaMA-3-8B-Instruct](../models/llama-3-8b-instruct.md), [majority voting / self-consistency](majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [Multi-Agent Debate](multi-agent-debate.md), [o4-mini](../models/o4-mini.md), [OpenThoughts](../datasets/openthoughts.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3.5-Plus](../models/qwen3-5-plus.md), [self-refine](self-refine.md)
 
 ## Appears in
 

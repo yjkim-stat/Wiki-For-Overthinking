@@ -8,7 +8,7 @@ Majority voting (selecting the most common answer among sampled candidates) is u
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [beam search](beam-search.md), [best-of-n selection](best-of-n-selection.md), [COCONUT](coconut.md), [CODI](codi.md), [CoLaR](colar.md), [DeepSeek-R1-0528-Qwen3-8B](../models/deepseek-r1-0528-qwen3-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K-Hard](../datasets/gsm8k-hard.md), [GSM8K-Test](../datasets/gsm8k-test.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [beam search](beam-search.md), [best-of-n selection](best-of-n-selection.md), [COCONUT](coconut.md), [CODI](codi.md), [CoLaR](colar.md), [DeepSeek-R1-0528-Qwen3-8B](../models/deepseek-r1-0528-qwen3-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GSM8K-Hard](../datasets/gsm8k-hard.md), [GSM8K-Test](../datasets/gsm8k-test.md), [MATH500](../datasets/math500.md), [MultiArith](../datasets/multiarith.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [QwQ-32B (teacher)](../models/qwq-32b-teacher.md)
 
 ## Appears in
 

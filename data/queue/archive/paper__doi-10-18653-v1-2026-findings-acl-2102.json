@@ -1,0 +1,136 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-2102.pdf"
+  },
+  "completed_at": "2026-08-28T02:58:11Z",
+  "created_at": "2026-08-28T02:36:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.2102",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Language model (LM) evaluators that generate chain-of-thought (CoT) reasoning are widely used for the assessment of LM responses. Simultaneously, increasing LMs’ “thinking” time through scaling test-time compute has proven to be an effective technique for solving challenging problems in domains such as math and code. This raises a natural question: can an LM’s evaluation capability also be improved by scaling test-time compute? To answer this, we investigate employing reasoning models - LMs that natively generate long CoT reasoning - as evaluators. We explore scaling evaluation-time compute by using reasoning models to evaluate both the overall candidate response (i.e., outcome evaluation) and the individual reasoning steps within it (i.e., process evaluation). We observe that evaluator performance improves monotonically with the number of reasoning tokens generated, mirroring trends seen in LM reasoning. Furthermore, we use these more accurate evaluators to rerank multiple generations, and demonstrate that spending more compute at evaluation time can be as effective as increasing compute during generation for improving an LM’s problem-solving performance.",
+    "authors": [
+      "Seungone Kim",
+      "Ian Wu",
+      "Jinu Lee",
+      "Xiang Yue",
+      "Seongyun Lee",
+      "Minkyeong Moon",
+      "Carolin Lawrence",
+      "Kiril Gashteovski",
+      "Julia Hockenmaier",
+      "Graham Neubig",
+      "Sean Welleck"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test-time compute",
+      "reasoning token"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.2102.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators",
+    "url": "https://aclanthology.org/2026.findings-acl.2102/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "evaluation-time scaling",
+      "reasoning evaluator (outcome and process)",
+      "direct evaluator (PRM/ORM)",
+      "multi-step process evaluation",
+      "model-based splitting",
+      "reward-model over-optimization"
+    ],
+    "contributions": [
+      "the concept of evaluation-time scaling: demonstrating that off-the-shelf reasoning models, simply prompted (not specifically trained) to generate long chain-of-thought judgments, improve monotonically as evaluators with more reasoning tokens, mirroring the test-time-scaling behavior known for generators",
+      "a multi-step reasoning process evaluator (assessing each reasoning step individually via its own CoT, with model-based step-splitting and mean-logit score aggregation) that a 32B model, with no evaluator-specific training, uses to outperform a specialized 72B Process Reward Model by up to 4.5 F1 points on ProcessBench",
+      "empirical results across a large Best-of-N reranking study (7 benchmarks, 3 generators, 4 evaluator pairs) showing that spending a fixed test-time compute budget on evaluation-time reasoning (Best-of-8 with a reasoning evaluator) outperforms spending it on more candidate sampling (Best-of-64 with a direct evaluator) by 4.30-6.63 points, with reasoning evaluators substantially more resistant to reward-model over-optimization than direct evaluators",
+      "a qualitative and confusion-matrix-based analysis of why reasoning evaluators are effective -- identifying transferred problem-solving strategies (step analysis, meta-verification, edge-case exploration, backtracking) in their evaluation CoTs, and showing process evaluators are more conservative (higher precision, lower recall, low false-positive rate) than outcome evaluators, explaining the complementary gain from combining both"
+    ],
+    "datasets": [
+      "ProcessBench (3,400 instances, GSM8K/MATH/OlympiadBench/Omni-MATH sources)",
+      "AIME24",
+      "AMC23",
+      "Minerva Math",
+      "OlympiadBench",
+      "MATH500",
+      "LeetCode",
+      "GPQA"
+    ],
+    "limitations": "The paper does not discuss limitations explicitly in a dedicated section within the excerpted material; the multi-step process evaluation approach incurs higher per-instance inference cost than a single-pass outcome judgment (one CoT-and-judgment call per reasoning step, so cost scales with response length), which the paper accounts for in its matched-compute-budget comparisons (Best-of-8 reasoning vs. Best-of-64 direct evaluators) but which remains a real per-instance latency/cost tradeoff for deployment. Direct process evaluators used as baselines are noted to be typically trained only on math data, making the paper's code-domain comparison (LeetCode) potentially favorable to reasoning evaluators for reasons of training-data domain mismatch rather than the evaluation-time-scaling mechanism alone, though the paper's model-based-splitting fix is presented specifically to address this confound for the process-evaluation side.",
+    "method": "Defines reasoning evaluators as off-the-shelf reasoning models (trained via RL or distillation for long CoT, but not specifically for evaluation) prompted to act as evaluators, contrasted with direct evaluators (specially fine-tuned scalar-score heads, no CoT). Reasoning Outcome Evaluators generate a CoT then predict a binary correctness judgment, converted to a scalar score via softmax over the logits of '1'/'0' tokens. Reasoning Process Evaluators extend this to individual reasoning steps: rather than a single CoT judging all steps at once (the 'single-step' ablation, following Zheng et al. 2024a), the proposed multi-step variant separately generates a CoT and judgment for each step (conditioned on all prior steps), motivated by avoiding context-window overflow on long traces and by the hypothesis that per-step assessment naturally scales evaluation-time compute more thoroughly. Two implementation refinements address heuristic weaknesses in prior PRM tooling: Model-based splitting uses an LM to insert explicit [SPLIT] markers between reasoning steps (robust to code or non-'\\n\\n'-delimited outputs, unlike heuristic newline-splitting), and Score aggregation uses a mean_logit function (averaging steps' logit-space scores before a final sigmoid) rather than the conventional min-function aggregation, found empirically superior. Outcome and process scores are optionally combined via linear interpolation (s_final = alpha*s_outcome + (1-alpha)*s_process, alpha=0.5 by default) as 'reasoning process + outcome evaluation.' Evaluated on ProcessBench (3,400 instances, human-annotated first-error-location labels across four math benchmark sources, 12 distinct source LMs, F1 metric) for step-level error detection, and via Best-of-N reranking across seven diverse benchmarks (AIME24, AMC23, Minerva Math, OlympiadBench, MATH500, LeetCode, GPQA; 64 responses/instance from three generator LMs) to test whether evaluation-time scaling translates into improved generation quality.",
+    "methods": [
+      "reasoning outcome evaluator",
+      "reasoning process evaluator (multi-step, model-based splitting, mean-logit aggregation)",
+      "reasoning process + outcome evaluation (interpolated)",
+      "direct evaluators (PRMs/ORMs, baseline)",
+      "self-consistency (evaluator ensembling)",
+      "Best-of-N reranking"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B/32B",
+      "QwQ-32B-Preview",
+      "QwQ-32B",
+      "Qwen2.5-32B/72B-Instruct",
+      "Llama-3.1-8B-Instruct",
+      "Qwen2.5-Math-PRM-7B/72B (baseline)",
+      "Qwen2.5-Math-7B-PRM800K (baseline)",
+      "SkyWork-Reward-Gemma-2-27B-v0.2 (direct outcome baseline)",
+      "Eurus-2-SFT / Llama3.1-70B-Instruct / Qwen2.5-7B-Instruct (generators)"
+    ],
+    "one_liner": "Shows evaluation itself scales like generation: off-the-shelf reasoning models, simply prompted to generate a chain-of-thought judgment (no evaluator-specific training), improve monotonically with more reasoning tokens and, when made to individually assess every reasoning step rather than a single-pass judgment, a 32B reasoning evaluator beats a specialized 72B PRM by 4.5 F1 points on ProcessBench; folding this into Best-of-N reranking, spending the fixed test-time budget on evaluation-time reasoning (Best-of-8 with a reasoning evaluator) beats spending it on more candidate samples (Best-of-64 with a direct evaluator) by 4.30-6.63 points, and reasoning evaluators are shown to resist reward-model over-optimization that both direct evaluator types suffer from.",
+    "problem": "Better evaluators and better generators are mutually reinforcing (evaluators verify/improve generator outputs, e.g. via Best-of-N reranking), and while scaling test-time compute via long chain-of-thought reasoning is known to be effective for generators solving hard math/code problems, it is unclear whether evaluators, like generators, can similarly be improved by scaling test-time compute -- existing evaluators are either direct evaluators (a specially fine-tuned scalar reward-modeling head, no CoT) or fine-tuned generative evaluators producing comparatively short CoTs lacking the complex, versatile reasoning patterns (self-verification, backtracking) seen in dedicated reasoning-model outputs.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Indirectly relevant to test-time compute allocation: this paper is about whether spending compute on *evaluation* (generating a long CoT to judge a candidate response) rather than on *generation* (sampling more candidates) is a better use of a fixed test-time budget, not about reducing an individual reasoning trace's own length or overthinking. Its finding that evaluation-time scaling improves monotonically with more reasoning tokens (mirroring generator scaling) and its reward-model-over-optimization result (direct scalar evaluators plateau or degrade with more candidates, while reasoning evaluators resist this) are relevant background for any overthinking-mitigation or test-time-scaling method elsewhere in this archive that relies on a reward model or verifier to select among candidate reasoning traces."
+    },
+    "results": "On ProcessBench, reasoning models used as single-step reasoning process evaluators already substantially outperform equivalently-scaled instruction-tuned models used the same way (e.g. DeepSeek-R1-Distill-Qwen-32B: 78.1 F1 vs. Qwen2.5-72B-Instruct's 61.2 F1, despite the reasoning model having only 44% as many parameters) -- Finding 1: reasoning capability itself, even absent any evaluator-specific training, is associated with improved evaluation capability. However, single-step reasoning evaluators still fall behind specialized, purpose-trained direct PRMs (DeepSeek-R1-Distill-Qwen-32B: 78.1 vs. Qwen2.5-Math-PRM-72B: 78.3, essentially tied but not exceeding it) -- Finding 2: single-step evaluation alone is insufficient to match dedicated process-supervision training. The proposed multi-step process evaluation closes and surpasses this gap: DeepSeek-R1-Distill-Qwen-32B reaches 78.6 F1 and QwQ-32B reaches 79.3 F1 under multi-step evaluation, both exceeding the 72B PRM's 78.3 without any evaluator-specific training -- a 32B reasoning evaluator (44% of the PRM's parameters) outperforming a specialized 72B PRM by up to a 4.5-point margin, evidence multi-step, per-step assessment is what unlocks reasoning models' latent evaluation ability -- Finding 3. Combining multi-step process evaluation with self-consistency (majority vote over multiple CoTs per step) yields further gains (DeepSeek-R1-Distill-Qwen-7B: 73.7 F1, exceeding Qwen2.5-Math-PRM-7B's 73.5; DeepSeek-R1-Distill-Qwen-32B: 82.8, QwQ-32B: 82.0, both surpassing the 72B PRM's 78.3), and both mechanisms provide complementary rather than redundant benefit -- Finding 4. Instruction-tuned (non-reasoning) models also gain substantially from multi-step process evaluation specifically (Llama-3.1-8B-Instruct: +7.3 F1; Qwen2.5-32B-Instruct: +15.0 F1 versus their single-step baseline), showing the method is not exclusively reliant on native reasoning-model capability. In the Best-of-N generation-improvement experiments (four generator-evaluator pairs, 27B-72B scale evaluators, 7 benchmarks x 3 generators x 64 responses), reasoning evaluators at Best-of-8 achieve performance equal to or better than direct evaluators at Best-of-64 -- i.e. spending compute on evaluation-time reasoning at a much smaller candidate-sample count matches or exceeds spending the same total compute purely on generating and directly scoring more candidates, by a 4.30-6.63-point margin under matched test-time budget -- Finding 1 (generation section). Notably, direct evaluators (both outcome and process) show clear reward-model over-optimization -- Best-of-N gains plateau or diminish as N grows large -- while reasoning evaluators suffer substantially less from this pathology, since evaluation-time scaling appears to provide a more robust approximation of ground truth than a fixed, imperfect scalar reward function, an effect also observed at smaller (7B) evaluator scale. Combining outcome and process scores (alpha=0.5) yields further improvement over either alone in the overall 7-benchmark average (52.03 combined vs. 50.29 process-only/51.07 outcome-only), supporting that the two evaluation approaches -- holistic outcome judgment vs. fine-grained step-level assessment -- provide complementary error-identification signals -- Finding 2 (generation section). Reasoning evaluators are especially effective for assessing code outputs specifically (LeetCode), where direct outcome/process evaluators heavily suffer from reward-model over-optimization, attributed to direct PRMs typically being trained only on math data (e.g. PRM800K) and heuristic newline-based splitting being poorly suited to code's structure -- both weaknesses the reasoning-evaluator/model-based-splitting approach avoids -- Finding 3 (generation section). Qualitative analysis of reasoning process evaluator CoTs identifies four recurring reasoning patterns transferred from problem-solving to evaluation: analysis of the step's content, meta-verification (re-checking the evaluation's own reasoning), exploring unaddressed edge cases, and backtracking to review initial problem conditions -- the paper hypothesizes this transfer of problem-solving strategies to the evaluation process is the key mechanism behind reasoning evaluators' superior performance. A confusion-matrix analysis across model sizes shows reasoning process evaluators achieve higher precision but lower recall than reasoning outcome evaluators, i.e. process evaluators make more conservative (cautious) predictions, with false-positive rates of only 3.8%/3.5% at the 7B/32B scale respectively -- meaning when a process evaluator judges all steps correct, the final answer is very likely actually correct, explaining why combining outcome and process scores yields complementary gains rather than redundant signal.",
+    "tags": [
+      "test-time-scaling",
+      "evaluation-methodology",
+      "process-reward-models",
+      "best-of-n",
+      "reasoning-evaluators"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-2102",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -47,7 +47,7 @@ For attaching exits to a large model such as BLIP-2, deciding where within the L
 
 - **Concepts**: overthinking (unnecessary computation, VLM/early-exit context), mid-crisis (intermediate-layer accuracy dip in frozen-backbone VLMs), GAN-based exit-transformer training, frozen final-layer classifier reuse
 - **Methods**: GAN-based adversarial exit training, early exit (input-adaptive inference), knowledge distillation (unsupervised exit training), CapFilt (synthetic label generation), DeeBLIP / PABEE-BLIP / LeeBLIP / MuE (baseline early-exit methods)
-- **Datasets**: COCO (captioning), NoCaps, VQAv2, [OK-VQA](../../../../wiki/datasets/ok-vqa.md), [GQA](../../../../wiki/datasets/gqa.md), VizWiz, VisDial
+- **Datasets**: COCO (captioning), NoCaps, VQAv2, [OK-VQA](../../../../wiki/datasets/ok-vqa.md), [GQA](../../../../wiki/datasets/gqa.md), [VizWiz](../../../../wiki/datasets/vizwiz.md), VisDial
 
 Tags: `overthinking`, `early-exit`, `vision-language-models`, `adversarial-training`, `inference-efficiency`
 

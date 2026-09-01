@@ -19,11 +19,17 @@
       "kind": "paper",
       "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
       "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.355",
+      "kind": "paper",
+      "note": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
+      "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "o1-mini",
   "related": [
     "thought-budget",
@@ -101,7 +107,25 @@
     "qwen2-5-72b-instruct",
     "gemini-2-0-flash",
     "gpt-4o-mini",
-    "gpt-4o"
+    "gpt-4o",
+    "stacked-encryption-jailbreak",
+    "reasoning-ability-induced-vulnerability",
+    "cipher-grouping-mechanism-similarity-clustering",
+    "gradient-bandit-adaptive-cipher-selection",
+    "recovery-rate-lrm-decryption-fidelity",
+    "safety-aware-zone-sweet-spot-in-prompt-complexity",
+    "seal-stacked-encryption-for-adaptive-language-reasoning-model-jailbreak",
+    "gradient-bandit-algorithm-adaptive-cipher-group-selection",
+    "pair-tap-baseline",
+    "gcg-baseline",
+    "autodan-baseline",
+    "renellm-baseline",
+    "encoding-based-baselines-arabic-transliteration-leetspeak-rot13-base64-caesar-sh",
+    "advbench-520-harmful-behavior-prompts",
+    "harmbench-appendix",
+    "strongreject-appendix",
+    "o4-mini",
+    "gemini-2-0-flash-h-and-m-safety-modes"
   ],
   "related_authored": [
     "one-missing-piece-for-open-source-reasoning-models",

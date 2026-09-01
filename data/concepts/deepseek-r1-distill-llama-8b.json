@@ -88,11 +88,17 @@
       "kind": "paper",
       "note": "Shows via t-SNE that verbose and concise chains-of-thought occupy visibly separable regions of a reasoning model's intermediate activation space, then learns a single, KL-trust-region-constrained steering vector (Contrastive Energy-Based Steering, CES) from only 100 verbose-concise CoT pairs by ranking concise traces below verbose ones in length-normalized energy under the steered model -- Activation-Steered Compression (ASC) cuts CoT length up to 69.35% with no accuracy loss across four model scales and multiple benchmarks, achieves 2.7x end-to-end wall-clock speedup, generalizes cross-task with 0.92 cosine similarity between dataset-specific steering vectors, and mitigates a documented 'underthinking' failure mode (excessive backtracking/path-switching without commitment) in QwQ-32B specifically.",
       "title": "Activation Steering for Chain-of-Thought Compression"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2120",
+      "kind": "paper",
+      "note": "SeerSC resolves a specific gap in adaptive self-consistency methods -- reduced token usage from sequential early-stopping does not translate into reduced latency, since sequential budget decisions conflict with the parallel-sampling engines modern inference uses -- by having a cheap System-1 pass (direct, non-reasoning answers) pre-estimate each query's scaling potential via confidence-weighted answer entropy, then allocating a fixed System-2 (full-reasoning) sample budget in a single parallel batch based on that pre-estimate, cutting inference latency up to 43% and token usage up to 47% versus sequential adaptive baselines (AC, ESC) at comparable accuracy, with System 1's own overhead negligible (well under 1% of total latency) and the method composable with orthogonal weighted-voting and path-pruning techniques.",
+      "title": "Seer Self-Consistency: Advance Budget Estimation for Adaptive Test-Time Scaling"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "DeepSeek-R1-Distill-Llama-8B",
   "related": [
     "overthinking",
@@ -323,7 +329,21 @@
     "seal-baseline",
     "gsm8k-hard",
     "aqua-rat",
-    "qwq-32b"
+    "qwq-32b",
+    "system-1-system-2-reasoning-dual-process-framing",
+    "advance-pre-execution-budget-estimation",
+    "confidence-weighted-answer-entropy",
+    "parallel-test-time-scaling-allocation",
+    "sequential-vs-parallel-latency-bottleneck",
+    "seer-self-consistency-seersc",
+    "self-consistency-sc-baseline",
+    "adaptive-consistency-ac-baseline",
+    "early-stopping-self-consistency-esc-baseline",
+    "chain-of-thought-cot-reference",
+    "confidence-weighted-majority-voting-orthogonality-check",
+    "path-pruning-orthogonality-check",
+    "qwen3-4b-thinking-and-non-thinking-modes",
+    "qwq-32b-generalizability-check-appendix"
   ],
   "related_authored": [],
   "schema_version": 1,

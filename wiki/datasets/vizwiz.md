@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AI2D](ai2d.md), [ChartQA](chartqa.md), [GQA](gqa.md), [LISA](lisa.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMMU](mmmu.md), [MMMU-Pro](mmmu-pro.md), [OK-VQA](ok-vqa.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [SAT](sat.md), [ScienceQA](scienceqa.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md)
+**Related**: [AI2D](ai2d.md), [ChartQA](chartqa.md), [GQA](gqa.md), [LISA](lisa.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMMU](mmmu.md), [MMMU-Pro](mmmu-pro.md), [OK-VQA](ok-vqa.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [SAT](sat.md), [ScienceQA](scienceqa.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md)
 
 ## Appears in
 

@@ -1,0 +1,59 @@
+{
+  "concepts": [
+    "stacked encryption jailbreak",
+    "reasoning-ability-induced vulnerability",
+    "cipher grouping (mechanism-similarity clustering)",
+    "gradient-bandit adaptive cipher selection",
+    "recovery rate (LRM decryption fidelity)",
+    "safety-aware zone / sweet spot in prompt complexity"
+  ],
+  "contributions": [
+    "an empirical demonstration that LRMs' enhanced chain-of-thought reasoning ability, while improving defense against simple jailbreak attempts, simultaneously introduces a novel vulnerability to complex, layered-encryption attacks that non-reasoning models are comparatively more resistant to",
+    "SEAL, a stacked-cipher jailbreak framework that composes multiple lightweight encryption schemes to place a harmful prompt in the 'grey area' between too-simple (detected and refused) and too-complex (undecryptable, producing irrelevant output)",
+    "a reinforcement-learning-based adaptive cipher-selection strategy (gradient-bandit over similarity-grouped cipher clusters, updated only on failure) that avoids the random strategy's overshoot into undecryptable complexity, sustaining effectiveness at greater cipher stack depths",
+    "state-of-the-art attack success rates against seven leading LRMs (up to 100% on some models) versus prior jailbreak baselines, plus a chain-of-thought token-count analysis linking specific failure phases to whether the model successfully decrypted-and-refused versus failed-to-decrypt-and-hallucinated"
+  ],
+  "datasets": [
+    "AdvBench (520 harmful-behavior prompts)",
+    "HarmBench (appendix)",
+    "StrongREJECT (appendix)"
+  ],
+  "generated_at": "2026-08-28T02:52:50Z",
+  "generated_by": "queue",
+  "limitations": "The paper's own analysis identifies a 'sweet spot' phenomenon -- attack effectiveness requires balancing encryption complexity against the target model's decryption/reasoning capability, and beyond a certain cipher-length plateau, increased prompt complexity becomes detrimental to attack success as the model's recovery rate degrades -- meaning SEAL's effectiveness is bounded and model-dependent rather than scaling indefinitely with more encryption layers. The method relies on LLM-as-a-judge (GPT-4o) to determine attack success with manual human-panel review to mitigate false positives, introducing a dependency on judge reliability that the paper mitigates but does not eliminate through this cross-validation step. Because SEAL is explicitly reactive/adaptive (updating its cipher-selection policy from the target model's own responses), it requires multiple queries per prompt to converge on an effective encryption combination, an inherent query-budget cost versus a single-shot attack, though the paper reports this converges in practice within its query budget across all evaluated models.",
+  "method": "Frames the goal as finding an encryption strategy that sits near the threshold of an LRM's reasoning capability -- complex enough to prevent the model's chain-of-thought decryption step from surfacing the harmful intent and triggering refusal, but not so complex that the model fails to decrypt it at all and cannot follow the instruction. SEAL builds a pool of eight lightweight ciphers (Custom, Caesar, Atbash, ASCII, HEX, Reverse-by-Word, Reverse-by-Character, Reverse-Each-Word), grouped by mechanism similarity (e.g. alphabet-based: Caesar/Atbash; encoding-based: ASCII/HEX; text-reversal: RW/RC/REW; user-defined: Custom) since ciphers within a group tend to have similar LRM decryption/jailbreak difficulty. A harmful prompt is stacked-encrypted through a chain of k sampled ciphers (Enc_K = {Enc_k1,...,Enc_kk}), wrapped in a DAN-style jailbreak header overriding system-level safety instructions, with a footer providing a step-by-step decryption guide (to help the model recover the original intent and format its response usefully) built from previously-recorded successful decryption methods. Two selection strategies are compared: Random (sample L ciphers without replacement, naive baseline) and Adaptive (a gradient-bandit reinforcement-learning policy over cipher groups, updated online from the target model's own responses). The adaptive policy samples a group per query with probability given by a softmax over each group's learned preference value S_t(g); when an attempt fails (query blocked or output irrelevant), it applies a purely negative reward proportional to how many ciphers from each group were included in the failed combination (no positive reward is given, since the method treats any successful jailbreak as an immediate stopping point rather than something to further optimize), decreasing that group's future selection probability; the cipher-list length grows adaptively (starting short, extending on repeated failure) with a correspondingly shrinking learning rate (alpha=1/K(g)) so that failure attribution stays reliable as combinations grow more complex. Repetition (executing each cipher-length configuration Q times, e.g. Q=3) is used to explore more combinations at a fixed length for more stable policy updates.",
+  "methods": [
+    "SEAL (Stacked Encryption for Adaptive Language reasoning model jailbreak)",
+    "gradient bandit algorithm (adaptive cipher-group selection)",
+    "PAIR / TAP (baseline)",
+    "GCG (baseline)",
+    "AutoDAN (baseline)",
+    "ReNeLLM (baseline)",
+    "encoding-based baselines (Arabic transliteration, Leetspeak, ROT13, Base64, Caesar shift, word reversal, LACE)"
+  ],
+  "models": [
+    "o1-mini",
+    "o4-mini",
+    "DeepSeek-R1",
+    "Claude 3.5 Sonnet",
+    "Claude 3.7 Sonnet",
+    "QwQ-32B",
+    "Gemini 2.0 Flash (H and M safety modes)"
+  ],
+  "one_liner": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.355",
+  "problem": "Large reasoning models' chain-of-thought reasoning improves task performance but the paper investigates whether this same reasoning capability also introduces novel and more complex safety vulnerabilities, since existing jailbreak attacks (token-level optimization like GCG, sentence-level rewriting like PAIR, template-based like ReNeLLM) mostly transfer poorly to LRMs because they reveal the harmful intent too explicitly, letting the model's strong reasoning ability detect and refuse it, while existing reasoning-exploiting jailbreaks either disperse unsafe intent across many conversational turns (vulnerable to state-space-based multi-turn detectors) or use a single, specifically-hand-designed complex cipher that becomes ineffective once safety alignment adapts to it (bulky, non-adaptive attack patterns).",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Only tangentially relevant: this is a safety red-teaming paper studying jailbreak vulnerability, not reasoning-trace length or overthinking mitigation, but its finding of a complexity 'sweet spot' -- attack success and the model's own decryption/recovery ability both peak at moderate cipher complexity and decline beyond it -- structurally parallels the accuracy-vs-reasoning-effort curves this archive studies for ordinary task difficulty, and its chain-of-thought token-count analysis (distinguishing failures from successful-decrypt-then-refuse versus failed-decrypt-then-hallucinate) is a specific, safety-relevant instance of a reasoning trace's length and outcome diverging in a way overthinking-adjacent diagnostics elsewhere in this archive (e.g. Self-Jailbreak, TRACE INVERSION) also examine."
+  },
+  "results": "On AdvBench's 520 harmful-behavior prompts, SEAL achieves attack success rates (ASR) of 85.6%, 90.4%, 89.6%, 87.2%, and 84.8% on o4-mini, o1-mini, Claude 3.7 Sonnet, Claude 3.5 Sonnet, and Gemini 2.0 Flash (M) respectively, and 100% ASR on both Gemini 2.0 Flash (H) and DeepSeek-R1 -- consistently and significantly outperforming seven baseline jailbreak methods (PAIR, TAP, GCG, Arabic transliteration, Leetspeak, ROT13, Base64, Caesar shift, word reversal, LACE, AutoDAN, ReNeLLM) across all target models, e.g. SEAL-adaptive reaches 85.6% on o4-mini versus the strongest baseline (LACE)'s 20.8% and AutoDAN's 68.4%. A controlled comparison of Claude 3.7 Sonnet's reasoning-enabled vs. reasoning-disabled mode shows a clear complexity-dependent pattern: in both modes, increasing stacked-cipher length (1 to 6) consistently decreases recovery rate (the model's ability to decode and understand the original harmful intent), but attack success rate follows a divergent, non-monotonic trend -- ASR rises with cipher length, peaks, then declines, and critically the ASR peak is both delayed (shifting from cipher length 2 to length 3) and higher (exceeding 70%) in reasoning mode versus non-reasoning mode, with reasoning-mode ASR remaining consistently higher than non-reasoning-mode ASR from cipher length 2 onward -- direct evidence that while reasoning capability helps LRMs defend against simpler unsafe prompts, it simultaneously increases their vulnerability to more complex, encrypted attacks, revealing a genuine safety risk introduced by stronger instruction-following/reasoning ability rather than merely a fixed exploit. Across the full seven-model evaluation, the random and adaptive strategies show a similar initial trend (largely unsuccessful at cipher length 1, a sharp ASR increase of ~50-60 points with one additional layer, continued moderate increase to length 3) but diverge from length 4 onward: the random strategy becomes overly complex for target models to decipher, causing a significant ASR drop, while the adaptive strategy maintains effectiveness and continues achieving successful jailbreaks, peaking at cipher length 6 -- confirming the RL-guided group selection specifically avoids overshooting into the too-complex-to-decrypt regime that dooms the naive random baseline. Chain-of-thought token-count analysis (o4-mini, Claude 3.7 Sonnet) on failed jailbreak attempts shows the two models display different thinking patterns before and after their point of maximum thinking-token usage: before that point, failures were mostly because the model successfully deciphered and refused to answer the malicious intent; after that point, failures were mostly because the model hallucinated, failed to decrypt the original prompt correctly, and gave unrelated answers -- directly confirming SEAL is designed to find the 'grey area' where prompt complexity is high enough to bypass safety instructions but still low enough to elicit a relevant response. Transferability evaluation (encoding-based methods evaluated against o4-mini/DeepSeek-R1 without model-specific tuning) shows SEAL substantially outperforms all compared single-cipher and existing encoding-based attacks (34.3%/58.1% vs. the next-best LACE's 23.8%/42.9%), evidence its stacked, adaptively-composed encryption transfers better across models than any single fixed cipher scheme.",
+  "schema_version": 1,
+  "tags": [
+    "jailbreak",
+    "safety-red-teaming",
+    "reasoning-vulnerability",
+    "reinforcement-learning",
+    "adversarial-robustness"
+  ]
+}

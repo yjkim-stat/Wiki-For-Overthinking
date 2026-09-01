@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.574",
+      "kind": "paper",
+      "note": "MetaScale is a test-time-scaling framework that has an LLM select and iteratively evolve 'meta-thoughts' (a cognitive mindset plus a problem-solving strategy, initialized from self-composed heuristics and retrieved WildChat conversation patterns) via a multi-armed-bandit UCB selection process guided by a reward model, periodically refined by a genetic algorithm that evolves high-reward meta-thoughts into improved child strategies -- outperforming Best-of-N and CoT+Best-of-N baselines on Arena-Hard/MMLU-Pro/GSM8K, beating o1-mini under style control, and scaling more effectively with increased sampling budget than Best-of-N (which plateaus).",
+      "title": "MetaScale: Test-Time Scaling with Evolving Meta-Thoughts"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "method",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "MetaScale (MAB-selected + genetically-evolved meta-thoughts)",
+  "related": [
+    "meta-thinking",
+    "meta-thought-cognitive-mindset-problem-solving-strategy",
+    "multi-armed-bandit-selection-ucb",
+    "genetic-meta-thought-evolution",
+    "test-time-scaling-strategy-level-not-just-sample-level",
+    "best-of-n-baseline",
+    "chain-of-thought-cot-baseline",
+    "self-discover-with-best-of-n-baseline",
+    "upper-confidence-bound-ucb",
+    "skywork-reward-llama-3-1-8b-v0-2-reward-model",
+    "gsm8k",
+    "mmlu-pro",
+    "arena-hard",
+    "wildchat-meta-thought-initialization-source",
+    "gpt-4o-gpt-4o-0806",
+    "llama-3-1-8b-instruct"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "metascale-mab-selected-genetically-evolved-meta-thoughts",
+  "topics": [
+    "overthinking"
+  ]
+}

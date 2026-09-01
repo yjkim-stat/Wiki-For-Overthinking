@@ -1,0 +1,138 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-215.pdf"
+  },
+  "completed_at": "2026-08-28T02:45:42Z",
+  "created_at": "2026-08-28T02:36:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.215",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Vision-Language Models (LVLMs) have exhibited strong reasoning capabilities through chain-of-thought mechanisms that generate step-by-step rationales. However, such slow-thinking approaches often lead to overthinking, where models produce excessively verbose responses even for simple queries, resulting in test-time inefficiency and even degraded accuracy. Prior work has attempted to mitigate this issue via adaptive reasoning strategies, but these methods largely overlook a fundamental bottleneck: visual perception failures. We argue that stable reasoning critically depends on low-level visual grounding, and that reasoning errors often originate from imperfect perception rather than insufficient deliberation. To address this limitation, we propose Gated Perception-Reasoning Optimization (GPRO), a meta-reasoning controller that dynamically routes computation among three decision paths at each generation step: a lightweight fast path, a slow perception path for re-examining visual inputs, and a slow reasoning path for internal self-reflection. To learn this distinction, we derive large-scale failure attribution supervision from approximately 790k samples, using teacher models to distinguish perceptual hallucinations from reasoning errors. We then train the controller with multi-objective reinforcement learning to optimize the trade-off between task accuracy and computational cost under uncertainty. Experiments on five benchmarks demonstrate that GPRO substantially improves both accuracy and efficiency, outperforming recent slow-thinking methods while generating significantly shorter responses.",
+    "authors": [
+      "Xingjian Diao",
+      "Zheyuan Liu",
+      "Chunhui Zhang",
+      "Weiyi Wu",
+      "Keyi Kong",
+      "Lin Shi",
+      "Kaize Ding",
+      "Soroush Vosoughi",
+      "Jiang Gui"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "adaptive reasoning"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.215.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5714
+    },
+    "title": "Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization",
+    "url": "https://aclanthology.org/2026.findings-acl.215/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking (in vision-language models)",
+      "visual perception failure vs. reasoning error",
+      "Gated Perception-Reasoning (GPR) module",
+      "meta-reasoning controller",
+      "multi-objective PPO training",
+      "calibration reward"
+    ],
+    "contributions": [
+      "a large-scale (~790K-sample) failure-attribution study showing visual perception failures cause more than twice as many incorrect LVLM predictions as reasoning errors across model scales, identifying perception as a critical but largely overlooked bottleneck for adaptive-reasoning methods that focus solely on reasoning depth",
+      "Gated Perception-Reasoning Optimization (GPRO), a token-level routing framework that dynamically allocates computation among a fast default path, a slow visual re-examination path (cross-attention over image features), and a slow reasoning/self-reflection path via a lightweight learned meta-reasoning controller",
+      "a multi-objective PPO training reward combining task accuracy, a cost penalty discouraging unnecessary slow-path activation, and a calibration reward aligning the controller's uncertainty signal with actual task difficulty, shown via ablation to be necessary to avoid both indiscriminate fast-path underthinking and wasteful slow-path overthinking",
+      "state-of-the-art accuracy-efficiency trade-off across five multimodal reasoning benchmarks and two model scales, competitive with or exceeding much larger closed-source models, with a demonstrated critique (via comparison to R1-OneVision) that unconditional long-CoT reasoning for every query can introduce noise rather than benefit, and qualitative evidence the learned controller's routing is semantically sensible (perception re-examination at high-information visual tokens, reasoning refinement at logical connectives)"
+    ],
+    "datasets": [
+      "ViRL39k",
+      "MathV360K",
+      "Mulberry (training corpus sources for failure mining)",
+      "MathVision",
+      "MathVerse",
+      "MathVista",
+      "DynaMath",
+      "MM-Vet"
+    ],
+    "limitations": "GPRO's failure-attribution supervision relies on GPT-4-based labeling to distinguish perceptual from reasoning errors, so the quality of the routing signal depends on that teacher model's judgment reliability, and GPT-generated attributions may contain ambiguities especially in cases where perception and reasoning errors are closely intertwined and not cleanly separable. GPRO adopts a discrete routing scheme over a fixed set of three computation paths, rather than a more finely graduated or continuous resource-allocation mechanism, which the paper explicitly flags as an area for future exploration (finer-grained routing).",
+    "method": "First runs a large-scale error-attribution study: mines ~790K incorrect predictions from Qwen2.5-VL across multiple multimodal reasoning benchmarks (ViRL39k, MathV360K, Mulberry), then uses GPT-4 to categorize each failure as either a visual perception failure (the error traces to misinterpretation of visual elements) or a reasoning error (visual understanding is correct but logical steps are flawed) based on the question, image, incorrect answer, and ground truth -- finding perception failures occur more than twice as often as reasoning errors across all evaluated model scales (3B/7B/32B). Builds Gated Perception-Reasoning Optimization (GPRO): a Gated Perception-Reasoning (GPR) module replaces selected feed-forward layers at alternating positions in the Transformer decoder (preserving the base model's foundational representational power at other layers). Each GPR module contains a compact 2-layer Transformer meta-reasoning controller that, at every decoding timestep, receives a state vector s_t = [h_t; U_t; V_g] concatenating the current decoder hidden state, an uncertainty score U_t (predictive entropy over output logits, quantifying next-token confidence), and global image features V_g, and outputs a discrete routing decision among three paths: Fast Path (the base model's original FFN, the default low-cost option used when the model is confident in both perception and reasoning); Slow Perception Path (cross-attention using the current hidden state as query over local visual features, activated when perceptual uncertainty is high, letting the model re-examine image details relevant to the current generation step); Slow Reasoning Path (a meta-reasoning transformation module passing the hidden state and recent context, engaged when logical uncertainty is high, supporting internal self-reflection to reconsider the reasoning trajectory without emitting additional output tokens). The controller is trained via PPO with a multi-objective reward R(tau) = R_task + alpha_c*R_cost + alpha_l*R_cal: R_task is a sparse +1/0 correctness signal; R_cost penalizes activation of the computationally expensive slow paths (encouraging fast-path reliance when extra computation is unnecessary); R_cal (calibration reward) explicitly rewards the uncertainty score for being high on tokens leading to incorrect answers and low on tokens leading to correct ones, aligning the controller's confidence signal with actual task difficulty so it learns *when* slow paths are genuinely needed rather than defaulting to either indiscriminate fast-path usage (underthinking) or wasteful slow-path activation (overthinking). Training data is a curriculum oversampling difficult examples from the GPT-4-labeled failure-attribution corpus (~40K samples for the 3B model, ~30K for the 7B, reflecting the larger model's stronger base capability requiring less corrective training).",
+    "methods": [
+      "Gated Perception-Reasoning Optimization (GPRO)",
+      "GPT-4-based failure attribution (perception vs. reasoning)",
+      "PPO (multi-objective reward)",
+      "Mulberry (baseline)",
+      "Virgo (baseline)",
+      "Curr-ReFT (baseline)",
+      "LMM-R1 (baseline)",
+      "MM-R1 (baseline)",
+      "Vision-R1 (baseline)",
+      "R1-OneVision (baseline)",
+      "OpenVLThinker (baseline)",
+      "FAST (baseline)"
+    ],
+    "models": [
+      "Qwen2.5-VL-3B",
+      "Qwen2.5-VL-7B",
+      "Qwen2-VL-7B",
+      "GPT-4o (reference)",
+      "Claude-3.5 Sonnet (reference)",
+      "Qwen-VL-Max (reference)"
+    ],
+    "one_liner": "GPRO diagnoses that visual perception failures (not reasoning errors) cause over twice as many incorrect predictions across model scales in vision-language models, then routes each generated token through one of three paths -- a fast FFN, a slow cross-attention perception path for re-examining the image, or a slow self-reflection reasoning path -- via a lightweight meta-reasoning controller trained with PPO on a multi-objective reward (task accuracy, path-cost penalty, and an uncertainty-calibration term derived from ~790K GPT-4-labeled perception-vs-reasoning failure attributions); GPRO-7B matches/beats far larger closed models and long-CoT distillation baselines while cutting response length up to 51.5%, activating slow paths sparsely (73% Fast/17% Perception/10% Reasoning) and correctly, targeting perception re-examination at high-frequency visual tokens and reasoning refinement at logical connectives.",
+    "problem": "Large vision-language models (LVLMs) overthink -- producing excessively verbose chain-of-thought responses even for simple queries, incurring test-time inefficiency and sometimes degraded accuracy through unnecessary elaboration -- in two documented patterns (redundant explanatory text restating obvious visual information, and unnecessary multi-step reasoning chains for problems that primarily require direct visual recognition); prior adaptive-reasoning mitigations overlook a fundamental bottleneck: a substantial fraction of LVLM errors originate from visual perception failures (misinterpreting key visual cues before reasoning even begins) rather than faulty deliberation, and these perceptual errors are unlikely to be corrected by additional reasoning alone, since existing methods focus exclusively on reasoning depth with no mechanism to trigger dedicated visual re-analysis.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly and centrally relevant: it names overthinking explicitly in a multimodal setting and contributes a mechanistic reframing largely absent from the text-only overthinking literature elsewhere in this archive -- that a large share of 'overthinking' in vision-language models is actually a mismatched response to a perception failure, not a reasoning failure, so extending deliberation without also re-examining the visual input cannot fix it. Its calibration-reward ablation gives a clean, quantified account of the same overthinking/underthinking dichotomy (indiscriminate fast-path vs. wasteful slow-path activation) other papers in this archive describe for text-only reasoning, and its finding that a long-CoT distillation baseline (R1-OneVision) can consume far more tokens while underperforming a selectively-gated alternative is a direct, multimodal instance of this archive's central thesis that unconditional extended reasoning does not reliably improve outcomes."
+    },
+    "results": "Across five multimodal reasoning benchmarks (MathVision, MathVerse, MathVista, DynaMath, MM-Vet), GPRO consistently redefines the efficiency-accuracy Pareto frontier versus both base models and recent slow-thinking baselines (Mulberry, Virgo, Curr-ReFT, LMM-R1, MM-R1, Vision-R1, R1-OneVision, OpenVLThinker, FAST): GPRO-7B improves MathVerse accuracy by 1.8% over base Qwen2.5-VL-7B while cutting average response length 51.5% (388.9->188.4 tokens), and on MathVista shows a 6.0% accuracy gain alongside a 39% token reduction -- directly confirming the paper's core hypothesis that response length and accuracy are not strictly proportional, so intelligent resource allocation can mitigate overthinking rather than merely trading accuracy for brevity. GPRO-7B shows resilience against closed-source models orders of magnitude larger: on MathVision it outperforms GPT-4o (31.2% vs. 30.4%), and on MathVista it matches Qwen-VL-Max (74.2%). Critique of unconditional long-CoT reasoning: R1-OneVision consumes extreme token counts (692.8 on MathVision) yet often underperforms GPRO-7B (29.9% vs. 31.2%), evidence that forcing extensive reasoning for every query can introduce noise or hallucination rather than clarity, whereas GPRO's selective activation achieves a ~3.5x inference-cost reduction versus R1-OneVision while surpassing its accuracy. GPRO scales consistently across model sizes: GPRO-3B outperforms the strong FAST-3B baseline on 4 of 5 benchmarks and substantially improves over base Qwen2.5-VL-3B (+9.6% on MathVerse), indicating the perception-reasoning decomposition is a fundamental improvement rather than a parameter-scale-dependent effect. Component ablations (MathVision/MathVerse, 7B model) show removing the Slow Perception Path causes the largest accuracy drop (-3.4%/-4.4%), the largest of any single ablated component, empirically validating that visual hallucinations/misperception are the primary bottleneck the paper set out to address; removing the Slow Reasoning Path causes a smaller drop (-1.7% on both benchmarks) but is still consistently beneficial, contributing an improvement by enabling self-correction during multi-step derivations, though its comparatively lower relative impact suggests the base Qwen2.5 model already possesses reasonably robust inherent reasoning, so additional deliberation gives diminishing returns unless grounded in accurate visual data; removing the Calibration Reward causes a substantial performance drop (2.3-2.5%), and without it the controller collapses into either indiscriminate fast-path usage (underthinking) or wasteful slow-path activation (overthinking), confirming the calibration reward is what regularizes the decision boundary so slow-path computation is incurred only when uncertainty is genuinely indicative of potential failure. Resource-allocation-dynamics analysis on the MathVision test set shows GPRO-7B activates the Fast Path for 73% of tokens, with Slow Perception (17%) and Slow Reasoning (10%) activated sparsely -- a highly skewed distribution confirming the model learned a resource-efficient policy treating slow thinking as a surgical, selective intervention rather than a default mode; qualitative inspection shows Slow Perception is triggered predominantly on high-frequency visual tokens (numbers in tables, coordinates, legend text) while Slow Reasoning activates specifically during transitional logical connectives (e.g. 'therefore', 'implies'), demonstrating semantic awareness in the learned controller's routing decisions. Two qualitative case studies (an animal-size-ordering visual task, and a 3D spatial-reasoning cube-counting task) show GPRO producing correct, substantially shorter outputs than the base model by predominantly relying on the Fast Path for tasks that are primarily visual-perceptual, and selectively invoking Slow Perception (for accurately interpreting complex visual structure) followed by Slow Reasoning (for verifying counting logic) only where genuinely needed.",
+    "tags": [
+      "overthinking",
+      "vision-language-models",
+      "multimodal",
+      "reinforcement-learning",
+      "adaptive-computation",
+      "perception-reasoning-decomposition"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-215",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

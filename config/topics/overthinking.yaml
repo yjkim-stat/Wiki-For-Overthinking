@@ -130,7 +130,16 @@ seed_papers: []
 
 # Items scoring below this are recorded in the index but never summarized.
 # Omit to use `score.default_min_score` from settings.yaml.
-min_score: 0.35
+#
+# Raised 2026-09-01 from 0.35 to a "must-read" bar. The score is keyword
+# density, not attention or citation count -- this pipeline collects neither
+# -- so "raise the bar" can only mean "require the paper's own words to say
+# more of this". At 0.35 a single title-keyword hit was already enough (one
+# hit -> 0.5); calibrated against the 1,347 items already scored for this
+# topic, 0.6 keeps the top ~4.5% (61 papers) instead of the top ~33% (443) --
+# roughly two title hits, or one title hit backed by several abstract hits,
+# rather than one glancing mention.
+min_score: 0.6
 
 # ---------------------------------------------------------------------------
 # Sources

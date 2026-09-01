@@ -1,0 +1,58 @@
+{
+  "concepts": [
+    "knowledge-graph-grounded reasoning trace",
+    "minimum-hop path extraction",
+    "factual simple test-time scaling (fs1)",
+    "pass@k as an upper-bound metric"
+  ],
+  "contributions": [
+    "fs1, a method for grounding distilled LLM reasoning traces in minimum-hop knowledge-graph paths before fine-tuning, rather than fine-tuning on raw distilled traces",
+    "a demonstration that fs1-tuned models improve factual accuracy 6-14 pass@16 points over instruction-tuned baselines across six multi-hop QA benchmarks, with gains concentrated on harder (3+-hop) questions",
+    "two ablations isolating the source of the gain: near-zero train/test overlap rules out leakage, and near-identical performance across two different teacher models (QwQ-32B vs. DeepSeek-R1) shows KG grounding, not teacher strength, drives the improvement",
+    "release of 3.4K raw and 3.9K KG-enhanced reasoning traces and eight fine-tuned models spanning 0.36B-32B parameters"
+  ],
+  "datasets": [
+    "ComplexWebQuestions (CWQ)",
+    "ExaQT",
+    "GrailQA",
+    "SimpleQA",
+    "Mintaka",
+    "WebQSP"
+  ],
+  "generated_at": "2026-09-01T10:04:07Z",
+  "generated_by": "queue",
+  "limitations": "The paper explicitly notes it assumes conditioning on KG paths improves reasoning-trace accuracy but does not guarantee every intermediate step is correct. Entity-answer evaluation is inherently difficult (exact string match fails on paraphrases/units), mitigated but not fully solved by LLM-as-a-judge, which carries its own limitations. Some test benchmarks are relatively old and English-only, with no control over whether their content appeared in the base models' pretraining data. pass@k is explicitly an upper-bound metric requiring an additional selection mechanism (e.g. majority voting, a verifier) for practical deployment; the paper does not implement or evaluate one. At the sub-billion parameter scale, fine-tuning benefits do not generalize uniformly across model families (SmolLM2-360M shows a -15.9% degradation on GrailQA despite gains elsewhere).",
+  "method": "Distills reasoning traces from QwQ-32B and DeepSeek-R1 on ComplexWebQuestions (rt: 3.4K correct-only traces), then constructs fs1 by additionally conditioning the trace-generation prompt on minimum-hop knowledge-graph paths (extracted from Wikidata via SPARQL, subject-relation-object linearized graphs) connecting the question entities to the gold answer -- producing 3.9K KG-grounded reasoning traces. Fine-tunes eight Qwen2.5-Instruct/SmolLM2 models (0.36B-32B) via standard SFT on rt or fs1, then evaluates zero-shot on six multi-hop QA benchmarks (23.9K questions total: CWQ, ExaQT, GrailQA, SimpleQA, Mintaka, WebQSP) using pass@k (k up to 16) as an upper-bound test-time-scaling metric, judged by Llama-3.3-70B-as-a-judge.",
+  "methods": [
+    "fs1 (KG-path-grounded reasoning-trace fine-tuning)",
+    "rt (raw distilled reasoning traces, baseline)",
+    "supervised fine-tuning",
+    "pass@k evaluation",
+    "LLM-as-a-judge (entity-alignment factuality scoring)"
+  ],
+  "models": [
+    "Qwen2.5-Instruct (0.5B-32B)",
+    "SmolLM2 (360M, 1.7B)",
+    "QwQ-32B (teacher)",
+    "DeepSeek-R1 (teacher)",
+    "Qwen2.5-72B-Instruct (baseline)",
+    "o3-mini (baseline)",
+    "R1-70B (baseline)"
+  ],
+  "one_liner": "fs1 fine-tunes LLMs on reasoning traces grounded in knowledge-graph paths (rather than raw distilled reasoning traces), improving factual accuracy on complex multi-hop QA by 6-14 pass@16 points while also producing shorter reasoning traces than the ungrounded baseline.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.561",
+  "problem": "It is unclear whether LLM 'thinking'/reasoning traces, which improve performance on math and puzzle tasks via test-time compute, actually improve factual accuracy on complex multi-hop open-domain QA, since reasoning traces distilled from large reasoning models carry no guarantee of being factually correct along the way.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Loosely relevant but instructive: this is a factuality paper, not an efficiency paper, yet it reports as an incidental finding that its factually-grounded reasoning traces (fs1) are consistently *shorter* than the ungrounded baseline (rt) while also being more accurate -- a concrete data point for the claim (made elsewhere in this archive) that longer reasoning is not the same as better-grounded reasoning, and that anchoring reasoning to external verifiable structure (here, a knowledge graph) can substitute for raw trace length as a route to correctness."
+  },
+  "results": "With parallel sampling (pass@16), fs1-tuned Qwen2.5-32B consistently outperforms its instruction-tuned counterpart by 6-14 absolute accuracy points across the six benchmarks, and outperforms the rt (KG-ungrounded reasoning trace) variant too. fs1's advantage grows with question difficulty: on questions requiring 3+ hops, fs1 shows the largest relative improvement, while on 1-2 hop questions fs1's improvement is smaller than the baselines'. At single-pass (pass@1) accuracy, fine-tuning benefits are far more pronounced for smaller models (e.g. Qwen2.5-0.5B improves relative WebQSP accuracy by +74.6% with fs1) than larger ones (32B models show only modest single-digit-to-low-teens relative gains, and sometimes slight degradation on individual benchmarks). Two controlled ablations rule out confounds: (Finding 5.1) near-zero training/test data overlap (cosine similarity, exact match) shows the gain is not data leakage; (Finding 5.2) fine-tuning on fs1 traces sourced from QwQ-32B versus from DeepSeek-R1 (685B) yields almost identical downstream performance, showing the gain comes from KG grounding itself rather than from a stronger teacher model. Reasoning-trace-length statistics show fs1 traces are typically shorter than rt traces (e.g. median subwords 496 vs. 635 for DeepSeek-R1-sourced traces), despite being more factually accurate by exact-match/semantic-match/LLM-judge criteria (e.g. LLM-as-Judge factual accuracy 0.49 for rt vs. 0.65 for fs1, aggregated).",
+  "schema_version": 1,
+  "tags": [
+    "factuality",
+    "knowledge-graph",
+    "reasoning-trace-grounding",
+    "test-time-scaling",
+    "multi-hop-QA"
+  ]
+}

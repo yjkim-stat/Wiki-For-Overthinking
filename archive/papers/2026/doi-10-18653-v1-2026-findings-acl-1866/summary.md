@@ -46,7 +46,7 @@ The predictor requires access to the target LLM's internal hidden states (to con
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), budget guidance (classifier-guidance analog for LLM reasoning), budget-conditional generation, auxiliary thinking-length predictor, Gamma-distributed remaining-length modeling, soft token-level steering vs. hard budget forcing
-- **Methods**: budget guidance (classifier-guidance-inspired), budget forcing (baseline), [NoThinking (baseline)](../../../../wiki/methods/nothinking-baseline.md), Chain-of-Draft (baseline), TALE-EP (baseline), SEAL (baseline), Dynasor (baseline)
+- **Methods**: budget guidance (classifier-guidance-inspired), budget forcing (baseline), [NoThinking (baseline)](../../../../wiki/methods/nothinking-baseline.md), [Chain-of-Draft (baseline)](../../../../wiki/methods/chain-of-draft-baseline.md), TALE-EP (baseline), [SEAL (baseline)](../../../../wiki/methods/seal-baseline.md), [Dynasor (baseline)](../../../../wiki/methods/dynasor-baseline.md)
 - **Datasets**: OpenR1-Math-220k (training), [MATH-500](../../../../wiki/datasets/math500.md), [AIME-2024](../../../../wiki/datasets/aime-2024.md), [AMC](../../../../wiki/datasets/amc.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), FOLIO, TableBench, [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `overthinking`, `budget-control`, `inference-time-steering`, `training-free`, `reasoning-length`

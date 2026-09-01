@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [Latent reasoning](../concepts/latent-reasoning.md), [logit lens](../methods/logit-lens.md), [Overthinking](../concepts/overthinking.md), [QwQ-32B](qwq-32b.md)
+**Related**: [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [Latent reasoning](../concepts/latent-reasoning.md), [logit lens](../methods/logit-lens.md), [Nemotron-32B](nemotron-32b.md), [Overthinking](../concepts/overthinking.md), [QwQ-32B](qwq-32b.md)
 
 ## Appears in
 

@@ -9,7 +9,7 @@ DeepSeek-V3 is used in these sources as one of many evaluated LRMs/LLMs rather t
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [DeepSeek-R1](deepseek-r1.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [Grok-3](grok-3.md), [GSM8K](../datasets/gsm8k.md), [Kimi-k1.5](kimi-k1-5.md), [MATH](../datasets/math.md), [o1](o1.md), [o3-mini](o3-mini.md), [Omni-MATH](../datasets/omni-math.md), [OpenAI o1-mini](openai-o1-mini.md), [Qwen3-Max](qwen3-max.md), [s1-32B](s1-32b.md)
+**Related**: [Claude-Sonnet-4](claude-sonnet-4.md), [DeepSeek-R1](deepseek-r1.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [Grok-3](grok-3.md), [GSM8K](../datasets/gsm8k.md), [Kimi-k1.5](kimi-k1-5.md), [MATH](../datasets/math.md), [o1](o1.md), [o3-mini](o3-mini.md), [Omni-MATH](../datasets/omni-math.md), [OpenAI o1-mini](openai-o1-mini.md), [Qwen3-Max](qwen3-max.md), [s1-32B](s1-32b.md)
 
 ## Appears in
 

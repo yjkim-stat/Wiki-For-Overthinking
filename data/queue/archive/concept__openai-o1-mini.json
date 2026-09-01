@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+        "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "BloomEval maps each step of an LRM's reasoning trace onto Bloom's six-level cognitive taxonomy (Remember through Create) via a Cognitive Hierarchy Trace (CHT), defining structural anomalies -- hierarchy break (reasoning never reaches the required cognitive level), hierarchy jump (skipping intermediate levels), and overthinking (invoking cognitive operations exceeding what the task needs) -- and finds these anomalies are common even in *correct* answers (e.g. Grok-3 shows a 0.185 hierarchy-jump rate on correct answers), demonstrating that answer accuracy alone cannot detect incoherent or wasteful reasoning structure.",
+        "title": "BloomEval: A Bloom’s Cognitive Taxonomy-Based Benchmark for Evaluating LRMs via Cognitive Hierarchy Trace",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-28T02:42:05Z",
+  "created_at": "2026-08-28T02:36:35Z",
+  "instructions": "Write the wiki definition for 'OpenAI o1-mini'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "OpenAI o1-mini",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "OpenAI o1-mini",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "OpenAI o1-mini is used in these sources as a reference reasoning model for comparison: Guided by Gut reports its calibrated-confidence tree-search method with a 1.5B-7B model matching or exceeding o1-mini's accuracy on AIME24 at a fraction of the compute, and BloomEval evaluates o1-mini among the LRMs scored under its Cognitive Hierarchy Trace framework, where structural anomalies including overthinking are found even in correct answers.",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__openai-o1-mini",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

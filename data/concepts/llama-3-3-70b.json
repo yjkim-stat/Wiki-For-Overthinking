@@ -1,5 +1,8 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Llama-3.3-70B",
+    "LLaMA-3.3-70B"
+  ],
   "definition": "Llama 3.3 70B is used in these sources as an evaluated LLM: the cross-cultural-measurement-systems study finds it (like other large models) suffers accuracy drops when queried in a non-default (non-Western) measurement system, and that chain-of-thought reasoning stabilizes accuracy back toward the default level but at 180-300% more test-time compute -- a cost that disproportionately burdens users outside the model's default cultural context; VecCISC also evaluates on Llama 3.3 70B among its five models.",
   "evidence": [
     {
@@ -13,11 +16,23 @@
       "kind": "paper",
       "note": "VecCISC reduces the cost of Confidence-Informed Self-Consistency (CISC) -- which needs a separate critic-LLM call on every sampled reasoning trace to weight majority voting -- by embedding traces, clustering them per candidate answer, and sending only cluster-representative (nearest-centroid) traces to the critic, cutting critic calls 30-35% and total pipeline token usage 47% while matching or exceeding CISC's accuracy across five models and five datasets.",
       "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2103",
+      "kind": "paper",
+      "note": "Using a controlled 1D-cellular-automata benchmark with disjoint train/test rule sets (precluding memorization), this paper shows models can genuinely infer unseen local rules but fixed-depth architectures collapse sharply beyond one-step-ahead prediction, that most frontier LLMs (except Gemini-2.5-Pro) fail even the simplest natural-language proxy of this task, and that depth -- not width -- is what drives multi-step accuracy, with chain-of-thought-style token-level supervision reaching near-perfect accuracy up to 4 look-ahead steps while RL (GRPO) without intermediate supervision reaches only 3 steps and architectural depth-extension tricks (ACT, recurrent memory) each add only about one effective step.",
+      "title": "Beyond Memorization: Extending Reasoning Depth with Recurrence, Memory and Test-Time Compute Scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.417",
+      "kind": "paper",
+      "note": "Introduces the Anytime Index, an AUC-style metric quantifying how solution quality improves as reasoning-token budget increases, and Preference Data Prompting (PDP), an inference-time self-improvement method using self-generated contrastive reasoning pairs at fixed token budgets, giving consistent gains across seven LLM families on trip planning, math, and scientific QA.",
+      "title": "Budget-Aware Anytime Reasoning with LLM-Synthesized Preference Data"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "Llama 3.3 70B",
   "related": [
     "measurement-system-default-bias",
@@ -52,7 +67,44 @@
     "mmlu-pro",
     "gpqa",
     "gpt-4o-mini",
-    "mistral-7b-v0-1"
+    "mistral-7b-v0-1",
+    "effective-depth-of-a-reasoning-model",
+    "rule-induction-vs-memorization",
+    "look-ahead-depth-of-reasoning",
+    "adaptive-computation-time-act",
+    "associative-recurrent-memory-transformer-armt",
+    "grpo-without-intermediate-supervision",
+    "token-level-chain-of-thought-supervision",
+    "adaptive-computation-time-act-layer-level-and-model-level",
+    "grpo-rl-without-intermediate-supervision",
+    "token-level-chain-of-thought-supervision-orbit-orbit-training",
+    "1dca-reasoning-new-cellular-automata-orbits-disjoint-train-test-rules",
+    "handsup-new-natural-language-proxy-task",
+    "group-multiplication-benchmark-corroborating-check-appendix",
+    "gpt-neox-trained-from-scratch",
+    "lstm-trained-from-scratch",
+    "mamba-trained-from-scratch",
+    "armt-trained-from-scratch",
+    "gemini-2-5-pro",
+    "gemini-2-5-flash",
+    "nemotron-32b",
+    "nemotron-7b",
+    "anytime-reasoning",
+    "anytime-index-auc-style-quality-per-token-metric",
+    "preference-data-prompting-pdp",
+    "budget-specific-contrastive-preference-pairs",
+    "anytime-index",
+    "leap-in-context-principle-learning-from-mistakes-baseline",
+    "standard-chain-of-thought-prompting-baseline",
+    "naturalplan-trip",
+    "aime-2024",
+    "gpqa-diamond",
+    "grok-3",
+    "grok-3-mini",
+    "gpt-oss-120b",
+    "gpt-oss-20b",
+    "gpt-4-1",
+    "gpt-4o"
   ],
   "related_authored": [],
   "schema_version": 1,

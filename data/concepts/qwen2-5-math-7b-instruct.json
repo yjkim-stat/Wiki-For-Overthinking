@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "ThinkBooster is a unified, open-source framework (Python library + OpenAI-compatible proxy endpoint + visual debugger) implementing 9 test-time-compute scaling strategies and 4 scorer families under a joint TFLOPs-and-tokens compute-accounting benchmark, whose pilot study finds PRM scorers dominate on math while lightweight uncertainty scorers are surprisingly competitive on (out-of-domain-for-PRM) coding tasks, and that beam search often underperforms best-of-N and even self-consistency despite costing more compute.",
       "title": "ThinkBooster: A Unified Framework for Seamless Test-Time Scaling of LLM Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.331",
+      "kind": "paper",
+      "note": "SELECT2REASON selects the top 10% of a large long-CoT instruction pool for SFT by jointly ranking questions on a learned difficulty score and (deduplicated) reasoning-trace length, matching or beating models trained on 8-94x more data.",
+      "title": "Select2Reason: Efficient Instruction-Tuning Data Selection for Long-CoT Reasoning"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-27T23:27:33Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "Qwen2.5-Math-7B-Instruct",
   "related": [
     "linguistic-generalizability-of-test-time-scaling",
@@ -64,7 +70,27 @@
     "kernelbench",
     "qwen3-8b",
     "gpt-oss-120b",
-    "qwen3-30b-a3b-usage-example"
+    "qwen3-30b-a3b-usage-example",
+    "rethinking-tokens",
+    "difficulty-aware-reward-model",
+    "joint-ranker-for-instruction-utility",
+    "reasoning-trace-normalization-deduplication",
+    "difficulty-aware-reward-model-as-judge",
+    "reasoning-trace-length-based-selection",
+    "weighted-joint-ranker",
+    "supervised-fine-tuning",
+    "openr1-math-220k",
+    "chinese-deepseek-r1-distill-data-110k",
+    "amc23",
+    "gaokao-2023-2024",
+    "gaokao-math",
+    "kaoyan",
+    "zebralogic",
+    "gpqa",
+    "qwen2-5-3b-instruct",
+    "llama-3-1-8b-instruct",
+    "deepseek-r1-distill-qwen-7b-baseline",
+    "openr1-qwen-7b-baseline"
   ],
   "related_authored": [],
   "schema_version": 1,

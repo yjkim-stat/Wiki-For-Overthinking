@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "DeepSeek-R1-Distilled models (comparison)"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "ARISE combines Monte Carlo Tree Search with a Bayesian Risk-Value function -- estimating each reasoning-state node's risk from the policy model's own likelihood of regenerating the original question given that state -- to guide retrieval-augmented multi-hop reasoning, outperforming SOTA knowledge-augmented-reasoning baselines by up to 23.10% and RAG-equipped DeepSeek-R1-distilled LRMs by up to 25.37%, while making explicit that its search-based gains come at substantially higher inference-time cost.",
       "title": "ARise: Towards Knowledge-Augmented Reasoning via Risk-Adaptive Search"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2155",
+      "kind": "paper",
+      "note": "Difficulty-Aware Distillation (DAD) has a teacher assess each problem's difficulty (easy/medium/hard) then rewrite its own long CoT solution into a difficulty-adaptive, minimal-essential-steps trace via a two-step generate-then-refine pipeline, producing LiteCoT (100K samples averaging just 720 tokens, an order of magnitude shorter than S1/LIMO/OpenThoughts); models distilled on LiteCoT (Liter, 1.5B-32B) consistently outperform models trained on the same teacher's own 800K verbose CoTs, reach 74.2% Pass@1 on AIME24 using only ~5K inference tokens (beating methods that consume far more), and beat static one-size-fits-all CoT-compression baselines (Chain-of-Draft, LLMLingua-2, BudgetAware) on both accuracy and inference time across eight benchmarks.",
+      "title": "Concise Math Reasoning via Difficulty-Aware Distillation"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "DeepSeek-R1-distilled models (comparison)",
   "related": [
     "error-propagation-in-linear-kar-chains",
@@ -29,7 +37,32 @@
     "qwen2-5-14b-instruct",
     "qwen2-5-7b-instruct",
     "llama3-1-8b-instruct",
-    "qwen2-5-0-5b-32b-scaling-experiment"
+    "qwen2-5-0-5b-32b-scaling-experiment",
+    "overthinking-in-distillation-training-data",
+    "difficulty-aware-distillation-dad",
+    "difficulty-adaptive-cot-refinement",
+    "generate-then-refine-distillation-pipeline",
+    "human-aligned-reasoning-length-allocation",
+    "liter-model-family-fine-tuned-on-litecot",
+    "chain-of-draft-static-prompting-baseline",
+    "llmlingua-2-baseline-two-compression-rates",
+    "budgetaware-baseline",
+    "litecot-new-100k-samples-avg-720-tokens",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "gsm8k",
+    "minerva",
+    "gaokao2023en",
+    "olympiadbench",
+    "college-math",
+    "sat-math",
+    "acm23",
+    "mmlu-stem",
+    "gpqa",
+    "qwen2-5-0-5b-1-5b-3b-7b-14b-32b",
+    "llama-3-1-8b",
+    "deepseek-r1-teacher"
   ],
   "related_authored": [],
   "schema_version": 1,

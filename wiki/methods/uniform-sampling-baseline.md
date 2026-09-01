@@ -9,7 +9,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AI2D](../datasets/ai2d.md), [best-of-n selection](best-of-n-selection.md), [ChartQA](../datasets/chartqa.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [LISA](../datasets/lisa.md), [MathVerse](../datasets/mathverse.md), [MathVision](../datasets/mathvision.md), [MathVista](../datasets/mathvista.md), [MMMU](../datasets/mmmu.md), [MMMU-Pro](../datasets/mmmu-pro.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [SAT](../datasets/sat.md), [ScienceQA](../datasets/scienceqa.md), [Self-Consistency](self-consistency.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [VizWiz](../datasets/vizwiz.md)
+**Related**: [AI2D](../datasets/ai2d.md), [best-of-n selection](best-of-n-selection.md), [ChartQA](../datasets/chartqa.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [GPT-OSS-20B](../models/gpt-oss-20b.md), [LISA](../datasets/lisa.md), [MathVerse](../datasets/mathverse.md), [MathVision](../datasets/mathvision.md), [MathVista](../datasets/mathvista.md), [MMMU](../datasets/mmmu.md), [MMMU-Pro](../datasets/mmmu-pro.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [SAT](../datasets/sat.md), [ScienceQA](../datasets/scienceqa.md), [Self-Consistency](self-consistency.md), [Test-Time Scaling](../concepts/test-time-scaling.md), [VizWiz](../datasets/vizwiz.md)
 
 ## Appears in
 

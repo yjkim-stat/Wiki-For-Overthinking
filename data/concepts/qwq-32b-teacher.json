@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "Defines the Refinement Gap (self-refinement accuracy minus majority-voting accuracy) to isolate parallel self-refinement's genuine value beyond simple candidate aggregation, finds it scales with model size but only weakly with base capability, and trains this capability into a 7B student (GSR) via a hybrid direct-solving-plus-refinement objective that explicitly retains all-candidates-incorrect training cases -- achieving 73.6% average accuracy across five math benchmarks (a +3.1-point Refinement Gap versus a much larger QwQ-32B teacher's +1.15) and recovering correct answers 5.9% of the time even when every sampled candidate is wrong.",
       "title": "Learning to Refine: Self-Refinement of Parallel Reasoning in LLMs"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.561",
+      "kind": "paper",
+      "note": "fs1 fine-tunes LLMs on reasoning traces grounded in knowledge-graph paths (rather than raw distilled reasoning traces), improving factual accuracy on complex multi-hop QA by 6-14 pass@16 points while also producing shorter reasoning traces than the ungrounded baseline.",
+      "title": "Follow the Path: Reasoning over Knowledge Graph Paths to Improve Large Language Model Factuality"
     }
   ],
   "first_seen": "2026-08-28T02:05:37Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "QwQ-32B (teacher)",
   "related": [
     "refinement-gap",
@@ -33,7 +39,28 @@
     "qwen2-5-7b-instruct-gsr-7b-base",
     "qwen2-5-14b-32b-instruct",
     "deepseek-r1-distill-qwen-family",
-    "o1-mini-reference"
+    "o1-mini-reference",
+    "knowledge-graph-grounded-reasoning-trace",
+    "minimum-hop-path-extraction",
+    "factual-simple-test-time-scaling-fs1",
+    "pass-k-as-an-upper-bound-metric",
+    "fs1-kg-path-grounded-reasoning-trace-fine-tuning",
+    "rt-raw-distilled-reasoning-traces-baseline",
+    "supervised-fine-tuning",
+    "pass-k-evaluation",
+    "llm-as-a-judge-entity-alignment-factuality-scoring",
+    "complexwebquestions-cwq",
+    "exaqt",
+    "grailqa",
+    "simpleqa",
+    "mintaka",
+    "webqsp",
+    "qwen2-5-instruct-0-5b-32b",
+    "smollm2-360m-1-7b",
+    "deepseek-r1-teacher",
+    "qwen2-5-72b-instruct-baseline",
+    "o3-mini-baseline",
+    "r1-70b-baseline"
   ],
   "related_authored": [],
   "schema_version": 1,

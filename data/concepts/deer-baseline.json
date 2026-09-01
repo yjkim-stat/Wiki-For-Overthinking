@@ -25,11 +25,17 @@
       "kind": "paper",
       "note": "Shows via t-SNE that verbose and concise chains-of-thought occupy visibly separable regions of a reasoning model's intermediate activation space, then learns a single, KL-trust-region-constrained steering vector (Contrastive Energy-Based Steering, CES) from only 100 verbose-concise CoT pairs by ranking concise traces below verbose ones in length-normalized energy under the steered model -- Activation-Steered Compression (ASC) cuts CoT length up to 69.35% with no accuracy loss across four model scales and multiple benchmarks, achieves 2.7x end-to-end wall-clock speedup, generalizes cross-task with 0.92 cosine similarity between dataset-specific steering vectors, and mitigates a documented 'underthinking' failure mode (excessive backtracking/path-switching without commitment) in QwQ-32B specifically.",
       "title": "Activation Steering for Chain-of-Thought Compression"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.477",
+      "kind": "paper",
+      "note": "AdapThink measures reflection behavior with a BERT classifier (trained on DeepSeek-R1-Distill-Qwen-32B-annotated 256-token segments, 98.86% F1) to find incorrect reasoning has systematically more reflection segments than correct reasoning at every model scale, then trains a group-relative reasoning-process reward that only discourages reflection once group accuracy exceeds a threshold (below it, no length pressure at all) combined with dispersion-maximizing sample selection that explicitly diversifies reasoning patterns within each training group -- cutting length 33.15%/29.10% on 1.5B/7B models while improving accuracy +6.59/+6.12 over GRPO, adaptively producing *longer* answers on hard AIME problems under a 32K context despite training at a strict 2K token limit, transferring to code generation and out-of-distribution benchmarks, and showing near-zero reward-hacking (0.7% N-gram repetition vs. LCPO's 10.8%).",
+      "title": "AdapThink: Adaptive Thinking Preferences for Reasoning Language Models"
     }
   ],
   "first_seen": "2026-08-28T01:36:19Z",
   "kind": "method",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "DEER (baseline)",
   "related": [
     "overthinking",
@@ -112,7 +118,25 @@
     "gsm8k-hard",
     "aqua-rat",
     "livecodebench",
-    "qwq-32b"
+    "qwq-32b",
+    "underthinking-premature-reasoning-path-shifting",
+    "group-relative-reasoning-process-reward",
+    "dispersion-based-diversity-sampling",
+    "reflection-segment-bert-classified",
+    "reward-hacking-n-gram-repetition",
+    "performance-pursuing-mode-length-aversion-mode",
+    "adapthink-group-relative-reasoning-process-reward-dispersion-based-diversity-sam",
+    "grpo-baseline-algorithm",
+    "no-wait-baseline",
+    "fcs-ref-baseline",
+    "lcpo-baseline",
+    "mera-baseline",
+    "deepscaler-preview-dataset-subset-5k-training-pairs-from-aime-1984-2023-amc-pre",
+    "livecode-v6",
+    "livecode-0811",
+    "lsat-ood",
+    "gpqa-ood",
+    "drive-sft-qwen2-5-32b-fine-tuned-code-generation-base"
   ],
   "related_authored": [],
   "schema_version": 1,

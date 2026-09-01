@@ -27,11 +27,17 @@
       "kind": "paper",
       "note": "Decomposing LRM reasoning traces into risk-awareness/risk-analysis/response-strategy stages reveals 'Self-Jailbreak' -- the model correctly identifies harmful intent early but overrides its own judgment during subsequent reasoning (accounting for up to 93.7% of unsafe outputs, dominated by a 'Warning' failure pattern where the model wrongly assumes appending a disclaimer suffices) -- and Chain-of-Guardrail (CoG) fixes this with targeted, step-level reasoning-chain rewrites rather than global safety constraints, achieving safety comparable to the strongest baseline while actually *improving* reasoning accuracy (Qwen3-32B: GPQA-Diamond 54.30->62.38, AIME2024 71.70->82.08) where competing safety methods cost 10+ accuracy points.",
       "title": "When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.463",
+      "kind": "paper",
+      "note": "A single-turn, non-narrative jailbreak method that simply instructs an LRM to reason through an explicit internal conflict (e.g. Helpfulness vs. Harmlessness) or moral dilemma (e.g. a duress or sacrificial scenario) before answering a harmful query substantially raises attack success rates across three models and five safety benchmarks (e.g. QwQ-32B: direct-query ASR 0.04 to conflict-injected 0.523 on AdvBench) with no fine-tuning, multi-turn interaction, or gradient access, and layerwise/neuron-level analysis shows the conflict prompt causes safety-relevant and functional activation subspaces to shift and overlap specifically in middle-to-late layers, weakening safety alignment at the representational level.",
+      "title": "Conflicts Make Large Reasoning Models Vulnerable to Attacks"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "StrongReject",
   "related": [
     "thought-answer-safety-decomposition",
@@ -124,7 +130,23 @@
     "gpqa-diamond",
     "qwen3-14b",
     "qwen3-32b",
-    "deepseek-r1-distill-llama-70b"
+    "deepseek-r1-distill-llama-70b",
+    "internal-alignment-conflict",
+    "moral-dilemma-duress-agent-centered-sacrificial-social",
+    "conflict-injection-single-turn-jailbreak",
+    "representational-interference-safety-vs-functional-subspace-overlap",
+    "safety-relevant-neurons-wanda-scored",
+    "layerwise-representational-shift",
+    "conflict-injection-jailbreak-framework",
+    "wanda-based-safety-neuron-identification",
+    "layerwise-cosine-similarity-representational-analysis",
+    "pca-based-neuron-activation-pattern-comparison",
+    "llama-guard-3-asr-judge",
+    "harmfulq",
+    "qwq-32b",
+    "llama-nemotron-8b",
+    "deepseek-r1-0528-685b",
+    "qwen3guard-robustness-check-appendix"
   ],
   "related_authored": [],
   "schema_version": 1,

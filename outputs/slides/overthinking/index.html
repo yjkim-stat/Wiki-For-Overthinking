@@ -100,7 +100,7 @@ th { background: var(--surface); }
 <section class="slide title-slide">
 <h1>Overthinking</h1>
 <p class="subtitle">When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.</p>
-<p>2026-08-28 · 443 archived source(s)</p>
+<p>2026-09-01 · 443 archived source(s)</p>
 </section>
 <section class="slide">
 <h2>Agenda</h2>
@@ -120,7 +120,7 @@ th { background: var(--surface); }
 <li><strong>2025</strong> — 94 paper(s)</li>
 <li><strong>2024</strong> — 6 paper(s)</li>
 </ul>
-<p>56 arrived in the last 30 days.</p>
+<p>51 arrived in the last 30 days.</p>
 </section>
 <section class="slide">
 <h2>CAT: Confidence-Adaptive Thinking for Efficient Reasoning of Large Reasoning Models</h2>
@@ -250,7 +250,7 @@ th { background: var(--surface); }
 <li><strong>Test-Time Compute Scaling</strong> — Letting a language model use more inference-time computation — a longer chain of thought, more reasoning tokens, more parallel samples, t...</li>
 <li><strong>accuracy-efficiency tradeoff</strong> — Across the eleven archived papers this is the background premise of the whole efficient-reasoning literature rather than a defined quanti...</li>
 <li><strong>Chain-of-Thought Compression</strong> — In these eight sources &#x27;chain-of-thought compression&#x27; is an umbrella for making a reasoning trace shorter while keeping the answer, and i...</li>
-<li><strong>underthinking</strong> — The complement failure mode to overthinking: a model reasons too little on a problem that genuinely requires deliberate, multi-step reaso...</li>
+<li><strong>supervised fine-tuning</strong> — Supervised fine-tuning appears across these six sources mainly as the stage that instills a target reasoning behaviour before or alongsid...</li>
 </ul>
 </section>
 <section class="slide">
@@ -260,8 +260,8 @@ th { background: var(--surface); }
 <li><strong>Self-Consistency</strong> — Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is t...</li>
 <li><strong>Best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>
 <li><strong>process reward model</strong> — A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search a...</li>
+<li><strong>best-of-N</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In...</li>
 <li><strong>Early Exit</strong> — Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archi...</li>
-<li><strong>SFT (baseline)</strong></li>
 </ul>
 </section>
 <section class="slide">

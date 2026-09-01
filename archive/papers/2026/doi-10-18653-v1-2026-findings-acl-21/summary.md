@@ -46,7 +46,7 @@ The study exclusively uses verbalized confidence (a single self-reported 0-100 s
 ## Entities
 
 - **Concepts**: verbalized confidence (relative reliability despite poor absolute calibration), confidence-guided test-time scaling, confidence-threshold calibration (leakage-free), restart-from-scratch vs. information-carryover TTS, Confidence-Informed Self-Consistency (CISC, baseline)
-- **Methods**: BrowseConf (BrowseConf-Zero / Summary / Neg), Self-Consistency (baseline), Confidence-Informed Self-Consistency (CISC, baseline), Pass@1 / Pass@10 (reference)
+- **Methods**: BrowseConf (BrowseConf-Zero / Summary / Neg), [Self-Consistency (baseline)](../../../../wiki/methods/self-consistency-baseline.md), [Confidence-Informed Self-Consistency (CISC, baseline)](../../../../wiki/methods/confidence-informed-self-consistency-cisc-baseline.md), Pass@1 / Pass@10 (reference)
 - **Datasets**: [BrowseComp](../../../../wiki/datasets/browsecomp.md), BrowseComp-zh, SailorFog-QA (validation/threshold-calibration subset)
 
 Tags: `test-time-scaling`, `confidence-calibration`, `web-agents`, `agentic-reasoning`, `compute-allocation`

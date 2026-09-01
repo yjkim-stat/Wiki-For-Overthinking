@@ -63,11 +63,17 @@
       "kind": "paper",
       "note": "CoTJudger converts free-form CoTs into directed dependency graphs (capturing backtracking, repetition, and self-correction via classified node/edge types) and extracts the Shortest Effective Path (SEP) -- the minimal, verified-sufficient reasoning skeleton -- to compute a scale-invariant Redundancy Ratio; across 21 LRMs it finds redundancy pervasive but structurally distinct by model family (DeepSeek-R1's high-in-degree 'Cyclic Complexity' looping vs. Qwen3-Max's high-uncertainty 'Semantic Verbosity' vs. Gemini-3-Pro's low-degree 'Local Over-Optimization'), that distilled models inherit and often amplify their teacher's redundancy (a 'reasoning illusion' where distillation transfers verbosity without the underlying verification capability), and that post-answer redundancy specifically includes 'Destructive Revision' where a correct answer is unstably discarded for a wrong one.",
       "title": "CoTJudger: A Graph-Driven Framework for Automatic Evaluation of Chain-of-Thought Efficiency and Redundancy in LRMs"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2103",
+      "kind": "paper",
+      "note": "Using a controlled 1D-cellular-automata benchmark with disjoint train/test rule sets (precluding memorization), this paper shows models can genuinely infer unseen local rules but fixed-depth architectures collapse sharply beyond one-step-ahead prediction, that most frontier LLMs (except Gemini-2.5-Pro) fail even the simplest natural-language proxy of this task, and that depth -- not width -- is what drives multi-step accuracy, with chain-of-thought-style token-level supervision reaching near-perfect accuracy up to 4 look-ahead steps while RL (GRPO) without intermediate supervision reaches only 3 steps and architectural depth-extension tricks (ACT, recurrent memory) each add only about one effective step.",
+      "title": "Beyond Memorization: Extending Reasoning Depth with Recurrence, Memory and Test-Time Compute Scaling"
     }
   ],
   "first_seen": "2026-08-27T13:56:46Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "Gemini-2.5-Pro",
   "related": [
     "subtask-parallelism-and-branch",
@@ -276,7 +282,27 @@
     "gpt-oss-20b",
     "deepseek-r1-0528-qwen3-8b",
     "deepseek-r1-distill-llama-70b-8b",
-    "deepseek-r1-distill-qwen-14b-32b-7b"
+    "deepseek-r1-distill-qwen-14b-32b-7b",
+    "effective-depth-of-a-reasoning-model",
+    "rule-induction-vs-memorization",
+    "look-ahead-depth-of-reasoning",
+    "adaptive-computation-time-act",
+    "associative-recurrent-memory-transformer-armt",
+    "grpo-without-intermediate-supervision",
+    "token-level-chain-of-thought-supervision",
+    "adaptive-computation-time-act-layer-level-and-model-level",
+    "grpo-rl-without-intermediate-supervision",
+    "token-level-chain-of-thought-supervision-orbit-orbit-training",
+    "1dca-reasoning-new-cellular-automata-orbits-disjoint-train-test-rules",
+    "handsup-new-natural-language-proxy-task",
+    "group-multiplication-benchmark-corroborating-check-appendix",
+    "gpt-neox-trained-from-scratch",
+    "lstm-trained-from-scratch",
+    "mamba-trained-from-scratch",
+    "armt-trained-from-scratch",
+    "llama-3-3-70b",
+    "nemotron-32b",
+    "nemotron-7b"
   ],
   "related_authored": [
     "parason",

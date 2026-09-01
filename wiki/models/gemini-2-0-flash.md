@@ -8,7 +8,7 @@ Gemini 2.0 Flash is used in these sources as an evaluated or judging model in re
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [CommonsenseQA](../datasets/commonsenseqa.md), [DeepSeek-R1](deepseek-r1.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4.1-mini](gpt-4-1-mini.md), [GPT-4o](gpt-4o.md), [GPT-4o-mini](gpt-4o-mini.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [Llama-3.3-70B-Instruct](llama-3-3-70b-instruct.md), [o1-mini](o1-mini.md), [OpenBookQA](../datasets/openbookqa.md), [Qwen2.5-72B-Instruct](qwen2-5-72b-instruct.md), [StrategyQA](../datasets/strategyqa.md)
+**Related**: [CommonsenseQA](../datasets/commonsenseqa.md), [DeepSeek-R1](deepseek-r1.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4.1](gpt-4-1.md), [GPT-4.1-mini](gpt-4-1-mini.md), [GPT-4o](gpt-4o.md), [GPT-4o-mini](gpt-4o-mini.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [Llama-3.3-70B-Instruct](llama-3-3-70b-instruct.md), [o1-mini](o1-mini.md), [o3](o3.md), [OpenBookQA](../datasets/openbookqa.md), [Qwen2.5-72B-Instruct](qwen2-5-72b-instruct.md), [StrategyQA](../datasets/strategyqa.md)
 
 ## Appears in
 

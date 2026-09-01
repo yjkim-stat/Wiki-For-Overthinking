@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.",
+        "title": "Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A test-time-compute-allocation framework unifies where to spend compute (which unresolved queries get more sampling) with how generation is performed there (conditioning new samples on in-context demonstrations retrieved, via semantic similarity, from other queries already solved during the same inference run) -- consistently beating uniform Best-of-N and a difficulty-adaptive elimination baseline in coverage-per-token across four model families and multiple math/coding/reasoning benchmarks, with gains concentrated early in test-time scaling.",
+        "title": "Adaptive Test-Time Compute Allocation with Evolving In-Context Demonstrations",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-08-28T02:42:03Z",
+  "created_at": "2026-08-28T02:36:35Z",
+  "instructions": "Write the wiki definition for 'adaptive test-time compute allocation'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "adaptive test-time compute allocation",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "adaptive test-time compute allocation",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Adaptive test-time compute allocation refers to methods that dynamically decide how much inference-time compute (sampling, reasoning mode, or search budget) to spend per query rather than applying a fixed budget uniformly. 'Learning When to Think' trains a 1.5B model to emit one of three mode tokens (NoThink/Short/Long) as its very first token, learned end-to-end inside GRPO with no separate router; a second source unifies allocation (which queries get more sampling) with in-context-demonstration-based distributional adaptation, beating uniform Best-of-N in coverage-per-token.",
+    "kind": "method",
+    "related": []
+  },
+  "task_id": "concept__adaptive-test-time-compute-allocation",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

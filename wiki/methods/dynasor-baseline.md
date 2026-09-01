@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Dynasor(-CoT) is used in these sources as a training-free early-stopping baseline: NEAT and Budget Guidance both compare their own inference-time length-control mechanisms against Dynasor among other training-free baselines, generally finding it a competitive but less accuracy-preserving or less budget-adherent alternative to their proposed methods.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

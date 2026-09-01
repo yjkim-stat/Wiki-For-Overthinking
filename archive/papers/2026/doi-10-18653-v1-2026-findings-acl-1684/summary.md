@@ -47,7 +47,7 @@ The paper does not discuss limitations explicitly in a dedicated section within 
 
 - **Concepts**: overthinking (distillation-time), step-level causal contribution, gradient-based soft-masking probe, fidelity-constrained LLM-guided pruning, semantic anchor, pruning-agent scale mismatch
 - **Methods**: Pru-CoT (gradient-based step-importance probing + LLM-guided pruning), [SFT (baseline)](../../../../wiki/methods/sft-baseline.md), BtC (prompt-based baseline), Tokenskip (token-level pruning baseline), A*-Thought (search-based baseline)
-- **Datasets**: OpenThoughts-114k (training, 2,051 filtered samples), AIME24/25, [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md)
+- **Datasets**: OpenThoughts-114k (training, 2,051 filtered samples), [AIME24/25](../../../../wiki/datasets/aime24-25.md), [AMC23](../../../../wiki/datasets/amc23.md), [MATH500](../../../../wiki/datasets/math500.md)
 
 Tags: `overthinking`, `chain-of-thought-pruning`, `knowledge-distillation`, `reasoning-efficiency`, `gradient-based-attribution`
 

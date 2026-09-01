@@ -1,0 +1,47 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.474",
+      "kind": "paper",
+      "note": "P-TTS treats the prompt itself as a scalable data-augmentation axis: from just 90 seed AIME problems, four principled instructional wrappers (Reward/Penalty/Correctness/Step-by-Step framing, with six paraphrased Reward variants) elicit diverse teacher reasoning trajectories that are distilled via SFT into Qwen2.5 students, matching or beating 1K-shot baselines (S1/S1.1) and even DeepSeek-R1-Distill-Qwen-32B (trained on >800K examples) on GPQA-Diamond with only 900 augmented training examples, transferring to out-of-domain/multilingual/legal-reasoning benchmarks, and reward-framing prompts specifically driving the largest gains and the highest lexical/semantic diversity in elicited teacher rationales.",
+      "title": "Prompting Test-Time Scaling Is A Strong LLM Reasoning Data Augmentation"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "trigram diversity",
+  "related": [
+    "prompt-space-scaling-test-time-scaling-reframed-for-offline-data-augmentation",
+    "instructional-wrapping-principled-prompt-templates",
+    "reward-framing",
+    "semantic-diversity-gain",
+    "seed-based-construction-paradigm",
+    "p-tts-prompting-test-time-scaling",
+    "instructional-wrapping-reward-penalty-correctness-stepbystep-principles",
+    "supervised-fine-tuning-sft-s1-adapted-recipe",
+    "temperature-sampling-ablation-baseline",
+    "aime-2022-2024-seed-pool-90-problems",
+    "aime-2025",
+    "math500",
+    "gpqa-diamond",
+    "gaokao",
+    "kaoyan",
+    "olympiadbench",
+    "amc23",
+    "gradeschoolmath",
+    "minerva",
+    "legalbench-hearsay-personal-jurisdiction-jcrew-blocker-tasks",
+    "qwen2-5-7b-14b-32b-instruct-students",
+    "deepseek-r1-teacher",
+    "claude-openai-o4-mini-high-candidate-teachers-not-selected"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "trigram-diversity",
+  "topics": [
+    "overthinking"
+  ]
+}

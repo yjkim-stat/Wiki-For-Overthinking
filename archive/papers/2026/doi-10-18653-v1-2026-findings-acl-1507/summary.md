@@ -46,8 +46,8 @@ The paper does not discuss limitations explicitly in the excerpted sections; the
 ## Entities
 
 - **Concepts**: self-reading (answer-to-reasoning attention), benign self-reading pattern, attention centroid (forward drift), semantic anchor concentration, Self-Reading Quality (SRQ), internal certainty (control and monitoring)
-- **Methods**: Self-Reading Quality (SRQ) scoring, Contrastive Activation Addition (CAA), Conceptor steering, PCA-CAA, RepE (baseline), SAE-free (baseline), SEAL (baseline)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [SVAMP](../../../../wiki/datasets/svamp.md), [SciQ](../../../../wiki/datasets/sciq.md), AIME24-25
+- **Methods**: Self-Reading Quality (SRQ) scoring, Contrastive Activation Addition (CAA), Conceptor steering, PCA-CAA, RepE (baseline), SAE-free (baseline), [SEAL (baseline)](../../../../wiki/methods/seal-baseline.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [SVAMP](../../../../wiki/datasets/svamp.md), [SciQ](../../../../wiki/datasets/sciq.md), [AIME24-25](../../../../wiki/datasets/aime24-25.md)
 
 Tags: `mechanistic-interpretability`, `attention-analysis`, `activation-steering`, `reasoning-trace-analysis`, `internal-certainty`
 

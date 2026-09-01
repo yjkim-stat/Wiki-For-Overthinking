@@ -1,0 +1,131 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-2103.pdf"
+  },
+  "completed_at": "2026-08-28T02:47:56Z",
+  "created_at": "2026-08-28T02:36:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.2103",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Reasoning is a core capability of large language models (LLMs), yet how multi-step reasoning is learned and executed remains unclear. We study this question in a controlled cellular-automata (1dCA) framework that excludes memorization by using disjoint training and test rules. Given a short state sequence, the model is required to infer the hidden local rule and then chain it to predict multiple future steps. Our evaluation shows that LLMs largely fail to reliably solve a natural-language proxy of the proposed task. We find that most neural architectures trained from scratch can learn rule inference and achieve high next-step accuracy, but performance drops sharply as the required number of intermediate reasoning steps increases. Experiments show that increasing model depth is crucial, and extending effective depth via recurrence, memory, or test-time compute improves results but remains bounded. Code is available on github: https://github.com/RodkinIvan/associative-recurrent-memory-transformer/tree/ACT.",
+    "authors": [
+      "Ivan Rodkin",
+      "Daniil Orel",
+      "Konstantin Smirnov",
+      "Arman Bolatov",
+      "Bilal Elbouardi",
+      "Besher Hassan",
+      "Yuri Kuratov",
+      "Aydar Bulatov",
+      "Preslav Nakov",
+      "Timothy Baldwin",
+      "Artem Shelmanov",
+      "Mikhail Burtsev"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.2103.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Beyond Memorization: Extending Reasoning Depth with Recurrence, Memory and Test-Time Compute Scaling",
+    "url": "https://aclanthology.org/2026.findings-acl.2103/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "effective depth (of a reasoning model)",
+      "rule induction vs. memorization",
+      "look-ahead / depth of reasoning",
+      "Adaptive Computation Time (ACT)",
+      "Associative Recurrent Memory Transformer (ARMT)",
+      "GRPO without intermediate supervision",
+      "token-level chain-of-thought supervision"
+    ],
+    "contributions": [
+      "1dCA-Reasoning, a variable-complexity benchmark built on one-dimensional cellular automata with disjoint train/test rule sets, cleanly separating genuine rule-based generalization from memorization and quantifying reasoning difficulty via a controllable look-ahead (depth) parameter",
+      "a natural-language proxy task (Handsup) showing most contemporary LLMs, including some with extended 'thinking' budgets, fail to reliably solve even the simplest version of this class of multi-step rule-inference task, challenging the assumption that LLM reasoning success on such tasks reflects robust generalization",
+      "a controlled architectural comparison (Transformer, LSTM, Mamba, ARMT) establishing that depth, not width, is the binding constraint on multi-step reasoning accuracy in this setting, with fixed-depth models collapsing sharply beyond one-step-ahead prediction",
+      "a systematic evaluation of depth-extension strategies (Adaptive Computation Time, recurrent memory, RL without intermediate supervision, explicit token-level chain-of-thought supervision) showing each adds a bounded, quantifiable amount of effective reasoning depth, with explicit CoT-style supervision the only approach saturating performance across all tested look-ahead depths"
+    ],
+    "datasets": [
+      "1dCA-Reasoning (new, cellular-automata orbits, disjoint train/test rules)",
+      "Handsup (new, natural-language proxy task)",
+      "group-multiplication benchmark (corroborating check, appendix)"
+    ],
+    "limitations": "The paper does not discuss limitations explicitly in a dedicated section within the excerpted material; its controlled 1dCA benchmark, while designed to cleanly separate rule induction from state propagation and preclude memorization via disjoint train/test rule sets, is a synthetic, minimal 'toy universe' rather than a naturalistic reasoning task, so while its Handsup natural-language proxy attempts to bridge this gap, the paper's own results show even that proxy is a substantially simplified analogy and the controlled experiments' architectural findings (e.g. specific layer counts, ACT's approximately-one-step gain) are calibrated to this particular synthetic setting and small-model scale rather than validated at frontier-LLM scale directly.",
+    "method": "Introduces 1dCA-Reasoning, a variable-complexity benchmark built on one-dimensional cellular automata (1dCA): each example provides a short observed orbit (sequence of binary lattice states) generated by a hidden local Boolean rule, with train and test rule sets kept strictly disjoint so rote lookup cannot solve the task -- the model must infer the generating rule from observed transitions, then chain that rule to predict future states (look-ahead k in {1,2,3,4}, the 'depth of reasoning'). Two task variants: Orbit-State (O-S, predict only the final state at look-ahead k, no intermediate supervision) and Orbit-Orbit (O-O, predict all k subsequent states in parallel, simulating step-by-step multi-token supervision). A parallel natural-language proxy, the Handsup game (a group of friends around a table, each with a binary hand-up/down state whose evolution follows a hidden radius-1-or-2 local rule, described in prose over T rounds), tests whether contemporary LLMs (Gemini-2.5-Pro/Flash, Llama-3.3-70B, Nemotron-32B/7B) can solve a natural-language-framed equivalent without any architecture access. On the controlled 1dCA benchmark, trains multiple neural architectures from scratch under matched supervision (Transformer/GPT-NeoX, LSTM, state-space model Mamba, and Associative Recurrent Memory Transformer/ARMT, an RMT variant with quasi-linear cross-segment attention) and systematically varies depth-extension strategies: increasing raw transformer layer count/width; Adaptive Computation Time (ACT, a learned per-token halting mechanism allowing variable computation without adding parameters, applied at the layer level (LACT) or across the whole model (MACT)); GRPO-based RL training rewarding average token-level accuracy of autoregressively-generated intermediate 'thinking' tokens (without any supervision on what those intermediate tokens should say); and explicit token-level chain-of-thought-style supervision (training GPT-NeoX and ARMT to predict all intermediate states one token at a time, akin to multi-token prediction) with curriculum learning across increasing k.",
+    "methods": [
+      "Adaptive Computation Time (ACT, layer-level and model-level)",
+      "GRPO (RL without intermediate supervision)",
+      "token-level chain-of-thought supervision (Orbit-Orbit training)",
+      "Associative Recurrent Memory Transformer (ARMT)"
+    ],
+    "models": [
+      "GPT-NeoX (trained from scratch)",
+      "LSTM (trained from scratch)",
+      "Mamba (trained from scratch)",
+      "ARMT (trained from scratch)",
+      "Gemini-2.5-Pro",
+      "Gemini-2.5-Flash",
+      "Llama-3.3-70B",
+      "Nemotron-32B",
+      "Nemotron-7B"
+    ],
+    "one_liner": "Using a controlled 1D-cellular-automata benchmark with disjoint train/test rule sets (precluding memorization), this paper shows models can genuinely infer unseen local rules but fixed-depth architectures collapse sharply beyond one-step-ahead prediction, that most frontier LLMs (except Gemini-2.5-Pro) fail even the simplest natural-language proxy of this task, and that depth -- not width -- is what drives multi-step accuracy, with chain-of-thought-style token-level supervision reaching near-perfect accuracy up to 4 look-ahead steps while RL (GRPO) without intermediate supervision reaches only 3 steps and architectural depth-extension tricks (ACT, recurrent memory) each add only about one effective step.",
+    "problem": "How multi-step reasoning is learned and executed in LLMs remains unclear, and disentangling genuine rule-based generalization from memorization is hard on natural benchmarks since models may have seen similar problems during pretraining; separately, transformers are theoretically Turing-complete with unbounded depth and precision, but finite-depth, fixed-width models used in practice provably fail on tasks requiring computation beyond a bounded length, and it is unclear how far techniques that extend a model's 'effective depth' (chain-of-thought, recurrence, adaptive computation time) can push this boundary, or whether current LLMs' apparent reasoning success reflects genuine rule induction versus pattern matching.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Only tangentially relevant: this paper studies the opposite end of the same underlying question this archive tracks -- not when extra reasoning is wasted (overthinking), but how much genuine reasoning depth a fixed-architecture model can access at all, and what mechanisms (chain-of-thought supervision, RL, adaptive computation, recurrence) extend that ceiling. It provides useful theoretical grounding for why chain-of-thought token generation functions as genuine extra computational depth in some regimes (rather than being pure overhead), which is relevant context for interpreting when longer reasoning traces elsewhere in this archive reflect real computational need versus redundant elaboration -- but it does not itself study reasoning-length efficiency, redundancy, or the accuracy/token tradeoff."
+    },
+    "results": "On the Handsup natural-language proxy, only Gemini-2.5-Pro (with a 20,000-token thinking budget) achieves notable, above-baseline performance on the simplest radius-1, 7-player, T=5-round setting, with a mild decline in exact-match accuracy as look-ahead increases (~0.72 to ~0.69 from k=1 to k=4); Gemini-2.5-Flash performs lower (an extended thinking budget helps slightly over zero budget), while Llama-3.3-70B and Nemotron-7B hover around the trivial repeat-last-round baseline across all k -- on the harder radius-2, 20-player, T=10-round setting, no model exceeds 10% exact match, and performance decreases systematically with the dynamical complexity of the underlying rule according to Wolfram's complexity classification (worse on Class 3/4 rules than Class 1/2), with no model uniformly robust across complexity classes. This directly challenges the view that current LLM successes on reasoning-flavored tasks reflect robust generalization rather than pattern recall, since even the simplest radius-1 setting defeats most tested models regardless of scale or 'thinking' prompting/budget. On the controlled 1dCA benchmark with disjoint train/test rules, both Transformer and recurrent/state-space variants (GPT-NeoX, LSTM, Mamba, ARMT) succeed at single-step (k=1) rule induction from orbits with near-perfect accuracy (evidence of genuine generalization, since evaluation uses previously-unseen rules), but a fixed 4-layer architecture's average accuracy drops from 0.95 (k=1) to 0.40 (k=2) and below 0.25 for k=3/4 -- despite in principle having enough layers to compose two or three sequential rule applications, the model's capacity appears taxed by needing to both encode and apply repeated rule updates within a fixed number of transformations. Layer-count and width sweeps isolate the cause: accuracy for k=1/2 saturates after 4-6 layers and plateaus, three-step prediction continues improving up to ~12 layers, and four-step prediction remains poor regardless of depth up to 16 layers, while widening the embedding dimension yields only marginal gains across all look-ahead horizons -- establishing that depth, not width, is the binding constraint for multi-step reasoning in this setting. Testing depth-extension strategies at a fixed 4-layer backbone: Adaptive Computation Time (ACT) reliably adds approximately one effective computational step to transformer-based architectures at modest compute cost (improving k=2 performance for GPT-NeoX specifically) but does not extend performance to k=3 or k=4 for any architecture, and has little effect on LSTM/Mamba, likely due to representation bottlenecks in their hidden states; ARMT's segment-level recurrence uniquely extends effective capacity to k=2 (beyond the base architecture's limit), attributed to its processing sequences segment-by-segment, which may force a useful separation between rule representation and intermediate-state representation; GRPO-based RL, trained only on final-token-accuracy reward with no supervision on intermediate reasoning-token content, enables the model to autoregressively generate its own 'thinking' tokens and reach successful 3-step-ahead prediction without any intermediate supervision, matching the performance of explicit chain-of-thought training at k=3; explicit, stepwise token-level chain-of-thought-style supervision (training on all intermediate states, curriculum-scheduled from k-1 checkpoints) is the only tested approach that saturates the benchmark up to k=4, with GPT-NeoX reaching over 90% accuracy at every tested look-ahead depth and slightly outperforming ARMT under the same training regime -- indicating that when explicit intermediate-step supervision is available, a CoT-inspired training approach is a particularly effective and currently the most reliable route to enabling genuine multi-step reasoning generalization, more so than any tested architectural depth-extension trick alone.",
+    "tags": [
+      "reasoning-depth",
+      "mechanistic-interpretability",
+      "test-time-compute-scaling",
+      "chain-of-thought",
+      "adaptive-computation-time",
+      "memorization-vs-generalization"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-2103",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

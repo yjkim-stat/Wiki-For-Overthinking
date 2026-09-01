@@ -48,7 +48,7 @@ The largest evaluated model (235B parameters) is substantially more time- and re
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), sub-thought decomposition, thought progression graph, Explorer pattern, Late Landing pattern, over-verification, over-exploration, convergence point, utility-based (structure-based) overthinking definition
 - **Methods**: TRACE (Thought-process Reconstruction and Automated Clustering Engine), LLM-as-rater sub-thought labeling (gemini-2.5-pro), self-looping heuristic, backtrack-detection heuristic, [greedy decoding](../../../../wiki/methods/greedy-decoding.md)
-- **Datasets**: SQuAD 2.0, NIAH (Needle in a Haystack), SimpleQA, [ASDiv](../../../../wiki/datasets/asdiv.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), date arithmetic (extended from Tan et al.), Zebra Logic (grid puzzles)
+- **Datasets**: SQuAD 2.0, NIAH (Needle in a Haystack), [SimpleQA](../../../../wiki/datasets/simpleqa.md), [ASDiv](../../../../wiki/datasets/asdiv.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), date arithmetic (extended from Tan et al.), Zebra Logic (grid puzzles)
 
 Tags: `overthinking`, `thought-structure-analysis`, `mechanistic-interpretability`, `over-verification`, `over-exploration`, `evaluation-methodology`
 

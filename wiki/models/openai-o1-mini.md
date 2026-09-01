@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+OpenAI o1-mini is used in these sources as a reference reasoning model for comparison: Guided by Gut reports its calibrated-confidence tree-search method with a 1.5B-7B model matching or exceeding o1-mini's accuracy on AIME24 at a fraction of the compute, and BloomEval evaluates o1-mini among the LRMs scored under its Cognitive Hierarchy Trace framework, where structural anomalies including overthinking are found even in correct answers.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

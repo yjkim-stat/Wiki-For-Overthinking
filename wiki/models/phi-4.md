@@ -9,7 +9,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [abstention](../concepts/abstention.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [gpt-oss-120b](gpt-oss-120b.md), [GSM-MC](../datasets/gsm-mc.md), [GSM8K](../datasets/gsm8k.md), [HellaSwag](../datasets/hellaswag.md), [HMMT25](../datasets/hmmt25.md), [LIMO-v2](limo-v2.md), [MATH](../datasets/math.md), [MMLU](../datasets/mmlu.md), [PRM800K](../datasets/prm800k.md), [Qwen2.5-32B](qwen2-5-32b.md), [Qwen3-1.7B](qwen3-1-7b.md), [Qwen3-14B](qwen3-14b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-4B](qwen3-4b.md), [Qwen3-8B](qwen3-8b.md), [ScienceQA](../datasets/scienceqa.md), [StrategyQA](../datasets/strategyqa.md), [UMWP](../datasets/umwp.md)
+**Related**: [abstention](../concepts/abstention.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [gpt-oss-120b](gpt-oss-120b.md), [GSM-MC](../datasets/gsm-mc.md), [GSM8K](../datasets/gsm8k.md), [HellaSwag](../datasets/hellaswag.md), [HMMT25](../datasets/hmmt25.md), [LIMO-v2](../datasets/limo-v2.md), [MATH](../datasets/math.md), [MMLU](../datasets/mmlu.md), [PRM800K](../datasets/prm800k.md), [Qwen2.5-32B](qwen2-5-32b.md), [Qwen3-1.7B](qwen3-1-7b.md), [Qwen3-14B](qwen3-14b.md), [Qwen3-32B](qwen3-32b.md), [Qwen3-4B](qwen3-4b.md), [Qwen3-8B](qwen3-8b.md), [ScienceQA](../datasets/scienceqa.md), [StrategyQA](../datasets/strategyqa.md), [UMWP](../datasets/umwp.md)
 
 ## Appears in
 

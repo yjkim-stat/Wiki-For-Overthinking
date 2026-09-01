@@ -2,7 +2,8 @@
   "aliases": [
     "Llama 3.1 8B",
     "LLaMA3.1-8B",
-    "Llama-3.1-8B-Instruct"
+    "Llama-3.1-8B-Instruct",
+    "Llama3.1-8B"
   ],
   "definition": "An open-weight instruction-tuned model used across sources as an evaluation subject for cross-lingual test-time-scaling fairness (showing a significant accuracy drop and 180-300% extra reasoning cost when queried in a non-default measurement system), as the backbone for SHAD's reasoning/boilerplate token-disentanglement fine-tuning method, and as one of five model families used to demonstrate the latent capacity for concise reasoning that self-training (FS-BoN) elicits.",
   "evidence": [
@@ -53,11 +54,17 @@
       "kind": "paper",
       "note": "Thought-Action Graph (TAG) distills past successful LLM-knowledge-graph interaction trajectories into a structured, reusable repository of fine-grained reasoning operators (a thought layer of abstract query patterns plus an action layer of concrete entity/relation parameters), letting TAG-Reasoning (TAGR) retrieve and assemble a query-specific reasoning blueprint offline instead of exploring the KG online -- outperforming 15 baselines on three KGQA benchmarks while using far fewer LLM calls (3, vs. up to 11.6) and generated tokens (65-71, vs. hundreds).",
       "title": "Thought-Action Graph Reasoning: Faithful and Efficient Reasoning of Large Language Models via Reusing Past Experience"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2155",
+      "kind": "paper",
+      "note": "Difficulty-Aware Distillation (DAD) has a teacher assess each problem's difficulty (easy/medium/hard) then rewrite its own long CoT solution into a difficulty-adaptive, minimal-essential-steps trace via a two-step generate-then-refine pipeline, producing LiteCoT (100K samples averaging just 720 tokens, an order of magnitude shorter than S1/LIMO/OpenThoughts); models distilled on LiteCoT (Liter, 1.5B-32B) consistently outperform models trained on the same teacher's own 800K verbose CoTs, reach 74.2% Pass@1 on AIME24 using only ~5K inference tokens (beating methods that consume far more), and beat static one-size-fits-all CoT-compression baselines (Chain-of-Draft, LLMLingua-2, BudgetAware) on both accuracy and inference time across eight benchmarks.",
+      "title": "Concise Math Reasoning via Difficulty-Aware Distillation"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "Llama-3.1-8B",
   "related": [
     "measurement-system-default-bias",
@@ -184,7 +191,29 @@
     "webqsp",
     "cwq-complexwebquestions",
     "grailqa",
-    "freebase-underlying-kg"
+    "freebase-underlying-kg",
+    "overthinking-in-distillation-training-data",
+    "difficulty-aware-distillation-dad",
+    "difficulty-adaptive-cot-refinement",
+    "generate-then-refine-distillation-pipeline",
+    "human-aligned-reasoning-length-allocation",
+    "liter-model-family-fine-tuned-on-litecot",
+    "chain-of-draft-static-prompting-baseline",
+    "llmlingua-2-baseline-two-compression-rates",
+    "budgetaware-baseline",
+    "litecot-new-100k-samples-avg-720-tokens",
+    "math500",
+    "aime-2024",
+    "minerva",
+    "gaokao2023en",
+    "olympiadbench",
+    "college-math",
+    "sat-math",
+    "acm23",
+    "mmlu-stem",
+    "qwen2-5-0-5b-1-5b-3b-7b-14b-32b",
+    "deepseek-r1-teacher",
+    "deepseek-r1-distilled-models-comparison"
   ],
   "related_authored": [
     "on-generalization-across-measurement-systems",

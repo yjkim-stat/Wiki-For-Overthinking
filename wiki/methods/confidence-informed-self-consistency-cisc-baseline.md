@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Confidence-Informed Self-Consistency (CISC) weights majority voting over sampled reasoning traces by a critic-LLM's confidence score for each trace. VecCISC reduces its cost (critic calls needed per query) via embedding-based trace clustering while matching or exceeding its accuracy, and BrowseConf uses it as a fixed-budget-10 baseline that its confidence-threshold-triggered test-time-scaling method for web agents outperforms at far fewer average attempts.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

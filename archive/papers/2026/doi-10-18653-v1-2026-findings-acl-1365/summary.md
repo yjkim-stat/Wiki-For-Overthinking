@@ -45,9 +45,9 @@ ARM2 assumes a finite, predefined set of five reasoning formats rather than an u
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [adaptive reasoning format selection](../../../../wiki/concepts/adaptive-reasoning-format-selection.md), [format collapse](../../../../wiki/concepts/format-collapse.md), GRPO-alp (format-encouragement + length-aware GRPO), code-execution as a CoT substitute, cosine-decayed reward amplification
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), adaptive reasoning format selection, [format collapse](../../../../wiki/concepts/format-collapse.md), GRPO-alp (format-encouragement + length-aware GRPO), code-execution as a CoT substitute, cosine-decayed reward amplification
 - **Methods**: GRPO-alp (format-encouragement + length-aware GRPO), [GRPO (baseline)](../../../../wiki/methods/grpo-baseline.md), Ada-GRPO / ARM (baseline), SFT cold-start, majority-vote test-time scaling
-- **Datasets**: [AQuA-Rat](../../../../wiki/datasets/aqua-rat.md), VisualWebInstruct, [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), AIME (1987-2023), MME RealWorld, Geometry3K, MMK12, OBQA, [MATH500](../../../../wiki/datasets/math500.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), BLINK, ChartQA, [MMMU](../../../../wiki/datasets/mmmu.md)
+- **Datasets**: [AQuA-Rat](../../../../wiki/datasets/aqua-rat.md), VisualWebInstruct, [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), AIME (1987-2023), MME RealWorld, Geometry3K, MMK12, OBQA, [MATH500](../../../../wiki/datasets/math500.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), BLINK, [ChartQA](../../../../wiki/datasets/chartqa.md), [MMMU](../../../../wiki/datasets/mmmu.md)
 
 Tags: `overthinking`, `adaptive-reasoning`, `multimodal`, `code-execution`, `reinforcement-learning`, `GRPO`
 

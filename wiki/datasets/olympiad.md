@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+OlympiadBench (competition-level math/science problems) is used across these sources as a hard-tier evaluation benchmark for reasoning-efficiency and adaptive-reasoning methods: TH2T reports inference-cost reductions on it as one of its 'hard task' benchmarks, TNT reports accuracy gains on it under its per-query non-thinking token limit, and ADaPT includes it in its Hard task group when evaluating token-level dual-process reasoning.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Minerva Math is used in these sources as a math-reasoning benchmark for hallucination-detection and test-time-compute-allocation methods: RFS-Guard evaluates its attention-based hallucination-detection method on it (among MATH/Science/MultiHopQA domains), and the evolving-in-context-demonstration adaptive-allocation study uses it as one of five benchmarks measuring coverage-per-token-budget gains.
 
 - **Kind**: dataset
 - **Also called**: MinervaMath
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive test-time compute allocation](../concepts/adaptive-test-time-compute-allocation.md), [AIME 2025](aime-2025.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](gpqa-diamond.md), [GPT-4.1-mini](../models/gpt-4-1-mini.md), [GPT-5-Nano](../models/gpt-5-nano.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-8B](../models/qwen3-8b.md), [reasoning hallucination](../concepts/reasoning-hallucination.md), [routing collapse](../concepts/routing-collapse.md)
+**Related**: [adaptive test-time compute allocation](../methods/adaptive-test-time-compute-allocation.md), [AIME 2025](aime-2025.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](gpqa-diamond.md), [GPT-4.1-mini](../models/gpt-4-1-mini.md), [GPT-5-Nano](../models/gpt-5-nano.md), [LiveCodeBench](livecodebench.md), [MATH500](math500.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-8B](../models/qwen3-8b.md), [reasoning hallucination](../concepts/reasoning-hallucination.md), [routing collapse](../concepts/routing-collapse.md)
 
 ## Appears in
 

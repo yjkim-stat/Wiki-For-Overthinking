@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+OpenBookQA is used in these sources as a commonsense/knowledge QA benchmark: ReTraceQA's methodology (evaluating whether small language models reach correct answers via flawed reasoning traces) is built on a similar commonsense-QA evaluation philosophy though its own cited note centers on a different benchmark, and ARM reports results on OpenBookQA among the benchmarks used to show its adaptive reasoning-format selection cuts tokens ~30% at roughly unchanged accuracy.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

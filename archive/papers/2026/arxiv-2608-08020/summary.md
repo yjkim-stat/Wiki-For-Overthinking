@@ -45,7 +45,7 @@ No dedicated limitations section is stated; the empirical evaluation is confined
 ## Entities
 
 - **Concepts**: constrained compute allocation over partial reasoning trajectories, zero-sum reallocation policy for a fixed-capacity trace pool, decoupled scheduler view vs. tree (ghost-trace) view for memory management, thought-level (vs. token-level) beam search
-- **Methods**: Gambit (thought-level beam search), STEP hidden-state scorer, prefix-caching / KV-cache-sharing branching, Self-Consistency (baseline), [Slim-SC (baseline)](../../../../wiki/methods/slim-sc-baseline.md), DeepConf (baseline), STEP subtractive pruning (baseline)
+- **Methods**: Gambit (thought-level beam search), STEP hidden-state scorer, prefix-caching / KV-cache-sharing branching, [Self-Consistency (baseline)](../../../../wiki/methods/self-consistency-baseline.md), [Slim-SC (baseline)](../../../../wiki/methods/slim-sc-baseline.md), DeepConf (baseline), STEP subtractive pruning (baseline)
 - **Datasets**: [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AIME 2026](../../../../wiki/datasets/aime-2026.md), HMMT 2024, [HMMT 2025](../../../../wiki/datasets/hmmt-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `test-time-compute`, `beam-search`, `reasoning`, `inference-efficiency`, `pruning`, `kv-cache`, `vllm`

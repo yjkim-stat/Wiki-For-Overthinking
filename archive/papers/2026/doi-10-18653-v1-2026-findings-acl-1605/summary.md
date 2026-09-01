@@ -47,7 +47,7 @@ The optimal number of latent tokens N and iterations K are shown to be dataset-d
 
 - **Concepts**: overthinking (in purely textual reasoning frameworks), underthinking (in purely latent reasoning), text-latent interleaving, iterative latent reasoning, progressive alignment objective, latent adapter
 - **Methods**: SpiralThinker (iterative latent reasoning + progressive alignment), iCoT-KD (baseline), iCoT-SI (baseline), Token Assorted (baseline), Coconut (baseline), CODI (baseline), Pause Token (baseline)
-- **Datasets**: GSM8K-Aug, ProsQA, [StrategyQA](../../../../wiki/datasets/strategyqa.md)
+- **Datasets**: GSM8K-Aug, [ProsQA](../../../../wiki/datasets/prosqa.md), [StrategyQA](../../../../wiki/datasets/strategyqa.md)
 
 Tags: `overthinking`, `latent-reasoning`, `iterative-computation`, `reasoning-efficiency`, `representation-alignment`
 

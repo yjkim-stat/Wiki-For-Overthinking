@@ -12,9 +12,43 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.40
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+Introduces the Anytime Index, an AUC-style metric quantifying how solution quality improves as reasoning-token budget increases, and Preference Data Prompting (PDP), an inference-time self-improvement method using self-generated contrastive reasoning pairs at fixed token budgets, giving consistent gains across seven LLM families on trip planning, math, and scientific QA.
+
+## Problem
+
+Real-world tasks often require the best possible output within a strict, fixed reasoning-token budget, but existing test-time-scaling, early-exit and token-length-control work targets only final-answer quality at unrestricted computation, offering no principled way to evaluate or improve the *trajectory* of reasoning quality as budget increases.
+
+## Contributions
+
+- the Anytime Index, an AUC-based metric quantifying a model's quality-per-token trajectory under token-budget constraints, distinguishing 'fast-thinking' from 'slow-thinking' models with similar final accuracy
+- Preference Data Prompting (PDP), a training-free inference-time self-improvement method using the model's own budget-matched contrastive reasoning-trace pairs as in-context examples
+- consistent Anytime Index and task-performance gains across seven model families and three domains (structured planning, math, scientific QA), with the largest gains for reasoning-specialized models
+
+## Method
+
+Defines an anytime-reasoning evaluation pipeline: for each task input, sample N full CoT traces, truncate each at a series of token-budget checkpoints, re-prompt the model to produce a final answer from only the truncated prefix, and score that answer with a task-specific quality metric (Constraint Satisfaction Rate for NaturalPlan trip planning, accuracy for AIME/GPQA). The Anytime Index is the trapezoidal area under the resulting quality-vs-budget curve, normalized to [0,1] by the budget range and the best achievable score -- rewarding models that reach high quality early ('fast-thinking') over ones that only improve near the maximum budget ('slow-thinking'), even when final scores tie. Preference Data Prompting (PDP) then uses this same truncation pipeline offline to generate, per budget checkpoint, self-scored preference pairs (a higher-quality vs. a lower-quality trace at the same token budget, intermediate solutions omitted) from the model's own 64 sampled traces, and injects the single largest-quality-gap pair per checkpoint as an in-context contrastive example during inference -- with no fine-tuning or external supervision.
+
+## Results
+
+Across seven models (Grok-3, Grok-3-mini, GPT-oss-120B, GPT-oss-20B, GPT-4.1, GPT-4o, LLaMA-3.3-70B) and three benchmarks (NaturalPlan/Trip, AIME 2024, GPQA-Diamond), PDP consistently improves the Anytime Index over standard CoT prompting, achieving the highest overall Anytime Index for all reasoning-specialized models and for LLaMA-3.3-70B. Gains are most pronounced for reasoning-specialized models: PDP improves overall final CSR/accuracy by 17.6%, average CSR/accuracy by 11.4%, and Anytime Index by 7.9 points versus baseline CoT in that subgroup. PDP beats LEAP (a learning-from-mistakes ICL baseline) on Anytime Index in six of seven models. An ablation (PDP(+), using only high-quality traces as in-context examples, omitting the rejected/lower-quality ones) consistently improves over CoT but is consistently weaker than full PDP across the 21 model-dataset settings -- confirming the contrastive (good-vs-bad) signal itself, not just exposure to strong traces, drives the gain. For general-purpose (non-reasoning-specialized) models, PDP still improves over CoT but does not always achieve the single best Anytime Index among strategies, suggesting PDP works best when a model can reliably distinguish higher- from lower-quality reasoning traces on its own.
+
+## Limitations
+
+Experiments focus primarily on the trip-planning domain (NaturalPlan); the paper explicitly flags that future work should validate the framework on a broader set of tasks including open-ended domains like code generation. The comparison is primarily against standard CoT prompting and LEAP rather than an exhaustive set of alternatives (e.g. Tree-of-Thoughts, Self-Consistency are not benchmarked). PDP is limited to inference-time prompting with self-generated preference pairs; the authors note training models explicitly for anytime behavior via preference-driven fine-tuning (e.g. DPO) is left to future work.
+
+## Why it matters here
+
+- **overthinking**: Directly relevant: it reframes the accuracy/efficiency tradeoff not as a single length-vs-accuracy point but as an entire curve (quality per token, at every budget), with the Anytime Index giving a principled way to say a model 'wastes' its early token budget even when its final answer at unlimited budget is fine -- exactly the shape of claim the overthinking literature makes about wasted reasoning length, but formalized as a metric rather than asserted qualitatively. PDP is also a concrete, training-free intervention that improves reasoning quality specifically at *smaller* budgets, which is the efficiency-focused endpoint most overthinking mitigation work targets.
+
+## Entities
+
+- **Concepts**: anytime reasoning, Anytime Index (AUC-style quality-per-token metric), Preference Data Prompting (PDP), budget-specific contrastive preference pairs
+- **Methods**: Preference Data Prompting (PDP), Anytime Index, LEAP (in-context principle learning from mistakes, baseline), standard Chain-of-Thought prompting (baseline)
+- **Datasets**: NaturalPlan (Trip), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+
+Tags: `anytime-reasoning`, `test-time-scaling`, `token-budget`, `preference-data`, `in-context-learning`
 
 ## Abstract
 

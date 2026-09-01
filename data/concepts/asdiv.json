@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "TRACE decomposes reasoning traces into sub-thoughts and labeled progression graphs across 14 thinking models and 6 domains, finding thinking helps only within a narrow middle ground (5-20x more compute wasted on simple tasks with no gain, and no benefit at all once model scale exceeds ~4-8B or task difficulty exceeds representational capacity), identifies two overthinking-driving thought-progression patterns (Explorer, Late Landing), and redefines overthinking structurally as continuation past the point where marginal return per sub-thought drops below a threshold.",
       "title": "Do LLMs Really Need 10+ Thoughts for “Find the Time 1000 Days Later”? Towards Structural Understanding of LLM Overthinking"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.511",
+      "kind": "paper",
+      "note": "DREAM decomposes tree-based test-time search into separate planning and execution phases, each with its own reward model and adaptive per-step budget allocation, improving the accuracy-tokens tradeoff over standard beam search and majority voting on math reasoning and code generation.",
+      "title": "A Reward-Guided Dual-Phase Framework for Adaptive Inference-Time Reasoning"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "ASDiv",
   "related": [
     "early-exit",
@@ -74,7 +80,24 @@
     "qwen3-32b",
     "qwen3-235b-a22b",
     "deepseek-r1-distill-llama-70b",
-    "deepseek-r1-distilled-models-various-backbones"
+    "deepseek-r1-distilled-models-various-backbones",
+    "dual-phase-search-plan-execution-separation",
+    "adaptive-dynamic-budget-allocation",
+    "process-reward-model-prm",
+    "rollout-based-reward-labeling",
+    "dream-dual-phase-reward-guided-search",
+    "dynamic-budget-allocation",
+    "standard-beam-search-baseline",
+    "rebase-baseline",
+    "majority-vote-baseline",
+    "math-math500",
+    "amc23",
+    "qwen2-5-math-1-5b-instruct",
+    "deepseekmath-7b-instruct",
+    "llama-3-8b-instruct",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-32b-instruct-reward-model",
+    "qwen2-5-7b-instruct-reward-model-ablation"
   ],
   "related_authored": [],
   "schema_version": 1,

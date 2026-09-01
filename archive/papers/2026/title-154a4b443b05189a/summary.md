@@ -44,7 +44,7 @@ The paper states that visual latent tokens may obscure fine-grained reasoning de
 
 - **Concepts**: Latent chain of thought, [Chain-of-thought compression](../../../../wiki/concepts/chain-of-thought-compression.md), Reconstruction target bias, Spatial inductive bias, Token-log-likelihood step selection, Hybrid latent-textual reasoning
 - **Methods**: ImgCoT, loose ImgCoT (L-ImgCoT), CoT-to-image rendering as autoencoder reconstruction target, low-log-likelihood step selection, [Coconut](../../../../wiki/methods/coconut.md), [CODI](../../../../wiki/methods/codi.md), [CoLaR](../../../../wiki/methods/colar.md)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), GPQA-Extended, ProsQA
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), GPQA-Extended, [ProsQA](../../../../wiki/datasets/prosqa.md)
 
 Tags: `latent-cot`, `cot-compression`, `efficient-reasoning`, `visual-tokens`, `token-budget`, `icml-2026`
 

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Gemini-2.5-Flash-Thinking is used in these sources as an evaluated LRM subject to overthinking-related stress-testing: REST finds it, like other SOTA models, degrades substantially (e.g. -31.6% on AIME25) when multiple questions are concatenated into one prompt, attributing this largely to an 'overthinking trap,' and CoTJudger's token-length-distribution analysis notes it is notable for producing extreme outliers (>60,000 tokens), indicative of instability and ineffective halting mechanisms in edge cases.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

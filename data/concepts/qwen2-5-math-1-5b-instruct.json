@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Qwen2.5-MATH-1.5B-Instruct"
+  ],
   "definition": "Qwen2.5-Math-1.5B-Instruct is a math-specialized model used in this archive to test cross-lingual generalizability of test-time scaling methods (Outcome/Process Reward Modeling, Budget Forcing) under FLOPs-matched budgets, and by MUTO's token-level marginal utility training, where even this already-concise math-specialized backbone still gains +2.0 accuracy points while cutting tokens 12.9% -- a smaller efficiency gain than on long-CoT DeepSeek-R1-Distill backbones.",
   "evidence": [
     {
@@ -19,11 +21,17 @@
       "kind": "paper",
       "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
       "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.511",
+      "kind": "paper",
+      "note": "DREAM decomposes tree-based test-time search into separate planning and execution phases, each with its own reward model and adaptive per-step budget allocation, improving the accuracy-tokens tradeoff over standard beam search and majority voting on math reasoning and code generation.",
+      "title": "A Reward-Guided Dual-Phase Framework for Adaptive Inference-Time Reasoning"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "Qwen2.5-Math-1.5B-Instruct",
   "related": [
     "linguistic-generalizability-of-test-time-scaling",
@@ -89,7 +97,24 @@
     "deepseek-r1-distill-qwen-32b",
     "deepseek-r1-distill-llama-70b",
     "deepseek-r1-671b",
-    "openai-o1-mini"
+    "openai-o1-mini",
+    "dual-phase-search-plan-execution-separation",
+    "adaptive-dynamic-budget-allocation",
+    "process-reward-model-prm",
+    "rollout-based-reward-labeling",
+    "dream-dual-phase-reward-guided-search",
+    "dynamic-budget-allocation",
+    "standard-beam-search-baseline",
+    "rebase-baseline",
+    "majority-vote-baseline",
+    "gsm8k",
+    "math-math500",
+    "asdiv",
+    "deepseekmath-7b-instruct",
+    "llama-3-8b-instruct",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-32b-instruct-reward-model",
+    "qwen2-5-7b-instruct-reward-model-ablation"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -8,7 +8,7 @@ A benchmark for evaluating web-browsing/search LLM agents, used by sources to te
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 5
 
-**Related**: [Budget Forcing](../methods/budget-forcing.md), [Claude Sonnet 4.5](../models/claude-sonnet-4-5.md), [Confidence-Informed Self-Consistency (CISC, baseline)](../methods/confidence-informed-self-consistency-cisc-baseline.md), [GAIA](gaia.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPT-5](../models/gpt-5.md), [GPT-5 mini](../models/gpt-5-mini.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [Kimi-K2.5](../models/kimi-k2-5.md), [Self-Consistency (baseline)](../methods/self-consistency-baseline.md), [sequential vs. parallel test-time scaling](../concepts/sequential-vs-parallel-test-time-scaling.md)
+**Related**: [BFCL v3](bfcl-v3.md), [Budget Forcing](../methods/budget-forcing.md), [Claude Sonnet 4.5](../models/claude-sonnet-4-5.md), [Confidence-Informed Self-Consistency (CISC, baseline)](../methods/confidence-informed-self-consistency-cisc-baseline.md), [GAIA](gaia.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPT-5](../models/gpt-5.md), [GPT-5 mini](../models/gpt-5-mini.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [Kimi-K2.5](../models/kimi-k2-5.md), [Self-Consistency (baseline)](../methods/self-consistency-baseline.md), [sequential vs. parallel test-time scaling](../concepts/sequential-vs-parallel-test-time-scaling.md)
 
 ## Appears in
 

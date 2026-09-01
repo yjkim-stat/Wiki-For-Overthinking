@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.333",
+      "kind": "paper",
+      "note": "TrigReason diagnoses three specific SRM (small reasoning model) failure modes -- path divergence at the start, cognitive overload on hard steps (signaled by abnormally low token-level perplexity/overconfidence, present in 94.6% of incorrect trajectories vs. 38.1% baseline), and recovery inability (persisting on erroneous paths, signaled by hesitation-word loops) -- and replaces SpecReason's per-step LRM polling verifier (shown to reject 50-81% of the SRM's own correct or self-generated steps due to inter-judge inconsistency) with three targeted, event-triggered LRM interventions, matching full-LRM accuracy while offloading 1.70x-4.79x more tokens to the SRM than SpecReason and cutting edge-cloud latency 43.9%/API cost 73.3%.",
+      "title": "TrigReason: Trigger-Based Collaboration between Small and Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "overconfidence (low-perplexity signal of cognitive overload)",
+  "related": [
+    "path-divergence-risk",
+    "cognitive-overload-risk",
+    "recovery-inability-risk",
+    "event-triggered-intervention-vs-polling-based-verification",
+    "strategic-priming-trigger",
+    "cognitive-offload-trigger",
+    "intervention-request-trigger",
+    "trigreason-event-triggered-srm-lrm-collaboration",
+    "specreason-polling-based-baseline",
+    "lrm-as-a-judge-baseline-verification-mechanism",
+    "srm-only-lrm-only-baselines",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "deepseek-r1-1-5b-srm",
+    "qwen3-0-6b-srm",
+    "qwq-32b-lrm",
+    "qwen3-30b-a3b-thinking-2507-lrm",
+    "deepseek-v3-1-edge-cloud-lrm-api-backend"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "overconfidence-low-perplexity-signal-of-cognitive-overload",
+  "topics": [
+    "overthinking"
+  ]
+}

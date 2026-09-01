@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.218",
+      "kind": "paper",
+      "note": "RELIEF shapes LRM reasoning behavior (efficiency, faithfulness) without ever showing the model a single reasoning trace, exploiting a probed 'latent reasoning belief' -- logit differences over self-descriptive tokens ('concise' vs. 'verbose') that correlate strongly with actual reasoning length (Spearman rho~-0.69) -- by fine-tuning only on synthesized, trace-free self-reflective QA pairs affirming a target belief; this shifts DeepSeek-R1-Distill-Qwen-7B's reasoning length to 71.4% of baseline while achieving the highest overall accuracy of all compared methods (including a much more compute-intensive SimPO baseline needing 10-20x more training tokens), and similarly improves faithfulness under adversarial hints, with logit re-probing confirming a genuine internal belief shift rather than superficial SFT format-imitation.",
+      "title": "Finding RELIEF: Shaping Reasoning Behavior without Reasoning Supervision via Belief Engineering"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "method",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "EfficientBelief (prompting baseline)",
+  "related": [
+    "belief-engineering",
+    "latent-reasoning-belief",
+    "target-belief-blueprint",
+    "belief-reflecting-qa-synthesis",
+    "target-belief-internalization",
+    "logit-based-belief-probing",
+    "relief-reasoning-belief-engineering",
+    "sft-shortest-baseline",
+    "sft-belief-baseline",
+    "simpo-shortest-baseline",
+    "beliefprompt-baseline",
+    "gsm8k",
+    "math500",
+    "amc23",
+    "aime-2024",
+    "mmlu-redux",
+    "gpqa-diamond",
+    "limo-v2-subset-400-shortest-trace-problems-comparison-baseline-training-data",
+    "qwen3-8b",
+    "deepseek-r1-distill-qwen-7b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "efficientbelief-prompting-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

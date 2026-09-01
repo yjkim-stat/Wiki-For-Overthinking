@@ -1,0 +1,51 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.477",
+      "kind": "paper",
+      "note": "AdapThink measures reflection behavior with a BERT classifier (trained on DeepSeek-R1-Distill-Qwen-32B-annotated 256-token segments, 98.86% F1) to find incorrect reasoning has systematically more reflection segments than correct reasoning at every model scale, then trains a group-relative reasoning-process reward that only discourages reflection once group accuracy exceeds a threshold (below it, no length pressure at all) combined with dispersion-maximizing sample selection that explicitly diversifies reasoning patterns within each training group -- cutting length 33.15%/29.10% on 1.5B/7B models while improving accuracy +6.59/+6.12 over GRPO, adaptively producing *longer* answers on hard AIME problems under a 32K context despite training at a strict 2K token limit, transferring to code generation and out-of-distribution benchmarks, and showing near-zero reward-hacking (0.7% N-gram repetition vs. LCPO's 10.8%).",
+      "title": "AdapThink: Adaptive Thinking Preferences for Reasoning Language Models"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "method",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "No-Wait (baseline)",
+  "related": [
+    "overthinking",
+    "underthinking-premature-reasoning-path-shifting",
+    "group-relative-reasoning-process-reward",
+    "dispersion-based-diversity-sampling",
+    "reflection-segment-bert-classified",
+    "reward-hacking-n-gram-repetition",
+    "performance-pursuing-mode-length-aversion-mode",
+    "adapthink-group-relative-reasoning-process-reward-dispersion-based-diversity-sam",
+    "grpo-baseline-algorithm",
+    "o1-pruner-baseline",
+    "dast-baseline",
+    "fcs-ref-baseline",
+    "lcpo-baseline",
+    "deer-baseline",
+    "mera-baseline",
+    "deepscaler-preview-dataset-subset-5k-training-pairs-from-aime-1984-2023-amc-pre",
+    "math500",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "livecode-v6",
+    "livecode-0811",
+    "lsat-ood",
+    "gpqa-ood",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "drive-sft-qwen2-5-32b-fine-tuned-code-generation-base"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "no-wait-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

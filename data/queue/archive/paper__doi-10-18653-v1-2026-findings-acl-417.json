@@ -1,0 +1,121 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-417.pdf"
+  },
+  "completed_at": "2026-09-01T10:02:20Z",
+  "created_at": "2026-08-28T02:36:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.417",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "We study the reasoning behavior of large language models (LLMs) under limited computation budgets. In such settings, producing useful partial solutions quickly is often more practical than exhaustive reasoning, which incurs high inference costs. Many real-world tasks, such as trip planning, require models to deliver the best possible output within a fixed reasoning budget. We introduce an anytime reasoning framework and the Anytime Index, a metric that quantifies how effectively solution quality improves as reasoning tokens increase. To further enhance efficiency, we propose an inference-time self-improvement method using LLM-synthesized preference data, where models learn from their own reasoning comparisons to produce better intermediate solutions. Experiments on NaturalPlan (Trip), AIME, and GPQA datasets show consistent gains across Grok-3, GPT-oss, GPT-4.1/4o, and LLaMA models, improving both reasoning quality and efficiency under budget constraints.",
+    "authors": [
+      "Xuanming Zhang",
+      "Shwan Ashrafi",
+      "Aziza Mirsaidova",
+      "Amir H. Rezaeian",
+      "Miguel Ballesteros",
+      "Lydia Chilton",
+      "Zhou Yu",
+      "Dan Roth"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "reasoning budget",
+      "reasoning token"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.417.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "Budget-Aware Anytime Reasoning with LLM-Synthesized Preference Data",
+    "url": "https://aclanthology.org/2026.findings-acl.417/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "anytime reasoning",
+      "Anytime Index (AUC-style quality-per-token metric)",
+      "Preference Data Prompting (PDP)",
+      "budget-specific contrastive preference pairs"
+    ],
+    "contributions": [
+      "the Anytime Index, an AUC-based metric quantifying a model's quality-per-token trajectory under token-budget constraints, distinguishing 'fast-thinking' from 'slow-thinking' models with similar final accuracy",
+      "Preference Data Prompting (PDP), a training-free inference-time self-improvement method using the model's own budget-matched contrastive reasoning-trace pairs as in-context examples",
+      "consistent Anytime Index and task-performance gains across seven model families and three domains (structured planning, math, scientific QA), with the largest gains for reasoning-specialized models"
+    ],
+    "datasets": [
+      "NaturalPlan (Trip)",
+      "AIME 2024",
+      "GPQA-Diamond"
+    ],
+    "limitations": "Experiments focus primarily on the trip-planning domain (NaturalPlan); the paper explicitly flags that future work should validate the framework on a broader set of tasks including open-ended domains like code generation. The comparison is primarily against standard CoT prompting and LEAP rather than an exhaustive set of alternatives (e.g. Tree-of-Thoughts, Self-Consistency are not benchmarked). PDP is limited to inference-time prompting with self-generated preference pairs; the authors note training models explicitly for anytime behavior via preference-driven fine-tuning (e.g. DPO) is left to future work.",
+    "method": "Defines an anytime-reasoning evaluation pipeline: for each task input, sample N full CoT traces, truncate each at a series of token-budget checkpoints, re-prompt the model to produce a final answer from only the truncated prefix, and score that answer with a task-specific quality metric (Constraint Satisfaction Rate for NaturalPlan trip planning, accuracy for AIME/GPQA). The Anytime Index is the trapezoidal area under the resulting quality-vs-budget curve, normalized to [0,1] by the budget range and the best achievable score -- rewarding models that reach high quality early ('fast-thinking') over ones that only improve near the maximum budget ('slow-thinking'), even when final scores tie. Preference Data Prompting (PDP) then uses this same truncation pipeline offline to generate, per budget checkpoint, self-scored preference pairs (a higher-quality vs. a lower-quality trace at the same token budget, intermediate solutions omitted) from the model's own 64 sampled traces, and injects the single largest-quality-gap pair per checkpoint as an in-context contrastive example during inference -- with no fine-tuning or external supervision.",
+    "methods": [
+      "Preference Data Prompting (PDP)",
+      "Anytime Index",
+      "LEAP (in-context principle learning from mistakes, baseline)",
+      "standard Chain-of-Thought prompting (baseline)"
+    ],
+    "models": [
+      "Grok-3",
+      "Grok-3-mini",
+      "GPT-oss-120B",
+      "GPT-oss-20B",
+      "GPT-4.1",
+      "GPT-4o",
+      "LLaMA-3.3-70B"
+    ],
+    "one_liner": "Introduces the Anytime Index, an AUC-style metric quantifying how solution quality improves as reasoning-token budget increases, and Preference Data Prompting (PDP), an inference-time self-improvement method using self-generated contrastive reasoning pairs at fixed token budgets, giving consistent gains across seven LLM families on trip planning, math, and scientific QA.",
+    "problem": "Real-world tasks often require the best possible output within a strict, fixed reasoning-token budget, but existing test-time-scaling, early-exit and token-length-control work targets only final-answer quality at unrestricted computation, offering no principled way to evaluate or improve the *trajectory* of reasoning quality as budget increases.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly relevant: it reframes the accuracy/efficiency tradeoff not as a single length-vs-accuracy point but as an entire curve (quality per token, at every budget), with the Anytime Index giving a principled way to say a model 'wastes' its early token budget even when its final answer at unlimited budget is fine -- exactly the shape of claim the overthinking literature makes about wasted reasoning length, but formalized as a metric rather than asserted qualitatively. PDP is also a concrete, training-free intervention that improves reasoning quality specifically at *smaller* budgets, which is the efficiency-focused endpoint most overthinking mitigation work targets."
+    },
+    "results": "Across seven models (Grok-3, Grok-3-mini, GPT-oss-120B, GPT-oss-20B, GPT-4.1, GPT-4o, LLaMA-3.3-70B) and three benchmarks (NaturalPlan/Trip, AIME 2024, GPQA-Diamond), PDP consistently improves the Anytime Index over standard CoT prompting, achieving the highest overall Anytime Index for all reasoning-specialized models and for LLaMA-3.3-70B. Gains are most pronounced for reasoning-specialized models: PDP improves overall final CSR/accuracy by 17.6%, average CSR/accuracy by 11.4%, and Anytime Index by 7.9 points versus baseline CoT in that subgroup. PDP beats LEAP (a learning-from-mistakes ICL baseline) on Anytime Index in six of seven models. An ablation (PDP(+), using only high-quality traces as in-context examples, omitting the rejected/lower-quality ones) consistently improves over CoT but is consistently weaker than full PDP across the 21 model-dataset settings -- confirming the contrastive (good-vs-bad) signal itself, not just exposure to strong traces, drives the gain. For general-purpose (non-reasoning-specialized) models, PDP still improves over CoT but does not always achieve the single best Anytime Index among strategies, suggesting PDP works best when a model can reliably distinguish higher- from lower-quality reasoning traces on its own.",
+    "tags": [
+      "anytime-reasoning",
+      "test-time-scaling",
+      "token-budget",
+      "preference-data",
+      "in-context-learning"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-417",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -9,7 +9,7 @@ Claude Sonnet 4.5 appears in this archive as one of the LLMs deployed within mul
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [BrowseComp](../datasets/browsecomp.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-0528-Qwen3-8B](deepseek-r1-0528-qwen3-8b.md), [DeepSeek-V3.2](deepseek-v3-2.md), [Gemini-2.5-Flash-Thinking](gemini-2-5-flash-thinking.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GLM-4.6](glm-4-6.md), [GPT-5](gpt-5.md), [GPT-5 mini](gpt-5-mini.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [Kimi-K2-Thinking](kimi-k2-thinking.md), [Overthinking](../concepts/overthinking.md), [Qwen3-235B-A22B-Thinking-2507](qwen3-235b-a22b-thinking-2507.md), [Qwen3-30B-A3B-Thinking-2507](qwen3-30b-a3b-thinking-2507.md), [Qwen3-Max](qwen3-max.md)
+**Related**: [BFCL v3](../datasets/bfcl-v3.md), [BrowseComp](../datasets/browsecomp.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-0528-Qwen3-8B](deepseek-r1-0528-qwen3-8b.md), [DeepSeek-V3.2](deepseek-v3-2.md), [Gemini-2.5-Flash-Thinking](gemini-2-5-flash-thinking.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GLM-4.6](glm-4-6.md), [GPT-5](gpt-5.md), [GPT-5 mini](gpt-5-mini.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [Kimi-K2-Thinking](kimi-k2-thinking.md), [Overthinking](../concepts/overthinking.md), [Qwen3-235B-A22B-Thinking-2507](qwen3-235b-a22b-thinking-2507.md), [Qwen3-30B-A3B-Thinking-2507](qwen3-30b-a3b-thinking-2507.md), [Qwen3-Max](qwen3-max.md)
 
 ## Appears in
 

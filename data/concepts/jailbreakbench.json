@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "JailBreakBench"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Mousetrap is the first jailbreak attack framework designed against large reasoning models: a 'Chaos Machine' iteratively applies reversible one-to-one prompt mappings (character/word/sentence-level ciphers) to embed a toxic query inside a multi-step reconstruction task, exploiting the finding that LRMs exhibit 'reasoning inertia' -- once started, they follow the reasoning chain to completion by inertia and neglect to re-evaluate safety -- achieving up to 96-98% attack success against o1-mini, Claude-3.5-Sonnet and Gemini-2.0-Thinking and 87.5-93.13% on standard safety benchmarks against Claude-Sonnet.",
       "title": "A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.463",
+      "kind": "paper",
+      "note": "A single-turn, non-narrative jailbreak method that simply instructs an LRM to reason through an explicit internal conflict (e.g. Helpfulness vs. Harmlessness) or moral dilemma (e.g. a duress or sacrificial scenario) before answering a harmful query substantially raises attack success rates across three models and five safety benchmarks (e.g. QwQ-32B: direct-query ASR 0.04 to conflict-injected 0.523 on AdvBench) with no fine-tuning, multi-turn interaction, or gradient access, and layerwise/neuron-level analysis shows the conflict prompt causes safety-relevant and functional activation subspaces to shift and overlap specifically in middle-to-late layers, weakening safety alignment at the representational level.",
+      "title": "Conflicts Make Large Reasoning Models Vulnerable to Attacks"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "JailbreakBench",
   "related": [
     "chaos-machine-reversible-one-to-one-prompt-mapping-generator",
@@ -43,7 +51,23 @@
     "deepseek-r1",
     "qwq-plus",
     "grok-3",
-    "gpt-4o-mini-fine-tuned-chaos-machine-variant"
+    "gpt-4o-mini-fine-tuned-chaos-machine-variant",
+    "internal-alignment-conflict",
+    "moral-dilemma-duress-agent-centered-sacrificial-social",
+    "conflict-injection-single-turn-jailbreak",
+    "representational-interference-safety-vs-functional-subspace-overlap",
+    "safety-relevant-neurons-wanda-scored",
+    "layerwise-representational-shift",
+    "conflict-injection-jailbreak-framework",
+    "wanda-based-safety-neuron-identification",
+    "layerwise-cosine-similarity-representational-analysis",
+    "pca-based-neuron-activation-pattern-comparison",
+    "llama-guard-3-asr-judge",
+    "harmfulq",
+    "qwq-32b",
+    "llama-nemotron-8b",
+    "deepseek-r1-0528-685b",
+    "qwen3guard-robustness-check-appendix"
   ],
   "related_authored": [],
   "schema_version": 1,

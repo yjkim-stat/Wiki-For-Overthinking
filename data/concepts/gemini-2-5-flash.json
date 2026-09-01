@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "AutoRAN is the first automated framework for hijacking a large reasoning model's internal safety deliberation, using a weaker, less-aligned auxiliary model to simulate the target's execution reasoning and iteratively refine attack prompts from leaked refusal reasoning, achieving near-100% attack success against gpt-o3/o4-mini and Gemini-2.5-Flash within a few turns.",
       "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2103",
+      "kind": "paper",
+      "note": "Using a controlled 1D-cellular-automata benchmark with disjoint train/test rule sets (precluding memorization), this paper shows models can genuinely infer unseen local rules but fixed-depth architectures collapse sharply beyond one-step-ahead prediction, that most frontier LLMs (except Gemini-2.5-Pro) fail even the simplest natural-language proxy of this task, and that depth -- not width -- is what drives multi-step accuracy, with chain-of-thought-style token-level supervision reaching near-perfect accuracy up to 4 look-ahead steps while RL (GRPO) without intermediate supervision reaches only 3 steps and architectural depth-extension tricks (ACT, recurrent memory) each add only about one effective step.",
+      "title": "Beyond Memorization: Extending Reasoning Depth with Recurrence, Memory and Test-Time Compute Scaling"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "Gemini 2.5 Flash",
   "related": [
     "over-thinking-penalty",
@@ -89,7 +95,27 @@
     "deepseek-r1",
     "qwen3-8b",
     "qwen3-8b-ablated-attacker",
-    "claude-3-7-sonnet"
+    "claude-3-7-sonnet",
+    "effective-depth-of-a-reasoning-model",
+    "rule-induction-vs-memorization",
+    "look-ahead-depth-of-reasoning",
+    "adaptive-computation-time-act",
+    "associative-recurrent-memory-transformer-armt",
+    "grpo-without-intermediate-supervision",
+    "token-level-chain-of-thought-supervision",
+    "adaptive-computation-time-act-layer-level-and-model-level",
+    "grpo-rl-without-intermediate-supervision",
+    "token-level-chain-of-thought-supervision-orbit-orbit-training",
+    "1dca-reasoning-new-cellular-automata-orbits-disjoint-train-test-rules",
+    "handsup-new-natural-language-proxy-task",
+    "group-multiplication-benchmark-corroborating-check-appendix",
+    "gpt-neox-trained-from-scratch",
+    "lstm-trained-from-scratch",
+    "mamba-trained-from-scratch",
+    "armt-trained-from-scratch",
+    "llama-3-3-70b",
+    "nemotron-32b",
+    "nemotron-7b"
   ],
   "related_authored": [],
   "schema_version": 1,

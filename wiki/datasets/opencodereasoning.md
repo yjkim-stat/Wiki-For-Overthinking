@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [CommonsenseQA](commonsenseqa.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [LiveCodeBench-v6](livecodebench-v6.md), [MATH](math.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU-STEM](mmlu-stem.md), [OpenMathReasoning](openmathreasoning.md), [Overthinking](../concepts/overthinking.md), [s1k-1.1](s1k-1-1.md), [StrategyQA](strategyqa.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
+**Related**: [AIME 2025](aime-2025.md), [AMC23](amc23.md), [CommonsenseQA](commonsenseqa.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [LiveCodeBench-v6](livecodebench-v6.md), [MATH](math.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU STEM](mmlu-stem.md), [OpenMathReasoning](openmathreasoning.md), [OpenR1-Math-220k](openr1-math-220k.md), [Overthinking](../concepts/overthinking.md), [s1k-1.1](s1k-1-1.md), [StrategyQA](strategyqa.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
 
 ## Appears in
 

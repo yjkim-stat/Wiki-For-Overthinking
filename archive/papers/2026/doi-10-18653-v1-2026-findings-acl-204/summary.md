@@ -47,7 +47,7 @@ MR-ALIGN's gains on SimpleQA are comparatively modest because most of its questi
 
 - **Concepts**: reasoning-answer hit gap, meta-reasoning state taxonomy, atomic reasoning process modeling, transition-aware implicit reward, Kahneman-Tversky Optimization (KTO), state-transition matrix (EM-estimated)
 - **Methods**: MR-ALIGN (transition-aware KTO), Kahneman-Tversky Optimization (KTO, baseline), [SFT (baseline)](../../../../wiki/methods/sft-baseline.md), Self-Refine (baseline), Expectation-Maximization (transition-matrix estimation), open-search retrieval augmentation (Serper API)
-- **Datasets**: NQ-Open, [SciQ](../../../../wiki/datasets/sciq.md), SimpleQA, [TruthfulQA](../../../../wiki/datasets/truthfulqa.md), LongFact
+- **Datasets**: NQ-Open, [SciQ](../../../../wiki/datasets/sciq.md), [SimpleQA](../../../../wiki/datasets/simpleqa.md), [TruthfulQA](../../../../wiki/datasets/truthfulqa.md), LongFact
 
 Tags: `factuality-alignment`, `meta-reasoning`, `reasoning-trace-analysis`, `KTO`, `hallucination`
 

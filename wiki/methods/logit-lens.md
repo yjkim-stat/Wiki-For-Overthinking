@@ -9,7 +9,7 @@ Logit lens -- projecting a model's intermediate-layer hidden states through the 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](../models/deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [Latent reasoning](../concepts/latent-reasoning.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-32B-Instruct](../models/qwen2-5-32b-instruct.md), [reasoning effort](../concepts/reasoning-effort.md), [Self-Certainty](../concepts/self-certainty.md), [Self-Consistency](self-consistency.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1-Distill-Qwen-14B](../models/deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](../models/deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [HMMT 2025](../datasets/hmmt-2025.md), [Latent reasoning](../concepts/latent-reasoning.md), [Nemotron-32B](../models/nemotron-32b.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-32B-Instruct](../models/qwen2-5-32b-instruct.md), [reasoning effort](../concepts/reasoning-effort.md), [Self-Certainty](../concepts/self-certainty.md), [Self-Consistency](self-consistency.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md)
 
 ## Appears in
 

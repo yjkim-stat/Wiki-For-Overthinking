@@ -47,7 +47,7 @@ The paper does not discuss limitations in the excerpted sections beyond what is 
 
 - **Concepts**: [reasoning hallucination](../../../../wiki/concepts/reasoning-hallucination.md), [routing collapse](../../../../wiki/concepts/routing-collapse.md), Routing Focus Score (RFS), cross-phase attention correlation, reason flow (multi-hop backtracking), self-confirmation loop
 - **Methods**: RFS-Guard (Routing Focus Score + Reason Flow), SelfCheckGPT (baseline), SINdex (baseline), RACE (baseline), P(True)/LNPE/PPL/CCP (uncertainty baselines), EigenScore/AttentionScore/UQAC/RHD (self-aware baselines), LengthScore (rule-based baseline)
-- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME25](../../../../wiki/datasets/aime-2025.md), minervamath, MATH (composite domain), Science (domain), MultiHopQA (domain)
+- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [minervamath](../../../../wiki/datasets/minervamath.md), MATH (composite domain), Science (domain), MultiHopQA (domain)
 
 Tags: `hallucination-detection`, `mechanistic-interpretability`, `attention-analysis`, `training-free`, `reasoning-trace-analysis`
 

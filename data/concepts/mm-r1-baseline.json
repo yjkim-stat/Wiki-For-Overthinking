@@ -1,0 +1,55 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.215",
+      "kind": "paper",
+      "note": "GPRO diagnoses that visual perception failures (not reasoning errors) cause over twice as many incorrect predictions across model scales in vision-language models, then routes each generated token through one of three paths -- a fast FFN, a slow cross-attention perception path for re-examining the image, or a slow self-reflection reasoning path -- via a lightweight meta-reasoning controller trained with PPO on a multi-objective reward (task accuracy, path-cost penalty, and an uncertainty-calibration term derived from ~790K GPT-4-labeled perception-vs-reasoning failure attributions); GPRO-7B matches/beats far larger closed models and long-CoT distillation baselines while cutting response length up to 51.5%, activating slow paths sparsely (73% Fast/17% Perception/10% Reasoning) and correctly, targeting perception re-examination at high-frequency visual tokens and reasoning refinement at logical connectives.",
+      "title": "Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "method",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "MM-R1 (baseline)",
+  "related": [
+    "overthinking-in-vision-language-models",
+    "visual-perception-failure-vs-reasoning-error",
+    "gated-perception-reasoning-gpr-module",
+    "meta-reasoning-controller",
+    "multi-objective-ppo-training",
+    "calibration-reward",
+    "gated-perception-reasoning-optimization-gpro",
+    "gpt-4-based-failure-attribution-perception-vs-reasoning",
+    "ppo-multi-objective-reward",
+    "mulberry-baseline",
+    "virgo-baseline",
+    "curr-reft-baseline",
+    "lmm-r1-baseline",
+    "vision-r1-baseline",
+    "r1-onevision-baseline",
+    "openvlthinker-baseline",
+    "fast-baseline",
+    "virl39k",
+    "mathv360k",
+    "mulberry-training-corpus-sources-for-failure-mining",
+    "mathvision",
+    "mathverse",
+    "mathvista",
+    "dynamath",
+    "mm-vet",
+    "qwen2-5-vl-3b",
+    "qwen2-5-vl-7b",
+    "qwen2-vl-7b",
+    "gpt-4o-reference",
+    "claude-3-5-sonnet-reference",
+    "qwen-vl-max-reference"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "mm-r1-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-281.pdf"
+  },
+  "completed_at": "2026-08-28T03:04:21Z",
+  "created_at": "2026-08-28T02:36:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.281",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Extending CoT through RL has been widely used to enhance the reasoning capabilities of LLMs. However, due to the sparsity of reward signals, it can also induce undesirable thinking patterns such as overthinking, i.e., generating redundant intermediate reasoning content. In this work, we argue that a major source of such redundancy is inefficient reflection, which often manifests in two problematic patterns: Indiscriminate Reflection, where the model performs broad, low-impact checks throughout reasoning, and Repetitive Reflection, where it repeatedly re-verifies an already established conclusion. To address this, we introduce a graph-based CoT optimization framework. Specifically, we convert each linear CoT into a directed acyclic graph (DAG) with explicit dependency edges, and design a dual pruning strategy: branch-level pruning removes weakly contributing reflection branches, while depth-level pruning eliminates late-stage re-verification. We distill this behavior via a three-stage pipeline: (1) SFT to initialize the policy on pruned concise traces, (2) DPO to prefer correct but less redundant trajectories, and (3) GRPO with length penalty to jointly optimize answer correctness and efficiency. Experiments show that our approach reduces the average reasoning tokens by 42% while maintaining or improving accuracy.",
+    "authors": [
+      "Hongyuan Yuan",
+      "Xinran He",
+      "Run Shao",
+      "Bolei He",
+      "Xianwei Xue",
+      "Mengke Chen",
+      "Qiutong Pan",
+      "Haiwei Wang",
+      "Haifeng Li"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "reasoning token"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.281.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.4
+    },
+    "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+    "url": "https://aclanthology.org/2026.findings-acl.281/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "Indiscriminate Reflection",
+      "Repetitive Reflection",
+      "CoT dependency graph (progress vs. review nodes)",
+      "branch-level redundancy",
+      "depth-level redundancy",
+      "redundancy score (for DPO preference pairs)"
+    ],
+    "contributions": [
+      "an explicit distinction between two structurally different forms of inefficient reflection in RL-trained reasoning models -- Indiscriminate Reflection (broad, low-impact checking of trivial steps) and Repetitive Reflection (late-stage re-verification of already-established conclusions) -- rather than treating redundancy as a single undifferentiated phenomenon",
+      "a graph-based CoT representation that converts a linear reasoning trace into a directed acyclic graph with explicit progress/review node labels and dependency edges, recovering the non-linear (branching, backtracking, repetitive) structure that a flat CoT obscures",
+      "a dual, graph-topological pruning criterion (branch-level: low-descendant-count review nodes; depth-level: late-appearing review nodes) that precisely targets each redundancy type via structural properties rather than heuristic token-importance scoring",
+      "a three-stage training pipeline (cold-start SFT on pruned traces, DPO preference optimization over redundancy-ranked trajectories, GRPO with a length penalty) that achieves state-of-the-art accuracy-efficiency trade-off across five math benchmarks and two model scales, with ablations confirming the gain comes specifically from selective, structure-aware pruning rather than blind shortening or wholesale removal of all self-verification"
+    ],
+    "datasets": [
+      "Light-R1 (SFT cold-start source)",
+      "AIME (pre-2024, DPO preference-pair sampling)",
+      "AMC (pre-2023, DPO preference-pair sampling)",
+      "dapo-17k (GRPO training)",
+      "AIME24",
+      "AIME25",
+      "AMC23",
+      "OlympiadBench",
+      "MATH500"
+    ],
+    "limitations": "The approach requires constructing reasoning graphs with a strong teacher/auxiliary LLM (qwen3-turbo used for graph construction), which introduces preprocessing cost and may limit scalability to much larger training corpora, though the paper reports this cost is modest at the scale tested ($20 for 3,335 samples). The progress/review node-type labeling is described by the authors as coarse and may overlook fine-grained reasoning nuances that a richer semantic taxonomy could capture. While the method is validated effective for mathematical reasoning specifically, it remains unclear how well it generalizes to more open-ended, non-mathematical reasoning domains where correctness verification and step dependency structure may be less clearly defined; the authors explicitly flag lighter-weight graph construction, richer semantic labels, and broader domain evaluation as future work.",
+    "method": "Splits a raw CoT into step-level chunks via keyword triggers ('wait', 'alternative', etc.), then performs iterative graph construction: an external LLM (qwen3-turbo) processes each chunk in sequence, conditioned on the partially-built graph and the current chunk, to predict an insert-or-merge operation -- on insert, it creates a new node summarizing the chunk and labels it as either 'progress' (advances the active reasoning frontier, producing information later steps depend on) or 'review' (reads, checks, restates, deletes, or rewinds existing material without advancing the frontier), then connects it to existing nodes based on logical dependency; on merge, the chunk's content updates an existing target node. This reconstructs the linear CoT as a directed acyclic graph G=(V,E,l) with explicit dependency edges, validated via human evaluation of node-type labeling accuracy and node-level semantic atomicity. Two graph-topological pruning criteria then identify low-utility review nodes: Branch-Level Redundancy -- a review node v is redundant if its descendant count B(v) (size of its downstream reachable set) falls below threshold k=2, indicating it initiates only a narrowly expanding side branch that rarely develops into the main reasoning trajectory; Depth-Level Redundancy -- a review node is redundant if its normalized depth d(v)/d_max exceeds threshold m=0.9, indicating it appears late in the trajectory and likely corresponds to post-answer backtracking/re-verification adding no new information. Flagged nodes are removed and the remaining DAG is relinearized into a concise CoT for training. A three-stage pipeline then trains the policy: (1) Cold-start SFT on the pruned CoTs (paired with final answers) instills an inductive bias toward concise, non-redundant reasoning, essential groundwork for the later stages; (2) DPO preference optimization -- for each question, multiple trajectories are sampled from the SFT model and scored by a redundancy score R(y) (combining the fraction of nodes labeled 'review' and the response's length relative to the mean length across sampled trajectories for that question); among correct trajectories, lower-redundancy ones are preferred (y+) over higher-redundancy ones (y-), and the model is trained via standard DPO loss to increase the relative likelihood of the concise, low-redundancy trajectories; (3) GRPO with length penalty -- reward combines a binary correctness signal with a length regularizer applied only to correct trajectories, penalizing excess length relative to the shortest correct trajectory found among sampled candidates for that question (a normalized-excess-length term with a small tolerance margin, so trajectories close to the shortest correct one incur almost no penalty while substantially longer ones are increasingly penalized), jointly optimizing correctness and efficiency and further compressing redundant steps at inference time.",
+    "methods": [
+      "graph-based redundancy-aware post-training (SFT + DPO + GRPO-with-length-penalty)",
+      "O1-Pruner (baseline)",
+      "TokenSkip (baseline)",
+      "EfficientReasoning (baseline)",
+      "AdaptThink (baseline)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-1.5B",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "qwen3-turbo (graph construction)",
+      "Skywork-OR1-7B / OREAL-7B / AReaL-boba-RL-7B / Light-R1-DS-7B (reference open-source R1-style models)"
+    ],
+    "one_liner": "Converts each linear chain-of-thought into a directed acyclic graph (progress vs. review nodes with explicit dependency edges, built iteratively by an LLM) and removes two distinct redundancy types -- branch-level (a review node whose descendant count falls below a threshold, forming a narrow, low-impact side branch) and depth-level (a review node appearing late in the trace, re-verifying an already-established conclusion) -- via a three-stage SFT-then-DPO-then-GRPO-with-length-penalty pipeline, cutting DeepSeek-R1-Distill-Qwen-7B's average reasoning length 42.7% while raising average accuracy from 59.72% to 60.95% across five math benchmarks, with ablations showing the method beats both no-pruning and random pruning at matched compression, and specifically beats pruning all review nodes outright, confirming not all reflection is harmful.",
+    "problem": "RL-based extension of chain-of-thought (as in o1/R1-style training) improves reasoning but, because RL reward signals over long trajectories are often sparse and delayed (making credit assignment difficult), can also induce overthinking -- generating large amounts of redundant intermediate reasoning that contributes little to the final answer and inflates inference cost; the paper identifies two specific, previously under-distinguished forms this redundancy takes -- Indiscriminate Reflection (the model checks every intermediate step even when trivial) and Repetitive Reflection (the model repeatedly re-verifies conclusions already established) -- both of which existing length-budget-control or token-importance-scoring methods do not precisely target, since accurately identifying redundant reflection first requires recovering the actual dependency structure among reasoning steps, which practical reasoning's non-linear behaviors (branching, backtracking, cross-step repetition) obscure in a flat, linear CoT.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Directly and centrally relevant: it names overthinking explicitly as the outcome of sparse RL reward signals over long trajectories, and provides one of the more structurally precise diagnoses in this archive by decomposing redundant reflection into two graph-topologically distinguishable subtypes (branch-level and depth-level), rather than treating all redundancy uniformly. Its ablation against a 'Prune All Review' baseline -- which underperforms selective pruning -- gives direct, quantified evidence for a claim several other papers in this archive make qualitatively: reflection/self-verification is not uniformly harmful, and blanket suppression of it is a worse strategy than identifying which specific reflective steps are actually redundant."
+    },
+    "results": "Across five math benchmarks (AIME24, AIME25, AMC23, OlympiadBench, MATH500) and two model scales (DeepSeek-R1-Distill-Qwen-1.5B/7B), the method achieves the best accuracy-efficiency trade-off among four compared efficiency-oriented baselines (O1-Pruner, TokenSkip, EfficientReasoning, AdaptThink) and several open-source R1-style reference models: on DeepSeek-R1-Distill-Qwen-7B, average accuracy improves from the base model's 59.72% to 60.95% while average reasoning length drops from 8134 to 4660 tokens (a 42.7% reduction) -- gains are most pronounced on the hardest benchmarks: AIME25 accuracy rises from 29.00% to 31.67% while reasoning length drops from 12779 to 6977 tokens, and OlympiadBench accuracy rises from 56.77% to 59.85% with shorter traces (5252->3786); on the smaller DeepSeek-R1-Distill-Qwen-1.5B, average accuracy improves from 46.68% to 49.91% while average length drops from 7442 to 4762 tokens (a 36% reduction), with notable gains on AMC23 (63.12%->69.38%) and MATH500 (72.65%->80.40%). A stage-wise ablation (Base -> +SFT -> +DPO -> +GRPO) across all five benchmarks shows each successive stage progressively reduces the token-count ratio (normalized to Base=1.0) while broadly maintaining or slightly improving accuracy, confirming the cumulative training recipe's contributions are complementary rather than redundant. Graph and preprocessing cost statistics show pruning removes a substantial share of review nodes (average review nodes per trace drop from 16.8 to 4.5, total nodes from 27.8 to 15.6, average tokens from 6468 to 4439) while the offline preprocessing itself is affordable ($20 total for 3,335 training samples, ~21 hours with 30 concurrent requests using a lightweight model). A controlled comparison of four SFT training-set constructions (No Pruning: full traces; Random Pruning: same node-removal count but selected uniformly at random; Prune All Review: removes every review node; Ours: selective graph-based pruning) on DeepSeek-R1-Distill-Qwen-7B shows the proposed method achieves slightly better accuracy than No Pruning (42.50%/34.17% vs. 42.08%/33.75% on AIME24/25) while substantially reducing average generation length (10390/9937 vs. 12746/11180 tokens) -- and under matched compression levels, the method consistently outperforms Random Pruning, confirming the gain comes from selectively removing ineffective reasoning steps rather than blindly shortening traces; critically, it also outperforms Prune All Review (which removes every review node indiscriminately), showing not all reflection is harmful -- the method specifically preserves useful reflective steps while pruning redundant ones, rather than treating all self-verification as waste. A hyperparameter sweep over the depth-cutoff ratio m and descendant-count threshold k shows performance changes smoothly across a reasonably wide range without catastrophic degradation, though overly aggressive branch-level pruning (increasing k) can remove some beneficial reflective steps and reduce accuracy in certain cases (e.g. AIME25 at m=0.7: k=2->3 drops accuracy 35.83%->34.13% with only a minor length change), while varying the depth threshold m generally produces a smoother accuracy-length trade-off, indicating depth-level pruning provides more gradual control over pruning strength than branch-level pruning. Post-training behavioral analysis (AIME24) shows the trained model's reasoning-length distribution shifts substantially shorter with a clear suppression of the long-tail region corresponding to excessively long responses, and reflection-oriented token frequencies (e.g. 'wait', 'but', 'hmm', 'maybe', 'check') consistently decrease after training while progress-oriented connectives (e.g. 'therefore') become substantially more frequent -- direct behavioral evidence of a shift from reflective verbosity toward more direct, decision-driven reasoning. Qualitative case studies comparing original and pruned reasoning graphs show pruning typically eliminates repeated self-checks and digressions while keeping the core derivation intact, producing cleaner, more stable reasoning trajectories.",
+    "tags": [
+      "overthinking",
+      "chain-of-thought-pruning",
+      "graph-based-reasoning-analysis",
+      "reinforcement-learning",
+      "GRPO",
+      "DPO"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-281",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

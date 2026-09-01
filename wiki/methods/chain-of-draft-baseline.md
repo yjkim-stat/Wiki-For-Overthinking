@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Chain-of-Draft (CoD), a prompting strategy that constrains reasoning to short, terse draft-like steps, is used in these sources as a prompt-based conciseness baseline: WHISPER and Budget Guidance both compare their own persuasive-prompting/steering methods against CoD among other training-free length-control baselines, generally finding it less robust or less effective under tight budgets than their proposed methods.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

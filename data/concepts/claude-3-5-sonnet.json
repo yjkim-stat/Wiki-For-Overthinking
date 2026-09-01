@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Claude 3.5 Sonnet"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Mousetrap is the first jailbreak attack framework designed against large reasoning models: a 'Chaos Machine' iteratively applies reversible one-to-one prompt mappings (character/word/sentence-level ciphers) to embed a toxic query inside a multi-step reconstruction task, exploiting the finding that LRMs exhibit 'reasoning inertia' -- once started, they follow the reasoning chain to completion by inertia and neglect to re-evaluate safety -- achieving up to 96-98% attack success against o1-mini, Claude-3.5-Sonnet and Gemini-2.0-Thinking and 87.5-93.13% on standard safety benchmarks against Claude-Sonnet.",
       "title": "A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.355",
+      "kind": "paper",
+      "note": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
+      "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "Claude-3.5-Sonnet",
   "related": [
     "chaos-machine-reversible-one-to-one-prompt-mapping-generator",
@@ -43,7 +51,26 @@
     "deepseek-r1",
     "qwq-plus",
     "grok-3",
-    "gpt-4o-mini-fine-tuned-chaos-machine-variant"
+    "gpt-4o-mini-fine-tuned-chaos-machine-variant",
+    "stacked-encryption-jailbreak",
+    "reasoning-ability-induced-vulnerability",
+    "cipher-grouping-mechanism-similarity-clustering",
+    "gradient-bandit-adaptive-cipher-selection",
+    "recovery-rate-lrm-decryption-fidelity",
+    "safety-aware-zone-sweet-spot-in-prompt-complexity",
+    "seal-stacked-encryption-for-adaptive-language-reasoning-model-jailbreak",
+    "gradient-bandit-algorithm-adaptive-cipher-group-selection",
+    "pair-tap-baseline",
+    "gcg-baseline",
+    "autodan-baseline",
+    "renellm-baseline",
+    "encoding-based-baselines-arabic-transliteration-leetspeak-rot13-base64-caesar-sh",
+    "advbench-520-harmful-behavior-prompts",
+    "harmbench-appendix",
+    "strongreject-appendix",
+    "o4-mini",
+    "qwq-32b",
+    "gemini-2-0-flash-h-and-m-safety-modes"
   ],
   "related_authored": [],
   "schema_version": 1,

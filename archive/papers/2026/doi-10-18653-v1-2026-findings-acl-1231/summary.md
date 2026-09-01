@@ -46,7 +46,7 @@ The paper does not discuss limitations in the excerpted sections beyond what is 
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), exit-associated neurons, neuron-level causal attribution, temporal filtering (Center of Mass / Activation Entropy), graded (hierarchical) intervention strategy, reflection suppression
-- **Methods**: NEAT (neuron-based early exit), [NoThinking (baseline)](../../../../wiki/methods/nothinking-baseline.md), TALE (baseline), Dynasor (baseline), [DEER (baseline)](../../../../wiki/methods/deer-baseline.md), CGRS (baseline), vLLM (inference framework)
+- **Methods**: NEAT (neuron-based early exit), [NoThinking (baseline)](../../../../wiki/methods/nothinking-baseline.md), TALE (baseline), [Dynasor (baseline)](../../../../wiki/methods/dynasor-baseline.md), [DEER (baseline)](../../../../wiki/methods/deer-baseline.md), CGRS (baseline), vLLM (inference framework)
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), MATH (calibration split)
 
 Tags: `overthinking`, `early-exit`, `mechanistic-interpretability`, `training-free`, `inference-latency`

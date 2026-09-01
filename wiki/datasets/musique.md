@@ -9,7 +9,7 @@ A multi-hop question-answering benchmark used to evaluate knowledge-augmented an
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [2WikiMultihopQA](2wikimultihopqa.md), [BBEH](bbeh.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [HLE](hle.md), [HotpotQA](hotpotqa.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [Monte Carlo Tree Search (MCTS)](../methods/monte-carlo-tree-search-mcts.md), [Natural Questions (NQ)](natural-questions-nq.md), [Omni-MATH](omni-math.md), [PopQA](popqa.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [SuperGPQA](supergpqa.md), [TriviaQA](triviaqa.md)
+**Related**: [2WikiMultihopQA](2wikimultihopqa.md), [BBEH](bbeh.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [DeepSeek-R1-distilled models (comparison)](../models/deepseek-r1-distilled-models-comparison.md), [deepseek-v4-pro](../models/deepseek-v4-pro.md), [HLE](hle.md), [HotpotQA](hotpotqa.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [Monte Carlo Tree Search (MCTS)](../methods/monte-carlo-tree-search-mcts.md), [Natural Questions (NQ)](natural-questions-nq.md), [Omni-MATH](omni-math.md), [PopQA](popqa.md), [Qwen2.5-3B-Instruct](../models/qwen2-5-3b-instruct.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [SuperGPQA](supergpqa.md), [TriviaQA](triviaqa.md)
 
 ## Appears in
 

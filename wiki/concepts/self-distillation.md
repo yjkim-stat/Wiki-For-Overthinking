@@ -9,7 +9,7 @@ Self-distillation here means using a model's own outputs, produced under some fa
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [MMLU-STEM](../datasets/mmlu-stem.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Task Decomposition](task-decomposition.md)
+**Related**: [accuracy-efficiency tradeoff](accuracy-efficiency-tradeoff.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [MMLU STEM](../datasets/mmlu-stem.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Task Decomposition](task-decomposition.md)
 
 ## Appears in
 

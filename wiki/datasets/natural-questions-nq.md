@@ -8,7 +8,7 @@ Natural Questions (NQ) is used in these sources as an open-domain QA benchmark f
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [2WikiMultihopQA](2wikimultihopqa.md), [BigCodeBench](bigcodebench.md), [HotpotQA](hotpotqa.md), [HumanEval](humaneval.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MuSiQue](musique.md), [PopQA](popqa.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [TriviaQA](triviaqa.md)
+**Related**: [2WikiMultihopQA](2wikimultihopqa.md), [BigCodeBench](bigcodebench.md), [HotpotQA](hotpotqa.md), [HumanEval](humaneval.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MuSiQue](musique.md), [PopQA](popqa.md), [Qwen2.5-3B-Instruct](../models/qwen2-5-3b-instruct.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [TriviaQA](triviaqa.md)
 
 ## Appears in
 

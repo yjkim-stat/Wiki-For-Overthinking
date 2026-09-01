@@ -1,0 +1,52 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.2102",
+      "kind": "paper",
+      "note": "Shows evaluation itself scales like generation: off-the-shelf reasoning models, simply prompted to generate a chain-of-thought judgment (no evaluator-specific training), improve monotonically with more reasoning tokens and, when made to individually assess every reasoning step rather than a single-pass judgment, a 32B reasoning evaluator beats a specialized 72B PRM by 4.5 F1 points on ProcessBench; folding this into Best-of-N reranking, spending the fixed test-time budget on evaluation-time reasoning (Best-of-8 with a reasoning evaluator) beats spending it on more candidate samples (Best-of-64 with a direct evaluator) by 4.30-6.63 points, and reasoning evaluators are shown to resist reward-model over-optimization that both direct evaluator types suffer from.",
+      "title": "Scaling Evaluation-Time Compute with Reasoning Models as Evaluators"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "model",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "Qwen2.5-Math-7B-PRM800K (baseline)",
+  "related": [
+    "evaluation-time-scaling",
+    "reasoning-evaluator-outcome-and-process",
+    "direct-evaluator-prm-orm",
+    "multi-step-process-evaluation",
+    "model-based-splitting",
+    "reward-model-over-optimization",
+    "reasoning-outcome-evaluator",
+    "reasoning-process-evaluator-multi-step-model-based-splitting-mean-logit-aggregat",
+    "reasoning-process-outcome-evaluation-interpolated",
+    "direct-evaluators-prms-orms-baseline",
+    "self-consistency-evaluator-ensembling",
+    "best-of-n-reranking",
+    "processbench-3-400-instances-gsm8k-math-olympiadbench-omni-math-sources",
+    "aime-2024",
+    "amc23",
+    "minerva",
+    "olympiadbench",
+    "math500",
+    "leetcode",
+    "gpqa",
+    "deepseek-r1-distill-qwen-7b-32b",
+    "qwq-32b-preview",
+    "qwq-32b",
+    "qwen2-5-32b-72b-instruct",
+    "llama-3-1-8b-instruct",
+    "qwen2-5-math-prm-7b-72b-baseline",
+    "skywork-reward-gemma-2-27b-v0-2-direct-outcome-baseline",
+    "eurus-2-sft-llama3-1-70b-instruct-qwen2-5-7b-instruct-generators"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "qwen2-5-math-7b-prm800k-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}

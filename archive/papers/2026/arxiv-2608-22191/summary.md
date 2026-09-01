@@ -46,7 +46,7 @@ Stated: the method assumes accessible sparse-MoE routing and repeated trajectori
 ## Entities
 
 - **Concepts**: [Test-Time Scaling](../../../../wiki/concepts/test-time-scaling.md), MoE Routing Traces, Behavioral Role Fingerprinting, Stagnation Detection, Repetition Score, Decision Tokens, Token Surprisal, Best-of-N Selection, Self-Consistency, Exploration-Commitment Tradeoff
-- **Methods**: Risa (Routing-Informed Steering and Arbitration), Weighted Jaccard routing similarity, Role centroid classification, Decision-token agreement arbitration, Text consensus (Jaccard over diff line pairs), Uniform sampling baseline
+- **Methods**: Risa (Routing-Informed Steering and Arbitration), Weighted Jaccard routing similarity, Role centroid classification, Decision-token agreement arbitration, Text consensus (Jaccard over diff line pairs), [Uniform sampling baseline](../../../../wiki/methods/uniform-sampling-baseline.md)
 - **Datasets**: SWE-bench Verified (496-498 eligible tasks per condition; 500-task full benchmark for Qwen)
 
 Tags: `test-time scaling`, `moe routing`, `software agents`, `swe-bench`, `stagnation`, `best-of-n`, `internal states`, `agent steering`

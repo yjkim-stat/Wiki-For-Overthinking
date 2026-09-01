@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Beam Search"
+  ],
   "definition": "Beam search is cited as one of several test-time search strategies whose behavior on reasoning models these sources study or extend. It is one of the granularity choices studied in optimal-verification-granularity work, and one of the scaling strategies (alongside best-of-N) shown to transfer, with consistent gains, to latent (continuous-vector) reasoning models.",
   "evidence": [
     {
@@ -7,6 +9,12 @@
       "kind": "paper",
       "note": "Extends parallel test-time scaling to latent reasoning models (which reason in continuous hidden-state vectors rather than tokens) by introducing two stochastic sampling strategies (Monte Carlo Dropout, Additive Gaussian Noise) to generate diverse latent trajectories and a Latent Reward Model trained with a step-wise contrastive objective to score and aggregate them, showing consistent scaling gains with best-of-N and beam search across three arithmetic benchmarks and backbones up to 4B parameters.",
       "title": "Parallel Test-Time Scaling for Latent Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.383",
+      "kind": "paper",
+      "note": "The first systematic survey of test-time scaling (TTS) for multimodal foundation models proposes a unified three-way taxonomy -- sampling-based (Best-of-N, majority voting), feedback-based (reward models, iterative refinement), and search-based (beam search, tree search/MCTS, heuristic/adaptive search) -- spanning both multimodal generation (image/video) and multimodal reasoning, arguing multimodal TTS is fundamentally harder than text-only TTS because it must scale compute across perceptual evidence, spatial grounding, and temporal context simultaneously, not just unimodal reasoning depth.",
+      "title": "Test-Time Scaling in Multimodal Foundation Models: A Comprehensive Survey of Generation and Reasoning"
     },
     {
       "id": "title:7409f584637723da",
@@ -17,7 +25,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "method",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "beam search",
   "related": [
     "latent-continuous-chain-of-thought-reasoning",
@@ -38,6 +46,20 @@
     "colar",
     "latent-sft-llama-3-2-1b",
     "render-of-thought-rot-2b-4b-qwen3-vl",
+    "test-time-scaling-tts-taxonomy",
+    "sampling-based-methods-best-of-n-majority-voting",
+    "feedback-based-methods-reward-models-iterative-refinement",
+    "search-based-methods-beam-search-tree-search-heuristic-adaptive-search",
+    "compute-centric-vs-memory-vs-weight-adaptation-test-time-methods",
+    "output-reward-model-vs-process-reward-model",
+    "best-of-n",
+    "majority-voting",
+    "output-process-reward-models",
+    "iterative-refinement",
+    "tree-search-monte-carlo-tree-search",
+    "heuristic-and-adaptive-search",
+    "gpt-4v-reference",
+    "gemini-2-0-reference",
     "verification-granularity",
     "beam-search-and-best-of-n-as-special-cases-of-a-granularity-parameter",
     "compute-efficiency-in-test-time-scaling-via-verifier-call-frequency",

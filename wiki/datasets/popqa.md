@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [2WikiMultihopQA](2wikimultihopqa.md), [HotpotQA](hotpotqa.md), [MuSiQue](musique.md), [Natural Questions (NQ)](natural-questions-nq.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [TriviaQA](triviaqa.md)
+**Related**: [2WikiMultihopQA](2wikimultihopqa.md), [HotpotQA](hotpotqa.md), [MuSiQue](musique.md), [Natural Questions (NQ)](natural-questions-nq.md), [Qwen2.5-3B-Instruct](../models/qwen2-5-3b-instruct.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [TriviaQA](triviaqa.md)
 
 ## Appears in
 

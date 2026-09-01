@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepSeek-V3.2-Speciale is used in these sources as a top-tier evaluated model on hard math benchmarks: AMO-Bench includes it among the top-tier models (alongside Gemini-3-Pro, Qwen3-Max-Thinking) forming a clear top performance tier on its 50 original hard problems, and AlgBench evaluates it among its frontier LRMs on the algorithm-centric benchmark, where it shows strong performance on non-optimized/Euclidean algorithms but the same global-optimization collapse pattern as other top models.
 
 - **Kind**: model
 - **Also called**: DeepSeek-v3.2-Speciale

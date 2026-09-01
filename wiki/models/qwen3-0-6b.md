@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini 3 Flash Preview](gemini-3-flash-preview.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HumanEval](../datasets/humaneval.md), [MATH500](../datasets/math500.md), [Qwen3-1.7B](qwen3-1-7b.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [Compute-optimal inference](../concepts/compute-optimal-inference.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini 3 Flash Preview](gemini-3-flash-preview.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HMMT](../datasets/hmmt.md), [HumanEval](../datasets/humaneval.md), [MATH500](../datasets/math500.md), [Qwen3-1.7B](qwen3-1-7b.md)
 
 ## Appears in
 

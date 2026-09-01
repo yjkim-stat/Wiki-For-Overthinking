@@ -9,7 +9,7 @@ Self-refine is iteratively revising a generated output using feedback, used as a
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME](../datasets/aime.md), [best-of-N](best-of-n.md), [Direct Prompting](direct-prompting.md), [Gemma-4-E4B](../models/gemma-4-e4b.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [majority voting / self-consistency](majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [Multi-Agent Debate](multi-agent-debate.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3-4B-Instruct-2507](../models/qwen3-4b-instruct-2507.md)
+**Related**: [AIME](../datasets/aime.md), [best-of-N](best-of-n.md), [Direct Prompting](direct-prompting.md), [Gemma-4-E4B](../models/gemma-4-e4b.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [LLaMA-3-8B-Instruct](../models/llama-3-8b-instruct.md), [majority voting / self-consistency](majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [Multi-Agent Debate](multi-agent-debate.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Qwen3-4B-Instruct-2507](../models/qwen3-4b-instruct-2507.md)
 
 ## Appears in
 

@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.463",
+      "kind": "paper",
+      "note": "A single-turn, non-narrative jailbreak method that simply instructs an LRM to reason through an explicit internal conflict (e.g. Helpfulness vs. Harmlessness) or moral dilemma (e.g. a duress or sacrificial scenario) before answering a harmful query substantially raises attack success rates across three models and five safety benchmarks (e.g. QwQ-32B: direct-query ASR 0.04 to conflict-injected 0.523 on AdvBench) with no fine-tuning, multi-turn interaction, or gradient access, and layerwise/neuron-level analysis shows the conflict prompt causes safety-relevant and functional activation subspaces to shift and overlap specifically in middle-to-late layers, weakening safety alignment at the representational level.",
+      "title": "Conflicts Make Large Reasoning Models Vulnerable to Attacks"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "method",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "PCA-based neuron activation-pattern comparison",
+  "related": [
+    "internal-alignment-conflict",
+    "moral-dilemma-duress-agent-centered-sacrificial-social",
+    "conflict-injection-single-turn-jailbreak",
+    "representational-interference-safety-vs-functional-subspace-overlap",
+    "safety-relevant-neurons-wanda-scored",
+    "layerwise-representational-shift",
+    "conflict-injection-jailbreak-framework",
+    "wanda-based-safety-neuron-identification",
+    "layerwise-cosine-similarity-representational-analysis",
+    "llama-guard-3-asr-judge",
+    "advbench",
+    "harmbench",
+    "harmfulq",
+    "jailbreakbench",
+    "strongreject",
+    "qwq-32b",
+    "llama-nemotron-8b",
+    "deepseek-r1-0528-685b",
+    "qwen3guard-robustness-check-appendix"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "pca-based-neuron-activation-pattern-comparison",
+  "topics": [
+    "overthinking"
+  ]
+}

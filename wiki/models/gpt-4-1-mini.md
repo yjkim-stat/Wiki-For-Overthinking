@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GPT-4.1 Mini is used in these sources as one of the LLMs evaluated for test-time-compute allocation: the evolving-in-context-demonstration adaptive-allocation study evaluates it among four model configurations on math/coding/reasoning benchmarks, and LEGIT's cited note does not name GPT-4.1 Mini specifically (it is a Korean legal-reasoning-trace benchmark).
 
 - **Kind**: model
 - **Also called**: GPT-4.1 Mini
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive test-time compute allocation](../concepts/adaptive-test-time-compute-allocation.md), [Gemini-2.0-Flash](gemini-2-0-flash.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-5-Nano](gpt-5-nano.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [minervamath](../datasets/minervamath.md)
+**Related**: [adaptive test-time compute allocation](../methods/adaptive-test-time-compute-allocation.md), [Gemini-2.0-Flash](gemini-2-0-flash.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4.1](gpt-4-1.md), [GPT-5-Nano](gpt-5-nano.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [minervamath](../datasets/minervamath.md), [o3](o3.md)
 
 ## Appears in
 

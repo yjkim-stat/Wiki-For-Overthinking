@@ -46,8 +46,8 @@ ASC assumes access to the target model's internal activations (residual-stream h
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), underthinking (excessive backtracking without commitment), verbosity as a latent, steerable dimension, activation steering, Contrastive Energy-Based Steering (CES), length-normalized energy, KL trust region
-- **Methods**: Activation-Steered Compression (ASC), Contrastive Energy-Based Steering (CES), Mean-of-Differences (MoD, baseline steering method), BiPO (optimization-based steering baseline), TCC (baseline), [DEER (baseline)](../../../../wiki/methods/deer-baseline.md), CoD / Chain-of-Drafts (baseline), SEAL (baseline)
-- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), GSM8K-Hard, [AQuA-RAT](../../../../wiki/datasets/aqua-rat.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
+- **Methods**: Activation-Steered Compression (ASC), Contrastive Energy-Based Steering (CES), Mean-of-Differences (MoD, baseline steering method), BiPO (optimization-based steering baseline), TCC (baseline), [DEER (baseline)](../../../../wiki/methods/deer-baseline.md), CoD / Chain-of-Drafts (baseline), [SEAL (baseline)](../../../../wiki/methods/seal-baseline.md)
+- **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [GSM8K-Hard](../../../../wiki/datasets/gsm8k-hard.md), [AQuA-RAT](../../../../wiki/datasets/aqua-rat.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `overthinking`, `activation-steering`, `chain-of-thought-compression`, `inference-latency`, `training-free`, `mechanistic-interpretability`
 

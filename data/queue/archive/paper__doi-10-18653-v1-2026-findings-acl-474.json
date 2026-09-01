@@ -1,0 +1,121 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-474.pdf"
+  },
+  "completed_at": "2026-08-28T02:56:49Z",
+  "created_at": "2026-08-28T02:36:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.474",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large language models (LLMs) exhibit strong reasoning when guided by chain-of-thought exemplars, yet collecting large, high-quality reasoning datasets remains laborious and resource-intensive. We introduce Prompting Test-Time Scaling (P-TTS), a prompt-space data augmentation framework for enhancing LLM reasoning via fine-tuning. In P-TTS, scaling refers to systematic expansion of the prompt space during offline teacher-data generation, not to increased inference-time compute for the deployed student. Rather than collecting thousands of examples, P-TTS starts from a small pool of 90 manually selected reasoning instances and applies principled instruction templates and paraphrased prompt variants to elicit diverse reasoning trajectories from a teacher model, producing a compact synthetic training set. We fine-tune Qwen-2.5 models of multiple sizes on the resulting data. On reasoning benchmarks including AIME25, MATH500, and GPQA-Diamond, P-TTS consistently improves accuracy over competitive small-data baselines such as S1 and S1.1 (1K-shot), with the largest gains on AIME25 while remaining strong on MATH500 and GPQA-Diamond. P-TTS also improves generalization on out-of-domain reasoning evaluations. Ablations show that exemplar diversity and prompt-space scaling are critical drivers of improvement, suggesting that prompt scaling explores the latent space of reasoning patterns, amplifying LLM problem-solving with minimal annotation overhead. P-TTS offers a practical, low-cost way to elicit strong LLM reasoning in resource-constrained or rapidly evolving domains. Our code and data are available at https://github.com/VILA-Lab/PTTS.",
+    "authors": [
+      "Sondos Mahmoud Bsharat",
+      "Zhiqiang Shen"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.474.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Prompting Test-Time Scaling Is A Strong LLM Reasoning Data Augmentation",
+    "url": "https://aclanthology.org/2026.findings-acl.474/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "prompt-space scaling (test-time-scaling reframed for offline data augmentation)",
+      "instructional wrapping (principled prompt templates)",
+      "reward framing",
+      "trigram diversity",
+      "semantic diversity gain",
+      "seed-based construction paradigm"
+    ],
+    "contributions": [
+      "Prompting Test-Time Scaling (P-TTS), a prompt-space data augmentation framework that treats the prompt itself as a systematic scaling axis for offline teacher-data generation, rather than collecting additional human-annotated reasoning examples or scaling decoding-time inference compute",
+      "an empirical demonstration that only 90 seed samples, systematically expanded through principled instructional wrapping (Reward/Penalty/Correctness/Step-by-Step framing plus paraphrase variants) into a 900-example corpus, can match or outperform 1K-shot static-prompt baselines (S1, S1.1) and narrow the gap to models trained on orders-of-magnitude more data",
+      "a controlled isolation, via a matched temperature-sampling ablation, that the gains stem specifically from prompt-space (instructional-framing) diversity rather than merely increased sampling volume from a fixed prompt",
+      "demonstrated cross-domain, multilingual, and cross-task (legal reasoning) zero-shot generalization from a narrowly-scoped English math seed set, evidence the approach promotes genuine robustness rather than overfitting to one benchmark family"
+    ],
+    "datasets": [
+      "AIME (2022-2024, seed pool, 90 problems)",
+      "AIME25",
+      "MATH500",
+      "GPQA-Diamond",
+      "Gaokao",
+      "Kaoyan",
+      "OlympiadBench",
+      "AMC23",
+      "GradeSchoolMath",
+      "Minerva",
+      "LegalBench (hearsay, personal jurisdiction, jcrew_blocker tasks)"
+    ],
+    "limitations": "Reward-framing prompts, which drive the largest accuracy gains, are also shown to consistently produce longer and more detailed reasoning outputs from the teacher, which the paper notes may imply increased downstream inference cost for a distilled student that inherits this verbosity, even though the paper argues improved reasoning quality may justify this tradeoff in high-stakes tasks -- the paper does not separately measure or optimize for the distilled student's own output length/efficiency. The seed pool is deliberately restricted to 90 recent (2022-2024) AIME problems specifically to mitigate contamination and ensure format/label reliability, so the framework's demonstrated efficiency is validated starting from a carefully curated, domain-focused seed set rather than an arbitrary or lower-quality starting pool. Full P-TTS's positive scaling trend (Fig. 2) is observed only up to a 10x augmentation multiplier (900 examples); the paper separately notes scaling curves exhibit diminishing returns beyond roughly six prompt augmentations per base question, suggesting the approach's benefit saturates rather than scaling indefinitely with further prompt-space expansion.",
+    "method": "Proposes Prompting Test-Time Scaling (P-TTS): starting from a compact seed pool of 90 high-quality AIME (2022-2024) math problems (chosen for reasoning-topic density, format/label reliability, and contamination mitigation via recency), the framework algorithmically expands the *prompt* space (not the question set) during offline teacher-data generation via three mechanisms: (1) exemplar/instructional wrapping under diversity constraints using four principled instruction templates (Reward, Penalty, Correctness, Step-by-Step, each a fixed deterministic wrap operator preserving the original question's tokens), (2) ordering perturbations modulating inductive biases (placing the added prompt before vs. after the original question, found to matter -- prompts placed first generally improve accuracy), and (3) paraphrased variants of the Reward principle (six wordings varying incentive magnitude and phrasing strength). Each wrapped prompt variant is submitted to a teacher model (DeepSeek-R1, selected as the best of three candidate teachers -- Claude, OpenAI O4-mini-high, DeepSeek-R1 -- via downstream accuracy comparison) to elicit a reasoning trace and full response; four dataset configurations of increasing scale are constructed from the same 90 seeds -- Single-P-TTS (one principle, 90 examples), Core-P-TTS (union of four principles, 360), Seed+Core (450), and Full-P-TTS (core plus six Reward paraphrase variants, 900 total, a 10x augmentation multiplier from the original seed count). Student models (Qwen2.5-Instruct, 7B/14B/32B) are then fine-tuned via standard SFT (predicting full assistant outputs, cross-entropy on assistant tokens only) separately on each dataset configuration, following an SFT recipe adapted from S1, isolating the effect of prompt-space diversity and augmentation scale while keeping optimization/decoding fixed. Diversity is quantified via two complementary metrics: semantic diversity (Diversity Gain, embedding-distance-based novelty relative to seed data using OpenAI text-embedding-ada-002) and surface-level diversity (trigram diversity, the ratio of non-overlapping trigrams between principle-wrapped and seed-baseline instances).",
+    "methods": [
+      "P-TTS (Prompting Test-Time Scaling)",
+      "instructional wrapping (Reward/Penalty/Correctness/StepByStep principles)",
+      "supervised fine-tuning (SFT, S1-adapted recipe)",
+      "Temperature Sampling (ablation baseline)"
+    ],
+    "models": [
+      "Qwen2.5-7B/14B/32B-Instruct (students)",
+      "DeepSeek-R1 (teacher)",
+      "Claude / OpenAI O4-mini-high (candidate teachers, not selected)"
+    ],
+    "one_liner": "P-TTS treats the prompt itself as a scalable data-augmentation axis: from just 90 seed AIME problems, four principled instructional wrappers (Reward/Penalty/Correctness/Step-by-Step framing, with six paraphrased Reward variants) elicit diverse teacher reasoning trajectories that are distilled via SFT into Qwen2.5 students, matching or beating 1K-shot baselines (S1/S1.1) and even DeepSeek-R1-Distill-Qwen-32B (trained on >800K examples) on GPQA-Diamond with only 900 augmented training examples, transferring to out-of-domain/multilingual/legal-reasoning benchmarks, and reward-framing prompts specifically driving the largest gains and the highest lexical/semantic diversity in elicited teacher rationales.",
+    "problem": "Collecting large, high-quality chain-of-thought reasoning datasets for fine-tuning LLMs is laborious and resource-intensive, requiring prompt engineering, human verification of multi-step solutions, and continuous refresh to track distribution shifts; existing approaches either scale up pre-/post-training data or model size, while inference-time strategies typically vary only decoding parameters (temperature, sampling) or rerank multiple outputs from a single fixed prompt -- leaving the combinatorial space of which exemplars to show, how to order them, and how to perturb the prompt itself largely unexploited as a lever for eliciting more diverse and useful teacher reasoning during offline training-data construction.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Not directly about overthinking: this paper targets training-data efficiency for reasoning distillation (how to elicit diverse, high-quality teacher reasoning from a small seed set via systematic prompt variation), not reasoning-trace length or the inference-time accuracy/efficiency tradeoff this archive centrally tracks. It is tangential background relevant to the training side of the overthinking literature in this archive: its own finding that the prompt-framing variant driving the largest accuracy gains (Reward framing) also produces the longest, most verbose teacher reasoning traces is a data-point (unremarked on further by the paper) that more effective reasoning supervision may come bundled with longer output, a tension several overthinking-mitigation distillation methods elsewhere in this archive (e.g. DRP, STACK) explicitly try to avoid."
+    },
+    "results": "On AIME25/MATH500/GPQA-Diamond, P-TTS-32B (trained on only 90->900 augmented examples) reaches 69.38% average accuracy, exceeding all compared open-weight/open-data SFT baselines built on the same Qwen2.5-32B-Instruct base (OpenThinker-32B trained on 114K examples: 68.50% average; Bespoke-32B on 17K; Sky-T1-32B-Preview on 17K; S1-32B and S1.1-32B on 1K each: 58.63%/68.33% average) -- P-TTS-32B achieves comparable-or-better AIME25 accuracy (53.33%, matching S1.1's 50.00% and exceeding it) and slightly exceeds the best open-weight baseline on GPQA-Diamond (60.61%) while remaining competitive on MATH500 (94.20%), narrowing the gap to DeepSeek-R1-Distill-Qwen-32B (trained on ~800K examples, 62.10% GPQA-Diamond) despite using three orders of magnitude less supervision. Single-principle ablation (Qwen2.5-7B-Instruct, 90 examples per principle) shows P-TTS_Reward yields the strongest, most consistent improvement over the unwrapped seed baseline (average accuracy 31.55%->37.12%, +5.57 points, improving all three benchmarks), while P-TTS_Correctness and P-TTS_Think also improve the average, and P-TTS_Penalty boosts MATH500/GPQA-D but reduces AIME25, yielding a slightly lower average than baseline -- confirming even minimal (90-example) principle-guided augmentation yields measurable gains, with Reward framing the single most effective wrapper in isolation. Pairwise-mixture ablation (anchored on Reward, the strongest single principle) shows all pairwise combinations improve average accuracy over Reward alone, with Reward-union-Correctness achieving the best overall result (44.26% average, improving all three benchmarks), while Reward-union-Think yields the smallest gain (39.32%, improving only MATH500). A leave-one-out ablation over the full 360-example Core-P-TTS set shows removing Reward causes the largest accuracy drop (45.42%->41.65%), while excluding Correctness or Penalty causes smaller degradations, and removing Think slightly increases the average despite improving AIME25 individually -- indicating Think's benefit is inconsistent across benchmarks within the core mixture. Scaling analysis across the four dataset sizes (90/360/450/900) shows accuracy improves consistently and monotonically with more principle-guided augmentation on the 7B model, with the largest single jump (+4.97 points) coming specifically from adding the six Reward paraphrase variants (450->900 examples), and the full 900-example P-TTS-7B model (50.93% average) outperforms both smaller P-TTS configurations and the 1K-shot S1.1-7B baseline (47.54% average) despite using fewer total training examples. A matched Temperature Sampling ablation (10 completions per seed problem at temperature 0.7 from a single fixed prompt, same total teacher-call budget as P-TTS) shows P-TTS consistently outperforms pure sampling-based diversity (50.93% vs. 46.76% average accuracy on the 7B model), confirming the gains come specifically from prompt-space diversity (varying the instructional framing), not merely from more samples drawn from a fixed prompt. Diversity analysis shows Reward framing yields the highest trigram (lexical/surface) diversity of all four principles on both full responses and isolated reasoning traces, and also the highest semantic Diversity Gain among the principles -- correlating directly with its outsized accuracy contribution and supporting the paper's central claim that prompt-space diversity is what drives the improvement, not incidental factors. Cross-domain and multilingual generalization: despite training only on English AIME22-24 seed problems, P-TTS-7B transfers zero-shot to out-of-domain benchmarks spanning Chinese exams (Gaokao, Kaoyan), U.S. math (OlympiadBench, AMC23, GradeSchoolMath), and scientific quantitative reasoning (Minerva), achieving the best average accuracy (60.2%) among compared baselines and remaining competitive on most individual tasks despite orders-of-magnitude less supervision than prior SFT corpora; on LegalBench (a qualitatively distinct legal-reasoning domain covering hearsay, personal jurisdiction, and contract-interpretation tasks), P-TTS-7B achieves the best average zero-shot accuracy (53.95%) among compared baselines, further supporting that principled prompt augmentation promotes genuine robustness rather than overfitting to a single benchmark family. Teacher-generation cost analysis shows the total API cost for constructing the full P-TTS training corpus is modest (1.53 USD for Core-P-TTS, 3.96 USD for Full P-TTS), since prompt tokens contribute only a small fraction of total teacher-generation cost relative to long completion/reasoning traces.",
+    "tags": [
+      "data-augmentation",
+      "supervised-fine-tuning",
+      "prompt-engineering",
+      "reasoning-distillation",
+      "low-resource-supervision"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-474",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-2120.pdf"
+  },
+  "completed_at": "2026-08-28T02:49:08Z",
+  "created_at": "2026-08-28T02:36:33Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.2120",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Test-time scaling improves the inference performance of Large Language Models (LLMs) but also incurs substantial computational costs. Although recent studies have reduced token consumption through dynamic self-consistency, they remain constrained by the high latency of sequential requests. In this paper, we propose SeerSC, a dynamic self-consistency framework that simultaneously improves token efficiency and latency by integrating System 1 and System 2 reasoning. Specifically, we utilize the rapid System 1 to compute the answer entropy for given queries. This score is then used to evaluate the potential of samples for scaling, enabling dynamic self-consistency under System 2. Benefiting from the advance and accurate estimation provided by System 1, the proposed method can reduce token usage while simultaneously achieving a significant decrease in latency through parallel generation. It outperforms existing methods, achieving up to a 47% reduction in token consumption and a 43% reduction in inference latency without significant performance loss.",
+    "authors": [
+      "Shiyu Ji",
+      "Yixuan Wang",
+      "Yijun Liu",
+      "Qingfu Zhu",
+      "Wanxiang Che"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.2120.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Seer Self-Consistency: Advance Budget Estimation for Adaptive Test-Time Scaling",
+    "url": "https://aclanthology.org/2026.findings-acl.2120/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "System 1 / System 2 reasoning (dual-process framing)",
+      "advance (pre-execution) budget estimation",
+      "confidence-weighted answer entropy",
+      "parallel test-time-scaling allocation",
+      "sequential-vs-parallel latency bottleneck"
+    ],
+    "contributions": [
+      "an empirical diagnosis that existing dynamic self-consistency methods reduce token usage via sequential budget estimation, but this sequential design conflicts with parallel-sampling inference engines, so token savings do not reliably translate into latency savings",
+      "SeerSC, a dynamic test-time-scaling framework that uses a cheap System-1 (fast, direct-answer) pass's confidence-weighted answer entropy to pre-estimate each query's scaling potential before any full-reasoning (System-2) generation begins, enabling the entire adaptive budget to be dispatched as a single parallel batch",
+      "a confidence-weighted entropy formulation over answer categories, shown via ablation to give a smoother, more informative budget-allocation signal than vanilla frequency-based Shannon entropy",
+      "empirical results across four models and five benchmarks showing SeerSC matches sequential-adaptive and standard self-consistency baselines' accuracy while cutting latency up to 43% and token usage up to 47%, with System 1's own estimation overhead negligible, and demonstrated composability with orthogonal weighted-voting and path-pruning techniques"
+    ],
+    "datasets": [
+      "MATH500",
+      "AIME2024",
+      "AIME2025",
+      "AMC2023",
+      "GPQA-Diamond"
+    ],
+    "limitations": "The paper does not discuss limitations explicitly in a dedicated section within the excerpted material; the entropy-threshold hyperparameters (tau_1, tau_2, set as fixed fractions of log(M): 1/10 and 1/3) are chosen empirically as a practical balance between efficiency and accuracy rather than derived analytically per task or model, though the paper reports a sensitivity analysis in an appendix. System-1's sampling temperature and sample size M both require tuning to balance accuracy against latency, and the paper's own ablations show these are real, non-trivial trade-offs rather than settings with a single dominant optimum. SeerSC relies on the target model itself being able to produce a fast, direct (non-reasoning) answer mode for System 1, which the paper evaluates specifically for models supporting or approximating such a mode (Qwen3-4B's explicit non-thinking mode, or a direct-answer prompt for other models) rather than establishing applicability to models without any such fast-generation option.",
+    "method": "Motivated by two observational findings on math benchmarks: (1) not every sample benefits from test-time scaling, and the number of unique answers produced by self-consistency sampling reflects each sample's scaling potential (samples with low answer diversity yield negligible TTS gain, indicating higher inherent certainty); (2) the answer entropy of early-stopped (System-1-like) generation and full-reasoning (System-2) generation shows consistent separation between samples that do/don't benefit from scaling, at every point along a step-truncated generation spectrum -- suggesting a cheap System-1 pass's entropy can predict System-2's scaling potential in advance. SeerSC operationalizes this as a two-stage pipeline: System 1 for Estimation -- given a query, the model (in its non-reasoning/direct-answer mode) generates M candidate direct answers in parallel; each answer's token-level confidence S(A) is computed as the exponentiated average log-probability of its tokens; answers are grouped into distinct categories, each category's (unnormalized) weight is the sum of its member answers' confidences, normalized into a probability distribution, and a confidence-weighted entropy E(X) is computed over this category distribution (rather than vanilla unweighted Shannon entropy over raw frequency, which is shown to concentrate around discrete, less-informative values) -- a smoother, more continuous estimate of query difficulty/potential. System 2 for Scaling -- based on E(X) compared against two entropy thresholds tau_1, tau_2 (set as fixed fractions of log(M), the theoretical entropy range), the full computation budget B(X) for System-2 (full chain-of-thought) sampling is set to 1 sample (low entropy, minimal scaling benefit), N/2 samples (medium), or the full N samples (high entropy, maximal benefit) -- all determined and allocated in a single parallel batch upfront, rather than through sequential incremental decisions, so the entire System-2 phase can be dispatched as one parallel generation job compatible with modern batched inference engines. Final answers are obtained via majority voting over the allocated System-2 samples.",
+    "methods": [
+      "Seer Self-Consistency (SeerSC)",
+      "Self-Consistency (SC, baseline)",
+      "Adaptive Consistency (AC, baseline)",
+      "Early-Stopping Self-Consistency (ESC, baseline)",
+      "Chain-of-Thought (CoT, reference)",
+      "confidence-weighted majority voting (orthogonality check)",
+      "path pruning (orthogonality check)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "DeepSeek-R1-Distill-Llama-8B",
+      "Qwen3-4B (thinking and non-thinking modes)",
+      "QwQ-32B (generalizability check, appendix)"
+    ],
+    "one_liner": "SeerSC resolves a specific gap in adaptive self-consistency methods -- reduced token usage from sequential early-stopping does not translate into reduced latency, since sequential budget decisions conflict with the parallel-sampling engines modern inference uses -- by having a cheap System-1 pass (direct, non-reasoning answers) pre-estimate each query's scaling potential via confidence-weighted answer entropy, then allocating a fixed System-2 (full-reasoning) sample budget in a single parallel batch based on that pre-estimate, cutting inference latency up to 43% and token usage up to 47% versus sequential adaptive baselines (AC, ESC) at comparable accuracy, with System 1's own overhead negligible (well under 1% of total latency) and the method composable with orthogonal weighted-voting and path-pruning techniques.",
+    "problem": "Test-time-scaling methods like self-consistency improve LLM reasoning accuracy but at substantial computational cost, and while recent dynamic self-consistency methods (Adaptive Consistency, Early-Stopping Self-Consistency) reduce token usage by adaptively terminating sampling once answer diversity converges, they estimate the required budget for each query through sequential requests -- generating one reasoning path at a time and checking convergence after each -- which conflicts with the efficient parallel sampling techniques modern inference engines rely on, so a reduction in token usage does not reliably translate into a corresponding reduction in latency, an issue that worsens as reasoning-model output length grows.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Indirectly relevant to test-time compute efficiency, and notable for a specific methodological point relevant across this archive's efficiency literature: it explicitly separates token count from wall-clock latency and shows these are not interchangeable metrics -- a sequential adaptive method can use fewer tokens yet run *slower* than a naive fixed-budget baseline because sequential decision-making blocks parallel batching -- a caution directly analogous to NEAT's finding elsewhere in this archive that a competing early-exit method (CGRS) is slower than vanilla decoding despite shorter output. SeerSC's System-1/System-2 pre-estimation architecture is also a distinct, general-purpose pattern (cheap upfront signal gates expensive full computation) shared with several single-trace overthinking-mitigation methods in this archive, applied here to whole-sample test-time-scaling budget rather than within-trace token length."
+    },
+    "results": "Across four reasoning models (DeepSeek-R1-Distill-Qwen-7B, DeepSeek-R1-Distill-Llama-8B, Qwen3-4B in both thinking and non-thinking modes) and five benchmarks (MATH500, AIME2024, AIME2025, AMC2023, GPQA-Diamond), SeerSC consistently achieves accuracy comparable to Self-Consistency (SC), Adaptive Consistency (AC), and Early-Stopping Self-Consistency (ESC) baselines -- essentially on par (within ~1 percentage point) on medium-difficulty tasks (MATH500, AMC2023) and stable without noticeable degradation on harder tasks (AIME2024/2025, GPQA-Diamond) -- while substantially reducing both token usage and, critically, latency. On MATH500, AMC2023, and GPQA-D across all models, SeerSC achieves lower token consumption than every compared baseline; on AIME2024/2025 its token usage is slightly higher than AC/ESC but still considerably lower than plain SC. Latency reduction is SeerSC's central advantage: on DeepSeek-R1-Distill-Qwen-7B/MATH500, SeerSC achieves 5.3s average latency versus SC's 8.4s (a 37% reduction); on Qwen3-4B (non-thinking)/GPQA-D, SeerSC requires only 3.7s versus SC's 6.5s (~43% reduction). By contrast, the sequential adaptive baselines (AC, ESC) consistently run slower than plain SC across models/datasets due to their sequential-generation design's severe latency bottleneck, even though they use fewer tokens -- directly confirming the motivating diagnosis that token savings do not automatically translate into latency savings for sequential methods, while SeerSC's upfront, single-batch parallel allocation avoids this pitfall entirely; on some settings where long reasoning trajectories dominate compute (DeepSeek-R1-Distill-Llama-8B/Qwen3-4B-thinking on AIME2024/25, GPQA-D), AC and ESC's latency becomes merely comparable to SC rather than worse, but SeerSC still achieves significantly faster inference than every baseline in all tested settings. Latency-scaling analysis (accuracy vs. wall-clock time, matching each method's compute at increasing scaling levels) shows SeerSC matches or exceeds SC's scaling curve while achieving comparable-or-slightly-higher accuracy under low-latency budget conditions, and reduces latency by roughly 50% versus AC/ESC on AIME2024 while achieving the same accuracy as AC/ESC with up to 75% lower latency on GPQA-D. A direct decomposition of SeerSC's own latency (DeepSeek-R1-Distill-Qwen-7B/Qwen3-4B-non-thinking on AIME-2024) shows System 1's estimation overhead accounts for well under 1% of total inference time (e.g. 1.1s of 151.8s total for DeepSeek-7B; 0.19s of 33.64s for Qwen3-4B), and the paper notes this overhead would be even smaller in practice since the KV cache produced during System 1's prefill can be reused by System 2, meaning the additional delay corresponds only to decoding a handful of tokens -- confirming the estimation stage itself is essentially free relative to the savings it enables. Ablations on System-1 configuration (DeepSeek-R1-Distill-Qwen-7B/MATH500) show sampling temperature trades off accuracy and latency (lower temperature shifts the entropy distribution toward lower values, reducing both latency and accuracy; higher temperature increases both) and that increasing System-1's sample size M improves entropy-estimate stability and accuracy up to a point, beyond which further increases add latency with little additional benefit (consistent with Monte Carlo estimation converging to its expected value); confidence-weighted entropy estimation specifically (versus unweighted Shannon entropy) improves both accuracy (93.0% vs. 92.2% on MATH500) and slightly reduces latency, confirming the smoother, continuous entropy signal is a genuinely better budget-allocation criterion than raw category-frequency entropy. Orthogonality experiments show SeerSC composes cleanly with two existing parallel-TTS optimization techniques without losing its latency advantage: combining SeerSC with confidence-weighted majority voting improves accuracy on both tested models (e.g. Qwen3-4B non-thinking on AIME2024 gains +3 percentage points) with no added token or latency cost; combining SeerSC with path pruning (dropping paths whose minimum along-path confidence falls below a threshold) improves token efficiency and, on most tasks, slightly improves voting accuracy as well, on both DeepSeek-R1-Distill-Qwen-7B and Qwen3-4B (non-thinking) across all five benchmarks.",
+    "tags": [
+      "test-time-scaling",
+      "self-consistency",
+      "inference-latency",
+      "confidence-calibration",
+      "parallel-inference"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-2120",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

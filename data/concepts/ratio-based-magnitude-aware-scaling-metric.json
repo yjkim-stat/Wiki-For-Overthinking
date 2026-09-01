@@ -1,0 +1,56 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.289",
+      "kind": "paper",
+      "note": "ARISE fixes a specific flaw in prior slope-based test-time-scaling metrics -- they operate only at the aggregate-accuracy level and paradoxically reward models that waste more tokens for worse results under negative scaling -- by scoring each sample's individual accuracy transitions across scaling iterations with a ratio-based, asymmetric weight that penalizes wasted computation more heavily than it rewards gains, paired with a variance-adaptive sampling protocol; across proprietary and open reasoning models it reveals genuine negative scaling (e.g. GPT-OSS-20B: -0.403 ARISE on AIME, DeepSeek-R1: -0.049 on GPQA-Diamond) that a conventional scaling metric registers as positive because it cannot distinguish wasted computation from productive computation.",
+      "title": "ARISE: An Adaptive Resolution-Aware Metric for Test-Time Scaling Evaluation in Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "ratio-based (magnitude-aware) scaling metric",
+  "related": [
+    "overthinking-via-negative-test-time-scaling",
+    "sample-level-scaling-awareness",
+    "asymmetric-penalty-for-computational-waste",
+    "adaptive-sampling-variance-proportional-allocation",
+    "negative-scaling-correction",
+    "arise-adaptive-resolution-aware-inference-scaling-evaluation",
+    "conventional-slope-based-scaling-metric-sm-baseline",
+    "adaptive-variance-proportional-sampling",
+    "aime",
+    "hmmt",
+    "gpqa-diamond",
+    "mmlu-pro",
+    "swe-bench-verified",
+    "livecodebench",
+    "tau-2-bench",
+    "bfcl-v3",
+    "mmmu",
+    "mathvista",
+    "charxiv-reasoning",
+    "o1",
+    "o3",
+    "o3-mini",
+    "o4-mini",
+    "gpt-oss-20b",
+    "gpt-oss-120b",
+    "gpt-5",
+    "claude-sonnet-4",
+    "claude-opus-4",
+    "claude-opus-4-1",
+    "qwen-3-family-0-6b-235b-a22b",
+    "deepseek-r1",
+    "v3-1-v3-1-terminus-v3-2-exp"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "ratio-based-magnitude-aware-scaling-metric",
+  "topics": [
+    "overthinking"
+  ]
+}

@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "MR-ALIGN names and measures the 'reasoning-answer hit gap' -- a model surfaces the correct fact early in its thinking trace but discards it before the final answer -- and fixes it by segmenting reasoning into 15 cognitively-grounded meta-reasoning states (framing, backtracking, self-verification, retrieval, etc.), estimating a transition matrix between them via EM, and using KTO with an implicit reward reweighted by how much each segment's local state-transition probability deviates from the corpus-wide pattern; without any external verifier or retrieval, this improves accuracy and reduces misleading answers across three backbones and five factual-QA/long-form-factuality benchmarks, and post-alignment reasoning traces become measurably shorter and more concise as a side effect.",
       "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.561",
+      "kind": "paper",
+      "note": "fs1 fine-tunes LLMs on reasoning traces grounded in knowledge-graph paths (rather than raw distilled reasoning traces), improving factual accuracy on complex multi-hop QA by 6-14 pass@16 points while also producing shorter reasoning traces than the ungrounded baseline.",
+      "title": "Follow the Path: Reasoning over Knowledge Graph Paths to Improve Large Language Model Factuality"
     }
   ],
   "first_seen": "2026-08-28T01:36:19Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "SimpleQA",
   "related": [
     "overthinking",
@@ -66,7 +72,28 @@
     "qwen3-4b",
     "deepseek-r1-distill-qwen-7b",
     "llama-3-1-nemotron-nano-4b-v1-1",
-    "qwen3-14b"
+    "qwen3-14b",
+    "knowledge-graph-grounded-reasoning-trace",
+    "minimum-hop-path-extraction",
+    "factual-simple-test-time-scaling-fs1",
+    "pass-k-as-an-upper-bound-metric",
+    "fs1-kg-path-grounded-reasoning-trace-fine-tuning",
+    "rt-raw-distilled-reasoning-traces-baseline",
+    "supervised-fine-tuning",
+    "pass-k-evaluation",
+    "llm-as-a-judge-entity-alignment-factuality-scoring",
+    "complexwebquestions-cwq",
+    "exaqt",
+    "grailqa",
+    "mintaka",
+    "webqsp",
+    "qwen2-5-instruct-0-5b-32b",
+    "smollm2-360m-1-7b",
+    "qwq-32b-teacher",
+    "deepseek-r1-teacher",
+    "qwen2-5-72b-instruct-baseline",
+    "o3-mini-baseline",
+    "r1-70b-baseline"
   ],
   "related_authored": [],
   "schema_version": 1,

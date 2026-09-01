@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Claude 3.7 Sonnet"
+  ],
   "definition": "A closed-source reasoning-capable model used across sources as an evaluation target: for long-CoT safety benchmarking (found unsafe on standard jailbreak/safety datasets despite its safety reputation) and as a jailbreak target for the Mousetrap iterative-chaos attack framework, which achieves high attack success against it specifically because of its noted strong safety alignment.",
   "evidence": [
     {
@@ -19,11 +21,17 @@
       "kind": "paper",
       "note": "AutoRAN is the first automated framework for hijacking a large reasoning model's internal safety deliberation, using a weaker, less-aligned auxiliary model to simulate the target's execution reasoning and iteratively refine attack prompts from leaked refusal reasoning, achieving near-100% attack success against gpt-o3/o4-mini and Gemini-2.5-Flash within a few turns.",
       "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.355",
+      "kind": "paper",
+      "note": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
+      "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-01T10:04:16Z",
   "name": "Claude-3.7-Sonnet",
   "related": [
     "thought-answer-safety-decomposition",
@@ -94,7 +102,26 @@
     "gpt-o4-mini",
     "gemini-2-5-flash",
     "qwen3-8b",
-    "qwen3-8b-ablated-attacker"
+    "qwen3-8b-ablated-attacker",
+    "stacked-encryption-jailbreak",
+    "reasoning-ability-induced-vulnerability",
+    "cipher-grouping-mechanism-similarity-clustering",
+    "gradient-bandit-adaptive-cipher-selection",
+    "recovery-rate-lrm-decryption-fidelity",
+    "safety-aware-zone-sweet-spot-in-prompt-complexity",
+    "seal-stacked-encryption-for-adaptive-language-reasoning-model-jailbreak",
+    "gradient-bandit-algorithm-adaptive-cipher-group-selection",
+    "pair-tap-baseline",
+    "gcg-baseline",
+    "autodan-baseline",
+    "renellm-baseline",
+    "encoding-based-baselines-arabic-transliteration-leetspeak-rot13-base64-caesar-sh",
+    "advbench-520-harmful-behavior-prompts",
+    "harmbench-appendix",
+    "strongreject-appendix",
+    "o4-mini",
+    "qwq-32b",
+    "gemini-2-0-flash-h-and-m-safety-modes"
   ],
   "related_authored": [
     "safechain",

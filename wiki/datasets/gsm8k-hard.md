@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GSM8K-Hard (GSM8K questions with larger, harder numeric values substituted in) is used in these sources as a stress-test benchmark for reasoning-efficiency methods: ASC (Activation-Steered Compression) reports it maintains or slightly improves accuracy while cutting reasoning tokens 18-25% on this harder variant, addressing a concern that aggressive compression might induce underthinking specifically on harder arithmetic; the parallel-latent-reasoning paper uses it as one of several arithmetic benchmarks for evaluating scaling gains.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

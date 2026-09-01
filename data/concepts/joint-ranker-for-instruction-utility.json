@@ -1,0 +1,48 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.331",
+      "kind": "paper",
+      "note": "SELECT2REASON selects the top 10% of a large long-CoT instruction pool for SFT by jointly ranking questions on a learned difficulty score and (deduplicated) reasoning-trace length, matching or beating models trained on 8-94x more data.",
+      "title": "Select2Reason: Efficient Instruction-Tuning Data Selection for Long-CoT Reasoning"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "joint ranker for instruction utility",
+  "related": [
+    "rethinking-tokens",
+    "difficulty-aware-reward-model",
+    "reasoning-trace-normalization-deduplication",
+    "difficulty-aware-reward-model-as-judge",
+    "reasoning-trace-length-based-selection",
+    "weighted-joint-ranker",
+    "supervised-fine-tuning",
+    "openr1-math-220k",
+    "chinese-deepseek-r1-distill-data-110k",
+    "aime-2024",
+    "aime-2025",
+    "amc23",
+    "math500",
+    "olympiadbench",
+    "gaokao-2023-2024",
+    "gaokao-math",
+    "kaoyan",
+    "zebralogic",
+    "gpqa",
+    "qwen2-5-math-7b-instruct",
+    "qwen2-5-3b-instruct",
+    "llama-3-1-8b-instruct",
+    "deepseek-r1-distill-qwen-7b-baseline",
+    "openr1-qwen-7b-baseline"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "joint-ranker-for-instruction-utility",
+  "topics": [
+    "overthinking"
+  ]
+}

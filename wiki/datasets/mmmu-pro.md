@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+MMMU-Pro (a harder variant of the multimodal MMMU benchmark) is used in these sources to evaluate general-capability preservation and difficulty-aware exploration in multimodal reasoning models: RECAP reports MMMU-Pro scores among the benchmarks used to show reasoning-focused RLVR fine-tuning degrades general vision-language capability unless mitigated by replay, and ARES uses sliding-window token entropy to shape exploration effort proportional to difficulty on multimodal benchmarks including MMMU-Pro.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [AI2D](ai2d.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [ARES](../methods/ares.md), [BBEH](bbeh.md), [ChartQA](chartqa.md), [Difficulty-aware compute allocation](../concepts/difficulty-aware-compute-allocation.md), [GPQA](gpqa.md), [GSM8K](gsm8k.md), [LISA](lisa.md), [MATH500](math500.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMLU-Pro](mmlu-pro.md), [MMMU](mmmu.md), [MMStar](mmstar.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [Reasoning Trace Length](../concepts/reasoning-trace-length.md), [RLVR](../methods/rlvr.md), [SAT](sat.md), [ScienceQA](scienceqa.md), [Token-Level Entropy](../concepts/token-level-entropy.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md), [VizWiz](vizwiz.md), [WeMath](wemath.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [AI2D](ai2d.md), [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [ARES](../methods/ares.md), [BBEH](bbeh.md), [ChartQA](chartqa.md), [Difficulty-aware compute allocation](../concepts/difficulty-aware-compute-allocation.md), [DynaMath](dynamath.md), [GPQA](gpqa.md), [GSM8K](gsm8k.md), [LISA](lisa.md), [MATH500](math500.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMLU-Pro](mmlu-pro.md), [MMMU](mmmu.md), [MMStar](mmstar.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [Reasoning Trace Length](../concepts/reasoning-trace-length.md), [RLVR](../methods/rlvr.md), [SAT](sat.md), [ScienceQA](scienceqa.md), [Token-Level Entropy](../concepts/token-level-entropy.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md), [ViRL39k](virl39k.md), [VizWiz](vizwiz.md), [WeMath](wemath.md)
 
 ## Appears in
 

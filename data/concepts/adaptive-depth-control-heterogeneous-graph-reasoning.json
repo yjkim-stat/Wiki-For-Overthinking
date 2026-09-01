@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.238",
+      "kind": "paper",
+      "note": "LoGAR reframes multimodal misinformation detection as logic-guided verification: a VLM first generates an explicit rationale specifying what to verify, which then conditions both multimodal feature fusion (filtering irrelevant visual/textual signals) and message passing over a heterogeneous social graph (down-weighting neighbors semantically dissonant with the verification hypothesis), with an RL-trained adaptive-depth policy that stops graph reasoning once sufficient evidence has accumulated -- beating the strongest baseline by 5.40%/5.18% AUC on Weibo/PHEME while cutting relative FLOPs to 0.57x and improving throughput 1.7x versus fixed-depth reasoning.",
+      "title": "Do Not Guess, Verify: Logic-Guided Adaptive Reasoning for Multimodal Misinformation Detection"
+    }
+  ],
+  "first_seen": "2026-09-01T10:04:16Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:04:16Z",
+  "name": "adaptive depth control (heterogeneous-graph reasoning)",
+  "related": [
+    "logic-guided-verification-do-not-guess-verify",
+    "rationale-guided-multimodal-fusion",
+    "rationale-aware-message-passing",
+    "semantic-drift-in-graph-message-passing",
+    "semantic-alignment-constraint",
+    "logic-guided-adaptive-reasoning-logar",
+    "rationale-guided-cross-attention-fusion",
+    "rationale-aware-heterogeneous-graph-attention",
+    "adaptive-depth-control-reinforce-style-policy",
+    "endef-eann-mvae-fnd-clip-baselines",
+    "mfan-glpn-graph-based-baselines",
+    "arg-llm-based-hybrid-baseline",
+    "pheme-english-twitter",
+    "weibo-chinese-sina-weibo",
+    "qwen3-vl-default-rationale-generator",
+    "qwen2-vl",
+    "llama-3-2-v",
+    "internvl2-5-compared-as-direct-classifiers"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "adaptive-depth-control-heterogeneous-graph-reasoning",
+  "topics": [
+    "overthinking"
+  ]
+}

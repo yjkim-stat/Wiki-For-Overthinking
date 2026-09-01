@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+NoThinking (bypassing explicit chain-of-thought and answering directly) is used across these sources as a training-free lower-bound/comparison baseline for reasoning-efficiency methods: TH2T, WHISPER, NEAT and Budget Guidance all report it as an aggressive length-reduction reference point, generally achieving the shortest outputs but at the largest accuracy cost among compared strategies, especially on harder benchmarks.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

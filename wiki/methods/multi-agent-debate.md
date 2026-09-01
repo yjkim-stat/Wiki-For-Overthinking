@@ -9,7 +9,7 @@ Multi-agent debate -- multiple agents iteratively refining responses over rounds
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME](../datasets/aime.md), [BBH (Big-Bench Hard)](../datasets/bbh-big-bench-hard.md), [Chain-of-Thought (CoT, baseline)](chain-of-thought-cot-baseline.md), [Direct Prompting](direct-prompting.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [majority voting / self-consistency](majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Self-Consistency](self-consistency.md), [self-refine](self-refine.md)
+**Related**: [AIME](../datasets/aime.md), [BBH (Big-Bench Hard)](../datasets/bbh-big-bench-hard.md), [Chain-of-Thought (CoT, baseline)](chain-of-thought-cot-baseline.md), [Direct Prompting](direct-prompting.md), [GPQA](../datasets/gpqa.md), [GPT-4o-mini](../models/gpt-4o-mini.md), [GSM-Hard](../datasets/gsm-hard.md), [GSM8K](../datasets/gsm8k.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [LLaMA-3-8B-Instruct](../models/llama-3-8b-instruct.md), [majority voting / self-consistency](majority-voting-self-consistency.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Self-Consistency](self-consistency.md), [self-refine](self-refine.md)
 
 ## Appears in
 
