@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:19Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:32a023f6f6757a4d",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "GTA1: GUI Test-time Scaling Agent",
+    "url": "https://iclr.cc/virtual/2026/poster/10011639",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "test-time scaling for GUI action planning",
+      "RL-trained visual grounding",
+      "judge-model action selection"
+    ],
+    "contributions": [
+      "test-time-scaled candidate-plan generation and judge-based selection for GUI agent planning",
+      "a reinforcement-learning-based visual grounding module rewarded on successful interface interactions rather than only supervised labels",
+      "improved results on both grounding and task-execution benchmarks for GUI agents"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the GUI-agent domain and benchmark scope described.",
+    "method": "GTA1 applies test-time scaling to planning by generating multiple candidate action plans and using a judge model to select among them before execution, and separately trains a reinforcement-learning-based visual grounding module that strengthens element localization using reward signals tied to successful interface interactions (rather than only supervised grounding labels).",
+    "methods": [
+      "GTA1 (test-time scaling + RL-trained grounding)",
+      "judge-model candidate selection"
+    ],
+    "models": [],
+    "one_liner": "GTA1 is a GUI agent that uses test-time scaling to generate and judge multiple candidate action plans before selecting one, paired with an RL-trained visual grounding module rewarded on successful interface interactions, improving both element-grounding and end-to-end task execution.",
+    "problem": "GUI agents face two coupled challenges: strategic planning across a large space of possible actions, and precisely targeting the correct interface element to act on -- and prior work has not addressed both with test-time scaling and reward-driven grounding together.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Indirectly relevant: a test-time-scaling method in the GUI-agent domain (generating multiple candidate plans and selecting the best via a judge) rather than text reasoning-length control, but it is another example of spending inference compute on structured candidate generation and selection instead of a single longer reasoning trace."
+    },
+    "results": "GTA1 achieves improved results on both grounding accuracy and end-to-end task-execution benchmarks for GUI agents (no specific numeric deltas given in the fetched abstract).",
+    "tags": [
+      "test-time-scaling",
+      "gui-agents",
+      "visual-grounding",
+      "reinforcement-learning"
+    ]
+  },
+  "task_id": "paper__title-32a023f6f6757a4d",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

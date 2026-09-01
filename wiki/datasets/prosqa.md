@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+ProsQA is a reasoning benchmark used to evaluate latent-reasoning methods: SpiralThinker (which interleaves explicit textual reasoning steps with implicit latent-token steps rather than picking one mode exclusively, to avoid overthinking) and ImgCoT (which compresses a long chain of thought into a small set of latent tokens by training an autoencoder to reconstruct a rendered image of the CoT).
 
 - **Kind**: dataset
+- **Also called**: ProsQA
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

@@ -1,0 +1,62 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces greedy pruning, a likelihood-preserving token-deletion diagnostic that reveals LLMs encode a nontrivial token-level functional-importance structure in their reasoning chains -- preferentially preserving symbolic computation over referential/linguistic scaffolding -- and shows students distilled on greedily-pruned chains outperform a frontier-model-supervised pruning baseline (TokenSkip) at matched lengths.",
+        "title": "Do LLMs Encode Functional Importance of Reasoning Tokens ?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+        "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Converts each linear chain-of-thought into a directed acyclic graph (progress vs. review nodes with explicit dependency edges, built iteratively by an LLM) and removes two distinct redundancy types -- branch-level (a review node whose descendant count falls below a threshold, forming a narrow, low-impact side branch) and depth-level (a review node appearing late in the trace, re-verifying an already-established conclusion) -- via a three-stage SFT-then-DPO-then-GRPO-with-length-penalty pipeline, cutting DeepSeek-R1-Distill-Qwen-7B's average reasoning length 42.7% while raising average accuracy from 59.72% to 60.95% across five math benchmarks, with ablations showing the method beats both no-pruning and random pruning at matched compression, and specifically beats pruning all review nodes outright, confirming not all reflection is harmful.",
+        "title": "Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AutoL2S distills non-reasoning LLMs into models that jointly generate a lightweight <EASY> switching token and correspondingly select long or short chain-of-thought paths per instance, then refines this with GRPO-style RL on the induced long-short rollouts, cutting reasoning length by up to 71.7% with negligible accuracy loss across six benchmarks.",
+        "title": "AutoL2S: Auto Long-Short Reasoning for Efficient Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-09-01T10:33:30Z",
+  "instructions": "Write the wiki definition for 'TokenSkip (baseline)'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "TokenSkip (baseline)",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "TokenSkip (baseline)",
+    "source_count": 4
+  },
+  "task_id": "concept__tokenskip-baseline",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

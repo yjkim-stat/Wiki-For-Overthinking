@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GLM-4.5-Air is evaluated in ReasonIF (a benchmark showing large reasoning models consistently fail to follow simple instructions -- multilinguality, word limit, disclaimer, JSON formatting, etc. -- during reasoning) and is one of the four reasoning models DeepPrune uses to demonstrate inter-trace redundancy in parallel test-time scaling (94.5% same-answer trace pairs, the highest among tested models).
 
 - **Kind**: model
+- **Also called**: GLM-4.5-Air
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

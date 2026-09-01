@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:19Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:3deb1b5a47e5bf3b",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "reasoning trace"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "From Reasoning Traces to Reusable Modules: Understanding Compositional Generalization in Language Model Reasoning",
+    "url": "https://icml.cc/virtual/2026/poster/61216",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "compositional generalization in reasoning",
+      "reusable atomic modules (skills and routing)",
+      "RL exploration as latent-structure discovery"
+    ],
+    "contributions": [
+      "a framework modeling LLM reasoning as discrete latent selections over reusable atomic modules (skills and routing mechanisms)",
+      "a theoretical argument that RL's exploratory nature (versus imitating fixed correct trajectories) provides the coverage needed to discover this latent modular structure and enable compositional generalization",
+      "controlled experiments confirming module extraction and recombination, showing compound-example training beats isolated-module practice, and identifying an SFT-for-coverage-then-RL-for-composition training protocol as most effective"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the modular reasoning framework and controlled experimental setup described.",
+    "method": "Models reasoning as discrete latent selections corresponding to reusable atomic modules, comprising both skills (local reasoning operations) and routing mechanisms (which module to apply when); provides a theoretical analysis arguing RL's exploratory nature gives sufficient coverage to identify this latent modular structure and enable compositional generalization (recombining known modules for novel problems), unlike supervised training on fixed correct trajectories; validates with controlled experiments testing whether models extract atomic components from complex training examples and recombine them for novel test problems, and compares training exclusively on compound (multi-module) examples against training separately on isolated single-module practice.",
+    "methods": [
+      "reinforcement learning post-training",
+      "supervised fine-tuning (comparison)",
+      "compound vs. isolated module training"
+    ],
+    "models": [],
+    "one_liner": "Proposes that RL post-training's out-of-distribution generalization advantage over supervised fine-tuning stems from compositional generalization -- reasoning decomposes into reusable atomic modules (skills and routing mechanisms) that RL's exploratory nature has sufficient coverage to discover and recombine -- and validates this with controlled experiments showing models extract atomic components from complex examples and recombine them for novel problems, with training on compound examples outperforming isolated module practice.",
+    "problem": "RL post-training significantly improves LLM out-of-distribution reasoning performance over supervised training alone, but why this happens -- what RL's exploration actually buys beyond imitating correct answers -- was not well understood.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Indirectly relevant: this is a theoretical account of why RL-trained reasoning generalizes (compositional module reuse), not a length-control or efficiency method, but it offers a structural framework -- reasoning as combinations of reusable atomic modules -- potentially relevant to understanding what makes a long reasoning trace productive (genuine module composition) versus wasteful (e.g. non-compositional repetition), a distinction implicit in much of the overthinking literature."
+    },
+    "results": "Controlled experiments confirm models can extract atomic reasoning components from complex training examples and successfully recombine them to solve novel problems not seen during training. Training on compound (multi-module) examples outperforms training on isolated single-module practice for building compositional generalization. An effective training protocol is identified: combining supervised training (to ensure adequate coverage of individual modules) with reinforcement learning (to enable novel compositions of those modules) outperforms either approach alone.",
+    "tags": [
+      "reasoning-modularity",
+      "compositional-generalization",
+      "reinforcement-learning",
+      "reasoning-traces"
+    ]
+  },
+  "task_id": "paper__title-3deb1b5a47e5bf3b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

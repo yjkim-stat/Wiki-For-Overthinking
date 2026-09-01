@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:19Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:5d210749910cf061",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Distilled Pretraining: A modern lens of Data, In-Context Learning and Test-Time Scaling",
+    "url": "https://iclr.cc/virtual/2026/poster/10009683",
+    "venue": "ICLR 2026"
+  },
+  "result": {
+    "concepts": [
+      "distilled pretraining",
+      "test-time-scaling / in-context-learning tradeoff",
+      "induction heads",
+      "bigram-model analysis"
+    ],
+    "contributions": [
+      "identification of a tradeoff where distillation-based pretraining improves test-time scaling but degrades in-context learning (particularly induction-head function)",
+      "a bigram-model analysis explaining the mechanistic basis of this tradeoff",
+      "practical pretraining design recommendations informed by the analysis"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the bigram-model analytical framework used to explain the tradeoff.",
+    "method": "Analyzes distilled pretraining through data, in-context-learning, and test-time-scaling lenses, using a bigram-model analysis to explain observed effects mechanistically.",
+    "methods": [
+      "distilled pretraining",
+      "bigram-model analysis"
+    ],
+    "models": [],
+    "one_liner": "Shows distillation-based LLM pretraining improves test-time scaling capability but reduces in-context learning performance (particularly induction-head-driven ICL), tracing this tradeoff to underlying bigram-model dynamics and offering pretraining design recommendations.",
+    "problem": "How knowledge distillation during LLM pretraining affects downstream capabilities -- specifically test-time scaling and in-context learning -- and whether these effects trade off against each other, was not well characterized.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Indirectly relevant: this is a pretraining-methodology tradeoff study (distillation's effect on test-time scaling vs. in-context learning) rather than an inference-time reasoning-length method, but its finding that improving test-time-scaling capability can come at a measurable cost to another capability is a caution relevant to any overthinking-mitigation approach that optimizes purely for the accuracy/token tradeoff without checking for side effects on other capabilities."
+    },
+    "results": "Distilled models show enhanced test-time scaling capabilities, but this comes paired with reduced in-context learning performance, particularly affecting induction heads; a bigram-model analysis reveals the underlying dynamics explaining this tradeoff.",
+    "tags": [
+      "distillation",
+      "test-time-scaling",
+      "in-context-learning",
+      "pretraining"
+    ]
+  },
+  "task_id": "paper__title-5d210749910cf061",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

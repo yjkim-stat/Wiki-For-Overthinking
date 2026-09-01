@@ -6,14 +6,15 @@ No archived paper is about DAPO; it is named only in passing, and always as a GR
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [adaptive test-time compute allocation](adaptive-test-time-compute-allocation.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AutoThink](autothink.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [Dr. GRPO](dr-grpo.md), [GFPO](gfpo.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-Instruct](qwen2-5-instruct.md), [RLVR](rlvr.md), [routing collapse](../concepts/routing-collapse.md), [S-GRPO](s-grpo.md), [Thinkless](thinkless.md)
+**Related**: [adaptive test-time compute allocation](adaptive-test-time-compute-allocation.md), [AdaptThink](adaptthink.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AutoThink](autothink.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DeepScaleR](../datasets/deepscaler.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [Dr. GRPO](dr-grpo.md), [GFPO](gfpo.md), [GRPO](grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-Instruct](qwen2-5-instruct.md), [RLVR](rlvr.md), [routing collapse](../concepts/routing-collapse.md), [S-GRPO](s-grpo.md), [Thinkless](thinkless.md)
 
 ## Appears in
 
 - [Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation](../../archive/papers/2026/arxiv-2608-20256/summary.md) — Trains a 1.5B reasoning model to emit one of three mode tokens (NoThink, Short, Long) as the very first token of its response and to reason under that mode's budget, learned end-to-end inside GRPO with no separate router.
 - [IAPO: Information-Aware Policy Optimization for Token-Efficient Reasoning](../../archive/papers/2026/title-4bd9ad89663d1e26/summary.md) — IAPO shapes token-level RL advantages by each reasoning token's conditional mutual information with the final answer, so uninformative exploration is suppressed rather than length being penalized in aggregate, reporting up to 36% shorter reasoning at equal or better accuracy on math benchmarks.
+- [QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning](../../archive/papers/2026/title-9b034ca49bd46f6f/summary.md) — QuRL accelerates RL training for LLM reasoning by using a quantized (INT8/FP8) actor for the rollout phase -- which consumes up to 70% of total RL training time -- introducing Adaptive Clipping Range to prevent instability from the full-precision/quantized-actor mismatch and an invariant scaling technique for small inter-step weight updates, achieving 20-80% faster rollout on DeepScaleR and DAPO.
 
 <!-- auto:end -->
 

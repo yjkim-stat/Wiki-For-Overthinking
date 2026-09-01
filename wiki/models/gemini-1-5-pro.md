@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Gemini 1.5 Pro is used as an evaluated/reference model in SCOPE (Programming over Thinking, which replaces long natural-language reasoning chains with a two-stage multi-agent pipeline for multi-constraint planning) and in TRUTHFULVQA's evaluation of multimodal LLM truthfulness under misleading visual-linguistic prompts.
 
 - **Kind**: model
+- **Also called**: Gemini-1.5-Pro
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

@@ -1,0 +1,37 @@
+{
+  "concepts": [
+    "Bayesian prompt-difficulty inference",
+    "intermediate-difficulty prioritization",
+    "history-anchored diversity"
+  ],
+  "contributions": [
+    "Generalizable Predictive Prompt Selection (GPS), a lightweight generative model performing Bayesian inference over prompt difficulty from shared optimization history, avoiding costly per-prompt rollout assessment",
+    "a batch-selection strategy combining intermediate-difficulty prioritization with history-anchored diversity",
+    "substantial improvements in RL training efficiency, final performance, and test-time efficiency over strong baselines"
+  ],
+  "datasets": [],
+  "generated_at": "2026-09-01T10:33:20Z",
+  "generated_by": "queue",
+  "limitations": "Not stated in the fetched abstract beyond the RL-post-training scope and baseline comparison described.",
+  "method": "Proposes Generalizable Predictive Prompt Selection (GPS): a lightweight generative model is trained on the shared optimization history (across the RL run) to perform Bayesian inference estimating each candidate prompt's difficulty without needing new rollouts to assess it; batch selection then integrates intermediate-difficulty prioritization (favoring prompts neither too easy nor too hard) with history-anchored diversity (avoiding redundant prompt selection based on what has already been explored).",
+  "methods": [
+    "Generalizable Predictive Prompt Selection (GPS)",
+    "Bayesian inference over prompt difficulty"
+  ],
+  "models": [],
+  "one_liner": "Generalizable Predictive Prompt Selection (GPS) trains a lightweight generative model on shared optimization history to perform Bayesian inference over prompt difficulty, then uses intermediate-difficulty prioritization and history-anchored diversity to select RL training batches, improving training efficiency, final performance, and test-time efficiency over strong baselines for RL post-training of large reasoning models.",
+  "paper_id": "title:ccc7bb1e86bc9d88",
+  "problem": "Reinforcement learning improves LLM reasoning but is rollout-intensive and computationally expensive, and naive or non-adaptive batch/prompt selection during RL training wastes rollout budget on prompts that are too easy or too hard to provide useful learning signal.",
+  "read_from": "abstract",
+  "relevance": {
+    "overthinking": "Indirectly relevant: this targets training-time RL sample-selection efficiency (which prompts to spend rollout budget on) rather than inference-time reasoning length directly, but it explicitly reports gains in 'test-time efficiency' as well as training efficiency, suggesting curriculum-aware RL training may also produce models with better inference-time accuracy/efficiency tradeoffs -- a training-side lever complementary to the archive's inference-time overthinking mitigations."
+  },
+  "results": "GPS demonstrates substantial improvements in training efficiency, final downstream performance, and test-time efficiency versus superior baseline prompt-selection methods for RL post-training of large reasoning models (no specific numeric deltas given in the fetched abstract).",
+  "schema_version": 1,
+  "tags": [
+    "reinforcement-learning",
+    "curriculum-selection",
+    "training-efficiency",
+    "large-reasoning-models"
+  ]
+}

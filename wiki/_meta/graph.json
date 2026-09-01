@@ -813,6 +813,12 @@
     {
       "authored": false,
       "source": "concept:aha-moment",
+      "target": "method:sparse-autoencoders-saes",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:aha-moment",
       "target": "method:thinkprune",
       "type": "links"
     },
@@ -3345,6 +3351,12 @@
     {
       "authored": false,
       "source": "concept:overthinking",
+      "target": "method:sparse-autoencoders-saes",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:overthinking",
       "target": "method:spirit",
       "type": "links"
     },
@@ -4198,6 +4210,12 @@
       "authored": false,
       "source": "concept:reward-hacking",
       "target": "method:linear-probe",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "concept:reward-hacking",
+      "target": "method:sparse-autoencoders-saes",
       "type": "links"
     },
     {
@@ -11101,7 +11119,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:bespoke-stratos-17k",
       "target": "dataset:llama-nemotron-post-training-dataset",
       "type": "links"
@@ -22651,7 +22669,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "dataset:openthoughts-114k",
       "target": "dataset:bespoke-stratos-17k",
       "type": "links"
@@ -25659,6 +25677,12 @@
     {
       "authored": false,
       "source": "method:dapo",
+      "target": "dataset:deepscaler",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:dapo",
       "target": "method:adaptthink",
       "type": "links"
     },
@@ -27826,6 +27850,12 @@
       "authored": true,
       "source": "method:linear-probe",
       "target": "method:activation-steering",
+      "type": "links"
+    },
+    {
+      "authored": false,
+      "source": "method:linear-probe",
+      "target": "method:sparse-autoencoders-saes",
       "type": "links"
     },
     {
@@ -33517,7 +33547,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "model:gemini-2-5-pro",
       "target": "model:gemini-1-5-pro",
       "type": "links"
@@ -36127,6 +36157,12 @@
       "type": "links"
     },
     {
+      "authored": true,
+      "source": "model:qwen2-5-32b",
+      "target": "model:qwen2-5-32b-instruct",
+      "type": "links"
+    },
+    {
       "authored": false,
       "source": "model:qwen2-5-32b-instruct",
       "target": "method:logit-lens",
@@ -36148,6 +36184,12 @@
       "authored": false,
       "source": "model:qwen2-5-3b-instruct",
       "target": "dataset:openr1-math-220k",
+      "type": "links"
+    },
+    {
+      "authored": true,
+      "source": "model:qwen2-5-3b-instruct",
+      "target": "model:qwen2-5-7b-instruct",
       "type": "links"
     },
     {
@@ -36367,7 +36409,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "model:qwen2-5-7b-base",
       "target": "model:qwen2-5-3b-base",
       "type": "links"
@@ -36613,7 +36655,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "model:qwen2-5-math-7b",
       "target": "model:qwen2-5-7b-base",
       "type": "links"
@@ -36709,7 +36751,7 @@
       "type": "links"
     },
     {
-      "authored": false,
+      "authored": true,
       "source": "model:qwen2-5-vl-7b",
       "target": "model:qwen2-5-vl-3b",
       "type": "links"
@@ -40406,6 +40448,11 @@
     },
     {
       "source": "topic:overthinking",
+      "target": "method:sparse-autoencoders-saes",
+      "type": "covers"
+    },
+    {
+      "source": "topic:overthinking",
       "target": "method:speculative-decoding",
       "type": "covers"
     },
@@ -41020,7 +41067,7 @@
       "type": "covers"
     }
   ],
-  "generated_at": "2026-09-01T10:24:37Z",
+  "generated_at": "2026-09-01T10:33:29Z",
   "nodes": [
     {
       "id": "concept:abstention",
@@ -41265,7 +41312,7 @@
       "kind": "concept",
       "label": "early stopping",
       "settled": true,
-      "sources": 3
+      "sources": 4
     },
     {
       "id": "concept:efficient-reasoning",
@@ -41888,7 +41935,7 @@
       "kind": "dataset",
       "label": "DeepScaleR",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "dataset:deepscaler-preview-training",
@@ -42075,9 +42122,9 @@
     {
       "id": "dataset:libero-long",
       "kind": "dataset",
-      "label": "LIBERO-Long",
+      "label": "LIBERO-LONG",
       "settled": false,
-      "sources": 1
+      "sources": 2
     },
     {
       "id": "dataset:limo-v2",
@@ -42805,7 +42852,7 @@
       "kind": "method",
       "label": "Conformal Prediction",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "method:cot-valve-baseline",
@@ -42826,7 +42873,7 @@
       "kind": "method",
       "label": "DAPO",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "method:dapo-baseline",
@@ -42994,7 +43041,7 @@
       "kind": "method",
       "label": "knowledge distillation",
       "settled": false,
-      "sources": 2
+      "sources": 3
     },
     {
       "id": "method:kv-cache-compression",
@@ -43413,6 +43460,13 @@
       "id": "method:slim-sc-baseline",
       "kind": "method",
       "label": "Slim-SC (baseline)",
+      "settled": false,
+      "sources": 2
+    },
+    {
+      "id": "method:sparse-autoencoders-saes",
+      "kind": "method",
+      "label": "sparse autoencoders (SAEs)",
       "settled": false,
       "sources": 2
     },

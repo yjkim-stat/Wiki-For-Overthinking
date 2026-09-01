@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:20Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:9c49e677c4193c29",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "ETS: Energy-Guided Test-Time Scaling for Training-Free RL Alignment",
+    "url": "https://icml.cc/virtual/2026/poster/61604",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "energy-guided training-free RL alignment",
+      "online Monte Carlo energy estimation",
+      "importance-sampling acceleration for policy sampling"
+    ],
+    "contributions": [
+      "a training-free method (ETS) for sampling from an optimal RL-aligned policy by combining a reference model with an energy term over Masked Language Modeling",
+      "an online Monte Carlo energy estimator with a provable convergence rate",
+      "acceleration and importance-sampling techniques provably preserving sampling quality while substantially reducing inference latency, validated across reasoning, coding and science benchmarks on both autoregressive and diffusion LMs"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the reasoning/coding/science benchmark scope and the autoregressive/diffusion model classes tested.",
+    "method": "Combines a fixed reference policy model with an energy term applied via Masked Language Modeling to define an implicit target distribution corresponding to the optimal RL-aligned policy; estimates the energy component using online Monte Carlo estimation with a provable convergence rate; incorporates modern acceleration frameworks and importance sampling estimators to reduce the inference latency of sampling from this implicit distribution while provably preserving sampling quality.",
+    "methods": [
+      "ETS (Energy-Guided Test-time Scaling)",
+      "online Monte Carlo estimation",
+      "importance sampling"
+    ],
+    "models": [],
+    "one_liner": "ETS enables training-free sampling from an optimal RL-aligned policy by combining a reference model with an energy term over Masked Language Modeling, estimating the energy via online Monte Carlo with a provable convergence rate, and using acceleration frameworks plus importance sampling to substantially reduce inference latency while provably preserving sampling quality on both autoregressive and diffusion language models.",
+    "problem": "Sampling from the policy that would result from RL alignment normally requires actually performing the RL training, which is costly; a training-free way to sample from (or approximate) that optimal policy, applicable across both autoregressive and diffusion language models, was not established with provable guarantees.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Indirectly relevant: a test-time-scaling method for training-free RL alignment (approximating an aligned policy's sampling distribution without actually running RL) rather than a reasoning-length control method, but it is evaluated on reasoning benchmarks and offers an alternative, provably-quality-preserving lever for improving generation quality at inference time without the cost of RL training."
+    },
+    "results": "Testing across reasoning, coding, and science benchmarks shows consistent generation-quality improvements for both autoregressive and diffusion language models, substantially reducing inference latency versus a naive implementation while provably preserving sampling quality.",
+    "tags": [
+      "test-time-scaling",
+      "training-free-alignment",
+      "energy-based-models",
+      "diffusion-language-models"
+    ]
+  },
+  "task_id": "paper__title-9c49e677c4193c29",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

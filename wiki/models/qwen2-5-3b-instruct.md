@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-3B-Instruct is used as a base/target model in Verbal-R3 (rewriting retrieved documents into explicit-connection 'Verbal Annotations' for RAG reranking) and SELECT2REASON (which selects a high-utility subset of a long-CoT instruction pool for SFT by jointly ranking on difficulty and deduplicated reasoning-trace length).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GPQA](../datasets/gpqa.md), [HotpotQA](../datasets/hotpotqa.md), [KAOYAN](../datasets/kaoyan.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [MuSiQue](../datasets/musique.md), [Natural Questions (NQ)](../datasets/natural-questions-nq.md), [OlympiadBench](../datasets/olympiadbench.md), [OpenR1-Math-220k](../datasets/openr1-math-220k.md), [PopQA](../datasets/popqa.md), [Qwen2.5 7B](qwen2-5-7b.md), [Qwen2.5-Math-7B-Instruct](qwen2-5-math-7b-instruct.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [TriviaQA](../datasets/triviaqa.md), [ZebraLogic](../datasets/zebralogic.md)
+**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GPQA](../datasets/gpqa.md), [HotpotQA](../datasets/hotpotqa.md), [KAOYAN](../datasets/kaoyan.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [MuSiQue](../datasets/musique.md), [Natural Questions (NQ)](../datasets/natural-questions-nq.md), [OlympiadBench](../datasets/olympiadbench.md), [OpenR1-Math-220k](../datasets/openr1-math-220k.md), [PopQA](../datasets/popqa.md), [Qwen2.5 7B](qwen2-5-7b.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [Qwen2.5-Math-7B-Instruct](qwen2-5-math-7b-instruct.md), [supervised fine-tuning](../concepts/supervised-fine-tuning.md), [TriviaQA](../datasets/triviaqa.md), [ZebraLogic](../datasets/zebralogic.md)
 
 ## Appears in
 

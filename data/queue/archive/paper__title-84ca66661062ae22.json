@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:20Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:84ca66661062ae22",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test time scaling"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "CodeChemist: Test-Time Scaling for Low-Resource Code Generation via Functional Knowledge Transfer",
+    "url": "https://icml.cc/virtual/2026/poster/63512",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "functional knowledge transfer across programming languages",
+      "confidence-gated consensus vs. cross-language test synthesis",
+      "test-time scaling for code generation"
+    ],
+    "contributions": [
+      "CodeChemist, a training-free test-time-scaling framework transferring functional correctness knowledge from well-supported to low-resource programming languages",
+      "a confidence-gated selection mechanism switching between within-language consensus voting and cross-language reference-implementation test synthesis",
+      "substantial code-generation improvements for underrepresented (Lua) and syntactically complex (C++, Java) languages"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the languages named as tested (Lua, C++, Java) and the training-free scope of the method.",
+    "method": "At test time and without retraining, CodeChemist generates multiple candidate implementations for a target (low-resource) language via varied-temperature sampling, creates synthetic test inputs, and assesses confidence in the candidates; when confidence is high, it selects via within-language consensus voting among candidates; when confidence is lower, it executes reference implementations of the same problem in stronger (well-supported) languages to build cross-language test benchmarks, then selects the target-language candidate that performs best against those cross-language-derived tests.",
+    "methods": [
+      "CodeChemist (test-time functional knowledge transfer)",
+      "varied-temperature sampling",
+      "cross-language test synthesis"
+    ],
+    "models": [],
+    "one_liner": "CodeChemist is a training-free test-time-scaling framework that improves code generation for low-resource programming languages by transferring functional knowledge from well-supported languages: it samples multiple candidate implementations at varied temperatures, generates synthetic test inputs, and either uses within-language consensus voting (when confident) or executes cross-language reference implementations to build test benchmarks and select the best candidate (when less confident).",
+    "problem": "Code LLMs perform unevenly across programming languages, struggling on less common ones due to insufficient training data, and existing test-time methods do not transfer functional correctness knowledge from well-supported languages to underrepresented ones.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Indirectly relevant: a test-time-scaling method (sampling multiple candidates, then selecting via consensus or synthesized tests) for a different problem (cross-lingual code-generation transfer) rather than reasoning-length control, but another example of spending test-time compute on structured candidate generation and verification rather than a single longer trace."
+    },
+    "results": "Testing shows substantial improvements for underrepresented languages like Lua as well as for syntactically complex ones such as C++ and Java (no specific numeric deltas given in the fetched abstract).",
+    "tags": [
+      "test-time-scaling",
+      "code-generation",
+      "low-resource-languages",
+      "training-free"
+    ]
+  },
+  "task_id": "paper__title-84ca66661062ae22",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

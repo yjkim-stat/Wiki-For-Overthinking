@@ -1,0 +1,93 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:20Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:7f9646f61e4d4d9c",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Internalizing Safety Understanding in Large Reasoning Models via Verification",
+    "url": "https://icml.cc/virtual/2026/poster/63605",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "internal safety comprehension (vs. behavioral compliance)",
+      "self-critique via verification training",
+      "principled safety reasoning"
+    ],
+    "contributions": [
+      "Safety Internal (SInternal), training reasoning models to critique their own answers using expert reasoning trajectories to build internal safety understanding",
+      "empirical evidence that verification-trained models resist manipulated/disguised harmful prompts better than behaviorally-imitation-trained ones",
+      "demonstration that pairing verification-based internalization with RL outperforms standard SFT as a safety-alignment foundation"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the comparison against standard SFT-based safety alignment.",
+    "method": "Introduces Safety Internal (SInternal), which trains models on a verification task -- critiquing their own generated answers using expert reasoning trajectories -- so the model learns to understand and check safety principles internally rather than merely imitating safe behavior; compares standard supervised fine-tuning against pairing this verification-based internalization with reinforcement learning as the foundation for safety alignment.",
+    "methods": [
+      "Safety Internal (SInternal, self-critique/verification training)",
+      "supervised fine-tuning (comparison baseline)",
+      "reinforcement learning (paired with SInternal)"
+    ],
+    "models": [],
+    "one_liner": "Safety Internal (SInternal) trains large reasoning models to critique their own generated answers using expert reasoning trajectories, building genuine internal safety comprehension rather than relying on external compliance detection, and shows this verification-based training -- especially when paired with RL -- produces stronger defenses against manipulated harmful prompts than standard supervised fine-tuning.",
+    "problem": "AI safety for reasoning models typically relies on external compliance detection (checking outputs against rules after generation) rather than genuine internal understanding of safety principles, which the paper argues is a critical gap that behavioral-imitation-based training does not close.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Not directly relevant to reasoning length or efficiency: this is a safety-alignment training method for reasoning models (internalized safety verification vs. behavioral compliance), matched to the topic only via the shared context of large reasoning models; tangentially related to this archive's self-verification/self-critique thread (e.g. Self-Reflection, MONICA) in that it also uses a reasoning model's own critique capability as a training signal, but for safety rather than efficiency."
+    },
+    "results": "Models trained on the verification task develop stronger defenses against harmful prompts disguised through manipulation (e.g. adversarial framing) than models without this training; when SInternal's verification-based internalization is paired with reinforcement learning, it outperforms standard supervised fine-tuning as a foundation for safety alignment.",
+    "tags": [
+      "safety-alignment",
+      "self-verification",
+      "large-reasoning-models",
+      "reinforcement-learning"
+    ]
+  },
+  "task_id": "paper__title-7f9646f61e4d4d9c",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

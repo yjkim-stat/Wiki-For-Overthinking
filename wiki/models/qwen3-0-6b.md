@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen3-0.6B is a small model referenced as a scale point in a study training a ~1B-parameter multimodal model to predict, before any API call, which of seven performance bins a frontier LLM will land in for a given input, and in Thermometer of Thoughts (attention-temperature modulation as a difficulty-adaptive exploration control).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

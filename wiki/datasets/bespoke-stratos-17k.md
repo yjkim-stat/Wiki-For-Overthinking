@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Bespoke-Stratos-17k is a long-CoT reasoning-distillation training dataset used in Distilling the Essence (which ablates which section of a distillation sequence -- prompt, CoT, answer -- carries the useful supervisory signal) and in QFFT (Question-Free Fine-Tuning, which trains on Long CoT responses with the question deleted so a model keeps its default concise reasoning and switches to long reasoning only when needed).
 
 - **Kind**: dataset
 - **Also called**: Bespoke-Stratos (17k)

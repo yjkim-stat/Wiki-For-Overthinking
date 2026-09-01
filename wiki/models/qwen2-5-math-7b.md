@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-Math-7B is used as a base/reference model in studies of entropy collapse during RL post-training: CurioSFT diagnoses that standard SFT causes entropy collapse limiting subsequent RL, a systematic entropy study finds performance can improve without entropy loss, and SCOPE derives an exact token-level decomposition showing entropy collapse in GRPO-based RL is driven by a small (~5%) subset of structurally critical tokens.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

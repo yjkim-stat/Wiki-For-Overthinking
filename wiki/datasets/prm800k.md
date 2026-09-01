@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+PRM800K is a process-reward-model training dataset referenced in SAT (which models reasoning as a Finite-State Machine over four thinking modes navigated by a 30M-parameter distilled Process Reward Model) and ReProbe (a lightweight transformer probe trained on a frozen LLM's internal states to predict step-level reasoning correctness).
 
 - **Kind**: dataset
+- **Also called**: PRM800K
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

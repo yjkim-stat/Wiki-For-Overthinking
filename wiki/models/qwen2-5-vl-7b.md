@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-VL-7B is a vision-language model used across multiple studies of reasoning-training side effects: ARM2 extends adaptive reasoning-format selection to multimodal inputs on it, RECAP evaluates it to mitigate general-capability forgetting (perception, grounding, safety) that RLVR-based reasoning fine-tuning causes, and GPRO diagnoses that visual perception failures (not reasoning errors) dominate its incorrect predictions.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-3B-Base is used as a base model in ADaPT (Token-Level Decoupling for Efficient Large Reasoning Models, which diagnoses that sequence-level efficiency rewards implicitly penalize correct-but-long reasoning) and in SCOPE's cross-architecture/cross-scale evaluation of entropy-collapse mitigation during RL post-training.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

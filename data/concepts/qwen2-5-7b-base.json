@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Qwen2.5-7B-Base is used as a base model in ADaPT (diagnosing that sequence-level efficiency rewards implicitly penalize correct-but-long reasoning) and in SCOPE's entropy-collapse-mitigation experiments (A Few Bad Apples Spoil the Bunch), which derives an exact token-level decomposition showing entropy collapse is driven by a small subset of structurally critical tokens.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.165",
@@ -69,7 +69,9 @@
     "qwen2-5-math-7b",
     "llama3-1-8b-instruct"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-3b-base"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-7b-base",
   "topics": [

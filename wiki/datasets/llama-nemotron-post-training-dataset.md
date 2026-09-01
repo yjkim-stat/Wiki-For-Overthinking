@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The Llama-Nemotron-Post-Training-Dataset is a long-CoT reasoning-distillation training dataset used in Distilling the Essence (section-wise supervision ablation for reasoning distillation) and SuCo (Sufficiency-guided Continuous Adaptive Reasoning, which trains on the Minimal Sufficient CoT prefix -- the shortest reasoning prefix at which confidence in the ground-truth answer crosses a difficulty-adaptive threshold).
 
 - **Kind**: dataset
-- **Also called**: Llama-Nemotron Post-Training Dataset
+- **Also called**: Llama-Nemotron Post-Training Dataset, Llama-Nemotron-Post-Training-Dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

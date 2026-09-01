@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-7B-Base is used as a base model in ADaPT (diagnosing that sequence-level efficiency rewards implicitly penalize correct-but-long reasoning) and in SCOPE's entropy-collapse-mitigation experiments (A Few Bad Apples Spoil the Bunch), which derives an exact token-level decomposition showing entropy collapse is driven by a small subset of structurally critical tokens.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

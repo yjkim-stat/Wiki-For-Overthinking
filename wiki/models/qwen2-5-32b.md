@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-32B is used as a base/reference model in TRACE INVERSION (which reframes hallucination-driven abstention as query misalignment, detected by reconstructing which question the model actually answered) and REA-RL (which trains a large reasoning model online with a distilled 7B reflection model supplying parallel samples and truncated sequential revisions plus a reflection-density reward).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [abstention](../concepts/abstention.md), [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [DeepScaleR](../datasets/deepscaler.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [difficulty-adaptive reasoning length](../concepts/difficulty-adaptive-reasoning-length.md), [gpt-oss-120b](gpt-oss-120b.md), [GRPO](../methods/grpo.md), [GSM-MC](../datasets/gsm-mc.md), [GSM8K](../datasets/gsm8k.md), [HellaSwag](../datasets/hellaswag.md), [Length reward](../concepts/length-reward.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [Overthinking](../concepts/overthinking.md), [Phi-4](phi-4.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [Sequential revision](../concepts/sequential-revision.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [UMWP](../datasets/umwp.md)
+**Related**: [abstention](../concepts/abstention.md), [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [DeepScaleR](../datasets/deepscaler.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [difficulty-adaptive reasoning length](../concepts/difficulty-adaptive-reasoning-length.md), [gpt-oss-120b](gpt-oss-120b.md), [GRPO](../methods/grpo.md), [GSM-MC](../datasets/gsm-mc.md), [GSM8K](../datasets/gsm8k.md), [HellaSwag](../datasets/hellaswag.md), [Length reward](../concepts/length-reward.md), [MATH500](../datasets/math500.md), [MMLU](../datasets/mmlu.md), [Overthinking](../concepts/overthinking.md), [Phi-4](phi-4.md), [Qwen2.5-32B-Instruct](qwen2-5-32b-instruct.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [Sequential revision](../concepts/sequential-revision.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [UMWP](../datasets/umwp.md)
 
 ## Appears in
 

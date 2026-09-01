@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 443 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-08-26. 420 of the papers have been read in full.
+Built from 443 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-08-26. 440 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`.
 
@@ -116,6 +116,12 @@ Carrying the intermediate steps of reasoning in continuous hidden states rather 
 
 Seen in: SLPO: Scaling Latent Reasoning via a Surrogate Policy; Penelope: Localized Latent Recurrence for Efficient Structured Reasoning; Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners; Efficient Reasoning with Hidden Thinking.
 
+### early stopping
+
+The five archived sources use 'early stopping' in three unrelated senses, and the archive should not be read as holding one idea here. Two halt a large reasoning model at inference: CaTS stops drawing further samples for a query once its self-distilled confidence is high enough, and 'Statistical Early Stopping for Reasoning Models' applies sequential stopping rules to the arrival of uncertainty keywords inside a trace, halting on ill-posed or ambiguous queries, with a finite-sample bound on the probability of halting too early on a well-posed one. Two use the classical training sense of stopping an optimizer short of convergence: Instance-dependent Early Stopping drops a training example from backpropagation once the second-order difference of its loss stays near zero, and a theoretical paper shows that in well-specified high-dimensional logistic regression gradient descent stopped early is consistent with polynomially many samples while gradient descent run to convergence is not. The fifth is neither, calibrating a termination threshold for a mixed-integer solver by conformal prediction on a learned estimate of the optimality gap; and none of the five is about leaving a network's layer stack at an intermediate head, which is early exit.
+
+Seen in: A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm; CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning; Statistical Early Stopping for Reasoning Models; Conformal Prediction for Early Stopping in Mixed Integer Optimization.
+
 ### Test-Time Compute
 
 The compute a model spends at inference -- extra reasoning tokens, parallel samples, search, or tool calls -- as opposed to compute spent in training. What the archive's sources have converged on is that it is a quantity to be allocated rather than increased: frontier models now expose it as a user-controllable budget, spending the maximum uniformly is both expensive and sometimes actively harmful (the 'over-thinking penalty', where extra inference compute lowers accuracy or merely costs more than a cheaper configuration would), and later work treats the choice of how much to spend jointly with the choice of which model to spend it on, learned online as a contextual bandit. Its cost is also not confined to the generator: sources measuring it end to end charge the controller, verifier or compressor that decides the budget against the budget itself. Note: this archive tracks 'test-time compute scaling' and 'test-time scaling' as separate entries covering the same ground; they are not merged.
@@ -127,12 +133,6 @@ Seen in: Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models v
 Token budget denotes an explicit cap on how many tokens a reasoning model may spend on a problem, used both as a training target and as an evaluation axis. ARM trains a model to pick among four reasoning formats per task to control token spend; 'How Far Are We from Optimal Reasoning Efficiency?' defines an empirical accuracy-vs-token-budget frontier and measures how far existing methods fall short of it with a single metric (REG); A*-Thought selects a short, high-information subset of a reasoning trace via A* search as SFT data for a fixed token budget; FROST prunes sentence-level reasoning outliers via attention, reporting a 69.68% average token reduction.
 
 Seen in: ARM: Adaptive Reasoning Model; How Far Are We from Optimal Reasoning Efficiency?; A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings; FROST: Filtering Reasoning Outliers with Attention for Efficient Reasoning.
-
-### Accuracy-Efficiency Score (AES)
-
-The two archived papers tagged to this entity -- BLADE, which trains a hidden-state probe to exit generation once a reasoning prefix already supports the correct answer, and DRPO, which fixes the accuracy loss GRPO suffers under a length penalty by normalising correct rollouts only against other correct rollouts -- both aim at reporting accuracy and token cost together, but neither note states what the Accuracy-Efficiency Score is, how it is computed, or what range it takes. On the evidence in the archive this is a single-number summary metric combining task accuracy with generation cost, and nothing more specific can honestly be said until one of the source papers is read for its formula.
-
-Seen in: BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning; O1-Pruner: Length-Harmonizing Fine-Tuning for O1-Like Reasoning Pruning; DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization.
 
 ## Methods
 

@@ -9,7 +9,7 @@ Neither archived source defines 'aha moment'; it is used here as a label rather 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [linear probe](../methods/linear-probe.md), [MATH500](../datasets/math500.md), [mechanistic interpretability](mechanistic-interpretability.md), [O1-Pruner](../methods/o1-pruner.md), [Overthinking](overthinking.md), [Preference Optimization](../methods/preference-optimization.md), [Redundant Self-Verification](redundant-self-verification.md), [Reward Hacking](reward-hacking.md), [TACO](../datasets/taco.md), [ThinkPrune](../methods/thinkprune.md), [veRL](../methods/verl.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [linear probe](../methods/linear-probe.md), [MATH500](../datasets/math500.md), [mechanistic interpretability](mechanistic-interpretability.md), [O1-Pruner](../methods/o1-pruner.md), [Overthinking](overthinking.md), [Preference Optimization](../methods/preference-optimization.md), [Redundant Self-Verification](redundant-self-verification.md), [Reward Hacking](reward-hacking.md), [sparse autoencoders (SAEs)](../methods/sparse-autoencoders-saes.md), [TACO](../datasets/taco.md), [ThinkPrune](../methods/thinkprune.md), [veRL](../methods/verl.md)
 
 ## Appears in
 

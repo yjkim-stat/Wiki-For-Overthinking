@@ -46,7 +46,7 @@ SP can inadvertently encourage the model to merge distinct logical steps into ov
 ## Entities
 
 - **Concepts**: step-based reward (vs. token-count penalty), optimal step count (S*), reward hacking via step merging, dynamic training-stopping criterion
-- **Methods**: Step Pruner (SP), [GRPO](../../../../wiki/methods/grpo.md), CCoT (baseline), CoD (baseline), [CoT-Valve (baseline)](../../../../wiki/methods/cot-valve-baseline.md), Model Merge / Long-to-Short Reasoning (baseline), [O1-Pruner (baseline)](../../../../wiki/methods/o1-pruner-baseline.md), ShorterBetter (baseline), TrainEfficient (baseline)
+- **Methods**: Step Pruner (SP), [GRPO](../../../../wiki/methods/grpo.md), CCoT (baseline), CoD (baseline), [CoT-Valve (baseline)](../../../../wiki/methods/cot-valve-baseline.md), Model Merge / Long-to-Short Reasoning (baseline), [O1-Pruner (baseline)](../../../../wiki/methods/o1-pruner-baseline.md), [ShorterBetter (baseline)](../../../../wiki/methods/shorterbetter-baseline.md), TrainEfficient (baseline)
 - **Datasets**: DeepScaleR-preview (training, 40K problems), [AIME24](../../../../wiki/datasets/aime-2024.md), [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
 
 Tags: `overthinking`, `efficient-reasoning`, `reward-hacking`, `step-based-reward`, `reinforcement-learning`

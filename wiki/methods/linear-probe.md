@@ -9,7 +9,7 @@ A linear classifier -- logistic regression in the sources here -- fitted to a mo
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [activation steering](activation-steering.md), [Aha Moment](../concepts/aha-moment.md), [early stopping](../concepts/early-stopping.md), [Overthinking](../concepts/overthinking.md), [Reward Hacking](../concepts/reward-hacking.md)
+**Related**: [activation steering](activation-steering.md), [Aha Moment](../concepts/aha-moment.md), [early stopping](../concepts/early-stopping.md), [Overthinking](../concepts/overthinking.md), [Reward Hacking](../concepts/reward-hacking.md), [sparse autoencoders (SAEs)](sparse-autoencoders-saes.md)
 
 ## Appears in
 

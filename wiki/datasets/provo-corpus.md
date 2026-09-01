@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The Provo Corpus is an eye-tracking reading-time dataset used to study whether language-model word-surprisal predicts human reading times: one source shows the well-known inverse-scaling effect (larger pretrained LMs predicting reading times worse than smaller ones) is not an artifact of the corpus itself, and another uses it to validate a working-memory-constrained GPT-2-small model injecting Gaussian noise into self-attention value vectors.
 
 - **Kind**: dataset
+- **Also called**: Provo Corpus
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

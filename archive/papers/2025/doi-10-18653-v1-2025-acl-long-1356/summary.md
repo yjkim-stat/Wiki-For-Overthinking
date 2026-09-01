@@ -46,7 +46,7 @@ The paper focuses on majority voting as the scaling mechanism and explicitly doe
 ## Entities
 
 - **Concepts**: easy / moderate / hard question (defined via answer-probability structure under majority voting), test-time-scaling law for majority voting, O(1) Gaussian-approximation scaling predictor, adaptive (difficulty-aware) scaling, dynamic (per-question) strategy selection
-- **Methods**: [Direct Prompting](../../../../wiki/methods/direct-prompting.md), Chain-of-Thought (CoT), Least-to-Most prompting, Tree-of-Thoughts, [Self-Refine](../../../../wiki/methods/self-refine.md), Step-Back Prompting, Analogous Prompting, [Multi-Agent Debate](../../../../wiki/methods/multi-agent-debate.md), [majority voting / self-consistency](../../../../wiki/methods/majority-voting-self-consistency.md)
+- **Methods**: [Direct Prompting](../../../../wiki/methods/direct-prompting.md), [Chain-of-Thought (CoT)](../../../../wiki/methods/chain-of-thought-cot.md), Least-to-Most prompting, Tree-of-Thoughts, [Self-Refine](../../../../wiki/methods/self-refine.md), Step-Back Prompting, Analogous Prompting, [Multi-Agent Debate](../../../../wiki/methods/multi-agent-debate.md), [majority voting / self-consistency](../../../../wiki/methods/majority-voting-self-consistency.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [GSM-Hard](../../../../wiki/datasets/gsm-hard.md), [MATH-500](../../../../wiki/datasets/math500.md), MMLU (high-school biology/chemistry/physics), [GPQA](../../../../wiki/datasets/gpqa.md), [AIME](../../../../wiki/datasets/aime.md)
 
 Tags: `test-time-scaling`, `prompting-strategies`, `majority-voting`, `chain-of-thought`, `scaling-law`

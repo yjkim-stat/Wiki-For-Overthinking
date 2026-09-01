@@ -1,0 +1,55 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Verbal-R3 shows that rewriting retrieved documents into 'Verbal Annotations' -- analytic narratives that explicitly state the logical connection between a query and a document, distilled from GPT-OSS-120B into a lightweight 1.5B/3B Verbal Reranker -- substantially improves RAG accuracy over both raw context injection and stylistic paraphrasing, and pairs this with a relevance-guided test-time-scaling method that allocates search-trajectory budget toward high-relevance-scored queries, beating Search-R1 by up to 18% F1 while cutting reranker calls ~45-54%.",
+        "title": "Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SELECT2REASON selects the top 10% of a large long-CoT instruction pool for SFT by jointly ranking questions on a learned difficulty score and (deduplicated) reasoning-trace length, matching or beating models trained on 8-94x more data.",
+        "title": "Select2Reason: Efficient Instruction-Tuning Data Selection for Long-CoT Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-09-01T10:28:38Z",
+  "created_at": "2026-09-01T10:24:38Z",
+  "instructions": "Write the wiki definition for 'Qwen2.5-3B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen2.5-3B-Instruct",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Qwen2.5-3B-Instruct",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Qwen2.5-3B-Instruct is used as a base/target model in Verbal-R3 (rewriting retrieved documents into explicit-connection 'Verbal Annotations' for RAG reranking) and SELECT2REASON (which selects a high-utility subset of a long-CoT instruction pool for SFT by jointly ranking on difficulty and deduplicated reasoning-trace length).",
+    "kind": "model",
+    "related": [
+      "Qwen2.5-7B-Instruct"
+    ]
+  },
+  "task_id": "concept__qwen2-5-3b-instruct",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

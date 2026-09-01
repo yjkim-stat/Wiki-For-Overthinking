@@ -1,0 +1,95 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:18Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:20e2f5ee0a29cfd6",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "adaptive reasoning"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "AdaNav: Adaptive Reasoning with Uncertainty for Vision-Language Navigation",
+    "url": "https://icml.cc/virtual/2026/poster/61535",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "Uncertainty-Adaptive Reasoning Block",
+      "action-entropy-triggered reasoning",
+      "Heuristics-to-RL training methodology"
+    ],
+    "contributions": [
+      "an Uncertainty-Adaptive Reasoning Block that dynamically triggers reasoning during navigation based on action-entropy",
+      "a Heuristics-to-RL training methodology enabling difficulty-aware reasoning policy learning from limited embodied-AI data",
+      "20%/11.7%/11.4% improvements on R2R val-unseen/RxR-CE/real-world navigation using only 6,000 training samples, beating larger closed-source models"
+    ],
+    "datasets": [
+      "R2R (val-unseen)",
+      "RxR-CE"
+    ],
+    "limitations": "Not stated in the fetched abstract beyond the vision-language navigation domain and the 6,000-sample training scale reported.",
+    "method": "Introduces an Uncertainty-Adaptive Reasoning Block that dynamically triggers reasoning based on action-entropy metrics (higher predicted-action uncertainty triggers more deliberate reasoning), trained via a Heuristics-to-RL methodology -- starting from heuristic difficulty signals and transitioning to reinforcement learning -- to let the agent learn a difficulty-aware reasoning policy despite scarce embodied-AI training data.",
+    "methods": [
+      "Uncertainty-Adaptive Reasoning Block",
+      "Heuristics-to-RL training"
+    ],
+    "models": [],
+    "one_liner": "AdaNav introduces an Uncertainty-Adaptive Reasoning Block that dynamically triggers extra reasoning during vision-language navigation based on action-entropy metrics, trained via a Heuristics-to-RL methodology that lets agents learn difficulty-aware reasoning policies from only 6,000 samples, outperforming closed-source models trained on far larger datasets.",
+    "problem": "Vision-language navigation agents need to reason adaptively about when a situation is uncertain enough to warrant deliberation, but embodied-AI training data is limited, making it hard to learn difficulty-aware reasoning policies that trigger extra reasoning only when needed rather than uniformly or never.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Indirectly relevant: an embodied-AI analog of difficulty-adaptive reasoning -- deciding when to spend extra reasoning effort based on an entropy/uncertainty signal rather than uniformly -- structurally similar to difficulty-adaptive test-time compute methods proposed for LLM reasoning, but applied to navigation action selection rather than text-based chain-of-thought."
+    },
+    "results": "Using only 6,000 training samples, AdaNav achieves a 20% improvement on R2R val-unseen, 11.7% on RxR-CE, and 11.4% in real-world scenes, outperforming closed-source models trained on substantially larger datasets.",
+    "tags": [
+      "vision-language-navigation",
+      "adaptive-reasoning",
+      "uncertainty-driven-computation",
+      "embodied-ai"
+    ]
+  },
+  "task_id": "paper__title-20e2f5ee0a29cfd6",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

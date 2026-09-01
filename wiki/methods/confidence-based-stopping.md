@@ -9,7 +9,7 @@ Confidence-based stopping ends reasoning when the model's own confidence in a ca
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [Early Exit](early-exit.md), [GPT-5.5](../models/gpt-5-5.md), [Information Gain](../concepts/information-gain.md), [Latent reasoning](../concepts/latent-reasoning.md), [LIBERO-Long](../datasets/libero-long.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [Early Exit](early-exit.md), [GPT-5.5](../models/gpt-5-5.md), [Information Gain](../concepts/information-gain.md), [Latent reasoning](../concepts/latent-reasoning.md), [LIBERO-LONG](../datasets/libero-long.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## What we have settled
 

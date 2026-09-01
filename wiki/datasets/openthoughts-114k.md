@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+OpenThoughts-114k is a 114K-example long-CoT reasoning-distillation dataset used in ReasMark (training reasoning models to systematically produce longer chains-of-thought on prompts dominated by a secret token pattern, to attribute knowledge distillation and protect intellectual property) and in Distilling the Essence's section-wise supervision ablation.
 
 - **Kind**: dataset
+- **Also called**: OpenThoughts-114k
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Qwen2.5-32B is used as a base/reference model in TRACE INVERSION (which reframes hallucination-driven abstention as query misalignment, detected by reconstructing which question the model actually answered) and REA-RL (which trains a large reasoning model online with a distilled 7B reflection model supplying parallel samples and truncated sequential revisions plus a reflection-density reward).",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.608",
@@ -65,7 +65,9 @@
     "amc23",
     "aime-2024"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-32b-instruct"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-32b",
   "topics": [

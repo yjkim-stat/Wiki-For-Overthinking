@@ -12,6 +12,12 @@
       "title": "Statistical Early Stopping for Reasoning Models"
     },
     {
+      "id": "title:878a7bd3c031c8b1",
+      "kind": "paper",
+      "note": "Trains a neural network to estimate a mixed-integer-optimization solver's true optimality gap from its internal state, then applies conformal prediction calibration to derive stopping thresholds with rigorous probabilistic guarantees, cutting solve times by over 60% while keeping solutions within 0.1% of optimal with 95% probability across six Distributional MIPLIB problem families.",
+      "title": "Conformal Prediction for Early Stopping in Mixed Integer Optimization"
+    },
+    {
       "id": "title:b601ad920fcc4d45",
       "kind": "paper",
       "note": "ATTS uses conformal prediction to asynchronously coordinate multi-dimensional test-time scaling, cutting synchronization overhead between draft and target models during LLM inference.",
@@ -20,7 +26,7 @@
   ],
   "first_seen": "2026-08-20T12:24:12Z",
   "kind": "method",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-09-01T10:33:28Z",
   "name": "Conformal Prediction",
   "related": [
     "early-stopping",
@@ -48,6 +54,11 @@
     "mmlu",
     "gpqa",
     "hle",
+    "conformal-prediction-for-early-stopping",
+    "optimality-gap-estimation-from-solver-state",
+    "distribution-free-probabilistic-stopping-guarantee",
+    "neural-network-based-optimality-gap-estimation",
+    "distributional-miplib-six-problem-families",
     "test-time-scaling",
     "asynchronous-decoding",
     "draft-target-model-speculation",

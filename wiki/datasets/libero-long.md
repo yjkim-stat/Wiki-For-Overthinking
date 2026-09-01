@@ -1,4 +1,4 @@
-# LIBERO-Long
+# LIBERO-LONG
 
 <!-- auto:begin -->
 
@@ -7,12 +7,13 @@ LIBERO-LONG is a long-horizon robot manipulation suite that entered this wiki th
 - **Kind**: dataset
 - **Also called**: LIBERO-Long
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 1
+- **Sources**: 2
 
 **Related**: [Confidence-Based Stopping](../methods/confidence-based-stopping.md), [Early Exit](../methods/early-exit.md), [Latent reasoning](../concepts/latent-reasoning.md)
 
 ## Appears in
 
+- [VLA-ATTC: Adaptive Test-Time Compute for VLA Models with Relative Action Critic Model](../../archive/papers/2026/title-dc0ea43626fc6cec/summary.md) — VLA-ATTC gives Vision-Language-Action robotic manipulation models an adaptive test-time compute mechanism that switches from fast, instinctive action selection to deliberative reasoning based on an uncertainty signal, using a Relative Action Critic that compares candidate actions pairwise rather than estimating absolute values, cutting the failure rate of the SOTA model PI0.5 by over 50% on LIBERO-LONG.
 - [Think Less, Act Early: Reinforced Latent Reasoning with Early Exit in Vision-Language-Action Models](../../archive/papers/2026/title-e3df9e3ad63924a6/summary.md) — AVA-VLA replaces explicit chain-of-thought in a vision-language-action policy with a sequence of latent reasoning variables trained by RL denoising, and adds a confidence-gated early exit that cuts mean reasoning depth from 5.0 to 2.3 steps and latency from 312 ms to 145 ms at essentially unchanged LIBERO success rate.
 
 <!-- auto:end -->

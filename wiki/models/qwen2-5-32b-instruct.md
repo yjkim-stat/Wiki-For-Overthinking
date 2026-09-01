@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-32B-Instruct is evaluated in ReEfBench (a neuro-symbolic evaluation framework grounding reasoning in First-Order-Logic problems with controllable, verifiable logical depth) and in a truncation-based diagnostic across 11 languages measuring how strongly large reasoning models already know the answer before finishing their explicit reasoning trace.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [Latent reasoning](../concepts/latent-reasoning.md), [logit lens](../methods/logit-lens.md), [Nemotron-32B](nemotron-32b.md), [Overthinking](../concepts/overthinking.md), [QwQ-32B](qwq-32b.md)
+**Related**: [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-14B](deepseek-r1-distill-qwen-14b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [Latent reasoning](../concepts/latent-reasoning.md), [logit lens](../methods/logit-lens.md), [Nemotron-32B](nemotron-32b.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-32B](qwen2-5-32b.md), [QwQ-32B](qwq-32b.md)
 
 ## Appears in
 

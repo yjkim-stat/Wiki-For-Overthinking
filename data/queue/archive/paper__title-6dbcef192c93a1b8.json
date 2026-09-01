@@ -1,0 +1,92 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:20Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:6dbcef192c93a1b8",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Restoring Exploration after Post-Training: Latent Exploration Decoding for Large Reasoning Models",
+    "url": "https://icml.cc/virtual/2026/poster/66546",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "exploration collapse (post-RL)",
+      "final-layer vs. intermediate-layer entropy disparity",
+      "Latent Exploration Decoding (depth-conditioned decoding)"
+    ],
+    "contributions": [
+      "identification of exploration collapse as an unintended side effect of RL post-training, where final-layer entropy diminishes while intermediate-layer entropy remains high",
+      "Latent Exploration Decoding (LED), a training-free decoding strategy that restores sampling diversity by aggregating intermediate-layer posteriors instead of relying on the collapsed final-layer distribution",
+      "consistent pass@1/pass@16 improvements across multiple benchmarks and models with zero additional training"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the reported average pass@1/pass@16 gains and the benchmarks/models tested.",
+    "method": "Observes that post-trained models show significantly diminished entropy specifically in their final-layer output distribution while intermediate layers retain substantially higher entropy, indicating exploratory diversity is not lost from the model overall but suppressed at the output layer; proposes Latent Exploration Decoding (LED), a depth-conditioned decoding strategy that aggregates posteriors from intermediate layers and identifies configurations with maximum entropy to restore effective sampling diversity, requiring no additional training.",
+    "methods": [
+      "Latent Exploration Decoding (LED)",
+      "temperature-based sampling (baseline)"
+    ],
+    "models": [],
+    "one_liner": "Identifies 'exploration collapse' after RL post-training of large reasoning models -- temperature-based sampling no longer increases pass@n accuracy because final-layer output entropy diminishes even though intermediate-layer entropy stays high -- and proposes Latent Exploration Decoding (LED), a training-free depth-conditioned decoding strategy that aggregates intermediate-layer posteriors to restore exploration, improving pass@1 by 0.61 and pass@16 by 1.03 points on average across benchmarks and models.",
+    "problem": "RL post-training gives large reasoning models strong math/code performance, but they suffer an unintended side effect -- exploration collapse -- where temperature-based sampling no longer increases pass@n accuracy, limiting the benefit of parallel/repeated sampling at test time.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Directly relevant to the archive's test-time-scaling and RL-training-dynamics thread: this identifies a distinct, previously under-addressed failure mode -- final-layer-specific entropy collapse suppressing the benefit of parallel sampling (pass@n) after RL post-training -- complementary to SCOPE's token-level entropy-collapse analysis read earlier this round, and its training-free, depth-conditioned fix (reading from intermediate layers rather than the collapsed output layer) is a novel lever for restoring exploration that doesn't require retraining or reward redesign."
+    },
+    "results": "LED delivers consistent improvements across multiple benchmarks and models with no additional training: 0.61 percentage points average pass@1 improvement and 1.03 percentage points average pass@16 improvement, directly addressing the diminished-return-from-more-samples problem caused by exploration collapse.",
+    "tags": [
+      "exploration-collapse",
+      "test-time-scaling",
+      "decoding-strategy",
+      "reinforcement-learning-side-effects"
+    ]
+  },
+  "task_id": "paper__title-6dbcef192c93a1b8",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

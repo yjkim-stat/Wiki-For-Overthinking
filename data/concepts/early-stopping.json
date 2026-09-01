@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "Two statistical stopping rules monitor uncertainty-keyword arrivals inside a reasoning trace and halt generation on ill-posed or ambiguous queries, one with a finite-sample bound on the probability of halting too early on a well-posed query.",
       "title": "Statistical Early Stopping for Reasoning Models"
+    },
+    {
+      "id": "title:878a7bd3c031c8b1",
+      "kind": "paper",
+      "note": "Trains a neural network to estimate a mixed-integer-optimization solver's true optimality gap from its internal state, then applies conformal prediction calibration to derive stopping thresholds with rigorous probabilistic guarantees, cutting solve times by over 60% while keeping solutions within 0.1% of optimal with 95% probability across six Distributional MIPLIB problem families.",
+      "title": "Conformal Prediction for Early Stopping in Mixed Integer Optimization"
     }
   ],
   "first_seen": "2026-08-20T12:15:21Z",
   "kind": "concept",
-  "last_seen": "2026-08-27T13:56:46Z",
+  "last_seen": "2026-09-01T10:33:28Z",
   "name": "early stopping",
   "related": [
     "rademacher-complexity",
@@ -71,7 +77,12 @@
     "mip",
     "mmlu",
     "gpqa",
-    "hle"
+    "hle",
+    "conformal-prediction-for-early-stopping",
+    "optimality-gap-estimation-from-solver-state",
+    "distribution-free-probabilistic-stopping-guarantee",
+    "neural-network-based-optimality-gap-estimation",
+    "distributional-miplib-six-problem-families"
   ],
   "related_authored": [
     "early-exit",

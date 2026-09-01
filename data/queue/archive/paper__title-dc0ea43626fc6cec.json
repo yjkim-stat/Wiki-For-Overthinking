@@ -1,0 +1,97 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:21Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:dc0ea43626fc6cec",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "test-time compute"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "VLA-ATTC: Adaptive Test-Time Compute for VLA Models with Relative Action Critic Model",
+    "url": "https://icml.cc/virtual/2026/poster/61157",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "adaptive test-time compute for robotic action",
+      "Relative Action Critic (pairwise action comparison)",
+      "uncertainty-triggered deliberation"
+    ],
+    "contributions": [
+      "an uncertainty-based mechanism enabling VLA models to adaptively shift from instinctive to deliberative action selection at test time",
+      "a Relative Action Critic model selecting actions via pairwise comparison rather than absolute value estimation",
+      "efficient sampling and an automated preference-generation data pipeline, cutting PI0.5's LIBERO-LONG failure rate by over 50%"
+    ],
+    "datasets": [
+      "LIBERO-LONG"
+    ],
+    "limitations": "Not stated in the fetched abstract beyond the LIBERO-LONG benchmark result reported.",
+    "method": "VLA-ATTC introduces an uncertainty-based mechanism that adaptively shifts a VLA model from fast, instinctive action selection to deliberative test-time reasoning when the situation warrants it; a Relative Action Critic model evaluates and selects candidate actions via pairwise comparisons (rather than estimating each action's absolute value independently), paired with efficient sampling strategies and an automated preference-data generation pipeline for training the critic.",
+    "methods": [
+      "VLA-ATTC (adaptive test-time compute)",
+      "Relative Action Critic model",
+      "PI0.5 (baseline model improved upon)"
+    ],
+    "models": [
+      "PI0.5"
+    ],
+    "one_liner": "VLA-ATTC gives Vision-Language-Action robotic manipulation models an adaptive test-time compute mechanism that switches from fast, instinctive action selection to deliberative reasoning based on an uncertainty signal, using a Relative Action Critic that compares candidate actions pairwise rather than estimating absolute values, cutting the failure rate of the SOTA model PI0.5 by over 50% on LIBERO-LONG.",
+    "problem": "Vision-Language-Action models for robotic manipulation typically make decisions via a fast, instinctive process lacking deliberation, which can fail on harder or more uncertain situations that would benefit from more careful reasoning before acting.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Indirectly relevant: a robotics/VLA analog of difficulty-adaptive test-time compute -- deciding when to switch from fast action selection to deliberative reasoning based on uncertainty -- structurally the same 'don't always spend maximum compute' principle as difficulty-aware overthinking mitigations for LLM reasoning, applied to robotic action selection rather than text generation."
+    },
+    "results": "On the LIBERO-LONG benchmark, VLA-ATTC reduces the failure rate of the state-of-the-art model PI0.5 by over 50%.",
+    "tags": [
+      "vision-language-action",
+      "test-time-scaling",
+      "robotic-manipulation",
+      "adaptive-computation"
+    ]
+  },
+  "task_id": "paper__title-dc0ea43626fc6cec",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

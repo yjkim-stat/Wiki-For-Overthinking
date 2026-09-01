@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-VL-3B is a smaller vision-language model evaluated alongside Qwen2.5-VL-7B in RECAP (mitigating general-capability forgetting caused by RLVR-based reasoning fine-tuning in VLMs) and GPRO (diagnosing that visual perception failures, not reasoning errors, dominate incorrect predictions across model scales).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

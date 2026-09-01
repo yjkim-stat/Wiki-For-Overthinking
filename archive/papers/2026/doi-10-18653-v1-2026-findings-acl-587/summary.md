@@ -46,7 +46,7 @@ The study is restricted to mathematical reasoning tasks with rigorous verifiable
 
 - **Concepts**: Lead-Span Proportion (LSP) truncation, section-wise supervision (prompt/CoT/answer masking), training-time overthinking (post-first-derivation redundancy), first-derivation-of-correct-answer localization
 - **Methods**: knowledge distillation (soft KL + hard cross-entropy loss), Lead-Span Proportion (LSP) truncation, section-wise loss masking
-- **Datasets**: OpenThoughts-114k, Bespoke-Stratos-17k, Synthetic-1, Llama-Nemotron-Post-Training-Dataset, SkyT1-17k, [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md)
+- **Datasets**: [OpenThoughts-114k](../../../../wiki/datasets/openthoughts-114k.md), [Bespoke-Stratos-17k](../../../../wiki/datasets/bespoke-stratos-17k.md), Synthetic-1, [Llama-Nemotron-Post-Training-Dataset](../../../../wiki/datasets/llama-nemotron-post-training-dataset.md), SkyT1-17k, [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md)
 
 Tags: `knowledge-distillation`, `sequence-truncation`, `overthinking`, `training-efficiency`, `compute-optimal`
 

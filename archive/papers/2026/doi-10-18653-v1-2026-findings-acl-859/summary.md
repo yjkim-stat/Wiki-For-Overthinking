@@ -46,7 +46,7 @@ Evaluation uses 100-instance subsets per dataset rather than full test sets, a d
 ## Entities
 
 - **Concepts**: quality-faithfulness trade-off, over-thinking in summarization (creative gap-filling), explicit vs. implicit (in-model) reasoning, summary abstractiveness
-- **Methods**: Chain-of-Thought (CoT), Extract-to-Abstract (E2A), Question-Answer Guided (QAG), Cited Summarization (Cite), Decomposition (Deco), Plan-then-Write (Plan), Iterative Refine (IR), Self-Consistency (SC, rubric-based selection), Vanilla (baseline)
+- **Methods**: [Chain-of-Thought (CoT)](../../../../wiki/methods/chain-of-thought-cot.md), Extract-to-Abstract (E2A), Question-Answer Guided (QAG), Cited Summarization (Cite), Decomposition (Deco), Plan-then-Write (Plan), Iterative Refine (IR), Self-Consistency (SC, rubric-based selection), Vanilla (baseline)
 - **Datasets**: CNN/DM, SAMSum, Reddit (TIFU), WikiHow, ArXiv, Multi-News, BookSum, SciGen
 
 Tags: `overthinking`, `summarization`, `factual-faithfulness`, `reasoning-strategies`, `quality-faithfulness-tradeoff`

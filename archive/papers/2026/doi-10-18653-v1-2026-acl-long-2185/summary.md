@@ -47,7 +47,7 @@ The watermark's activation depends on target-domain prompts naturally containing
 
 - **Concepts**: input-domain entanglement (watermark tokens from high-frequency prompt vocabulary), score-conditioned reasoning-length watermark embedding, black-box paired-probe verification (one-sided t-test), entropy-based watermark signature
 - **Methods**: ReasMark (input-domain entanglement + score-conditioned reasoning-length/entropy watermark + paired-probe t-test verification), QLoRA (embedding fine-tuning), MiniLLM, DistiLLM, Alpaca-style (distillation attack methods), KGW, Unigram, SWEET, EXP, SynthID-Text (baseline watermarks)
-- **Datasets**: [OpenMathReasoning](../../../../wiki/datasets/openmathreasoning.md), [OpenCodeReasoning](../../../../wiki/datasets/opencodereasoning.md), R1-Distill-SFT, [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), OpenThoughts-114k
+- **Datasets**: [OpenMathReasoning](../../../../wiki/datasets/openmathreasoning.md), [OpenCodeReasoning](../../../../wiki/datasets/opencodereasoning.md), R1-Distill-SFT, [MATH](../../../../wiki/datasets/math.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [OpenThoughts-114k](../../../../wiki/datasets/openthoughts-114k.md)
 
 Tags: `watermarking`, `intellectual-property`, `knowledge-distillation`, `reasoning-length-control`, `large-reasoning-models`
 

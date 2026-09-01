@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Qwen2.5-3B-Instruct is used as a base/target model in Verbal-R3 (rewriting retrieved documents into explicit-connection 'Verbal Annotations' for RAG reranking) and SELECT2REASON (which selects a high-utility subset of a long-CoT instruction pool for SFT by jointly ranking on difficulty and deduplicated reasoning-trace length).",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.1712",
@@ -65,7 +65,9 @@
     "deepseek-r1-distill-qwen-7b-baseline",
     "openr1-qwen-7b-baseline"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen2-5-7b-instruct"
+  ],
   "schema_version": 1,
   "slug": "qwen2-5-3b-instruct",
   "topics": [

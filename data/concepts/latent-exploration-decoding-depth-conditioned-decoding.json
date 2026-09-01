@@ -1,0 +1,28 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "title:6dbcef192c93a1b8",
+      "kind": "paper",
+      "note": "Identifies 'exploration collapse' after RL post-training of large reasoning models -- temperature-based sampling no longer increases pass@n accuracy because final-layer output entropy diminishes even though intermediate-layer entropy stays high -- and proposes Latent Exploration Decoding (LED), a training-free depth-conditioned decoding strategy that aggregates intermediate-layer posteriors to restore exploration, improving pass@1 by 0.61 and pass@16 by 1.03 points on average across benchmarks and models.",
+      "title": "Restoring Exploration after Post-Training: Latent Exploration Decoding for Large Reasoning Models"
+    }
+  ],
+  "first_seen": "2026-09-01T10:33:28Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:33:28Z",
+  "name": "Latent Exploration Decoding (depth-conditioned decoding)",
+  "related": [
+    "exploration-collapse-post-rl",
+    "final-layer-vs-intermediate-layer-entropy-disparity",
+    "latent-exploration-decoding-led",
+    "temperature-based-sampling-baseline"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "latent-exploration-decoding-depth-conditioned-decoding",
+  "topics": [
+    "overthinking"
+  ]
+}

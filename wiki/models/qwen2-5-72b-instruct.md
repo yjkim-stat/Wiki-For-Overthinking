@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Qwen2.5-72B-Instruct is used as a backbone in a training-free generate-critique-revise self-reflection loop that stops when a critique emits a CONFIRMED sentinel or a depth cap is hit, and is evaluated in ReTraceQA (a 2,421-instance expert-annotated benchmark showing small language models reach a correct final answer via a flawed reasoning trace 14-24% of the time).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

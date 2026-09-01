@@ -1,0 +1,55 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ReEfBench is a neuro-symbolic evaluation framework that grounds reasoning in First-Order-Logic problems with controllable, verifiable logical depth, parses 25 LLMs' CoT responses into logical nodes to compute six behavioral metrics (logical depth, cost, exploration, efficiency, coherence, redundancy), and clusters models into four behavioral prototypes -- Effective Solver, Deep Wanderer, Hollow Mimic, Lazy Guesser -- showing token count and genuine logical depth are dissociable, and that Short CoT with reflection can now match Long CoT's depth at a fraction of the cost.",
+        "title": "ReEfBench: Quantifying the Reasoning Efficiency of LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Using a truncation-based diagnostic across 11 languages, 3 model sizes, and 2 benchmarks, this paper measures how strongly LRMs already know the answer before finishing their explicit reasoning trace ('latent reasoning'), finding it exists but is uneven -- strong in resource-rich languages on easy tasks, weak in low-resource languages, and largely absent on harder benchmarks -- and that the internal layer-wise dynamics driving it are strikingly consistent across languages, converging toward an English-centered latent pathway that is not explained by memorization alone.",
+        "title": "Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-09-01T10:28:37Z",
+  "created_at": "2026-09-01T10:24:38Z",
+  "instructions": "Write the wiki definition for 'Qwen2.5-32B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Qwen2.5-32B-Instruct",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Qwen2.5-32B-Instruct",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Qwen2.5-32B-Instruct is evaluated in ReEfBench (a neuro-symbolic evaluation framework grounding reasoning in First-Order-Logic problems with controllable, verifiable logical depth) and in a truncation-based diagnostic across 11 languages measuring how strongly large reasoning models already know the answer before finishing their explicit reasoning trace.",
+    "kind": "model",
+    "related": [
+      "Qwen2.5-32B"
+    ]
+  },
+  "task_id": "concept__qwen2-5-32b-instruct",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

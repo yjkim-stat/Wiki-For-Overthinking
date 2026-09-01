@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:20Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:5f72fe24f143bb5d",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "early stopping"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Instance-dependent Early Stopping",
+    "url": "https://iclr.cc/virtual/2025/poster/29782",
+    "venue": "ICLR 2025"
+  },
+  "result": {
+    "concepts": [
+      "instance-dependent early stopping",
+      "second-order loss-difference mastery signal",
+      "gradient-norm strengthening from instance removal"
+    ],
+    "contributions": [
+      "Instance-dependent Early Stopping (IES), individualizing the stopping decision per training instance rather than uniformly across a run",
+      "a second-order loss-difference criterion for detecting when an instance is mastered, more reliable than raw loss",
+      "10-50% backpropagation compute reduction with preserved or improved test accuracy and transfer learning across benchmarks"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the general training/backpropagation-efficiency scope described.",
+    "method": "Introduces Instance-dependent Early Stopping (IES), which monitors the second-order difference (rate of change of the rate of change) of each instance's loss around zero as a more reliable 'mastered' indicator than raw loss values, uses a standardized threshold on this signal to decide when to exclude an instance from further backpropagation, and shows theoretically/empirically that removing well-learned instances strengthens the gradient norm on the remaining harder instances, accelerating overall training loss reduction.",
+    "methods": [
+      "Instance-dependent Early Stopping (IES)"
+    ],
+    "models": [],
+    "one_liner": "Instance-dependent Early Stopping (IES) individualizes training-time early stopping per training instance rather than uniformly, using the second-order difference of an instance's loss trajectory (rather than raw loss) to detect when it is 'mastered' and exclude it from further backpropagation, reducing backpropagation compute by 10-50% while preserving or slightly improving test accuracy and transfer learning.",
+    "problem": "Conventional early stopping applies a uniform stopping criterion across an entire training run or dataset, but different training instances are learned ('mastered') at different points during training, so uniform stopping wastes computation continuing to backpropagate through already-mastered, easy instances.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Not directly relevant: this is a training-time compute-saving technique (skipping backpropagation for already-learned training examples), unrelated to inference-time reasoning-trace length; matched to the topic only via the shared term 'early stopping', though the underlying principle -- individualize the stopping decision per instance rather than applying a uniform rule -- parallels instance/difficulty-adaptive reasoning-length control at inference time."
+    },
+    "results": "Across benchmark experiments, IES reduces backpropagation computation by 10-50% while preserving or marginally improving test accuracy and transfer learning capability compared to standard training without instance-level early stopping.",
+    "tags": [
+      "early-stopping",
+      "training-efficiency",
+      "instance-level-adaptivity",
+      "backpropagation"
+    ]
+  },
+  "task_id": "paper__title-5f72fe24f143bb5d",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

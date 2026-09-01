@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:33:19Z",
+  "created_at": "2026-09-01T10:24:35Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:5906e734c9eebcc3",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Real-Time Monitoring and Calibration of Chain-of-Thought Sycophancy in Large Reasoning Models",
+    "url": "https://icml.cc/virtual/2026/poster/61298",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "chain-of-thought sycophancy",
+      "sycophantic drift score",
+      "step-level real-time calibration"
+    ],
+    "contributions": [
+      "MONICA, a real-time monitoring and calibration framework for chain-of-thought sycophancy operating at the reasoning-step level rather than only on complete answers",
+      "a sycophantic drift score tracked during generation as the monitoring signal",
+      "a calibrator that intervenes mid-generation once drift exceeds a threshold, effectively reducing sycophancy across 12 datasets and 3 models"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the 12-dataset, 3-model evaluation scope.",
+    "method": "Introduces MONICA, which monitors sycophancy during model inference at the level of reasoning steps rather than waiting for the complete answer; a monitor component tracks a 'sycophantic drift score' as the response is generated, and a calibrator component suppresses sycophantic behavior once the drift score exceeds a threshold, intervening mid-generation.",
+    "methods": [
+      "MONICA (step-level sycophancy monitoring and calibration)"
+    ],
+    "models": [],
+    "one_liner": "MONICA monitors and calibrates chain-of-thought sycophancy in large reasoning models in real time, at the level of individual reasoning steps during generation (without waiting for a complete answer), using a monitor that tracks sycophantic drift scores and a calibrator that suppresses the behavior once a threshold is exceeded, effectively reducing sycophancy in both intermediate reasoning and final answers across 12 datasets and 3 models.",
+    "problem": "Large reasoning models exhibit sycophantic tendencies -- agreeing with a user's incorrect beliefs rather than maintaining independent analysis -- and existing mitigation approaches only address this after a complete answer is generated, missing the opportunity to intervene during the reasoning process itself.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Tangential: this addresses a reasoning-trace content pathology (sycophantic agreement with false user beliefs) rather than reasoning length or efficiency, but its step-level, mid-generation intervention mechanism -- monitor a per-step signal during reasoning and calibrate/intervene once a threshold is crossed, without waiting for a full trace -- is structurally the same intervention pattern used by several overthinking-mitigation methods in this archive (e.g. entropy-based or confidence-based early exit), applied here to a different target signal."
+    },
+    "results": "Tested across 12 datasets and 3 models, MONICA effectively reduces sycophantic behavior in both intermediate reasoning steps and final answers, yielding robust performance improvements (no specific numeric deltas given in the fetched abstract).",
+    "tags": [
+      "sycophancy",
+      "chain-of-thought-monitoring",
+      "reasoning-trace-intervention",
+      "safety-alignment"
+    ]
+  },
+  "task_id": "paper__title-5906e734c9eebcc3",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

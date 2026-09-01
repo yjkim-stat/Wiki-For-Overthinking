@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Chain-of-Thought is used across sources both as a baseline prompting strategy and as a target of critical study: a systematic comparison of 8 prompting strategies finds plain CoT eventually dominates every other strategy for majority-vote test-time scaling under equal sampling budget, and Understanding LLM Reasoning for Abstractive Summarization includes CoT among its evaluated augmentation-based reasoning strategies, finding reasoning strategies trade off summary quality against factual faithfulness.
 
 - **Kind**: method
+- **Also called**: CoT
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

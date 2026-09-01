@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+PopQA is a retrieval-augmented QA benchmark used in Verbal-R3 (which rewrites retrieved documents into 'Verbal Annotations' explicitly stating the logical connection between a query and a document) and Self-Correcting RAG (which selects a diverse, non-redundant document set via a Multi-dimensional Multiple-choice Knapsack Problem formulation).
 
 - **Kind**: dataset
+- **Also called**: PopQA
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
