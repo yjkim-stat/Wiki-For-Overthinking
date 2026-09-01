@@ -9,7 +9,7 @@ GPT-o3 is used in these sources as a target model for safety-reasoning attacks a
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [AdvBench](../datasets/advbench.md), [Chain-of-Thought (CoT, baseline)](../methods/chain-of-thought-cot-baseline.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-V3.2-Speciale](deepseek-v3-2-speciale.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GPT-4o](gpt-4o.md), [GPT-5](gpt-5.md), [gpt-oss-120b](gpt-oss-120b.md), [HarmBench](../datasets/harmbench.md), [Qwen3-235B-A22B](qwen3-235b-a22b.md), [Qwen3-8B](qwen3-8b.md), [StrongReject](../datasets/strongreject.md)
+**Related**: [AdvBench](../datasets/advbench.md), [Chain-of-Thought (CoT, baseline)](../methods/chain-of-thought-cot-baseline.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-V3.2-Speciale](deepseek-v3-2-speciale.md), [Gemini-1.5-Pro](gemini-1-5-pro.md), [Gemini 2.5 Flash](gemini-2-5-flash.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [Gemini-3-Pro](gemini-3-pro.md), [GPT-4o](gpt-4o.md), [GPT-5](gpt-5.md), [gpt-oss-120b](gpt-oss-120b.md), [HarmBench](../datasets/harmbench.md), [Qwen3-235B-A22B](qwen3-235b-a22b.md), [Qwen3-8B](qwen3-8b.md), [StrongReject](../datasets/strongreject.md)
 
 ## Appears in
 

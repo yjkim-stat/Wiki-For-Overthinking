@@ -15,6 +15,12 @@
       "title": "Recursive Agentic Reasoning"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.817",
+      "kind": "paper",
+      "note": "Shows that prompt ambiguity causes 'unhealthy exploration' -- an elevated, delayed early-stage entropy peak in a model's token-level entropy trajectory that inflates token usage without improving accuracy or self-consistency -- and trains a lightweight prompt optimizer via entropy-dynamics-guided multi-turn RL to generate concise clarifications, improving reasoning efficiency up to 52.9% in-domain and 38.5% out-of-domain without sacrificing accuracy.",
+      "title": "Think Earlier, Not Longer: Prompt Optimization via Reducing Unhealthy Exploration"
+    },
+    {
       "id": "local:da3fbe3617acc5f8",
       "kind": "paper",
       "note": "TRAAC is an online GRPO-based RL method that prunes a reasoning model's chain-of-thought using attention scores from the </think> token and calibrates how aggressively it prunes based on estimated problem difficulty, so it thinks less on easy problems and more on hard ones.",
@@ -23,7 +29,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T13:56:46Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "SuperGPQA",
   "related": [
     "test-time-scaling",
@@ -78,6 +84,20 @@
     "deepseek-v4-pro",
     "minimax-m3",
     "qwen3-6-plus",
+    "unhealthy-exploration-ambiguity-induced",
+    "early-stage-late-stage-entropy-peak",
+    "entropy-dynamics-guided-prompt-optimization",
+    "task-understanding-vs-self-criticism-token-enrichment",
+    "entropy-dynamics-aware-prompt-optimization-multi-turn-rl-clarification-generator",
+    "early-stop-entropy-threshold-baseline",
+    "evoprompt-evolutionary-prompt-search-baseline",
+    "outcome-based-acc-len-prompt-optimizer-comparison",
+    "direct-rlvr-comparison",
+    "bbh-out-of-domain",
+    "medqa-out-of-domain",
+    "gpt-oss-120b",
+    "qwen3-30b-thinking-instruct",
+    "qwen3-4b-instruct-prompt-optimizer",
     "under-adaptivity-failure-to-modulate-reasoning-length-with-problem-difficulty",
     "attention-based-step-importance-scoring-from-the-think-delimiter",
     "difficulty-adaptive-compression-rate-calibrated-by-rollout-pass-rate",

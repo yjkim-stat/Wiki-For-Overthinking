@@ -1,0 +1,94 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:24:28Z",
+  "created_at": "2026-09-01T10:04:15Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:033e4d34acb0410b",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "early exit"
+    ],
+    "pdf_url": "",
+    "published": "2025-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "BEEM: Boosting Performance of Early Exit DNNs using Multi-Exit Classifiers as Experts",
+    "url": "https://iclr.cc/virtual/2025/poster/30371",
+    "venue": "ICLR 2025"
+  },
+  "result": {
+    "concepts": [
+      "exit classifiers as experts",
+      "consistency-gated confidence aggregation",
+      "error-rate-calibrated exit threshold"
+    ],
+    "contributions": [
+      "BEEM, aggregating multi-exit classifier confidence as an ensemble of experts, gated by inter-exit prediction consistency",
+      "an exit-threshold calibration procedure using intermediate exit error rates",
+      "1.5-2.1x speedup over existing early-exit methods with comparable-or-better accuracy on COCO captioning and GLUE"
+    ],
+    "datasets": [
+      "COCO (image captioning)",
+      "GLUE"
+    ],
+    "limitations": "Not stated in the fetched abstract beyond the two evaluated task types (image captioning, GLUE language tasks).",
+    "method": "Treats each exit classifier as an 'expert' and combines their confidence scores into an ensemble prediction, but aggregates scores across neighboring exits only when their predictions are consistent (to avoid ensembling disagreeing/unreliable experts); a sample exits once the aggregated confidence surpasses a threshold, with the threshold determined from intermediate exit error rates so the method matches or exceeds standard (final-layer) DNN performance.",
+    "methods": [
+      "BEEM (multi-exit ensemble early exit)"
+    ],
+    "models": [],
+    "one_liner": "BEEM treats early-exit classifiers as an ensemble of experts, aggregating their confidence scores only when neighboring exits agree, and exits a sample once the aggregated confidence crosses a threshold set from intermediate-exit error rates, achieving 1.5-2.1x speedups over existing early-exit methods on image captioning (COCO) and language (GLUE) tasks with comparable or better accuracy.",
+    "problem": "Early-exit deep neural networks reduce inference latency by allowing intermediate classifiers to make predictions once confident enough, but existing early-exit methods do not fully exploit the ensemble-like relationship between exit classifiers at different depths.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Off-topic domain: this is a layer-level early-exit method for vision/NLP classification and captioning tasks (not LLM reasoning-trace generation), matched to the topic only via the shared term 'early exit'; relevant only as a general pattern (treating multiple exit points as an ensemble rather than independent) that could in principle inform token-level early-exit design for reasoning traces."
+    },
+    "results": "On COCO image captioning and GLUE language tasks, BEEM achieves speedups ranging from 1.5x to 2.1x over existing early-exit methods, reaching comparable accuracy to final-layer inference on harder tasks and improved performance on simpler ones.",
+    "tags": [
+      "early-exit",
+      "ensemble-methods",
+      "inference-efficiency",
+      "image-captioning"
+    ]
+  },
+  "task_id": "paper__title-033e4d34acb0410b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

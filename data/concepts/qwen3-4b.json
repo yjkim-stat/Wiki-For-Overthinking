@@ -61,11 +61,17 @@
       "kind": "paper",
       "note": "MR-ALIGN names and measures the 'reasoning-answer hit gap' -- a model surfaces the correct fact early in its thinking trace but discards it before the final answer -- and fixes it by segmenting reasoning into 15 cognitively-grounded meta-reasoning states (framing, backtracking, self-verification, retrieval, etc.), estimating a transition matrix between them via EM, and using KTO with an implicit reward reweighted by how much each segment's local state-transition probability deviates from the corpus-wide pattern; without any external verifier or retrieval, this improves accuracy and reduces misleading answers across three backbones and five factual-QA/long-form-factuality benchmarks, and post-alignment reasoning traces become measurably shorter and more concise as a side effect.",
       "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.651",
+      "kind": "paper",
+      "note": "TRACE is a training-free dynamic early-exit method that aggregates two multi-step signals over a sliding window of recent reasoning steps -- Answer Consistency Score and Confidence Trajectory Score -- to detect genuine reasoning convergence, reducing tokens by 25-30% while staying within 1-2% accuracy of full-length reasoning, and beating existing single-step confidence-based early-exit baselines by 2-4 accuracy points at comparable or lower token budgets.",
+      "title": "Efficient Test-Time Scaling via Temporal Reasoning Aggregation"
     }
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "Qwen3-4B",
   "related": [
     "momentum-uncertainty-exponentially-weighted-step-level-uncertainty-aggregate",
@@ -243,7 +249,17 @@
     "simpleqa",
     "truthfulqa",
     "longfact",
-    "llama-3-1-nemotron-nano-4b-v1-1"
+    "llama-3-1-nemotron-nano-4b-v1-1",
+    "answer-consistency-score-acs",
+    "confidence-trajectory-score-cts",
+    "temporal-reasoning-aggregation",
+    "single-step-confidence-unreliability",
+    "trace-temporal-reasoning-aggregation-for-convergent-exit",
+    "tale-baseline-fixed-token-budget",
+    "dynasor-baseline-single-probe-based-indicator",
+    "deer-baseline-single-step-confidence-early-exit",
+    "gemini2-5-flash",
+    "deepseek-r1-distilled-llama-8b"
   ],
   "related_authored": [],
   "schema_version": 1,

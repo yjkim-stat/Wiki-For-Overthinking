@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Best-of-N reranking is a test-time-scaling method where N candidate responses are generated and a judge (often an LLM-as-judge or reasoning model) selects or reranks among them; sources show evaluation itself scales like generation under this setup (an off-the-shelf reasoning model prompted for a CoT judgment improves monotonically with more compute, no evaluator-specific training needed), and it is one of the test-time-scaling methods (alongside step-level beam search and critique-based refinement) benchmarked in JETTS for how well LLM-as-judge models guide it.
 
 - **Kind**: method
-- **Also called**: best-of-n reranking
+- **Also called**: best-of-n reranking, response reranking
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

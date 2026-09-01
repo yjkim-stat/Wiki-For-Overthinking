@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "best-of-n reranking"
+    "best-of-n reranking",
+    "response reranking"
   ],
-  "definition": "",
+  "definition": "Best-of-N reranking is a test-time-scaling method where N candidate responses are generated and a judge (often an LLM-as-judge or reasoning model) selects or reranks among them; sources show evaluation itself scales like generation under this setup (an off-the-shelf reasoning model prompted for a CoT judgment improves monotonically with more compute, no evaluator-specific training needed), and it is one of the test-time-scaling methods (alongside step-level beam search and critique-based refinement) benchmarked in JETTS for how well LLM-as-judge models guide it.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.2102",
@@ -58,7 +59,9 @@
     "jetts-benchmark",
     "jetts-benchmark-math-code-instruction-following-domains"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "step-level-beam-search"
+  ],
   "schema_version": 1,
   "slug": "best-of-n-reranking",
   "topics": [

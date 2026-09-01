@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "ReasonIF is a 300-sample, six-instruction-type benchmark (multilinguality, word limit, disclaimer, JSON formatting, uppercase-only, remove-commas) showing large reasoning models comply with instructions far less inside their reasoning trace (average IFS 15.6%) than in their main response (57.3%), that reasoning instruction-following degrades further as problem difficulty rises (positive correlation up to 0.863 with accuracy), and that both multi-turn self-reflection and supervised fine-tuning on synthetic reasoning-instruction data (RIF) only partially close the gap, the latter trading a measurable accuracy drop for the IFS gain.",
       "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.656",
+      "kind": "paper",
+      "note": "DeepPrune identifies inter-trace redundancy in parallel test-time scaling (over 80% of parallel reasoning traces yield identical final answers) and trains a specialized judge model to predict answer equivalence from unfinished trace pairs, combined with online greedy clustering to prune redundant paths during generation, cutting token consumption 65.7-88.5% versus consensus sampling with accuracy within 3 percentage points.",
+      "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy"
     }
   ],
   "first_seen": "2026-08-28T02:05:37Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "GLM-4.5-Air",
   "related": [
     "reasoning-instruction-following",
@@ -31,7 +37,26 @@
     "gpt-oss-120b",
     "deepseek-r1-distill-qwen-14b",
     "deepseek-r1",
-    "qwen3-235b-a22b-thinking-2507"
+    "qwen3-235b-a22b-thinking-2507",
+    "inter-trace-redundancy",
+    "answer-equivalence-judge-model",
+    "online-greedy-clustering-early-stopping",
+    "reasoning-word-aligned-truncation",
+    "deepprune-judge-model-online-greedy-clustering",
+    "cons-512-majority-voting-consensus-baseline",
+    "deepconf-high-deepconf-low-confidence-based-pruning-baselines",
+    "aime-2022-training",
+    "aime-2023-training",
+    "math-500-training",
+    "aime-2024",
+    "aime-2025",
+    "gpqa",
+    "qwen3-4b-instruct-judge-model-backbone",
+    "deepseek-r1-distill-llama-8b-training-data-source-model",
+    "deepseek-8b",
+    "qwen3-32b",
+    "qwen3-4b-thinking-2507",
+    "qwq-32b"
   ],
   "related_authored": [],
   "schema_version": 1,

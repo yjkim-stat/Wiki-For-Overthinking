@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DynaMath is a benchmark used to evaluate vision-language model reasoning: GPRO (Gated Perception-Reasoning Optimization) uses it to show visual perception failures, not reasoning errors, cause over twice as many incorrect predictions across model scales, and ARES (Adaptive Reasoning via difficulty-aware token-level entropy shaping) uses it to evaluate models trained to spend exploration effort proportional to problem difficulty.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

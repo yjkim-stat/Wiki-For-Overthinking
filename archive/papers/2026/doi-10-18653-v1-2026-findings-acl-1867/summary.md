@@ -47,7 +47,7 @@ CoRD's step-wise collaborative decoding incurs higher computational complexity (
 
 - **Concepts**: step-wise collaborative decoding, multi-teacher reasoning distillation, prompt-guided step segmentation, predictive perplexity (meta-prover scoring), complementarity exploitation vs. collaborative composition, teacher specialization by reasoning phase
 - **Methods**: CoRD (Collaborative Reasoning Decoding), prompt-guided step segmentation, predictive-perplexity step selection, beam search decoding, Curation (baseline, S1/LIMO-style post-hoc selection), Integration (baseline, GPT5-mini post-hoc trajectory merging), MCTS (ablation comparison)
-- **Datasets**: LIMO-v1 (817 question-solution pairs, primary training), LIMO-v2, [S1k-1.1](../../../../wiki/datasets/s1k-1-1.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md)
+- **Datasets**: LIMO-v1 (817 question-solution pairs, primary training), [LIMO-v2](../../../../wiki/datasets/limo-v2.md), [S1k-1.1](../../../../wiki/datasets/s1k-1-1.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md)
 
 Tags: `reasoning-distillation`, `multi-teacher-collaboration`, `beam-search`, `long-chain-of-thought`, `test-time-scaling-distillation`
 

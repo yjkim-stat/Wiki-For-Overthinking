@@ -47,7 +47,7 @@ The paper explicitly notes it assumes conditioning on KG paths improves reasonin
 
 - **Concepts**: knowledge-graph-grounded reasoning trace, minimum-hop path extraction, factual simple test-time scaling (fs1), pass@k as an upper-bound metric
 - **Methods**: fs1 (KG-path-grounded reasoning-trace fine-tuning), rt (raw distilled reasoning traces, baseline), supervised fine-tuning, pass@k evaluation, LLM-as-a-judge (entity-alignment factuality scoring)
-- **Datasets**: ComplexWebQuestions (CWQ), ExaQT, GrailQA, [SimpleQA](../../../../wiki/datasets/simpleqa.md), Mintaka, WebQSP
+- **Datasets**: ComplexWebQuestions (CWQ), ExaQT, [GrailQA](../../../../wiki/datasets/grailqa.md), [SimpleQA](../../../../wiki/datasets/simpleqa.md), Mintaka, [WebQSP](../../../../wiki/datasets/webqsp.md)
 
 Tags: `factuality`, `knowledge-graph`, `reasoning-trace-grounding`, `test-time-scaling`, `multi-hop-QA`
 

@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "fs1 fine-tunes LLMs on reasoning traces grounded in knowledge-graph paths (rather than raw distilled reasoning traces), improving factual accuracy on complex multi-hop QA by 6-14 pass@16 points while also producing shorter reasoning traces than the ungrounded baseline.",
       "title": "Follow the Path: Reasoning over Knowledge Graph Paths to Improve Large Language Model Factuality"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.734",
+      "kind": "paper",
+      "note": "In a teacher-student distillation setup on competition-level math (NuminaMath 1.5, ~5000-token traces), ICoT-style curriculum internalization methods that work on simple/structured tasks (GSM8K, multiplication) provide little to no benefit over direct distillation; naive first-k-token truncation at inference time is also shown misleading, since models compensate by generating longer post-think text, undermining apparent token savings; distilling on the teacher's naturally-occurring post-think section (concise, answer-directed text generated after </think> but before the boxed answer) achieves the best accuracy-efficiency trade-off among all tested shortened targets, including generic teacher-generated summaries at matched token budgets.",
+      "title": "When Internalization Fails: Finding Better Targets for Reasoning Compression"
     }
   ],
   "first_seen": "2026-08-28T02:05:37Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:04:16Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "QwQ-32B (teacher)",
   "related": [
     "refinement-gap",
@@ -60,7 +66,19 @@
     "deepseek-r1-teacher",
     "qwen2-5-72b-instruct-baseline",
     "o3-mini-baseline",
-    "r1-70b-baseline"
+    "r1-70b-baseline",
+    "post-think-naturally-occurring-answer-directed-text-after-think",
+    "icot-style-curriculum-internalization",
+    "first-k-truncation-compensation-effect",
+    "segment-level-paragraph-removal-unit",
+    "post-think-distillation",
+    "icot-style-stepwise-internalization-curricula-first-k-left-to-right-random-segme",
+    "coconut-segment-adapted-baseline",
+    "first-k-inference-time-truncation-baseline",
+    "direct-distillation-to-teacher-generated-summaries-official-solutions-first-k-pr",
+    "numinamath-1-5",
+    "openr1-math-subsample-pairing-deepseek-r1-traces-with-numinamath-1-5-problems",
+    "qwen2-5-7b-base-student"
   ],
   "related_authored": [],
   "schema_version": 1,

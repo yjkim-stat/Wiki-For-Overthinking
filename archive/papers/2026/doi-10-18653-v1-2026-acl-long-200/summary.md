@@ -47,7 +47,7 @@ Because the method requires modifying LLM source code (attention-layer scaling),
 
 - **Concepts**: attention temperature (attention-softmax scaling), attention entropy vs. decoding entropy, difficulty-induced aggregation, Continuation Tendency Score (CTS)
 - **Methods**: Attention Temperature Scaling (ATS), Difficulty-Induced Aggregation (D-induced), Thermometer of Thoughts (ToT), decoding temperature sampling (DTS, baseline), random sampling (RS, baseline)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), HMMT, [GPQA](../../../../wiki/datasets/gpqa.md), [HumanEval](../../../../wiki/datasets/humaneval.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [AIME2025](../../../../wiki/datasets/aime-2025.md), [HMMT](../../../../wiki/datasets/hmmt.md), [GPQA](../../../../wiki/datasets/gpqa.md), [HumanEval](../../../../wiki/datasets/humaneval.md)
 
 Tags: `overthinking`, `test-time-scaling`, `attention-mechanism`, `difficulty-adaptive-reasoning`, `exploration`
 

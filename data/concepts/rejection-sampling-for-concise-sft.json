@@ -1,0 +1,46 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.622",
+      "kind": "paper",
+      "note": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
+      "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning"
+    }
+  ],
+  "first_seen": "2026-09-01T10:24:36Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:24:36Z",
+  "name": "rejection sampling for concise SFT",
+  "related": [
+    "overthinking-adjusted-accuracy-oaa-auc-oaa",
+    "adaptive-length-penalty-tokens-after-first-correct-answer",
+    "trace-reformatting",
+    "adaptive-answer-rejection-sampling-sft-rl-length-penalty",
+    "format-adaptive-answer-trace-reformatting-sft-rl-length-penalty",
+    "grpo",
+    "no-thinking-baseline",
+    "first-answer-truncation-baseline",
+    "hard-length-soft-length-normalized-length-penalties-baselines",
+    "twyn-think-when-you-need-baseline",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "commonsenseqa",
+    "livecodebench-v6",
+    "longbenchv2",
+    "deepscaler-training-data-13k-problems",
+    "qwen3-1-7b",
+    "qwen3-8b",
+    "qwen3-32b",
+    "deepseek-r1-qwen-7b-distill"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "rejection-sampling-for-concise-sft",
+  "topics": [
+    "overthinking"
+  ]
+}

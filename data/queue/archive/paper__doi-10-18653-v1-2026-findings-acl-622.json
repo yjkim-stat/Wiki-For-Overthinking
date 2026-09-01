@@ -1,0 +1,125 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-622.pdf"
+  },
+  "completed_at": "2026-09-01T10:10:42Z",
+  "created_at": "2026-09-01T10:04:15Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.622",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "The reasoning capabilities of large language models (LLMs) have improved substantially through increased test-time computation, typically in the form of intermediate tokens known as chain-of-thought (CoT). However, CoT often becomes unnecessarily long, increasing computation costs without improving accuracy and sometimes even degrading performance, a phenomenon known as “overthinking”. We propose a multi-stage efficient reasoning method that combines supervised fine-tuning—via rejection sampling or reasoning trace reformatting—with reinforcement learning using an adaptive length penalty. We introduce a lightweight reward function that penalizes tokens generated after the first correct answer, encouraging the model to perform self-verification only when beneficial. We conduct a holistic evaluation across seven diverse reasoning tasks, analyzing the accuracy–response length trade-off. Our approach reduces response length by an average of 28% for 8B models and 40% for 32B models, while incurring only minor performance drops of 1.6 and 2.5 points, respectively. Despite its conceptual simplicity, it achieves a better trade-off than more complex state-of-the-art efficient reasoning methods, scoring 76.6 on the area under the Overthinking-Adjusted Accuracy curve (AUCOAA)—5 points above the base model and 2.5 points above the second-best approach.",
+    "authors": [
+      "Nathanaël Carraz Rakotonirina",
+      "Ren Pang",
+      "Neha Anna John",
+      "Michael Bohlke-Schneider",
+      "Momchil Hardalov"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "overthinking",
+      "efficient reasoning",
+      "adaptive reasoning",
+      "reasoning trace"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.622.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.6667
+    },
+    "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning",
+    "url": "https://aclanthology.org/2026.findings-acl.622/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "Overthinking-Adjusted Accuracy (OAA) / AUC_OAA",
+      "adaptive length penalty (tokens-after-first-correct-answer)",
+      "rejection sampling for concise SFT",
+      "trace reformatting"
+    ],
+    "contributions": [
+      "a multi-stage efficient-reasoning framework combining SFT (via rejection sampling or trace reformatting) with RL using an input-adaptive length penalty tied to the position of the first correct answer in the trace",
+      "a reward design that penalizes only post-answer redundancy rather than truncating or pruning the trace at a fixed token/sentence threshold, preserving legitimate self-correction",
+      "empirical demonstration of 28-40% response-length reduction with 1.6-2.5 point accuracy drops, and a 2.5-point AUC_OAA improvement over the strongest of six compared efficient-reasoning baselines, with length reduction generalizing to domains outside the math-only training data"
+    ],
+    "datasets": [
+      "MATH-500",
+      "AIME 24",
+      "AIME 25",
+      "GPQA Diamond",
+      "CommonsenseQA",
+      "LiveCodeBench (v6)",
+      "LongBenchv2",
+      "DeepScaleR (training data, 13K problems)"
+    ],
+    "limitations": "The training dataset is drawn exclusively from math problems (DeepScaleR, sourced from AIME 1983-2023, AMC, Omni-Math, STILL), so results on non-math tasks are an out-of-domain transfer test rather than a validated general capability; the paper itself flags that LiveCodeBench is the one dataset where the unmodified base model outperforms all efficient-reasoning methods including its own, suggesting fine-tuning exclusively on short math problems can hurt long-context/code tasks. AUC_OAA does not always align with raw accuracy-length tradeoffs, particularly for smaller models, so efficiency gains can come at a subtle cost the headline metric does not fully capture (noted for the fine-tuned DeepSeek-R1-7B, which dominates the base model in absolute accuracy but scores a slightly lower AUC_OAA). Intermediate-correct-answer counting as a self-verification proxy is described by the authors as a coarse metric since answers may be repeated or paraphrased.",
+    "method": "Two SFT variants warm-start the model toward concise traces: Adaptive-Answer uses rejection sampling (8 continuations per problem, keep the shortest correct one); Format-Adaptive-Answer reformats traces to drop the post-reasoning summary, keeping only direct reasoning-to-answer. Both are then further trained with GRPO-based RL using a length-penalty reward: R_L(y) = (L(y) - L(y_first))/L(y) if the answer is correct (0 otherwise), where y_first is the trace prefix up to the first correct answer -- i.e. the penalty is the fraction of tokens generated *after* the model has already produced the correct answer, discouraging redundant self-verification while still allowing self-correction (no penalty if the model corrects an initially wrong answer later). Evaluated with the Overthinking-Adjusted Accuracy AUC (AUC_OAA; Aggarwal et al. 2025), which integrates accuracy-at-token-budget over token thresholds rather than reporting a single accuracy/length point, on Qwen3 (1.7B/8B/32B) and DeepSeek-R1-Qwen-7B-Distill across seven benchmarks (MATH-500, AIME 24/25, GPQA Diamond, CommonsenseQA, LiveCodeBench, LongBenchv2) despite training only on math data (DeepScaleR, 13K problems).",
+    "methods": [
+      "Adaptive-Answer (rejection-sampling SFT + RL length penalty)",
+      "Format-Adaptive-Answer (trace-reformatting SFT + RL length penalty)",
+      "GRPO",
+      "No-Thinking (baseline)",
+      "First-Answer-Truncation (baseline)",
+      "Hard-Length / Soft-Length / Normalized-Length penalties (baselines)",
+      "TWYN (Think When You Need, baseline)"
+    ],
+    "models": [
+      "Qwen3-1.7B",
+      "Qwen3-8B",
+      "Qwen3-32B",
+      "DeepSeek-R1-Qwen-7B-Distill"
+    ],
+    "one_liner": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
+    "problem": "Reasoning traces from LLMs trained with RL for verifiable rewards often become unnecessarily long and repetitive -- 'overthinking' -- yielding no accuracy gain and sometimes degrading it; existing mitigations impose a fixed, manually-set thinking budget (hard truncation or a fixed-threshold length penalty) that cannot adapt per-input.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Core paper for this topic: names 'overthinking' explicitly, adopts the Overthinking-Adjusted Accuracy metric from Aggarwal et al. as its primary evaluation, and proposes a length-penalty design specifically targeted at *post-answer* redundant self-verification rather than blunt length truncation -- directly extending the archive's existing thread on how to penalize wasted reasoning without damaging legitimate self-correction. Its finding that incorrect answers systematically have longer traces than correct ones, and that its trained models shift length distributions for both correct and incorrect outputs, is direct supporting evidence for the trace-length/accuracy relationship this archive's own findings already track."
+    },
+    "results": "On Qwen3-8B, Adaptive-Answer shortens responses by 28% and Format-Adaptive-Answer by 33% with about a 1-point average accuracy drop; the reduction scales with model size (22% at 1.7B, 23% at 8B, 40% at 32B). On the AUC_OAA metric (Table 1), Format-Adaptive-Answer scores 76.6 -- 5.0 points above the base model and 2.5 points above the strongest baseline among six compared efficient-reasoning methods (No-Thinking, First-Answer-Truncation, plain SFT, Hard-Length variants, Soft-Length, Normalized-Length, TWYN). Length reductions generalize to non-math domains the model was never trained on: GPQA Diamond/AIME24/AIME25 responses shrink ~25-32% and CommonsenseQA ~30-45%, while LiveCodeBench and LongBenchv2 show smaller reductions (8-14%) with under 2 points of accuracy loss -- the paper reads this as evidence that reduced redundant self-verification is a domain-agnostic property rather than a math-specific artifact. An ablation shows RL-without-SFT achieves the second-shortest traces but a lower AUC_OAA than the full pipeline, so SFT warm-starting is necessary for the RL stage's benefit, not merely a length-reduction shortcut on its own. Distribution analysis shows incorrect answers systematically have longer traces than correct ones across the base model and all methods, and the trained models shift the length distribution toward shorter traces for both correct and incorrect outputs (not just successful cases) -- interpreted as broadly reduced redundant self-verification rather than answer-dependent trimming. A worked AIME 24 example shows the base model performs seven redundant self-verifications after reaching the correct answer, Adaptive-Answer performs two, and Format-Adaptive-Answer performs none.",
+    "tags": [
+      "overthinking",
+      "efficient-reasoning",
+      "length-penalty",
+      "reinforcement-learning",
+      "AUC_OAA"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-622",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

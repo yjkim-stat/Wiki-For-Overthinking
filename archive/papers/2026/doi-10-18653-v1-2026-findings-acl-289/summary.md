@@ -47,7 +47,7 @@ The paper does not discuss limitations explicitly in the excerpted sections; ARI
 
 - **Concepts**: overthinking (via negative test-time scaling), sample-level scaling awareness, asymmetric penalty for computational waste, ratio-based (magnitude-aware) scaling metric, adaptive sampling (variance-proportional allocation), negative scaling correction
 - **Methods**: ARISE (Adaptive Resolution-aware Inference Scaling Evaluation), conventional slope-based Scaling Metric (SM, baseline), adaptive variance-proportional sampling
-- **Datasets**: [AIME](../../../../wiki/datasets/aime.md), HMMT, [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [SWE-bench Verified](../../../../wiki/datasets/swe-bench-verified.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), tau^2-Bench, BFCL-v3, [MMMU](../../../../wiki/datasets/mmmu.md), [MathVista](../../../../wiki/datasets/mathvista.md), CharXiv-Reasoning
+- **Datasets**: [AIME](../../../../wiki/datasets/aime.md), [HMMT](../../../../wiki/datasets/hmmt.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [SWE-bench Verified](../../../../wiki/datasets/swe-bench-verified.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), tau^2-Bench, [BFCL-v3](../../../../wiki/datasets/bfcl-v3.md), [MMMU](../../../../wiki/datasets/mmmu.md), [MathVista](../../../../wiki/datasets/mathvista.md), CharXiv-Reasoning
 
 Tags: `test-time-scaling`, `evaluation-methodology`, `negative-scaling`, `overthinking`, `benchmark`
 

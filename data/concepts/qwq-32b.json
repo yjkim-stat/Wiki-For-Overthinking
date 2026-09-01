@@ -81,6 +81,12 @@
       "title": "Conflicts Make Large Reasoning Models Vulnerable to Attacks"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.656",
+      "kind": "paper",
+      "note": "DeepPrune identifies inter-trace redundancy in parallel test-time scaling (over 80% of parallel reasoning traces yield identical final answers) and trains a specialized judge model to predict answer equivalence from unfinished trace pairs, combined with online greedy clustering to prune redundant paths during generation, cutting token consumption 65.7-88.5% versus consensus sampling with accuracy within 3 percentage points.",
+      "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy"
+    },
+    {
       "id": "title:6ac5c2757444abad",
       "kind": "paper",
       "note": "A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.",
@@ -89,7 +95,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:04:16Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "QwQ-32B",
   "related": [
     "chain-of-thought-faithfulness",
@@ -335,6 +341,21 @@
     "llama-nemotron-8b",
     "deepseek-r1-0528-685b",
     "qwen3guard-robustness-check-appendix",
+    "inter-trace-redundancy",
+    "answer-equivalence-judge-model",
+    "online-greedy-clustering-early-stopping",
+    "reasoning-word-aligned-truncation",
+    "deepprune-judge-model-online-greedy-clustering",
+    "cons-512-majority-voting-consensus-baseline",
+    "deepconf-high-deepconf-low-confidence-based-pruning-baselines",
+    "aime-2022-training",
+    "aime-2023-training",
+    "math-500-training",
+    "qwen3-4b-instruct-judge-model-backbone",
+    "deepseek-r1-distill-llama-8b-training-data-source-model",
+    "deepseek-8b",
+    "gpt-oss-20b",
+    "glm-4-5-air",
     "chain-of-thought-compression",
     "token-budget",
     "reasoning-span",

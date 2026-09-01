@@ -1,0 +1,41 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.587",
+      "kind": "paper",
+      "note": "Systematically ablates which section (prompt, CoT, answer) of a reasoning-distillation training sequence carries the useful supervisory signal and how much of the CoT is needed, finding CoT-inclusive supervision is essential while training on only the first 50% of tokens retains ~91% of full-sequence accuracy at roughly half the training time, memory, and FLOPs.",
+      "title": "Distilling the Essence: Efficient Reasoning Distillation via Sequence Truncation"
+    }
+  ],
+  "first_seen": "2026-09-01T10:24:36Z",
+  "kind": "method",
+  "last_seen": "2026-09-01T10:24:36Z",
+  "name": "Lead-Span Proportion (LSP) truncation",
+  "related": [
+    "section-wise-supervision-prompt-cot-answer-masking",
+    "training-time-overthinking-post-first-derivation-redundancy",
+    "first-derivation-of-correct-answer-localization",
+    "knowledge-distillation-soft-kl-hard-cross-entropy-loss",
+    "section-wise-loss-masking",
+    "openthoughts-114k",
+    "bespoke-stratos-17k",
+    "synthetic-1",
+    "llama-nemotron-post-training-dataset",
+    "skyt1-17k",
+    "aime-2024",
+    "aime-2025",
+    "qwen3-32b-teacher",
+    "qwen3-8b-teacher-student",
+    "qwen3-4b-base-student",
+    "qwen3-1-7b-base-student",
+    "qwen3-0-6b-base-student"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "lead-span-proportion-lsp-truncation",
+  "topics": [
+    "overthinking"
+  ]
+}

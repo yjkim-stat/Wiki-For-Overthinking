@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "A systematic study of entropy collapse in GRPO-based RLVR training finds performance can improve without entropy loss (so entropy collapse is not merely a side effect of legitimate learning), identifies clipping thresholds, off-policy update count, and training-data diversity as governing factors, proves theoretically and confirms empirically that positive-advantage tokens are the primary driver of entropy collapse, and proposes Positive-Advantage Reweighting -- dynamically down-weighting positive-advantage-token loss -- to regulate entropy while maintaining performance, though training exclusively on non-positive-advantage tokens actually hurts benchmark scores despite reducing collapse.",
       "title": "Revisiting Entropy in Reinforcement Learning for Large Reasoning Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.641",
+      "kind": "paper",
+      "note": "Derives an exact, non-asymptotic decomposition of GRPO's token-level policy update showing entropy collapse in reasoning RL is driven by a small subset (~5%) of structurally critical 'branch-defining' tokens rather than uniform decay across the sequence, and proposes SCOPE, which applies KL regularization only to that top-5% (ranked by a computable redistribution score), consistently improving both Pass@1 and Pass@k under both RLVR and RLIF across model scales.",
+      "title": "A Few Bad Apples Spoil the Bunch: Preventing Global Entropy Collapse Driven by a Small Set of Tokens in LLM Reasoning"
     }
   ],
   "first_seen": "2026-08-28T01:36:19Z",
   "kind": "model",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "Qwen2.5-Math-7B",
   "related": [
     "entropy-collapse",
@@ -65,7 +71,27 @@
     "dapo-clip-higher-reference",
     "dapo-math-17k-training",
     "math500",
-    "ifeval"
+    "ifeval",
+    "entropy-collapse-test-time-scaling",
+    "branch-defining-token",
+    "redistribution-score",
+    "structural-collapse-aware-optimization",
+    "exploration-exploitation-dilemma-at-the-token-level",
+    "scope-structural-collapse-aware-optimization-via-partial-entropy-control",
+    "intuitor-rlif-baseline",
+    "forking-rl-baseline",
+    "div-da-po-baseline",
+    "kl-cov-baseline",
+    "self-certainty-rlif-baseline",
+    "tok-entropy-baseline",
+    "traj-entropy-baseline",
+    "math-training-7-500-problems",
+    "gsm8k",
+    "amc",
+    "qwen2-5-1-5b-base",
+    "qwen2-5-3b-base",
+    "qwen2-5-7b-base",
+    "llama3-1-8b-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,

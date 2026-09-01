@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GrailQA is a multi-hop knowledge-graph question-answering benchmark used to evaluate Thought-Action Graph (TAG) reasoning, which distills past successful LLM-knowledge-graph interaction trajectories into reusable reasoning operators, and fs1, which fine-tunes LLMs on knowledge-graph-path-grounded reasoning traces to improve factual accuracy.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

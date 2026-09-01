@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Phi-4 is used as one of several base LLMs in a dense-response-tensor formalization of ranking reasoning models under test-time scaling, as a frozen backbone whose internal states (hidden states, attention, logits) a lightweight probe is trained on to predict step-level reasoning correctness (ReProbe), and as a model examined for reasoning-trace/query misalignment in abstention detection (TRACE INVERSION).
 
 - **Kind**: model
 - **Also called**: phi-4

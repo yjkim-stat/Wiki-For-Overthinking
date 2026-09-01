@@ -1,0 +1,37 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.734",
+      "kind": "paper",
+      "note": "In a teacher-student distillation setup on competition-level math (NuminaMath 1.5, ~5000-token traces), ICoT-style curriculum internalization methods that work on simple/structured tasks (GSM8K, multiplication) provide little to no benefit over direct distillation; naive first-k-token truncation at inference time is also shown misleading, since models compensate by generating longer post-think text, undermining apparent token savings; distilling on the teacher's naturally-occurring post-think section (concise, answer-directed text generated after </think> but before the boxed answer) achieves the best accuracy-efficiency trade-off among all tested shortened targets, including generic teacher-generated summaries at matched token budgets.",
+      "title": "When Internalization Fails: Finding Better Targets for Reasoning Compression"
+    }
+  ],
+  "first_seen": "2026-09-01T10:24:36Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:24:36Z",
+  "name": "segment-level (paragraph) removal unit",
+  "related": [
+    "post-think-naturally-occurring-answer-directed-text-after-think",
+    "icot-style-curriculum-internalization",
+    "first-k-truncation-compensation-effect",
+    "post-think-distillation",
+    "icot-style-stepwise-internalization-curricula-first-k-left-to-right-random-segme",
+    "coconut-segment-adapted-baseline",
+    "first-k-inference-time-truncation-baseline",
+    "direct-distillation-to-teacher-generated-summaries-official-solutions-first-k-pr",
+    "numinamath-1-5",
+    "openr1-math-subsample-pairing-deepseek-r1-traces-with-numinamath-1-5-problems",
+    "qwen2-5-7b-base-student",
+    "deepseek-r1-teacher",
+    "qwq-32b-teacher"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "segment-level-paragraph-removal-unit",
+  "topics": [
+    "overthinking"
+  ]
+}

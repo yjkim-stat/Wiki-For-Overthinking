@@ -1,0 +1,54 @@
+{
+  "concepts": [
+    "Answer Consistency Score (ACS)",
+    "Confidence Trajectory Score (CTS)",
+    "temporal reasoning aggregation",
+    "single-step confidence unreliability"
+  ],
+  "contributions": [
+    "an empirical demonstration that single-step confidence-based early exit is an unreliable stopping signal in multi-step reasoning, assigning high confidence to incorrect intermediate steps and underperforming full reasoning by 11 accuracy points on hard math benchmarks",
+    "TRACE, a training-free early-exit criterion aggregating answer consistency and confidence trajectory over a sliding window of recent reasoning steps to detect genuine convergence rather than transient confidence spikes",
+    "consistent 25-30% token reduction with 1-2% accuracy loss across four backbone models and six benchmarks (including out-of-math-domain GPQA-D), with 2-4 point accuracy gains over the strongest single-step early-exit baselines at comparable or lower token budgets"
+  ],
+  "datasets": [
+    "OlympiadBench",
+    "MATH500",
+    "AIME24",
+    "AIME25",
+    "AMC23",
+    "GPQA-Diamond"
+  ],
+  "generated_at": "2026-09-01T10:11:31Z",
+  "generated_by": "queue",
+  "limitations": "Experiments are restricted to text-only mathematical (and one scientific, GPQA-D) reasoning benchmarks and a limited set of backbone models; the paper explicitly does not evaluate multimodal settings (e.g. vision-language reasoning), where intermediate representations and uncertainty may behave differently, and flags extending TRACE to multimodal reasoning as future work.",
+  "method": "At each reasoning step, TRACE induces a candidate final answer via a lightweight auxiliary prompt reusing the existing reasoning context (2-3% token overhead), then computes two signals over a sliding window of the last k steps: the Answer Consistency Score (ACS), the fraction of steps in the window where a given candidate answer was induced (persistence of the predicted answer), and the Confidence Trajectory Score (CTS), the average per-step confidence (1 minus normalized entropy of the induced answer's token probabilities) over the steps where that answer appeared. The two are combined into a stability score S(a) = alpha*ACS(a) + (1-alpha)*CTS(a); if the highest-scoring candidate's stability exceeds a threshold tau, reasoning is terminated with that answer. The method requires no additional training and applies to off-the-shelf models. Evaluated zero-shot on OlympiadBench, MATH500, AIME24/25, AMC23, and GPQA-Diamond across Qwen3-8B, Qwen3-4B, Gemini2.5-Flash, and DeepSeek-R1-Distilled-Llama-8B, against Vanilla full reasoning, NoThinking, TALE (fixed token budget), Dynasor (single probe-based indicator), and DEER (single-step confidence early exit).",
+  "methods": [
+    "TRACE (temporal reasoning aggregation for convergent exit)",
+    "TALE (baseline, fixed token budget)",
+    "Dynasor (baseline, single probe-based indicator)",
+    "DEER (baseline, single-step confidence early exit)",
+    "NoThinking (baseline)"
+  ],
+  "models": [
+    "Qwen3-8B",
+    "Qwen3-4B",
+    "Gemini2.5-Flash",
+    "DeepSeek-R1-Distilled-Llama-8B"
+  ],
+  "one_liner": "TRACE is a training-free dynamic early-exit method that aggregates two multi-step signals over a sliding window of recent reasoning steps -- Answer Consistency Score and Confidence Trajectory Score -- to detect genuine reasoning convergence, reducing tokens by 25-30% while staying within 1-2% accuracy of full-length reasoning, and beating existing single-step confidence-based early-exit baselines by 2-4 accuracy points at comparable or lower token budgets.",
+  "paper_id": "doi:10.18653/v1/2026.findings-acl.651",
+  "problem": "Test-time scaling improves LLM reasoning but causes token-inefficient overthinking; existing dynamic early-exit methods rely on single-step confidence signals to decide when to stop, but an empirical evaluation on hard math benchmarks shows single-step confidence-based early exit underperforms full reasoning substantially (0.44 vs. 0.55 accuracy) because it assigns unreliably high confidence to incorrect intermediate steps, since reasoning convergence is inherently a multi-step, temporally stable property that instantaneous per-step confidence cannot capture.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Core paper for this topic: names 'overthinking' explicitly as the failure mode motivating the work and directly targets the accuracy/efficiency tradeoff of test-time-scaled reasoning via training-free early exit. Its central empirical claim -- that single-step confidence is measurably unreliable as a stopping signal because reasoning convergence is a temporally-extended property, evidenced by high-confidence-but-incorrect intermediate steps and threshold-sensitivity that multi-step aggregation removes -- is a direct, evidence-backed complication of any overthinking-mitigation method in this archive that relies on a single confidence reading (e.g. simple confidence-threshold early exit) rather than tracking stability across steps."
+  },
+  "results": "Averaged across four models and six benchmarks, TRACE achieves accuracy within 1-2% of vanilla full reasoning while cutting tokens ~25% on average (e.g. Qwen3-8B: 80.0% accuracy at 8088 tokens / 70.1% compression rate vs. Vanilla's 80.5% at 10518 tokens; R1-Distilled-Llama-8B: 57.5% at 4784 tokens vs. Vanilla's 58.2% at 6286 tokens). TRACE outperforms all early-exit baselines (TALE, Dynasor, NoThinking, DEER) in accuracy on nearly every model/benchmark combination while matching or beating them on token usage; TALE achieves more aggressive compression but at markedly worse accuracy. On GPQA-Diamond (out-of-math-domain generalization test), TRACE reduces tokens 20-30% with smaller accuracy drops than baselines across all four models, evidence the method is not math-specific. Under identical early-exit thresholds tau, TRACE's accuracy stays nearly flat as tau varies, while single-step confidence early-exit accuracy is highly sensitive to threshold choice -- direct evidence multi-step aggregation is a more stable signal than instantaneous confidence. An ablation isolating ACS-only and CTS-only shows both single-component variants degrade on harder benchmarks (e.g. AIME) while the combined ACS+CTS is consistently best-or-tied-best, confirming the two signals are complementary (ACS prevents premature exit via cross-step agreement but can be fooled by consistently-wrong answers; CTS reflects growing certainty but can trigger too early before answers stabilize). TRACE is robust to its own hyperparameters: accuracy varies smoothly and mostly monotonically as window size k increases from 4 to 8 with little degradation at smaller k, and the default settings (tau=0.8, alpha=0.7) give a favorable tradeoff across a reasonable sensitivity range. Per-example token analysis shows the token-savings gap grows with reasoning length, i.e. early exit yields the largest savings precisely on the long-tail examples that dominate total inference cost.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "early-exit",
+    "test-time-scaling",
+    "confidence-calibration",
+    "training-free"
+  ]
+}

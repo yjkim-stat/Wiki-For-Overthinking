@@ -46,7 +46,7 @@ Training with the full pool retains a slight edge over the SELECT2REASON subset 
 
 - **Concepts**: rethinking tokens, difficulty-aware reward model, joint ranker for instruction utility, reasoning-trace normalization (deduplication)
 - **Methods**: difficulty-aware reward-model-as-judge, reasoning-trace-length-based selection, weighted joint ranker, supervised fine-tuning
-- **Datasets**: OpenR1-Math-220k, Chinese-DeepSeek-R1-Distill-data (110K), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [MATH-500](../../../../wiki/datasets/math500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), GAOKAO (2023/2024), GAOKAO-Math, KAOYAN, [ZebraLogic](../../../../wiki/datasets/zebralogic.md), [GPQA](../../../../wiki/datasets/gpqa.md)
+- **Datasets**: [OpenR1-Math-220k](../../../../wiki/datasets/openr1-math-220k.md), Chinese-DeepSeek-R1-Distill-data (110K), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [AMC 2023](../../../../wiki/datasets/amc23.md), [MATH-500](../../../../wiki/datasets/math500.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), GAOKAO (2023/2024), GAOKAO-Math, [KAOYAN](../../../../wiki/datasets/kaoyan.md), [ZebraLogic](../../../../wiki/datasets/zebralogic.md), [GPQA](../../../../wiki/datasets/gpqa.md)
 
 Tags: `data-selection`, `long-CoT`, `instruction-tuning`, `efficient-reasoning`, `reasoning-trace-length`
 

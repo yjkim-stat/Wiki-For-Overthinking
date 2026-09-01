@@ -9,7 +9,7 @@ _Lecture note assembled from the research archive_
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 443 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-08-26. 400 of the papers have been read in full.
+Built from 443 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-08-26. 420 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`.
 
@@ -128,58 +128,58 @@ Token budget denotes an explicit cap on how many tokens a reasoning model may sp
 
 Seen in: ARM: Adaptive Reasoning Model; How Far Are We from Optimal Reasoning Efficiency?; A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings; FROST: Filtering Reasoning Outliers with Attention for Efficient Reasoning.
 
-### Accuracy-Length Tradeoff
+### Accuracy-Efficiency Score (AES)
 
-The narrowest of the archive's tradeoff entries: here the cost axis is explicitly the number of tokens in the chain of thought, and the three sources treat the tradeoff as something to be steered rather than accepted. QLPO leaves GRPO's reward, advantage estimator and update untouched and only resamples the training group -- over-generating K=16 rollouts and keeping M=8 that favour short-correct and long-incorrect trajectories -- reporting 30-70% shorter outputs at roughly unchanged accuracy; ARLCP adds coupled penalties on reflective steps and on length scaled by estimated problem complexity. ReBalance is the one source that treats the tradeoff as two-sided, reading token confidence at inference to detect underthinking as well as overthinking and steering hidden states to extend or shorten the trace accordingly. Note: the archive tracks this under several near-duplicate entries that were never merged -- 'Accuracy-Efficiency Tradeoff', 'Accuracy-Efficiency Pareto Frontier', 'Accuracy-token Pareto frontier' and 'accuracy-efficiency tradeoff of reasoning length' -- describing substantially the same idea with a different cost axis named.
+The two archived papers tagged to this entity -- BLADE, which trains a hidden-state probe to exit generation once a reasoning prefix already supports the correct answer, and DRPO, which fixes the accuracy loss GRPO suffers under a length penalty by normalising correct rollouts only against other correct rollouts -- both aim at reporting accuracy and token cost together, but neither note states what the Accuracy-Efficiency Score is, how it is computed, or what range it takes. On the evidence in the archive this is a single-number summary metric combining task accuracy with generation cost, and nothing more specific can honestly be said until one of the source papers is read for its formula.
 
-Seen in: QLPO: Quadrant-weighted Sampling for Length-aware Policy Optimization; Efficient Reasoning with Balanced Thinking; Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty.
+Seen in: BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning; O1-Pruner: Length-Harmonizing Fine-Tuning for O1-Like Reasoning Pruning; DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization.
 
 ## Methods
 
 | Method | Sources | Summary |
 | --- | ---: | --- |
-| GRPO | 37 | The reinforcement-learning algorithm almost every training-side method in this archive is built on: it samples a group of G completions per prompt and replaces PPO's value netwo... |
+| GRPO | 40 | The reinforcement-learning algorithm almost every training-side method in this archive is built on: it samples a group of G completions per prompt and replaces PPO's value netwo... |
 | Self-Consistency | 11 | Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is the baseline every parallel test-time-sca... |
 | Best-of-N sampling | 8 | A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority vote), trading inference compute for accu... |
 | process reward model | 8 | A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search and to decide where compute should go. It... |
+| SFT (baseline) | 8 | _pending_ |
 | best-of-N | 7 | A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In the sources tagged separately under thi... |
 | Early Exit | 7 | Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archive tracks, that computation is a reasoni... |
-| SFT (baseline) | 7 | _pending_ |
+| O1-Pruner (baseline) | 7 | O1-Pruner (baseline) is a PPO-like offline fine-tuning method for compressing chain-of-thought length, used in this archive as a comparison baseline by LC-R1 (which achieves a m... |
+| DPO (baseline) | 6 | DPO (as a baseline) is cited in these sources as a preference-tuning technique other length-control methods are compared against or build on: LC-R1 studies 'invalid thinking' (r... |
 | LoRA fine-tuning | 6 | A parameter-efficient fine-tuning method used across sources as a lightweight alternative to full fine-tuning: applied to internalize temporal-reasoning self-reflection behavior... |
 | majority voting | 6 | Sampling several independent answers to one problem and returning the most frequent one -- the cheapest parallel test-time-compute strategy, needing no verifier and no reward mo... |
 | activation steering | 5 | Controlling how long or how a reasoning model thinks by modifying its internal activations at inference time, rather than by prompting or retraining it. Sources here use it on t... |
 | Budget Forcing | 5 | Controlling a reasoning model's chain-of-thought length by inserting a keyword at inference time -- most commonly 'Wait' to force it to keep thinking past what it would have gen... |
+| CoT-Valve (baseline) | 5 | CoT-Valve is cited here only as a length-control baseline that other adaptive-length methods (e.g. AdaMix) compare against and outperform on an accuracy-efficiency score; the so... |
 | DEER (baseline) | 5 | DEER is used in these sources as a training-free early-exit/dynamic-stopping baseline that newer methods compare against: ThinkBrake and NEAT both report accuracy-length trade-o... |
-| DPO (baseline) | 5 | DPO (as a baseline) is cited in these sources as a preference-tuning technique other length-control methods are compared against or build on: LC-R1 studies 'invalid thinking' (r... |
-| O1-Pruner (baseline) | 5 | O1-Pruner (baseline) is a PPO-like offline fine-tuning method for compressing chain-of-thought length, used in this archive as a comparison baseline by LC-R1 (which achieves a m... |
+| NoThinking (baseline) | 5 | NoThinking (bypassing explicit chain-of-thought and answering directly) is used across these sources as a training-free lower-bound/comparison baseline for reasoning-efficiency... |
 | Phi-4-Reasoning | 5 | Phi-4-reasoning is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the leas... |
 | RLVR | 5 | Reinforcement learning in which the reward is a programmatic check of the final answer rather than a learned preference model, and the dominant post-training recipe among the re... |
 | AdaptThink | 4 | A length-based reward-shaping reinforcement-learning method for controlling reasoning length. OptimalThinkingBench tests it as one of five overthinking mitigations, where it cut... |
 | AdaptThink (baseline) | 4 | AdaptThink is used in these sources as a representative adaptive-reasoning (think/no-think gating) RL baseline that newer efficient-reasoning methods compare against: RPO report... |
-| COCONUT | 4 | The latent reasoner the archive's sources use as the reference point for continuous-space reasoning: intermediate computation is carried as continuous hidden vectors fed back in... |
-| CODI | 4 | A latent chain-of-thought reasoner that carries intermediate computation as continuous vectors rather than emitted tokens, grouped with COCONUT throughout the archive as the pai... |
 
 ## Benchmarks and datasets
 
 | Dataset / benchmark | Sources | Summary |
 | --- | ---: | --- |
-| MATH500 | 121 | A 500-problem competition-mathematics test set drawn from the MATH dataset, and the archive's default mid-difficulty maths benchmark: it appears in nearly every efficiency evalu... |
-| AIME 2024 | 105 | The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning-length and test-time-compute methods: a... |
-| AIME 2025 | 97 | The 2025 sitting of the American Invitational Mathematics Examination, the archive's single most-used hard-math benchmark. It appears across nearly every category of reasoning-e... |
-| GSM8K | 85 | A grade-school math word-problem benchmark used throughout the archive as an 'easy' reasoning testbed, in contrast to harder benchmarks like AIME or GPQA-Diamond. It anchors the... |
-| GPQA-Diamond | 67 | The 198-question 'Diamond' subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the archive tracks separately, and the standard... |
-| AMC23 | 52 | The 40 problems of the 2023 American Mathematics Competitions, used across the archive as the middle rung of a near-standard math evaluation suite that runs GSM8K and MATH-500 a... |
-| OlympiadBench | 32 | The olympiad-level competition-mathematics set that 14 archived efficient-reasoning papers use as the hard end of their maths suite, above MATH-500, AMC23 and GSM8K and alongsid... |
-| GPQA | 28 | A graduate-level multiple-choice science-question benchmark, used across the archive as the science column of an otherwise mathematical evaluation suite — the out-of-domain chec... |
-| LiveCodeBench | 26 | A contamination-resistant code-generation benchmark built from continuously collected competitive-programming problems, used in this archive as the standard out-of-domain check... |
-| MATH | 24 | The 12,500-problem competition-mathematics dataset of Hendrycks et al., used in this archive far more often as a training corpus and a probe set than as a test set -- reinforcem... |
+| MATH500 | 127 | A 500-problem competition-mathematics test set drawn from the MATH dataset, and the archive's default mid-difficulty maths benchmark: it appears in nearly every efficiency evalu... |
+| AIME 2024 | 112 | The 2024 sitting of the American Invitational Mathematics Examination, used throughout the archive as a hard-math benchmark for reasoning-length and test-time-compute methods: a... |
+| AIME 2025 | 103 | The 2025 sitting of the American Invitational Mathematics Examination, the archive's single most-used hard-math benchmark. It appears across nearly every category of reasoning-e... |
+| GSM8K | 90 | A grade-school math word-problem benchmark used throughout the archive as an 'easy' reasoning testbed, in contrast to harder benchmarks like AIME or GPQA-Diamond. It anchors the... |
+| GPQA-Diamond | 72 | The 198-question 'Diamond' subset of GPQA — graduate-level multiple-choice science questions — as distinct from the full GPQA set the archive tracks separately, and the standard... |
+| AMC23 | 53 | The 40 problems of the 2023 American Mathematics Competitions, used across the archive as the middle rung of a near-standard math evaluation suite that runs GSM8K and MATH-500 a... |
+| OlympiadBench | 33 | The olympiad-level competition-mathematics set that 14 archived efficient-reasoning papers use as the hard end of their maths suite, above MATH-500, AMC23 and GSM8K and alongsid... |
+| GPQA | 29 | A graduate-level multiple-choice science-question benchmark, used across the archive as the science column of an otherwise mathematical evaluation suite — the out-of-domain chec... |
+| LiveCodeBench | 27 | A contamination-resistant code-generation benchmark built from continuously collected competitive-programming problems, used in this archive as the standard out-of-domain check... |
+| MATH | 25 | The 12,500-problem competition-mathematics dataset of Hendrycks et al., used in this archive far more often as a training corpus and a probe set than as a test set -- reinforcem... |
+| MMLU-Pro | 18 | The harder successor to MMLU, used across the archive as the non-mathematical, wide-headroom benchmark on which adaptive-reasoning and efficiency methods are stress-tested. The... |
 | Minerva | 16 | A quantitative-reasoning maths benchmark used in this archive almost exclusively as an out-of-domain evaluation: papers train on MATH500, AMC or AIME data and report Minerva alo... |
 | MMLU | 16 | A multiple-choice knowledge benchmark that the archive's papers use mainly as the short-answer, low-difficulty end of a reasoning suite, and as a capability-preservation check r... |
-| MMLU-Pro | 16 | The harder successor to MMLU, used across the archive as the non-mathematical, wide-headroom benchmark on which adaptive-reasoning and efficiency methods are stress-tested. The... |
 | AIME | 13 | AIME (American Invitational Mathematics Examination) is a competition-math benchmark cited across many efficient-reasoning papers in this archive -- Self-Braking Tuning, DRPO, S... |
-| AMC | 12 | The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that sh... |
+| AMC | 13 | The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that sh... |
 | HumanEval | 12 | In this archive HumanEval is the code-generation leg of the evaluation suites, graded by executing the generated function, and it behaves like an easy set on the accuracy/length... |
-| CommonsenseQA | 8 | A multiple-choice commonsense question-answering set, used across the archive as the easy, non-mathematical end of the benchmark suite - the place where adaptive-length methods... |
+| CommonsenseQA | 9 | A multiple-choice commonsense question-answering set, used across the archive as the easy, non-mathematical end of the benchmark suite - the place where adaptive-length methods... |
 | HMMT25 | 8 | A sitting of the Harvard-MIT Mathematics Tournament used in this archive as a hard competition-maths benchmark alongside AIME, on the order of 30 problems. It appears mainly in... |
 | MBPP | 8 | A Python program-synthesis benchmark, graded by execution, that the archive's papers use as the easier half of a code-generation pair with HumanEval. The one paper reporting it... |
 | StrategyQA | 8 | None of the four sources describe StrategyQA directly; it appears only as one of the evaluation benchmarks in their reasoning-efficiency experiments. ARM trains a model to pick... |

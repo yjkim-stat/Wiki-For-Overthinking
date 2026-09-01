@@ -1,0 +1,122 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/doi-10-18653-v1-2026-findings-acl-678.pdf"
+  },
+  "completed_at": "2026-09-01T10:16:00Z",
+  "created_at": "2026-09-01T10:04:15Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "doi:10.18653/v1/2026.findings-acl.678",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models(LRMs) have achieved significant breakthroughs over prior large language models (LLMs), but they also entail greater potential safety risks. Existing alignment methods often remain at a shallow level of protection, making them insufficient to address deeper risks and strategic attacks in complex reasoning processes. To bridge this gap, we move beyond the conventional paradigm that treats safety alignment merely as a preventive measure to reduce harmful outputs. Drawing inspiration from human-like introspection and self-correction, we propose Self-Reflection, a technique that introduces a special Self-Reflection token, enabling LRMs to perform Self-Reflection during generation and recover from harmful outputs. Our approach integrates seamlessly into standard post-training paradigms , further enhancing both helpfulness and safety. The experimental results demonstrate that models trained with Self-Reflection not only consistently outperform the baseline in terms of safety (reducing the HCR from 13.8% to 4.1%, nearly a threefold improvement over mainstream approaches), but also achieve substantial advantages in both helpfulness and the safety–helpfulness balance. More importantly, under evaluations involving various adversarial attacks, including a specially designed adaptive attack, the Self-Reflection mechanism significantly enhances model safety without targeted adversarial training.Notice: This paper contains harmful content.",
+    "authors": [
+      "Qiang Huang",
+      "Wei Zhai",
+      "Feng Huang",
+      "Dejing Dou"
+    ],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model"
+    ],
+    "pdf_url": "https://aclanthology.org/2026.findings-acl.678.pdf",
+    "published": "",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Self-Reflection Improves Safety of Large Reasoning Models",
+    "url": "https://aclanthology.org/2026.findings-acl.678/",
+    "venue": "ACL"
+  },
+  "result": {
+    "concepts": [
+      "[Self-Reflection] token",
+      "shallow safety alignment",
+      "self-doubt-pause-reflection process",
+      "adaptive jailbreak attack (delayed trigger / post-reflection re-injection)"
+    ],
+    "contributions": [
+      "Self-Reflection, a special-token mechanism that triggers mid-generation introspection and recovery upon detecting harmful content, distinct from prior backtracking approaches that discard/regenerate entire harmful segments",
+      "an SFT+DPO training recipe that supervises reflection to trigger precisely at the onset of harmful content while explicitly suppressing unnecessary reflection on already-safe generations, integrated into standard post-training pipelines",
+      "empirical results showing ~3x reduction in harmful content rate versus mainstream safety tuning, improved safety-helpfulness balance, ~15%+ lower generation-token overhead than backtracking defenses, and the strongest jailbreak robustness among compared methods including against an attack specifically designed to defeat it"
+    ],
+    "datasets": [
+      "ToxicChat",
+      "Aegis-AI-Content-Safety-Dataset",
+      "SafetyBench",
+      "OR-Bench",
+      "PHTest",
+      "MATH500",
+      "LiveCodeBench",
+      "GPQA Diamond",
+      "HH-RLHF",
+      "OpenAssistant-2",
+      "HelpSteer2",
+      "Dolly 2.0",
+      "PKU-SafeRLHF"
+    ],
+    "limitations": "The effectiveness of Self-Reflection is highly dependent on the quality, diversity, and coverage of the constructed Reflection-Safety training pairs; if the training set fails to cover a variety of harm scenarios or complex adversarial patterns, self-correction ability may be limited on out-of-domain or novel jailbreaking attacks not represented in training. The paper notes a rigorous theoretical investigation of the method's generalization across diverse model architectures is still warranted, and flags exploring Self-Reflection as a general capability-enhancing technique beyond the safety domain as future work.",
+    "method": "Introduces a special [Self-Reflection] token (~50 tokens of explicit questioning/reflection semantics, e.g. 'Wait') that the model inserts mid-generation upon detecting early signals of harmful output, triggering a self-doubt-pause-reflection process that recovers to a safe response without discarding or restarting generation. Training has two stages: (1) SFT on reflection examples constructed by using a safety classifier (Llama Guard 3) to locate the harmful prefix within a harmful response, then training the model to immediately emit [Self-Reflection] at that point and continue to a safe response, with harmful-prefix likelihood explicitly not maximized to avoid increasing harmful-generation probability; (2) DPO on constructed preference pairs that both encourage Self-Reflection when it corrects an unsafe trajectory and suppress Self-Reflection when the initial response is already safe (to avoid over-reflection/redundant computation on benign inputs). Evaluated on four LRMs (DeepSeek-R1-Distill-LLaMA-8B, DeepSeek-R1-Distill-Qwen-7B, NVIDIA-Nemotron-Nano-9B-v2, Qwen3-8B) against Backtracking-based defenses (Reset, BSAFE) on three safety benchmarks (ToxicChat, Aegis-AI-Content-Safety, SafetyBench), two safety-helpfulness trade-off benchmarks (OR-Bench for over-refusal, PHTest), three utility benchmarks (MATH500, LiveCodeBench, GPQA Diamond), and four jailbreak attacks (Prefilling, GCG, AutoDAN, plus a novel Adaptive attack specifically designed to bypass Self-Reflection via delayed reflection triggers or post-reflection adversarial re-injection).",
+    "methods": [
+      "Self-Reflection (SFT + DPO with reflection-triggering preference pairs)",
+      "Reset (backtracking baseline)",
+      "BSAFE (backtracking baseline)",
+      "Llama Guard 3 (safety classifier for training-data construction)"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-LLaMA-8B",
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "NVIDIA-Nemotron-Nano-9B-v2",
+      "Qwen3-8B"
+    ],
+    "one_liner": "Trains large reasoning models with a special [Self-Reflection] token that triggers mid-generation introspection and recovery once harmful content is detected, cutting harmful content rate from 13.8% to 4.1% (nearly 3x) versus mainstream safety tuning, while also reducing generation token overhead by 15%+ compared to backtracking-based safety defenses.",
+    "problem": "Safety alignment for large reasoning models is typically preventive (SFT, RLHF, DPO), producing 'shallow safety alignment' where models learn to reject harmful requests only within the first few output tokens, leaving later-generated content vulnerable to manipulation or jailbreak; existing backtracking-based defenses (which discard and regenerate harmful segments) reduce this risk but introduce substantial computational overhead and can still be circumvented when harmful signals are diffuse or adversarial prompts are carefully crafted.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Tangential: this is a safety/jailbreak-robustness paper rather than a reasoning-efficiency paper, but it is directly relevant background for any overthinking-mitigation method that inserts special reflection/control tokens into a reasoning trace -- it shows a single, precisely-triggered mid-generation intervention token can outperform repeated discard-and-regenerate cycles both on the target metric (here safety, elsewhere often accuracy) and on token efficiency (>15% fewer tokens than the backtracking baselines), which is structurally the same tradeoff (one well-placed intervention vs. repeated redundant regeneration) that motivates efficient early-exit and self-correction methods in the overthinking literature."
+    },
+    "results": "Self-Reflection combined with SFT+DPO reduces harmful content rate (HCR) from 13.8% (SFT baseline) to 4.1%, a ~3x improvement over mainstream safety tuning, while also lowering over-refusal rate (RR) on OR-Bench/PHTest and maintaining or slightly improving utility accuracy (MATH500/LiveCodeBench/GPQA Diamond) versus baselines -- i.e. the safety gain does not trade off against helpfulness. Generation-efficiency measurements show Self-Reflection's average token count stays close to the vanilla (untuned) model and is markedly lower than Backtracking methods: e.g. on Qwen3-8B, Self-Reflection averages 541 tokens vs. BSAFE's 628 (>15% reduction), because Self-Reflection performs a single reflective intervention rather than Backtracking's repeated discard-and-regenerate cycles. Under adversarial jailbreak attacks, Self-Reflection achieves the lowest average attack success rate (ASR) across all four attack types on both tested backbones (5.3% on LLaMA-8B, 6.6% on Qwen3-8B), roughly 13x and 7.5x lower than the SFT-only baseline and nearly 3x lower than the strongest Backtracking method (BSAFE), including against the specially-designed Adaptive attack targeting Self-Reflection itself (delayed triggers, post-reflection adversarial re-injection) -- indicating the mechanism's intrinsic self-correction (rather than external hard resets) is harder to circumvent than Backtracking even without adversarial training.",
+    "tags": [
+      "safety-alignment",
+      "jailbreak-robustness",
+      "self-correction",
+      "reasoning-trace-intervention"
+    ]
+  },
+  "task_id": "paper__doi-10-18653-v1-2026-findings-acl-678",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

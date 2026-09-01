@@ -45,7 +45,7 @@ The method depends on a reward oracle (or, in the self-consistency variant, a co
 
 ## Entities
 
-- **Concepts**: [adaptive test-time compute allocation](../../../../wiki/concepts/adaptive-test-time-compute-allocation.md), evolving in-context demonstrations, self-adaptive in-context learning, coverage (test-time-scaling metric), similarity-based demonstration selection, distributional adaptation (vs. static sampling)
+- **Concepts**: adaptive test-time compute allocation, evolving in-context demonstrations, self-adaptive in-context learning, coverage (test-time-scaling metric), similarity-based demonstration selection, distributional adaptation (vs. static sampling)
 - **Methods**: adaptive test-time compute allocation with evolving ICL, Best-of-N / Uniform (baseline), Elimination (Elim, adaptive-allocation baseline), temperature-adjustment ablation (TEMP), self-consistency aggregation
 - **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [MinervaMath](../../../../wiki/datasets/minervamath.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), Reasoning Gym (custom, 400 hard-difficulty math problems)
 

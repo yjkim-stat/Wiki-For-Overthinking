@@ -9,7 +9,7 @@ Plain chain-of-thought (CoT) prompting is used across these sources as the refer
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [BBH (Big-Bench Hard)](../datasets/bbh-big-bench-hard.md), [Best-of-N (baseline)](best-of-n-baseline.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPT-4o](../models/gpt-4o.md), [GPT-5](../models/gpt-5.md), [gpt-o3](../models/gpt-o3.md), [GSM8K](../datasets/gsm8k.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Multi-Agent Debate](multi-agent-debate.md), [Self-Consistency](self-consistency.md)
+**Related**: [BBH (Big-Bench Hard)](../datasets/bbh-big-bench-hard.md), [Best-of-N (baseline)](best-of-n-baseline.md), [Gemini-1.5-Pro](../models/gemini-1-5-pro.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPT-4o](../models/gpt-4o.md), [GPT-5](../models/gpt-5.md), [gpt-o3](../models/gpt-o3.md), [GSM8K](../datasets/gsm8k.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Multi-Agent Debate](multi-agent-debate.md), [Self-Consistency](self-consistency.md)
 
 ## Appears in
 

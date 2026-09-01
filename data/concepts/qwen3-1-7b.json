@@ -43,11 +43,17 @@
       "kind": "paper",
       "note": "Step-GRPO internalizes dynamic early-exit into a reasoning model's own weights via a Dynamic Truncated Rollout exposing the model to short-yet-correct trajectories during RL training and a Step-Aware Relative Reward that penalizes redundant semantic steps relative to the group's own correct-completion baseline, cutting Qwen3-8B token usage 32.0% with no accuracy loss and zero inference-time overhead.",
       "title": "Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.622",
+      "kind": "paper",
+      "note": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
+      "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning"
     }
   ],
   "first_seen": "2026-08-26T02:14:28Z",
   "kind": "model",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "Qwen3-1.7B",
   "related": [
     "multi-agent-decomposition",
@@ -162,7 +168,22 @@
     "grpo-sop-soft-overlong-punishment-dapo",
     "deer-sft-rejection-sampling-distillation-baseline",
     "amc23",
-    "dapo-math-17k-training"
+    "dapo-math-17k-training",
+    "overthinking-adjusted-accuracy-oaa-auc-oaa",
+    "adaptive-length-penalty-tokens-after-first-correct-answer",
+    "rejection-sampling-for-concise-sft",
+    "trace-reformatting",
+    "adaptive-answer-rejection-sampling-sft-rl-length-penalty",
+    "format-adaptive-answer-trace-reformatting-sft-rl-length-penalty",
+    "no-thinking-baseline",
+    "first-answer-truncation-baseline",
+    "hard-length-soft-length-normalized-length-penalties-baselines",
+    "twyn-think-when-you-need-baseline",
+    "commonsenseqa",
+    "livecodebench-v6",
+    "longbenchv2",
+    "deepscaler-training-data-13k-problems",
+    "deepseek-r1-qwen-7b-distill"
   ],
   "related_authored": [
     "prefix-sliding",

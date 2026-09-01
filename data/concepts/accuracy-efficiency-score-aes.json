@@ -12,6 +12,12 @@
       "title": "BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.697",
+      "kind": "paper",
+      "note": "O1-Pruner identifies 'length disharmony' -- shorter responses often achieve equal or higher accuracy than longer ones, at both the instance and distribution level -- and fine-tunes long-thought models with a PPO-style Length-Harmonizing Reward that rewards brevity relative to a reference model's own pre-sampled length/accuracy baseline, subject to an accuracy non-degradation constraint, cutting solution length by 34.7-40.5% while improving accuracy.",
+      "title": "O1-Pruner: Length-Harmonizing Fine-Tuning for O1-Like Reasoning Pruning"
+    },
+    {
       "id": "title:68327bf6b9e4e869",
       "kind": "paper",
       "note": "Diagnoses why adding a length penalty to GRPO degrades accuracy — the group-relative advantage can turn correct-but-long rollouts negative — and fixes it by normalising the reward of correct rollouts only against other correct rollouts.",
@@ -20,7 +26,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T03:02:20Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "Accuracy-Efficiency Score (AES)",
   "related": [
     "overthinking",
@@ -47,6 +53,20 @@
     "aime-2024",
     "aime-2025",
     "deepscaler-train",
+    "length-disharmony",
+    "length-harmonizing-reward",
+    "accuracy-non-degradation-constraint",
+    "off-policy-ppo-style-fine-tuning",
+    "o1-pruner-length-harmonizing-fine-tuning",
+    "fast-solving-prompt-baseline",
+    "sft-baseline",
+    "dpo-baseline",
+    "grpo-referenced-technique",
+    "math-training-and-evaluation",
+    "gsm8k",
+    "marco-o1-7b",
+    "qwq-32b-preview",
+    "deepseek-r1-distill-qwen-7b",
     "length-reward",
     "group-relative-advantage",
     "accuracy-efficiency-tradeoff",
@@ -59,7 +79,6 @@
     "kl-regularised-optimal-distribution",
     "importance-weighting",
     "deepscaler-preview-dataset",
-    "gsm8k",
     "olympiadbench",
     "aime"
   ],

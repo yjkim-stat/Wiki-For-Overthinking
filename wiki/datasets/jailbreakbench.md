@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+JailbreakBench is a benchmark for evaluating jailbreak attacks against large reasoning models, used to evaluate Mousetrap's Chaos Machine cipher-based jailbreak and a single-turn jailbreak method that instructs an LRM to reason through an explicit internal conflict or moral dilemma to bypass safety training.
 
 - **Kind**: dataset
 - **Also called**: JailBreakBench

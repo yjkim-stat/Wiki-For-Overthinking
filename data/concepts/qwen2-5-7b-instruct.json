@@ -51,6 +51,12 @@
       "title": "Do LLMs Encode Functional Importance of Reasoning Tokens ?"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.831",
+      "kind": "paper",
+      "note": "AutoL2S distills non-reasoning LLMs into models that jointly generate a lightweight <EASY> switching token and correspondingly select long or short chain-of-thought paths per instance, then refines this with GRPO-style RL on the induced long-short rollouts, cutting reasoning length by up to 71.7% with negligible accuracy loss across six benchmarks.",
+      "title": "AutoL2S: Auto Long-Short Reasoning for Efficient Large Language Models"
+    },
+    {
       "id": "title:474d6c4d88a30199",
       "kind": "paper",
       "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
@@ -59,7 +65,7 @@
   ],
   "first_seen": "2026-08-21T00:49:09Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:09:24Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "Qwen2.5-7B-Instruct",
   "related": [
     "thought-budget",
@@ -222,6 +228,21 @@
     "attention-based-mlp-surrogate-for-pruning-rank-prediction",
     "llama-2-7b-chat-hf",
     "mistral-7b-instruct",
+    "overthinking-distillation-induced",
+    "easy-switching-token",
+    "instance-wise-long-short-reasoning-selection",
+    "grpo-style-rollout-induced-fine-tuning",
+    "autol2s-switching-token-sft-grpo-style-rollout-fine-tuning",
+    "o1-pruner-baseline",
+    "cot-valve-baseline",
+    "dpo-bespoke-baseline",
+    "alphaone-baseline",
+    "bespoke-stratos-17k-training",
+    "olympiadbench-math",
+    "llama3-2-3b-instruct",
+    "bespoke-stratos-3b-7b-baseline",
+    "deepseek-r1-long-cot-teacher",
+    "qwen2-5-math-7b-instruct-short-cot-teacher",
     "overthinking",
     "reflection-in-reasoning-traces",
     "length-reward",

@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DAST is a difficulty-aware baseline for efficient/compressed reasoning, cited as a comparison point by PACE (which identifies over-compression failure modes of uniform length-penalty RL that difficulty-aware methods like DAST aim to avoid) and by AdapThink (which measures reflection behavior with a BERT classifier finding incorrect reasoning has systematically more reflection than DAST-style baselines address).
 
 - **Kind**: method
+- **Also called**: DAST
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

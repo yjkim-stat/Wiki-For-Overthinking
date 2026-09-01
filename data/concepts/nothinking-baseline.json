@@ -25,11 +25,17 @@
       "kind": "paper",
       "note": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
       "title": "Steering LLM Thinking with Budget Guidance"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.651",
+      "kind": "paper",
+      "note": "TRACE is a training-free dynamic early-exit method that aggregates two multi-step signals over a sliding window of recent reasoning steps -- Answer Consistency Score and Confidence Trajectory Score -- to detect genuine reasoning convergence, reducing tokens by 25-30% while staying within 1-2% accuracy of full-length reasoning, and beating existing single-step confidence-based early-exit baselines by 2-4 accuracy points at comparable or lower token budgets.",
+      "title": "Efficient Test-Time Scaling via Temporal Reasoning Aggregation"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "method",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "NoThinking (baseline)",
   "related": [
     "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
@@ -103,7 +109,18 @@
     "folio",
     "tablebench",
     "deepseek-r1-distill-qwen-32b",
-    "bert-base-predictor-backbone"
+    "bert-base-predictor-backbone",
+    "answer-consistency-score-acs",
+    "confidence-trajectory-score-cts",
+    "temporal-reasoning-aggregation",
+    "single-step-confidence-unreliability",
+    "trace-temporal-reasoning-aggregation-for-convergent-exit",
+    "tale-baseline-fixed-token-budget",
+    "dynasor-baseline-single-probe-based-indicator",
+    "deer-baseline-single-step-confidence-early-exit",
+    "aime-2025",
+    "gemini2-5-flash",
+    "deepseek-r1-distilled-llama-8b"
   ],
   "related_authored": [],
   "schema_version": 1,

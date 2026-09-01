@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+KAOYAN is a Chinese graduate-entrance-exam math benchmark used to evaluate long-CoT instruction-selection and data-augmentation methods, including SELECT2REASON (selecting a high-utility SFT subset by difficulty and trace length) and P-TTS (prompt-based reasoning data augmentation from a small seed set of AIME problems).
 
 - **Kind**: dataset
 - **Also called**: Kaoyan

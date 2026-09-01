@@ -45,7 +45,7 @@ The router performs per-task-type (not fine-grained per-instance) routing and is
 
 - **Concepts**: structure-flexibility tradeoff, handoff format selection, typed dependency graph for multi-agent delegation, inter-agent misalignment
 - **Methods**: typed dependency-graph (DAG) message schema, LLM-based per-task format router, constrained decoding
-- **Datasets**: [BrowseComp](../../../../wiki/datasets/browsecomp.md), tau-bench (tau-retail, tau-airline), BFCL v3, AppWorld
+- **Datasets**: [BrowseComp](../../../../wiki/datasets/browsecomp.md), tau-bench (tau-retail, tau-airline), [BFCL v3](../../../../wiki/datasets/bfcl-v3.md), AppWorld
 
 Tags: `multi-agent`, `token-efficiency`, `adaptive-routing`, `structured-communication`
 

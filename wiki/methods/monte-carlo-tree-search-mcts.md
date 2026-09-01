@@ -9,7 +9,7 @@ A search algorithm (select/expand/simulate/backpropagate) used across sources to
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [DeepSeek-R1-distilled models (comparison)](../models/deepseek-r1-distilled-models-comparison.md), [HotpotQA](../datasets/hotpotqa.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MuSiQue](../datasets/musique.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
+**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [DeepSeek-R1-distilled models (comparison)](../concepts/deepseek-r1-distilled-models-comparison.md), [HotpotQA](../datasets/hotpotqa.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MuSiQue](../datasets/musique.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

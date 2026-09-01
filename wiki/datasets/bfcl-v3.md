@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+BFCL v3 is a function/tool-calling benchmark used to evaluate multi-agent LLM delegation formats (e.g. whether a typed dependency-graph message or natural-language prose is used to hand off between agents) and appears as one of the benchmarks in ARISE's evaluation of test-time-scaling metrics.
 
 - **Kind**: dataset
-- **Also called**: BFCL-v3
+- **Also called**: BFCL v3, BFCL-v3, Berkeley Function-Calling Leaderboard v3
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

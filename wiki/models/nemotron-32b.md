@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Nemotron-32B is one of the model sizes examined in a truncation-based diagnostic across 11 languages measuring how strongly large reasoning models already know the answer before finishing their explicit reasoning trace (multilingual latent reasoning), and appears in a study extending reasoning depth via recurrence, memory and test-time methods on a controlled cellular-automata benchmark designed to preclude memorization.
 
 - **Kind**: model
+- **Also called**: Nemotron-32B
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

@@ -47,7 +47,7 @@ Due to higher computational cost and resource constraints, DeepSeek-R1-0528 (685
 
 - **Concepts**: internal alignment conflict, moral dilemma (duress/agent-centered/sacrificial/social), conflict injection (single-turn jailbreak), representational interference (safety vs. functional subspace overlap), safety-relevant neurons (WANDA-scored), layerwise representational shift
 - **Methods**: conflict-injection jailbreak framework, WANDA-based safety-neuron identification, layerwise cosine-similarity representational analysis, PCA-based neuron activation-pattern comparison, Llama-Guard-3 (ASR judge)
-- **Datasets**: [AdvBench](../../../../wiki/datasets/advbench.md), [HarmBench](../../../../wiki/datasets/harmbench.md), HarmfulQ, JailBreakBench, [StrongReject](../../../../wiki/datasets/strongreject.md)
+- **Datasets**: [AdvBench](../../../../wiki/datasets/advbench.md), [HarmBench](../../../../wiki/datasets/harmbench.md), HarmfulQ, [JailBreakBench](../../../../wiki/datasets/jailbreakbench.md), [StrongReject](../../../../wiki/datasets/strongreject.md)
 
 Tags: `jailbreak`, `safety-alignment`, `moral-reasoning`, `mechanistic-interpretability`, `red-teaming`
 

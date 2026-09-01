@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "AdaMix decouples efficiency and accuracy into two separately-trained LoRA adapters (a short adapter and a long adapter), then uses a BERT-based difficulty-aware router to predict a per-problem complexity coefficient that linearly interpolates the two adapters via task arithmetic, cutting DeepSeek-R1-Distill-Qwen-7B's average response length 54.9% while improving accuracy up to 4.8% across five math benchmarks and outperforming ShorterBetter/TLMRE/CoT-Valve/model-merging/SwitchCoT baselines on an accuracy-efficiency score.",
       "title": "AdaMix: Adaptive Mixing for Short and Long Reasoning Adapters"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.94",
+      "kind": "paper",
+      "note": "Step Pruner (SP) is an RL framework that replaces token-count length penalties with a step-count reward (paragraph-based segmentation as a proxy for reasoning steps), penalizing steps beyond the minimal number needed for a correct answer while masking rewards for incorrect responses, achieving state-of-the-art accuracy-efficiency trade-off and 44-70% token reduction across four benchmarks without the reward-hacking (degenerate step-merging) that token-based RL penalties are prone to.",
+      "title": "Beyond Token Length: Step Pruner for Efficient and Accurate Reasoning in Large Language Models"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "method",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "ShorterBetter (baseline)",
   "related": [
     "dual-adapter-decoupled-optimization",
@@ -39,7 +45,21 @@
     "deepseek-r1-distill-qwen-7b",
     "deepseek-r1-distill-llama-8b",
     "qwen3-4b",
-    "qwen2-5-math-instruct-short-baseline"
+    "qwen2-5-math-instruct-short-baseline",
+    "step-based-reward-vs-token-count-penalty",
+    "optimal-step-count-s",
+    "reward-hacking-via-step-merging",
+    "dynamic-training-stopping-criterion",
+    "step-pruner-sp",
+    "ccot-baseline",
+    "cod-baseline",
+    "model-merge-long-to-short-reasoning-baseline",
+    "o1-pruner-baseline",
+    "trainefficient-baseline",
+    "deepscaler-preview-training-40k-problems",
+    "deepseek-r1-distill-qwen-2-5-7b",
+    "deepseek-r1-distill-qwen-2-5-1-5b",
+    "llama-3-1-8b-r1-llama-8b"
   ],
   "related_authored": [],
   "schema_version": 1,

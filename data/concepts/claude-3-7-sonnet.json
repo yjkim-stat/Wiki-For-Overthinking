@@ -27,11 +27,17 @@
       "kind": "paper",
       "note": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
       "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.63",
+      "kind": "paper",
+      "note": "TRUTHFULVQA, a 5,000-image hierarchical human-annotated benchmark testing multimodal LLM truthfulness under progressively misleading visual-linguistic prompts, uncovers an inverse scaling law of truthfulness: slow-thinking (reasoning) MLLMs are consistently less truthful than their fast-thinking chat counterparts of the same family, and larger reasoning models show worse calibration despite generating more reasoning tokens.",
+      "title": "When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:04:16Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "Claude-3.7-Sonnet",
   "related": [
     "thought-answer-safety-decomposition",
@@ -121,7 +127,27 @@
     "strongreject-appendix",
     "o4-mini",
     "qwq-32b",
-    "gemini-2-0-flash-h-and-m-safety-modes"
+    "gemini-2-0-flash-h-and-m-safety-modes",
+    "inverse-scaling-law-of-truthfulness",
+    "depth-first-search-dfs-vs-breadth-first-search-bfs-reasoning-topology",
+    "logit-advantage-loss-lal",
+    "critique-label-judge-paradigm",
+    "expected-calibration-error-ece",
+    "truthfuljudge-critique-label-fine-tuned-judge",
+    "bradley-terry-critique-score-pure-label-judge-paradigms-ablation-baselines",
+    "truthfulvqa-new-5-000-images-hierarchical-3-level-prompts",
+    "qvq-72b",
+    "kimi-vl-a3b-thinking",
+    "skywork-r1v-38b",
+    "mulberry-qwen2-vl-7b",
+    "qwen2-5-vl-family",
+    "qwen2-vl-family",
+    "internvl-family",
+    "gemma-3-family",
+    "llama-4-family",
+    "gpt-4o",
+    "gemini-1-5-pro",
+    "gemini-2-0-2-5"
   ],
   "related_authored": [
     "safechain",

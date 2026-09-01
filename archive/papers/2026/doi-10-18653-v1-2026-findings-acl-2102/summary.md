@@ -46,7 +46,7 @@ The paper does not discuss limitations explicitly in a dedicated section within 
 ## Entities
 
 - **Concepts**: evaluation-time scaling, reasoning evaluator (outcome and process), direct evaluator (PRM/ORM), multi-step process evaluation, model-based splitting, reward-model over-optimization
-- **Methods**: reasoning outcome evaluator, reasoning process evaluator (multi-step, model-based splitting, mean-logit aggregation), reasoning process + outcome evaluation (interpolated), direct evaluators (PRMs/ORMs, baseline), self-consistency (evaluator ensembling), Best-of-N reranking
+- **Methods**: reasoning outcome evaluator, reasoning process evaluator (multi-step, model-based splitting, mean-logit aggregation), reasoning process + outcome evaluation (interpolated), direct evaluators (PRMs/ORMs, baseline), self-consistency (evaluator ensembling), [Best-of-N reranking](../../../../wiki/methods/best-of-n-reranking.md)
 - **Datasets**: ProcessBench (3,400 instances, GSM8K/MATH/OlympiadBench/Omni-MATH sources), [AIME24](../../../../wiki/datasets/aime-2024.md), [AMC23](../../../../wiki/datasets/amc23.md), [Minerva Math](../../../../wiki/datasets/minerva.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [MATH500](../../../../wiki/datasets/math500.md), LeetCode, [GPQA](../../../../wiki/datasets/gpqa.md)
 
 Tags: `test-time-scaling`, `evaluation-methodology`, `process-reward-models`, `best-of-n`, `reasoning-evaluators`

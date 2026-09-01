@@ -47,7 +47,7 @@ TAG construction currently relies on SPARQL-based training data (converted to MA
 
 - **Concepts**: Thought-Action Graph (TAG), Meta-Action-Chain (MAC), reasoning-experience reuse, thought layer / action layer, KG filtering (noise reduction)
 - **Methods**: Thought-Action Graph (TAG) construction and retrieval, TAG-Reasoning (TAGR), KG Filtering, ToG / RoG / EffiQA / GNN-RAG / KG-Agent / DoG / GCR / KBQA-o1 / EoG_SFT (baselines)
-- **Datasets**: WebQSP, CWQ (ComplexWebQuestions), GrailQA, Freebase (underlying KG)
+- **Datasets**: [WebQSP](../../../../wiki/datasets/webqsp.md), CWQ (ComplexWebQuestions), [GrailQA](../../../../wiki/datasets/grailqa.md), Freebase (underlying KG)
 
 Tags: `knowledge-graph-question-answering`, `reasoning-efficiency`, `experience-reuse`, `retrieval`, `agentic-reasoning`
 

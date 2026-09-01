@@ -1,0 +1,45 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.831",
+      "kind": "paper",
+      "note": "AutoL2S distills non-reasoning LLMs into models that jointly generate a lightweight <EASY> switching token and correspondingly select long or short chain-of-thought paths per instance, then refines this with GRPO-style RL on the induced long-short rollouts, cutting reasoning length by up to 71.7% with negligible accuracy loss across six benchmarks.",
+      "title": "AutoL2S: Auto Long-Short Reasoning for Efficient Large Language Models"
+    }
+  ],
+  "first_seen": "2026-09-01T10:24:36Z",
+  "kind": "concept",
+  "last_seen": "2026-09-01T10:24:36Z",
+  "name": "instance-wise long-short reasoning selection",
+  "related": [
+    "overthinking-distillation-induced",
+    "easy-switching-token",
+    "grpo-style-rollout-induced-fine-tuning",
+    "autol2s-switching-token-sft-grpo-style-rollout-fine-tuning",
+    "o1-pruner-baseline",
+    "cot-valve-baseline",
+    "dpo-bespoke-baseline",
+    "tokenskip-baseline",
+    "alphaone-baseline",
+    "bespoke-stratos-17k-training",
+    "math500",
+    "gpqa-diamond",
+    "gsm8k",
+    "olympiadbench-math",
+    "aime-2024",
+    "mmlu-pro",
+    "llama3-2-3b-instruct",
+    "qwen2-5-7b-instruct",
+    "bespoke-stratos-3b-7b-baseline",
+    "deepseek-r1-long-cot-teacher",
+    "qwen2-5-math-7b-instruct-short-cot-teacher"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "instance-wise-long-short-reasoning-selection",
+  "topics": [
+    "overthinking"
+  ]
+}

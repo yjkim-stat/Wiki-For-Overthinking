@@ -1,7 +1,8 @@
 {
   "aliases": [
     "Llama-8B",
-    "DeepSeek-R1-Distill-Llama (8B)"
+    "DeepSeek-R1-Distill-Llama (8B)",
+    "DeepSeek-R1-Distill-LLaMA-8B"
   ],
   "definition": "DeepSeek-R1-Distill-Llama-8B is a distilled reasoning-model backbone tested across this archive's efficient-reasoning work (ReCo's reward-coordinated KV-cache and token control cutting tokens 37-65%), a game-theoretic study of reasoning-token pricing, cognitive profiling via Bloom's taxonomy, NeuReasoner's overthinking-detecting neuron clusters, FoE's 'first solution is best' finding, and CiPO's counterfactual machine-unlearning method.",
   "evidence": [
@@ -94,11 +95,17 @@
       "kind": "paper",
       "note": "SeerSC resolves a specific gap in adaptive self-consistency methods -- reduced token usage from sequential early-stopping does not translate into reduced latency, since sequential budget decisions conflict with the parallel-sampling engines modern inference uses -- by having a cheap System-1 pass (direct, non-reasoning answers) pre-estimate each query's scaling potential via confidence-weighted answer entropy, then allocating a fixed System-2 (full-reasoning) sample budget in a single parallel batch based on that pre-estimate, cutting inference latency up to 43% and token usage up to 47% versus sequential adaptive baselines (AC, ESC) at comparable accuracy, with System 1's own overhead negligible (well under 1% of total latency) and the method composable with orthogonal weighted-voting and path-pruning techniques.",
       "title": "Seer Self-Consistency: Advance Budget Estimation for Adaptive Test-Time Scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.678",
+      "kind": "paper",
+      "note": "Trains large reasoning models with a special [Self-Reflection] token that triggers mid-generation introspection and recovery once harmful content is detected, cutting harmful content rate from 13.8% to 4.1% (nearly 3x) versus mainstream safety tuning, while also reducing generation token overhead by 15%+ compared to backtracking-based safety defenses.",
+      "title": "Self-Reflection Improves Safety of Large Reasoning Models"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:04:16Z",
+  "last_seen": "2026-09-01T10:24:36Z",
   "name": "DeepSeek-R1-Distill-Llama-8B",
   "related": [
     "overthinking",
@@ -343,7 +350,26 @@
     "confidence-weighted-majority-voting-orthogonality-check",
     "path-pruning-orthogonality-check",
     "qwen3-4b-thinking-and-non-thinking-modes",
-    "qwq-32b-generalizability-check-appendix"
+    "qwq-32b-generalizability-check-appendix",
+    "self-reflection-token",
+    "shallow-safety-alignment",
+    "self-doubt-pause-reflection-process",
+    "adaptive-jailbreak-attack-delayed-trigger-post-reflection-re-injection",
+    "self-reflection-sft-dpo-with-reflection-triggering-preference-pairs",
+    "reset-backtracking-baseline",
+    "bsafe-backtracking-baseline",
+    "llama-guard-3-safety-classifier-for-training-data-construction",
+    "toxicchat",
+    "aegis-ai-content-safety-dataset",
+    "safetybench",
+    "or-bench",
+    "phtest",
+    "hh-rlhf",
+    "openassistant-2",
+    "helpsteer2",
+    "dolly-2-0",
+    "pku-saferlhf",
+    "nvidia-nemotron-nano-9b-v2"
   ],
   "related_authored": [],
   "schema_version": 1,

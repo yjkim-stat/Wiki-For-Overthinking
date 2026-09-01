@@ -47,7 +47,7 @@ Reward-framing prompts, which drive the largest accuracy gains, are also shown t
 
 - **Concepts**: prompt-space scaling (test-time-scaling reframed for offline data augmentation), instructional wrapping (principled prompt templates), reward framing, trigram diversity, semantic diversity gain, seed-based construction paradigm
 - **Methods**: P-TTS (Prompting Test-Time Scaling), instructional wrapping (Reward/Penalty/Correctness/StepByStep principles), supervised fine-tuning (SFT, S1-adapted recipe), Temperature Sampling (ablation baseline)
-- **Datasets**: AIME (2022-2024, seed pool, 90 problems), [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), Gaokao, Kaoyan, [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AMC23](../../../../wiki/datasets/amc23.md), GradeSchoolMath, [Minerva](../../../../wiki/datasets/minerva.md), LegalBench (hearsay, personal jurisdiction, jcrew_blocker tasks)
+- **Datasets**: AIME (2022-2024, seed pool, 90 problems), [AIME25](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), Gaokao, [Kaoyan](../../../../wiki/datasets/kaoyan.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AMC23](../../../../wiki/datasets/amc23.md), GradeSchoolMath, [Minerva](../../../../wiki/datasets/minerva.md), LegalBench (hearsay, personal jurisdiction, jcrew_blocker tasks)
 
 Tags: `data-augmentation`, `supervised-fine-tuning`, `prompt-engineering`, `reasoning-distillation`, `low-resource-supervision`
 

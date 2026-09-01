@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+HMMT is a competition-math benchmark used to evaluate difficulty-adaptive exploration methods, including Thermometer of Thoughts (attention-temperature modulation as a difficulty-adaptive exploration control) and as one of the benchmarks in ARISE's evaluation of test-time-scaling metrics.
 
 - **Kind**: dataset
+- **Also called**: Harvard-MIT Mathematics Tournament
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

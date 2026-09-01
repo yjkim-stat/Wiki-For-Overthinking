@@ -1,0 +1,91 @@
+{
+  "attachments": {},
+  "completed_at": "2026-09-01T10:24:28Z",
+  "created_at": "2026-09-01T10:04:15Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "title:14e8a3607202d3e2",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [
+      "early exit"
+    ],
+    "pdf_url": "",
+    "published": "2026-01-01",
+    "scores": {
+      "overthinking": 0.5
+    },
+    "title": "Rethinking Calibration for Early-Exit Neural Networks",
+    "url": "https://icml.cc/virtual/2026/poster/62138",
+    "venue": "ICML 2026"
+  },
+  "result": {
+    "concepts": [
+      "Early-Exit Failure Prediction (EEFP)",
+      "calibration vs. cost-aware evaluation for early-exit networks"
+    ],
+    "contributions": [
+      "a critique of the assumption that improved calibration automatically improves early-exit neural network performance",
+      "Early-Exit Failure Prediction (EEFP), an evaluation criterion jointly weighing prediction correctness and computational cost",
+      "a lightweight EEFP-motivated intermediate-classifier training procedure that directly replaces calibration and achieves better cost-accuracy trade-offs"
+    ],
+    "datasets": [],
+    "limitations": "Not stated in the fetched abstract beyond the general EENN evaluation setting.",
+    "method": "Introduces Early-Exit Failure Prediction (EEFP), an evaluation criterion that jointly considers prediction correctness and the computational cost incurred, rather than calibration alone, to more accurately reflect overall EENN performance; develops a lightweight training procedure motivated by EEFP to improve the intermediate classifiers, designed to directly replace standard calibration methods in EENNs.",
+    "methods": [
+      "Early-Exit Failure Prediction (EEFP)",
+      "standard calibration methods (baseline, critiqued)"
+    ],
+    "models": [],
+    "one_liner": "Challenges the assumption that better-calibrated intermediate classifiers automatically improve early-exit neural networks, and introduces Early-Exit Failure Prediction (EEFP), an evaluation criterion weighing both prediction correctness and computational cost, plus a lightweight EEFP-motivated training procedure that directly replaces calibration and achieves superior cost-accuracy trade-offs.",
+    "problem": "Early-exit neural networks (EENNs) stop computation once an intermediate classifier's prediction is confident enough, and prior work assumes improving classifier calibration automatically improves overall EENN performance, but this assumption has not been rigorously examined and calibration may not actually be the right target for improving cost-accuracy trade-offs.",
+    "read_from": "abstract",
+    "relevance": {
+      "overthinking": "Off-topic domain: this is a general early-exit deep neural network calibration/evaluation methodology paper (classification-style EENNs), not about LLM reasoning-trace length; matched to the topic only via the shared term 'early exit', though its core critique -- that calibration alone is the wrong target and cost-aware evaluation matters more -- is a transferable caution for any confidence-based early-exit method proposed for LLM reasoning."
+    },
+    "results": "The EEFP-motivated procedure achieves superior cost-accuracy trade-offs compared to traditional calibration approaches, and EEFP as an evaluation metric more accurately reflects overall EENN system performance than calibration-based evaluation.",
+    "tags": [
+      "early-exit",
+      "calibration",
+      "cost-accuracy-tradeoff",
+      "adaptive-inference"
+    ]
+  },
+  "task_id": "paper__title-14e8a3607202d3e2",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

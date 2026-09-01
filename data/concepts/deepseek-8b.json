@@ -1,0 +1,44 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.656",
+      "kind": "paper",
+      "note": "DeepPrune identifies inter-trace redundancy in parallel test-time scaling (over 80% of parallel reasoning traces yield identical final answers) and trains a specialized judge model to predict answer equivalence from unfinished trace pairs, combined with online greedy clustering to prune redundant paths during generation, cutting token consumption 65.7-88.5% versus consensus sampling with accuracy within 3 percentage points.",
+      "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy"
+    }
+  ],
+  "first_seen": "2026-09-01T10:24:36Z",
+  "kind": "model",
+  "last_seen": "2026-09-01T10:24:36Z",
+  "name": "DeepSeek-8B",
+  "related": [
+    "inter-trace-redundancy",
+    "answer-equivalence-judge-model",
+    "online-greedy-clustering-early-stopping",
+    "reasoning-word-aligned-truncation",
+    "deepprune-judge-model-online-greedy-clustering",
+    "cons-512-majority-voting-consensus-baseline",
+    "deepconf-high-deepconf-low-confidence-based-pruning-baselines",
+    "aime-2022-training",
+    "aime-2023-training",
+    "math-500-training",
+    "aime-2024",
+    "aime-2025",
+    "gpqa",
+    "qwen3-4b-instruct-judge-model-backbone",
+    "deepseek-r1-distill-llama-8b-training-data-source-model",
+    "qwen3-32b",
+    "gpt-oss-20b",
+    "qwen3-4b-thinking-2507",
+    "glm-4-5-air",
+    "qwq-32b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "deepseek-8b",
+  "topics": [
+    "overthinking"
+  ]
+}

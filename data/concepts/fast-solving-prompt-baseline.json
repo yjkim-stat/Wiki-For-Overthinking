@@ -1,0 +1,39 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.697",
+      "kind": "paper",
+      "note": "O1-Pruner identifies 'length disharmony' -- shorter responses often achieve equal or higher accuracy than longer ones, at both the instance and distribution level -- and fine-tunes long-thought models with a PPO-style Length-Harmonizing Reward that rewards brevity relative to a reference model's own pre-sampled length/accuracy baseline, subject to an accuracy non-degradation constraint, cutting solution length by 34.7-40.5% while improving accuracy.",
+      "title": "O1-Pruner: Length-Harmonizing Fine-Tuning for O1-Like Reasoning Pruning"
+    }
+  ],
+  "first_seen": "2026-09-01T10:24:36Z",
+  "kind": "method",
+  "last_seen": "2026-09-01T10:24:36Z",
+  "name": "Fast-Solving Prompt (baseline)",
+  "related": [
+    "length-disharmony",
+    "length-harmonizing-reward",
+    "accuracy-non-degradation-constraint",
+    "off-policy-ppo-style-fine-tuning",
+    "accuracy-efficiency-score-aes",
+    "o1-pruner-length-harmonizing-fine-tuning",
+    "sft-baseline",
+    "dpo-baseline",
+    "grpo-referenced-technique",
+    "math-training-and-evaluation",
+    "gsm8k",
+    "aime-2025",
+    "marco-o1-7b",
+    "qwq-32b-preview",
+    "deepseek-r1-distill-qwen-7b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "fast-solving-prompt-baseline",
+  "topics": [
+    "overthinking"
+  ]
+}
