@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "Qwen3-32B is a backbone used in this archive's study of the faithfulness-safety tension (Risky Business, tested via its QwQ-32B relative) and in DTSR's training-free early-exit sufficiency-assessment framework, which cuts its reasoning length 28.9-34.9% with near-zero accuracy loss and 25-40% lower inference latency.",
+  "aliases": [
+    "Qwen3-32B"
+  ],
+  "definition": "A 32B-parameter model from the Qwen3 family supporting both thinking and non-thinking modes, used across this archive's sources as a backbone for studying adaptive thinking/non-thinking gating (Root-token Policy Optimization), reasoning-sufficiency early exit, length-compression training, safety-reasoning tension, and parallel-sampling redundancy (DeepPrune) -- typically as a mid-to-large open-weight reasoning model against which an efficiency or safety method is trained or evaluated.",
   "evidence": [
     {
       "id": "arxiv:2608.03745",

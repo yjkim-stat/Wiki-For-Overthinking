@@ -16,12 +16,84 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "AdaMix decouples efficiency and accuracy into two separately-trained LoRA adapters (a short adapter and a long adapter), then uses a BERT-based difficulty-aware router to predict a per-problem complexity coefficient that linearly interpolates the two adapters via task arithmetic, cutting DeepSeek-R1-Distill-Qwen-7B's average response length 54.9% while improving accuracy up to 4.8% across five math benchmarks and outperforming ShorterBetter/TLMRE/CoT-Valve/model-merging/SwitchCoT baselines on an accuracy-efficiency score.",
+        "title": "AdaMix: Adaptive Mixing for Short and Long Reasoning Adapters",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reveals that linear interpolation between an Instruct model's and a Thinking model's weights does not trade off performance and reasoning verbosity smoothly, but follows a predictable three-stage transition (Instruct-dominated -> abrupt thinking-pattern emergence -> converging to Thinking with diminishing/overthinking returns), and shows a strategically chosen interpolation point beats sophisticated model-merging baselines (task arithmetic, TIES) on both efficiency and accuracy.",
+        "title": "Revisiting Model Interpolation for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ETR (Entropy Trend Reward) shows chain-of-thought efficiency is governed by the trajectory of predictive uncertainty (whether entropy trends downward over the trace) rather than its absolute magnitude, and trains a momentum-weighted, trajectory-aware GRPO reward that rewards steady entropy descent while tolerating local exploration -- improving DeepSeek-R1-Distill-7B's accuracy by 9.9% while cutting CoT length 67% across four benchmarks, and achieving the best accuracy-efficiency trade-off score against seven training-free and RL baselines.",
+        "title": "ETR: Entropy Trend Reward for Efficient Chain-of-Thought Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "WHISPER treats a large reasoning model purely as a black-box communicator and mitigates overthinking with no training or model access at all, using an iterative refinement loop over persuasive prompts (psychological, evidence-based, role-play, threat, instruction) that finds a single deployable prompt suffix cutting response length up to 3x on simple questions with preserved accuracy.",
+        "title": "Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Step-GRPO internalizes dynamic early-exit into a reasoning model's own weights via a Dynamic Truncated Rollout exposing the model to short-yet-correct trajectories during RL training and a Step-Aware Relative Reward that penalizes redundant semantic steps relative to the group's own correct-completion baseline, cutting Qwen3-8B token usage 32.0% with no accuracy loss and zero inference-time overhead.",
+        "title": "Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A skill-centric distillation framework maps math problems onto a hierarchical skill tree, samples the 1,000 SFT training examples inversely proportional to the student model's per-skill accuracy (so it trains more on skills it is weak at), and prepends the required skill chain to each example, beating random-sampling SFT baselines by 1.6/1.4 points average accuracy on Qwen3-4B/8B across five math benchmarks with the same 1K-example budget.",
+        "title": "Skill-Aware Data Selection and Fine-Tuning for Data-Efficient Reasoning Distillation",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ThinkBrake is a training-free decoding rule that injects </think> at sentence boundaries whenever the log-probability margin between the top continuation token and </think> narrows below a threshold, recovering most of an oracle stopping point's headroom (8% accuracy gain, 72% token reduction) with a theoretically grounded, model-agnostic criterion, and its generated trajectories can also train models via DPO for training-free-free efficient reasoning.",
+        "title": "ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MR-ALIGN names and measures the 'reasoning-answer hit gap' -- a model surfaces the correct fact early in its thinking trace but discards it before the final answer -- and fixes it by segmenting reasoning into 15 cognitively-grounded meta-reasoning states (framing, backtracking, self-verification, retrieval, etc.), estimating a transition matrix between them via EM, and using KTO with an implicit reward reweighted by how much each segment's local state-transition probability deviates from the corpus-wide pattern; without any external verifier or retrieval, this improves accuracy and reduces misleading answers across three backbones and five factual-QA/long-form-factuality benchmarks, and post-alignment reasoning traces become measurably shorter and more concise as a side effect.",
+        "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACE is a training-free dynamic early-exit method that aggregates two multi-step signals over a sliding window of recent reasoning steps -- Answer Consistency Score and Confidence Trajectory Score -- to detect genuine reasoning convergence, reducing tokens by 25-30% while staying within 1-2% accuracy of full-length reasoning, and beating existing single-step confidence-based early-exit baselines by 2-4 accuracy points at comparable or lower token budgets.",
+        "title": "Efficient Test-Time Scaling via Temporal Reasoning Aggregation",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T00:11:39Z",
-  "created_at": "2026-08-28T00:09:25Z",
-  "instructions": "Write the wiki definition for 'Qwen3-4B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-01T11:08:29Z",
+  "created_at": "2026-09-01T11:03:46Z",
+  "instructions": "Revise the wiki definition for 'Qwen3-4B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Qwen3-4B is a backbone tested by MUR's momentum-uncertainty-guided reasoning (cutting thinking-token budgets over 45% while improving accuracy) and used as one of the 20 models in a large-scale statistical study of how to reliably rank reasoning LLMs under test-time scaling.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-4B",
   "kind": "concept",
   "language": "en",
@@ -37,13 +109,19 @@
   },
   "payload": {
     "name": "Qwen3-4B",
-    "source_count": 2
+    "previous_definition": "Qwen3-4B is a backbone tested by MUR's momentum-uncertainty-guided reasoning (cutting thinking-token budgets over 45% while improving accuracy) and used as one of the 20 models in a large-scale statistical study of how to reliably rank reasoning LLMs under test-time scaling.",
+    "source_count": 11
   },
   "result": {
-    "aliases": [],
-    "definition": "Qwen3-4B is a backbone tested by MUR's momentum-uncertainty-guided reasoning (cutting thinking-token budgets over 45% while improving accuracy) and used as one of the 20 models in a large-scale statistical study of how to reliably rank reasoning LLMs under test-time scaling.",
+    "aliases": [
+      "Qwen3-4B"
+    ],
+    "definition": "Qwen3-4B is a backbone tested by MUR's momentum-uncertainty-guided reasoning (cutting thinking-token budgets over 45% while improving accuracy) and used as one of the 20 models in a large-scale statistical study of how to reliably rank reasoning LLMs under test-time scaling. It also appears as a backbone in AdaMix's short/long adapter mixing, Revisiting Model Interpolation's finding that Instruct/Thinking weight interpolation does not trade off performance and verbosity smoothly, ETR's entropy-trend-based CoT efficiency reward, Step-GRPO's internalized dynamic early exit, a skill-aware data-selection distillation framework, ThinkBrake's log-probability-margin decoding, MR-ALIGN's reasoning-answer hit gap measurement, and TRACE's sliding-window dynamic early-exit method.",
     "kind": "model",
-    "related": []
+    "related": [
+      "Qwen3-14B",
+      "Qwen3-32B"
+    ]
   },
   "task_id": "concept__qwen3-4b",
   "task_version": 1,

@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-A closed-source reasoning model used as a comparison/generator model in a parallel-reasoning study (named among frontier models compared against a trained Parason variant) and as a jailbreak evaluation target in the Mousetrap iterative-chaos-chain attack, where -- alongside other advanced reasoning models tested -- it is found to be nearly completely jailbroken at chain lengths up to 3.
+Google's proprietary reasoning-capable LLM, used across this archive's sources as a strong closed-weight baseline or evaluated system -- appearing as a test subject in jailbreak/red-teaming benchmarks (Mousetrap, Rt-LRM), a component or comparator in test-time-scaling frameworks (SCOPE, FS-Researcher, Timely Machine), and as one of the models profiled in cognitive-taxonomy reasoning-trace analyses (BloomEval).
 
 - **Kind**: model
-- **Also called**: Gemini-2.5-pro
+- **Also called**: Gemini 2.5 Pro, Gemini-2.5-Pro, Gemini-2.5-pro
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 11
 

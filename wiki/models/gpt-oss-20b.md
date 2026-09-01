@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-GPT-OSS-20B is an open-weight reasoning model evaluated in this archive across several efficient-reasoning and test-time-scaling methods: ParaTempo's temporal-confidence parallel-branch controller, Risa's MoE-router-guided test-time scaling for software agents, TRS's skill-card retrieval, REFRAIN's reflective-redundancy early stopping, GENCLUSTER's IOI-gold-medal test-time-compute pipeline (where it is outperformed by the larger gpt-oss-120b), and FROST's attention-based reasoning-outlier pruning.
+GPT-OSS-20B is an open-weight reasoning model used across this archive as a standard mid-size backbone for evaluating efficient-reasoning and test-time-scaling methods, appearing in: ParaTempo's temporal-confidence parallel-branch controller, Risa's MoE-router-guided test-time scaling for software agents, TRS's skill-card retrieval, REFRAIN's reflective-redundancy early stopping, GENCLUSTER's IOI-gold-medal test-time-compute pipeline (where it is outperformed by the larger gpt-oss-120b), FROST's attention-based reasoning-outlier pruning, STOP's KV-state-based path pruning, the ETC (Effective Token Cost) deep-search reranking-tradeoff study, ReasonIF's instruction-following-under-reasoning benchmark, CoTJudger's dependency-graph CoT evaluation, ARISE's test-time-scaling metric, Budget-Aware Anytime Reasoning's Anytime Index, and DeepPrune's parallel-trace-redundancy pruning.
 
 - **Kind**: model
-- **Also called**: GPT-OSS, GPT-oss-20B, gpt-oss-20B, gpt-oss-20b
+- **Also called**: GPT-OSS, GPT-OSS-20B, GPT-oss-20B, gpt-oss-20B, gpt-oss-20b
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 13
 

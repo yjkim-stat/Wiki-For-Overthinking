@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-In this archive HumanEval is the code-generation leg of the evaluation suites, graded by executing the generated function, and it behaves like an easy set on the accuracy/length tradeoff rather than like a hard one. C4 decodes LLaDA HumanEval at 42.1 against a 40.2 full-decoding baseline using 39.4 of 384 diffusion steps (10.3% of the budget, 8.69x), while the margin-based baselines it compares against collapse to 3.0 and 12.8. It is also where confidence proxies fail hardest: C4's phase diagram puts Prophet's commit before the answer has stabilised on 99% of HumanEval trajectories (against 87% on MATH and 4% on MMLU), and C4's own confidence-only ablation drops to 4.9. DEER includes it among ten benchmarks over which chain-of-thought length falls 19.1%-80.1% while accuracy rises 0.3%-5.0%, and ShorterBetter places it in the 6K out-of-domain suite where length falls 62.3% at a 0.48% accuracy cost; neither reports a HumanEval-specific length number.
+A code-generation benchmark of hand-written Python programming problems checked by unit tests, used across this archive's sources as one standard task (alongside math benchmarks) for evaluating whether reasoning-efficiency methods -- adaptive early exit, length-shortening RL rewards, test-time-scaling frameworks -- preserve code-generation accuracy while cutting tokens or latency.
 
 - **Kind**: dataset
-- **Also called**: HumanEval+
+- **Also called**: HumanEval, HumanEval+
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 12
 

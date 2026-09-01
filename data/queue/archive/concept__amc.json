@@ -11,6 +11,70 @@
       },
       {
         "kind": "paper",
+        "note": "Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.",
+        "title": "Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Names 'invalid thinking' -- redundant double-checking after a reasoning model has already derived the correct answer -- as a specific, measurable form of overthinking (Valid Thinking rate as low as 57.5-65.3% on four SOTA LRMs), and introduces LC-R1, a GRPO method with a dual Length Reward (global conciseness) and Compress Reward (targeted removal of the redundant tail), achieving ~46-52% length reduction for only 1.8-2.1% accuracy loss and 97%+ Valid Thinking rate.",
+        "title": "Optimizing Length Compression in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows that short-context (4K-token) post-training alone -- with pure GRPO and no length-aware reward at all -- already induces reasoning compression comparable to dedicated length-control RL methods, isolating training context length as a confound in prior efficient-reasoning work; but this compression destabilizes training because truncated-yet-correct rollouts get zero reward, so Step-level Advantage Selection (SAS) zeros the advantage of low-confidence steps in correct rollouts and high-confidence steps in verifier-failed rollouts, cutting average reasoning length 30%+ while improving Pass@1 by 3.79 points over the strongest length-aware baseline.",
+        "title": "Stabilizing Efficient Reasoning with Step-Level Advantage Selection",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CLARO treats conciseness as an emergent property of well-structured reasoning rather than a truncation target: it fine-tunes models via GRPO with two correctness-gated reward terms (structural attribute alignment -- readability, mathematical-notation density, syntactic compression, low redundancy -- plus a length-contribution term) within a user-specified token budget, outperforming length-controlled baselines (s1, L1-Max) by up to 63.6% relative accuracy under matched budgets across eight math and general-reasoning benchmarks, while a lightweight zero-shot prompting variant (Attribute-Guided Prompting) is shown to be far more robust than simply instructing a model to 'prioritize conciseness.'",
+        "title": "CLARO: Controlled Attribute-Driven Reasoning Optimization for Efficient Chain-of-Thought",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReasonIF is a 300-sample, six-instruction-type benchmark (multilinguality, word limit, disclaimer, JSON formatting, uppercase-only, remove-commas) showing large reasoning models comply with instructions far less inside their reasoning trace (average IFS 15.6%) than in their main response (57.3%), that reasoning instruction-following degrades further as problem difficulty rises (positive correlation up to 0.863 with accuracy), and that both multi-turn self-reflection and supervised fine-tuning on synthetic reasoning-instruction data (RIF) only partially close the gap, the latter trading a measurable accuracy drop for the IFS gain.",
+        "title": "ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SIGMA reframes token-efficient RL as a classical exploration-exploitation problem: a self-imitation exploitation module prioritizes training on prompts/rollouts with high compression potential via a dynamic priority table and a compression-ratio-weighted self-imitation loss, while a self-guidance exploration module directs otherwise-undirected long-response exploration via prompt-based token-budget regeneration or random truncation -- improving average accuracy by 7.9%/2.9% while cutting average reasoning length 43.4%/40.3% on 1.5B/7B DeepSeek-R1-Distill models across six benchmarks, beating eight RL-based efficient-reasoning baselines.",
+        "title": "Exploration-Exploitation Reshaping towards Efficient Reasoning for Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
+        "title": "Steering LLM Thinking with Budget Guidance",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Derives an exact, non-asymptotic decomposition of GRPO's token-level policy update showing entropy collapse in reasoning RL is driven by a small subset (~5%) of structurally critical 'branch-defining' tokens rather than uniform decay across the sequence, and proposes SCOPE, which applies KL regularization only to that top-5% (ranked by a computable redistribution score), consistently improving both Pass@1 and Pass@k under both RLVR and RLIF across model scales.",
+        "title": "A Few Bad Apples Spoil the Bunch: Preventing Global Entropy Collapse Driven by a Small Set of Tokens in LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "ConPress observes that a reasoning model shortens its traces when several independent questions share one prompt, and harvests those shortened traces as self-supervised fine-tuning data for the single-question setting.",
         "title": "ConPress: Learning Efficient Reasoning from Multi-Question Contextual Pressure",
         "topics": [
@@ -21,14 +85,6 @@
         "kind": "paper",
         "note": "Introduces Self-Braking Tuning, which trains a large reasoning model to detect and stop its own redundant reasoning steps, cutting token usage by up to 60% with comparable accuracy on math benchmarks.",
         "title": "Let LRMs Break Free from Overthinking via Self-Braking Tuning",
-        "topics": [
-          "overthinking"
-        ]
-      },
-      {
-        "kind": "paper",
-        "note": "Argues that the SFT-then-RL recipe works because RL decomposes compound reasoning traces into reusable atomic modules, formalises this as a hierarchical latent selection model, and tests it on synthetic string-transformation tasks.",
-        "title": "From Reasoning Traces to Reusable Modules: Understanding Compositional Generalization in Language Model Reasoning",
         "topics": [
           "overthinking"
         ]
@@ -51,9 +107,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T03:44:00Z",
-  "created_at": "2026-08-21T02:03:43Z",
-  "instructions": "Revise the wiki definition for 'AMC'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A competition-math benchmark used alongside AIME and MATH-500 in the archive's 3 sources as a standard hard-reasoning evaluation set: verifier-free self-correction (Refining Over Resampling), self-braking tuning, and reasoning-step pruning (LIMOPro). The sources use it only as an evaluation target, not describing its construction.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-01T11:08:29Z",
+  "created_at": "2026-09-01T11:03:46Z",
+  "instructions": "Revise the wiki definition for 'AMC'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that should not be confused: as a dated sitting used for evaluation, almost always AMC23 with its 40 problems, and as an undated pool that training corpora draw from alongside AIME, Omni-MATH and Still. At 40 problems a sitting it is small enough that a few items move a reported accuracy by percentage points, which several papers here note when comparing close methods.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AMC",
   "kind": "concept",
   "language": "en",
@@ -62,24 +118,24 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "AMC",
-    "previous_definition": "A competition-math benchmark used alongside AIME and MATH-500 in the archive's 3 sources as a standard hard-reasoning evaluation set: verifier-free self-correction (Refining Over Resampling), self-braking tuning, and reasoning-step pruning (LIMOPro). The sources use it only as an evaluation target, not describing its construction.",
-    "source_count": 6
+    "previous_definition": "The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that should not be confused: as a dated sitting used for evaluation, almost always AMC23 with its 40 problems, and as an undated pool that training corpora draw from alongside AIME, Omni-MATH and Still. At 40 problems a sitting it is small enough that a few items move a reported accuracy by percentage points, which several papers here note when comparing close methods.",
+    "source_count": 13
   },
   "result": {
     "aliases": [
-      "AMC (2022-2023)"
+      "AMC",
+      "American Mathematics Competitions"
     ],
-    "definition": "The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that should not be confused: as a dated sitting used for evaluation, almost always AMC23 with its 40 problems, and as an undated pool that training corpora draw from alongside AIME, Omni-MATH and Still. At 40 problems a sitting it is small enough that a few items move a reported accuracy by percentage points, which several papers here note when comparing close methods.",
+    "definition": "The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that should not be confused: as a dated sitting used for evaluation, almost always AMC23 with its 40 problems, and as an undated pool that training corpora draw from alongside AIME, Omni-MATH and Still. At 40 problems a sitting it is small enough that a few items move a reported accuracy by percentage points, which several papers here note when comparing close methods. It is now one of the archive's most common held-out benchmarks for reasoning-efficiency and length-control methods specifically -- ShorterBetter, Self-Braking Tuning, LIMOPro, CLARO, ConPress, SIGMA, Budget Guidance, Step-Level Advantage Selection and Refining Over Resampling all report AMC (usually AMC23) accuracy alongside a token-length or generation-round metric, and a mechanistic study of GRPO entropy collapse (A Few Bad Apples...) uses it as one of its RL training/eval sets.",
     "kind": "dataset",
     "related": [
-      "AMC23",
       "AIME"
     ]
   },

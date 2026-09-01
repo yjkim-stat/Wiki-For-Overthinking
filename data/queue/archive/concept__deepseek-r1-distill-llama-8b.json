@@ -48,12 +48,92 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+        "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AdaMix decouples efficiency and accuracy into two separately-trained LoRA adapters (a short adapter and a long adapter), then uses a BERT-based difficulty-aware router to predict a per-problem complexity coefficient that linearly interpolates the two adapters via task arithmetic, cutting DeepSeek-R1-Distill-Qwen-7B's average response length 54.9% while improving accuracy up to 4.8% across five math benchmarks and outperforming ShorterBetter/TLMRE/CoT-Valve/model-merging/SwitchCoT baselines on an accuracy-efficiency score.",
+        "title": "AdaMix: Adaptive Mixing for Short and Long Reasoning Adapters",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SGP-CoT identifies which reasoning units a model can safely drop using only its own intrinsic likelihood signals (counterfactual answer-impact and coherence-impact scores, no external verifier or curated data), then trains the model via preference optimization on self-pruned traces, cutting reasoning length 15-50% across five model families while preserving or improving accuracy -- and shows pruning by a different model consistently degrades accuracy more than self-pruning.",
+        "title": "Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "WHISPER treats a large reasoning model purely as a black-box communicator and mitigates overthinking with no training or model access at all, using an iterative refinement loop over persuasive prompts (psychological, evidence-based, role-play, threat, instruction) that finds a single deployable prompt suffix cutting response length up to 3x on simple questions with preserved accuracy.",
+        "title": "Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An empirical study of safety fine-tuning for LRMs finds directly distilling safe responses from DeepSeek-R1 barely reduces jailbreak Attack Success Rate, identifies five risky reasoning patterns responsible (including overthinking and 'weak vacillation' -- hesitating over superficially benign jailbreak framing, which survives safety filtering and is the key residual driver of failures), shows explicitly targeting these patterns in the distillation prompt cuts PAIR ASR from 63% to 13%, and finds short or template-based safety reasoning matches long-form reasoning's safety performance -- unlike math/code, safety does not benefit from longer reasoning chains.",
+        "title": "How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "NEAT identifies a sparse set of 'exit-associated neurons' whose FFN activation dynamics causally predict the </think> termination token, then monitors these neurons training-free during inference to trigger graded early exit or reflection suppression -- cutting average token generation 22-28% across four benchmarks and six models with accuracy comparable to vanilla decoding, and 21-23% real wall-clock latency reduction versus vanilla and CGRS (which is 41-63% slower than vanilla despite shortening output, due to its own scoring overhead).",
+        "title": "NEAT: Neuron-Based Early Exit for Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CLARO treats conciseness as an emergent property of well-structured reasoning rather than a truncation target: it fine-tunes models via GRPO with two correctness-gated reward terms (structural attribute alignment -- readability, mathematical-notation density, syntactic compression, low redundancy -- plus a length-contribution term) within a user-specified token budget, outperforming length-controlled baselines (s1, L1-Max) by up to 63.6% relative accuracy under matched budgets across eight math and general-reasoning benchmarks, while a lightweight zero-shot prompting variant (Attribute-Guided Prompting) is shown to be far more robust than simply instructing a model to 'prioritize conciseness.'",
+        "title": "CLARO: Controlled Attribute-Driven Reasoning Optimization for Efficient Chain-of-Thought",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Shows via t-SNE that verbose and concise chains-of-thought occupy visibly separable regions of a reasoning model's intermediate activation space, then learns a single, KL-trust-region-constrained steering vector (Contrastive Energy-Based Steering, CES) from only 100 verbose-concise CoT pairs by ranking concise traces below verbose ones in length-normalized energy under the steered model -- Activation-Steered Compression (ASC) cuts CoT length up to 69.35% with no accuracy loss across four model scales and multiple benchmarks, achieves 2.7x end-to-end wall-clock speedup, generalizes cross-task with 0.92 cosine similarity between dataset-specific steering vectors, and mitigates a documented 'underthinking' failure mode (excessive backtracking/path-switching without commitment) in QwQ-32B specifically.",
+        "title": "Activation Steering for Chain-of-Thought Compression",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SeerSC resolves a specific gap in adaptive self-consistency methods -- reduced token usage from sequential early-stopping does not translate into reduced latency, since sequential budget decisions conflict with the parallel-sampling engines modern inference uses -- by having a cheap System-1 pass (direct, non-reasoning answers) pre-estimate each query's scaling potential via confidence-weighted answer entropy, then allocating a fixed System-2 (full-reasoning) sample budget in a single parallel batch based on that pre-estimate, cutting inference latency up to 43% and token usage up to 47% versus sequential adaptive baselines (AC, ESC) at comparable accuracy, with System 1's own overhead negligible (well under 1% of total latency) and the method composable with orthogonal weighted-voting and path-pruning techniques.",
+        "title": "Seer Self-Consistency: Advance Budget Estimation for Adaptive Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Trains large reasoning models with a special [Self-Reflection] token that triggers mid-generation introspection and recovery once harmful content is detected, cutting harmful content rate from 13.8% to 4.1% (nearly 3x) versus mainstream safety tuning, while also reducing generation token overhead by 15%+ compared to backtracking-based safety defenses.",
+        "title": "Self-Reflection Improves Safety of Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T00:11:38Z",
-  "created_at": "2026-08-28T00:09:26Z",
-  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Llama-8B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Llama-8B is a language model that two archived papers run experiments on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. In ReCo it is one of three evaluated models and the one where cache compression is hardest: reward-coordinated compression holds 60.2% six-benchmark accuracy against 62.8% for full-cache CoT at 37% fewer tokens, while the baselines it is compared with collapse on this model (R-KV 48.1%, SnapKV 37.5%), and at a 25% R-KV retention rate its MATH-500 generations grow from 4,409.8 to 7,891.7 tokens, an increase of 79.0%. Keep, Customize, or Exit uses it with Qwen3-8B only to calibrate an accuracy-versus-reasoning-token curve, Q(r) = D + A(1 - e^{-br}), under s1-style budget forcing on AIME 2024, AIME 2025, GPQA Diamond, GSM8K and HMMT 2025, three samples per question -- the model supplies the empirical shape that a pricing game is then built on, rather than being the object of study. Neither paper reports its architecture or training.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-01T11:03:35Z",
+  "created_at": "2026-09-01T10:46:15Z",
+  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Llama-8B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Llama-8B is a distilled reasoning-model backbone tested across this archive's efficient-reasoning work (ReCo's reward-coordinated KV-cache and token control cutting tokens 37-65%), a game-theoretic study of reasoning-token pricing, cognitive profiling via Bloom's taxonomy, NeuReasoner's overthinking-detecting neuron clusters, FoE's 'first solution is best' finding, and CiPO's counterfactual machine-unlearning method.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1-Distill-Llama-8B",
   "kind": "concept",
   "language": "en",
@@ -69,14 +149,19 @@
   },
   "payload": {
     "name": "DeepSeek-R1-Distill-Llama-8B",
-    "previous_definition": "DeepSeek-R1-Distill-Llama-8B is a language model that two archived papers run experiments on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. In ReCo it is one of three evaluated models and the one where cache compression is hardest: reward-coordinated compression holds 60.2% six-benchmark accuracy against 62.8% for full-cache CoT at 37% fewer tokens, while the baselines it is compared with collapse on this model (R-KV 48.1%, SnapKV 37.5%), and at a 25% R-KV retention rate its MATH-500 generations grow from 4,409.8 to 7,891.7 tokens, an increase of 79.0%. Keep, Customize, or Exit uses it with Qwen3-8B only to calibrate an accuracy-versus-reasoning-token curve, Q(r) = D + A(1 - e^{-br}), under s1-style budget forcing on AIME 2024, AIME 2025, GPQA Diamond, GSM8K and HMMT 2025, three samples per question -- the model supplies the empirical shape that a pricing game is then built on, rather than being the object of study. Neither paper reports its architecture or training.",
-    "source_count": 6
+    "previous_definition": "DeepSeek-R1-Distill-Llama-8B is a distilled reasoning-model backbone tested across this archive's efficient-reasoning work (ReCo's reward-coordinated KV-cache and token control cutting tokens 37-65%), a game-theoretic study of reasoning-token pricing, cognitive profiling via Bloom's taxonomy, NeuReasoner's overthinking-detecting neuron clusters, FoE's 'first solution is best' finding, and CiPO's counterfactual machine-unlearning method.",
+    "source_count": 16
   },
   "result": {
-    "aliases": [],
-    "definition": "DeepSeek-R1-Distill-Llama-8B is a distilled reasoning-model backbone tested across this archive's efficient-reasoning work (ReCo's reward-coordinated KV-cache and token control cutting tokens 37-65%), a game-theoretic study of reasoning-token pricing, cognitive profiling via Bloom's taxonomy, NeuReasoner's overthinking-detecting neuron clusters, FoE's 'first solution is best' finding, and CiPO's counterfactual machine-unlearning method.",
+    "aliases": [
+      "DeepSeek-R1-Distill-Llama-8B",
+      "R1-Distill-Llama-8B"
+    ],
+    "definition": "An 8B Llama-architecture model distilled from DeepSeek-R1's reasoning traces, used across this archive as a standard mid-size open-weight reasoning-model backbone for evaluating and training test-time-efficiency and safety interventions (length control, early exit, KV-cache reduction, self-reflection safety training) rather than as a subject of study in its own right.",
     "kind": "model",
-    "related": []
+    "related": [
+      "DeepSeek-R1"
+    ]
   },
   "task_id": "concept__deepseek-r1-distill-llama-8b",
   "task_version": 1,

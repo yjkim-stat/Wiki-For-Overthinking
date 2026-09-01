@@ -1,6 +1,9 @@
 {
-  "aliases": [],
-  "definition": "A multiple-choice knowledge benchmark that the archive's papers use mainly as the short-answer, low-difficulty end of a reasoning suite, and as a capability-preservation check rather than as a place where reasoning length is studied. C4 groups it with ARC-C, HellaSwag, WinoGrande and PIQA as short-answer tasks and reports that its margin-based baseline Prophet commits prematurely on only 4% of MMLU trajectories against 87% on MATH and 99% on HumanEval, so MMLU is where answers stabilise earliest. Statistical Early Stopping runs on a 133-item MMLU math subset and saves 69.83% of tokens on ill-posed instances at a 2.63% false-stop rate (alpha = 5%), its lowest false-stop figure; Risky Business uses MMLU alone (570 questions, 10 per subject over 57 subjects, 0.877 macro accuracy unsteered) to argue that steering costs no capability, and its own limitations section says that n bounds a degradation only loosely. ShorterBetter and Optimal Self-Consistency include it in mixed suites without reporting a per-benchmark number, so the archive holds no standalone MMLU accuracy/length tradeoff figure from them.",
+  "aliases": [
+    "MMLU",
+    "Massive Multitask Language Understanding"
+  ],
+  "definition": "A multiple-choice knowledge benchmark that the archive's papers use mainly as the short-answer, low-difficulty end of a reasoning suite, and as a capability-preservation check rather than as a place where reasoning length is studied. C4 groups it with ARC-C, HellaSwag, WinoGrande and PIQA as short-answer tasks and reports that its margin-based baseline Prophet commits prematurely on only 4% of MMLU trajectories against 87% on MATH and 99% on HumanEval, so MMLU is where answers stabilise earliest. Statistical Early Stopping runs on a 133-item MMLU math subset and saves 69.83% of tokens on ill-posed instances at a 2.63% false-stop rate (alpha = 5%), its lowest false-stop figure; Risky Business uses MMLU alone (570 questions, 10 per subject over 57 subjects, 0.877 macro accuracy unsteered) to argue that steering costs no capability, and its own limitations section says that n bounds a degradation only loosely. ShorterBetter and Optimal Self-Consistency include it in mixed suites without reporting a per-benchmark number, so the archive holds no standalone MMLU accuracy/length tradeoff figure from them. A growing set of further sources -- ReasoningGuard, TH2T, AttnPO, AdaMix, Trace Inversion, Step-Level Advantage Selection, CLARO, ERRV, Atom of Thoughts, AutoThink, and Compute Optimal Scaling of Skills -- likewise use MMLU as a standard held-out sanity check confirming an efficiency, safety, or adaptive-reasoning method does not erode general knowledge accuracy while it changes reasoning length or behaviour, rather than as a subject of dedicated study.",
   "evidence": [
     {
       "id": "arxiv:2607.28166",
@@ -381,8 +384,7 @@
     "chain-of-thought-prompting"
   ],
   "related_authored": [
-    "mmlu-pro",
-    "mmlu-stem"
+    "mmlu-pro"
   ],
   "schema_version": 1,
   "slug": "mmlu",

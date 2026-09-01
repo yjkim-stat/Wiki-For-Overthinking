@@ -2,9 +2,10 @@
   "aliases": [
     "American Mathematics Competitions",
     "AMC23",
-    "AMC (2022-2023)"
+    "AMC (2022-2023)",
+    "AMC"
   ],
-  "definition": "The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that should not be confused: as a dated sitting used for evaluation, almost always AMC23 with its 40 problems, and as an undated pool that training corpora draw from alongside AIME, Omni-MATH and Still. At 40 problems a sitting it is small enough that a few items move a reported accuracy by percentage points, which several papers here note when comparing close methods.",
+  "definition": "The American Mathematics Competitions, used in this archive as a source of competition problems sitting between GSM8K and AIME in difficulty. Sources cite it in two ways that should not be confused: as a dated sitting used for evaluation, almost always AMC23 with its 40 problems, and as an undated pool that training corpora draw from alongside AIME, Omni-MATH and Still. At 40 problems a sitting it is small enough that a few items move a reported accuracy by percentage points, which several papers here note when comparing close methods. It is now one of the archive's most common held-out benchmarks for reasoning-efficiency and length-control methods specifically -- ShorterBetter, Self-Braking Tuning, LIMOPro, CLARO, ConPress, SIGMA, Budget Guidance, Step-Level Advantage Selection and Refining Over Resampling all report AMC (usually AMC23) accuracy alongside a token-length or generation-round metric, and a mechanistic study of GRPO entropy collapse (A Few Bad Apples...) uses it as one of its RL training/eval sets.",
   "evidence": [
     {
       "id": "arxiv:2608.05643",
@@ -286,7 +287,6 @@
     "pir-perplexity-based-importance-refinement"
   ],
   "related_authored": [
-    "amc23",
     "aime"
   ],
   "schema_version": 1,

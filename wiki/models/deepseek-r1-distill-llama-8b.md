@@ -2,10 +2,10 @@
 
 <!-- auto:begin -->
 
-DeepSeek-R1-Distill-Llama-8B is a distilled reasoning-model backbone tested across this archive's efficient-reasoning work (ReCo's reward-coordinated KV-cache and token control cutting tokens 37-65%), a game-theoretic study of reasoning-token pricing, cognitive profiling via Bloom's taxonomy, NeuReasoner's overthinking-detecting neuron clusters, FoE's 'first solution is best' finding, and CiPO's counterfactual machine-unlearning method.
+An 8B Llama-architecture model distilled from DeepSeek-R1's reasoning traces, used across this archive as a standard mid-size open-weight reasoning-model backbone for evaluating and training test-time-efficiency and safety interventions (length control, early exit, KV-cache reduction, self-reflection safety training) rather than as a subject of study in its own right.
 
 - **Kind**: model
-- **Also called**: DeepSeek-R1-Distill-LLaMA-8B, DeepSeek-R1-Distill-Llama (8B), Llama-8B
+- **Also called**: DeepSeek-R1-Distill-LLaMA-8B, DeepSeek-R1-Distill-Llama (8B), DeepSeek-R1-Distill-Llama-8B, Llama-8B, R1-Distill-Llama-8B
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 16
 

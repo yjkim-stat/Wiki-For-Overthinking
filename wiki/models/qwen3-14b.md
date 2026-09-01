@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-Qwen3-14B is a backbone tested by DTSR, a training-free early-exit framework where the model self-assesses from a third-person perspective whether its own reasoning so far is sufficient, cutting reasoning length 28.9-34.9% with near-zero accuracy loss while also cutting latency (unlike DEER, which reduces length but increases it), and by the paper defining the Reasoning Completion Point / two-stage Reasoning Dynamics structure.
+Qwen3-14B is a backbone tested by DTSR, a training-free early-exit framework where the model self-assesses from a third-person perspective whether its own reasoning so far is sufficient, cutting reasoning length 28.9-34.9% with near-zero accuracy loss while also cutting latency (unlike DEER, which reduces length but increases it), and by the paper defining the Reasoning Completion Point / two-stage Reasoning Dynamics structure (The Evolution of Thought). It is also used as a backbone or evaluated model in ReProbe's transformer-probe test-time scaling, RFS-Guard's reasoning-hallucination detection, WHISPER's black-box overthinking mitigation, an empirical study of LRM safety fine-tuning, ThinkBrake's log-probability-margin decoding, an analysis of self-jailbreak via reasoning-trace decomposition, NEAT's neuron-based early exit, and MR-ALIGN's reasoning-answer hit gap measurement.
 
 - **Kind**: model
+- **Also called**: Qwen3-14B
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 10
 

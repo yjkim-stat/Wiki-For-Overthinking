@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-Qwen3-4B is a backbone tested by MUR's momentum-uncertainty-guided reasoning (cutting thinking-token budgets over 45% while improving accuracy) and used as one of the 20 models in a large-scale statistical study of how to reliably rank reasoning LLMs under test-time scaling.
+Qwen3-4B is a backbone tested by MUR's momentum-uncertainty-guided reasoning (cutting thinking-token budgets over 45% while improving accuracy) and used as one of the 20 models in a large-scale statistical study of how to reliably rank reasoning LLMs under test-time scaling. It also appears as a backbone in AdaMix's short/long adapter mixing, Revisiting Model Interpolation's finding that Instruct/Thinking weight interpolation does not trade off performance and verbosity smoothly, ETR's entropy-trend-based CoT efficiency reward, Step-GRPO's internalized dynamic early exit, a skill-aware data-selection distillation framework, ThinkBrake's log-probability-margin decoding, MR-ALIGN's reasoning-answer hit gap measurement, and TRACE's sliding-window dynamic early-exit method.
 
 - **Kind**: model
+- **Also called**: Qwen3-4B
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 11
 
