@@ -48,7 +48,7 @@ Experiments focus exclusively on LLMs that process only text as input and output
 
 - **Concepts**: token elasticity (budget-constraint non-compliance rebound), implicit monotonicity assumption, token-budget-aware prompting, budget-aware post-training internalization
 - **Methods**: token-budget-aware CoT prompting, binary-search optimal budget search (with greedy feasibility refinement), TALE-EP (zero-shot budget estimation and prompting), TALE-PT (SFT-based and DPO-based post-training internalization)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), GSM8K-Zero, MathBench (Arithmetic/Middle/High/College)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [GSM8K-Zero](../../../../wiki/datasets/gsm8k-zero.md), MathBench (Arithmetic/Middle/High/College)
 
 Tags: `overthinking`, `token-budget`, `chain-of-thought`, `prompt-engineering`, `post-training`
 

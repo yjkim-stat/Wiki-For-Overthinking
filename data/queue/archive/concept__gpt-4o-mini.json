@@ -24,12 +24,52 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Thinking with Reasoning Skills (TRS) is a training-free, black-box-compatible framework that offline-distills long deliberation trajectories (successes and failures) into compact, retrievable 'skill cards' (Trigger/Do/Avoid/Check/Risk), retrieves and injects the most relevant cards into a new query's prompt at inference time instead of forcing the model to re-derive solution logic from scratch, and empirically reduces reasoning tokens while matching or improving accuracy versus standard CoT across multiple LLMs on math and coding benchmarks -- with gains growing on harder problems, unlike budget-forcing baselines (TALE, Chain-of-Draft) which collapse below baseline accuracy as difficulty increases.",
+        "title": "Thinking with Reasoning Skills: Fewer Tokens, More Accuracy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
+        "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "VecCISC reduces the cost of Confidence-Informed Self-Consistency (CISC) -- which needs a separate critic-LLM call on every sampled reasoning trace to weight majority voting -- by embedding traces, clustering them per candidate answer, and sending only cluster-representative (nearest-centroid) traces to the critic, cutting critic calls 30-35% and total pipeline token usage 47% while matching or exceeding CISC's accuracy across five models and five datasets.",
+        "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Thought-Action Graph (TAG) distills past successful LLM-knowledge-graph interaction trajectories into a structured, reusable repository of fine-grained reasoning operators (a thought layer of abstract query patterns plus an action layer of concrete entity/relation parameters), letting TAG-Reasoning (TAGR) retrieve and assemble a query-specific reasoning blueprint offline instead of exploring the KG online -- outperforming 15 baselines on three KGQA benchmarks while using far fewer LLM calls (3, vs. up to 11.6) and generated tokens (65-71, vs. hundreds).",
+        "title": "Thought-Action Graph Reasoning: Faithful and Efficient Reasoning of Large Language Models via Reusing Past Experience",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines a per-question 'token complexity' - the minimum chain-of-thought length needed for a model to answer correctly - and uses it to show that 31 different CoT-compression prompts all sit on one universal accuracy-vs-length curve that is empirically predictable and provably far from the achievable optimum.",
+        "title": "How Well do LLMs Compress Their Own Chain-of-Thought? A Token Complexity Approach",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-27T23:01:20Z",
-  "created_at": "2026-08-27T22:59:03Z",
-  "instructions": "Write the wiki definition for 'GPT-4o-mini'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-02T21:43:58Z",
+  "created_at": "2026-09-02T21:32:23Z",
+  "instructions": "Revise the wiki definition for 'GPT-4o-mini'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A closed-source LLM used across sources as both an evaluated model and a data-generation/judging tool: tested as a test-time-scaling subject (found to suffer the largest accuracy drop among models tested when a token budget is imposed too tightly, attributed to its smaller parameter count), and used as the reasoning-LLM budget estimator and as an LLM judge/generator in other papers' pipelines.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "GPT-4o-mini",
   "kind": "concept",
   "language": "en",
@@ -45,16 +85,11 @@
   },
   "payload": {
     "name": "GPT-4o-mini",
-    "source_count": 3
+    "previous_definition": "A closed-source LLM used across sources as both an evaluated model and a data-generation/judging tool: tested as a test-time-scaling subject (found to suffer the largest accuracy drop among models tested when a token budget is imposed too tightly, attributed to its smaller parameter count), and used as the reasoning-LLM budget estimator and as an LLM judge/generator in other papers' pipelines.",
+    "source_count": 8
   },
   "result": {
-    "aliases": [],
-    "definition": "A closed-source LLM used across sources as both an evaluated model and a data-generation/judging tool: tested as a test-time-scaling subject (found to suffer the largest accuracy drop among models tested when a token budget is imposed too tightly, attributed to its smaller parameter count), and used as the reasoning-LLM budget estimator and as an LLM judge/generator in other papers' pipelines.",
-    "kind": "model",
-    "related": [
-      "Token-Budget-Aware LLM Reasoning (TALE)",
-      "Linguistic Generalizability of Test-Time Scaling"
-    ]
+    "definition": "A closed-source LLM used across sources as both an evaluated model and a data-generation/judging tool: tested as a test-time-scaling subject (found to suffer the largest accuracy drop among models tested when a token budget is imposed too tightly, attributed to its smaller parameter count), and used as the reasoning-LLM budget estimator and as an LLM judge/generator in other papers' pipelines."
   },
   "task_id": "concept__gpt-4o-mini",
   "task_version": 1,

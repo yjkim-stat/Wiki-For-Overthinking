@@ -24,12 +24,52 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+        "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRACE decomposes reasoning traces into sub-thoughts and labeled progression graphs across 14 thinking models and 6 domains, finding thinking helps only within a narrow middle ground (5-20x more compute wasted on simple tasks with no gain, and no benefit at all once model scale exceeds ~4-8B or task difficulty exceeds representational capacity), identifies two overthinking-driving thought-progression patterns (Explorer, Late Landing), and redefines overthinking structurally as continuation past the point where marginal return per sub-thought drops below a threshold.",
+        "title": "Do LLMs Really Need 10+ Thoughts for “Find the Time 1000 Days Later”? Towards Structural Understanding of LLM Overthinking",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Decomposing LRM reasoning traces into risk-awareness/risk-analysis/response-strategy stages reveals 'Self-Jailbreak' -- the model correctly identifies harmful intent early but overrides its own judgment during subsequent reasoning (accounting for up to 93.7% of unsafe outputs, dominated by a 'Warning' failure pattern where the model wrongly assumes appending a disclaimer suffices) -- and Chain-of-Guardrail (CoG) fixes this with targeted, step-level reasoning-chain rewrites rather than global safety constraints, achieving safety comparable to the strongest baseline while actually *improving* reasoning accuracy (Qwen3-32B: GPQA-Diamond 54.30->62.38, AIME2024 71.70->82.08) where competing safety methods cost 10+ accuracy points.",
+        "title": "When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines the Answer Convergence Ratio — the fraction of a chain of thought needed before the forced answer stops changing — measures it by incremental truncation across five tasks and five models, and proposes three inference-time stopping methods (answer consistency, a logit boost on the end-of-thinking token, and an LSTM probe over activations), of which only the learned probe holds accuracy on hard tasks.",
+        "title": "Answer Convergence as a Signal for Early Stopping in Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper quantifies overthinking in long chain-of-thought reasoning through a new self-doubt lens (LLM-judged categories SD / OT-without-SD / NOT), finds self-doubt (redundant re-verification of an already-correct answer) is a major cause, and shows a simple input-validity-checking prompt reduces response length by 37.1% on average while improving accuracy by 3.6% across four RLLMs, and improves abstain behavior on missing-premise datasets.",
+        "title": "Revisiting Overthinking in Long Chain-of-Thought from the Perspective of Self-Doubt",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T00:00:49Z",
-  "created_at": "2026-08-27T23:27:34Z",
-  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Llama-70B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-02T21:43:58Z",
+  "created_at": "2026-09-02T21:32:23Z",
+  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Llama-70B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Llama-70B is the largest distilled backbone tested in this archive's faithfulness-safety tension study (Risky Business) and in mechanistic-overthinking-detection work spanning 8B-70B backbones: NeuReasoner's Mixture-of-Neurons monitors and FoE's Forest-of-Errors finding that a model's first-generated solution is optimal in up to 93.7% of cases.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1-Distill-Llama-70B",
   "kind": "concept",
   "language": "en",
@@ -45,13 +85,11 @@
   },
   "payload": {
     "name": "DeepSeek-R1-Distill-Llama-70B",
-    "source_count": 3
+    "previous_definition": "DeepSeek-R1-Distill-Llama-70B is the largest distilled backbone tested in this archive's faithfulness-safety tension study (Risky Business) and in mechanistic-overthinking-detection work spanning 8B-70B backbones: NeuReasoner's Mixture-of-Neurons monitors and FoE's Forest-of-Errors finding that a model's first-generated solution is optimal in up to 93.7% of cases.",
+    "source_count": 8
   },
   "result": {
-    "aliases": [],
-    "definition": "DeepSeek-R1-Distill-Llama-70B is the largest distilled backbone tested in this archive's faithfulness-safety tension study (Risky Business) and in mechanistic-overthinking-detection work spanning 8B-70B backbones: NeuReasoner's Mixture-of-Neurons monitors and FoE's Forest-of-Errors finding that a model's first-generated solution is optimal in up to 93.7% of cases.",
-    "kind": "model",
-    "related": []
+    "definition": "DeepSeek-R1-Distill-Llama-70B is the largest distilled backbone tested in this archive's faithfulness-safety tension study (Risky Business) and in mechanistic-overthinking-detection work spanning 8B-70B backbones: NeuReasoner's Mixture-of-Neurons monitors and FoE's Forest-of-Errors finding that a model's first-generated solution is optimal in up to 93.7% of cases."
   },
   "task_id": "concept__deepseek-r1-distill-llama-70b",
   "task_version": 1,

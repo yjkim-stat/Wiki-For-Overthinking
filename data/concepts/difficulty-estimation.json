@@ -2,7 +2,7 @@
   "aliases": [
     "Difficulty Estimation"
   ],
-  "definition": "",
+  "definition": "Difficulty estimation here is the step of predicting, before or during generation, how much reasoning a given question actually warrants, so that effort can be allocated per instance instead of by a uniform budget. One source turns the estimate into a token deadline: it predicts a per-question budget, interrupts generation with reminders scheduled against it, and forces an answer by constrained decoding once the budget expires. The other source is the caution that goes with it — an estimator can latch onto how a question is phrased rather than what it requires, so that paper trains a model on simple problems presented in both concise and verbose wordings, first by supervised fine-tuning and then with a reward, specifically so its choice between reasoning explicitly and answering directly tracks actual difficulty rather than the question's wordiness.",
   "evidence": [
     {
       "id": "local:eff598a06b1089db",
@@ -61,7 +61,9 @@
     "grpo",
     "data-augmentation-by-verbose-restatement"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "reasoning-completion-point-rcp"
+  ],
   "schema_version": 1,
   "slug": "difficulty-estimation",
   "topics": [

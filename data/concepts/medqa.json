@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "MedQA is a medical-domain multiple-choice question-answering benchmark used in 'Correct Reasoning Paths Visit Shared Decision Pivots' as one of three benchmarks, alongside LogiQA and MATH500, on which a decision-pivot-focused self-training/DPO method (intersecting multiple sampled correct reasoning paths into a compact preferred completion) improves accuracy over prior self-training baselines while also shortening generated reasoning as a side effect.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.237",
@@ -64,7 +64,9 @@
     "llama-3-70b",
     "claude-3-7-sonnet"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "logiqa"
+  ],
   "schema_version": 1,
   "slug": "medqa",
   "topics": [

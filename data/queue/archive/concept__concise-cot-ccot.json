@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-09-02T21:43:31Z",
   "created_at": "2026-09-02T21:32:22Z",
   "instructions": "Write the wiki definition for 'Concise CoT (CCoT)'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Concise CoT (CCoT)",
@@ -37,6 +38,17 @@
   "payload": {
     "name": "Concise CoT (CCoT)",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [
+      "CCoT"
+    ],
+    "definition": "Concise CoT is a prompt-level length control used in this archive only as a baseline: the prompt itself imposes a token budget on the reasoning, with no change to the model or the decoding rule. Both sources run it as the prompting-side comparison against their own inference-time stopping methods, one of them fixing the budget at 100 tokens for every task. In that comparison it cuts tokens substantially but at an accuracy cost that grows with task difficulty — on R1-distilled Qwen-32B it moves NaturalQuestions from 35.0 to 37.2 accuracy at 41.6% fewer tokens, while on AIME'24 it drops accuracy from 73.3 to 60.0 for a similar 42.5% saving — which is the standing argument in these sources for making the budget instance-specific rather than fixed in the prompt.",
+    "kind": "method",
+    "related": [
+      "budget forcing",
+      "No-Think prompting"
+    ]
   },
   "task_id": "concept__concise-cot-ccot",
   "task_version": 1,

@@ -43,7 +43,7 @@ The paper states the theoretical GV-gap positivity result (Appendix A.2, Eq. 10-
 
 - **Concepts**: decision pivots (minimal, verifiable checkpoints every correct reasoning path must visit), short-path reasoning (SPR) synthesis, generation-verification gap (GV-gap) reweighting, pivot bottleneck assumption, pivot-based verifiability score (PAS) for preference-data selection
 - **Methods**: ROMA self-training pipeline (bootstrap -> verifier-guided short-path synthesis -> DPO), decision-pivot mining via a LoRA-tuned verifier, [Direct Preference Optimization (DPO)](../../../../wiki/methods/direct-preference-optimization-dpo.md), pivot-based verifiability score (PAS) for preference-data selection, generation-verification gap (GV-gap) reweighting analysis
-- **Datasets**: [LogiQA](../../../../wiki/datasets/logiqa.md), MedQA, [MATH500](../../../../wiki/datasets/math500.md)
+- **Datasets**: [LogiQA](../../../../wiki/datasets/logiqa.md), [MedQA](../../../../wiki/datasets/medqa.md), [MATH500](../../../../wiki/datasets/math500.md)
 
 Tags: `chain-of-thought`, `self-training`, `decision-pivots`, `dpo`, `preference-optimization`, `reasoning-verification`
 

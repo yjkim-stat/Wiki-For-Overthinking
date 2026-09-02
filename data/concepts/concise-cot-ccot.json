@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "CCoT"
+  ],
+  "definition": "Concise CoT is a prompt-level length control used in this archive only as a baseline: the prompt itself imposes a token budget on the reasoning, with no change to the model or the decoding rule. Both sources run it as the prompting-side comparison against their own inference-time stopping methods, one of them fixing the budget at 100 tokens for every task. In that comparison it cuts tokens substantially but at an accuracy cost that grows with task difficulty — on R1-distilled Qwen-32B it moves NaturalQuestions from 35.0 to 37.2 accuracy at 41.6% fewer tokens, while on AIME'24 it drops accuracy from 73.3 to 60.0 for a similar 42.5% saving — which is the standing argument in these sources for making the budget instance-specific rather than fixed in the prompt.",
   "evidence": [
     {
       "id": "local:5596d5f3510679fc",
@@ -74,7 +76,10 @@
     "qwen3-embedding-0-6b-fine-tuned-as-the-redundancy-detector",
     "kimi-vl-16b-a3b-thinking"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "budget-forcing",
+    "no-think-prompting"
+  ],
   "schema_version": 1,
   "slug": "concise-cot-ccot",
   "topics": [

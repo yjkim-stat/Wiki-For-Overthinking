@@ -2,7 +2,7 @@
   "aliases": [
     "answer convergence"
   ],
-  "definition": "",
+  "definition": "Answer convergence is the observation, shared by all three sources here, that a reasoning model settles on the answer it will finally give well before it stops generating, so the remainder of the trace changes the outcome little. The sources agree on the phenomenon and disagree on where to look for it: one defines an Answer Convergence Ratio by repeatedly truncating the trace, forcing an answer, and finding the earliest chunk after which that answer no longer changes — reporting ratios near 0.0 on NaturalQuestions, about 0.8 on GSM8K and MATH-500 and about 0.9 on GPQA and AIME'24; a second locates it in the confidence of probed intermediate answers, and adds that trajectories which never converge are the expensive ones, averaging over 25K tokens against about 12K for correct ones on Qwen3-4B; a third looks at reasoning-level semantic redundancy instead of the answer at all, and reports that 41-52% of reasoning tokens are generated after the model has already reached its final answer. All three treat convergence as a stopping signal rather than a correctness signal, and the first states plainly that convergence does not guarantee correctness.",
   "evidence": [
     {
       "id": "local:204ad034bca12641",
@@ -24,7 +24,7 @@
     }
   ],
   "first_seen": "2026-09-02T21:32:21Z",
-  "kind": "method",
+  "kind": "concept",
   "last_seen": "2026-09-02T21:32:21Z",
   "name": "Answer Convergence",
   "related": [
@@ -101,7 +101,11 @@
     "qwen3-embedding-0-6b-fine-tuned-as-the-redundancy-detector",
     "kimi-vl-16b-a3b-thinking"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "reasoning-completion-point-rcp",
+    "minimal-sufficient-cot",
+    "cognitive-inertia"
+  ],
   "schema_version": 1,
   "slug": "answer-convergence",
   "topics": [

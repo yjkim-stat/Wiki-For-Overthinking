@@ -43,9 +43,9 @@ The paper's own stated limitations: (1) Domain and task scope — the prompting 
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), self-doubt, long chain-of-thought, social comparison theory applied to LLM self-verification, missing-premise (MiP) questions, input-validity prompting
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [self-doubt](../../../../wiki/concepts/self-doubt.md), long chain-of-thought, social comparison theory applied to LLM self-verification, missing-premise (MiP) questions, input-validity prompting
 - **Methods**: self-doubt-based overthinking classification (SD / OT w/o SD / NOT), LLM-as-a-judge (Qwen2.5-72B-Instruct), input-validity-checking prompt, reasoning-step counting via \n\n segmentation, self-doubt ratio metric
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), GSM8K-Zero, [MATH-500](../../../../wiki/datasets/math500.md), MiP-Formula, MiP-SVAMP, MiP-GSM8K, MiP-MATH
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [GSM8K-Zero](../../../../wiki/datasets/gsm8k-zero.md), [MATH-500](../../../../wiki/datasets/math500.md), MiP-Formula, MiP-SVAMP, MiP-GSM8K, MiP-MATH
 
 Tags: `overthinking`, `self-doubt`, `chain-of-thought`, `prompting`, `missing-premise`, `mathematical-reasoning`, `training-free`
 

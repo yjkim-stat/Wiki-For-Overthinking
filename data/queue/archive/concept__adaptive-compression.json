@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-09-02T21:43:31Z",
   "created_at": "2026-09-02T21:32:22Z",
   "instructions": "Write the wiki definition for 'adaptive compression'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "adaptive compression",
@@ -37,6 +38,12 @@
   "payload": {
     "name": "adaptive compression",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The two sources carrying this term do not use it for the same thing, and the pairing is a vocabulary collision rather than a shared idea. One is about compressing a model's own chain of thought: it defines a per-question token complexity, the minimum reasoning length that model needs to answer correctly, and shows that 31 different compression prompts trace a single accuracy-versus-length curve per model and benchmark rather than one curve per prompt family, with the achieved compression far short of the computable bound. The other uses adaptive compression as a step inside automatic prompt optimization, distilling a prompt that has stopped improving in order to escape a local optimum, and reports reaching better task performance on a quarter of the prompt-generation budget of prior methods. Only the first is about reasoning length; a reader arriving from the overthinking literature wants that one.",
+    "kind": "concept",
+    "related": []
   },
   "task_id": "concept__adaptive-compression",
   "task_version": 1,

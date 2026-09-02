@@ -42,7 +42,7 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: frozen world assumption, interruption robustness, dynamic context adaptation, reasoning leakage, panic, self-doubt
+- **Concepts**: frozen world assumption, interruption robustness, dynamic context adaptation, reasoning leakage, panic, [self-doubt](../../../../wiki/concepts/self-doubt.md)
 - **Methods**: interruption evaluation protocol, dynamic context evaluation protocol
 - **Datasets**: _none recorded_
 

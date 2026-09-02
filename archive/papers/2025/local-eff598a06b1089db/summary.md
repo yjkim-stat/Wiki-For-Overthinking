@@ -41,7 +41,7 @@ The paper's own difficulty and minimum-spend measures are model-pool-relative (d
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), difficulty-calibrated token spend, observational overthinking, local envelope overthinking score, global overthinking score, difficulty estimation, test-time deadline scheduling, constrained decoding for answer termination
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), difficulty-calibrated token spend, observational overthinking, local envelope overthinking score, global overthinking score, [difficulty estimation](../../../../wiki/concepts/difficulty-estimation.md), test-time deadline scheduling, constrained decoding for answer termination
 - **Methods**: THOUGHTTERMINATOR, DUMB500, difficulty-calibrated token budget scheduling, constrained decoding termination, trained difficulty estimator (fine-tuned Llama-3-8B-Instruct), zero-shot gpt-4o difficulty estimation
 - **Datasets**: [MATH500](../../../../wiki/datasets/math500.md), [GPQA](../../../../wiki/datasets/gpqa.md), [ZebraLogic](../../../../wiki/datasets/zebralogic.md), DUMB500
 

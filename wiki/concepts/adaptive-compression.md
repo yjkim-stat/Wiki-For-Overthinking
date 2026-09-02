@@ -2,9 +2,9 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The two sources carrying this term do not use it for the same thing, and the pairing is a vocabulary collision rather than a shared idea. One is about compressing a model's own chain of thought: it defines a per-question token complexity, the minimum reasoning length that model needs to answer correctly, and shows that 31 different compression prompts trace a single accuracy-versus-length curve per model and benchmark rather than one curve per prompt family, with the achieved compression far short of the computable bound. The other uses adaptive compression as a step inside automatic prompt optimization, distilling a prompt that has stopped improving in order to escape a local optimum, and reports reaching better task performance on a quarter of the prompt-generation budget of prior methods. Only the first is about reasoning length; a reader arriving from the overthinking literature wants that one.
 
-- **Kind**: method
+- **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 

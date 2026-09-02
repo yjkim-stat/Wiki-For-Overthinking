@@ -3,6 +3,46 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
+        "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "WHISPER treats a large reasoning model purely as a black-box communicator and mitigates overthinking with no training or model access at all, using an iterative refinement loop over persuasive prompts (psychological, evidence-based, role-play, threat, instruction) that finds a single deployable prompt suffix cutting response length up to 3x on simple questions with preserved accuracy.",
+        "title": "Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "VecCISC reduces the cost of Confidence-Informed Self-Consistency (CISC) -- which needs a separate critic-LLM call on every sampled reasoning trace to weight majority voting -- by embedding traces, clustering them per candidate answer, and sending only cluster-representative (nearest-centroid) traces to the critic, cutting critic calls 30-35% and total pipeline token usage 47% while matching or exceeding CISC's accuracy across five models and five datasets.",
+        "title": "VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARM2 extends adaptive reasoning-format selection (Direct Answer, Short CoT, Code-Text, Code-Exec, Long CoT) to multimodal (vision) inputs and lets executable code substitute for lengthy chain-of-thought on tasks with verifiable computation, trained via GRPO-alp (a format-collapse-resistant, length-aware GRPO variant), reducing token usage over 70% versus standard GRPO while matching its accuracy across six in-domain and six out-of-domain text and multimodal benchmarks.",
+        "title": "ARM2: Adaptive Reasoning Model with Vision Understanding and Executable Code",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
+        "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task using Ada-GRPO, cutting average tokens by about 30% at roughly unchanged accuracy.",
         "title": "ARM: Adaptive Reasoning Model",
         "topics": [
@@ -35,9 +75,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T01:05:06Z",
-  "created_at": "2026-08-21T00:56:48Z",
-  "instructions": "Write the wiki definition for 'CommonsenseQA'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-02T21:43:57Z",
+  "created_at": "2026-09-02T00:02:25Z",
+  "instructions": "Revise the wiki definition for 'CommonsenseQA'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A multiple-choice commonsense question-answering set, used across the archive as the easy, non-mathematical end of the benchmark suite - the place where adaptive-length methods show their largest token savings and where math-trained models are checked for out-of-domain transfer. ARM uses it both as RL training data (with GSM8K and MATH, 19.8K items combined) and as the benchmark where format selection saves about 73% of tokens, against a +7.9% accuracy gain on AIME'25 - the pair the paper reads as evidence the model is judging difficulty roughly correctly. SuCo uses it as one of three out-of-domain checks for a math-trained model, scoring 49.3 against R1-Distill's 45.0, while WS-GRPO finds commonsense sets degrade less than mathematical ones under trajectory-level preference training and that behaviour on this set varies across Qwen variants; DC-CoT includes it among the reasoning domains over which it isolates distillation data effects. No source treats it as a target in its own right.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "CommonsenseQA",
   "kind": "concept",
   "language": "en",
@@ -46,24 +86,18 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "CommonsenseQA",
-    "source_count": 4
+    "previous_definition": "A multiple-choice commonsense question-answering set, used across the archive as the easy, non-mathematical end of the benchmark suite - the place where adaptive-length methods show their largest token savings and where math-trained models are checked for out-of-domain transfer. ARM uses it both as RL training data (with GSM8K and MATH, 19.8K items combined) and as the benchmark where format selection saves about 73% of tokens, against a +7.9% accuracy gain on AIME'25 - the pair the paper reads as evidence the model is judging difficulty roughly correctly. SuCo uses it as one of three out-of-domain checks for a math-trained model, scoring 49.3 against R1-Distill's 45.0, while WS-GRPO finds commonsense sets degrade less than mathematical ones under trajectory-level preference training and that behaviour on this set varies across Qwen variants; DC-CoT includes it among the reasoning domains over which it isolates distillation data effects. No source treats it as a target in its own right.",
+    "source_count": 9
   },
   "result": {
-    "aliases": [],
-    "definition": "A multiple-choice commonsense question-answering set, used across the archive as the easy, non-mathematical end of the benchmark suite - the place where adaptive-length methods show their largest token savings and where math-trained models are checked for out-of-domain transfer. ARM uses it both as RL training data (with GSM8K and MATH, 19.8K items combined) and as the benchmark where format selection saves about 73% of tokens, against a +7.9% accuracy gain on AIME'25 - the pair the paper reads as evidence the model is judging difficulty roughly correctly. SuCo uses it as one of three out-of-domain checks for a math-trained model, scoring 49.3 against R1-Distill's 45.0, while WS-GRPO finds commonsense sets degrade less than mathematical ones under trajectory-level preference training and that behaviour on this set varies across Qwen variants; DC-CoT includes it among the reasoning domains over which it isolates distillation data effects. No source treats it as a target in its own right.",
-    "kind": "dataset",
-    "related": [
-      "strategyqa",
-      "overthinking-on-easy-instances",
-      "difficulty-adaptive-reasoning-length"
-    ]
+    "definition": "A multiple-choice commonsense question-answering set, used across the archive as the easy, non-mathematical end of the benchmark suite - the place where adaptive-length methods show their largest token savings and where math-trained models are checked for out-of-domain transfer. ARM uses it both as RL training data (with GSM8K and MATH, 19.8K items combined) and as the benchmark where format selection saves about 73% of tokens, against a +7.9% accuracy gain on AIME'25 - the pair the paper reads as evidence the model is judging difficulty roughly correctly. SuCo uses it as one of three out-of-domain checks for a math-trained model, scoring 49.3 against R1-Distill's 45.0, while WS-GRPO finds commonsense sets degrade less than mathematical ones under trajectory-level preference training and that behaviour on this set varies across Qwen variants; DC-CoT includes it among the reasoning domains over which it isolates distillation data effects. No source treats it as a target in its own right."
   },
   "task_id": "concept__commonsenseqa",
   "task_version": 1,

@@ -65,7 +65,7 @@ Not stated, and worth noticing. The main experiments use alpha = 0.6 and k = 10 
 ## Entities
 
 - **Concepts**: answer convergence, Answer Convergence Ratio (ACR), incremental truncation with forced answer emission, early stopping via answer consistency, end-of-reasoning token logit boosting, peakedness-adaptive logit adjustment, learned stopping from internal activations, self-labelled supervision without gold answers, convergence does not guarantee correctness, faithfulness of truncated reasoning
-- **Methods**: Answer Consistency early stopping, Think Token Adjustment, Learn-to-Stop, Concise CoT (CCoT), LSTM stopping classifier, vLLM logit processor, NLTK sentence chunking
+- **Methods**: Answer Consistency early stopping, Think Token Adjustment, Learn-to-Stop, [Concise CoT (CCoT)](../../../../wiki/methods/concise-cot-ccot.md), LSTM stopping classifier, vLLM logit processor, NLTK sentence chunking
 - **Datasets**: NaturalQuestions, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md)
 
 Tags: `overthinking`, `early stopping`, `answer convergence`, `reasoning length`, `training-free`, `activation probe`, `termination token`, `chain-of-thought`

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Llama-3.2-1B-Instruct is a small instruction-tuned open-weight model used in this archive as one of the smaller/weaker backbones in Marco-o1 v2's distillation-bottleneck study: MCTS-generated CoT training data plus CoT-aware post-training sharply improves it on some benchmarks (e.g. Blocksworld 0.2%->5.6%, instruction-following-other 33.1%->47.1%) while leaving it at 0.0% on AIME throughout. It also appears among the models THOUGHTTERMINATOR evaluates for overthinking (local/global overthinking scores, the DUMB500 easy-question probe), with no model-specific result for it broken out in that source.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

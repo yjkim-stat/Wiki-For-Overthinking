@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Difficulty estimation here is the step of predicting, before or during generation, how much reasoning a given question actually warrants, so that effort can be allocated per instance instead of by a uniform budget. One source turns the estimate into a token deadline: it predicts a per-question budget, interrupts generation with reminders scheduled against it, and forces an answer by constrained decoding once the budget expires. The other source is the caution that goes with it — an estimator can latch onto how a question is phrased rather than what it requires, so that paper trains a model on simple problems presented in both concise and verbose wordings, first by supervised fine-tuning and then with a reward, specifically so its choice between reasoning explicitly and answering directly tracks actual difficulty rather than the question's wordiness.
 
 - **Kind**: concept
 - **Also called**: Difficulty Estimation
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [adaptive reasoning](adaptive-reasoning.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA](../datasets/gpqa.md), [GPT-4o](../models/gpt-4o.md), [GRPO](../methods/grpo.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [Llama-3.2-1B-Instruct](../models/llama-3-2-1b-instruct.md), [LLaMA 3.2 3B Instruct](../models/llama-3-2-3b-instruct.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md), [QwQ-32B](../models/qwq-32b.md), [QwQ-32B-Preview](../models/qwq-32b-preview.md), [Reward Shaping](reward-shaping.md), [ZebraLogic](../datasets/zebralogic.md)
+**Related**: [adaptive reasoning](adaptive-reasoning.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [GPQA](../datasets/gpqa.md), [GPT-4o](../models/gpt-4o.md), [GRPO](../methods/grpo.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [Llama-3.2-1B-Instruct](../models/llama-3-2-1b-instruct.md), [LLaMA 3.2 3B Instruct](../models/llama-3-2-3b-instruct.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md), [QwQ-32B](../models/qwq-32b.md), [QwQ-32B-Preview](../models/qwq-32b-preview.md), [Reasoning Completion Point (RCP)](reasoning-completion-point-rcp.md), [Reward Shaping](reward-shaping.md), [ZebraLogic](../datasets/zebralogic.md)
 
 ## Appears in
 

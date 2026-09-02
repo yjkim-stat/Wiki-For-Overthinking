@@ -6,7 +6,7 @@
 
 - [Overthinking](topics/overthinking.md) — `overthinking`
 
-## Concepts (101)
+## Concepts (103)
 
 - [abstention](concepts/abstention.md) — 2 source(s)
 - [Accuracy-Efficiency Pareto Frontier](concepts/accuracy-efficiency-pareto-frontier.md) — 1 source(s)
@@ -15,10 +15,12 @@
 - [accuracy-efficiency tradeoff of reasoning length](concepts/accuracy-efficiency-tradeoff-of-reasoning-length.md) — 1 source(s)
 - [Accuracy-Length Tradeoff](concepts/accuracy-length-tradeoff.md) — 3 source(s)
 - [Accuracy-token Pareto frontier](concepts/accuracy-token-pareto-frontier.md) — 2 source(s)
+- [adaptive compression](concepts/adaptive-compression.md) — 2 source(s)
 - [adaptive reasoning](concepts/adaptive-reasoning.md) — 6 source(s)
 - [adaptive reasoning length](concepts/adaptive-reasoning-length.md) — 2 source(s)
 - [adaptive test-time compute](concepts/adaptive-test-time-compute.md) — 2 source(s)
 - [Aha Moment](concepts/aha-moment.md) — 2 source(s)
+- [Answer Convergence](concepts/answer-convergence.md) — 3 source(s)
 - [attention sink](concepts/attention-sink.md) — 2 source(s)
 - [AUC_OAA](concepts/auc-oaa.md) — 1 source(s)
 - [Bayesian inference](concepts/bayesian-inference.md) — 1 source(s)
@@ -110,18 +112,16 @@
 - [visual grounding](concepts/visual-grounding.md) — 2 source(s)
 - [weighted voting](concepts/weighted-voting.md) — 2 source(s)
 
-## Methods (140)
+## Methods (138)
 
 - [A*-Thought](methods/a-thought.md) — 2 source(s)
 - [activation steering](methods/activation-steering.md) — 5 source(s)
 - [Ada-GRPO](methods/ada-grpo.md) — 2 source(s)
 - [Ada-R1](methods/ada-r1.md) — 2 source(s)
-- [adaptive compression](methods/adaptive-compression.md) — 2 source(s)
 - [adaptive reasoning format selection](methods/adaptive-reasoning-format-selection.md) — 2 source(s)
 - [adaptive test-time compute allocation](methods/adaptive-test-time-compute-allocation.md) — 2 source(s)
 - [AdaptThink](methods/adaptthink.md) — 4 source(s)
 - [AdaptThink (baseline)](methods/adaptthink-baseline.md) — 4 source(s)
-- [Answer Convergence](methods/answer-convergence.md) — 3 source(s)
 - [ARES](methods/ares.md) — 1 source(s)
 - [AutoThink](methods/autothink.md) — 2 source(s)
 - [beam search](methods/beam-search.md) — 3 source(s)

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-O1-Pruner (baseline) is a PPO-like offline fine-tuning method for compressing chain-of-thought length, used in this archive as a comparison baseline by LC-R1 (which achieves a more favorable efficacy-efficiency trade-off, e.g. 46-52% length reduction vs. O1-Pruner's ~34-36% at greater accuracy cost) and by Ada-R1's hybrid-CoT merging method.
+O1-Pruner is a fine-tuning method that compresses chain-of-thought length, and it appears in this archive only as a comparison baseline — no source here presents it as its own contribution. Across the seven sources that cite it, it is grouped with the length-penalty reinforcement-learning family alongside LCPO, and the recurring finding is that this family shortens traces more effectively than training-free approaches but pays accuracy for it: one source scores it at 1.18 on an accuracy-efficiency composite against PEAR's 1.41, LCPO's 0.65, DEER's 0.51 and NoThink's -0.44, and another reports 34-36% length reduction against its own 46-52% at lower accuracy cost. It is one of the standard baseline sets for efficient reasoning, named in the comparison tables of step-count-reward, prefix-protected, graph-pruning, adaptive-preference, hybrid-CoT and internal-control methods, which is what makes it useful here: it marks where uniform length-penalty RL sits on the accuracy-length frontier that later methods are trying to move.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

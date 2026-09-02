@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+GSM8K-Zero is a variant of GSM8K built, per TALE, so the correct answer is embeddable directly from the question -- purpose-built to isolate over-reasoning/redundancy rather than test math ability. TALE shows Vanilla CoT accuracy on it (78.73%) falls below Direct Answering's (97.21%), its direct evidence that extra reasoning steps introduce errors when none are needed. The self-doubt paper evaluates on it alongside GSM8K and MATH-500 and finds it has the highest baseline overthinking rate of the three (92.3%, with a 35.5% self-doubt share), and that its input-validity-checking prompt raises accuracy on it by +16.7 and +14.7 points for DeepSeek-R1-Distill-Qwen-32B and DeepSeek-R1-Distill-Llama-70B respectively.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

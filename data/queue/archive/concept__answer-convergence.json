@@ -27,6 +27,7 @@
       }
     ]
   },
+  "completed_at": "2026-09-02T21:43:31Z",
   "created_at": "2026-09-02T21:32:22Z",
   "instructions": "Write the wiki definition for 'Answer Convergence'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Answer Convergence",
@@ -45,6 +46,16 @@
   "payload": {
     "name": "Answer Convergence",
     "source_count": 3
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Answer convergence is the observation, shared by all three sources here, that a reasoning model settles on the answer it will finally give well before it stops generating, so the remainder of the trace changes the outcome little. The sources agree on the phenomenon and disagree on where to look for it: one defines an Answer Convergence Ratio by repeatedly truncating the trace, forcing an answer, and finding the earliest chunk after which that answer no longer changes — reporting ratios near 0.0 on NaturalQuestions, about 0.8 on GSM8K and MATH-500 and about 0.9 on GPQA and AIME'24; a second locates it in the confidence of probed intermediate answers, and adds that trajectories which never converge are the expensive ones, averaging over 25K tokens against about 12K for correct ones on Qwen3-4B; a third looks at reasoning-level semantic redundancy instead of the answer at all, and reports that 41-52% of reasoning tokens are generated after the model has already reached its final answer. All three treat convergence as a stopping signal rather than a correctness signal, and the first states plainly that convergence does not guarantee correctness.",
+    "kind": "concept",
+    "related": [
+      "Reasoning Completion Point (RCP)",
+      "Minimal Sufficient CoT",
+      "cognitive inertia"
+    ]
   },
   "task_id": "concept__answer-convergence",
   "task_version": 1,

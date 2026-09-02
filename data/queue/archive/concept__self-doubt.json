@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-09-02T21:43:31Z",
   "created_at": "2026-09-02T21:32:22Z",
   "instructions": "Write the wiki definition for 'self-doubt'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "self-doubt",
@@ -37,6 +38,15 @@
   "payload": {
     "name": "self-doubt",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "The two sources here use 'self-doubt' for different things and should not be read as one phenomenon. In the paper that makes it a lens on overthinking, self-doubt is redundant re-verification of an answer the model has already got right: traces are judged into self-doubt, overthinking-without-self-doubt and non-overthinking categories, self-doubt is found to be a major cause of the overall length, and a prompt that first asks whether the question contains the information needed cuts response length 37.1% on average while improving accuracy 3.6% across four models. In the interruption study, self-doubt is instead one of three failure modes observed when reasoning is cut short or the context changes mid-trace — named there as accuracy degrading when the model tries to incorporate updated information — alongside reasoning leakage and panic. The first sense is an internal cause of excess length; the second is an externally induced instability, and only the first bears on why an uninterrupted model keeps going.",
+    "kind": "concept",
+    "related": [
+      "Reasoning Completion Point (RCP)",
+      "cognitive inertia"
+    ]
   },
   "task_id": "concept__self-doubt",
   "task_version": 1,
