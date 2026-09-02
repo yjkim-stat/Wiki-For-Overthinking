@@ -2,9 +2,9 @@
 layout: content
 eyebrow: 2026 · COLM Workshop
 eyebrow_color: rose
-title: 공유 trajectory 위에서 다시 돌려본다
+title: 외부 재현 — RCPD의 CR 0–9%
 blocks:
-- lead: 여섯 기법을 <span class="em">사전 생성된 같은 궤적</span> 위에서 비교한다. 이 클러스터의 첫 외부 검증이다.
+- lead: 여섯 기법을 <span class="em">같은 궤적</span> 위에서 비교한 첫 외부 검증.
 - table:
     head: [Overall CR <span class="ref">(낮을수록 절감)</span>, Qwen3-4B, Qwen3-14B, DS-Llama-8B, Nemotron-8B]
     rows:
@@ -13,6 +13,11 @@ blocks:
     - ['<span class="em">RCPD</span>', '<span class="k-rose">96.9</span>', '<span class="k-rose">91.3</span>', '<span class="k-rose">100.0</span>', '<span class="k-rose">96.2</span>']
     - ['Answer Convergence', '20.3', '23.3', '33.1', '29.9']
     - ['CoDE-Stop', '65.9', '50.5', '63.9', '75.0']
+- box:
+    style: ph
+    blocks:
+    - text: { text: "▣ accuracy–compute Pareto", style: ph-title }
+    - text: { text: "Hosseini 외 (2026) Figure 5 · 4 모델 × 4 벤치마크", style: ph-src }
 - cards:
     cols: 2
     items:

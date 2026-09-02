@@ -1,11 +1,10 @@
 # 15 — 오프라인 정의를 온라인으로
 layout: content
-eyebrow: 2026 · ACL
+eyebrow: Distill-to-Detect
 eyebrow_color: green
-title: distill-to-detect — 정의를 라벨 생성기로만 쓴다
-body_height: 470px
+title: 오프라인 정의 → 온라인 프록시
 blocks:
-- lead: <span class="mono">D<sub>global</sub></span>은 매 스텝 다중 샘플링이 필요하고 <span class="mono">Q<sub>∞</sub></span>는 미래를 알아야 한다. <span class="em">정의는 온라인에서 계산할 수 없다.</span>
+- lead: <span class="mono">Q<sub>∞</sub></span>는 trace가 끝나야 추정된다 — <span class="em">정의를 디코딩 중에 계산할 방법이 없다.</span>
 - cards:
     cols: 3
     style: fill

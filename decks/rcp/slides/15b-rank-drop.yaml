@@ -1,0 +1,28 @@
+# 15b — rank 급락
+layout: content
+eyebrow: The Signature
+eyebrow_color: violet
+title: 답 등장 시점의 rank 급락
+blocks:
+- lead: <span class="em">정확도 안정화와 rank 급락이 같은 지점에서 일어난다.</span>
+- box:
+    style: ph
+    blocks:
+    - text: { text: "▣ 정확도 안정화 · <span class=\"mono\">&lt;/think&gt;</span> rank 급락 (2단 패널)", style: ph-title }
+    - text: { text: "Wei 외 (2026) Figure 5 · 상단 Generation Accuracy + Answer Emergence, 하단 Rank of &lt;/think&gt;", style: ph-src }
+- cards:
+    cols: 2
+    items:
+    - color: violet
+      t: |-
+        rank는 <span class="em">모델 내부 신호</span>이고 답 형식(숫자·단위·자연어·객관식 문자)에 불변이다. 문자열 매칭이 취약한 자리를 정확히 메운다.
+      t_style: font-size:17px;line-height:1.55;
+      style: padding:14px 18px;
+    - color: rose
+      t: |-
+        그리고 이것이 <span class="em">모델은 멈추고 싶어 한다</span>는 뜻이다. 신호는 발화되는데 따라지지 않는다.
+      t_style: font-size:17px;line-height:1.55;
+      style: padding:14px 18px;
+cite:
+- wei2026
+foot: Part 2 · RCPD

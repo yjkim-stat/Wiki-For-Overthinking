@@ -27,3 +27,9 @@ styles:
   year:        font-size:13px;letter-spacing:0.08em;color:var(--ink-mid);margin-bottom:4px;
   formula:     font-size:19px;text-align:center;margin:14px 0;line-height:1.7;
   quiet:       font-size:15px;color:var(--ink-mid);line-height:1.55;
+  # Figure placeholder — a dashed box holding the crop that will replace it.
+  # Remove the style and swap the box for a `figure:` block once the crop is
+  # in assets/figures/. See assets/FIGURES.md in the overthinking deck.
+  ph:          border:2px dashed var(--line);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;background:rgba(0,0,0,0.015);flex:1;min-height:150px;margin:12px 0;
+  ph-title:    font-size:17px;font-weight:700;color:var(--ink-mid);
+  ph-src:      font-size:13px;color:var(--ink-mid);opacity:0.8;

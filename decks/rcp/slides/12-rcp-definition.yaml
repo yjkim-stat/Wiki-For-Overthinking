@@ -3,9 +3,8 @@ layout: content
 eyebrow: 2026 · ACL
 eyebrow_color: green
 title: RCP — 두 조건의 논리곱
-body_height: 470px
 blocks:
-- lead: 수렴을 <span class="em">두 개의 독립된 안정성이 동시에 성립하는 순간</span>으로 정의한다. 이것이 이 논문의 실제 기여다.
+- lead: <span class="em">독립된 두 안정성이 동시에 성립하는 순간</span>을 수렴으로 잡는다. 이 정의가 논문의 본체다.
 - text:
     text: |-
       <span class="mono em">k<sub>RCP</sub> = min { k : Δ<sub>content</sub>(k) ≤ ε<sub>c</sub> &nbsp;∧&nbsp; D<sub>KL</sub>(Q<sub>k</sub> ‖ Q<sub>∞</sub>) ≤ ε<sub>D</sub> }</span>
@@ -31,7 +30,11 @@ blocks:
       - 종단 분포와의 KL이 낮은 plateau로 안착
       bullet_size: sm
       style: column
-    style: fill
+- box:
+    style: ph
+    blocks:
+    - text: { text: "▣ Pre/Post-RCP 길이 동역학", style: ph-title }
+    - text: { text: "Wei 외 (2026) Figure 2 · AIME24 Q19, AIME25 Q17", style: ph-src }
 - note: 논리곱이 설계의 전부다. 길이만 보면 “짧게 헤매는 중”과 못 가르고, 의미만 보면 답은 정해졌는데 서술이 흐르는 경우를 놓친다.
 cite:
 - wei2026

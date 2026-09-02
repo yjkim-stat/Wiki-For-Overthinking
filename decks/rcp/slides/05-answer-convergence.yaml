@@ -2,10 +2,9 @@
 layout: content
 eyebrow: 2025 · EMNLP
 eyebrow_color: blue
-title: 계보의 시작 — 절단해서 답을 뽑는다
-body_height: 470px
+title: Stepwise truncation과 ACR
 blocks:
-- lead: 이후 모든 연구가 쓰는 계측 장치가 여기서 확정된다.
+- lead: 이후 이 계열 전체가 쓰게 되는 계측 장치가 여기서 나온다.
 - cards:
     cols: 2
     items:
@@ -40,7 +39,11 @@ blocks:
           text: 큰 모델일수록 더 일찍 수렴한다.
           style: sig
       style: column
-    style: fill
+- box:
+    style: ph
+    blocks:
+    - text: { text: "▣ ACR 분포 — 5개 과제", style: ph-title }
+    - text: { text: "Liu &amp; Wang (2025) Figure 2 · arXiv:2506.02536 p.3", style: ph-src }
 - note: ACR은 RCP가 나중에 정의하는 Reasoning Completion Point를 trace 길이로 정규화한 것과 같은 양이다. 1년 앞선다.
 cite:
 - liu2025

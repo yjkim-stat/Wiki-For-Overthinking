@@ -1,10 +1,10 @@
 # 31 — 하한으로 돌아온다
 layout: content
-eyebrow: Part 4
+eyebrow: Headroom
 eyebrow_color: violet
-title: 판 자체가 작을 수 있다
+title: 하한까지의 거리
 blocks:
-- lead: Part 1에서 미뤄둔 곡선으로 돌아온다. 이것이 사실이라면 <span class="em">위의 모든 차이는 한 선 위의 위치</span>다.
+- lead: Part 1의 곡선으로 돌아온다 — 사실이라면 <span class="em">앞의 모든 차이가 한 선 위의 위치</span>다.
 - cards:
     cols: 2
     items:
@@ -32,7 +32,11 @@ blocks:
           text: 예산 추정 방식은 단순 정적 프롬프트의 곡선 아래에 있다.
           style: cost
       style: column
-    style: fill
+- box:
+    style: ph
+    blocks:
+    - text: { text: "▣ 31개 프롬프트, 하나의 곡선", style: ph-title }
+    - text: { text: "Lee 외 (2025) Figure 1 · arXiv:2503.01141", style: ph-src }
 cite:
 - lee2025
 foot: Part 4
