@@ -1,0 +1,87 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces consilience, a verifier-free test-time-scaling selection metric that picks the sampled reasoning rollout whose confidence starts low (exploratory) and ends high (convergent), fixing a failure mode where naive confidence maximization favors confidently wrong answers on hard problems.",
+        "title": "Consilience for Verifier-Free Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Identifies 'length shift' -- reasoning models progressively generate longer responses on already-correctly-solved (zero-gradient) training queries during RLVR, because reasoning-word emission learned for hard problems generalizes indiscriminately to easy ones -- and fixes it with Dynamic Outlier Truncation (DOT), a training-time RL intervention that truncates only the statistical outlier-length tail of all-correct rollout groups (affecting <0.5% of responses) while leaving hard queries unconstrained, cutting AIME-24 token usage 78% while increasing accuracy over the initial policy and beating prior efficient-reasoning methods.",
+        "title": "Anti-Length Shift: Dynamic Outlier Truncation for Training Efficient Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Discovers Key-Focus Heads (KFHs) -- a small subset of attention heads that, during final-answer generation, naturally attend more to essential reasoning steps than redundant ones -- and builds ATTNPO, an RL framework that rescales GRPO's outcome-level advantage per reasoning step using KFH attention scores, cutting reasoning length 55-61% while improving accuracy +2.9 to +7.3 points on DeepSeek-R1-Distill-Qwen-1.5B/7B.",
+        "title": "AttnPO: Attention-Guided Process Supervision for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ERRV defines a 'reasoning vector' -- the mean hidden-state difference between a question's shortest-correct and longest-incorrect sampled responses -- and instead of injecting it at inference (which limits autonomy and gives modest gains), steers RL rollouts with it during training via importance-sampling-corrected GRPO, letting the model internalize efficient reasoning so it needs no vector guidance at inference: ~30% length reduction with stable accuracy, and the vectors are shown to be stable across RL training (cosine similarity 0.83-0.83 pre/post-training) and to transfer across base, distilled, merged, and adaptive-reasoning models.",
+        "title": "ERRV: Eliciting Efficient Reasoning through Reasoning Vectors for Policy Optimization in Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PACE identifies two distinct failure modes of uniform length-penalty RL for efficient reasoning -- sequence-level over-compression of critical early deduction steps, and group-level indiscriminate compression that ignores query difficulty -- and fixes both with a frozen-policy prefix-rollout anchor (decaying over training) plus a pass-rate-derived, difficulty-scaled length penalty, becoming the only compared method to cut token usage over 45% while simultaneously improving accuracy, and generalizing to code, science and instruction-following domains.",
+        "title": "PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
+        "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines the Minimal Sufficient CoT — the shortest reasoning prefix at which the model's confidence in the ground-truth answer crosses a difficulty-adaptive threshold — and trains on it via supervised fine-tuning plus a GRPO stage whose reward penalises both over- and under-thinking, so reasoning length is calibrated continuously rather than by discrete modes.",
+        "title": "SuCo: Sufficiency-guided Continuous Adaptive Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-09-02T22:45:58Z",
+  "instructions": "Revise the wiki definition for 'LiveCodeBench-v6'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    The sixth release window of LiveCodeBench, used in the archive as a free-form competitive-programming set on which test-time-scaling and length-calibration methods are checked outside mathematics. Consilience is the only source reporting numbers on it: with n = 64 sampled completions its reasoning-isolated variant raises GPT-OSS-120B to 69.7% against Pass@1's 65.7% and self-certainty's degraded 64.5%, and Qwen to 60.4-60.9% against 55.3%, with the gain concentrated on hard problems (AUROC 0.61-0.62 for separating correct completions, versus 0.47-0.50 for mean confidence) and neutral on easy ones. SuCo folds it into an eight-benchmark average without a per-set figure, and Lightning OPD 2.0 names both v5 and v6 as evaluation sets but reports only a v5 number (63.0%), so the archive's version labelling is inconsistent and no v6 token-count or length figure is recorded anywhere.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "LiveCodeBench-v6",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "LiveCodeBench-v6",
+    "previous_definition": "The sixth release window of LiveCodeBench, used in the archive as a free-form competitive-programming set on which test-time-scaling and length-calibration methods are checked outside mathematics. Consilience is the only source reporting numbers on it: with n = 64 sampled completions its reasoning-isolated variant raises GPT-OSS-120B to 69.7% against Pass@1's 65.7% and self-certainty's degraded 64.5%, and Qwen to 60.4-60.9% against 55.3%, with the gain concentrated on hard problems (AUROC 0.61-0.62 for separating correct completions, versus 0.47-0.50 for mean confidence) and neutral on easy ones. SuCo folds it into an eight-benchmark average without a per-set figure, and Lightning OPD 2.0 names both v5 and v6 as evaluation sets but reports only a v5 number (63.0%), so the archive's version labelling is inconsistent and no v6 token-count or length figure is recorded anywhere.",
+    "source_count": 7
+  },
+  "task_id": "concept__livecodebench-v6",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

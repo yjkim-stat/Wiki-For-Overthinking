@@ -2,7 +2,7 @@
   "aliases": [
     "SorryBench"
   ],
-  "definition": "",
+  "definition": "Sorry-bench is a harmfulness/safety benchmark (lower score means safer) used to measure unsafe-output rate in large reasoning models. ReasoningGuard evaluates on it alongside AdvBench as one of two harmfulness benchmarks, where its inference-time defense achieves a Harmfulness/FFR of 0.3/4.6 versus 32.9/46.4 undefended on DeepSeek-R1-Qwen-7B. The Self-Jailbreak/Chain-of-Guardrail paper uses it as its primary safety metric: vanilla Qwen3 models score as high as 45.68% (14B) despite strong reasoning; a global safety baseline (SafeKey) cuts it from 48.18% to 20.00% on Qwen3-32B but at a reasoning-accuracy cost, while CoG's targeted step-level rewrite reduces it to 7.27% while simultaneously improving reasoning benchmarks.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.1453",
@@ -65,7 +65,9 @@
     "deepseek-r1",
     "deepseek-r1-distill-llama-70b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "advbench"
+  ],
   "schema_version": 1,
   "slug": "sorry-bench",
   "topics": [

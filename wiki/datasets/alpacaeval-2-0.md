@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+AlpacaEval 2.0 is an LLM-judged instruction-following/helpfulness win-rate benchmark. PAM uses it as one of three evaluation axes (with AdvBench/WildJailbreak harmlessness and MATH500/AIME24 reasoning) to show a metacognition-equipped alignment method improves win rate over an identically-trained model without it (+3.05 to +8.82 points under DPO, +5.96/+8.82 under GRPO, across two backbones). SuCo uses it as one of three out-of-domain checks for a math-trained model, reaching a 2.4 length-controlled win rate against DeepSeek-R1-Distill's 1.05 -- both low absolute scores at this evaluation scale.
 
 - **Kind**: dataset
 - **Also called**: AlpacaEval2.0

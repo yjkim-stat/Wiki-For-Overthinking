@@ -24,12 +24,52 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReasoningGuard is a training-free, inference-time jailbreak defense for large reasoning models that uses an attention-sink signal to locate the moment reasoning shifts from problem restatement to exploration, injects a crafted 'safety aha' phrase there, then samples multiple continuations and selects the one with the highest sustained attention to that safety phrase -- outperforming nine existing defenses at only 5-9% extra inference cost.",
+        "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reveals that linear interpolation between an Instruct model's and a Thinking model's weights does not trade off performance and reasoning verbosity smoothly, but follows a predictable three-stage transition (Instruct-dominated -> abrupt thinking-pattern emergence -> converging to Thinking with diminishing/overthinking returns), and shows a strategically chosen interpolation point beats sophisticated model-merging baselines (task arithmetic, TIES) on both efficiency and accuracy.",
+        "title": "Revisiting Model Interpolation for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "STEP trains a lightweight 2-layer-MLP step scorer on reasoning-model hidden states at step boundaries to evaluate parallel-reasoning trace quality with near-zero overhead, and pairs it with a GPU-memory-triggered (not confidence-threshold or fixed-schedule) pruning mechanism that eliminates the KV-cache waiting-queue bottleneck identified as the dominant source of end-to-end latency in parallel test-time scaling -- cutting latency 45-70% versus self-consistency while improving accuracy 0.4-7.5 points across three models and six benchmarks.",
+        "title": "Hidden States as Early Signals: Step-level Trace Evaluation and Pruning for Efficient Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Chronos treats a reasoning trace's per-token negative-log-probability sequence as a time series (rather than collapsing it to a single pooled scalar like prior confidence-based scorers) and scores its quality with a multi-scale InceptionTime-style CNN focused on the final tail tokens, then weights majority voting by these learned scores -- beating majority voting by up to 13.76 absolute points and confidence-weighted voting (DeepConf) across all nine model-benchmark combinations, at only a 0.0005% increase in inference FLOPs, and generalizing across models and out-of-domain tasks.",
+        "title": "Chronos: Learning Temporal Dynamics of Reasoning Chains for Test-Time Scaling",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DeepPrune identifies inter-trace redundancy in parallel test-time scaling (over 80% of parallel reasoning traces yield identical final answers) and trains a specialized judge model to predict answer equivalence from unfinished trace pairs, combined with online greedy clustering to prune redundant paths during generation, cutting token consumption 65.7-88.5% versus consensus sampling with accuracy within 3 percentage points.",
+        "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T00:00:49Z",
-  "created_at": "2026-08-27T23:01:46Z",
-  "instructions": "Write the wiki definition for 'Qwen3-4B-Thinking-2507'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-02T22:44:51Z",
+  "created_at": "2026-09-02T21:44:54Z",
+  "instructions": "Revise the wiki definition for 'Qwen3-4B-Thinking-2507'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Qwen3-4B-Thinking-2507 is a Qwen3 'thinking' variant used as a backbone for cognitive profiling of reasoning traces via Bloom's taxonomy, for GRIP's reward-guided parameter interpolation (cutting its average generation length 27.0% while slightly improving accuracy), and for LEASH's constrained-RL length control (up to 26.2% length reduction at this scale while maintaining or improving accuracy on in- and out-of-domain benchmarks).\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-4B-Thinking-2507",
   "kind": "concept",
   "language": "en",
@@ -45,13 +85,11 @@
   },
   "payload": {
     "name": "Qwen3-4B-Thinking-2507",
-    "source_count": 3
+    "previous_definition": "Qwen3-4B-Thinking-2507 is a Qwen3 'thinking' variant used as a backbone for cognitive profiling of reasoning traces via Bloom's taxonomy, for GRIP's reward-guided parameter interpolation (cutting its average generation length 27.0% while slightly improving accuracy), and for LEASH's constrained-RL length control (up to 26.2% length reduction at this scale while maintaining or improving accuracy on in- and out-of-domain benchmarks).",
+    "source_count": 8
   },
   "result": {
-    "aliases": [],
-    "definition": "Qwen3-4B-Thinking-2507 is a Qwen3 'thinking' variant used as a backbone for cognitive profiling of reasoning traces via Bloom's taxonomy, for GRIP's reward-guided parameter interpolation (cutting its average generation length 27.0% while slightly improving accuracy), and for LEASH's constrained-RL length control (up to 26.2% length reduction at this scale while maintaining or improving accuracy on in- and out-of-domain benchmarks).",
-    "kind": "model",
-    "related": []
+    "definition": "Qwen3-4B-Thinking-2507 is a Qwen3 'thinking' variant used as a backbone for cognitive profiling of reasoning traces via Bloom's taxonomy, for GRIP's reward-guided parameter interpolation (cutting its average generation length 27.0% while slightly improving accuracy), and for LEASH's constrained-RL length control (up to 26.2% length reduction at this scale while maintaining or improving accuracy on in- and out-of-domain benchmarks)."
   },
   "task_id": "concept__qwen3-4b-thinking-2507",
   "task_version": 1,

@@ -5,7 +5,7 @@
     "Llama3.1-8B-Instruct",
     "LLaMA3.1-8B-Instruct"
   ],
-  "definition": "",
+  "definition": "LLaMA-3.1-8B-Instruct is an instruction-tuned open-weight model that this archive's sources use mainly as a common backbone for testing efficient- and compressed-reasoning constructions rather than as an object of study in itself. Across the eighteen sources now attached, it hosts multi-agent and soft-prompt reasoning pipelines (FIRE's counterspeech agents; SoftCoT, which keeps it frozen and primes it with continuous soft-thought tokens) and search-based reasoning (ARISE's risk-adaptive MCTS, at substantially higher inference cost); it receives distillation and cold-start training aimed at overthinking (the Long CoT Collection's thought-budget-controllable data, Marco-o1 v2's fixes for the 'formalistic long-time thinking' small models inherit from distillation, CurioSFT's entropy-preserving SFT, Select2Reason's difficulty-and-length data selection); it is the subject of token-budget prompting (TALE) and of token-level functional-importance and pruning diagnostics; and it appears as an evaluated backbone in test-time-scaling, evaluator-scaling and overthinking-measurement studies (DREAM, MetaScale, THOUGHTTERMINATOR), in confidence-elicitation work that drives early stopping (GrACE), and in RLVR data-efficiency work (MINER). Reported effects span both accuracy gains and substantial reasoning-length reductions depending on the method, so no single direction can be attributed to the checkpoint. This record is the union of two spellings that the archive kept apart until 2026-09-03; it is distinct from the base checkpoint of the same size, which the archive deliberately keeps separate.",
   "evidence": [
     {
       "id": "arxiv:2608.23152",
@@ -454,7 +454,10 @@
     "ai2d",
     "hallusionbench"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "llama-3-1-8b",
+    "llama-3-1-70b-instruct"
+  ],
   "schema_version": 1,
   "slug": "llama-3-1-8b-instruct",
   "topics": [

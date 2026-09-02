@@ -2,7 +2,7 @@
   "aliases": [
     "Qwen-3 family (0.6B-235B-A22B)"
   ],
-  "definition": "",
+  "definition": "Qwen3 family (0.6B-235B-A22B) is a family-level record for results these sources report across the Qwen3 model line without breaking them out by individual checkpoint. TRACE's horizontal/vertical overthinking analysis spans 14 thinking models including this family, finding thinking mode costs 5-20x more inference for simple queries with little-to-no accuracy gain, and that the thinking/non-thinking accuracy gap vanishes once model scale exceeds roughly 4-8B parameters. ARISE evaluates the family on code-generation and agentic tool-use tasks, finding its ARISE test-time-scaling metric (like a conventional scaling metric) correlates positively with parameter count across the family, and separately reports Qwen3-235B-A22B as the strongest open-source model on that metric (ARISE above 0.39 on all evaluated reasoning tasks).",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.773",
@@ -81,7 +81,9 @@
     "deepseek-r1",
     "v3-1-v3-1-terminus-v3-2-exp"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-235b-a22b"
+  ],
   "schema_version": 1,
   "slug": "qwen3-family-0-6b-235b-a22b",
   "topics": [

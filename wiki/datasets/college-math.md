@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+College Math is a math-reasoning benchmark used in this archive's efficient-reasoning studies as one tier in a battery running from GSM8K through Olympiad-level sets. In 'Concise Math Reasoning via Difficulty-Aware Distillation' it is one of eight benchmarks in the LiteCoT/Liter evaluation suite. In 'Speculative Chain-of-Thought' it is one of five datasets (with GSM8K, MATH, GaoKao, Olympiad) on which SCoT is tested, where the accelerated method notably exceeds its own 32B target model's accuracy specifically on this set (66.2% vs. 63.8%), unlike on most of the other four.
 
 - **Kind**: dataset
 - **Also called**: CollegeMath

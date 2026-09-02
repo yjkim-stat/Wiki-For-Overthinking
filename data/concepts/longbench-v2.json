@@ -2,7 +2,7 @@
   "aliases": [
     "LongBenchv2"
   ],
-  "definition": "",
+  "definition": "LongBench v2 is a long-context evaluation benchmark. S2O uses it alongside InfiniteBench and RULER to confirm its sparse-attention prefill speedup (Llama-3.1-8B/Qwen3-8B, 128K context) preserves accuracy comparable to full dense attention. 'Correct, Concise and Complete' uses it as one of seven out-of-domain benchmarks to test whether its length-reduction training generalizes beyond math, finding smaller length reductions there (8-14%, versus 22-45% on in-domain/reasoning sets) with under 2 points of accuracy loss.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.351",
@@ -57,7 +57,9 @@
     "qwen3-32b",
     "deepseek-r1-qwen-7b-distill"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "infinitebench"
+  ],
   "schema_version": 1,
   "slug": "longbench-v2",
   "topics": [

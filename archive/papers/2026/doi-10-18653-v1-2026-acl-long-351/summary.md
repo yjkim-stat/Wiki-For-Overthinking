@@ -47,7 +47,7 @@ The method introduces additional hyperparameters (segment length, early-stop thr
 
 - **Concepts**: online (index-guided) permutation, monotone-gain early stopping for sparse attention, coordinate-scheduled sparse attention, stripe-like attention heatmap structure
 - **Methods**: S2O (online permutation + monotone-gain early stopping), FlashAttention / FlashAttention2 (baseline, dense reference), FlexPrefill (baseline), XAttn (baseline), PBS (baseline)
-- **Datasets**: InfiniteBench, RULER, LongBench v2
+- **Datasets**: InfiniteBench, RULER, [LongBench v2](../../../../wiki/datasets/longbench-v2.md)
 
 Tags: `sparse-attention`, `long-context-inference`, `early-stopping`, `efficient-transformers`, `prefill-optimization`
 

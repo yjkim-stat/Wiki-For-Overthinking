@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Alibaba's 7B Qwen2.5 checkpoint, the most frequently used mid-scale backbone in this archive after the R1-Distill family. Sources use it in three ways that its variants keep apart: the Instruct model as a base for supervised fine-tuning and RL, including as the student a 32B reflection detector is distilled into so that detection costs one step; the Math variant as a mathematics-specialised generator; and the plain checkpoint as the non-reasoning control against which distilled reasoning models are compared. It is also the scale at which several papers report that a Qwen backbone and a Llama backbone of matched parameter count behave statistically alike.
+Alibaba's 7B Qwen2.5 checkpoint, the most frequently used mid-scale backbone in this archive after the R1-Distill family. Sources use it in three ways that its variants keep apart: the Instruct model as a base for supervised fine-tuning and RL, including as the student a 32B reflection detector is distilled into so that detection costs one step; the Math variant as a mathematics-specialised generator; and the plain checkpoint as the non-reasoning control against which distilled reasoning models are compared. It is also the scale at which several papers report that a Qwen backbone and a Llama backbone of matched parameter count behave statistically alike. TISER adds a fourth use: fine-tuning it (alongside Mistral-7B) on TISER-formatted synthetic reasoning traces lets it match or beat GPT-4o on in-domain and out-of-distribution temporal-reasoning benchmarks.
 
 - **Kind**: model
 - **Also called**: Qwen2.5-7B, Qwen2.5-7B-Instruct, Qwen2.5-7B-Math

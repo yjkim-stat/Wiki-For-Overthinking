@@ -47,7 +47,7 @@ SCoT requires an existing pre-trained reasoning model of the same family to serv
 
 - **Concepts**: thought-level speculation (vs. token-level speculative decoding), thinking behavior alignment, difficulty-aware draft/target routing, draft selection and error correction
 - **Methods**: Speculative Chain-of-Thought (SCoT), Thinking Behavior Alignment (LoRA fine-tuning), Draft Selection and Error Correction, TokenSkip (CoT-compression baseline), standard token-level speculative decoding (baseline)
-- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), GaoKao-En-2023, CollegeMath, Olympiad (OlympiadBench)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH](../../../../wiki/datasets/math.md), GaoKao-En-2023, [CollegeMath](../../../../wiki/datasets/college-math.md), Olympiad (OlympiadBench)
 
 Tags: `efficient-reasoning`, `speculative-decoding`, `difficulty-aware-routing`, `latency`, `large-small-model-collaboration`
 

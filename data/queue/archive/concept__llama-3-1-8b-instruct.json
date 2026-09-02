@@ -35,8 +35,24 @@
       },
       {
         "kind": "paper",
+        "note": "ARISE combines Monte Carlo Tree Search with a Bayesian Risk-Value function -- estimating each reasoning-state node's risk from the policy model's own likelihood of regenerating the original question given that state -- to guide retrieval-augmented multi-hop reasoning, outperforming SOTA knowledge-augmented-reasoning baselines by up to 23.10% and RAG-equipped DeepSeek-R1-distilled LRMs by up to 25.37%, while making explicit that its search-based gains come at substantially higher inference-time cost.",
+        "title": "ARise: Towards Knowledge-Augmented Reasoning via Risk-Adaptive Search",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "TALE (Token-Budget-Aware LLM rEasoning) identifies that reasoning LLMs will follow a token budget stated in the prompt but that the effective budget must be chosen carefully -- too small a budget triggers 'token elasticity' where the model gives up complying and produces even longer output than an unconstrained baseline -- and offers two implementations, zero-shot budget estimation-and-prompting (TALE-EP, 67% token reduction with <3% accuracy loss) and post-training internalization (TALE-PT, ~50% reduction via SFT or DPO), both found via a binary-search 'optimal budget' procedure motivated by an 'implicit monotonicity assumption' verified on 90.91% of sampled GSM8K problems.",
         "title": "Token-Budget-Aware LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "GrACE teaches an LLM to output a discriminative, calibrated confidence score during generation itself -- via the similarity between the last hidden state and a learned embedding for a special <CNF> token, trained against k-fold-binned accuracy targets -- eliminating the separate evaluation stage post-generation methods require, and uses this on-the-fly confidence to weight self-consistency voting and drive early-stopping, improving test-time-scaling accuracy by up to 3.3% while cutting required samples by more than half in many cases.",
+        "title": "GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models",
         "topics": [
           "overthinking"
         ]
@@ -53,6 +69,14 @@
         "kind": "paper",
         "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
         "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "MINER recovers training signal from 'positive homogeneous' (PH) prompts -- where all sampled RLVR rollouts are already correct and GRPO-style advantage collapses to zero, wasting the rollout budget -- by converting the policy's own per-token uncertainty (negative log-likelihood) into an intrinsic reward that reinforces under-confident-but-correct reasoning paths, combined with token-level focal credit assignment and adaptive advantage calibration, achieving up to +4.58 Pass@1 and +6.66 Pass@K over GRPO with zero extra rollouts or inference cost.",
+        "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models",
         "topics": [
           "overthinking"
         ]
@@ -99,6 +123,22 @@
       },
       {
         "kind": "paper",
+        "note": "Derives an exact, non-asymptotic decomposition of GRPO's token-level policy update showing entropy collapse in reasoning RL is driven by a small subset (~5%) of structurally critical 'branch-defining' tokens rather than uniform decay across the sequence, and proposes SCOPE, which applies KL regularization only to that top-5% (ranked by a computable redistribution score), consistently improving both Pass@1 and Pass@k under both RLVR and RLIF across model scales.",
+        "title": "A Few Bad Apples Spoil the Bunch: Preventing Global Entropy Collapse Driven by a Small Set of Tokens in LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper defines model-relative measures of overthinking (local/global overthinking scores) built from observed token-spend distributions, introduces the DUMB500 easy-question dataset to probe overthinking on trivial inputs, and proposes THOUGHTTERMINATOR, a training-free decoding-time technique that interrupts a reasoning model with token-budget reminders and forces an answer at a difficulty-calibrated deadline.",
+        "title": "THOUGHTTERMINATOR: Benchmarking, Calibrating, and Mitigating Overthinking in Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "Heima replaces each stage of a multimodal model's textual chain of thought with a single learned 'thinking token' generated in latent space, and trains a separate decoder that can expand those tokens back into readable reasoning.",
         "title": "Efficient Reasoning with Hidden Thinking",
         "topics": [
@@ -107,9 +147,9 @@
       }
     ]
   },
-  "completed_at": "2026-09-02T00:00:51Z",
-  "created_at": "2026-09-01T11:08:38Z",
-  "instructions": "Revise the wiki definition for 'LLaMA-3.1-8B-Instruct'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    LLaMA-3.1-8B-Instruct is an instruction-tuned base model used across several efficient-reasoning constructions in this archive: as the backbone for FIRE's counterspeech agents, as the base model the Long CoT Collection dataset is shown to out-cold-start for RLVR, as SoftCoT's frozen backbone primed by soft thought tokens, as the model Marco-o1 v2's distillation-training fixes are demonstrated on, as the subject of TALE's token-budget-aware prompting, and as the backbone Heima's latent 'thinking token' replaces textual CoT for.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-02T22:41:48Z",
+  "created_at": "2026-09-02T22:23:27Z",
+  "instructions": "Write the wiki definition for 'LLaMA-3.1-8B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "LLaMA-3.1-8B-Instruct",
   "kind": "concept",
   "language": "en",
@@ -125,13 +165,16 @@
   },
   "payload": {
     "name": "LLaMA-3.1-8B-Instruct",
-    "previous_definition": "LLaMA-3.1-8B-Instruct is an instruction-tuned base model used across several efficient-reasoning constructions in this archive: as the backbone for FIRE's counterspeech agents, as the base model the Long CoT Collection dataset is shown to out-cold-start for RLVR, as SoftCoT's frozen backbone primed by soft thought tokens, as the model Marco-o1 v2's distillation-training fixes are demonstrated on, as the subject of TALE's token-budget-aware prompting, and as the backbone Heima's latent 'thinking token' replaces textual CoT for.",
-    "source_count": 13
+    "source_count": 18
   },
   "result": {
     "aliases": [],
-    "definition": "LLaMA-3.1-8B-Instruct is an instruction-tuned open-weight model used throughout the archive as a common backbone for testing efficient- and compressed-reasoning constructions: it hosts multi-agent and soft-prompt reasoning pipelines (FIRE's counterspeech agents, SoftCoT's frozen backbone primed by continuous soft-thought tokens), receives distillation and cold-start training aimed at overthinking (Long CoT Collection's thought-budget-controllable data, Marco-o1 v2's fixes for 'formalistic long-time thinking' inherited from distillation, CurioSFT's entropy-preserving SFT, Select2Reason's difficulty/length-based data selection), is the subject of token-budget-aware prompting (TALE) and reasoning-token functional-importance/pruning analysis, and is evaluated as a backbone in test-time-scaling and evaluator studies (DREAM, MetaScale, and a study scaling evaluation-time reasoning compute). Reported effects on it span both accuracy gains and substantial reasoning-length or token reductions, depending on the method.",
-    "kind": "model"
+    "definition": "LLaMA-3.1-8B-Instruct is an instruction-tuned open-weight model that this archive's sources use mainly as a common backbone for testing efficient- and compressed-reasoning constructions rather than as an object of study in itself. Across the eighteen sources now attached, it hosts multi-agent and soft-prompt reasoning pipelines (FIRE's counterspeech agents; SoftCoT, which keeps it frozen and primes it with continuous soft-thought tokens) and search-based reasoning (ARISE's risk-adaptive MCTS, at substantially higher inference cost); it receives distillation and cold-start training aimed at overthinking (the Long CoT Collection's thought-budget-controllable data, Marco-o1 v2's fixes for the 'formalistic long-time thinking' small models inherit from distillation, CurioSFT's entropy-preserving SFT, Select2Reason's difficulty-and-length data selection); it is the subject of token-budget prompting (TALE) and of token-level functional-importance and pruning diagnostics; and it appears as an evaluated backbone in test-time-scaling, evaluator-scaling and overthinking-measurement studies (DREAM, MetaScale, THOUGHTTERMINATOR), in confidence-elicitation work that drives early stopping (GrACE), and in RLVR data-efficiency work (MINER). Reported effects span both accuracy gains and substantial reasoning-length reductions depending on the method, so no single direction can be attributed to the checkpoint. This record is the union of two spellings that the archive kept apart until 2026-09-03; it is distinct from the base checkpoint of the same size, which the archive deliberately keeps separate.",
+    "kind": "model",
+    "related": [
+      "Llama-3.1-8B",
+      "LLaMA-3.1-70B-Instruct"
+    ]
   },
   "task_id": "concept__llama-3-1-8b-instruct",
   "task_version": 1,

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+MM-Vet is a multimodal reasoning/visual-question-answering benchmark. GPRO evaluates on it as one of five multimodal reasoning benchmarks (with MathVision, MathVerse, MathVista, DynaMath) on which its perception/reasoning-routing method redefines the efficiency-accuracy Pareto frontier versus base models and slow-thinking baselines. Heima evaluates zero-shot on it as one of six benchmarks (with MMStar, MMBench, MathVista, AI2D, HallusionBench) used to check that replacing textual CoT with latent 'thinking tokens' does not cost much accuracy -- averaged across that six-benchmark suite, Heima trails its CoT baseline by 3.1 points (58.0% vs. 61.1%) though it exceeds its own un-tuned Llama-3.2-11B-Vision-Instruct base (52.1%), without an MM-Vet-specific number broken out.
 
 - **Kind**: dataset
 - **Also called**: MMVet

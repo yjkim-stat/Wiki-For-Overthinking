@@ -9,7 +9,7 @@ JailbreakBench is a benchmark for evaluating jailbreak attacks against large rea
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdvBench](advbench.md), [Claude-3.5-Sonnet](../models/claude-3-5-sonnet.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [Grok-3](../models/grok-3.md), [HarmBench](harmbench.md), [Llama-Guard-3 (ASR judge)](../methods/llama-guard-3-asr-judge.md), [o1](../models/o1.md), [o1-mini](../models/o1-mini.md), [o3-mini](../models/o3-mini.md), [QwQ-32B](../models/qwq-32b.md), [StrongReject](strongreject.md)
+**Related**: [AdvBench](advbench.md), [Claude-3.5-Sonnet](../models/claude-3-5-sonnet.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DeepSeek-R1](../models/deepseek-r1.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [Grok-3](../models/grok-3.md), [HarmBench](harmbench.md), [Llama-Guard-3 (ASR judge)](../models/llama-guard-3-asr-judge.md), [o1](../models/o1.md), [o1-mini](../models/o1-mini.md), [o3-mini](../models/o3-mini.md), [QwQ-32B](../models/qwq-32b.md), [StrongReject](strongreject.md)
 
 ## Appears in
 

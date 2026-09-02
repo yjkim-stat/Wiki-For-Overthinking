@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-09-02T22:44:51Z",
   "created_at": "2026-09-02T22:23:27Z",
   "instructions": "Write the wiki definition for 'Phi-4-mini-reasoning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Phi-4-mini-reasoning",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "Phi-4-mini-reasoning",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Phi-4-mini-reasoning is a small reasoning-tuned model used in this archive both as a distillation teacher and as a comparison baseline. ReasMark uses it as one of three teacher/student pairs (with DeepSeek-R1-Distill-Qwen-1.5B and Qwen3-1.7B-Thinking) to show its reasoning-length watermark survives distillation into a student (p<0.05 across all tested configurations) while leaving main-task accuracy close to unwatermarked. In the SambaY paper it is the baseline that Phi4-mini-Flash-Reasoning (SambaY's largest variant) is built to beat, and is significantly outperformed by it on Math500/AIME24/AIME25/GPQA-Diamond without any RL, at up to 10x higher decoding throughput on long generations.",
+    "kind": "model",
+    "related": [
+      "Phi4-mini-Flash-Reasoning"
+    ]
   },
   "task_id": "concept__phi-4-mini-reasoning",
   "task_version": 1,

@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Llama-Guard-3 is used in this archive not as a subject model but as the automated Attack-Success-Rate (ASR) judge for LRM jailbreak evaluations. 'How Should We Enhance the Safety of Large Reasoning Models' measures ASR via LlamaGuard3 under None/PAP/PAIR jailbreak attacks against AdvBench queries. 'Conflicts Make Large Reasoning Models Vulnerable to Attacks' selects it as its ASR judge specifically for its strong correlation with human judgment and low false-positive rate, using it to score attack success across a taxonomy of eight internal-conflict/dilemma jailbreak types.
 
-- **Kind**: method
+- **Kind**: model
 - **Also called**: LlamaGuard3 (ASR judge)
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdvBench](../datasets/advbench.md), [AIME 2024](../datasets/aime-2024.md), [DeepSeek-R1-Distill-Llama-8B](../models/deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-32B](../models/deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](../models/deepseek-r1-distill-qwen-7b.md), [HarmBench](../datasets/harmbench.md), [JailbreakBench](../datasets/jailbreakbench.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [Qwen3-14B](../models/qwen3-14b.md), [QwQ-32B](../models/qwq-32b.md), [StrongReject](../datasets/strongreject.md)
+**Related**: [AdvBench](../datasets/advbench.md), [AIME 2024](../datasets/aime-2024.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-32B](deepseek-r1-distill-qwen-32b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [HarmBench](../datasets/harmbench.md), [JailbreakBench](../datasets/jailbreakbench.md), [LiveCodeBench](../datasets/livecodebench.md), [MATH500](../datasets/math500.md), [Qwen3-14B](qwen3-14b.md), [QwQ-32B](qwq-32b.md), [StrongReject](../datasets/strongreject.md)
 
 ## Appears in
 

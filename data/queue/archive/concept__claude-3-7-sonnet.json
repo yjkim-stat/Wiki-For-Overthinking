@@ -16,12 +16,44 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "AutoRAN is the first automated framework for hijacking a large reasoning model's internal safety deliberation, using a weaker, less-aligned auxiliary model to simulate the target's execution reasoning and iteratively refine attack prompts from leaked refusal reasoning, achieving near-100% attack success against gpt-o3/o4-mini and Gemini-2.5-Flash within a few turns.",
+        "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
+        "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRUTHFULVQA, a 5,000-image hierarchical human-annotated benchmark testing multimodal LLM truthfulness under progressively misleading visual-linguistic prompts, uncovers an inverse scaling law of truthfulness: slow-thinking (reasoning) MLLMs are consistently less truthful than their fast-thinking chat counterparts of the same family, and larger reasoning models show worse calibration despite generating more reasoning tokens.",
+        "title": "When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+        "title": "Correct Reasoning Paths Visit Shared Decision Pivots",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-27T23:01:20Z",
-  "created_at": "2026-08-27T22:59:03Z",
-  "instructions": "Write the wiki definition for 'Claude-3.7-Sonnet'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-02T22:44:51Z",
+  "created_at": "2026-09-02T21:44:54Z",
+  "instructions": "Revise the wiki definition for 'Claude-3.7-Sonnet'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A closed-source reasoning-capable model used across sources as an evaluation target: for long-CoT safety benchmarking (found unsafe on standard jailbreak/safety datasets despite its safety reputation) and as a jailbreak target for the Mousetrap iterative-chaos attack framework, which achieves high attack success against it specifically because of its noted strong safety alignment.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Claude-3.7-Sonnet",
   "kind": "concept",
   "language": "en",
@@ -37,15 +69,17 @@
   },
   "payload": {
     "name": "Claude-3.7-Sonnet",
-    "source_count": 2
+    "previous_definition": "A closed-source reasoning-capable model used across sources as an evaluation target: for long-CoT safety benchmarking (found unsafe on standard jailbreak/safety datasets despite its safety reputation) and as a jailbreak target for the Mousetrap iterative-chaos attack framework, which achieves high attack success against it specifically because of its noted strong safety alignment.",
+    "source_count": 6
   },
   "result": {
     "aliases": [],
-    "definition": "A closed-source reasoning-capable model used across sources as an evaluation target: for long-CoT safety benchmarking (found unsafe on standard jailbreak/safety datasets despite its safety reputation) and as a jailbreak target for the Mousetrap iterative-chaos attack framework, which achieves high attack success against it specifically because of its noted strong safety alignment.",
+    "definition": "A closed-source reasoning-capable model used across sources chiefly as an evaluation target. SafeChain evaluates it on StrongReject/WildJailbreak alongside 12 other LRMs, flagging that its measured safety (like Kimi-k1.5's) is likely overestimated by the evaluation because it applies external safety filters the study does not account for. Mousetrap's headline near-100% attack-success numbers against a model 'chosen for its strong safety reputation' are reported for Claude-3.5-Sonnet specifically (87.5-93.13% ASR across standard benchmarks); Claude-3.7-Sonnet is evaluated separately among newer/more-advanced models and found nearly completely jailbroken (near-100% combined success) at chain lengths up to 3. AutoRAN also targets it with an automated safety-reasoning-hijacking framework, and both 'Correct Reasoning Paths Visit Shared Decision Pivots' and TruthfulVQA include it as one of several large backbones in diagnostic or aggregate multi-model analyses, without a Claude-3.7-specific headline result reported in either.",
     "kind": "model",
     "related": [
-      "SafeChain",
-      "A Mousetrap"
+      "safechain",
+      "a-mousetrap",
+      "autoran"
     ]
   },
   "task_id": "concept__claude-3-7-sonnet",

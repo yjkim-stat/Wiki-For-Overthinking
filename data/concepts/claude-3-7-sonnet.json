@@ -2,7 +2,7 @@
   "aliases": [
     "Claude 3.7 Sonnet"
   ],
-  "definition": "A closed-source reasoning-capable model used across sources as an evaluation target: for long-CoT safety benchmarking (found unsafe on standard jailbreak/safety datasets despite its safety reputation) and as a jailbreak target for the Mousetrap iterative-chaos attack framework, which achieves high attack success against it specifically because of its noted strong safety alignment.",
+  "definition": "A closed-source reasoning-capable model used across sources chiefly as an evaluation target. SafeChain evaluates it on StrongReject/WildJailbreak alongside 12 other LRMs, flagging that its measured safety (like Kimi-k1.5's) is likely overestimated by the evaluation because it applies external safety filters the study does not account for. Mousetrap's headline near-100% attack-success numbers against a model 'chosen for its strong safety reputation' are reported for Claude-3.5-Sonnet specifically (87.5-93.13% ASR across standard benchmarks); Claude-3.7-Sonnet is evaluated separately among newer/more-advanced models and found nearly completely jailbroken (near-100% combined success) at chain lengths up to 3. AutoRAN also targets it with an automated safety-reasoning-hijacking framework, and both 'Correct Reasoning Paths Visit Shared Decision Pivots' and TruthfulVQA include it as one of several large backbones in diagnostic or aggregate multi-model analyses, without a Claude-3.7-specific headline result reported in either.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.findings-acl.1197",
@@ -173,7 +173,8 @@
   ],
   "related_authored": [
     "safechain",
-    "a-mousetrap"
+    "a-mousetrap",
+    "autoran"
   ],
   "schema_version": 1,
   "slug": "claude-3-7-sonnet",

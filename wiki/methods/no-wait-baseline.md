@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+No-Wait is a training-free efficiency baseline that suppresses a reasoning model's reflection triggers outright — masking tokens such as 'wait' and 'hmm' regardless of how confident the model is at that point — so that the trace cannot re-enter self-verification. Both sources here use it only as a comparison. ThinkBrake reports it degrading less than skipping reasoning entirely but still dropping notably on AIME, and degrading modestly in the parallel and multi-parallel settings where a reasoning-skipping baseline collapses; AdapThink lists it among seven length-control baselines it reports outperforming on the accuracy-length tradeoff. Its interest to the archive is as the unconditional end of a spectrum: later methods keep the same intervention but gate it, either on a certainty estimate or on internal activations, and argue that suppressing reflection when the model is not yet confident is what removes reasoning the answer still needs.
 
 - **Kind**: method
 - **Also called**: NoWait (baseline)

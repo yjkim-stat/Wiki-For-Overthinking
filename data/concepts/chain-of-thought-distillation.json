@@ -4,7 +4,7 @@
     "CoT distillation",
     "chain-of-thought distillation"
   ],
-  "definition": "Training a smaller student model on the reasoning traces a larger teacher produced, which the archive's sources treat as a data problem rather than a fixed recipe. DC-CoT benchmarks it as exactly that, isolating the contribution of data augmentation, data selection and data mixing across teacher models, student models and reasoning domains; LIMOPro's PIR scores each step of the distilled traces by its effect on answer confidence and prunes only the low-importance verification and error-correction steps, so the student reasons more concisely at unchanged accuracy. The sources do not agree that the student should reproduce the trace at all: TabRank places DeepSeek-R1's reranking rationale in the Qwen3-8B student's input prompt and takes the loss only over the final ranking, so the teacher's reasoning is conditioning rather than a target. What the term shares across all three is only the teacher-trace-to-smaller-student direction; the objective, and how much of the trace survives, is what each paper varies.",
+  "definition": "",
   "evidence": [
     {
       "id": "title:95b92d67054ad4f2",

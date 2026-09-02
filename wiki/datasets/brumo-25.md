@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+BrUMO'25 is a hard, 30-question competition-math benchmark used alongside AIME'24, AIME'25 and HMMT'25 as an Olympiad-difficulty evaluation set. 'Ranking Reasoning LLMs under Test-Time Scaling' uses it as one of four benchmarks (20 models, 80 sampled trials each) to test low-budget ranking-method stability, finding Bayes_R0@1 the best-agreeing low-budget method against the gold-standard ranking on it (Kendall's tau_b 0.779-0.858). 'Cut Your Losses!' evaluates its STOP path-pruning method on it under a standardized avg@8|64 protocol alongside AIME24/25, HMMT25 and GPQA-Diamond, though without a BrUMO'25-specific number broken out from the aggregate result.
 
 - **Kind**: dataset
 - **Also called**: BRUMO25

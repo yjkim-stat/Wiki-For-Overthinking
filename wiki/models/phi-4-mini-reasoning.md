@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Phi-4-mini-reasoning is a small reasoning-tuned model used in this archive both as a distillation teacher and as a comparison baseline. ReasMark uses it as one of three teacher/student pairs (with DeepSeek-R1-Distill-Qwen-1.5B and Qwen3-1.7B-Thinking) to show its reasoning-length watermark survives distillation into a student (p<0.05 across all tested configurations) while leaving main-task accuracy close to unwatermarked. In the SambaY paper it is the baseline that Phi4-mini-Flash-Reasoning (SambaY's largest variant) is built to beat, and is significantly outperformed by it on Math500/AIME24/AIME25/GPQA-Diamond without any RL, at up to 10x higher decoding throughput on long generations.
 
 - **Kind**: model
 - **Also called**: Phi4-mini-Reasoning

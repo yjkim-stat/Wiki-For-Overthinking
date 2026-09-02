@@ -6,7 +6,7 @@
 
 - [Overthinking](topics/overthinking.md) — `overthinking`
 
-## Concepts (103)
+## Concepts (102)
 
 - [abstention](concepts/abstention.md) — 2 source(s)
 - [Accuracy-Efficiency Pareto Frontier](concepts/accuracy-efficiency-pareto-frontier.md) — 1 source(s)
@@ -61,7 +61,6 @@
 - [Length reward](concepts/length-reward.md) — 3 source(s)
 - [mathematical reasoning benchmarks](concepts/mathematical-reasoning-benchmarks.md) — 1 source(s)
 - [mechanistic interpretability](concepts/mechanistic-interpretability.md) — 1 source(s)
-- [Out-of-Distribution Generalization](concepts/out-of-distribution-generalization.md) — 1 source(s)
 - [Overthinking](concepts/overthinking.md) — 79 source(s)
 - [Overthinking-Adjusted Accuracy (OAA)](concepts/overthinking-adjusted-accuracy-oaa.md) — 1 source(s)
 - [Pass@1](concepts/pass-1.md) — 2 source(s)
@@ -112,7 +111,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 2 source(s)
 - [weighted voting](concepts/weighted-voting.md) — 2 source(s)
 
-## Methods (140)
+## Methods (139)
 
 - [A*-Thought](methods/a-thought.md) — 2 source(s)
 - [activation steering](methods/activation-steering.md) — 5 source(s)
@@ -183,7 +182,6 @@
 - [LC-R1](methods/lc-r1.md) — 2 source(s)
 - [LC-R1 (baseline)](methods/lc-r1-baseline.md) — 2 source(s)
 - [linear probe](methods/linear-probe.md) — 3 source(s)
-- [Llama-Guard-3 (ASR judge)](methods/llama-guard-3-asr-judge.md) — 2 source(s)
 - [LLM-as-a-Judge](methods/llm-as-a-judge.md) — 3 source(s)
 - [logit lens](methods/logit-lens.md) — 2 source(s)
 - [LoRA](methods/lora.md) — 2 source(s)
@@ -391,7 +389,7 @@
 - [XSTest](datasets/xstest.md) — 2 source(s)
 - [ZebraLogic](datasets/zebralogic.md) — 4 source(s)
 
-## Models (112)
+## Models (113)
 
 - [Claude Sonnet 4.5](models/claude-sonnet-4-5.md) — 3 source(s)
 - [Claude-3.5-Sonnet](models/claude-3-5-sonnet.md) — 4 source(s)
@@ -454,6 +452,7 @@
 - [Llama-3.2-1B](models/llama-3-2-1b.md) — 2 source(s)
 - [Llama-3.2-1B-Instruct](models/llama-3-2-1b-instruct.md) — 2 source(s)
 - [Llama-3.3-70B-Instruct](models/llama-3-3-70b-instruct.md) — 4 source(s)
+- [Llama-Guard-3 (ASR judge)](models/llama-guard-3-asr-judge.md) — 2 source(s)
 - [LLaVA-CoT](models/llava-cot.md) — 2 source(s)
 - [Mistral 7B](models/mistral-7b.md) — 2 source(s)
 - [Nemotron-32B](models/nemotron-32b.md) — 2 source(s)

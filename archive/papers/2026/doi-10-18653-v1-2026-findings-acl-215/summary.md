@@ -47,7 +47,7 @@ GPRO's failure-attribution supervision relies on GPT-4-based labeling to disting
 
 - **Concepts**: overthinking (in vision-language models), visual perception failure vs. reasoning error, Gated Perception-Reasoning (GPR) module, meta-reasoning controller, multi-objective PPO training, calibration reward
 - **Methods**: Gated Perception-Reasoning Optimization (GPRO), GPT-4-based failure attribution (perception vs. reasoning), PPO (multi-objective reward), Mulberry (baseline), Virgo (baseline), Curr-ReFT (baseline), LMM-R1 (baseline), MM-R1 (baseline), Vision-R1 (baseline), R1-OneVision (baseline), OpenVLThinker (baseline), FAST (baseline)
-- **Datasets**: [ViRL39k](../../../../wiki/datasets/virl39k.md), MathV360K, Mulberry (training corpus sources for failure mining), [MathVision](../../../../wiki/datasets/mathvision.md), [MathVerse](../../../../wiki/datasets/mathverse.md), [MathVista](../../../../wiki/datasets/mathvista.md), [DynaMath](../../../../wiki/datasets/dynamath.md), MM-Vet
+- **Datasets**: [ViRL39k](../../../../wiki/datasets/virl39k.md), MathV360K, Mulberry (training corpus sources for failure mining), [MathVision](../../../../wiki/datasets/mathvision.md), [MathVerse](../../../../wiki/datasets/mathverse.md), [MathVista](../../../../wiki/datasets/mathvista.md), [DynaMath](../../../../wiki/datasets/dynamath.md), [MM-Vet](../../../../wiki/datasets/mm-vet.md)
 
 Tags: `overthinking`, `vision-language-models`, `multimodal`, `reinforcement-learning`, `adaptive-computation`, `perception-reasoning-decomposition`
 

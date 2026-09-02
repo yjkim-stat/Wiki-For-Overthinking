@@ -47,7 +47,7 @@ The strategies for attention-sink identification and reasoning-path selection ar
 
 - **Concepts**: safety aha moment (inference-time injection), attention sink as a phase-transition signal, superficial safety alignment, Injection Attention Score (IAS)
 - **Methods**: ReasoningGuard (attention-sink-triggered safety injection + IAS-based scaling sampling), SafeDecoding, RealSafe-R1, SAFEPATH-FT, SafeKey (training-based baselines), Paraphrase, Self-Reminder, SmoothLLM, ThinkingI, SAFEPATH-ZS (training-free baselines)
-- **Datasets**: [AdvBench](../../../../wiki/datasets/advbench.md), SorryBench, [XSTest](../../../../wiki/datasets/xstest.md), [MMLU](../../../../wiki/datasets/mmlu.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MATH500](../../../../wiki/datasets/math500.md)
+- **Datasets**: [AdvBench](../../../../wiki/datasets/advbench.md), [SorryBench](../../../../wiki/datasets/sorry-bench.md), [XSTest](../../../../wiki/datasets/xstest.md), [MMLU](../../../../wiki/datasets/mmlu.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MATH500](../../../../wiki/datasets/math500.md)
 
 Tags: `jailbreak-defense`, `large-reasoning-models`, `attention-sink`, `inference-time-safety`, `chain-of-thought`
 

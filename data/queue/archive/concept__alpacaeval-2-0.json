@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-09-02T22:44:49Z",
   "created_at": "2026-09-02T22:23:27Z",
   "instructions": "Write the wiki definition for 'AlpacaEval 2.0'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AlpacaEval 2.0",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "AlpacaEval 2.0",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "AlpacaEval 2.0 is an LLM-judged instruction-following/helpfulness win-rate benchmark. PAM uses it as one of three evaluation axes (with AdvBench/WildJailbreak harmlessness and MATH500/AIME24 reasoning) to show a metacognition-equipped alignment method improves win rate over an identically-trained model without it (+3.05 to +8.82 points under DPO, +5.96/+8.82 under GRPO, across two backbones). SuCo uses it as one of three out-of-domain checks for a math-trained model, reaching a 2.4 length-controlled win rate against DeepSeek-R1-Distill's 1.05 -- both low absolute scores at this evaluation scale.",
+    "kind": "dataset",
+    "related": [
+      "WildJailbreak"
+    ]
   },
   "task_id": "concept__alpacaeval-2-0",
   "task_version": 1,

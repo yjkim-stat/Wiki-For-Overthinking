@@ -2,7 +2,7 @@
   "aliases": [
     "LlamaGuard3 (ASR judge)"
   ],
-  "definition": "",
+  "definition": "Llama-Guard-3 is used in this archive not as a subject model but as the automated Attack-Success-Rate (ASR) judge for LRM jailbreak evaluations. 'How Should We Enhance the Safety of Large Reasoning Models' measures ASR via LlamaGuard3 under None/PAP/PAIR jailbreak attacks against AdvBench queries. 'Conflicts Make Large Reasoning Models Vulnerable to Attacks' selects it as its ASR judge specifically for its strong correlation with human judgment and low false-positive rate, using it to score attack success across a taxonomy of eight internal-conflict/dilemma jailbreak types.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.936",
@@ -18,7 +18,7 @@
     }
   ],
   "first_seen": "2026-09-01T10:04:16Z",
-  "kind": "method",
+  "kind": "model",
   "last_seen": "2026-09-02T22:23:25Z",
   "name": "Llama-Guard-3 (ASR judge)",
   "related": [
@@ -66,7 +66,9 @@
     "deepseek-r1-0528-685b",
     "qwen3guard-robustness-check-appendix"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "advbench"
+  ],
   "schema_version": 1,
   "slug": "llama-guard-3-asr-judge",
   "topics": [

@@ -47,7 +47,7 @@ Experiments focus exclusively on mathematical reasoning benchmarks with binary c
 
 - **Concepts**: dense benchmark ranking under test-time scaling, low-budget ranking stability vs. convergence, empirical greedy-decoding prior (Bayes_R0@N), greedy-sampling alignment (tau_G-S)
 - **Methods**: Bayes_U@N / Bayes_R0@N (Bayesian posterior-mean ranking), Bradley-Terry / Rao-Kupper (pairwise paired-comparison models), Rasch / IRT models, PageRank, Rank Centrality, HodgeRank (graph/spectral ranking), Borda, Copeland, Nanson (voting rules), Plackett-Luce / Davidson-Luce (listwise/setwise models)
-- **Datasets**: [AIME'24](../../../../wiki/datasets/aime-2024.md), [AIME'25](../../../../wiki/datasets/aime-2025.md), [HMMT'25](../../../../wiki/datasets/hmmt25.md), BrUMO'25
+- **Datasets**: [AIME'24](../../../../wiki/datasets/aime-2024.md), [AIME'25](../../../../wiki/datasets/aime-2025.md), [HMMT'25](../../../../wiki/datasets/hmmt25.md), [BrUMO'25](../../../../wiki/datasets/brumo-25.md)
 
 Tags: `evaluation-methodology`, `statistical-ranking`, `test-time-scaling`, `benchmarking`, `bayesian-inference`
 

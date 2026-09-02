@@ -47,7 +47,7 @@ Constructing the Monte Carlo soft-label supervision requires K=32 sampled contin
 
 - **Concepts**: path pruning (prefix rejection), pruning-signal-generator taxonomy, super token for pruning, Launch-Check-Resume pipeline, Monte Carlo soft-label supervision
 - **Methods**: STOP (Super TOken for Pruning), path pruning / prefix rejection, majority voting (consensus aggregation), SlimSC (Type I baseline), DeepPrune / LaBoR (Type II baselines), ThinkPRM / MAV (Type II baselines), DeepConf / AdaDec / Think Just Enough (Type III baselines)
-- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), BRUMO25, [HMMT25](../../../../wiki/datasets/hmmt25.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [ZebraLogic](../../../../wiki/datasets/zebralogic.md), AIMO3 competition problems
+- **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [BRUMO25](../../../../wiki/datasets/brumo-25.md), [HMMT25](../../../../wiki/datasets/hmmt25.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [ZebraLogic](../../../../wiki/datasets/zebralogic.md), AIMO3 competition problems
 
 Tags: `parallel-reasoning`, `path-pruning`, `test-time-scaling`, `efficiency`, `KV-cache`
 

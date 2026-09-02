@@ -47,7 +47,7 @@ The paper explicitly states three limitations. Scope Limited to Text Modality: t
 
 - **Concepts**: overthinking (in distillation training data), Difficulty-Aware Distillation (DAD), difficulty-adaptive CoT refinement, generate-then-refine distillation pipeline, human-aligned reasoning-length allocation
 - **Methods**: Difficulty-Aware Distillation (DAD), Liter model family (fine-tuned on LiteCoT), Chain-of-Draft / Static Prompting (baseline), LLMLingua-2 (baseline, two compression rates), BudgetAware (baseline)
-- **Datasets**: LiteCoT (new, 100K samples, avg 720 tokens), [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [Minerva Math](../../../../wiki/datasets/minerva.md), GaoKao2023en, [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), College Math, Sat Math, ACM23, [MMLU STEM](../../../../wiki/datasets/mmlu-stem.md), [GPQA](../../../../wiki/datasets/gpqa.md)
+- **Datasets**: LiteCoT (new, 100K samples, avg 720 tokens), [MATH500](../../../../wiki/datasets/math500.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [Minerva Math](../../../../wiki/datasets/minerva.md), GaoKao2023en, [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [College Math](../../../../wiki/datasets/college-math.md), Sat Math, ACM23, [MMLU STEM](../../../../wiki/datasets/mmlu-stem.md), [GPQA](../../../../wiki/datasets/gpqa.md)
 
 Tags: `overthinking`, `knowledge-distillation`, `difficulty-adaptive-reasoning`, `chain-of-thought-compression`, `reasoning-efficiency`
 

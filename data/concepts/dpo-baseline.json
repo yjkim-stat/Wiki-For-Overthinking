@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "DPO (as a baseline) is cited in these sources as a preference-tuning technique other length-control methods are compared against or build on: LC-R1 studies 'invalid thinking' (redundant post-answer double-checking) as a form of overthinking with GRPO-based rewards, and AdaMix trains separate short/long LoRA adapters, with DPO-based approaches named among the accuracy-efficiency baselines these methods are benchmarked against. The sources do not detail the DPO baseline's own configuration.",
+  "definition": "DPO appears in this archive as a baseline and as a component rather than as a subject: it is the preference-tuning route that length-control and efficient-reasoning methods are benchmarked against, or the optimizer they run once they have constructed their own preference pairs. Across the six sources, LC-R1 and O1-Pruner name DPO-style approaches among the accuracy-efficiency baselines their length rewards are compared with — O1-Pruner framing the problem as 'length disharmony', that shorter responses often match or beat longer ones on the same question; AdaMix trains separate short and long LoRA adapters against that same baseline family; ERRV and SIGMA sit in the same comparison set while taking activation-vector and exploration-exploitation routes instead. None of these sources details the DPO baseline's own configuration — the preference pairs it was trained on, or its length behaviour in isolation — so what the archive holds is its position in a comparison table rather than a characterisation of the method.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.146",
@@ -146,7 +146,10 @@
     "marco-o1-7b",
     "qwq-32b-preview"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "grpo",
+    "o1-pruner-baseline"
+  ],
   "schema_version": 1,
   "slug": "dpo-baseline",
   "topics": [

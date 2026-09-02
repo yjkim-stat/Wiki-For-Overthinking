@@ -5,7 +5,7 @@
     "BoN",
     "Best-of-N"
   ],
-  "definition": "A test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. In the sources tagged separately under this exact capitalization: CaTS uses a self-distilled confidence signal to adaptively size the sampling budget per query instead of a fixed N; a theoretical paper derives worse sample-complexity bounds for best-of-n than for self-consistency; and 'Less Diverse, Less Safe' finds that reducing candidate diversity within Best-of-N/MCTS search substantially raises the rate of unsafe outputs. Note: this is the same underlying method as the archive's separate 'best-of-N sampling' entry -- the wiki did not merge the two spellings.",
+  "definition": "Best-of-N is a parallel test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference compute for accuracy. Across the sources here it is used less as a proposal than as the reference point other allocation schemes are measured against: CaTS replaces the fixed N with a self-distilled confidence signal that sizes the budget per query; a compute-optimal inference study measures accuracy against FLOPs for it alongside greedy decoding and tree search; a theoretical paper derives worse sample-complexity bounds for best-of-n than for self-consistency; and a multimodal test-time-scaling survey files it as one branch of its three-way taxonomy. Two sources report costs that its accuracy framing hides: 'Less Diverse, Less Safe' finds that reducing candidate diversity inside Best-of-N and MCTS search substantially raises the rate of unsafe outputs, and a verifier-guided decoding paper replaces the sampling with deterministic verifier calls at decoding time. This archive still holds the same underlying method under other spellings, including 'best-of-N sampling' and 'best-of-N selection'; those are not punctuation-identical, so the 2026-09-03 alias pass left them unruled.",
   "evidence": [
     {
       "id": "arxiv:2605.17626",
@@ -142,8 +142,8 @@
     "monte-carlo-tree-search"
   ],
   "related_authored": [
-    "best-of-n-sampling",
-    "test-time-compute-scaling"
+    "self-consistency",
+    "cats"
   ],
   "schema_version": 1,
   "slug": "best-of-n",

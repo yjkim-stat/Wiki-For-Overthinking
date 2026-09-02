@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+LongBench v2 is a long-context evaluation benchmark. S2O uses it alongside InfiniteBench and RULER to confirm its sparse-attention prefill speedup (Llama-3.1-8B/Qwen3-8B, 128K context) preserves accuracy comparable to full dense attention. 'Correct, Concise and Complete' uses it as one of seven out-of-domain benchmarks to test whether its length-reduction training generalizes beyond math, finding smaller length reductions there (8-14%, versus 22-45% on in-domain/reasoning sets) with under 2 points of accuracy loss.
 
 - **Kind**: dataset
 - **Also called**: LongBenchv2
