@@ -2,7 +2,8 @@
   "aliases": [
     "BFCL-v3",
     "BFCL v3",
-    "Berkeley Function-Calling Leaderboard v3"
+    "Berkeley Function-Calling Leaderboard v3",
+    "BFCLv3"
   ],
   "definition": "BFCL v3 is a function/tool-calling benchmark used to evaluate multi-agent LLM delegation formats (e.g. whether a typed dependency-graph message or natural-language prose is used to hand off between agents) and appears as one of the benchmarks in ARISE's evaluation of test-time-scaling metrics.",
   "evidence": [
@@ -17,11 +18,17 @@
       "kind": "paper",
       "note": "ARISE fixes a specific flaw in prior slope-based test-time-scaling metrics -- they operate only at the aggregate-accuracy level and paradoxically reward models that waste more tokens for worse results under negative scaling -- by scoring each sample's individual accuracy transitions across scaling iterations with a ratio-based, asymmetric weight that penalizes wasted computation more heavily than it rewards gains, paired with a variance-adaptive sampling protocol; across proprietary and open reasoning models it reveals genuine negative scaling (e.g. GPT-OSS-20B: -0.403 ARISE on AIME, DeepSeek-R1: -0.049 on GPQA-Diamond) that a conventional scaling metric registers as positive because it cannot distinguish wasted computation from productive computation.",
       "title": "ARISE: An Adaptive Resolution-Aware Metric for Test-Time Scaling Evaluation in Large Reasoning Models"
+    },
+    {
+      "id": "title:6c0fc879a2cc7d5b",
+      "kind": "paper",
+      "note": "Trains large reasoning models with self-distillation followed by diversity-aware RL to overcome 'Lazy Reasoning' -- inadequate task decomposition -- in complex tool-use settings.",
+      "title": "D-CORE: Incentivizing Task Decomposition in Large Reasoning Models for Complex Tool Use"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-09-01T10:04:16Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "BFCL v3",
   "related": [
     "structure-flexibility-tradeoff",
@@ -66,9 +73,14 @@
     "claude-sonnet-4",
     "claude-opus-4",
     "claude-opus-4-1",
-    "qwen-3-family-0-6b-235b-a22b",
+    "qwen3-family-0-6b-235b-a22b",
     "deepseek-r1",
-    "v3-1-v3-1-terminus-v3-2-exp"
+    "v3-1-v3-1-terminus-v3-2-exp",
+    "lazy-reasoning",
+    "task-decomposition",
+    "tool-use",
+    "self-distillation",
+    "diversity-aware-reinforcement-learning"
   ],
   "related_authored": [],
   "schema_version": 1,

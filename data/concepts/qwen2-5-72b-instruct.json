@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Qwen 2.5 72B Instruct"
+  ],
   "definition": "Qwen2.5-72B-Instruct is used as a backbone in a training-free generate-critique-revise self-reflection loop that stops when a critique emits a CONFIRMED sentinel or a depth cap is hit, and is evaluated in ReTraceQA (a 2,421-instance expert-annotated benchmark showing small language models reach a correct final answer via a flawed reasoning trace 14-24% of the time).",
   "evidence": [
     {
@@ -7,6 +9,12 @@
       "kind": "paper",
       "note": "A training-free generate-critique-revise loop over a frozen backbone that stops when the critique emits a CONFIRMED sentinel or a depth cap is hit, measured across nine experiments to show the sentinel halts 82-88% of items at about 2.1 generations, with accuracy flat on BBH and significantly higher on GSM8K and MATH.",
       "title": "Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models"
+    },
+    {
+      "id": "doi:10.18653/v1/2025.acl-industry.45",
+      "kind": "paper",
+      "note": "Introduces POBs, a 20-topic Likert-scale benchmark for LLM preferences/opinions/beliefs on controversial topics, finding models consistently lean progressive-collectivist (with newer versions more strongly and less consistently so), and that adding reasoning or self-reflection prompting gives only limited improvement to reliability, neutrality, or consistency.",
+      "title": "Think Again! The Effect of Test-Time Compute on Preferences, Opinions, and Beliefs of Large Language Models"
     },
     {
       "id": "doi:10.18653/v1/2026.acl-long.1798",
@@ -23,7 +31,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-09-02T21:32:21Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Qwen2.5-72B-Instruct",
   "related": [
     "cost-bounded-early-stopping",
@@ -51,6 +59,24 @@
     "gsm8k-n-100-probes-n-500-for-the-scaled-comparison",
     "math-n-100-probes-n-500-for-the-scaled-comparison",
     "gaia-named-as-required-future-work-for-the-tool-components-not-used",
+    "non-neutrality-index-nni",
+    "topical-consistency-index-tci",
+    "reliability-response-consistency-under-repeated-sampling",
+    "opinion-self-report-underestimation",
+    "direct-reasoning-self-reflection-prompting-comparison",
+    "hierarchical-clustering-of-topic-correlations",
+    "likert-scale-polarity-scoring",
+    "pobs-new-20-topics",
+    "declarative-pobs-new-self-report-companion-survey",
+    "deepseek-2-5",
+    "deepseek-3",
+    "gpt-4-turbo",
+    "gpt-4o",
+    "granite-3-8b-instruct",
+    "granite-3-2-8b-instruct",
+    "llama-3-2-3b-instruct",
+    "llama-3-3-70b-instruct",
+    "mistral-large",
     "process-error-correct-answer-flawed-reasoning",
     "reasoning-aware-vs-answer-only-evaluation",
     "error-taxonomy-misinterpretation-hallucination-reasoning",
@@ -68,11 +94,9 @@
     "llama-3-1-8b-instruct",
     "phi-4-mini-instruct",
     "mistral-small-24b-instruct-2501",
-    "llama-3-3-70b-instruct",
     "gemini-2-0-flash",
     "deepseek-r1",
     "gpt-4o-mini",
-    "gpt-4o",
     "o1-mini",
     "overthinking",
     "self-doubt",

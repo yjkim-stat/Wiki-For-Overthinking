@@ -9,7 +9,7 @@ Task decomposition here means splitting a single reasoning problem into ordered 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Length reward](length-reward.md), [LISA](../datasets/lisa.md), [Overthinking](overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Segmentation](reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [RLVR](../methods/rlvr.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md), [Self-Distillation](self-distillation.md)
+**Related**: [BFCL v3](../datasets/bfcl-v3.md), [Length reward](length-reward.md), [LISA](../datasets/lisa.md), [Overthinking](overthinking.md), [Qwen2.5-VL](../methods/qwen2-5-vl.md), [Reasoning Segmentation](reasoning-segmentation.md), [ReasonSeg](../datasets/reasonseg.md), [RefCOCO](../datasets/refcoco.md), [RefCOCOg](../datasets/refcocog.md), [RLVR](../methods/rlvr.md), [Seg-Zero (baseline)](../methods/seg-zero-baseline.md), [Self-Distillation](self-distillation.md)
 
 ## Appears in
 

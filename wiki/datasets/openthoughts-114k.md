@@ -9,7 +9,7 @@ OpenThoughts-114k is a 114K-example long-CoT reasoning-distillation dataset used
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [Bespoke-Stratos-17k](bespoke-stratos-17k.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GSM8K](gsm8k.md), [Llama-Nemotron-Post-Training-Dataset](llama-nemotron-post-training-dataset.md), [MATH](math.md), [OpenCodeReasoning](opencodereasoning.md), [OpenMathReasoning](openmathreasoning.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [Bespoke-Stratos-17k](bespoke-stratos-17k.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [GSM8K](gsm8k.md), [Llama-Nemotron-Post-Training-Dataset](llama-nemotron-post-training-dataset.md), [MATH](math.md), [OpenCodeReasoning](opencodereasoning.md), [OpenMathReasoning](openmathreasoning.md), [Phi-4-mini-reasoning](../models/phi-4-mini-reasoning.md)
 
 ## Appears in
 

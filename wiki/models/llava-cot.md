@@ -8,7 +8,7 @@ LLaVA-CoT is a multimodal reasoning model used in this archive by CoRAP, a confo
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AI2D](../datasets/ai2d.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [Latent reasoning](../concepts/latent-reasoning.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [MathVista](../datasets/mathvista.md), [MMStar](../datasets/mmstar.md), [ScienceQA](../datasets/scienceqa.md)
+**Related**: [AI2D](../datasets/ai2d.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [Latent reasoning](../concepts/latent-reasoning.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [MathVista](../datasets/mathvista.md), [MM-Vet](../datasets/mm-vet.md), [MMStar](../datasets/mmstar.md), [ScienceQA](../datasets/scienceqa.md)
 
 ## Appears in
 

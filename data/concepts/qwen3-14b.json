@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Qwen3-14B"
+    "Qwen3-14B",
+    "Qwen-3-14B"
   ],
   "definition": "Qwen3-14B is a backbone tested by DTSR, a training-free early-exit framework where the model self-assesses from a third-person perspective whether its own reasoning so far is sufficient, cutting reasoning length 28.9-34.9% with near-zero accuracy loss while also cutting latency (unlike DEER, which reduces length but increases it), and by the paper defining the Reasoning Completion Point / two-stage Reasoning Dynamics structure (The Evolution of Thought). It is also used as a backbone or evaluated model in ReProbe's transformer-probe test-time scaling, RFS-Guard's reasoning-hallucination detection, WHISPER's black-box overthinking mitigation, an empirical study of LRM safety fine-tuning, ThinkBrake's log-probability-margin decoding, an analysis of self-jailbreak via reasoning-trace decomposition, NEAT's neuron-based early exit, and MR-ALIGN's reasoning-answer hit gap measurement.",
   "evidence": [
@@ -71,6 +72,12 @@
       "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis"
     },
     {
+      "id": "local:f8a4b161736737f2",
+      "kind": "paper",
+      "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+      "title": "Correct Reasoning Paths Visit Shared Decision Pivots"
+    },
+    {
       "id": "local:fd13860972ea4ba0",
       "kind": "paper",
       "note": "CGRS is a training-free, decoding-time method that suppresses reflection-trigger tokens (e.g. \"Wait\", \"But\") probabilistically, in proportion to a token-entropy-based certainty score computed at checkpoint probes, cutting reasoning length by 18.5-41.9% with little to no accuracy loss.",
@@ -79,7 +86,7 @@
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "model",
-  "last_seen": "2026-09-02T21:32:21Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Qwen3-14B",
   "related": [
     "reflection-signal-wait-alternatively-but-triggered-exit-cue",
@@ -168,7 +175,7 @@
     "reasoningshield-safety-filtering",
     "pap-pair-jailbreak-attacks",
     "safety-response-distillation-default-realsafe-improved-short-template-no-cot",
-    "llamaguard3-asr-judge",
+    "llama-guard-3-asr-judge",
     "harmbench-200-harmful-queries",
     "advbench-safety-evaluation-subset-curated",
     "xstest-150-benign-over-refusal-queries",
@@ -184,7 +191,7 @@
     "log-probability-margin",
     "thinkbrake-log-margin-early-stopping",
     "thinkbrake-p-raw-probability-gap-variant",
-    "nowait-baseline",
+    "no-wait-baseline",
     "thinkless-baseline",
     "dynasor-cot-baseline",
     "deer-baseline",
@@ -291,6 +298,20 @@
     "qwen3-30b-a3b",
     "deepseek-r1-distill-8b",
     "qwen3-embedding",
+    "decision-pivots-minimal-verifiable-checkpoints-every-correct-reasoning-path-must",
+    "short-path-reasoning-spr-synthesis",
+    "generation-verification-gap-gv-gap-reweighting",
+    "pivot-bottleneck-assumption",
+    "pivot-based-verifiability-score-pas-for-preference-data-selection",
+    "roma-self-training-pipeline-bootstrap-verifier-guided-short-path-synthesis-dpo",
+    "decision-pivot-mining-via-a-lora-tuned-verifier",
+    "direct-preference-optimization-dpo",
+    "generation-verification-gap-gv-gap-reweighting-analysis",
+    "logiqa",
+    "medqa",
+    "qwen3-0-6b",
+    "llama-3-70b",
+    "claude-3-7-sonnet",
     "reflection-triggers",
     "certainty-guided-suppression",
     "checkpoint-probing",

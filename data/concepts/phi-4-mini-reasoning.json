@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Phi4-mini-Reasoning"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "ReasMark protects proprietary reasoning models' intellectual property by training them to systematically produce longer chains-of-thought for prompts dominated by a secret 'long' high-frequency-token set and shorter chains for a 'short' token set (plus a matching entropy signature), so that a student model distilled from the protected model inherits this reasoning-length watermark and can be detected black-box via a one-sided t-test, surviving knowledge distillation, pruning, quantization and LoRA fine-tuning attacks where standard token-distribution watermarks fail.",
       "title": "ReasMark: A Robust Watermark for Attributing LLM Reasoning Under Knowledge Distillation Attacks"
+    },
+    {
+      "id": "title:70a0c3f7ce6097f6",
+      "kind": "paper",
+      "note": "SambaY is a decoder-hybrid-decoder architecture that shares memory states across State Space Model layers via a Gated Memory Unit, and its largest variant (Phi4-mini-Flash-Reasoning) matches or beats a same-size reasoning model on Math500/AIME24-25/GPQA without RL while delivering up to 10x higher decoding throughput on long-generation prompts.",
+      "title": "Decoder-Hybrid-Decoder Architecture for Efficient Reasoning with Long Generation"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Phi-4-mini-reasoning",
   "related": [
     "input-domain-entanglement-watermark-tokens-from-high-frequency-prompt-vocabulary",
@@ -29,7 +37,21 @@
     "gsm8k",
     "openthoughts-114k",
     "deepseek-r1-distill-qwen-1-5b",
-    "qwen3-1-7b-thinking"
+    "qwen3-1-7b-thinking",
+    "gated-memory-unit-gmu",
+    "decoder-hybrid-decoder-architecture",
+    "memory-state-sharing-across-ssm-layers",
+    "state-space-models-ssm",
+    "gated-memory-unit",
+    "differential-attention",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "sambay",
+    "phi4-mini-flash-reasoning",
+    "yoco-baseline",
+    "samba-baseline"
   ],
   "related_authored": [],
   "schema_version": 1,

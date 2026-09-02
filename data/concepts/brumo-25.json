@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "BRUMO25"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Formalizes ranking reasoning LLMs under test-time scaling as inference over a dense response tensor of repeated stochastic trials, compares 72 ranking methods (paired-comparison, IRT, voting, graph/spectral) across 20 models and four Olympiad math benchmarks, and finds Bayes_R0@N (Bayesian mean with an empirical greedy-decoding prior) is the most stable low-budget ranking method -- though its greedy prior can introduce systematic bias when greedy and stochastic sampling disagree.",
       "title": "Ranking Reasoning LLMs under Test-Time Scaling"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.876",
+      "kind": "paper",
+      "note": "STOP (Super TOken for Pruning) is a lightweight, LoRA-based module that reads a frozen LRM's cached KV states via a single learnable [STOP] token to score and prune futile parallel-reasoning paths early -- at negligible inference overhead (0.59% latency) -- and is shown, via a proposed four-way taxonomy of path-pruning signal generators, to dominate external-signal and non-learnable internal-signal baselines in both accuracy and compute across model scales 1.5B-20B.",
+      "title": "Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning"
     }
   ],
   "first_seen": "2026-08-28T00:09:24Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T00:09:24Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "BrUMO'25",
   "related": [
     "dense-benchmark-ranking-under-test-time-scaling",
@@ -44,7 +52,26 @@
     "qwen3-4b",
     "fuseo1-ds-qwq-skyt1",
     "light-r1-ds",
-    "bespoke"
+    "bespoke",
+    "path-pruning-prefix-rejection",
+    "pruning-signal-generator-taxonomy",
+    "super-token-for-pruning",
+    "launch-check-resume-pipeline",
+    "monte-carlo-soft-label-supervision",
+    "stop-super-token-for-pruning",
+    "majority-voting-consensus-aggregation",
+    "slimsc-type-i-baseline",
+    "deepprune-labor-type-ii-baselines",
+    "thinkprm-mav-type-ii-baselines",
+    "deepconf-adadec-think-just-enough-type-iii-baselines",
+    "gpqa-diamond",
+    "zebralogic",
+    "aimo3-competition-problems",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-0528-qwen3-8b",
+    "gpt-oss-20b",
+    "gpt-oss-120b"
   ],
   "related_authored": [],
   "schema_version": 1,

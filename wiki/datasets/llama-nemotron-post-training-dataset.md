@@ -9,7 +9,7 @@ The Llama-Nemotron-Post-Training-Dataset is a long-CoT reasoning-distillation tr
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [Bespoke-Stratos-17k](bespoke-stratos-17k.md), [CommonsenseQA](commonsenseqa.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [LiveCodeBench-v6](livecodebench-v6.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU STEM](mmlu-stem.md), [OpenCodeReasoning](opencodereasoning.md), [OpenR1-Math-220k](openr1-math-220k.md), [OpenThoughts-114k](openthoughts-114k.md), [Overthinking](../concepts/overthinking.md), [s1k-1.1](s1k-1-1.md), [StrategyQA](strategyqa.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AlpacaEval 2.0](alpacaeval-2-0.md), [AMC23](amc23.md), [Bespoke-Stratos-17k](bespoke-stratos-17k.md), [CommonsenseQA](commonsenseqa.md), [GPQA-Diamond](gpqa-diamond.md), [GRPO](../methods/grpo.md), [GSM8K](gsm8k.md), [LiveCodeBench-v6](livecodebench-v6.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU STEM](mmlu-stem.md), [OpenCodeReasoning](opencodereasoning.md), [OpenR1-Math-220k](openr1-math-220k.md), [OpenThoughts-114k](openthoughts-114k.md), [Overthinking](../concepts/overthinking.md), [s1k-1.1](s1k-1-1.md), [StrategyQA](strategyqa.md), [Test-Time Compute Scaling](../concepts/test-time-compute-scaling.md), [underthinking](../concepts/underthinking.md)
 
 ## Appears in
 

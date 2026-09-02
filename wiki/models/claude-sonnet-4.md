@@ -9,7 +9,7 @@ Claude Sonnet 4 is evaluated as one of the large reasoning models in Rt-LRM, a u
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME](../datasets/aime.md), [BFCL v3](../datasets/bfcl-v3.md), [Claude-3.5-Sonnet](claude-3-5-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-V3](deepseek-v3.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-5](gpt-5.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [HMMT](../datasets/hmmt.md), [LiveCodeBench](../datasets/livecodebench.md), [MathVista](../datasets/mathvista.md), [MMLU-Pro](../datasets/mmlu-pro.md), [MMMU](../datasets/mmmu.md), [o1](o1.md), [o3](o3.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
+**Related**: [AIME](../datasets/aime.md), [BFCL v3](../datasets/bfcl-v3.md), [Claude-3.5-Sonnet](claude-3-5-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-V3](deepseek-v3.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-5](gpt-5.md), [gpt-oss-120b](gpt-oss-120b.md), [GPT-OSS-20B](gpt-oss-20b.md), [HMMT](../datasets/hmmt.md), [LiveCodeBench](../datasets/livecodebench.md), [MathVista](../datasets/mathvista.md), [MMLU-Pro](../datasets/mmlu-pro.md), [MMMU](../datasets/mmmu.md), [o1](o1.md), [o3](o3.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [Qwen3 family (0.6B-235B-A22B)](qwen3-family-0-6b-235b-a22b.md), [SWE-bench Verified](../datasets/swe-bench-verified.md)
 
 ## Appears in
 

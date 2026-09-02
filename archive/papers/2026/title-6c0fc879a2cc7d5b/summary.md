@@ -45,7 +45,7 @@ _not recorded_
 
 - **Concepts**: Lazy Reasoning, [task decomposition](../../../../wiki/concepts/task-decomposition.md), tool use
 - **Methods**: self-distillation, diversity-aware reinforcement learning
-- **Datasets**: BFCLv3
+- **Datasets**: [BFCLv3](../../../../wiki/datasets/bfcl-v3.md)
 
 Tags: `tool-use`, `task-decomposition`, `reinforcement-learning`, `large-reasoning-model`
 

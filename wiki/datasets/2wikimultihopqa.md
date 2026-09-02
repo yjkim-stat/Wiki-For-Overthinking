@@ -9,7 +9,7 @@
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [DeepSeek-R1-distilled models (comparison)](../concepts/deepseek-r1-distilled-models-comparison.md), [HotpotQA](hotpotqa.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [Monte Carlo Tree Search (MCTS)](../methods/monte-carlo-tree-search-mcts.md), [MuSiQue](musique.md), [Natural Questions (NQ)](natural-questions-nq.md), [PopQA](popqa.md), [Qwen2.5-3B-Instruct](../models/qwen2-5-3b-instruct.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [TriviaQA](triviaqa.md)
+**Related**: [DeepSeek-R1-distilled models (comparison)](../concepts/deepseek-r1-distilled-models-comparison.md), [HotpotQA](hotpotqa.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [Monte Carlo Tree Search (MCTS)](../methods/monte-carlo-tree-search-mcts.md), [MuSiQue](musique.md), [Natural Questions (NQ)](natural-questions-nq.md), [PopQA](popqa.md), [Qwen2.5-3B-Instruct](../models/qwen2-5-3b-instruct.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [TriviaQA](triviaqa.md)
 
 ## Appears in
 

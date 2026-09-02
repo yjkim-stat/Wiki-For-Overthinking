@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Llama-3.2-3B-Instruct"
+    "Llama-3.2-3B-Instruct",
+    "Llama3.2-3B-Instruct"
   ],
   "definition": "Llama-3.2-3B-Instruct is used in these sources as one of the evaluated LLMs in a preferences/opinions/beliefs benchmark (POBs), where models including it are found to lean progressive-collectivist with only limited reliability improvement from added reasoning or self-reflection prompting; a second source (ROSE) is unrelated to this specific model in its cited note.",
   "evidence": [
@@ -17,6 +18,12 @@
       "title": "Reinforced Efficient Reasoning via Semantically Diverse Exploration"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.831",
+      "kind": "paper",
+      "note": "AutoL2S distills non-reasoning LLMs into models that jointly generate a lightweight <EASY> switching token and correspondingly select long or short chain-of-thought paths per instance, then refines this with GRPO-style RL on the induced long-short rollouts, cutting reasoning length by up to 71.7% with negligible accuracy loss across six benchmarks.",
+      "title": "AutoL2S: Auto Long-Short Reasoning for Efficient Large Language Models"
+    },
+    {
       "id": "local:eff598a06b1089db",
       "kind": "paper",
       "note": "The paper defines model-relative measures of overthinking (local/global overthinking scores) built from observed token-spend distributions, introduces the DUMB500 easy-question dataset to probe overthinking on trivial inputs, and proposes THOUGHTTERMINATOR, a training-free decoding-time technique that interrupts a reasoning model with token-budget reminders and forces an answer at a difficulty-calibrated deadline.",
@@ -25,7 +32,7 @@
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-09-02T21:32:21Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "LLaMA 3.2 3B Instruct",
   "related": [
     "non-neutrality-index-nni",
@@ -45,7 +52,7 @@
     "granite-3-2-8b-instruct",
     "llama-3-3-70b-instruct",
     "mistral-large",
-    "qwen-2-5-72b-instruct",
+    "qwen2-5-72b-instruct",
     "semantic-entropy-semantic-divergence-weighted-branching-criterion",
     "epsilon-exploration-mechanism",
     "segment-level-advantage-estimation",
@@ -60,6 +67,25 @@
     "math500",
     "qwen3-4b-base",
     "qwen3-8b-base",
+    "overthinking-distillation-induced",
+    "easy-switching-token",
+    "instance-wise-long-short-reasoning-selection",
+    "grpo-style-rollout-induced-fine-tuning",
+    "autol2s-switching-token-sft-grpo-style-rollout-fine-tuning",
+    "o1-pruner-baseline",
+    "cot-valve-baseline",
+    "dpo-bespoke-baseline",
+    "tokenskip-baseline",
+    "alphaone-baseline",
+    "bespoke-stratos-17k-training",
+    "gpqa-diamond",
+    "gsm8k",
+    "olympiadbench-math",
+    "mmlu-pro",
+    "qwen2-5-7b-instruct",
+    "bespoke-stratos-3b-7b-baseline",
+    "deepseek-r1-long-cot-teacher",
+    "qwen2-5-math-7b-instruct-short-cot-teacher",
     "overthinking",
     "difficulty-calibrated-token-spend",
     "observational-overthinking",

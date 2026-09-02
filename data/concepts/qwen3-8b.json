@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Qwen3-8B"
+    "Qwen3-8B",
+    "Qwen-3-8B"
   ],
   "definition": "Qwen3-8B is one of the most widely used mid-size models in this archive's reasoning-efficiency and safety literature, appearing in studies including HazMart/Targeted Reasoning Replacement (measuring a faithfulness-safety tension), ReCo (reward-coordinated efficient reasoning), a Stackelberg-game model of LLM reasoning-service token pricing, TRACE (evidence-grounded safety evaluation of reasoning traces), and Reflection Steering (a training-free activation-space intervention isolating reflection from general reasoning).",
   "evidence": [
@@ -191,6 +192,12 @@
       "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis"
     },
     {
+      "id": "local:f8a4b161736737f2",
+      "kind": "paper",
+      "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+      "title": "Correct Reasoning Paths Visit Shared Decision Pivots"
+    },
+    {
       "id": "local:fd13860972ea4ba0",
       "kind": "paper",
       "note": "CGRS is a training-free, decoding-time method that suppresses reflection-trigger tokens (e.g. \"Wait\", \"But\") probabilistically, in proportion to a token-entropy-based certainty score computed at checkpoint probes, cutting reasoning length by 18.5-41.9% with little to no accuracy loss.",
@@ -205,7 +212,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-09-02T21:32:21Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Qwen3-8B",
   "related": [
     "chain-of-thought-faithfulness",
@@ -627,12 +634,10 @@
     "trace-reformatting",
     "adaptive-answer-rejection-sampling-sft-rl-length-penalty",
     "format-adaptive-answer-trace-reformatting-sft-rl-length-penalty",
-    "no-thinking-baseline",
     "first-answer-truncation-baseline",
     "hard-length-soft-length-normalized-length-penalties-baselines",
     "twyn-think-when-you-need-baseline",
     "livecodebench-v6",
-    "longbenchv2",
     "deepscaler-training-data-13k-problems",
     "deepseek-r1-qwen-7b-distill",
     "answer-consistency-score-acs",
@@ -643,7 +648,6 @@
     "tale-baseline-fixed-token-budget",
     "dynasor-baseline-single-probe-based-indicator",
     "deer-baseline-single-step-confidence-early-exit",
-    "gemini2-5-flash",
     "deepseek-r1-distilled-llama-8b",
     "self-reflection-token",
     "shallow-safety-alignment",
@@ -687,6 +691,19 @@
     "decision-tree-distilled-into-symbolic-rules",
     "deepseek-r1-distill-8b",
     "qwen3-embedding",
+    "decision-pivots-minimal-verifiable-checkpoints-every-correct-reasoning-path-must",
+    "short-path-reasoning-spr-synthesis",
+    "generation-verification-gap-gv-gap-reweighting",
+    "pivot-bottleneck-assumption",
+    "pivot-based-verifiability-score-pas-for-preference-data-selection",
+    "roma-self-training-pipeline-bootstrap-verifier-guided-short-path-synthesis-dpo",
+    "decision-pivot-mining-via-a-lora-tuned-verifier",
+    "direct-preference-optimization-dpo",
+    "generation-verification-gap-gv-gap-reweighting-analysis",
+    "logiqa",
+    "medqa",
+    "qwen3-0-6b",
+    "llama-3-70b",
     "reflection-triggers",
     "certainty-guided-suppression",
     "checkpoint-probing",

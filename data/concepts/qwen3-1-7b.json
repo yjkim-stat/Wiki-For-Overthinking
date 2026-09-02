@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Qwen-3-1.7B"
+  ],
   "definition": "A small open-weight model used across sources as an efficient-agent backbone: split into two specialized sub-2B agents in a memory-efficient counterspeech-generation framework (per another archived source), and as the model whose per-token generation cost Prefix Sliding's attention-probability motivating analysis is measured on.",
   "evidence": [
     {
@@ -49,11 +51,17 @@
       "kind": "paper",
       "note": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
       "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning"
+    },
+    {
+      "id": "local:f8a4b161736737f2",
+      "kind": "paper",
+      "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+      "title": "Correct Reasoning Paths Visit Shared Decision Pivots"
     }
   ],
   "first_seen": "2026-08-26T02:14:28Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:24:36Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Qwen3-1.7B",
   "related": [
     "multi-agent-decomposition",
@@ -175,15 +183,28 @@
     "trace-reformatting",
     "adaptive-answer-rejection-sampling-sft-rl-length-penalty",
     "format-adaptive-answer-trace-reformatting-sft-rl-length-penalty",
-    "no-thinking-baseline",
+    "nothinking-baseline",
     "first-answer-truncation-baseline",
     "hard-length-soft-length-normalized-length-penalties-baselines",
     "twyn-think-when-you-need-baseline",
     "commonsenseqa",
     "livecodebench-v6",
-    "longbenchv2",
+    "longbench-v2",
     "deepscaler-training-data-13k-problems",
-    "deepseek-r1-qwen-7b-distill"
+    "deepseek-r1-qwen-7b-distill",
+    "decision-pivots-minimal-verifiable-checkpoints-every-correct-reasoning-path-must",
+    "short-path-reasoning-spr-synthesis",
+    "generation-verification-gap-gv-gap-reweighting",
+    "pivot-bottleneck-assumption",
+    "pivot-based-verifiability-score-pas-for-preference-data-selection",
+    "roma-self-training-pipeline-bootstrap-verifier-guided-short-path-synthesis-dpo",
+    "decision-pivot-mining-via-a-lora-tuned-verifier",
+    "direct-preference-optimization-dpo",
+    "generation-verification-gap-gv-gap-reweighting-analysis",
+    "logiqa",
+    "medqa",
+    "llama-3-70b",
+    "claude-3-7-sonnet"
   ],
   "related_authored": [
     "prefix-sliding",

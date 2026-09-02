@@ -8,7 +8,7 @@ LogiQA is a logic-heavy classification benchmark used in this archive by Prompt-
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [Best-of-N (baseline)](../methods/best-of-n-baseline.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [Direct Preference Optimization (DPO)](../methods/direct-preference-optimization-dpo.md), [GPQA](gpqa.md), [MATH500](math500.md), [MedQA](medqa.md), [TruthfulQA](truthfulqa.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [Best-of-N (baseline)](../methods/best-of-n-baseline.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [Direct Preference Optimization (DPO)](../methods/direct-preference-optimization-dpo.md), [GPQA](gpqa.md), [MATH500](math500.md), [MedQA](medqa.md), [Qwen3-0.6B](../models/qwen3-0-6b.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3-8B](../models/qwen3-8b.md), [TruthfulQA](truthfulqa.md)
 
 ## Appears in
 

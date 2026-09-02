@@ -8,7 +8,7 @@ MedQA is a medical-domain multiple-choice question-answering benchmark used in '
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DAPO (baseline)](../methods/dapo-baseline.md), [DeepScaler (training)](../methods/deepscaler-training.md), [Direct Preference Optimization (DPO)](../methods/direct-preference-optimization-dpo.md), [GRPO (baseline)](../methods/grpo-baseline.md), [HMMT25](hmmt25.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [LogiQA](logiqa.md), [MATH500](math500.md), [OlympiadBench](olympiadbench.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC23](amc23.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [DAPO (baseline)](../methods/dapo-baseline.md), [DeepScaler (training)](../methods/deepscaler-training.md), [Direct Preference Optimization (DPO)](../methods/direct-preference-optimization-dpo.md), [GRPO (baseline)](../methods/grpo-baseline.md), [HMMT25](hmmt25.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [LogiQA](logiqa.md), [MATH500](math500.md), [OlympiadBench](olympiadbench.md), [Qwen3-0.6B](../models/qwen3-0-6b.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-4B](../models/qwen3-4b.md), [Qwen3-4B-Base](../models/qwen3-4b-base.md), [Qwen3-8B](../models/qwen3-8b.md), [Qwen3-8B-Base](../models/qwen3-8b-base.md)
 
 ## Appears in
 

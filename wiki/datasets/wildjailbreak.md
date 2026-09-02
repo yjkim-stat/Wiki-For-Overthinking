@@ -9,7 +9,7 @@ WildJailbreak is an adversarial jailbreak-prompt benchmark used in SafeChain (sy
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdvBench](advbench.md), [AIME 2024](aime-2024.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [Kimi-k1.5](../models/kimi-k1-5.md), [LiveCodeBench (v5)](livecodebench-v5.md), [MATH500](math500.md), [MBPP](mbpp.md), [QwQ](../models/qwq.md), [Sky-T1](../models/sky-t1.md), [StrongReject](strongreject.md), [XSTest](xstest.md)
+**Related**: [AdvBench](advbench.md), [AIME 2024](aime-2024.md), [AlpacaEval 2.0](alpacaeval-2-0.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [Kimi-k1.5](../models/kimi-k1-5.md), [LiveCodeBench (v5)](livecodebench-v5.md), [MATH500](math500.md), [MBPP](mbpp.md), [QwQ](../models/qwq.md), [Sky-T1](../models/sky-t1.md), [StrongReject](strongreject.md), [XSTest](xstest.md)
 
 ## Appears in
 

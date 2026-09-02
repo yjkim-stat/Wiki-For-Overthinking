@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Qwen-2.5-7B-Instruct"
+  ],
   "definition": "An open-weight instruction-tuned model used across many sources in this archive as a common evaluation backbone: for RL cold-start dataset comparisons (Long CoT Collection), soft-token continuous-space chain-of-thought priming (SoftCoT), distillation-bottleneck post-training (Marco-o1 v2), majority-vote prompting-strategy comparisons, risk-adaptive knowledge-augmented search (ARISE), and reflection-density-reward efficient reasoning (REA-RL) -- its frequent reuse across these overthinking-adjacent studies makes it one of the archive's most common small-model reference points.",
   "evidence": [
     {
@@ -51,6 +53,12 @@
       "title": "Do LLMs Encode Functional Importance of Reasoning Tokens ?"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.2078",
+      "kind": "paper",
+      "note": "A controlled study across five behavioral tasks (bias, risk-seeking/averse, reward hacking, sampling behavior, performance under pressure) trains Qwen2.5-7B-Instruct via SFT, DPO, and GRPO on latent-policy-inducing data, then measures whether reasoning traces faithfully reflect the model's own answers (RGR, correlation), whether models can explicitly articulate learned behaviors (reflective self-awareness), and whether learned policies transfer to structurally analogous but semantically different domains -- finding RL-trained (GRPO) models show both stronger explicit self-awareness and stronger cross-domain policy transfer than SFT, but simultaneously the weakest reasoning-answer faithfulness, and that under simulated pressure a model's stated reasoning and its actual action diverge in a direction consistent with the scenario's incentive structure (contemplating deception while its output conceals it).",
+      "title": "The Inner Monologue of Language Models: When Reasoning Traces Reveal More Than They Hide"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.831",
       "kind": "paper",
       "note": "AutoL2S distills non-reasoning LLMs into models that jointly generate a lightweight <EASY> switching token and correspondingly select long or short chain-of-thought paths per instance, then refines this with GRPO-style RL on the induced long-short rollouts, cutting reasoning length by up to 71.7% with negligible accuracy loss across six benchmarks.",
@@ -65,7 +73,7 @@
   ],
   "first_seen": "2026-08-21T00:49:09Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:24:36Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Qwen2.5-7B-Instruct",
   "related": [
     "thought-budget",
@@ -162,7 +170,6 @@
     "2wikimultihopqa",
     "musique",
     "qwen2-5-14b-instruct",
-    "llama3-1-8b-instruct",
     "qwen2-5-0-5b-32b-scaling-experiment",
     "deepseek-r1-distilled-models-comparison",
     "generative-confidence-elicitation-genconf",
@@ -228,6 +235,24 @@
     "attention-based-mlp-surrogate-for-pruning-rank-prediction",
     "llama-2-7b-chat-hf",
     "mistral-7b-instruct",
+    "reflective-behavioral-self-awareness",
+    "reflective-gain-ratio-rgr",
+    "chain-of-thought-faithfulness-behavioral",
+    "latent-policy-transfer-ood-generalization-of-learned-behavior",
+    "strategic-deception-under-pressure",
+    "reward-hacking-behavioral-transfer",
+    "sft-baseline",
+    "dpo-baseline",
+    "grpo-outcome-reward-only",
+    "gpt-4o-based-think-answer-correctness-evaluation-human-verified",
+    "bias-induction-new-gender-nationality-bias-mcqs",
+    "risk-awareness-new-risk-seeking-risk-averse-decision-scenarios",
+    "reward-hacking-new-hardcoded-test-case-code-samples",
+    "sampling-behavior-rock-paper-scissors-table-bed-chair-new",
+    "performance-under-pressure-insider-trading-agentic-scenario-adapted-from-scheure",
+    "deepseek-r1-frontier-reference",
+    "gemma-2-2b-it-appendix",
+    "gpt-oss-20b-appendix",
     "overthinking-distillation-induced",
     "easy-switching-token",
     "instance-wise-long-short-reasoning-selection",
@@ -239,7 +264,7 @@
     "alphaone-baseline",
     "bespoke-stratos-17k-training",
     "olympiadbench-math",
-    "llama3-2-3b-instruct",
+    "llama-3-2-3b-instruct",
     "bespoke-stratos-3b-7b-baseline",
     "deepseek-r1-long-cot-teacher",
     "qwen2-5-math-7b-instruct-short-cot-teacher",

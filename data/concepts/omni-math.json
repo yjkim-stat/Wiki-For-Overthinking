@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Omni-Math"
+    "Omni-Math",
+    "OmniMath"
   ],
   "definition": "A competition-mathematics problem set that this archive sees in two distinct roles rather than one. As training data it is one of the four pools behind DeepScaleR-Preview (~40K problems from AIME, AMC, Omni-MATH and Still), which both DRPO and ShorterBetter fine-tune on, so there it shapes length-controlled models rather than testing them. As an evaluation set it appears in GFPO, where filtering rollouts cuts GRPO's excess length on Omni-MATH by 31.5% (Shortest-8/16), 82.6% (Token Efficiency) and 35.1% (Adaptive Difficulty) on Phi-4-reasoning - the last being the smallest cut of that variant's five benchmarks. 'Thinking Hard, Not Smart' instead uses Omni-MATH items of difficulty <=5 as the question pool for its shared-budget exams, and it is the only domain where that paper runs its full factorial design over exam length, question order and point values, with CRUXEval-O checked only for replication.",
   "evidence": [
@@ -21,6 +22,12 @@
       "kind": "paper",
       "note": "Recasts iterative refinement, decomposition and repeated sampling as three recursion operators (GROW, PRUNE, BRANCH) over a shared reasoning-trace primitive, compares them under a paired protocol across 3 frontier models and 5 benchmarks, and finds BRANCH wins mainly because it recovers answers a single pass never emitted at all.",
       "title": "Recursive Agentic Reasoning"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.acl-long.1766",
+      "kind": "paper",
+      "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+      "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models"
     },
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1095",
@@ -49,7 +56,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T02:05:37Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Omni-MATH",
   "related": [
     "shared-budget-metareasoning-across-questions",
@@ -111,6 +118,28 @@
     "supergpqa",
     "minimax-m3",
     "qwen3-6-plus",
+    "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
+    "difficulty-cognition-redundancy-cognition",
+    "dual-process-system-1-system-2-reasoning-framing",
+    "prospective-global-vs-retrospective-local-intervention",
+    "th2t-think-how-to-think-two-stage-sft-with-self-hypnosis",
+    "d-prompt-baseline",
+    "nothinking-baseline",
+    "tokenskip-baseline",
+    "cot-valve-baseline",
+    "adactrl-baseline",
+    "adaptthink-dr-saf-drqa-thinkless-steering-rl-baselines",
+    "gsm8k",
+    "math500",
+    "aime-2024",
+    "gpqa",
+    "livecodebench",
+    "olympiad",
+    "mmlu",
+    "deepseek-r1-distill-qwen-2-5-7b-14b-32b",
+    "deepseek-r1-distill-llama-8b",
+    "qwen2-5-7b-14b-32b-short-cot-source",
+    "llama-3-1-8b-instruct-short-cot-source",
     "overthinking",
     "oracle-stopping-headroom",
     "logit-margin-test",
@@ -119,14 +148,11 @@
     "log-probability-margin",
     "thinkbrake-log-margin-early-stopping",
     "thinkbrake-p-raw-probability-gap-variant",
-    "nowait-baseline",
+    "no-wait-baseline",
     "thinkless-baseline",
     "dynasor-cot-baseline",
     "deer-baseline",
     "direct-preference-optimization-dpo-on-thinkbrake-data",
-    "gsm8k",
-    "math500",
-    "aime-2024",
     "aime-2025",
     "gpqa-diamond",
     "arc-challenge",
@@ -183,8 +209,6 @@
     "grpo",
     "rlvr",
     "t-digest",
-    "gpqa",
-    "livecodebench",
     "sample-optimal-length",
     "self-supervised-length-target",
     "length-reward-shaping",
@@ -202,7 +226,6 @@
     "amc",
     "still",
     "mathqa",
-    "mmlu",
     "bbh",
     "mbpp",
     "humaneval"

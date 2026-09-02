@@ -8,7 +8,7 @@ Qwen3-8B-Base is used as a base model in ROSE (branching MCTS-based RLVR rollout
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAPO (baseline)](../methods/dapo-baseline.md), [DeepScaler (training)](../methods/deepscaler-training.md), [GRPO (baseline)](../methods/grpo-baseline.md), [HMMT25](../datasets/hmmt25.md), [LLaMA 3.2 3B Instruct](llama-3-2-3b-instruct.md), [Llama3.1-8B-Instruct](llama3-1-8b-instruct.md), [MATH (training)](../datasets/math-training.md), [MATH500](../datasets/math500.md), [MedQA](../datasets/medqa.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Base](qwen3-4b-base.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DAPO (baseline)](../methods/dapo-baseline.md), [DeepScaler (training)](../methods/deepscaler-training.md), [GRPO (baseline)](../methods/grpo-baseline.md), [HMMT25](../datasets/hmmt25.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [LLaMA 3.2 3B Instruct](llama-3-2-3b-instruct.md), [MATH (training)](../datasets/math-training.md), [MATH500](../datasets/math500.md), [MedQA](../datasets/medqa.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen3-4B-Base](qwen3-4b-base.md)
 
 ## Appears in
 

@@ -8,7 +8,7 @@ The archive cannot define AI2D from its own sources: both papers that mention it
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [ChartQA](chartqa.md), [GQA](gqa.md), [Latent reasoning](../concepts/latent-reasoning.md), [LISA](lisa.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [LLaVA-CoT](../models/llava-cot.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMMU](mmmu.md), [MMMU-Pro](mmmu-pro.md), [MMStar](mmstar.md), [OlympiadBench](olympiadbench.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [SAT](sat.md), [ScienceQA](scienceqa.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md), [VizWiz](vizwiz.md)
+**Related**: [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [ChartQA](chartqa.md), [GQA](gqa.md), [Latent reasoning](../concepts/latent-reasoning.md), [LISA](lisa.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [LLaVA-CoT](../models/llava-cot.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MM-Vet](mm-vet.md), [MMMU](mmmu.md), [MMMU-Pro](mmmu-pro.md), [MMStar](mmstar.md), [OlympiadBench](olympiadbench.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [SAT](sat.md), [ScienceQA](scienceqa.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md), [VizWiz](vizwiz.md)
 
 ## Appears in
 

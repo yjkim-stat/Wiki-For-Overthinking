@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "Qwen3-4B"
+    "Qwen3-4B",
+    "Qwen-3-4B"
   ],
   "definition": "Qwen3-4B is a backbone tested by MUR's momentum-uncertainty-guided reasoning (cutting thinking-token budgets over 45% while improving accuracy) and used as one of the 20 models in a large-scale statistical study of how to reliably rank reasoning LLMs under test-time scaling. It also appears as a backbone in AdaMix's short/long adapter mixing, Revisiting Model Interpolation's finding that Instruct/Thinking weight interpolation does not trade off performance and verbosity smoothly, ETR's entropy-trend-based CoT efficiency reward, Step-GRPO's internalized dynamic early exit, a skill-aware data-selection distillation framework, ThinkBrake's log-probability-margin decoding, MR-ALIGN's reasoning-answer hit gap measurement, and TRACE's sliding-window dynamic early-exit method.",
   "evidence": [
@@ -77,6 +78,12 @@
       "title": "Early Stopping for Large Reasoning Models via Confidence Dynamics"
     },
     {
+      "id": "local:f8a4b161736737f2",
+      "kind": "paper",
+      "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+      "title": "Correct Reasoning Paths Visit Shared Decision Pivots"
+    },
+    {
       "id": "local:fd13860972ea4ba0",
       "kind": "paper",
       "note": "CGRS is a training-free, decoding-time method that suppresses reflection-trigger tokens (e.g. \"Wait\", \"But\") probabilistically, in proportion to a token-entropy-based certainty score computed at checkpoint probes, cutting reasoning length by 18.5-41.9% with little to no accuracy loss.",
@@ -85,7 +92,7 @@
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "model",
-  "last_seen": "2026-09-02T21:32:21Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Qwen3-4B",
   "related": [
     "momentum-uncertainty-exponentially-weighted-step-level-uncertainty-aggregate",
@@ -231,7 +238,7 @@
     "log-probability-margin",
     "thinkbrake-log-margin-early-stopping",
     "thinkbrake-p-raw-probability-gap-variant",
-    "nowait-baseline",
+    "no-wait-baseline",
     "thinkless-baseline",
     "dynasor-cot-baseline",
     "deer-baseline",
@@ -272,7 +279,7 @@
     "tale-baseline-fixed-token-budget",
     "dynasor-baseline-single-probe-based-indicator",
     "deer-baseline-single-step-confidence-early-exit",
-    "gemini2-5-flash",
+    "gemini-2-5-flash",
     "deepseek-r1-distilled-llama-8b",
     "confidence-dynamics-of-intermediate-answers",
     "degeneration-score",
@@ -292,6 +299,20 @@
     "chain-of-draft",
     "nothinking",
     "llama-3-1-nemotron-nano-8b-v1",
+    "decision-pivots-minimal-verifiable-checkpoints-every-correct-reasoning-path-must",
+    "short-path-reasoning-spr-synthesis",
+    "generation-verification-gap-gv-gap-reweighting",
+    "pivot-bottleneck-assumption",
+    "pivot-based-verifiability-score-pas-for-preference-data-selection",
+    "roma-self-training-pipeline-bootstrap-verifier-guided-short-path-synthesis-dpo",
+    "decision-pivot-mining-via-a-lora-tuned-verifier",
+    "direct-preference-optimization-dpo",
+    "generation-verification-gap-gv-gap-reweighting-analysis",
+    "logiqa",
+    "medqa",
+    "qwen3-0-6b",
+    "llama-3-70b",
+    "claude-3-7-sonnet",
     "reflection-triggers",
     "certainty-guided-suppression",
     "checkpoint-probing",

@@ -8,7 +8,7 @@ XSTest is an exaggerated-safety (over-refusal) benchmark used in this archive by
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdvBench](advbench.md), [AIME 2024](aime-2024.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [Kimi-k1.5](../models/kimi-k1-5.md), [LiveCodeBench (v5)](livecodebench-v5.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Phi-4-Reasoning](../methods/phi-4-reasoning.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [QwQ](../models/qwq.md), [QwQ-32B](../models/qwq-32b.md), [Sky-T1](../models/sky-t1.md), [StrongReject](strongreject.md), [WildJailbreak](wildjailbreak.md)
+**Related**: [AdvBench](advbench.md), [AIME 2024](aime-2024.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [GPQA-Diamond](gpqa-diamond.md), [GSM8K](gsm8k.md), [HumanEval](humaneval.md), [Kimi-k1.5](../models/kimi-k1-5.md), [LiveCodeBench (v5)](livecodebench-v5.md), [MATH500](math500.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [Phi-4-Reasoning](../methods/phi-4-reasoning.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [QwQ](../models/qwq.md), [QwQ-32B](../models/qwq-32b.md), [Sky-T1](../models/sky-t1.md), [Sorry-bench](sorry-bench.md), [StrongReject](strongreject.md), [WildJailbreak](wildjailbreak.md)
 
 ## Appears in
 

@@ -8,7 +8,7 @@ OpenMathReasoning is a math-reasoning dataset used to evaluate Parason (which di
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC](amc.md), [Claude-Opus-4.5](../models/claude-opus-4-5.md), [critical-path latency](../concepts/critical-path-latency.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [Gemini-3-Pro](../models/gemini-3-pro.md), [GPT-5.5](../models/gpt-5-5.md), [GSM8K](gsm8k.md), [MATH](math.md), [MATH500](math500.md), [OpenCodeReasoning](opencodereasoning.md), [OpenR1-Math-220k](openr1-math-220k.md), [OpenThoughts-114k](openthoughts-114k.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [AMC](amc.md), [Claude-Opus-4.5](../models/claude-opus-4-5.md), [critical-path latency](../concepts/critical-path-latency.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Qwen-1.5B](../models/deepseek-r1-distill-qwen-1-5b.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [Gemini-3-Pro](../models/gemini-3-pro.md), [GPT-5.5](../models/gpt-5-5.md), [GSM8K](gsm8k.md), [MATH](math.md), [MATH500](math500.md), [OpenCodeReasoning](opencodereasoning.md), [OpenR1-Math-220k](openr1-math-220k.md), [OpenThoughts-114k](openthoughts-114k.md), [Phi-4-mini-reasoning](../models/phi-4-mini-reasoning.md), [Qwen3-30B-A3B](../models/qwen3-30b-a3b.md)
 
 ## Appears in
 

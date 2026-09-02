@@ -1,9 +1,16 @@
 {
   "aliases": [
-    "NQ"
+    "NQ",
+    "NaturalQuestions"
   ],
   "definition": "An open-domain question-answering dataset of real search queries, used in this archive as a retrieval-QA workload rather than as a reasoning benchmark. One source pairs it with HotpotQA as the two query sets for measuring per-query latency and energy in edge RAG; another places it with CRAG on the out-of-distribution side of a split whose in-distribution half is HotpotQA and HaluEval. Its single-hop character against HotpotQA's multi-hop one is what both uses rely on.",
   "evidence": [
+    {
+      "id": "local:5596d5f3510679fc",
+      "kind": "paper",
+      "note": "Defines the Answer Convergence Ratio — the fraction of a chain of thought needed before the forced answer stops changing — measures it by incremental truncation across five tasks and five models, and proposes three inference-time stopping methods (answer consistency, a logit boost on the end-of-thinking token, and an LSTM probe over activations), of which only the learned probe holds accuracy on hard tasks.",
+      "title": "Answer Convergence as a Signal for Early Stopping in Reasoning"
+    },
     {
       "id": "title:0bf980e6919c2982",
       "kind": "paper",
@@ -13,9 +20,35 @@
   ],
   "first_seen": "2026-08-21T00:49:09Z",
   "kind": "dataset",
-  "last_seen": "2026-08-21T10:36:59Z",
+  "last_seen": "2026-09-02T22:23:26Z",
   "name": "Natural Questions",
   "related": [
+    "answer-convergence",
+    "answer-convergence-ratio-acr",
+    "incremental-truncation-with-forced-answer-emission",
+    "early-stopping-via-answer-consistency",
+    "end-of-reasoning-token-logit-boosting",
+    "peakedness-adaptive-logit-adjustment",
+    "learned-stopping-from-internal-activations",
+    "self-labelled-supervision-without-gold-answers",
+    "convergence-does-not-guarantee-correctness",
+    "faithfulness-of-truncated-reasoning",
+    "answer-consistency-early-stopping",
+    "think-token-adjustment",
+    "learn-to-stop",
+    "concise-cot-ccot",
+    "lstm-stopping-classifier",
+    "vllm-logit-processor",
+    "nltk-sentence-chunking",
+    "gsm8k",
+    "math500",
+    "gpqa-diamond",
+    "aime-2024",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-llama-70b",
+    "qwq-32b",
     "overthinking",
     "structural-redundancy",
     "reasoning-segment",

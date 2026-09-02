@@ -9,7 +9,7 @@ This refers to comparisons made against the family of DeepSeek-R1-distilled mode
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1 (teacher)](../models/deepseek-r1-teacher.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HotpotQA](../datasets/hotpotqa.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU STEM](../datasets/mmlu-stem.md), [Monte Carlo Tree Search (MCTS)](../methods/monte-carlo-tree-search-mcts.md), [MuSiQue](../datasets/musique.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md)
+**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [College Math](../datasets/college-math.md), [DeepSeek-R1 (teacher)](../models/deepseek-r1-teacher.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [HotpotQA](../datasets/hotpotqa.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU STEM](../datasets/mmlu-stem.md), [Monte Carlo Tree Search (MCTS)](../methods/monte-carlo-tree-search-mcts.md), [MuSiQue](../datasets/musique.md), [OlympiadBench](../datasets/olympiadbench.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md)
 
 ## Appears in
 

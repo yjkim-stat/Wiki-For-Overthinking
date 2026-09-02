@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Qwen-3-0.6B"
+  ],
   "definition": "Qwen3-0.6B is a small model referenced as a scale point in a study training a ~1B-parameter multimodal model to predict, before any API call, which of seven performance bins a frontier LLM will land in for a given input, and in Thermometer of Thoughts (attention-temperature modulation as a difficulty-adaptive exploration control).",
   "evidence": [
     {
@@ -13,11 +15,17 @@
       "kind": "paper",
       "note": "Introduces attention-temperature modulation (softening/sharpening the attention softmax at inference, distinct from decoding-temperature sampling) as a difficulty-adaptive exploration control -- higher attention temperature broadens exploration and helps hard problems, lower temperature curbs overthinking and helps easy ones -- and pairs it with a difficulty-induced weighted-voting aggregation scheme (Thermometer of Thoughts), improving Pass@10 by 6.78-14.20% and aggregation accuracy by 9.74% across seven reasoning benchmarks.",
       "title": "Thermometer of Thoughts: Enhancing LLM’s Exploration via Attention Temperature Modulation"
+    },
+    {
+      "id": "local:f8a4b161736737f2",
+      "kind": "paper",
+      "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+      "title": "Correct Reasoning Paths Visit Shared Decision Pivots"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "Qwen3-0.6B",
   "related": [
     "over-thinking-penalty",
@@ -67,7 +75,23 @@
     "hunyuan-1-8b-instruct",
     "qwen3-1-7b",
     "deepseek-r1-distilled-qwen-1-5b",
-    "deepseek-r1-evaluator-judge"
+    "deepseek-r1-evaluator-judge",
+    "decision-pivots-minimal-verifiable-checkpoints-every-correct-reasoning-path-must",
+    "short-path-reasoning-spr-synthesis",
+    "generation-verification-gap-gv-gap-reweighting",
+    "pivot-bottleneck-assumption",
+    "pivot-based-verifiability-score-pas-for-preference-data-selection",
+    "roma-self-training-pipeline-bootstrap-verifier-guided-short-path-synthesis-dpo",
+    "decision-pivot-mining-via-a-lora-tuned-verifier",
+    "direct-preference-optimization-dpo",
+    "generation-verification-gap-gv-gap-reweighting-analysis",
+    "logiqa",
+    "medqa",
+    "qwen3-4b",
+    "qwen3-8b",
+    "qwen3-14b",
+    "llama-3-70b",
+    "claude-3-7-sonnet"
   ],
   "related_authored": [],
   "schema_version": 1,

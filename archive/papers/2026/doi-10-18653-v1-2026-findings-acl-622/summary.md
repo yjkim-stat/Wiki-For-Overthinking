@@ -45,7 +45,7 @@ The training dataset is drawn exclusively from math problems (DeepScaleR, source
 ## Entities
 
 - **Concepts**: Overthinking-Adjusted Accuracy (OAA) / AUC_OAA, adaptive length penalty (tokens-after-first-correct-answer), rejection sampling for concise SFT, trace reformatting
-- **Methods**: Adaptive-Answer (rejection-sampling SFT + RL length penalty), Format-Adaptive-Answer (trace-reformatting SFT + RL length penalty), [GRPO](../../../../wiki/methods/grpo.md), No-Thinking (baseline), First-Answer-Truncation (baseline), Hard-Length / Soft-Length / Normalized-Length penalties (baselines), TWYN (Think When You Need, baseline)
+- **Methods**: Adaptive-Answer (rejection-sampling SFT + RL length penalty), Format-Adaptive-Answer (trace-reformatting SFT + RL length penalty), [GRPO](../../../../wiki/methods/grpo.md), [No-Thinking (baseline)](../../../../wiki/methods/nothinking-baseline.md), First-Answer-Truncation (baseline), Hard-Length / Soft-Length / Normalized-Length penalties (baselines), TWYN (Think When You Need, baseline)
 - **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), [AIME 24](../../../../wiki/datasets/aime-2024.md), [AIME 25](../../../../wiki/datasets/aime-2025.md), [GPQA Diamond](../../../../wiki/datasets/gpqa-diamond.md), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md), [LiveCodeBench (v6)](../../../../wiki/datasets/livecodebench-v6.md), LongBenchv2, DeepScaleR (training data, 13K problems)
 
 Tags: `overthinking`, `efficient-reasoning`, `length-penalty`, `reinforcement-learning`, `AUC_OAA`

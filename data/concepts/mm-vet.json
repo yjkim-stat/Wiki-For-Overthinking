@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "MMVet"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "GPRO diagnoses that visual perception failures (not reasoning errors) cause over twice as many incorrect predictions across model scales in vision-language models, then routes each generated token through one of three paths -- a fast FFN, a slow cross-attention perception path for re-examining the image, or a slow self-reflection reasoning path -- via a lightweight meta-reasoning controller trained with PPO on a multi-objective reward (task accuracy, path-cost penalty, and an uncertainty-calibration term derived from ~790K GPT-4-labeled perception-vs-reasoning failure attributions); GPRO-7B matches/beats far larger closed models and long-CoT distillation baselines while cutting response length up to 51.5%, activating slow paths sparsely (73% Fast/17% Perception/10% Reasoning) and correctly, targeting perception re-examination at high-frequency visual tokens and reasoning refinement at logical connectives.",
       "title": "Addressing Overthinking in Large Vision-Language Models via Gated Perception-Reasoning Optimization"
+    },
+    {
+      "id": "title:725397e20ebf1509",
+      "kind": "paper",
+      "note": "Heima replaces each stage of a multimodal model's textual chain of thought with a single learned 'thinking token' generated in latent space, and trains a separate decoder that can expand those tokens back into readable reasoning.",
+      "title": "Efficient Reasoning with Hidden Thinking"
     }
   ],
   "first_seen": "2026-09-01T10:04:16Z",
   "kind": "dataset",
-  "last_seen": "2026-09-01T10:04:16Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "MM-Vet",
   "related": [
     "overthinking-in-vision-language-models",
@@ -44,7 +52,25 @@
     "qwen2-vl-7b",
     "gpt-4o-reference",
     "claude-3-5-sonnet-reference",
-    "qwen-vl-max-reference"
+    "qwen-vl-max-reference",
+    "chain-of-thought-compression",
+    "latent-reasoning",
+    "hidden-thinking-tokens",
+    "progressive-encoding",
+    "reasoning-reconstruction-interpretability",
+    "mutual-information-preservation",
+    "multimodal-reasoning",
+    "heima-encoder",
+    "heima-decoder",
+    "latent-thinking-tokens",
+    "llama-3-2-11b-vision-instruct",
+    "llama-3-1-8b-instruct",
+    "llava-cot",
+    "llava-cot-100k",
+    "mmstar",
+    "mmbench-v1-1",
+    "ai2d",
+    "hallusionbench"
   ],
   "related_authored": [],
   "schema_version": 1,

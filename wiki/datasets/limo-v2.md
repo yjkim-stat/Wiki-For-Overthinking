@@ -8,7 +8,7 @@ LIMO-v2 is a curated long-CoT reasoning distillation dataset used in these sourc
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [HMMT25](hmmt25.md), [Phi-4](../models/phi-4.md), [Qwen3-4B](../models/qwen3-4b.md), [s1k-1.1](s1k-1-1.md)
+**Related**: [AIME 2024](aime-2024.md), [AIME 2025](aime-2025.md), [BrUMO'25](brumo-25.md), [HMMT25](hmmt25.md), [Phi-4](../models/phi-4.md), [Qwen3-4B](../models/qwen3-4b.md), [s1k-1.1](s1k-1-1.md)
 
 ## Appears in
 

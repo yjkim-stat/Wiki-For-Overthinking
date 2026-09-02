@@ -8,7 +8,7 @@ Qwen2.5-3B-Base is used as a base model in ADaPT (Token-Level Decoupling for Eff
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [GRPO](../methods/grpo.md), [GRPO (baseline)](../methods/grpo-baseline.md), [GSM8K](../datasets/gsm8k.md), [Llama3.1-8B-Instruct](llama3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Olympiad](../datasets/olympiad.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-7B-Base](qwen2-5-7b-base.md), [Qwen2.5-Math-7B](qwen2-5-math-7b.md), [SFT (baseline)](../methods/sft-baseline.md), [TLMRE (baseline)](../methods/tlmre-baseline.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC](../datasets/amc.md), [GRPO](../methods/grpo.md), [GRPO (baseline)](../methods/grpo-baseline.md), [GSM8K](../datasets/gsm8k.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [MATH500](../datasets/math500.md), [MMLU-Pro](../datasets/mmlu-pro.md), [Olympiad](../datasets/olympiad.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-7B-Base](qwen2-5-7b-base.md), [Qwen2.5-Math-7B](qwen2-5-math-7b.md), [SFT (baseline)](../methods/sft-baseline.md), [TLMRE (baseline)](../methods/tlmre-baseline.md)
 
 ## Appears in
 

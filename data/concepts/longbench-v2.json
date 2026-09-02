@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "LongBenchv2"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "S2O is a FlashAttention-compatible sparse-attention method for long-context prefill that reorders queries and keys/values via lightweight index arrays (no physical tensor permutation) to concentrate attention mass into a compact region, then applies an online early-stopping rule that skips low-contribution key/value blocks once marginal attention-mass gain falls below a threshold, achieving up to 7.51x attention speedup and 3.81x end-to-end prefill speedup on Llama-3.1-8B at 128K context with lower approximation error than prior sparse-attention baselines.",
       "title": "S2O: Early Stopping for Sparse Attention via Online Permutation"
+    },
+    {
+      "id": "doi:10.18653/v1/2026.findings-acl.622",
+      "kind": "paper",
+      "note": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
+      "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "LongBench v2",
   "related": [
     "online-index-guided-permutation",
@@ -26,7 +34,28 @@
     "infinitebench",
     "ruler",
     "llama-3-1-8b",
-    "qwen3-8b"
+    "qwen3-8b",
+    "overthinking-adjusted-accuracy-oaa-auc-oaa",
+    "adaptive-length-penalty-tokens-after-first-correct-answer",
+    "rejection-sampling-for-concise-sft",
+    "trace-reformatting",
+    "adaptive-answer-rejection-sampling-sft-rl-length-penalty",
+    "format-adaptive-answer-trace-reformatting-sft-rl-length-penalty",
+    "grpo",
+    "nothinking-baseline",
+    "first-answer-truncation-baseline",
+    "hard-length-soft-length-normalized-length-penalties-baselines",
+    "twyn-think-when-you-need-baseline",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "gpqa-diamond",
+    "commonsenseqa",
+    "livecodebench-v6",
+    "deepscaler-training-data-13k-problems",
+    "qwen3-1-7b",
+    "qwen3-32b",
+    "deepseek-r1-qwen-7b-distill"
   ],
   "related_authored": [],
   "schema_version": 1,

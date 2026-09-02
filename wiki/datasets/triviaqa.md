@@ -8,7 +8,7 @@ TriviaQA is a knowledge-QA benchmark used in this archive's compute-optimal-scal
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [2WikiMultihopQA](2wikimultihopqa.md), [BigCodeBench](bigcodebench.md), [HotpotQA](hotpotqa.md), [HumanEval](humaneval.md), [Llama3.1-8B-Instruct](../models/llama3-1-8b-instruct.md), [LoRA fine-tuning](../methods/lora-fine-tuning.md), [MathQA](mathqa.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MuSiQue](musique.md), [Natural Questions (NQ)](natural-questions-nq.md), [PopQA](popqa.md), [Qwen2.5-3B-Instruct](../models/qwen2-5-3b-instruct.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [SciQ](sciq.md)
+**Related**: [2WikiMultihopQA](2wikimultihopqa.md), [BigCodeBench](bigcodebench.md), [HotpotQA](hotpotqa.md), [HumanEval](humaneval.md), [LLaMA-3.1-8B-Instruct](../models/llama-3-1-8b-instruct.md), [LoRA fine-tuning](../methods/lora-fine-tuning.md), [MathQA](mathqa.md), [MBPP](mbpp.md), [MMLU](mmlu.md), [MuSiQue](musique.md), [Natural Questions (NQ)](natural-questions-nq.md), [PopQA](popqa.md), [Qwen2.5-3B-Instruct](../models/qwen2-5-3b-instruct.md), [Qwen2.5 7B](../models/qwen2-5-7b.md), [Qwen2.5-7B-Instruct](../models/qwen2-5-7b-instruct.md), [SciQ](sciq.md)
 
 ## Appears in
 

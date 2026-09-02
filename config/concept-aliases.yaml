@@ -161,3 +161,64 @@ merge:
     - Qwen3-235B
   Qwen3-4B-Instruct-2507:
     - Qwen3-4B-Instruct
+
+  # -- 2026-09-03: the render-time near-collision report, ruled on ----------
+  # `render` has been printing these on every pass since the last alias pass
+  # made that the recommendation. All 26 are the narrow `variant` kind --
+  # identical once non-alphanumerics are dropped -- so there is no judgement in
+  # any of them, and none is a base/instruct pair, which the earlier ruling
+  # keeps separate on purpose. The surviving name is the one the archive's own
+  # sources use more often; where both hold one source, the spelling that
+  # matches the family's other entries wins (Qwen3-*, not Qwen-3-*).
+  Qwen3-8B:
+    - Qwen-3-8B
+  Qwen3-4B:
+    - Qwen-3-4B
+  Qwen3-14B:
+    - Qwen-3-14B
+  Qwen3-1.7B:
+    - Qwen-3-1.7B
+  Qwen3-0.6B:
+    - Qwen-3-0.6B
+  Qwen3 family (0.6B-235B-A22B):
+    - Qwen-3 family (0.6B-235B-A22B)
+  Qwen2.5-7B-Instruct:
+    - Qwen-2.5-7B-Instruct
+  Qwen2.5-72B-Instruct:
+    - Qwen 2.5 72B Instruct
+  Qwen2.5-VL-7B:
+    - Qwen2.5VL-7B
+  Qwen2.5-VL-3B:
+    - Qwen2.5VL-3B
+  LLaMA-3.1-8B-Instruct:
+    - Llama3.1-8B-Instruct
+  LLaMA 3.2 3B Instruct:
+    - Llama3.2-3B-Instruct
+  Llama-Guard-3 (ASR judge):
+    - LlamaGuard3 (ASR judge)
+  Phi-4-mini-reasoning:
+    - Phi4-mini-Reasoning
+  Gemini 2.5 Flash:
+    - Gemini2.5-Flash
+  Omni-MATH:
+    - OmniMath
+  College Math:
+    - CollegeMath
+  Natural Questions:
+    - NaturalQuestions
+  LongBench v2:
+    - LongBenchv2
+  BFCL v3:
+    - BFCLv3
+  AlpacaEval 2.0:
+    - AlpacaEval2.0
+  MM-Vet:
+    - MMVet
+  Sorry-bench:
+    - SorryBench
+  BrUMO'25:
+    - BRUMO25
+  NoThinking (baseline):
+    - No-Thinking (baseline)
+  No-Wait (baseline):
+    - NoWait (baseline)

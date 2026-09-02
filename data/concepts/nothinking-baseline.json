@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "No-Thinking (baseline)"
+  ],
   "definition": "NoThinking (bypassing explicit chain-of-thought and answering directly) is used across these sources as a training-free lower-bound/comparison baseline for reasoning-efficiency methods: TH2T, WHISPER, NEAT and Budget Guidance all report it as an aggressive length-reduction reference point, generally achieving the shortest outputs but at the largest accuracy cost among compared strategies, especially on harder benchmarks.",
   "evidence": [
     {
@@ -27,6 +29,12 @@
       "title": "Steering LLM Thinking with Budget Guidance"
     },
     {
+      "id": "doi:10.18653/v1/2026.findings-acl.622",
+      "kind": "paper",
+      "note": "A multi-stage training framework (SFT via rejection sampling or trace reformatting, then RL with a reward that penalizes tokens generated after the first correct answer) reduces reasoning-trace length by 28% (Qwen3-8B) to 40% (Qwen3-32B) with only 1.6-2.5 accuracy-point drops, beating prior efficient-reasoning baselines on the Overthinking-Adjusted Accuracy (OAA) AUC metric.",
+      "title": "Correct, Concise and Complete: Multi-stage Training For Adaptive Reasoning"
+    },
+    {
       "id": "doi:10.18653/v1/2026.findings-acl.651",
       "kind": "paper",
       "note": "TRACE is a training-free dynamic early-exit method that aggregates two multi-step signals over a sliding window of recent reasoning steps -- Answer Consistency Score and Confidence Trajectory Score -- to detect genuine reasoning convergence, reducing tokens by 25-30% while staying within 1-2% accuracy of full-length reasoning, and beating existing single-step confidence-based early-exit baselines by 2-4 accuracy points at comparable or lower token budgets.",
@@ -35,7 +43,7 @@
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "method",
-  "last_seen": "2026-09-01T10:24:36Z",
+  "last_seen": "2026-09-02T22:23:25Z",
   "name": "NoThinking (baseline)",
   "related": [
     "self-hypnosis-trained-prefix-in-context-behavioral-trigger",
@@ -51,7 +59,7 @@
     "gsm8k",
     "math500",
     "aime-2024",
-    "omnimath",
+    "omni-math",
     "gpqa",
     "livecodebench",
     "olympiad",
@@ -110,6 +118,22 @@
     "tablebench",
     "deepseek-r1-distill-qwen-32b",
     "bert-base-predictor-backbone",
+    "overthinking-adjusted-accuracy-oaa-auc-oaa",
+    "adaptive-length-penalty-tokens-after-first-correct-answer",
+    "rejection-sampling-for-concise-sft",
+    "trace-reformatting",
+    "adaptive-answer-rejection-sampling-sft-rl-length-penalty",
+    "format-adaptive-answer-trace-reformatting-sft-rl-length-penalty",
+    "grpo",
+    "first-answer-truncation-baseline",
+    "hard-length-soft-length-normalized-length-penalties-baselines",
+    "twyn-think-when-you-need-baseline",
+    "aime-2025",
+    "livecodebench-v6",
+    "longbench-v2",
+    "deepscaler-training-data-13k-problems",
+    "qwen3-1-7b",
+    "deepseek-r1-qwen-7b-distill",
     "answer-consistency-score-acs",
     "confidence-trajectory-score-cts",
     "temporal-reasoning-aggregation",
@@ -118,8 +142,7 @@
     "tale-baseline-fixed-token-budget",
     "dynasor-baseline-single-probe-based-indicator",
     "deer-baseline-single-step-confidence-early-exit",
-    "aime-2025",
-    "gemini2-5-flash",
+    "gemini-2-5-flash",
     "deepseek-r1-distilled-llama-8b"
   ],
   "related_authored": [],
