@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A closed-source LLM used across sources both as an evaluated subject (e.g. in the POBs preference/opinion/belief benchmark, where test-time compute is found to only weakly and inconsistently improve neutrality/consistency) and as a data-generation or agent component in other papers' pipelines (generating temporal-reasoning training traces for TISER, acting as one of the specialized VLM agents in METAL's chart-generation framework, and serving as a reference model in TALE's token-budget experiments).
+GPT-4o is a closed-source LLM used across the archive both as an evaluated subject -- e.g. in the POBs preference/opinion/belief benchmark, where added reasoning or self-reflection prompting only weakly and inconsistently improves neutrality/consistency -- and as a component or reference point in other papers' pipelines: generating temporal-reasoning training traces for TISER, acting as one of the specialized VLM agents in METAL's chart-generation framework, serving as a reference/target model in TALE's token-budget experiments, and as the chain-of-thought baseline that SCOPE's constraint-compiling pipeline improves on for multi-constraint planning (93.1% success on TravelPlanner with GPT-4o, a 61.6-point gain over plain CoT prompting).
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

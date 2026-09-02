@@ -6,7 +6,7 @@
 
 - [Overthinking](topics/overthinking.md) — `overthinking`
 
-## Concepts (96)
+## Concepts (99)
 
 - [abstention](concepts/abstention.md) — 2 source(s)
 - [Accuracy-Efficiency Pareto Frontier](concepts/accuracy-efficiency-pareto-frontier.md) — 1 source(s)
@@ -66,6 +66,7 @@
 - [Process Reward Model (PRM)](concepts/process-reward-model-prm.md) — 3 source(s)
 - [Process Supervision](concepts/process-supervision.md) — 1 source(s)
 - [Reasoning Collapse](concepts/reasoning-collapse.md) — 3 source(s)
+- [Reasoning Completion Point (RCP)](concepts/reasoning-completion-point-rcp.md) — 1 source(s)
 - [reasoning effort](concepts/reasoning-effort.md) — 3 source(s)
 - [reasoning graph](concepts/reasoning-graph.md) — 2 source(s)
 - [reasoning hallucination](concepts/reasoning-hallucination.md) — 2 source(s)
@@ -84,6 +85,7 @@
 - [scaling laws](concepts/scaling-laws.md) — 1 source(s)
 - [Self-Certainty](concepts/self-certainty.md) — 2 source(s)
 - [Self-Distillation](concepts/self-distillation.md) — 2 source(s)
+- [semantic path convergence](concepts/semantic-path-convergence.md) — 1 source(s)
 - [Sequential revision](concepts/sequential-revision.md) — 2 source(s)
 - [sequential test-time scaling](concepts/sequential-test-time-scaling.md) — 2 source(s)
 - [sequential vs. parallel test-time scaling](concepts/sequential-vs-parallel-test-time-scaling.md) — 2 source(s)
@@ -95,6 +97,7 @@
 - [Test-Time Compute Scaling](concepts/test-time-compute-scaling.md) — 21 source(s)
 - [Test-Time Scaling](concepts/test-time-scaling.md) — 22 source(s)
 - [Thinking Budget](concepts/thinking-budget.md) — 2 source(s)
+- [thinking-content compensation](concepts/thinking-content-compensation.md) — 1 source(s)
 - [thinking-token budget](concepts/thinking-token-budget.md) — 1 source(s)
 - [Token Budget](concepts/token-budget.md) — 4 source(s)
 - [Token-Level Entropy](concepts/token-level-entropy.md) — 1 source(s)
@@ -105,7 +108,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 2 source(s)
 - [weighted voting](concepts/weighted-voting.md) — 2 source(s)
 
-## Methods (136)
+## Methods (137)
 
 - [A*-Thought](methods/a-thought.md) — 2 source(s)
 - [activation steering](methods/activation-steering.md) — 5 source(s)
@@ -230,6 +233,7 @@
 - [sparse autoencoders (SAEs)](methods/sparse-autoencoders-saes.md) — 2 source(s)
 - [speculative decoding](methods/speculative-decoding.md) — 3 source(s)
 - [SPIRIT](methods/spirit.md) — 2 source(s)
+- [stepwise truncation protocol](methods/stepwise-truncation-protocol.md) — 1 source(s)
 - [T5-Large](methods/t5-large.md) — 1 source(s)
 - [Thinkless](methods/thinkless.md) — 4 source(s)
 - [Thinkless (baseline)](methods/thinkless-baseline.md) — 2 source(s)
@@ -372,7 +376,7 @@
 - [XSTest](datasets/xstest.md) — 2 source(s)
 - [ZebraLogic](datasets/zebralogic.md) — 3 source(s)
 
-## Models (109)
+## Models (110)
 
 - [Claude Sonnet 4.5](models/claude-sonnet-4-5.md) — 3 source(s)
 - [Claude-3.5-Sonnet](models/claude-3-5-sonnet.md) — 3 source(s)
@@ -387,6 +391,7 @@
 - [DeepSeek-R1 (teacher)](models/deepseek-r1-teacher.md) — 4 source(s)
 - [DeepSeek-R1-0528](models/deepseek-r1-0528.md) — 2 source(s)
 - [DeepSeek-R1-0528-Qwen3-8B](models/deepseek-r1-0528-qwen3-8b.md) — 5 source(s)
+- [DeepSeek-R1-Distill-8B](models/deepseek-r1-distill-8b.md) — 1 source(s)
 - [DeepSeek-R1-Distill-Llama-70B](models/deepseek-r1-distill-llama-70b.md) — 6 source(s)
 - [DeepSeek-R1-Distill-Llama-8B](models/deepseek-r1-distill-llama-8b.md) — 16 source(s)
 - [DeepSeek-R1-Distill-Qwen-1.5B](models/deepseek-r1-distill-qwen-1-5b.md) — 29 source(s)

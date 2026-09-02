@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Thinking-content compensation is the trade-off one archived source observes when a reasoning model's thinking phase is truncated at successively later steps and the model is forced to answer from the prefix alone: while thinking is still insufficient the model offloads the remaining reasoning into its answer, so content length rises as thinking length falls, and at a given moderate truncation step correct answers require substantially longer content while incorrect ones collapse into terse output. The compensation is not open-ended. Past a point content length contracts into a narrow band and stays essentially constant even as the thinking budget grows by more than a hundred further steps, a saturation the source names thinking redundancy and treats as the length-level evidence that additional thinking has stopped buying anything measurable in the answer.",
   "evidence": [
     {
       "id": "local:7c50df663462f26b",
@@ -45,7 +45,9 @@
     "deepseek-r1-distill-8b",
     "qwen3-embedding"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "budget-force-bf"
+  ],
   "schema_version": 1,
   "slug": "thinking-content-compensation",
   "topics": [

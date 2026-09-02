@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "DeepSeek-R1-Distill-8B is a distilled reasoning-model checkpoint used in 'The Evolution of Thought' as one of the backbones on which RCPD -- an online detector for the paper's Reasoning Completion Point (RCP), the instance-specific point where an LRM's chain-of-thought has semantically converged and further reasoning becomes redundant -- is evaluated. RCPD monitors the rank of the </think> token to catch this point and truncate post-RCP reasoning, cutting tokens up to 44% while preserving or improving accuracy-per-token across four models and three benchmarks.",
   "evidence": [
     {
       "id": "local:7c50df663462f26b",
@@ -45,7 +45,9 @@
     "qwen3-32b",
     "qwen3-embedding"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "reasoning-completion-point-rcp"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1-distill-8b",
   "topics": [

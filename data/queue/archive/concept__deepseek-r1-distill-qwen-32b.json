@@ -35,6 +35,54 @@
       },
       {
         "kind": "paper",
+        "note": "TRACE INVERSION reframes abstention as query misalignment -- a hallucinating model answered a different (reconstructed) question than the one the user actually posed -- and detects this by reconstructing the implied query from a model's own reasoning trace and comparing it to the original via an ensemble of embedding-similarity, LLM-judged, and groundedness-detection metrics, beating five baselines in 33/36 settings across four LLMs and nine abstention datasets, while separately showing that CoT/reasoning-trace prompting itself degrades abstention accuracy by an average 2.6% versus non-reasoning prompting.",
+        "title": "Answering the Wrong Question: Reasoning Trace Inversion for Abstention in LLMs",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+        "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "An empirical study of safety fine-tuning for LRMs finds directly distilling safe responses from DeepSeek-R1 barely reduces jailbreak Attack Success Rate, identifies five risky reasoning patterns responsible (including overthinking and 'weak vacillation' -- hesitating over superficially benign jailbreak framing, which survives safety filtering and is the key residual driver of failures), shows explicitly targeting these patterns in the distillation prompt cuts PAIR ASR from 63% to 13%, and finds short or template-based safety reasoning matches long-form reasoning's safety performance -- unlike math/code, safety does not benefit from longer reasoning chains.",
+        "title": "How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Using a truncation-based diagnostic across 11 languages, 3 model sizes, and 2 benchmarks, this paper measures how strongly LRMs already know the answer before finishing their explicit reasoning trace ('latent reasoning'), finding it exists but is uneven -- strong in resource-rich languages on easy tasks, weak in low-resource languages, and largely absent on harder benchmarks -- and that the internal layer-wise dynamics driving it are strikingly consistent across languages, converging toward an English-centered latent pathway that is not explained by memorization alone.",
+        "title": "Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
+        "title": "Steering LLM Thinking with Budget Guidance",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Tandem replaces full LLM reasoning with a mentor-intern collaboration: a large LLM emits only compact, staged 'thinking insights' (Goal/Planning/Retrieval/Action, at increasing effort levels) rather than its full verbose trace, a small classifier reads the SLM's own perplexity/entropy statistics under each stage's guidance to judge when it is sufficient, and the SLM completes the reasoning and final answer -- reaching 2.56 points higher accuracy than the 32B LLM alone on MATH while using only 59% of its compute, transferring cross-family and cross-domain (MATH-trained classifier applied unmodified to HumanEval) without retraining.",
+        "title": "Tandem: Riding Together with Large and Small Language Models for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.",
         "title": "A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings",
         "topics": [
@@ -43,9 +91,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-28T00:00:49Z",
-  "created_at": "2026-08-27T23:27:34Z",
-  "instructions": "Write the wiki definition for 'DeepSeek-R1-Distill-Qwen-32B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-02T00:00:51Z",
+  "created_at": "2026-09-01T11:08:38Z",
+  "instructions": "Revise the wiki definition for 'DeepSeek-R1-Distill-Qwen-32B'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DeepSeek-R1-Distill-Qwen-32B is a distilled reasoning-model backbone used across several mechanistic and efficiency studies in this archive: NeuReasoner's neuron-cluster overthinking detector, Anti-Length Shift's outlier-truncation fix for RLVR-induced length growth, FoE's 'first solution is best' finding and RED pruning method, Step-Saliency's information-flow-failure analysis and StepFlow intervention, and A*-Thought's search-tree-based trace compression -- spanning studies that report both accuracy gains and substantial token reductions on this backbone.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DeepSeek-R1-Distill-Qwen-32B",
   "kind": "concept",
   "language": "en",
@@ -61,13 +109,16 @@
   },
   "payload": {
     "name": "DeepSeek-R1-Distill-Qwen-32B",
-    "source_count": 5
+    "previous_definition": "DeepSeek-R1-Distill-Qwen-32B is a distilled reasoning-model backbone used across several mechanistic and efficiency studies in this archive: NeuReasoner's neuron-cluster overthinking detector, Anti-Length Shift's outlier-truncation fix for RLVR-induced length growth, FoE's 'first solution is best' finding and RED pruning method, Step-Saliency's information-flow-failure analysis and StepFlow intervention, and A*-Thought's search-tree-based trace compression -- spanning studies that report both accuracy gains and substantial token reductions on this backbone.",
+    "source_count": 11
   },
   "result": {
     "aliases": [],
-    "definition": "DeepSeek-R1-Distill-Qwen-32B is a distilled reasoning-model backbone used across several mechanistic and efficiency studies in this archive: NeuReasoner's neuron-cluster overthinking detector, Anti-Length Shift's outlier-truncation fix for RLVR-induced length growth, FoE's 'first solution is best' finding and RED pruning method, Step-Saliency's information-flow-failure analysis and StepFlow intervention, and A*-Thought's search-tree-based trace compression -- spanning studies that report both accuracy gains and substantial token reductions on this backbone.",
+    "definition": "DeepSeek-R1-Distill-Qwen-32B is a distilled reasoning-model backbone used throughout the archive as an evaluation subject for overthinking-mitigation and efficient-reasoning methods -- online overthinking/error detectors, RLVR training-time interventions against length growth, trace-pruning and attention/information-flow-repair techniques, and search-based trace compression -- with these methods reporting token reductions from roughly 20% up to 78% alongside accuracy that holds or improves on this backbone. It also appears as a subject model in adjacent studies of reasoning-trace-based abstention/hallucination detection, confidence-guided test-time tree search, LRM safety fine-tuning (where distilling safe responses directly from DeepSeek-R1 is shown to barely reduce jailbreak attack success), and multilingual latent reasoning.",
     "kind": "model",
-    "related": []
+    "related": [
+      "DeepSeek-R1"
+    ]
   },
   "task_id": "concept__deepseek-r1-distill-qwen-32b",
   "task_version": 1,

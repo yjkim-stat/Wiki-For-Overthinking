@@ -1,6 +1,8 @@
 {
-  "aliases": [],
-  "definition": "",
+  "aliases": [
+    "RCP"
+  ],
+  "definition": "The Reasoning Completion Point is the earliest step of a large reasoning model's thinking trajectory at which its emerging answer has stopped changing in two independent senses at once: the content the model would produce if forced to stop there has stabilized in length (Delta_content(k) <= eps_c), and the distribution over that induced content has converged toward its terminal form (D_global(k) = KL(Q_k || Q_inf) <= eps_D). Its single archived source uses the point to split a trace into a Pre-RCP active-reasoning stage, where further thinking is typically still needed for the answer to mature, and a Post-RCP converged stage, where additional steps no longer materially alter the induced content and accumulate as redundancy. The point is latent and instance-specific, so no fixed thinking-token budget locates it, and computing it requires sampling several continuations at every truncation step, which makes it obtainable only offline; the source therefore uses it as gold supervision for an online detector rather than applying it directly. It is reported to coincide typically with the first emergence of the final answer in the trace, though the source notes answer emergence itself is an unreliable detection target because answer surface forms vary.",
   "evidence": [
     {
       "id": "local:7c50df663462f26b",
@@ -45,7 +47,12 @@
     "deepseek-r1-distill-8b",
     "qwen3-embedding"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "budget-force-bf",
+    "deer",
+    "minimal-sufficient-cot",
+    "latent-reasoning"
+  ],
   "schema_version": 1,
   "slug": "reasoning-completion-point-rcp",
   "topics": [

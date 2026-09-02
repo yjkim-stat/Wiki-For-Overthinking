@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "DeepSeek-R1-Distill-Qwen-32B is a distilled reasoning-model backbone used across several mechanistic and efficiency studies in this archive: NeuReasoner's neuron-cluster overthinking detector, Anti-Length Shift's outlier-truncation fix for RLVR-induced length growth, FoE's 'first solution is best' finding and RED pruning method, Step-Saliency's information-flow-failure analysis and StepFlow intervention, and A*-Thought's search-tree-based trace compression -- spanning studies that report both accuracy gains and substantial token reductions on this backbone.",
+  "definition": "DeepSeek-R1-Distill-Qwen-32B is a distilled reasoning-model backbone used throughout the archive as an evaluation subject for overthinking-mitigation and efficient-reasoning methods -- online overthinking/error detectors, RLVR training-time interventions against length growth, trace-pruning and attention/information-flow-repair techniques, and search-based trace compression -- with these methods reporting token reductions from roughly 20% up to 78% alongside accuracy that holds or improves on this backbone. It also appears as a subject model in adjacent studies of reasoning-trace-based abstention/hallucination detection, confidence-guided test-time tree search, LRM safety fine-tuning (where distilling safe responses directly from DeepSeek-R1 is shown to barely reduce jailbreak attack success), and multilingual latent reasoning.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.1033",
@@ -254,7 +254,9 @@
     "tokenskip",
     "s1k-1-1"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "deepseek-r1"
+  ],
   "schema_version": 1,
   "slug": "deepseek-r1-distill-qwen-32b",
   "topics": [

@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "The stepwise truncation protocol is the instrument one archived source uses to measure how each reasoning step contributes to the final answer. A thinking trajectory is segmented into sentence-level steps with NLTK, and for each step k the trajectory is cut immediately after s_k and the end-of-thinking delimiter (for example </think>) is force-injected, so the model must produce its answer from the prefix alone: y_k ~ P(y | x, t_{1:k}). Sweeping k yields, per instance, thinking length against induced content length and answer correctness, and the same construction is the substrate for the source's semantic probe, since several continuations can be sampled independently at each truncated prefix. The source frames the injected delimiter as an explicit control signal that terminates the internal thinking process and triggers the transition to content generation, rather than as a naive string cut.",
   "evidence": [
     {
       "id": "local:7c50df663462f26b",
@@ -45,7 +45,9 @@
     "deepseek-r1-distill-8b",
     "qwen3-embedding"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "budget-forcing"
+  ],
   "schema_version": 1,
   "slug": "stepwise-truncation-protocol",
   "topics": [

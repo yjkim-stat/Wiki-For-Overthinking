@@ -3,7 +3,7 @@
     "Llama-3.1-8B-Instruct",
     "LLaMA-3.1-8B"
   ],
-  "definition": "LLaMA-3.1-8B-Instruct is an instruction-tuned base model used across several efficient-reasoning constructions in this archive: as the backbone for FIRE's counterspeech agents, as the base model the Long CoT Collection dataset is shown to out-cold-start for RLVR, as SoftCoT's frozen backbone primed by soft thought tokens, as the model Marco-o1 v2's distillation-training fixes are demonstrated on, as the subject of TALE's token-budget-aware prompting, and as the backbone Heima's latent 'thinking token' replaces textual CoT for.",
+  "definition": "LLaMA-3.1-8B-Instruct is an instruction-tuned open-weight model used throughout the archive as a common backbone for testing efficient- and compressed-reasoning constructions: it hosts multi-agent and soft-prompt reasoning pipelines (FIRE's counterspeech agents, SoftCoT's frozen backbone primed by continuous soft-thought tokens), receives distillation and cold-start training aimed at overthinking (Long CoT Collection's thought-budget-controllable data, Marco-o1 v2's fixes for 'formalistic long-time thinking' inherited from distillation, CurioSFT's entropy-preserving SFT, Select2Reason's difficulty/length-based data selection), is the subject of token-budget-aware prompting (TALE) and reasoning-token functional-importance/pruning analysis, and is evaluated as a backbone in test-time-scaling and evaluator studies (DREAM, MetaScale, and a study scaling evaluation-time reasoning compute). Reported effects on it span both accuracy gains and substantial reasoning-length or token reductions, depending on the method.",
   "evidence": [
     {
       "id": "arxiv:2608.23152",

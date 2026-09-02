@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Semantic path convergence is the pattern one archived source finds when, at each step of a stepwise truncation sweep, it samples several independent answer continuations, embeds them with the Qwen3 Embedding model and projects them by PCA: early steps scatter widely and the per-step centroid jumps between adjacent steps, then the trajectory enters a stable neighbourhood and stays inside it, with 97.3 percent of post-transition points falling within a 95 percent Mahalanobis confidence ellipse around the convergence centre (94.3 and 96.5 percent on two further instances). Quantitatively the source measures a global convergence residual D_global(k) = KL(Q_k || Q_inf) between the induced content distribution at step k, approximated as a Gaussian in a higher-dimensional PCA space, and a terminal reference estimated from a tail window of late truncation steps; the residual falls sharply and then flattens. The plateau is explicitly non-zero, which the source reads as a dynamic equilibrium inside the basin, that is repetitive oscillation among semantically similar continuations, rather than collapse onto a single solution.",
   "evidence": [
     {
       "id": "local:7c50df663462f26b",
@@ -45,7 +45,9 @@
     "deepseek-r1-distill-8b",
     "qwen3-embedding"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "entropy-collapse"
+  ],
   "schema_version": 1,
   "slug": "semantic-path-convergence",
   "topics": [

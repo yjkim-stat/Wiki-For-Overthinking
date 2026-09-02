@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-An open-weight instruction-tuned model used across sources as an evaluation subject for cross-lingual test-time-scaling fairness (showing a significant accuracy drop and 180-300% extra reasoning cost when queried in a non-default measurement system), as the backbone for SHAD's reasoning/boilerplate token-disentanglement fine-tuning method, and as one of five model families used to demonstrate the latent capacity for concise reasoning that self-training (FS-BoN) elicits.
+Llama-3.1-8B is an open-weight model used across sources as an evaluation subject for cross-lingual test-time-scaling fairness (showing a significant accuracy drop and 180-300% extra reasoning cost when queried in a non-default measurement system), as the backbone for SHAD's reasoning/boilerplate token-disentanglement fine-tuning method, as one of five model families used to demonstrate the latent capacity for concise reasoning that self-training (FS-BoN) elicits, and as the long-context prefill benchmark for S2O's sparse-attention method (7.51x attention-only / 3.81x end-to-end prefill speedup at 128K context).
 
 - **Kind**: model
 - **Also called**: LLaMA3.1-8B, Llama 3.1 8B, Llama-3.1-8B-Instruct, Llama3.1-8B

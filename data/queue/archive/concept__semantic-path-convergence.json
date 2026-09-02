@@ -19,6 +19,7 @@
       }
     ]
   },
+  "completed_at": "2026-09-01T23:58:00Z",
   "created_at": "2026-09-01T23:24:44Z",
   "instructions": "Write the wiki definition for 'semantic path convergence'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "semantic path convergence",
@@ -37,6 +38,14 @@
   "payload": {
     "name": "semantic path convergence",
     "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Semantic path convergence is the pattern one archived source finds when, at each step of a stepwise truncation sweep, it samples several independent answer continuations, embeds them with the Qwen3 Embedding model and projects them by PCA: early steps scatter widely and the per-step centroid jumps between adjacent steps, then the trajectory enters a stable neighbourhood and stays inside it, with 97.3 percent of post-transition points falling within a 95 percent Mahalanobis confidence ellipse around the convergence centre (94.3 and 96.5 percent on two further instances). Quantitatively the source measures a global convergence residual D_global(k) = KL(Q_k || Q_inf) between the induced content distribution at step k, approximated as a Gaussian in a higher-dimensional PCA space, and a terminal reference estimated from a tail window of late truncation steps; the residual falls sharply and then flattens. The plateau is explicitly non-zero, which the source reads as a dynamic equilibrium inside the basin, that is repetitive oscillation among semantically similar continuations, rather than collapse onto a single solution.",
+    "kind": "concept",
+    "related": [
+      "entropy collapse"
+    ]
   },
   "task_id": "concept__semantic-path-convergence",
   "task_version": 1,
