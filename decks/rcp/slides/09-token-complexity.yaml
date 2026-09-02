@@ -1,0 +1,40 @@
+# 09 — 하한은 이미 나와 있었다
+layout: content
+eyebrow: 2025
+eyebrow_color: violet
+title: 하한은 정지 연구보다 먼저 나와 있었다
+blocks:
+- lead: 문항마다 <span class="em">최소 CoT 길이</span>가 있고, 그것을 계산할 수 있다면 — 모든 압축 방법은 같은 자로 재어진다.
+- cards:
+    cols: 2
+    items:
+    - color: violet
+      t: 하나의 곡선
+      t_style: name
+      bullets:
+      - 압축 프롬프트 <span class="em">31개</span>가 프롬프트 계열별이 아니라
+      - (모델, 벤치마크)마다 <span class="em">단 하나의</span> 정확도–길이 곡선 위에 놓인다
+      bullet_size: sm
+      n:
+      - 예산 추정 방식(TALE-EP)은 단순 정적 프롬프트의 곡선 <span class="em">아래</span>에 있다
+      n_style: [cost]
+      style: column
+    - color: rose
+      t: 달성과 하한의 거리
+      t_style: name
+      blocks:
+      - table:
+          head: [GPT-4o · MMLU-Pro Math, 토큰, 배율]
+          rows:
+          - ['DefaultCoT', '586', '1.00×']
+          - ['BeConcise', '415', '1.41×']
+          - ['<span class="em">이론적 하한</span>', '<span class="k-rose">121</span>', '<span class="k-rose">4.83×</span>']
+      - text:
+          text: GSM8K에서는 하한이 <span class="mono em">10.9–11.2×</span>를 허용하는데 실제 달성은 약 <span class="mono">1.4×</span>.
+          style: claim
+      style: column
+    style: fill
+- note: 이 곡선이 실재한다면, 이후 3년간의 정지 기법 경쟁은 서로 다른 선이 아니라 한 선 위의 위치 다툼이다. Part 4에서 다시 온다.
+cite:
+- lee2025
+foot: Part 1 · 2025

@@ -1,0 +1,47 @@
+# 28 — 그러나 확정적 반박은 아니다
+layout: content
+eyebrow: Part 4
+eyebrow_color: amber
+title: 무엇을 결론지을 수 있고, 무엇은 아닌가
+blocks:
+- lead: 재현 실패는 <span class="em">프로토콜에 대한 사실</span>이지 방법에 대한 판결이 아니다. 세 가지 유보가 있다.
+- cards:
+    cols: 3
+    style: fill
+    items:
+    - color: plain
+      k: ①
+      t: 모델이 다르다
+      t_style: name
+      bullets:
+      - Qwen3-4B, Nemotron-8B는 원논문에 없다
+      - DeepSeek도 Llama distill 쪽이다
+      bullet_size: sm
+      style: column
+    - color: plain
+      k: ②
+      t: 벤치마크 조합이 다르다
+      t_style: name
+      bullets:
+      - AIME24·25 합산, MATH500·GSM8K 추가
+      bullet_size: sm
+      style: column
+    - color: rose
+      k: ③
+      t: 구현 불일치 정황
+      t_style: name
+      bullets:
+      - 재현의 RCPD는 <span class="em">모든 행에서 Cost &gt; Tok</span>
+      - 즉 중간 답을 생성한다는 뜻
+      - 발표된 RCPD는 이미 계산된 분포에서 rank만 읽는다
+      bullet_size: sm
+      style: column
+- card:
+    color: rose
+    t: |-
+      좁혀도 남는 결론 — <span class="em">이 클러스터에서 주장된 동작점으로 독립 재현된 기법이 하나도 없다.</span>
+    t_style: font-size:20px;line-height:1.6;text-align:center;
+    style: padding:20px 24px;margin-top:14px;
+cite:
+- hosseini2026
+foot: Part 4 · 재현

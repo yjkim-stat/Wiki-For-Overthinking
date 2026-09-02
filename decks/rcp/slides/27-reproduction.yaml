@@ -1,0 +1,34 @@
+# 27 — 재현
+layout: content
+eyebrow: 2026 · COLM Workshop
+eyebrow_color: rose
+title: 공유 trajectory 위에서 다시 돌려본다
+blocks:
+- lead: 여섯 기법을 <span class="em">사전 생성된 같은 궤적</span> 위에서 비교한다. 이 클러스터의 첫 외부 검증이다.
+- table:
+    head: [Overall CR <span class="ref">(낮을수록 절감)</span>, Qwen3-4B, Qwen3-14B, DS-Llama-8B, Nemotron-8B]
+    rows:
+    - ['Vanilla', '100.0', '100.0', '100.0', '100.0']
+    - ['DEER', '70.0', '55.3', '73.2', '80.8']
+    - ['<span class="em">RCPD</span>', '<span class="k-rose">96.9</span>', '<span class="k-rose">91.3</span>', '<span class="k-rose">100.0</span>', '<span class="k-rose">96.2</span>']
+    - ['Answer Convergence', '20.3', '23.3', '33.1', '29.9']
+    - ['CoDE-Stop', '65.9', '50.5', '63.9', '75.0']
+- cards:
+    cols: 2
+    items:
+    - color: rose
+      t: |-
+        RCPD의 절감은 <span class="em">0–9%</span>. 자기 논문의 주장은 최대 44%. 공유 모델 Qwen3-14B에서 60% → <span class="k-rose">91.3%</span>.
+      t_style: font-size:17px;line-height:1.55;
+      style: padding:14px 18px;
+    - color: amber
+      t: |-
+        Answer Convergence는 반대로 <span class="em">과압축</span> — CR 20.3%에 정확도 51.1 (vanilla 78.4).
+      t_style: font-size:17px;line-height:1.55;
+      style: padding:14px 18px;
+    style: margin-top:12px;
+cite:
+- hosseini2026
+- wei2026
+- liu2025
+foot: Part 4 · 재현

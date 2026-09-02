@@ -1,0 +1,24 @@
+# 07 — 계보의 씨앗
+layout: content
+eyebrow: 2025 · EMNLP
+eyebrow_color: violet
+title: 한 문장이 1년 뒤의 방법을 예고한다
+blocks:
+- lead: 같은 논문 §4.2에, 이후 RCPD가 통째로 올라앉게 되는 관찰이 있다.
+- card:
+    color: violet
+    t: |-
+      “<span class="mono">&lt;/think&gt;</span>가 문장 경계 뒤에서 <span class="em">상위 10개 후보 안에 드는 경우가 많은데</span>,
+      모델은 <span class="mono">wait</span>, <span class="mono">or</span>, <span class="mono">but</span> 같은 토큰을 선호해 추론을 불필요하게 늘린다.”
+    t_style: font-size:21px;line-height:1.6;
+    style: padding:22px 26px;margin-bottom:16px;
+- bullets:
+    bullets:
+    - 이들의 처방은 rank를 <span class="em">읽는</span> 것이 아니라 로짓을 <span class="em">미는</span> 것이었다.
+    - 1년 뒤 RCPD는 같은 관찰을 읽는 쪽으로 쓰고, 임계값을 <span class="mono em">5</span>와 <span class="mono em">10</span>에 둔다.
+    - RCP 논문은 이 논문을 인용하지만 이 대응은 밝히지 않는다.
+    size: sm
+cite:
+- liu2025
+- wei2026
+foot: Part 1 · Answer Convergence

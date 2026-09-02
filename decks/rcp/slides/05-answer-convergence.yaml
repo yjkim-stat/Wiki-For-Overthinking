@@ -1,0 +1,47 @@
+# 05 — Answer Convergence
+layout: content
+eyebrow: 2025 · EMNLP
+eyebrow_color: blue
+title: 계보의 시작 — 절단해서 답을 뽑는다
+body_height: 470px
+blocks:
+- lead: 이후 모든 연구가 쓰는 계측 장치가 여기서 확정된다.
+- cards:
+    cols: 2
+    items:
+    - color: blue
+      t: 프로토콜
+      t_style: name
+      bullets:
+      - CoT를 <span class="em">NLTK 문장 청크</span>로 자른다
+      - 접두사를 하나씩 늘려가며 <span class="mono">&lt;/think&gt;</span>를 강제 주입
+      - 각 지점에서 greedy로 답을 뽑는다
+      - 답이 더 이상 안 바뀌는 최초 지점을 찾는다
+      bullet_size: sm
+      n:
+      - 정답 라벨이 필요 없다 — 기준은 <span class="em">모델 자신의 최종 예측</span>
+      n_style: [sig]
+      style: column
+    - color: green
+      t: ACR
+      t_style: name
+      blocks:
+      - text:
+          text: |-
+            <span class="mono em">ACR = 수렴 청크 / 전체 청크</span>
+          style: font-size:17px;margin-bottom:12px;
+      - table:
+          head: [벤치마크, ACR]
+          rows:
+          - ['NaturalQuestions', '≈ 0.0']
+          - ['GSM8K · MATH-500', '≈ 0.8']
+          - ['GPQA · AIME’24', '≈ 0.9']
+      - text:
+          text: 큰 모델일수록 더 일찍 수렴한다.
+          style: sig
+      style: column
+    style: fill
+- note: ACR은 RCP가 나중에 정의하는 Reasoning Completion Point를 trace 길이로 정규화한 것과 같은 양이다. 1년 앞선다.
+cite:
+- liu2025
+foot: Part 1 · Answer Convergence

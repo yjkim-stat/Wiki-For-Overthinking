@@ -1,0 +1,31 @@
+# 16 — 실제 배포되는 것
+layout: content
+eyebrow: 2026 · ACL
+eyebrow_color: amber
+title: 정교한 장치가 임계값 넷으로 붕괴한다
+blocks:
+- lead: Appendix C에 실제 규칙이 있다. 문장 경계마다 <span class="mono">&lt;/think&gt;</span>의 rank <span class="mono">R<sub>t</sub></span>만 읽는다.
+- table:
+    head: [조건, 식, 의미]
+    rows:
+    - ['<span class="mono">C_sat</span>', '<span class="mono">R<sub>t</sub> ≤ 5</span>', '즉시 포화 — 결론이 확정됨']
+    - ['<span class="mono">C_conv</span>', '<span class="mono">⋀<sub>k=0..3</sub> R<sub>t−k</sub> ≤ θ<sub>k</sub></span>, &nbsp;<span class="mono">θ = [10, 50, 100, 1000]</span>', '“사다리 패턴” — 해로 향하는 수렴']
+    - ['<span class="mono">C_short</span>', '<span class="mono">∀k ≤ 2 : R<sub>t−k</sub> ≤ 20</span>', '단기 안정 — 노이즈 필터']
+    - ['<span class="mono">C_long</span>', '<span class="mono">∀k ≤ 5 : R<sub>t−k</sub> ≤ 50</span>', '장기 지속 — entropic floor에서 맴돎']
+- cards:
+    cols: 2
+    items:
+    - color: rose
+      t: |-
+        후방 임계값이 <span class="mono">1000</span>이다. 어휘가 10<sup>5</sup> 규모인 모델에서 이는 사실상 제약이 아니므로, <span class="em">C_conv는 첫 칸 <span class="mono">R<sub>t</sub> ≤ 10</span>이 지배한다</span>.
+      t_style: font-size:17px;line-height:1.55;
+      style: padding:14px 18px;
+    - color: rose
+      t: |-
+        따라서 규칙 전체는 대략 <span class="mono em">R<sub>t</sub> ≤ 10 ∨ 저-rank 고원</span>에 가깝다. 단일 임계값 ablation이 “경쟁력 있다”고 나오는 이유다.
+      t_style: font-size:17px;line-height:1.55;
+      style: padding:14px 18px;
+    style: margin-top:12px;
+cite:
+- wei2026
+foot: Part 2 · RCPD

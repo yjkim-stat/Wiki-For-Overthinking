@@ -1,0 +1,52 @@
+# 08 — 같은 해의 다른 갈래들
+layout: content
+eyebrow: 2025
+eyebrow_color: blue
+title: 같은 해, 세 갈래가 따로 출발한다
+blocks:
+- lead: 정지 문제는 2025년에 이미 셋으로 갈라져 있었다. <span class="em">신호를 어디서 읽는가</span>가 갈림길이다.
+- cards:
+    cols: 3
+    style: fill
+    items:
+    - color: blue
+      k: 확신도
+      t: DEER
+      t_style: name
+      bullets:
+      - 시험 답을 뽑아 <span class="em">그 순간의 confidence</span>로 판정
+      - 이후 거의 모든 논문의 공통 베이스라인
+      bullet_size: sm
+      n:
+      - 한계 · 순간 신호는 오답에서 과신한다 — 여러 후속 논문이 같은 지적을 반복한다
+      n_style: [cost]
+      style: column
+    - color: amber
+      k: 예산
+      t: THOUGHTTERMINATOR
+      t_style: name
+      bullets:
+      - 문항별 토큰 마감을 <span class="em">예측</span>해 리마인더를 삽입
+      - 예산 소진 시 제약 디코딩으로 답 강제
+      bullet_size: sm
+      n:
+      - QwQ-32B에서 국소 오버씽킹 13,662 → 215 (−98%), 그러나 정확도 0.94 → 0.80
+      n_style: [cost]
+      style: column
+    - color: rose
+      k: 원인
+      t: Self-Doubt
+      t_style: name
+      bullets:
+      - 오버씽킹의 원인을 <span class="em">이미 맞힌 답의 중복 재검증</span>으로 귀속
+      - 프롬프트만으로 교정 — 길이 −37.1%, 정확도 +3.6%
+      bullet_size: sm
+      n:
+      - 단 MATH-500에서 자기의심 비율은 62 → 38.2로 줄지만 GSM8K에서는 5.9 → 17.2로 늘어난다
+      n_style: [cost]
+      style: column
+cite:
+- yang2025deer
+- pu2025
+- peng2025
+foot: Part 1 · 2025

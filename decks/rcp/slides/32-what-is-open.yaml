@@ -1,0 +1,48 @@
+# 32 — 무엇이 열려 있나
+layout: content
+eyebrow: Closing
+eyebrow_color: green
+title: 열린 질문을 닫을 세 가지
+blocks:
+- lead: 전부 싸고, 전부 아직 아무도 하지 않았다.
+- cards:
+    cols: 3
+    style: fill
+    items:
+    - color: green
+      k: ①
+      t: 탐지기 충실도
+      t_style: name
+      bullets:
+      - 각 온라인 규칙을 <span class="em">자기 오프라인 목표 대비</span> precision·recall로 보고
+      bullet_size: sm
+      n:
+      - 이미 gold label을 만들어 놓고 쓰지 않고 있다
+      n_style: [sig]
+      style: column
+    - color: blue
+      k: ②
+      t: 하나의 프로토콜
+      t_style: name
+      bullets:
+      - 공개된 하이퍼파라미터, <span class="em">원저자 구현</span>, wall-clock 포함
+      bullet_size: sm
+      n:
+      - CoDE-Stop의 표가 첫 시도지만 재구현이라 구현 불일치가 남는다
+      n_style: [sig]
+      style: column
+    - color: violet
+      k: ③
+      t: 하한까지의 거리
+      t_style: name
+      bullets:
+      - 논문마다 다른 vanilla 대비 절감률 대신 <span class="em">token-complexity 바닥까지의 거리</span>를 지표로
+      bullet_size: sm
+      n:
+      - 그래야 서로 다른 논문의 수치가 같은 자 위에 놓인다
+      n_style: [sig]
+      style: column
+cite:
+- hosseini2026
+- lee2025
+foot: Closing

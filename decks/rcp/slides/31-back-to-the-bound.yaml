@@ -1,0 +1,38 @@
+# 31 — 하한으로 돌아온다
+layout: content
+eyebrow: Part 4
+eyebrow_color: violet
+title: 판 자체가 작을 수 있다
+blocks:
+- lead: Part 1에서 미뤄둔 곡선으로 돌아온다. 이것이 사실이라면 <span class="em">위의 모든 차이는 한 선 위의 위치</span>다.
+- cards:
+    cols: 2
+    items:
+    - color: violet
+      t: 한 선 위의 다툼
+      t_style: name
+      bullets:
+      - 31개 압축 프롬프트가 (모델, 벤치마크)마다 <span class="em">단 하나의</span> 곡선
+      - 프롬프트 계열이 만드는 선이 아니다
+      bullet_size: sm
+      n:
+      - 그렇다면 흥미로운 질문은 <span class="em">“어느 신호인가”</span>가 아니라 <span class="em">“왜 모두가 바닥에서 이렇게 멀리 있는가”</span>가 된다
+      n_style: [claim]
+      style: column
+    - color: rose
+      t: 달성과 하한
+      t_style: name
+      blocks:
+      - table:
+          head: [벤치마크, 달성, 하한 허용]
+          rows:
+          - ['MMLU-Pro Math', '1.41×', '<span class="k-rose">4.83×</span>']
+          - ['GSM8K', '~1.4×', '<span class="k-rose">10.9–11.2×</span>']
+      - text:
+          text: 예산 추정 방식은 단순 정적 프롬프트의 곡선 아래에 있다.
+          style: cost
+      style: column
+    style: fill
+cite:
+- lee2025
+foot: Part 4

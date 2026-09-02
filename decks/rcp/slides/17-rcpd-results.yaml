@@ -1,0 +1,29 @@
+# 17 — 무엇을 보였나
+layout: content
+eyebrow: 2026 · ACL
+eyebrow_color: green
+title: 얼마나 자르냐가 아니라 어디서 자르냐
+blocks:
+- lead: 이 논문에서 가장 정직한 실험 설계 — <span class="em">고정 예산에 유리하게</span> 세팅한 뒤 비교한다.
+- card:
+    color: blue
+    t: |-
+      Budget Force의 예산을 각 (모델, 벤치마크)마다 <span class="em">RCPD의 실제 평균 토큰 수에 사후 맞춤</span>한다.
+      논문 스스로 “배포 시엔 얻을 수 없는 전역 튜닝 예산의 이점을 준 것”이라 명시한다.
+    t_style: font-size:18px;line-height:1.6;
+    style: padding:16px 20px;margin-bottom:14px;
+- table:
+    head: [Qwen3-8B · AIME24, 토큰, 정확도]
+    rows:
+    - ['Full', '15,435', '72.22']
+    - ['Budget Force <span class="ref">(iso-compute)</span>', '10,373', '<span class="k-rose">58.88</span>']
+    - ['<span class="em">RCPD</span>', '9,958', '<span class="k-green">72.22</span>']
+- bullets:
+    bullets:
+    - 거의 같은 예산에서 <span class="em">13점 차</span>. 고정 예산 계열 전체에 대한 반론이다.
+    - 평균으로 보면 RCPD는 BF와 DEER를 모든 모델에서 지배한다 — 토큰은 적고 정확도는 같거나 높다.
+    size: sm
+    style: margin-top:12px;
+cite:
+- wei2026
+foot: Part 2 · RCPD

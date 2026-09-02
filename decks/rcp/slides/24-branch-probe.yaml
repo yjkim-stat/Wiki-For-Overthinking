@@ -1,0 +1,41 @@
+# 24 — 학습된 프로브 갈래
+layout: content
+eyebrow: 2026
+eyebrow_color: green
+title: 유일하게 탐지기를 탐지기로 평가하는 갈래
+blocks:
+- lead: 규칙을 손으로 정하는 대신 <span class="em">충분성 자체를 학습</span>한다. 그리고 이 갈래만 자기 예측을 검증한다.
+- cards:
+    cols: 2
+    items:
+    - color: green
+      t: BLADE
+      t_style: name
+      bullets:
+      - 조기 종료를 <span class="em">접두사 충분성 예측</span>으로 정식화
+      - 라벨은 각 경계에서 <span class="em">강제 정지 후 16회 답변</span>, 만장일치만 채택 (16/16 정답 → 1, 16/16 오답 → 0, 섞이면 폐기)
+      - 층별 hidden state 위의 프로브
+      bullet_size: sm
+      n:
+      - Qwen3-8B 7,837 → 5,896 토큰(−24.8%), 정확도 −1.6점
+      n_style: [claim]
+      style: column
+    - color: blue
+      t: Learn-to-Stop
+      t_style: name
+      bullets:
+      - 최종층 활성값 시퀀스 위의 LSTM
+      - 라벨은 <span class="em">모델 자신의 수렴 지점</span> — 정답 불필요
+      bullet_size: sm
+      n:
+      - 얕은 신호가 붕괴한 어려운 과제에서 <span class="em">유일하게 버틴</span> 방법
+      n_style: [claim]
+      style: column
+    style: fill
+- note: 중간 답을 아예 뽑지 않는 우회로도 있다 — DTSR은 반성 신호가 나올 때마다 모델에게 <span class="em">3인칭 관점에서 자기 추론의 충분성</span>을 0–100으로 매기게 한다. 답이 길거나 열려 있어 중간 답 추출이 불가능한 과제를 겨냥한 것이다.
+- note: 두 방법 모두 예측기로서 평가된다. RCPD·PUMA·CoDE-Stop은 end-to-end 정확도와 토큰 수만 본다 — Part 4의 주제다.
+cite:
+- fu2026
+- liu2025
+- xiang2026
+foot: Part 3 · 가지

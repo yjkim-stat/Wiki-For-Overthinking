@@ -1,0 +1,28 @@
+# 14 — 수렴 후는 무해하지 않다
+layout: content
+eyebrow: 2026 · ACL
+eyebrow_color: rose
+title: 수렴 후의 계산은 재검증하지 않는다
+blocks:
+- lead: 추론 중간의 잠정 답을 손으로 바꿔 넣고 <span class="em">64회 독립 시행</span>한다. 이 논문에서 가장 강한 실험이다.
+- table:
+    head: [주입, 원래 정답 복구, 주입된 오답 채택, 기타]
+    rows:
+    - ['12 → 16', '11', '<span class="k-rose">49</span>', '4']
+    - ['16 → 12 (대칭)', '11', '<span class="k-rose">51</span>', '2']
+- card:
+    color: rose
+    t: |-
+      “Post-RCP generation seldom performs genuine re-verification and instead tends to <span class="em">rationalize earlier tokens</span>.”
+    t_style: font-size:19px;line-height:1.6;
+    style: padding:18px 22px;margin-top:14px;
+- bullets:
+    bullets:
+    - 이것은 낭비가 아니라 <span class="em">확증 편향</span>이다 — 계속 가는 것이 무해하지 않다는 직접 증거.
+    - 같은 시기의 self-doubt 연구, 그리고 first-guess bias 연구와 같은 자리를 겨냥한다.
+    size: sm
+    style: margin-top:12px;
+cite:
+- wei2026
+- peng2025
+foot: Part 2 · RCP

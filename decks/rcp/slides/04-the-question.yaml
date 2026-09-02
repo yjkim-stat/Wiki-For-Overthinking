@@ -1,0 +1,39 @@
+# 04 — 무엇을 재려는가
+layout: content
+eyebrow: The Question
+eyebrow_color: blue
+title: 두 시점의 간극
+blocks:
+- lead: 오버씽킹을 “길다”가 아니라 <span class="em">두 시점의 차이</span>로 놓으면, 무엇을 재야 하는지가 정해진다.
+- cards:
+    cols: 2
+    items:
+    - color: green
+      k: τ_conv
+      t: 수렴 시점
+      t_style: name
+      bullets:
+      - 모델이 최종 답을 사실상 확정한 순간
+      - 관측하려면 <span class="em">중간에 끊어 답을 뽑아야</span> 한다
+      bullet_size: sm
+      style: column
+    - color: rose
+      k: τ_stop
+      t: 정지 시점
+      t_style: name
+      bullets:
+      - 모델이 실제로 <span class="mono">&lt;/think&gt;</span>를 내보내는 순간
+      - 관측은 공짜다 — 그냥 끝날 때까지 두면 된다
+      bullet_size: sm
+      style: column
+    style: margin-bottom:16px;
+- text:
+    text: |-
+      오버씽킹 = <span class="mono em">τ<sub>stop</sub> − τ<sub>conv</sub></span>
+    style: formula
+- bullets:
+    bullets:
+    - 이렇게 놓으면 질문이 셋으로 갈라진다 — <span class="em">간극은 실재하는가</span>, <span class="em">왜 생기는가</span>, <span class="em">온라인에서 좁힐 수 있는가</span>.
+    - 2025년의 연구들은 첫째와 셋째에, 2026년의 RCP는 첫째의 정의 자체에 답한다.
+    size: sm
+foot: The Question

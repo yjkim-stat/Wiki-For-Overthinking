@@ -1,0 +1,52 @@
+# 23 — 억제 갈래
+layout: content
+eyebrow: 2026
+eyebrow_color: rose
+title: 멈추는 대신 되돌아가지 못하게 한다
+blocks:
+- lead: 정지시키지 않고 <span class="em">반성 트리거 자체를 막는</span> 갈래. 무조건에서 조건부로 이동해 왔다.
+- cards:
+    cols: 3
+    style: fill
+    items:
+    - color: plain
+      k: 원형
+      t: No-Wait
+      t_style: name
+      bullets:
+      - <span class="mono">wait</span>, <span class="mono">hmm</span> 등을 <span class="em">확신도와 무관하게</span> 마스킹
+      bullet_size: sm
+      n:
+      - 어려운 과제에서 성능이 떨어진다 — 필요한 자기검증까지 없애기 때문
+      n_style: [cost]
+      style: column
+    - color: rose
+      k: 조건부
+      t: CGRS
+      t_style: name
+      bullets:
+      - 탐침한 잠정 답의 <span class="em">토큰 엔트로피</span>로 확신도 <span class="mono">C</span>
+      - <span class="mono">p = max(0, (C−δ)/(1−δ))</span> 확률로 억제 — 불확실하면 무개입
+      bullet_size: sm
+      n:
+      - 18.5–41.9% 절감, 정확도 보존. 항상-억제(=No-Wait)를 자기 표에서 지배한다
+      n_style: [claim]
+      style: column
+    - color: amber
+      k: 내부신호
+      t: NEAT
+      t_style: name
+      bullets:
+      - 같은 억제를 하되 게이트를 <span class="em">exit 뉴런 활성값</span>에 둔다
+      - 억제는 종료 직전의 중간 단계
+      bullet_size: sm
+      n:
+      - 탐침이 없어 오버헤드도 없다
+      n_style: [claim]
+      style: column
+- note: 세 지점의 차이는 “무엇을 억제하나”가 아니라 “언제 억제해도 되는지를 무엇으로 판단하나”이다.
+cite:
+- huang2026
+- liu2026neat
+- song2026
+foot: Part 3 · 가지

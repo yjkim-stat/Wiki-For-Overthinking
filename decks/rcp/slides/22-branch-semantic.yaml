@@ -1,0 +1,39 @@
+# 22 — 의미적 잉여 갈래
+layout: content
+eyebrow: 2026
+eyebrow_color: amber
+title: 답이 아니라 “새 내용이 나오는가”를 본다
+blocks:
+- lead: RCP가 답 분포의 수렴을 KL로 재는 자리에서, 이 갈래는 <span class="em">스텝 사이의 의미적 중복</span>을 본다. 훨씬 싸다.
+- cards:
+    cols: 2
+    style: fill
+    items:
+    - color: amber
+      t: PUMA
+      t_style: name
+      bullets:
+      - 대조학습된 임베딩 탐지기가 직전 문맥과의 유사도를 재고, 넘으면 <span class="em">후보 exit</span>
+      - 플래그만으로는 안 멈춘다 — 답 수준 confidence·일관성 <span class="em">검증</span>을 통과해야 종료
+      bullet_size: sm
+      n:
+      - 평균 26.2% 절감. 5개 LRM에서 <span class="em">최종 답 도달 후 41–52%의 토큰이 생성됨</span>을 보고한다
+      - 실측 wall-clock 1.40× / 1.28× 가속, 탐지기 오버헤드 0.4–1.1% — 이 클러스터에서 비용 회계가 가장 정직하다
+      n_style: [claim, sig]
+      style: column
+    - color: green
+      t: REFRAIN
+      t_style: name
+      bullets:
+      - 그 스텝이 <span class="em">반성적</span>이고, <span class="em">잠정 답 이후</span>이며, <span class="em">이전 스텝들과 의미적으로 잉여</span>일 때만 종료
+      - RCP와 같은 논리곱 구조
+      bullet_size: sm
+      n:
+      - 임계값을 고정하지 않고 <span class="em">Sliding-Window UCB 밴딧으로 온라인 선택</span> — RCPD의 최대 약점을 정면으로 고친다
+      - 20–55% 절감, GPQA-Diamond에서 +6.66pp
+      n_style: [claim, sig]
+      style: column
+cite:
+- min2026
+- sun2026
+foot: Part 3 · 가지

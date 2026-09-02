@@ -1,0 +1,44 @@
+# 15 — 오프라인 정의를 온라인으로
+layout: content
+eyebrow: 2026 · ACL
+eyebrow_color: green
+title: distill-to-detect — 정의를 라벨 생성기로만 쓴다
+body_height: 470px
+blocks:
+- lead: <span class="mono">D<sub>global</sub></span>은 매 스텝 다중 샘플링이 필요하고 <span class="mono">Q<sub>∞</sub></span>는 미래를 알아야 한다. <span class="em">정의는 온라인에서 계산할 수 없다.</span>
+- cards:
+    cols: 3
+    style: fill
+    items:
+    - color: blue
+      k: ①
+      t: 오프라인 라벨
+      t_style: name
+      bullets:
+      - Math-500에서 인스턴스마다 <span class="mono">k<sub>RCP</sub></span>를 완전 계산
+      - gold supervision으로 취급
+      bullet_size: sm
+      style: column
+    - color: violet
+      k: ②
+      t: 관측 가능한 프록시
+      t_style: name
+      bullets:
+      - <span class="mono">k<sub>RCP</sub></span>는 대체로 <span class="em">최종 답의 첫 등장</span>과 일치
+      - 그런데 답의 표면형이 제각각이라 문자열 기준은 취약
+      - 그 순간 <span class="mono">&lt;/think&gt;</span>의 <span class="em">rank가 급락</span>한다
+      bullet_size: sm
+      style: column
+    - color: green
+      k: ③
+      t: 규칙으로 증류
+      t_style: name
+      bullets:
+      - rank + 직전 이력 위에 decision tree
+      - 결정적 기호 규칙으로 증류해 배포
+      bullet_size: sm
+      style: column
+- note: rank는 모델 내부 신호이고 답 형식에 불변이다. 이 선택 자체는 옳아 보인다 — 다른 두 연구가 독립적으로 같은 토큰에 도달한다.
+cite:
+- wei2026
+foot: Part 2 · RCPD
