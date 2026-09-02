@@ -75,7 +75,7 @@ The stopping rule carries several constants whose sensitivity is only partly exp
 ## Entities
 
 - **Concepts**: confidence dynamics of intermediate answers, degeneration score, ramping confidence threshold, unproductive trajectory detection, early-step weighting of stopping signal, cost accounting including probing overhead, compression rate (CR), accuracy-compute tradeoff frontier
-- **Methods**: CoDE-Stop, degeneration score, ramping confidence threshold, [DEER](../../../../wiki/methods/deer.md), EAT, Think or Not, RCPD, [Answer Convergence](../../../../wiki/methods/answer-convergence.md), [Budget Forcing](../../../../wiki/methods/budget-forcing.md), [Chain-of-Draft](../../../../wiki/methods/chain-of-draft.md), [NoThinking](../../../../wiki/methods/nothinking.md)
+- **Methods**: CoDE-Stop, degeneration score, ramping confidence threshold, [DEER](../../../../wiki/methods/deer.md), EAT, Think or Not, RCPD, Answer Convergence, [Budget Forcing](../../../../wiki/methods/budget-forcing.md), [Chain-of-Draft](../../../../wiki/methods/chain-of-draft.md), [NoThinking](../../../../wiki/methods/nothinking.md)
 - **Datasets**: [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [MATH500](../../../../wiki/datasets/math500.md), [GSM8K](../../../../wiki/datasets/gsm8k.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [AMC23](../../../../wiki/datasets/amc23.md)
 
 Tags: `overthinking`, `early stopping`, `confidence dynamics`, `training-free`, `reproduction`, `accuracy-compute tradeoff`, `reasoning length`

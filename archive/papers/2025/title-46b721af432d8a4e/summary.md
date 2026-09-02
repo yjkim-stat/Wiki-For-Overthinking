@@ -43,7 +43,7 @@ Not stated beyond the tested task domains (BBH, domain-specific, general NLP); n
 ## Entities
 
 - **Concepts**: gated refinement, adaptive prompt compression, prompt-optimization stagnation / local optima
-- **Methods**: gated refinement, [adaptive compression](../../../../wiki/methods/adaptive-compression.md), automatic prompt optimization
+- **Methods**: gated refinement, adaptive compression, automatic prompt optimization
 - **Datasets**: BIG-Bench Hard (BBH)
 
 Tags: `prompt-optimization`, `adaptive-compression`, `efficiency`, `local-optima`

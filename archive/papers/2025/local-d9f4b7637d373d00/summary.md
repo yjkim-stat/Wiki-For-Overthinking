@@ -40,7 +40,7 @@ Stated in Appendix A: the study is limited to mathematical reasoning tasks, so i
 
 ## Entities
 
-- **Concepts**: token complexity, universal accuracy-length tradeoff curve, oracle upper bound (rate-distortion-inspired bound on accuracy vs. token budget), adaptive compression, knapsack formulation of optimal token allocation
+- **Concepts**: token complexity, universal accuracy-length tradeoff curve, oracle upper bound (rate-distortion-inspired bound on accuracy vs. token budget), [adaptive compression](../../../../wiki/concepts/adaptive-compression.md), knapsack formulation of optimal token allocation
 - **Methods**: 31 chain-of-thought compression prompts (BeConcise, BulletPoints, OnlyNumbers, NoSpaces, NoProperGrammar, AbbreviateWords, WordLimit(k), CharLimit(k), TokenLimit(k), StepLimit(k), ChineseCoT, ChineseCoT(k)), token-complexity threshold estimation (Eq. 1), rate-distortion-inspired knapsack bound on accuracy-length tradeoff (Theorem 1, Corollary 1), TALE-EP prompt-guessing baseline (Han et al. 2024), Verifier Routing (NoCoT first, escalate to longer CoT if a verifier flags the answer wrong)
 - **Datasets**: [MATH-500](../../../../wiki/datasets/math500.md), GSM8K (500-problem subset), MMLU-Pro Math (500-problem subset)
 
