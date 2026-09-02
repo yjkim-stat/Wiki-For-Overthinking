@@ -120,3 +120,5 @@ reference for everything built before the practice existed.
 | 0100 | [The deck lands, the crops do not](0100-the-deck-lands-the-crops-do-not.md) | docs | The prose is ours and a rebuild cannot bring it back; the figures are quotation, and a public remote hosts rather than cites |
 | 0101 | [A deck becomes source and build](0101-a-deck-becomes-source-and-build.md) | refactor | Editing one sentence inside 123 KB of markup was the problem; the bibliography was 58 copies of 14 works |
 | 0102 | [A section can be its own file](0102-a-section-can-be-its-own-file.md) | feature | A slide range builds from the same YAML the full deck reads, so there is nothing to keep in sync |
+| 0103 | [A definition can be wrong in two directions too](0103-a-definition-can-be-wrong-in-two-directions-too.md) | fix | Evidence leaves as well as arrives, and a definition describing sources the archive no longer holds reads as complete |
+| 0104 | [A merged hand-filed record is still hand-filed](0104-a-merged-hand-filed-record-is-still-hand-filed.md) | fix | `source` is a `+`-joined set after a merge, so the guard missed the records with the most provenance |

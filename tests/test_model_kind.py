@@ -203,6 +203,32 @@ class DiscardScriptTests(unittest.TestCase):
         ).stdout
         self.assertEqual(before, after, "discard must not write without --apply")
 
+    def test_a_merged_hand_filed_record_is_still_hand_filed(self):
+        """`source` is a `+`-joined set after `dedupe merge`, not a single word.
+
+        A PDF filed in `inbox/` and later also collected from the ACL Anthology
+        reads as `local+anthology`. The old equality test missed exactly those,
+        so the hand-filed records with the *most* provenance were the ones a
+        rescore proposed discarding -- against the archive's own rule that a
+        reader's filing outranks any keyword score.
+        """
+        from types import SimpleNamespace
+
+        import importlib.util
+
+        spec = importlib.util.spec_from_file_location(
+            "discard_mod", REPO_ROOT / "scripts" / "discard.py"
+        )
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+
+        for source in ("local", "local+anthology", "anthology+local"):
+            with self.subTest(source=source):
+                self.assertTrue(module._hand_filed(SimpleNamespace(source=source)))
+        for source in ("arxiv", "anthology", "", None, "nonlocal"):
+            with self.subTest(source=source):
+                self.assertFalse(module._hand_filed(SimpleNamespace(source=source)))
+
     def test_hand_filed_pdfs_are_never_selected_by_rescore(self):
         # The archive holds local records with no topics on purpose; a scoring
         # pass must not treat a reader's judgement as a scoring error.

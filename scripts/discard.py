@@ -61,6 +61,20 @@ def _queue_files(layout, paper_id: str) -> list[Path]:
     return found
 
 
+def _hand_filed(paper) -> bool:
+    """Did a person put this document in `inbox/`?
+
+    `source` is a `+`-joined set once `dedupe merge` folds two records
+    together, so a hand-filed PDF that was later also collected from arXiv or
+    the ACL Anthology reads as `local+anthology`. An equality test misses
+    exactly those, and the guard it protects is the archive's rule that a PDF
+    a reader filed by hand is kept whatever its keywords say -- so the records
+    that fell through were the ones with the most provenance, not the least.
+    Same idiom as `merge_papers`, which builds the string.
+    """
+    return "local" in (paper.source or "").split("+")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group(required=True)
@@ -119,7 +133,7 @@ def main() -> int:
             return 2
         targets = []
         for paper in store.iter_papers():
-            if paper.source == "local":
+            if _hand_filed(paper):
                 continue  # a reader filed it; scoring does not get a vote
             _, _, accepted = score_against_topics(
                 cfg.topics,
@@ -145,7 +159,7 @@ def main() -> int:
 
     for paper in targets:
         print(f"  - {paper.id:26} {paper.title[:66]}")
-        if paper.source == "local":
+        if _hand_filed(paper):
             print("      (hand-filed PDF — named explicitly, so removing it)")
 
     if not args.apply:
