@@ -99,6 +99,24 @@ class StaleRefreshTests(unittest.TestCase):
         self.assertEqual(counts["eligible"], 0, "but not by enough to re-ask")
         self.assertIsNone(self._pending())
 
+    def test_a_definition_whose_evidence_left_is_never_asked_again(self):
+        """Reported, but not automatically re-asked, and the asymmetry is meant.
+
+        A definition whose sources grew is *behind*, and handing it back with
+        "what has changed" is a fair question. One whose sources were deleted
+        may be simply *wrong* — its prose cites material the archive no longer
+        holds — and CLAUDE.md's route for wrong is to clear it, which is a
+        person's call. The ratio test happens to enforce this on its own; this
+        pins it so a later change to the ratio cannot quietly undo it.
+        """
+        self._concept(sources=2)
+        self._written_against(7)
+        counts = render.queue_stale_definitions(self.cfg)
+        self.assertEqual(counts["stale"], 1, "it is reported")
+        self.assertEqual(counts["eligible"], 0, "but never eligible")
+        self.assertEqual(counts["queued"], 0)
+        self.assertIsNone(self._pending())
+
     def test_a_definition_matching_its_evidence_is_not_stale_at_all(self):
         self._concept(sources=3)
         self._written_against(3)

@@ -435,6 +435,55 @@ class StalenessTests(unittest.TestCase):
         self.assertEqual([r["slug"] for r in rows], ["instrumental-variable"])
         self.assertEqual(rows[0]["written_for"], 5)
         self.assertEqual(rows[0]["sources_now"], 6)
+        self.assertEqual(rows[0]["direction"], "outgrown")
+
+    def test_a_definition_whose_evidence_left_is_reported_too(self):
+        """Evidence is removed as well as added: discarded, retopiced, merged.
+
+        The definition then describes sources the archive no longer holds, and
+        nothing in its prose says which. Found twice on this archive, naming a
+        paper and its datasets months after that paper was discarded.
+        """
+        self._concept(sources=2)
+        self._definition_task(written_for=7)
+        rows = render.stale_definitions(self.cfg)
+        self.assertEqual([r["slug"] for r in rows], ["instrumental-variable"])
+        self.assertEqual(rows[0]["written_for"], 7)
+        self.assertEqual(rows[0]["sources_now"], 2)
+        self.assertEqual(rows[0]["direction"], "over-declared")
+
+    def test_the_outgrown_end_still_sorts_first(self):
+        """`queue_stale_definitions` walks this list worst-first and caps."""
+        self._concept(sources=2)
+        self._definition_task(written_for=7)
+        shrunk = render.stale_definitions(self.cfg)
+        self.store.save_concept(
+            Concept(
+                slug="other",
+                name="Other",
+                kind="concept",
+                definition="A definition.",
+                evidence=[
+                    {"kind": "paper", "id": f"arxiv:g{i}", "title": "P", "note": ""}
+                    for i in range(20)
+                ],
+            )
+        )
+        task_id = self.queue.enqueue(
+            kind="concept",
+            item_id="Other",
+            topics=[SLUG],
+            language="en",
+            instructions="Define it.",
+            output_schema={"definition": "string"},
+            payload={"name": "Other", "source_count": 2},
+        )
+        self.queue.complete(task_id, {"definition": "A definition."})
+        self.queue.archive(task_id)
+        rows = render.stale_definitions(self.cfg)
+        self.assertEqual(len(shrunk), 1)
+        self.assertEqual(rows[0]["direction"], "outgrown")
+        self.assertEqual(rows[-1]["direction"], "over-declared")
 
     def test_a_definition_still_matching_its_evidence_is_not(self):
         self._concept(sources=5)

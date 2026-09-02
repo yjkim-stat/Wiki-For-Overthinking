@@ -292,7 +292,7 @@ def _definition_source_count(queue: Queue, name: str) -> int | None:
 
 
 def stale_definitions(cfg: Config) -> list[dict]:
-    """Definitions whose evidence has grown since they were written.
+    """Definitions whose evidence no longer matches what they were written for.
 
     Every counter in this system measures whether something is *unwritten*.
     None measured whether it was *out of date* — so a definition was written
@@ -308,6 +308,25 @@ def stale_definitions(cfg: Config) -> list[dict]:
     The recorded count is used rather than a phrase match because it also
     catches the more dangerous kind — a definition that enumerates its sources
     by name reads as exhaustive while describing four of ten.
+
+    **Both directions count**, for the reason `stale_analysis` already gives
+    about markers. Evidence leaves as well as arrives: a paper is discarded,
+    retopiced, or folded into another entity by the alias map. A definition
+    written against more sources than the entity now holds is describing
+    material the archive no longer has, which is worse than describing too
+    little — a reader cannot go and find what it is talking about, and nothing
+    in the prose says which part has gone. Two were found on this archive
+    citing a paper by name, with its datasets and its metric, months after that
+    paper was discarded; both read as confident and complete.
+
+    ``direction`` is ``outgrown`` when evidence has arrived and
+    ``over-declared`` when it has left. Only the first is eligible for an
+    automatic refresh — see `queue_stale_definitions`, whose ratio test a
+    shrunken row cannot pass. That asymmetry is deliberate: a definition whose
+    sources grew is *behind*, and handing it back with "what has changed" is a
+    fair question; one whose sources were deleted may be simply *wrong*, and
+    CLAUDE.md's route for wrong is to clear it, which is a person's call and
+    not arithmetic's.
     """
     store = RecordStore(cfg.layout)
     queue = Queue(cfg.layout)
@@ -318,13 +337,14 @@ def stale_definitions(cfg: Config) -> list[dict]:
             continue
         written_for = _definition_source_count(queue, concept.name)
         now = len(concept.evidence)
-        if written_for is not None and now > written_for:
+        if written_for is not None and now != written_for:
             stale.append(
                 {
                     "slug": concept.slug,
                     "name": concept.name,
                     "written_for": written_for,
                     "sources_now": now,
+                    "direction": "outgrown" if now > written_for else "over-declared",
                 }
             )
     return sorted(stale, key=lambda row: row["written_for"] - row["sources_now"])
@@ -594,10 +614,11 @@ def report_staleness(cfg: Config) -> dict[str, int]:
 
     for row in definitions[:10]:
         _LOG.warning(
-            "definition for '%s' was written against %d source(s); there are now %d",
+            "definition for '%s' was written against %d source(s); there are now %d (%s)",
             row["name"],
             row["written_for"],
             row["sources_now"],
+            row["direction"],
         )
     if len(definitions) > 10:
         _LOG.warning("... and %d more stale definition(s)", len(definitions) - 10)
