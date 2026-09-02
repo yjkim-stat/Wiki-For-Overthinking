@@ -6,13 +6,14 @@ LogiQA is a logic-heavy classification benchmark used in this archive by Prompt-
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [Best-of-N (baseline)](../methods/best-of-n-baseline.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [GPQA](gpqa.md), [TruthfulQA](truthfulqa.md)
+**Related**: [adaptive reasoning](../concepts/adaptive-reasoning.md), [Best-of-N (baseline)](../methods/best-of-n-baseline.md), [chain-of-thought baseline](../methods/chain-of-thought-baseline.md), [Claude-3.7-Sonnet](../models/claude-3-7-sonnet.md), [Direct Preference Optimization (DPO)](../methods/direct-preference-optimization-dpo.md), [GPQA](gpqa.md), [MATH500](math500.md), [MedQA](medqa.md), [TruthfulQA](truthfulqa.md)
 
 ## Appears in
 
 - [Prompt-Level Distillation: A Non-Parametric Alternative to Model Fine-Tuning for Efficient Reasoning](../../archive/papers/2026/doi-10-18653-v1-2026-acl-industry-142/summary.md) — Prompt-Level Distillation (PLD) transfers a teacher model's reasoning heuristics into a compact student model's system prompt -- via supervised instruction extraction, DBSCAN clustering into a conflict-free instruction set, and a closed-loop conflict-resolution refinement against training failures -- letting Gemma-3 4B and Mistral Small 3.1 match frontier-model (Gemini 3 Flash) accuracy on logic-heavy classification tasks at zero-shot inference speed and no parameter updates.
+- [Correct Reasoning Paths Visit Shared Decision Pivots](../../archive/papers/2026/local-f8a4b161736737f2/summary.md) — Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.
 - [AdaReasoner: Adaptive Reasoning Enables More Flexible Thinking](../../archive/papers/2025/title-b12c09d1a21e70d0/summary.md) — AdaReasoner is an RL-trained, model-agnostic plugin that picks a per-task reasoning configuration - prompt instruction format, decoding temperature and number of reasoning steps - instead of using one fixed prompting setup for every task.
 
 <!-- auto:end -->

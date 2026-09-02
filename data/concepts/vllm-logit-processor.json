@@ -1,0 +1,50 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:5596d5f3510679fc",
+      "kind": "paper",
+      "note": "Defines the Answer Convergence Ratio — the fraction of a chain of thought needed before the forced answer stops changing — measures it by incremental truncation across five tasks and five models, and proposes three inference-time stopping methods (answer consistency, a logit boost on the end-of-thinking token, and an LSTM probe over activations), of which only the learned probe holds accuracy on hard tasks.",
+      "title": "Answer Convergence as a Signal for Early Stopping in Reasoning"
+    }
+  ],
+  "first_seen": "2026-09-02T21:32:21Z",
+  "kind": "method",
+  "last_seen": "2026-09-02T21:32:21Z",
+  "name": "vLLM logit processor",
+  "related": [
+    "answer-convergence",
+    "answer-convergence-ratio-acr",
+    "incremental-truncation-with-forced-answer-emission",
+    "early-stopping-via-answer-consistency",
+    "end-of-reasoning-token-logit-boosting",
+    "peakedness-adaptive-logit-adjustment",
+    "learned-stopping-from-internal-activations",
+    "self-labelled-supervision-without-gold-answers",
+    "convergence-does-not-guarantee-correctness",
+    "faithfulness-of-truncated-reasoning",
+    "answer-consistency-early-stopping",
+    "think-token-adjustment",
+    "learn-to-stop",
+    "concise-cot-ccot",
+    "lstm-stopping-classifier",
+    "nltk-sentence-chunking",
+    "naturalquestions",
+    "gsm8k",
+    "math500",
+    "gpqa-diamond",
+    "aime-2024",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-32b",
+    "deepseek-r1-distill-llama-8b",
+    "deepseek-r1-distill-llama-70b",
+    "qwq-32b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "vllm-logit-processor",
+  "topics": [
+    "overthinking"
+  ]
+}

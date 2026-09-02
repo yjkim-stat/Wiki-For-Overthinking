@@ -59,15 +59,27 @@
       "title": "MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models"
     },
     {
+      "id": "local:204ad034bca12641",
+      "kind": "paper",
+      "note": "CoDE-Stop stops reasoning when either a ramping confidence threshold is crossed or an early-step-weighted 'degeneration score' of accumulated confidence instability exceeds a threshold, targeting both trajectories that are already done and trajectories that are going nowhere, and its evaluation is the archive's first independent head-to-head of RCPD and Answer Convergence under one protocol.",
+      "title": "Early Stopping for Large Reasoning Models via Confidence Dynamics"
+    },
+    {
       "id": "local:7c50df663462f26b",
       "kind": "paper",
       "note": "Defines an instance-specific Reasoning Completion Point (RCP) as the earliest truncation step at which both content-length stabilization and semantic-distribution convergence hold, and detects it online by monitoring the rank of the </think> token, cutting tokens up to 44% while preserving accuracy across four Qwen3 scales and DeepSeek-R1-Distill-8B.",
       "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis"
+    },
+    {
+      "id": "local:fd13860972ea4ba0",
+      "kind": "paper",
+      "note": "CGRS is a training-free, decoding-time method that suppresses reflection-trigger tokens (e.g. \"Wait\", \"But\") probabilistically, in proportion to a token-entropy-based certainty score computed at checkpoint probes, cutting reasoning length by 18.5-41.9% with little to no accuracy loss.",
+      "title": "Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression"
     }
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "model",
-  "last_seen": "2026-09-01T23:27:34Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "Qwen3-14B",
   "related": [
     "reflection-signal-wait-alternatively-but-triggered-exit-cue",
@@ -238,6 +250,24 @@
     "truthfulqa",
     "longfact",
     "llama-3-1-nemotron-nano-4b-v1-1",
+    "confidence-dynamics-of-intermediate-answers",
+    "degeneration-score",
+    "ramping-confidence-threshold",
+    "unproductive-trajectory-detection",
+    "early-step-weighting-of-stopping-signal",
+    "cost-accounting-including-probing-overhead",
+    "compression-rate-cr",
+    "accuracy-compute-tradeoff-frontier",
+    "code-stop",
+    "deer",
+    "eat",
+    "think-or-not",
+    "rcpd",
+    "answer-convergence",
+    "budget-forcing",
+    "chain-of-draft",
+    "nothinking",
+    "llama-3-1-nemotron-nano-8b-v1",
     "thinking-content-compensation",
     "thinking-redundancy",
     "semantic-path-convergence",
@@ -252,7 +282,6 @@
     "rcpd-reasoning-completion-point-detector",
     "stepwise-truncation-protocol",
     "budget-force-bf",
-    "deer",
     "no-think-prompting",
     "s-grpo",
     "pca",
@@ -261,7 +290,16 @@
     "decision-tree-distilled-into-symbolic-rules",
     "qwen3-30b-a3b",
     "deepseek-r1-distill-8b",
-    "qwen3-embedding"
+    "qwen3-embedding",
+    "reflection-triggers",
+    "certainty-guided-suppression",
+    "checkpoint-probing",
+    "reflection-tokens-wait-but-alternatively-hmm",
+    "certainty-guided-reflection-suppression-cgrs",
+    "token-entropy-certainty-score",
+    "logit-suppression-of-reflection-trigger-tokens",
+    "gpqa-diamond-gpqa-d",
+    "qwq-32b"
   ],
   "related_authored": [
     "qwen3-4b",

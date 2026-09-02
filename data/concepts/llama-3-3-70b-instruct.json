@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "LLaMA 3.3 70B Instruct"
+    "LLaMA 3.3 70B Instruct",
+    "Llama 3.3 70B Instruct"
   ],
   "definition": "An open-weight instruction-tuned model used across sources both as an evaluation subject in the POBs preference/opinion/belief test-time-compute study, and (per another archived source) as the model used to segment and label LRM reasoning traces by Bloom's Taxonomy cognitive level in a reasoning-trace cognitive-profiling study.",
   "evidence": [
@@ -21,11 +22,17 @@
       "kind": "paper",
       "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
       "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering"
+    },
+    {
+      "id": "local:d9f4b7637d373d00",
+      "kind": "paper",
+      "note": "Defines a per-question 'token complexity' - the minimum chain-of-thought length needed for a model to answer correctly - and uses it to show that 31 different CoT-compression prompts all sit on one universal accuracy-vs-length curve that is empirically predictable and provably far from the achievable optimum.",
+      "title": "How Well do LLMs Compress Their Own Chain-of-Thought? A Token Complexity Approach"
     }
   ],
   "first_seen": "2026-08-26T02:14:28Z",
   "kind": "model",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "Llama-3.3-70B-Instruct",
   "related": [
     "overthinking",
@@ -93,7 +100,22 @@
     "qwen2-5-72b-instruct",
     "gemini-2-0-flash",
     "gpt-4o-mini",
-    "o1-mini"
+    "o1-mini",
+    "token-complexity",
+    "universal-accuracy-length-tradeoff-curve",
+    "oracle-upper-bound-rate-distortion-inspired-bound-on-accuracy-vs-token-budget",
+    "adaptive-compression",
+    "knapsack-formulation-of-optimal-token-allocation",
+    "31-chain-of-thought-compression-prompts-beconcise-bulletpoints-onlynumbers-nospa",
+    "token-complexity-threshold-estimation-eq-1",
+    "rate-distortion-inspired-knapsack-bound-on-accuracy-length-tradeoff-theorem-1-co",
+    "tale-ep-prompt-guessing-baseline-han-et-al-2024",
+    "verifier-routing-nocot-first-escalate-to-longer-cot-if-a-verifier-flags-the-answ",
+    "math500",
+    "gsm8k-500-problem-subset",
+    "mmlu-pro-math-500-problem-subset",
+    "claude-3-5-sonnet",
+    "claude-3-5-haiku"
   ],
   "related_authored": [
     "think-again-pobs",

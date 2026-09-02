@@ -9,7 +9,7 @@ In these sources, hidden-state probing means training a small classifier on the 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [Accuracy-Efficiency Score (AES)](accuracy-efficiency-score-aes.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DEER](../methods/deer.md), [Dynamic Early Exit](../methods/dynamic-early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU-Pro](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [ThinkPrune](../methods/thinkprune.md), [vLLM](../methods/vllm.md)
+**Related**: [Accuracy-Efficiency Score (AES)](accuracy-efficiency-score-aes.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DEER](../methods/deer.md), [difficulty estimation](difficulty-estimation.md), [Dynamic Early Exit](../methods/dynamic-early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU-Pro](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [ThinkPrune](../methods/thinkprune.md), [vLLM](../methods/vllm.md)
 
 ## Appears in
 

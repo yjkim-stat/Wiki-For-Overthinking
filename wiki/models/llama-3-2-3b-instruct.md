@@ -7,14 +7,15 @@ Llama-3.2-3B-Instruct is used in these sources as one of the evaluated LLMs in a
 - **Kind**: model
 - **Also called**: Llama-3.2-3B-Instruct
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [GPT-4o](gpt-4o.md), [Llama-3.3-70B-Instruct](llama-3-3-70b-instruct.md), [MATH (training)](../datasets/math-training.md), [MATH500](../datasets/math500.md), [Qwen3-4B-Base](qwen3-4b-base.md), [Qwen3-8B-Base](qwen3-8b-base.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DeepSeek-R1-Distill-Llama-8B](deepseek-r1-distill-llama-8b.md), [DeepSeek-R1-Distill-Qwen-1.5B](deepseek-r1-distill-qwen-1-5b.md), [DeepSeek-R1-Distill-Qwen-7B](deepseek-r1-distill-qwen-7b.md), [difficulty estimation](../concepts/difficulty-estimation.md), [GPQA](../datasets/gpqa.md), [GPT-4o](gpt-4o.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [Llama-3.2-1B-Instruct](llama-3-2-1b-instruct.md), [Llama-3.3-70B-Instruct](llama-3-3-70b-instruct.md), [MATH (training)](../datasets/math-training.md), [MATH500](../datasets/math500.md), [Overthinking](../concepts/overthinking.md), [Qwen3-4B-Base](qwen3-4b-base.md), [Qwen3-8B-Base](qwen3-8b-base.md), [QwQ-32B](qwq-32b.md), [QwQ-32B-Preview](qwq-32b-preview.md), [ZebraLogic](../datasets/zebralogic.md)
 
 ## Appears in
 
 - [Think Again! The Effect of Test-Time Compute on Preferences, Opinions, and Beliefs of Large Language Models](../../archive/papers/2025/doi-10-18653-v1-2025-acl-industry-45/summary.md) — Introduces POBs, a 20-topic Likert-scale benchmark for LLM preferences/opinions/beliefs on controversial topics, finding models consistently lean progressive-collectivist (with newer versions more strongly and less consistently so), and that adding reasoning or self-reflection prompting gives only limited improvement to reliability, neutrality, or consistency.
 - [Reinforced Efficient Reasoning via Semantically Diverse Exploration](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-2216/summary.md) — ROSE improves MCTS-based RLVR by branching reasoning rollouts at semantic-entropy positions (generation entropy weighted by embedding-space token dispersion, not raw token-probability entropy, which conflates functionally-equivalent tokens like 'can'/'need' as diverse) plus an epsilon-exploration mechanism, combined with a length-aware segment-level advantage estimator that penalizes unnecessarily long correct branches, outperforming GRPO variants and MCTS baselines (TreePO, FR3E) on AIME/MATH500/AMC23 while producing measurably shorter, less overthought reasoning.
+- [THOUGHTTERMINATOR: Benchmarking, Calibrating, and Mitigating Overthinking in Reasoning Models](../../archive/papers/2025/local-eff598a06b1089db/summary.md) — The paper defines model-relative measures of overthinking (local/global overthinking scores) built from observed token-spend distributions, introduces the DUMB500 easy-question dataset to probe overthinking on trivial inputs, and proposes THOUGHTTERMINATOR, a training-free decoding-time technique that interrupts a reasoning model with token-budget reminders and forces an answer at a difficulty-calibrated deadline.
 
 <!-- auto:end -->
 

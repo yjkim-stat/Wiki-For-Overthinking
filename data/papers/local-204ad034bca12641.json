@@ -1,0 +1,36 @@
+{
+  "abstract": "Large reasoning models rely on long chain-of-thought generation to solve complex problems, but extended reasoning often incurs substantial computational cost and can even degrade performance due to overthinking. A key challenge is determining when the model should stop reasoning and produce the final answer. In this work, we study the confidence of intermediate answers during reasoning and observe two characteristic behaviors: correct reasoning trajectories often reach high-confidence answers early, while incorrect rollouts tend to produce long, unproductive reasoning traces and exhibit less reliable confidence dynamics. Motivated by these observations, we propose CoDE-Stop (Confidence Dynamics Early Stop), an early stopping method that leverages the dynamics of intermediate answer confidence to decide when to terminate reasoning, requiring no additional training and easily integrating into existing models. We evaluate CoDE-Stop on diverse reasoning and science benchmarks across multiple models. Compared to prior early stopping methods, it achieves a more favorable accuracy-compute tradeoff, reducing total token usage by 25-50% compared to standard full-length reasoning.",
+  "arxiv_id": "2604.04930v2",
+  "authors": [
+    "Parsa Hosseini",
+    "Sumit Nawathe",
+    "Mahdi Salmani",
+    "Meisam Razaviyayn",
+    "Soheil Feizi"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-09-02T21:24:12Z",
+  "id": "local:204ad034bca12641",
+  "last_seen": "2026-09-02T21:24:12Z",
+  "local_path": "data/pdfs/read/local-204ad034bca12641.pdf",
+  "matched_keywords": [
+    "early stopping"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "local",
+  "source_id": "arxiv-2604.04930-early-stopping-confidence-dynamics.pdf",
+  "title": "Early Stopping for Large Reasoning Models via Confidence Dynamics",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "COLM 2026 Workshop on Efficient Reasoning",
+  "year": 2026
+}

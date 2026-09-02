@@ -21,11 +21,17 @@
       "kind": "paper",
       "note": "TRUTHFULVQA, a 5,000-image hierarchical human-annotated benchmark testing multimodal LLM truthfulness under progressively misleading visual-linguistic prompts, uncovers an inverse scaling law of truthfulness: slow-thinking (reasoning) MLLMs are consistently less truthful than their fast-thinking chat counterparts of the same family, and larger reasoning models show worse calibration despite generating more reasoning tokens.",
       "title": "When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning"
+    },
+    {
+      "id": "local:d9f4b7637d373d00",
+      "kind": "paper",
+      "note": "Defines a per-question 'token complexity' - the minimum chain-of-thought length needed for a model to answer correctly - and uses it to show that 31 different CoT-compression prompts all sit on one universal accuracy-vs-length curve that is empirically predictable and provably far from the achievable optimum.",
+      "title": "How Well do LLMs Compress Their Own Chain-of-Thought? A Token Complexity Approach"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:24:36Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "Claude-3.5-Sonnet",
   "related": [
     "chaos-machine-reversible-one-to-one-prompt-mapping-generator",
@@ -96,7 +102,23 @@
     "llama-4-family",
     "gpt-4o",
     "gemini-1-5-pro",
-    "gemini-2-0-2-5"
+    "gemini-2-0-2-5",
+    "token-complexity",
+    "universal-accuracy-length-tradeoff-curve",
+    "oracle-upper-bound-rate-distortion-inspired-bound-on-accuracy-vs-token-budget",
+    "adaptive-compression",
+    "knapsack-formulation-of-optimal-token-allocation",
+    "31-chain-of-thought-compression-prompts-beconcise-bulletpoints-onlynumbers-nospa",
+    "token-complexity-threshold-estimation-eq-1",
+    "rate-distortion-inspired-knapsack-bound-on-accuracy-length-tradeoff-theorem-1-co",
+    "tale-ep-prompt-guessing-baseline-han-et-al-2024",
+    "verifier-routing-nocot-first-escalate-to-longer-cot-if-a-verifier-flags-the-answ",
+    "math500",
+    "gsm8k-500-problem-subset",
+    "mmlu-pro-math-500-problem-subset",
+    "gpt-4o-mini",
+    "claude-3-5-haiku",
+    "llama-3-3-70b-instruct"
   ],
   "related_authored": [
     "claude-sonnet-4"

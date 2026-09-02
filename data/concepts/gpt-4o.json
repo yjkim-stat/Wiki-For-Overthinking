@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "gpt-4o"
+  ],
   "definition": "GPT-4o is a closed-source LLM used across the archive both as an evaluated subject -- e.g. in the POBs preference/opinion/belief benchmark, where added reasoning or self-reflection prompting only weakly and inconsistently improves neutrality/consistency -- and as a component or reference point in other papers' pipelines: generating temporal-reasoning training traces for TISER, acting as one of the specialized VLM agents in METAL's chart-generation framework, serving as a reference/target model in TALE's token-budget experiments, and as the chain-of-thought baseline that SCOPE's constraint-compiling pipeline improves on for multi-constraint planning (93.1% success on TravelPlanner with GPT-4o, a 61.6-point gain over plain CoT prompting).",
   "evidence": [
     {
@@ -61,11 +63,23 @@
       "kind": "paper",
       "note": "TRUTHFULVQA, a 5,000-image hierarchical human-annotated benchmark testing multimodal LLM truthfulness under progressively misleading visual-linguistic prompts, uncovers an inverse scaling law of truthfulness: slow-thinking (reasoning) MLLMs are consistently less truthful than their fast-thinking chat counterparts of the same family, and larger reasoning models show worse calibration despite generating more reasoning tokens.",
       "title": "When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning"
+    },
+    {
+      "id": "local:d9f4b7637d373d00",
+      "kind": "paper",
+      "note": "Defines a per-question 'token complexity' - the minimum chain-of-thought length needed for a model to answer correctly - and uses it to show that 31 different CoT-compression prompts all sit on one universal accuracy-vs-length curve that is empirically predictable and provably far from the achievable optimum.",
+      "title": "How Well do LLMs Compress Their Own Chain-of-Thought? A Token Complexity Approach"
+    },
+    {
+      "id": "local:eff598a06b1089db",
+      "kind": "paper",
+      "note": "The paper defines model-relative measures of overthinking (local/global overthinking scores) built from observed token-spend distributions, introduces the DUMB500 easy-question dataset to probe overthinking on trivial inputs, and proposes THOUGHTTERMINATOR, a training-free decoding-time technique that interrupts a reasoning model with token-budget reminders and forces an answer at a difficulty-calibrated deadline.",
+      "title": "THOUGHTTERMINATOR: Benchmarking, Calibrating, and Mitigating Overthinking in Reasoning Models"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:24:36Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "GPT-4o",
   "related": [
     "non-neutrality-index-nni",
@@ -245,7 +259,44 @@
     "gemini-2-0-2-5",
     "claude-3-5-sonnet",
     "claude-3-7-sonnet",
-    "o4-mini"
+    "o4-mini",
+    "token-complexity",
+    "universal-accuracy-length-tradeoff-curve",
+    "oracle-upper-bound-rate-distortion-inspired-bound-on-accuracy-vs-token-budget",
+    "adaptive-compression",
+    "knapsack-formulation-of-optimal-token-allocation",
+    "31-chain-of-thought-compression-prompts-beconcise-bulletpoints-onlynumbers-nospa",
+    "token-complexity-threshold-estimation-eq-1",
+    "rate-distortion-inspired-knapsack-bound-on-accuracy-length-tradeoff-theorem-1-co",
+    "tale-ep-prompt-guessing-baseline-han-et-al-2024",
+    "verifier-routing-nocot-first-escalate-to-longer-cot-if-a-verifier-flags-the-answ",
+    "math500",
+    "gsm8k-500-problem-subset",
+    "mmlu-pro-math-500-problem-subset",
+    "claude-3-5-haiku",
+    "overthinking",
+    "difficulty-calibrated-token-spend",
+    "observational-overthinking",
+    "local-envelope-overthinking-score",
+    "global-overthinking-score",
+    "difficulty-estimation",
+    "test-time-deadline-scheduling",
+    "constrained-decoding-for-answer-termination",
+    "thoughtterminator",
+    "dumb500",
+    "difficulty-calibrated-token-budget-scheduling",
+    "constrained-decoding-termination",
+    "trained-difficulty-estimator-fine-tuned-llama-3-8b-instruct",
+    "zero-shot-gpt-4o-difficulty-estimation",
+    "zebralogic",
+    "qwen2-7b-instruct",
+    "llama-3-2-1b-instruct",
+    "gemma-2-2b-it",
+    "gemma-2-9b-it",
+    "gemma-2-27b-it",
+    "deepseek-llm-7b-chat",
+    "qwq-32b-preview",
+    "deepseek-r1-distill-llama-8b"
   ],
   "related_authored": [
     "travelplanner"

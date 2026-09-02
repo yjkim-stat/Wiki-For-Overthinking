@@ -81,11 +81,23 @@
       "kind": "paper",
       "note": "Defines an instance-specific Reasoning Completion Point (RCP) as the earliest truncation step at which both content-length stabilization and semantic-distribution convergence hold, and detects it online by monitoring the rank of the </think> token, cutting tokens up to 44% while preserving accuracy across four Qwen3 scales and DeepSeek-R1-Distill-8B.",
       "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis"
+    },
+    {
+      "id": "local:ca12364e006462a5",
+      "kind": "paper",
+      "note": "The paper quantifies overthinking in long chain-of-thought reasoning through a new self-doubt lens (LLM-judged categories SD / OT-without-SD / NOT), finds self-doubt (redundant re-verification of an already-correct answer) is a major cause, and shows a simple input-validity-checking prompt reduces response length by 37.1% on average while improving accuracy by 3.6% across four RLLMs, and improves abstain behavior on missing-premise datasets.",
+      "title": "Revisiting Overthinking in Long Chain-of-Thought from the Perspective of Self-Doubt"
+    },
+    {
+      "id": "local:fd13860972ea4ba0",
+      "kind": "paper",
+      "note": "CGRS is a training-free, decoding-time method that suppresses reflection-trigger tokens (e.g. \"Wait\", \"But\") probabilistically, in proportion to a token-entropy-based certainty score computed at checkpoint probes, cutting reasoning length by 18.5-41.9% with little to no accuracy loss.",
+      "title": "Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-09-01T23:24:42Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "Qwen3-32B",
   "related": [
     "chain-of-thought-faithfulness",
@@ -329,7 +341,31 @@
     "mahalanobis-distance-confidence-ellipse",
     "decision-tree-distilled-into-symbolic-rules",
     "deepseek-r1-distill-8b",
-    "qwen3-embedding"
+    "qwen3-embedding",
+    "self-doubt",
+    "long-chain-of-thought",
+    "social-comparison-theory-applied-to-llm-self-verification",
+    "missing-premise-mip-questions",
+    "input-validity-prompting",
+    "self-doubt-based-overthinking-classification-sd-ot-w-o-sd-not",
+    "llm-as-a-judge-qwen2-5-72b-instruct",
+    "input-validity-checking-prompt",
+    "reasoning-step-counting-via-n-n-segmentation",
+    "self-doubt-ratio-metric",
+    "gsm8k-zero",
+    "mip-formula",
+    "mip-svamp",
+    "mip-gsm8k",
+    "mip-math",
+    "qwen2-5-72b-instruct",
+    "reflection-triggers",
+    "certainty-guided-suppression",
+    "checkpoint-probing",
+    "reflection-tokens-wait-but-alternatively-hmm",
+    "certainty-guided-reflection-suppression-cgrs",
+    "token-entropy-certainty-score",
+    "logit-suppression-of-reflection-trigger-tokens",
+    "gpqa-diamond-gpqa-d"
   ],
   "related_authored": [],
   "schema_version": 1,

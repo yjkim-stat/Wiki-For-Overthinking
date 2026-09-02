@@ -1,0 +1,67 @@
+{
+  "concepts": [
+    "confidence dynamics of intermediate answers",
+    "degeneration score",
+    "ramping confidence threshold",
+    "unproductive trajectory detection",
+    "early-step weighting of stopping signal",
+    "cost accounting including probing overhead",
+    "compression rate (CR)",
+    "accuracy-compute tradeoff frontier"
+  ],
+  "contributions": [
+    "Separates two failure modes an early-stopping rule must handle — trajectories that have already converged, and trajectories that are persistently unstable and will not converge — and shows the second dominates compute, with incorrect rollouts averaging over 25K tokens against about 12K for correct ones on Qwen3-4B over AIME 2024/2025.",
+    "Introduces a degeneration score D_k = sum w_i v_i with v_i = 1(2c_i - c_{i-1} < delta) and w_i = log(T_k/T_i) + 1, which accumulates confidence instability while weighting early steps more heavily, and pairs it with a confidence threshold that ramps with step index so that later steps must clear a higher bar.",
+    "Reports Cost — total tokens including intermediate-answer overhead — alongside reasoning tokens, showing that a method can reduce generated reasoning while increasing total compute (Think or Not costs 11668 against vanilla's 8344 on Qwen3-4B).",
+    "Provides an independent head-to-head of six inference-time stopping methods on shared, pre-generated trajectories, including the first reproduction in this archive of both RCPD and Answer Convergence under a single protocol."
+  ],
+  "datasets": [
+    "AIME 2024",
+    "AIME 2025",
+    "MATH500",
+    "GSM8K",
+    "GPQA-Diamond",
+    "AMC23"
+  ],
+  "generated_at": "2026-09-02T21:32:11Z",
+  "generated_by": "queue",
+  "limitations": "Not stated by the authors as a limitations section; the following are the reader's.\n\nThe evaluation is a workshop-scale one and the accuracy cost is real: on every model CoDE-Stop lands below vanilla accuracy (Qwen3-4B 76.9 vs 78.4; Qwen3-14B 78.1 vs 83.3, a 5.2-point drop; DeepSeek-R1-Distill-Llama-8B 63.3 vs 66.0; Nemotron-8B 71.3 vs 73.2), so the claim is a better tradeoff curve rather than preserved accuracy. On Qwen3-14B DEER reaches 79.6 accuracy at CR 55.3 against CoDE-Stop's 78.1 at 50.5, so the two are close enough that which dominates depends on where on the curve one reads.\n\nThe reproduction of RCPD should be treated as a finding about this protocol rather than a settled refutation. The models are largely different from RCPD's own (Qwen3-4B and Nemotron-8B do not appear there, and the DeepSeek checkpoint is the Llama distill rather than the one RCPD used), the benchmark mix differs, and the reported Cost exceeds Tok for RCPD in every row, which suggests this implementation generates intermediate answers at checkpoints — whereas published RCPD reads the rank of the termination token out of the next-token distribution without generating anything. If that is an implementation mismatch it would change both the cost accounting and possibly the trigger behaviour. The paper does not describe its RCPD implementation beyond citing it.\n\nThe stopping rule carries several constants whose sensitivity is only partly explored: delta is fixed at 0.55 in all experiments with no ablation reported in the main text, and (steps, r_min, tau) are tuned on AMC23 with 40 questions and 2 rollouts, then tau is transferred to other benchmarks by a length-scaling heuristic rather than re-tuned. No wall-clock timing is reported, only token counts.",
+  "method": "The paper first characterizes confidence dynamics over reasoning steps, using intermediate answers probed during generation. Two observations drive the design. Correct trajectories reach high confidence well before the sequence ends and the model keeps generating anyway; and on Qwen3-4B over AIME 2024/2025, correct trajectories average about 12K tokens while incorrect ones extend beyond 25K, so a large share of total compute is spent on rollouts that never arrive. Incorrect trajectories are additionally shown to be heavy-tailed in step count and to exhibit persistent confidence instability rather than steady improvement.\n\nCoDE-Stop combines two stopping signals evaluated at each reasoning step k.\n\n(1) A ramping confidence threshold r_k = min(r_max, r_min + ((r_max - r_min)/steps) * k). The threshold rises with k and then saturates, encoding that more confidence should be demanded the longer reasoning has gone on.\n\n(2) A degeneration score D_k = sum_{i=1..k} w_i v_i that accumulates instability. The instability indicator is v_i = 1(2*c_i - c_{i-1} < delta) with delta fixed at 0.55 in all experiments, which fires when confidence is both low and failing to improve on the previous step. The weight is w_i = log(T_k / T_i) + 1, which places more importance on earlier steps — the paper's analysis finds early-stage signal separates correct from incorrect trajectories better — and makes D_k increase monotonically in k.\n\nGeneration stops at step k if either c_k >= r_k or D_k >= tau. The first condition catches trajectories that have converged; the second catches trajectories that are persistently unstable and unlikely to converge at all. On stopping, the model is prompted with the same answer-generation prompt to emit the final answer. Nothing is trained.\n\nHyperparameters (steps, r_min, tau) are tuned on a held-out set of AMC23 (40 questions, 2 rollouts each); r_min = 0.9 with 2 ramping steps is reported best across all models, and tau is transferred to each benchmark by scaling it with that benchmark's average reasoning length.\n\nEvaluation covers Qwen3-4B, Qwen3-14B, DeepSeek-R1-Distill-Llama-8B and Llama-3.1-Nemotron-Nano-8B-v1 on AIME 2024/2025 (60 questions), MATH500 (500), GSM8K (1,319) and GPQA-Diamond (198), with max new tokens 32,768. Multiple trajectories are generated per question — 15 for AIME, 2 for MATH500, 1 for GSM8K, 5 for GPQA-Diamond, about 1,000 trajectories per benchmark — and reused across all baselines to reduce generation variance. Four metrics are reported: Acc; Tok, the average reasoning tokens; CR, the compression rate relative to vanilla; and Cost, total token usage per trajectory including the overhead of intermediate answer generation. The Vanilla setting is forced to produce a final answer at the maximum budget so it is comparable with methods that trigger answer generation explicitly. Baselines are Think or Not, DEER, EAT, RCPD and Answer Convergence, run with the configurations reported in their original papers where applicable and otherwise swept for the best accuracy-compute tradeoff.",
+  "methods": [
+    "CoDE-Stop",
+    "degeneration score",
+    "ramping confidence threshold",
+    "DEER",
+    "EAT",
+    "Think or Not",
+    "RCPD",
+    "Answer Convergence",
+    "Budget Forcing",
+    "Chain-of-Draft",
+    "NoThinking"
+  ],
+  "models": [
+    "Qwen3-4B",
+    "Qwen3-14B",
+    "DeepSeek-R1-Distill-Llama-8B",
+    "Llama-3.1-Nemotron-Nano-8B-v1"
+  ],
+  "one_liner": "CoDE-Stop stops reasoning when either a ramping confidence threshold is crossed or an early-step-weighted 'degeneration score' of accumulated confidence instability exceeds a threshold, targeting both trajectories that are already done and trajectories that are going nowhere, and its evaluation is the archive's first independent head-to-head of RCPD and Answer Convergence under one protocol.",
+  "paper_id": "local:204ad034bca12641",
+  "problem": "Deciding when a large reasoning model should stop is open because a single step's confidence is not enough to answer it: high confidence plausibly indicates the answer is reached, but low confidence is ambiguous, since it may reflect exploration the model will recover from. Prior early-stopping work keys on the high-confidence case only, and therefore has no mechanism for the trajectories that consume the most compute — the unproductive ones that never converge.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Two things make this important to the archive beyond its own method. First, it is the only source here that evaluates RCPD and Answer Convergence side by side under one protocol on shared trajectories, and both come out very differently from their own papers: RCPD saves between zero and nine percent of tokens (overall CR 96.9 / 91.3 / 100.0 / 96.2 across four models) where its own paper claims up to 44%, and Answer Convergence over-compresses into collapse. On Qwen3-14B, the one model these papers share, RCPD's own reported 60% CR becomes 91.3% here. That does not settle the question — the model sets and benchmark mixes differ, and this implementation appears to generate intermediate answers where published RCPD does not — but it is the first external check the archive holds on a method it had recorded only on its authors' numbers, and it points directly at the gap already noted in that reading, that RCPD is never validated against its own gold stopping point. Second, the paper adds a signal the rest of the cluster lacks: every archived stopping method (RCP/RCPD, ThinkBrake, DEER, BLADE, TRACE, REFRAIN) asks only whether the answer is ready, whereas the degeneration score asks whether the trajectory is going anywhere at all, which is where the compute actually goes. Its Cost metric also makes explicit the accounting the archive has repeatedly flagged as missing — that probing overhead can exceed the savings, as it does for Think or Not here and as NEAT separately measured for CGRS in wall-clock terms."
+  },
+  "results": "Table 1, Overall columns (Acc / Tok / CR / Cost), B = 32768.\n\nQwen3-4B: Vanilla 78.4 / 8344 / 100.0 / 8344; Think or Not 69.8 / 6595 / 75.3 / 11668; DEER 77.4 / 6176 / 70.0 / 6294; EAT 73.6 / 6547 / 78.5 / 6777; RCPD 77.8 / 8221 / 96.9 / 8565; Answer Convergence 51.1 / 2051 / 20.3 / 3191; CoDE-Stop 76.9 / 5865 / 65.9 / 5960.\n\nQwen3-14B: Vanilla 83.3 / 7532 / 100.0 / 7532; DEER 79.6 / 4605 / 55.3 / 4684; EAT 78.5 / 6086 / 82.7 / 6293; RCPD 81.5 / 7099 / 91.3 / 7394; Answer Convergence 61.9 / 2099 / 23.3 / 3419; CoDE-Stop 78.1 / 4208 / 50.5 / 4287.\n\nDeepSeek-R1-Distill-Llama-8B: Vanilla 66.0 / 7514 / 100.0 / 7514; Think or Not 65.6 / 7336 / 97.3 / 15112; DEER 64.2 / 5855 / 73.2 / 6292; EAT 62.5 / 6436 / 86.3 / 6824; RCPD 66.0 / 7518 / 100.0 / 7802; Answer Convergence 51.0 / 2734 / 33.1 / 4170; CoDE-Stop 63.3 / 5466 / 63.9 / 5848.\n\nLlama-3.1-Nemotron-Nano-8B-v1: Vanilla 73.2 / 5729 / 100.0 / 5729; Think or Not 71.7 / 5028 / 89.5 / 9223; DEER 72.0 / 4736 / 80.8 / 4830; EAT 70.5 / 5202 / 91.1 / 5417; RCPD 71.8 / 5536 / 96.2 / 5776; Answer Convergence 53.7 / 1736 / 29.9 / 2399; CoDE-Stop 71.3 / 4531 / 75.0 / 4622.\n\nThe two results that matter beyond the paper's own claim are its reproductions of other methods. RCPD barely fires under this protocol: its overall compression rate is 96.9%, 91.3%, 100.0% and 96.2% on the four models — that is, between zero and nine percent of tokens saved — with accuracy essentially at vanilla. On DeepSeek-R1-Distill-Llama-8B it records 7518 reasoning tokens against vanilla's 7514, so slightly more. This is far from the 43-83% compression rates the RCPD paper reports for itself, and the one model in common, Qwen3-14B, is where the gap is cleanest: RCPD's own paper reports 60% CR averaged over AIME24, AIME25 and GPQA-Diamond, while this table gives it 91.3% overall and, per benchmark, 96.0 on AIME24,25 and 95.9 on GPQA-Diamond. In the opposite direction, Answer Convergence over-compresses to the point of collapse — 20.3% CR at 51.1 accuracy against vanilla's 78.4 on Qwen3-4B, and 23.3% CR at 61.9 against 83.3 on Qwen3-14B — which reproduces the hard-task degradation that method's own paper reports.\n\nCost separates methods that token counts do not. Think or Not costs more in total than vanilla despite generating fewer reasoning tokens (Qwen3-4B: 11668 versus 8344; DeepSeek-R1-Distill-Llama-8B: 15112 versus 7514), because its intermediate-answer overhead exceeds what it saves. CoDE-Stop's overhead is small by comparison (Qwen3-4B Tok 5865 against Cost 5960).\n\nBody text (Section 2.1, prose rather than a table): on Qwen3-4B over AIME 2024/2025, correct trajectories average about 12K tokens while incorrect ones exceed 25K.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "early stopping",
+    "confidence dynamics",
+    "training-free",
+    "reproduction",
+    "accuracy-compute tradeoff",
+    "reasoning length"
+  ]
+}

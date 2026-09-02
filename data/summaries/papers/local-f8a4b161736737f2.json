@@ -1,0 +1,57 @@
+{
+  "concepts": [
+    "decision pivots (minimal, verifiable checkpoints every correct reasoning path must visit)",
+    "short-path reasoning (SPR) synthesis",
+    "generation-verification gap (GV-gap) reweighting",
+    "pivot bottleneck assumption",
+    "pivot-based verifiability score (PAS) for preference-data selection"
+  ],
+  "contributions": [
+    "Formalizes 'decision pivots' - minimal, verifiable facts or logical checkpoints that correct reasoning paths repeatedly visit - and empirically shows via a human-annotated 500-item pivot set that sampled correct paths visit the annotated pivots with 85-97% retrieval rate depending on model size and sample count K (Table 4).",
+    "Proposes ROMA, a bootstrap-then-rewrite self-training pipeline: sample K diverse reasoning paths per question, use a LoRA-tuned verifier to intersect them into a compact pivot-focused Short-Path Reasoning (SPR), then post-train with DPO treating SPR as the preferred completion.",
+    "Shows the method improves downstream accuracy over self-training baselines (self-training with zero-shot reasoning, ROSCOE-filtered reasoning, STaR, PathFinder, GV-Gap) on LogiQA, MedQA and MATH500 with a Qwen-3-0.6B backbone, with the largest relative gains on MedQA (Table 1, Figure 3).",
+    "Introduces a pivot-based verifiability score (PAS) for preference-data selection that, combined with the ROSCOE metric, outperforms ROSCOE alone for downstream DPO accuracy (Table 6)."
+  ],
+  "datasets": [
+    "LogiQA",
+    "MedQA",
+    "MATH500"
+  ],
+  "generated_at": "2026-09-02T21:28:37Z",
+  "generated_by": "queue",
+  "limitations": "The paper states the theoretical GV-gap positivity result (Appendix A.2, Eq. 10-11) is only a sufficient condition, not a universal guarantee, and that it does not claim all reasoning tasks admit a strict pivot bottleneck - the approach is explained to work when that structure exists, as shown empirically rather than proven generally. Pivot detection is operationalized via normalized surface-form matching (lemmatized text spans with synonym merging and disambiguation rules), an approximation to the underlying conceptual pivots. The verifier is fine-tuned per domain and the authors note fine-tuning tends to sacrifice broad, general-purpose reasoning ability, which is why it is used only at training time and discarded at inference. Ablations (Table 3b) show self-training gains plateau and can regress slightly on math-heavy tasks (MATH500) beyond 2-3 self-training loops, attributed to pivot-set saturation and mild distributional drift. Default experiments use a small Qwen-3-0.6B backbone for cost reasons; larger backbones (Llama-3-70B, Claude-3.7-Sonnet) are only used for the diagnostic pivot-retrieval analysis (Table 4), not for the main downstream accuracy results. Generation cost scales roughly linearly with the candidate pool size K and with model size (Table 9), which the paper flags as a practical efficiency constraint on the pipeline.",
+  "method": "ROMA (Reasoning Optimization via Multi-path Aggregation) runs in three stages per training question (x_i, y_i). Stage A (multi-sample bootstrapping): sample K reasoning-path/prediction pairs from the reasoner p_theta; keep only those whose predicted label matches the ground truth y_i, using a zero-shot pass plus a 'guided fallback' (revealing y_i and asking the model to justify it, discarding the internal 'thinking' channel to avoid hint-contamination) to widen pivot coverage when the zero-shot pool is too small; resample until the successful pool R_i+ has size K. Stage B (verifier-guided short-path synthesis): a separate, LoRA-fine-tuned verifier v_psi is prompted (Listing 1) to (1) list the decision pivots visited by a majority of the K candidate paths and (2) rewrite a single compact reasoning trace r-hat_i that focuses only on those shared pivots and avoids repetition; the output is accepted only if it still yields the correct predicted label under the reasoner. Stage C (pairwise preference optimization): treat r-hat_i as the preferred completion and every other successful raw candidate in R_i+ as rejected, forming pairs used to train the reasoner with a standard DPO objective (Eq. 4) against a frozen reference policy. The whole loop can be repeated for several self-training rounds. A theoretical appendix (A.2) frames the verifier's reweighting effect via a generation-verification gap (GV-gap) identity (Eq. 7: performance improvement equals a covariance between task success and verifier weight) and gives a sufficient condition (Eq. 10-11) under which verifier-guided reweighting improves expected performance when correctness is bottlenecked by a small set of pivots that must all be visited (the 'pivot bottleneck assumption', Eq. 8-9).",
+  "methods": [
+    "ROMA self-training pipeline (bootstrap -> verifier-guided short-path synthesis -> DPO)",
+    "decision-pivot mining via a LoRA-tuned verifier",
+    "Direct Preference Optimization (DPO)",
+    "pivot-based verifiability score (PAS) for preference-data selection",
+    "generation-verification gap (GV-gap) reweighting analysis"
+  ],
+  "models": [
+    "Qwen-3-0.6B",
+    "Qwen-3-1.7B",
+    "Qwen-3-4B",
+    "Qwen-3-8B",
+    "Qwen-3-14B",
+    "Llama-3-70B",
+    "Claude-3.7-Sonnet"
+  ],
+  "one_liner": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+  "paper_id": "local:f8a4b161736737f2",
+  "problem": "Chain-of-thought reasoning traces from LLMs are often redundant or logically unsound even when they reach the right answer, and there is no scalable way to verify or supervise the intermediate reasoning steps themselves (as opposed to just the final answer) without expensive human annotation or task-specific verifiers such as those used in RLVR for math/code.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Approaches the stopping question from the training side rather than proposing an inference-time stopping rule: it argues correct reasoning traces share a small, identifiable set of decision pivots, and that compressing multiple correct rollouts down to only the pivot-bearing content and training on that compressed trace (SPR) both improves accuracy and, as a measured side effect with no explicit length incentive, shortens the model's own generated reasoning substantially (Table 5: average output length falls from 1184.46 tokens under zero-shot reasoning to 750.40 tokens under SPR, a 36.7% reduction, versus a smaller 12.3% reduction from ROSCOE-based filtering alone). Unlike the archive's existing stopping-criterion papers (RCP/RCPD, ThinkBrake, DEER, etc.), which give an inference-time policy for when to stop a single trace, this paper gives a training-time mechanism - pivot identification plus DPO - and a partial theoretical account (the GV-gap identity and pivot-bottleneck sufficient condition in Appendix A.2) for why concentrating supervision on a sparse set of decision-critical tokens should both raise accuracy and shorten output, rather than a bound on the minimum tokens a single trace needs."
+  },
+  "results": "Table 1 (main downstream accuracy, Qwen-3-0.6B backbone, mean +/- standard error over 5 runs, measured accuracy): Zero-Shot baseline is 0.420 (LogiQA) / 0.159 (MedQA) / 0.636 (MATH500). The paper's method ('Ours', RL/DPO stage) reaches 0.504+/-0.002 (LogiQA), 0.286+/-0.003 (MedQA), 0.692+/-0.003 (MATH500), the best results in the table (bolded), ahead of the next-best baseline GV-Gap at the RL stage (0.494+/-0.004 / 0.253+/-0.003 / 0.686+/-0.004) and ahead of an ablation without the fine-tuned verifier, 'Ours (w/o verifier)' RL, at 0.489+/-0.003 / 0.250+/-0.003 / 0.681+/-0.003. Table 3a (ablation over candidate pool size K, LogiQA/MedQA/MATH500): K=1 gives 0.437/0.252/0.649, rising to K=10's 0.511/0.296/0.699; the paper adopts K=7 (0.509/0.292/0.695, 95-100% of the K=10 result) as the default for a favorable accuracy-compute trade-off. Table 3b (self-training loops, same three benchmarks): loop 1 gives 0.504/0.286/0.692, loop 2 gives 0.522/0.290/0.699 (best MATH500), loop 4 gives the best LogiQA/MedQA (0.526/0.297), with loop 5 flat-to-regressing on MATH500 (0.693), leading the authors to adopt 3 loops as the default with early stopping. Table 4 (pivot-retrieval rate against a human-annotated 500-item pivot set, i.e. the fraction of items where at least one of K zero-shot sampled paths mentions the annotated pivot - a diagnostic measurement, not a task accuracy): retrieval rises with model size and with K, from 87% (Qwen-3-0.6B, K=10) up to 93% (K=500) for that same small model, and reaches 94-97% for the 8B/14B/Llama-3-70B/Claude-3.7-Sonnet models even at K=10-100. Table 5 (average output length across 1.5k samples under identical decoding, no length incentive): zero-shot reasoning averages 1184.46 tokens; the paper's Short-Path Reasoning (SPR) training data averages 750.40 tokens, a 36.7% reduction versus zero-shot and a 27.8% reduction versus ROSCOE-filtered reasoning (1038.82 tokens, a 12.3% reduction from zero-shot); STaR and PathFinder fall in between at 1060.95 and 761.53 tokens respectively. Table 6 (preference-data selection method comparison, downstream DPO accuracy): ROSCOE-selected data gives 0.469/0.233/0.677; the paper's pivot score alone (PAS) gives comparable-to-slightly-lower results (0.466/0.236/0.680); combining PAS with ROSCOE gives the best results in the table, 0.470/0.238/0.682 (bolded). Appendix Table 7 (LogiQA zero-shot classification with generated reasoning appended in-context, an ablation of reasoning quality rather than model training): no reasoning gives 0.420, random zero-shot reasoning 0.405, Max-ROSCOE reasoning 0.438, and the paper's short-path reasoning the best result, 0.459. The theoretical claims in Appendix A.2 (the GV-gap identity, Eq. 7, and the sufficient condition for positive GV-gap, Eq. 10-11) are derived bounds/identities under a stated 'pivot bottleneck' modeling assumption, not measured quantities, and the paper is explicit that the sufficient condition is not a universal guarantee.",
+  "schema_version": 1,
+  "tags": [
+    "chain-of-thought",
+    "self-training",
+    "decision-pivots",
+    "dpo",
+    "preference-optimization",
+    "reasoning-verification"
+  ]
+}

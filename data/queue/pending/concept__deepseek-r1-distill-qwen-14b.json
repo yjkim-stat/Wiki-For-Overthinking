@@ -56,6 +56,22 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes PUMA, an inference-time early-exit framework that flags reasoning steps as candidate exits when a contrastively-trained embedding detector finds them semantically redundant with recent context, then confirms the exit is safe via answer-level confidence/consistency verification before stopping.",
+        "title": "Stop When Reasoning Converges: Semantic-Preserving Early Exit for Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The paper quantifies overthinking in long chain-of-thought reasoning through a new self-doubt lens (LLM-judged categories SD / OT-without-SD / NOT), finds self-doubt (redundant re-verification of an already-correct answer) is a major cause, and shows a simple input-validity-checking prompt reduces response length by 37.1% on average while improving accuracy by 3.6% across four RLLMs, and improves abstain behavior on missing-premise datasets.",
+        "title": "Revisiting Overthinking in Long Chain-of-Thought from the Perspective of Self-Doubt",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
@@ -77,7 +93,7 @@
   "payload": {
     "name": "DeepSeek-R1-Distill-Qwen-14B",
     "previous_definition": "DeepSeek-R1-Distill-Qwen-14B is used in these sources as one of the reasoning-model backbones on which information-flow failures and overthinking-mitigation methods are evaluated: Step-Saliency/StepFlow studies its depth-wise attention failures (Shallow Lock-in, Deep Decay) across six LRM backbones, and MERA's control-takeover method (CSPO) reports cutting its token usage 30-47% while improving accuracy on five math benchmarks plus MMLU-Pro.",
-    "source_count": 7
+    "source_count": 9
   },
   "task_id": "concept__deepseek-r1-distill-qwen-14b",
   "task_version": 1,

@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "TALE (Token-Budget-Aware LLM rEasoning) identifies that reasoning LLMs will follow a token budget stated in the prompt but that the effective budget must be chosen carefully -- too small a budget triggers 'token elasticity' where the model gives up complying and produces even longer output than an unconstrained baseline -- and offers two implementations, zero-shot budget estimation-and-prompting (TALE-EP, 67% token reduction with <3% accuracy loss) and post-training internalization (TALE-PT, ~50% reduction via SFT or DPO), both found via a binary-search 'optimal budget' procedure motivated by an 'implicit monotonicity assumption' verified on 90.91% of sampled GSM8K problems.",
       "title": "Token-Budget-Aware LLM Reasoning"
+    },
+    {
+      "id": "local:ca12364e006462a5",
+      "kind": "paper",
+      "note": "The paper quantifies overthinking in long chain-of-thought reasoning through a new self-doubt lens (LLM-judged categories SD / OT-without-SD / NOT), finds self-doubt (redundant re-verification of an already-correct answer) is a major cause, and shows a simple input-validity-checking prompt reduces response length by 37.1% on average while improving accuracy by 3.6% across four RLLMs, and improves abstain behavior on missing-premise datasets.",
+      "title": "Revisiting Overthinking in Long Chain-of-Thought from the Perspective of Self-Doubt"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "GSM8K-Zero",
   "related": [
     "token-elasticity-budget-constraint-non-compliance-rebound",
@@ -28,7 +34,28 @@
     "gpt-4o-mini",
     "yi-lightning",
     "o3-mini",
-    "llama-3-1-8b-instruct"
+    "llama-3-1-8b-instruct",
+    "overthinking",
+    "self-doubt",
+    "long-chain-of-thought",
+    "social-comparison-theory-applied-to-llm-self-verification",
+    "missing-premise-mip-questions",
+    "input-validity-prompting",
+    "self-doubt-based-overthinking-classification-sd-ot-w-o-sd-not",
+    "llm-as-a-judge-qwen2-5-72b-instruct",
+    "input-validity-checking-prompt",
+    "reasoning-step-counting-via-n-n-segmentation",
+    "self-doubt-ratio-metric",
+    "math500",
+    "mip-formula",
+    "mip-svamp",
+    "mip-gsm8k",
+    "mip-math",
+    "deepseek-r1-distill-qwen-32b",
+    "deepseek-r1-distill-qwen-14b",
+    "deepseek-r1-distill-llama-70b",
+    "qwen3-32b",
+    "qwen2-5-72b-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,

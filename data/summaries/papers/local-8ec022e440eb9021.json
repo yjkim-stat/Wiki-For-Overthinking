@@ -1,0 +1,71 @@
+{
+  "concepts": [
+    "reasoning-level semantic redundancy",
+    "semantic-preserving early exit",
+    "overthinking",
+    "redundancy detector (contrastive step-embedding similarity)",
+    "answer-level verification (confidence + trial-answer consistency)",
+    "loop breaker fallback exit",
+    "internalizing a stopping policy via SFT/DPO/GRPO"
+  ],
+  "contributions": [
+    "Identifies reasoning-level semantic redundancy (successive reasoning steps no longer adding novel content, measured via step-embedding similarity) as a stopping signal that is complementary to, and more directly tied to reasoning convergence than, existing answer-level signals like confidence or trial-answer consistency.",
+    "Proposes PUMA, a plug-and-play early-exit framework combining a lightweight, contrastively fine-tuned Redundancy Detector (candidate exit flagging) with Answer Verification (confidence + consistency checks across a verification window) and a Loop Breaker fallback, achieving 26.2% average token reduction across five LRMs and five reasoning benchmarks while preserving accuracy and (per an LLM-as-judge evaluation) retained reasoning-chain quality.",
+    "Shows the redundancy signal transfers zero-shot to code generation (LiveCodeBench) and vision-language reasoning (MathVista, MathVision) without retraining, and that PUMA-selected exit positions can supervise SFT, DPO or GRPO to internalize concise stopping behavior into the model itself, removing the need for PUMA's inference-time modules at deployment."
+  ],
+  "datasets": [
+    "MATH-500",
+    "AIME24",
+    "AIME25",
+    "GPQA-Diamond",
+    "OlympiadBench",
+    "LiveCodeBench",
+    "MathVista",
+    "MathVision"
+  ],
+  "generated_at": "2026-09-02T21:28:15Z",
+  "generated_by": "queue",
+  "limitations": "Stated by the authors (Section 7): PUMA relies on step-level reasoning traces and may be less effective when model outputs are very short, poorly structured, or difficult to segment into steps. The Redundancy Detector is primarily trained on text reasoning traces, so applying it to broader domains may require additional calibration (it was only tested zero-shot on vision-language and code, not retrained for them). The internalization experiments (SFT/DPO/GRPO) are limited to a single base model (DeepSeek-R1-Distill-Qwen-7B) and math-focused training data; larger-scale and cross-domain learned stopping policies are left to future work. Token-reduction figures reported (TR) count all generated tokens including trial-answer probing overhead, so realized wall-clock speedup is smaller than the token-reduction percentage (1.40x on a 7B model, 1.28x on a 14B model, versus 26.2% average token reduction).",
+  "method": "PUMA segments a reasoning chain into steps at paragraph/step boundaries and runs online during decoding. A Redundancy Detector -- Qwen3-Embedding-0.6B fine-tuned with LoRA using an InfoNCE contrastive objective to distinguish steps that add new logical/semantic content from those that merely restate, re-derive, or loop -- scores step t by s_t^(k) = max over the previous k steps of cosine similarity between the current step's embedding and each prior step's embedding (default k=1, comparing only to the immediate predecessor); a step is flagged as a candidate exit when s_t^(k) exceeds a similarity threshold tau_sim (0.35 in the main experiments). A flagged candidate does not stop generation by itself: Answer Verification appends a task-specific answer-inducing suffix to the current reasoning prefix, generates a trial answer, and computes its confidence as the geometric mean of the generated answer tokens' probabilities. PUMA accumulates a verification window of L=2 detector-flagged candidates and exits only if the first trial answer's confidence exceeds a threshold lambda=0.98, all trial answers across the window agree, and confidence does not drop by more than a stability tolerance epsilon=0.03 across the window; otherwise generation continues to the next flagged candidate. A Loop Breaker fallback activates only after a minimum step count (50) is exceeded and no verified exit has occurred: if m consecutive steps are flagged redundant and the highest trial-answer confidence observed so far exceeds a weak minimum-confidence gate (0.8), generation is terminated anyway. No base model weights or prompts are modified. Separately, the paper also fine-tunes a base model (DS-R1-Distill-Qwen-7B) with LoRA using SFT, DPO or GRPO on 12K math problems, supervised by PUMA-selected exit positions, to internalize concise stopping behavior without needing the PUMA modules at inference time.",
+  "methods": [
+    "PUMA",
+    "Redundancy Detector (LoRA-tuned Qwen3-Embedding-0.6B, InfoNCE contrastive objective)",
+    "Answer Verification (confidence + trial-answer consistency over a verification window)",
+    "Loop Breaker",
+    "DEER",
+    "Dynasor",
+    "Answer Convergence",
+    "Concise CoT (CCoT)",
+    "Chain of Draft (CoD)",
+    "Plan-and-Budget",
+    "No-Think",
+    "PUMA-SFT / PUMA-DPO / PUMA-RL (GRPO) internalization"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "DeepSeek-R1-Distill-Qwen-14B",
+    "DeepSeek-R1-Distill-Qwen-32B",
+    "Llama-3.1-Nemotron-Nano-8B",
+    "Qwen3-30B-A3B-Thinking",
+    "Qwen3-Embedding-0.6B (fine-tuned as the Redundancy Detector)",
+    "Kimi-VL-16B-A3B-Thinking"
+  ],
+  "one_liner": "Proposes PUMA, an inference-time early-exit framework that flags reasoning steps as candidate exits when a contrastively-trained embedding detector finds them semantically redundant with recent context, then confirms the exit is safe via answer-level confidence/consistency verification before stopping.",
+  "paper_id": "local:8ec022e440eb9021",
+  "problem": "Existing inference-time early-exit methods for reasoning models rely mainly on answer-level signals (trial-answer confidence or consistency across probes), which reflect whether an answer looks stable rather than whether the reasoning process itself has stopped making progress; the authors show these signals can trigger while the model is still exploring or self-correcting, causing premature exits that degrade accuracy and truncate an otherwise-important part of the reasoning chain.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "PUMA's stopping signal is reasoning-level semantic redundancy: a lightweight, contrastively fine-tuned embedding model (Qwen3-Embedding-0.6B + LoRA + InfoNCE) scores each new reasoning step's cosine similarity to its immediate predecessor (or, more generally, the max over the last k steps), flagging a candidate exit when that similarity exceeds a threshold (tau_sim=0.35); a separate confidence/consistency verification stage then confirms the exit is safe. This is a fundamentally different detector from the archived 'Evolution of Thought' paper's RCP/RCPD, which the paper's own Related Work section places in a different category ('token-level signals track decoding artifacts such as the rank of the </think> token' -- explicitly citing Wei et al. 2026 as reference [50]) versus PUMA's own 'reasoning-level' semantic-redundancy signal: PUMA never inspects the </think> token's rank, induced-answer length stabilization, or a KL residual -- it measures embedding-space similarity between successive reasoning-step texts. It is also distinct from this archive's other related methods: unlike ThinkBrake, it does not use a log-probability margin between the top token and </think>; unlike NEAT, it does not use exit-associated FFN neurons; unlike DEER, its trigger is step-embedding redundancy rather than single-step trial-answer confidence (DEER is one of PUMA's answer-level-signal baselines and is shown to have 'inconsistent efficiency due to repeated trial-answer probing'); unlike BLADE, its detector operates on step-text embeddings via cosine similarity, not a learned hidden-state sufficiency probe; and unlike REFRAIN, its 'redundant vs. novel' classification is via a trained embedding detector and fixed similarity threshold, not a bandit-tuned adaptive threshold, though REFRAIN's 'reflective + semantically redundant' framing is conceptually close to PUMA's redundancy notion. PUMA does NOT validate its detector against a ground-truth stopping point: it is evaluated only on downstream accuracy, token-reduction, wall-clock speedup, and an LLM-as-judge rubric (completeness, coherence, conciseness, justification) for retained chain quality (Table 2) -- there is no oracle 'true' convergence point used as ground truth, unlike an RCP-style formulation."
+  },
+  "results": "Headline figures stated directly in the abstract/conclusion (not table cells): 'Across five LRMs and five challenging reasoning benchmarks, PUMA achieves 26.2% average token reduction while preserving accuracy' and retained CoT quality (abstract; repeated in Section 5.1 and Section 7). Introduction (p.1, prose, not a table): across five representative LRMs, '41-52% of reasoning tokens are generated after the model has already reached its final answer' (Appendix Figure 5), which the paper says motivates the redundancy signal. Table 1 (DeepSeek-R1-Distill-Qwen-7B row, Overall column): Full CoT accuracy 58.0% at 0.0% token reduction (TR) vs PUMA (ours) accuracy 60.2% at 35.6% TR; this 60.2%/35.6% pair is independently confirmed in prose on p.7 ('the full configuration achieves the best accuracy-efficiency balance, reaching 60.2% accuracy with 35.6% token reduction'). Section 5.2 (p.8, prose): token reduction converts to wall-clock speedup of 1.40x on DeepSeek-R1-Distill-Qwen-7B and 1.28x on DeepSeek-R1-Distill-Qwen-14B, with the Redundancy Detector adding only 0.4-1.1% runtime overhead. Section 5.3 (p.8, prose): on LiveCodeBench (code generation), PUMA reduces tokens by 18-19% with at most 1.5 points of pass@1 change; on vision-language reasoning (MathVista, MathVision, zero-shot, no retraining), it reduces tokens by 23.8-33.6% with at most 1.5 points of accuracy change. Section 6.2/Table 5 (p.9, prose): fine-tuning DS-R1-Distill-Qwen-7B on PUMA-selected exit positions, 'PUMA-RL achieves the strongest overall result, exceeding training-free PUMA (67.0 vs. 66.2) and token reduction (34.9% vs. 24.3%)', while 'PUMA-DPO ... reaches the highest average token reduction (48.8%)'. Other per-benchmark/per-model cells of Table 1 (e.g. the Llama-3.1-Nemotron-Nano-8B and Qwen3-30B-A3B-Thinking blocks) were not transcribed here because individual Overall-column values could not be reconciled with confidence against the per-benchmark values at the available rendering resolution.",
+  "schema_version": 1,
+  "tags": [
+    "early-exit",
+    "semantic-redundancy",
+    "chain-of-thought",
+    "inference-time",
+    "contrastive-learning",
+    "reasoning-efficiency",
+    "overthinking"
+  ]
+}

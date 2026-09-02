@@ -33,11 +33,17 @@
       "kind": "paper",
       "note": "TRUTHFULVQA, a 5,000-image hierarchical human-annotated benchmark testing multimodal LLM truthfulness under progressively misleading visual-linguistic prompts, uncovers an inverse scaling law of truthfulness: slow-thinking (reasoning) MLLMs are consistently less truthful than their fast-thinking chat counterparts of the same family, and larger reasoning models show worse calibration despite generating more reasoning tokens.",
       "title": "When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning"
+    },
+    {
+      "id": "local:f8a4b161736737f2",
+      "kind": "paper",
+      "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+      "title": "Correct Reasoning Paths Visit Shared Decision Pivots"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:24:36Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "Claude-3.7-Sonnet",
   "related": [
     "thought-answer-safety-decomposition",
@@ -147,7 +153,24 @@
     "llama-4-family",
     "gpt-4o",
     "gemini-1-5-pro",
-    "gemini-2-0-2-5"
+    "gemini-2-0-2-5",
+    "decision-pivots-minimal-verifiable-checkpoints-every-correct-reasoning-path-must",
+    "short-path-reasoning-spr-synthesis",
+    "generation-verification-gap-gv-gap-reweighting",
+    "pivot-bottleneck-assumption",
+    "pivot-based-verifiability-score-pas-for-preference-data-selection",
+    "roma-self-training-pipeline-bootstrap-verifier-guided-short-path-synthesis-dpo",
+    "decision-pivot-mining-via-a-lora-tuned-verifier",
+    "direct-preference-optimization-dpo",
+    "generation-verification-gap-gv-gap-reweighting-analysis",
+    "logiqa",
+    "medqa",
+    "qwen-3-0-6b",
+    "qwen-3-1-7b",
+    "qwen-3-4b",
+    "qwen-3-8b",
+    "qwen-3-14b",
+    "llama-3-70b"
   ],
   "related_authored": [
     "safechain",

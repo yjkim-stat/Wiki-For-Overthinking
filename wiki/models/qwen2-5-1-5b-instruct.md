@@ -8,7 +8,7 @@ An open-weight instruction-tuned model used as an evaluation subject for adaptiv
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME](../datasets/aime.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [GSM8K](../datasets/gsm8k.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [MATH](../datasets/math.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [SciQ](../datasets/sciq.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
+**Related**: [AIME](../datasets/aime.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [GSM8K](../datasets/gsm8k.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [Llama-3.2-1B-Instruct](llama-3-2-1b-instruct.md), [MATH](../datasets/math.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [SciQ](../datasets/sciq.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

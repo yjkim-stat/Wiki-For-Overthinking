@@ -191,6 +191,12 @@
       "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis"
     },
     {
+      "id": "local:fd13860972ea4ba0",
+      "kind": "paper",
+      "note": "CGRS is a training-free, decoding-time method that suppresses reflection-trigger tokens (e.g. \"Wait\", \"But\") probabilistically, in proportion to a token-entropy-based certainty score computed at checkpoint probes, cutting reasoning length by 18.5-41.9% with little to no accuracy loss.",
+      "title": "Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression"
+    },
+    {
       "id": "title:cc91145094e2b147",
       "kind": "paper",
       "note": "Sonata predicts a query's self-consistency from the last-layer hidden state at prefill and uses that prediction to set the thinking budget before the model starts reasoning.",
@@ -199,7 +205,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-09-01T23:27:34Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "Qwen3-8B",
   "related": [
     "chain-of-thought-faithfulness",
@@ -681,6 +687,14 @@
     "decision-tree-distilled-into-symbolic-rules",
     "deepseek-r1-distill-8b",
     "qwen3-embedding",
+    "reflection-triggers",
+    "certainty-guided-suppression",
+    "checkpoint-probing",
+    "reflection-tokens-wait-but-alternatively-hmm",
+    "certainty-guided-reflection-suppression-cgrs",
+    "token-entropy-certainty-score",
+    "logit-suppression-of-reflection-trigger-tokens",
+    "gpqa-diamond-gpqa-d",
     "thinking-budget-allocation",
     "self-consistency-as-a-difficulty-proxy",
     "compute-optimal-inference",

@@ -69,11 +69,23 @@
       "kind": "paper",
       "note": "TRACE is a training-free dynamic early-exit method that aggregates two multi-step signals over a sliding window of recent reasoning steps -- Answer Consistency Score and Confidence Trajectory Score -- to detect genuine reasoning convergence, reducing tokens by 25-30% while staying within 1-2% accuracy of full-length reasoning, and beating existing single-step confidence-based early-exit baselines by 2-4 accuracy points at comparable or lower token budgets.",
       "title": "Efficient Test-Time Scaling via Temporal Reasoning Aggregation"
+    },
+    {
+      "id": "local:204ad034bca12641",
+      "kind": "paper",
+      "note": "CoDE-Stop stops reasoning when either a ramping confidence threshold is crossed or an early-step-weighted 'degeneration score' of accumulated confidence instability exceeds a threshold, targeting both trajectories that are already done and trajectories that are going nowhere, and its evaluation is the archive's first independent head-to-head of RCPD and Answer Convergence under one protocol.",
+      "title": "Early Stopping for Large Reasoning Models via Confidence Dynamics"
+    },
+    {
+      "id": "local:fd13860972ea4ba0",
+      "kind": "paper",
+      "note": "CGRS is a training-free, decoding-time method that suppresses reflection-trigger tokens (e.g. \"Wait\", \"But\") probabilistically, in proportion to a token-entropy-based certainty score computed at checkpoint probes, cutting reasoning length by 18.5-41.9% with little to no accuracy loss.",
+      "title": "Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression"
     }
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:24:36Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "Qwen3-4B",
   "related": [
     "momentum-uncertainty-exponentially-weighted-step-level-uncertainty-aggregate",
@@ -261,7 +273,34 @@
     "dynasor-baseline-single-probe-based-indicator",
     "deer-baseline-single-step-confidence-early-exit",
     "gemini2-5-flash",
-    "deepseek-r1-distilled-llama-8b"
+    "deepseek-r1-distilled-llama-8b",
+    "confidence-dynamics-of-intermediate-answers",
+    "degeneration-score",
+    "ramping-confidence-threshold",
+    "unproductive-trajectory-detection",
+    "early-step-weighting-of-stopping-signal",
+    "cost-accounting-including-probing-overhead",
+    "compression-rate-cr",
+    "accuracy-compute-tradeoff-frontier",
+    "code-stop",
+    "deer",
+    "eat",
+    "think-or-not",
+    "rcpd",
+    "answer-convergence",
+    "budget-forcing",
+    "chain-of-draft",
+    "nothinking",
+    "llama-3-1-nemotron-nano-8b-v1",
+    "reflection-triggers",
+    "certainty-guided-suppression",
+    "checkpoint-probing",
+    "reflection-tokens-wait-but-alternatively-hmm",
+    "certainty-guided-reflection-suppression-cgrs",
+    "token-entropy-certainty-score",
+    "logit-suppression-of-reflection-trigger-tokens",
+    "gpqa-diamond-gpqa-d",
+    "qwq-32b"
   ],
   "related_authored": [
     "qwen3-14b",

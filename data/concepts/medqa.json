@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "MINER recovers training signal from 'positive homogeneous' (PH) prompts -- where all sampled RLVR rollouts are already correct and GRPO-style advantage collapses to zero, wasting the rollout budget -- by converting the policy's own per-token uncertainty (negative log-likelihood) into an intrinsic reward that reinforces under-confident-but-correct reasoning paths, combined with token-level focal credit assignment and adaptive advantage calibration, achieving up to +4.58 Pass@1 and +6.66 Pass@K over GRPO with zero extra rollouts or inference cost.",
       "title": "Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models"
+    },
+    {
+      "id": "local:f8a4b161736737f2",
+      "kind": "paper",
+      "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+      "title": "Correct Reasoning Paths Visit Shared Decision Pivots"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "dataset",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "MedQA",
   "related": [
     "positive-homogeneous-ph-prompt",
@@ -39,7 +45,24 @@
     "qwen3-4b-base",
     "qwen3-8b-base",
     "qwen3-14b-base",
-    "llama3-1-8b-instruct"
+    "llama3-1-8b-instruct",
+    "decision-pivots-minimal-verifiable-checkpoints-every-correct-reasoning-path-must",
+    "short-path-reasoning-spr-synthesis",
+    "generation-verification-gap-gv-gap-reweighting",
+    "pivot-bottleneck-assumption",
+    "pivot-based-verifiability-score-pas-for-preference-data-selection",
+    "roma-self-training-pipeline-bootstrap-verifier-guided-short-path-synthesis-dpo",
+    "decision-pivot-mining-via-a-lora-tuned-verifier",
+    "direct-preference-optimization-dpo",
+    "generation-verification-gap-gv-gap-reweighting-analysis",
+    "logiqa",
+    "qwen-3-0-6b",
+    "qwen-3-1-7b",
+    "qwen-3-4b",
+    "qwen-3-8b",
+    "qwen-3-14b",
+    "llama-3-70b",
+    "claude-3-7-sonnet"
   ],
   "related_authored": [],
   "schema_version": 1,

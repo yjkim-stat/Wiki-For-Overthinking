@@ -19,11 +19,17 @@
       "kind": "paper",
       "note": "SGP-CoT identifies which reasoning units a model can safely drop using only its own intrinsic likelihood signals (counterfactual answer-impact and coherence-impact scores, no external verifier or curated data), then trains the model via preference optimization on self-pruned traces, cutting reasoning length 15-50% across five model families while preserving or improving accuracy -- and shows pruning by a different model consistently degrades accuracy more than self-pruning.",
       "title": "Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning"
+    },
+    {
+      "id": "local:f8a4b161736737f2",
+      "kind": "paper",
+      "note": "Proposes that correct chain-of-thought paths for a given question converge on a small shared set of verifiable 'decision pivots', and builds a self-training pipeline that intersects multiple sampled correct paths into a compact pivot-focused reasoning trace used as the preferred completion for DPO, improving accuracy on LogiQA, MedQA and MATH500 over prior self-training baselines while also shortening generated reasoning as a side effect.",
+      "title": "Correct Reasoning Paths Visit Shared Decision Pivots"
     }
   ],
   "first_seen": "2026-08-26T02:14:28Z",
   "kind": "method",
-  "last_seen": "2026-08-28T00:41:44Z",
+  "last_seen": "2026-09-02T21:32:21Z",
   "name": "Direct Preference Optimization (DPO)",
   "related": [
     "overthinking",
@@ -87,7 +93,24 @@
     "deepseek-r1-distill-llama-8b",
     "openmath-nemotron-1-5b",
     "openmath-nemotron-7b",
-    "gpt-5-as-external-pruner-comparison"
+    "gpt-5-as-external-pruner-comparison",
+    "decision-pivots-minimal-verifiable-checkpoints-every-correct-reasoning-path-must",
+    "short-path-reasoning-spr-synthesis",
+    "generation-verification-gap-gv-gap-reweighting",
+    "pivot-bottleneck-assumption",
+    "pivot-based-verifiability-score-pas-for-preference-data-selection",
+    "roma-self-training-pipeline-bootstrap-verifier-guided-short-path-synthesis-dpo",
+    "decision-pivot-mining-via-a-lora-tuned-verifier",
+    "generation-verification-gap-gv-gap-reweighting-analysis",
+    "logiqa",
+    "medqa",
+    "qwen-3-0-6b",
+    "qwen-3-1-7b",
+    "qwen-3-4b",
+    "qwen-3-8b",
+    "qwen-3-14b",
+    "llama-3-70b",
+    "claude-3-7-sonnet"
   ],
   "related_authored": [],
   "schema_version": 1,

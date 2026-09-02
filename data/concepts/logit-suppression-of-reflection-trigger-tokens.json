@@ -1,0 +1,42 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:fd13860972ea4ba0",
+      "kind": "paper",
+      "note": "CGRS is a training-free, decoding-time method that suppresses reflection-trigger tokens (e.g. \"Wait\", \"But\") probabilistically, in proportion to a token-entropy-based certainty score computed at checkpoint probes, cutting reasoning length by 18.5-41.9% with little to no accuracy loss.",
+      "title": "Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression"
+    }
+  ],
+  "first_seen": "2026-09-02T21:32:21Z",
+  "kind": "method",
+  "last_seen": "2026-09-02T21:32:21Z",
+  "name": "logit suppression of reflection-trigger tokens",
+  "related": [
+    "overthinking",
+    "reflection-triggers",
+    "certainty-guided-suppression",
+    "checkpoint-probing",
+    "reflection-tokens-wait-but-alternatively-hmm",
+    "certainty-guided-reflection-suppression-cgrs",
+    "token-entropy-certainty-score",
+    "aime-2024",
+    "amc23",
+    "math500",
+    "gpqa-diamond-gpqa-d",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-llama-8b",
+    "qwq-32b",
+    "qwen3-4b",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-32b"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "logit-suppression-of-reflection-trigger-tokens",
+  "topics": [
+    "overthinking"
+  ]
+}
