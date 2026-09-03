@@ -4,7 +4,7 @@ eyebrow: 2025 · EMNLP
 eyebrow_color: rose
 title: 출력만 보는 신호는 어려운 문항에서 무너진다
 blocks:
-- lead: 같은 논문이 자기 방법의 실패를 표로 싣는다. <span class="em">쉬운 쪽에서 좋고, 어려운 쪽에서 무너진다.</span>
+- lead: 같은 논문이 자기 방법의 실패를 표로 싣는다 — <span class="em">쉬운 쪽에서 좋고, 어려운 쪽에서 무너진다.</span>
 - figure:
     src: answerconv-qwen32b.png
     alt: R1-Qwen-32B에서 네 정지 방법의 정확도와 토큰 수
@@ -16,7 +16,7 @@ blocks:
       * <b>모델</b> R1-distilled Qwen-32B · <b>지표</b> 정확도(%), 높을수록 좋다 · 연속 일치 개수 <span class="mono">k</span>=10.<br>
       * NQ와 GSM8K에서는 정확도가 <b>오르면서</b> 토큰이 준다. MATH-500 이후로는 −36, −19, −60점.<br>
       * 같은 표에서 활성값 프로브(Learn-to-Stop)는 어려운 과제에서도 버틴다 — 무너진 것은 <b>출력만 보는 두 방법</b>이다.<br>
-      * 같은 경계가 <b>다른 계측에서도</b> 나온다. 답이 겉으로 쓰이기 전에 이미 정해져 있는 정도를 재는 별도 연구에서, 그 값이 쉬운 과제 0.38에서 AIME 0.03으로 무너진다 — <b>어려운 문항에는 일찍 굳은 답 자체가 거의 없다.</b>
+      * 같은 경계가 <b>다른 계측에서도</b> 나온다 — 답이 겉으로 쓰이기 전에 정해져 있는 정도가 쉬운 과제 0.38에서 AIME 0.03으로 무너진다<span class="ref">(Liu 외 2026)</span>.
     style: fn
 cite:
 - liu2025
