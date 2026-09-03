@@ -29,7 +29,7 @@ blocks:
       - RCP와 같은 논리곱 구조
       bullet_size: sm
       n:
-      - 임계값을 고정하지 않고 <span class="em">Sliding-Window UCB 밴딧으로 온라인 선택</span> — RCPD의 최대 약점을 정면으로 고친다
+      - 임계값을 고정하지 않는다 — 후보 임계값 여러 개를 <span class="em">돌려 쓰면서 성적이 좋은 쪽으로 옮겨간다</span><span class="ref">(sliding-window UCB)</span>. RCPD의 최대 약점을 정면으로 고친다
       - 20–55% 절감, GPQA-Diamond에서 +6.66pp
       n_style: [claim, sig]
       style: column

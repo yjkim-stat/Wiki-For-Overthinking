@@ -1,4 +1,4 @@
-# 28 — 그러나 확정적 반박은 아니다
+# 29 — 그러나 확정적 반박은 아니다
 layout: content
 eyebrow: Caveats
 eyebrow_color: amber
@@ -31,8 +31,8 @@ blocks:
       t: 구현 불일치 정황
       t_style: name
       bullets:
-      - 재현의 RCPD는 <span class="em">모든 행에서 Cost &gt; Tok</span>
-      - 즉 중간 답을 생성한다는 뜻
+      - 재현 표는 <span class="mono">Tok</span><span class="ref">(추론 토큰)</span>과 <span class="mono">Cost</span><span class="ref">(중간 답 생성까지 포함한 총 토큰)</span>를 따로 적는데,
+      - RCPD만 <span class="em">모든 행에서 Cost &gt; Tok</span> — 중간 답을 생성했다는 뜻이다
       - 발표된 RCPD는 이미 계산된 분포에서 rank만 읽는다
       bullet_size: sm
       style: column

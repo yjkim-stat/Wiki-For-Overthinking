@@ -4,9 +4,9 @@ eyebrow: 2026 · COLM Workshop
 eyebrow_color: rose
 title: 외부 재현 — RCPD의 CR 0–9%
 blocks:
-- lead: 여섯 기법을 <span class="em">같은 궤적</span> 위에서 비교한 첫 외부 검증.
+- lead: <span class="em">CoDE-Stop</span> 논문이 자기 방법을 내놓으면서 선행 다섯 기법을 <span class="em">같은 궤적</span> 위에서 함께 돌렸다 — 이 계열의 첫 외부 검증.
 - table:
-    head: [Overall CR <span class="ref">(낮을수록 절감)</span>, Qwen3-4B, Qwen3-14B, DS-Llama-8B, Nemotron-8B]
+    head: [Overall CR <span class="ref">= 그 방법의 토큰 ÷ 자르지 않은 토큰. 100이면 전혀 못 줄인 것</span>, Qwen3-4B, Qwen3-14B, DS-Llama-8B, Nemotron-8B]
     rows:
     - ['Vanilla', '100.0', '100.0', '100.0', '100.0']
     - ['DEER', '70.0', '55.3', '73.2', '80.8']
@@ -23,7 +23,7 @@ blocks:
     items:
     - color: rose
       t: |-
-        RCPD의 절감은 <span class="em">0–9%</span>. 자기 논문의 주장은 최대 44%. 공유 모델 Qwen3-14B에서 60% → <span class="k-rose">91.3%</span>.
+        RCPD의 절감은 <span class="em">0–9%</span>. 자기 논문의 주장은 최대 44%였고, <span class="ref">18장에서 본 “BF·DEER를 지배한다”도 그 표 기준이었다.</span> 두 논문이 공유하는 Qwen3-14B에서 60% → <span class="k-rose">91.3%</span>.
       t_style: font-size:17px;line-height:1.55;
       style: padding:14px 18px;
     - color: amber

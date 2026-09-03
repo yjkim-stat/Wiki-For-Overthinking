@@ -8,7 +8,7 @@ blocks:
 - card:
     color: blue
     t: |-
-      Budget Force의 예산을 각 (모델, 벤치마크)마다 <span class="em">RCPD의 실제 평균 토큰 수에 사후 맞춤</span>한다.
+      Budget Force<span class="ref">(문항마다 토큰 상한을 미리 정해놓고 넘으면 자르는 방식)</span>의 예산을 각 (모델, 벤치마크)마다 <span class="em">RCPD의 실제 평균 토큰 수에 사후 맞춤</span>한다.
       논문 스스로 “배포 시엔 얻을 수 없는 전역 튜닝 예산의 이점을 준 것”이라 명시한다.
     t_style: font-size:18px;line-height:1.6;
     style: padding:16px 20px;margin-bottom:14px;
@@ -21,7 +21,7 @@ blocks:
 - bullets:
     bullets:
     - 거의 같은 예산에서 <span class="em">13점 차</span>. 고정 예산 계열 전체에 대한 반론이다.
-    - 평균으로 보면 RCPD는 BF와 DEER를 모든 모델에서 지배한다 — 토큰은 적고 정확도는 같거나 높다.
+    - 원논문 표 기준으로는 RCPD가 BF와 DEER를 모든 모델에서 지배한다 — 토큰은 적고 정확도는 같거나 높다. <span class="ref">이 주장은 28장에서 외부 재현과 부딪힌다.</span>
     size: sm
     style: margin-top:12px;
 cite:

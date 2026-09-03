@@ -11,13 +11,13 @@ blocks:
     - ['<span class="mono">C_sat</span>', '<span class="mono">R<sub>t</sub> ≤ 5</span>', '즉시 포화 — 결론이 확정됨']
     - ['<span class="mono">C_conv</span>', '<span class="mono">⋀<sub>k=0..3</sub> R<sub>t−k</sub> ≤ θ<sub>k</sub></span>, &nbsp;<span class="mono">θ = [10, 50, 100, 1000]</span>', '“사다리 패턴” — 해로 향하는 수렴']
     - ['<span class="mono">C_short</span>', '<span class="mono">∀k ≤ 2 : R<sub>t−k</sub> ≤ 20</span>', '단기 안정 — 노이즈 필터']
-    - ['<span class="mono">C_long</span>', '<span class="mono">∀k ≤ 5 : R<sub>t−k</sub> ≤ 50</span>', '장기 지속 — entropic floor에서 맴돎']
+    - ['<span class="mono">C_long</span>', '<span class="mono">∀k ≤ 5 : R<sub>t−k</sub> ≤ 50</span>', '장기 지속 — 낮은 rank 구간에 계속 머묾']
 - cards:
     cols: 2
     items:
     - color: rose
       t: |-
-        후방 임계값이 <span class="mono">1000</span>이다. 어휘가 10<sup>5</sup> 규모인 모델에서 이는 사실상 제약이 아니므로, <span class="em">C_conv는 첫 칸 <span class="mono">R<sub>t</sub> ≤ 10</span>이 지배한다</span>.
+        후방 임계값이 <span class="mono">1000</span>이다. 논문은 어휘 크기를 밝히지 않지만 이 계열 모델은 10<sup>5</sup> 규모이므로, rank 1000 이하는 사실상 제약이 아니다 — 그렇다면 <span class="em">C_conv는 첫 칸 <span class="mono">R<sub>t</sub> ≤ 10</span>이 지배한다</span>. <span class="ref">(읽는 쪽의 추정)</span>
       t_style: font-size:17px;line-height:1.55;
       style: padding:14px 18px;
     - color: rose
