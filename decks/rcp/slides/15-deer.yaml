@@ -5,6 +5,13 @@ eyebrow_color: blue
 title: DEER — 그 순간의 확신도로 끊는다
 blocks:
 - lead: 문장 경계에서 시험 답을 뽑고, <span class="em">그 답에 대한 확신도가 높으면</span> 종료한다.
+- box:
+    cls: qstrip
+    blocks:
+    - table:
+        head: ['<span class="k-blue">①</span> 무엇을 읽나', '<span class="k-green">②</span> 언제 판정', '<span class="k-amber">③</span> 기준 출처', '<span class="k-rose">④</span> 비용']
+        rows:
+        - ['답 확신도', '한 지점', '손으로 고정', '추론 토큰만']
 - cards:
     cols: 2
     style: fill

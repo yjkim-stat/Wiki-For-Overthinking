@@ -5,6 +5,13 @@ eyebrow_color: violet
 title: ThinkBrake — 같은 토큰, 유도된 규칙
 blocks:
 - lead: RCPD와 같은 자리에서 같은 토큰을 읽되, 임계값을 정하는 대신 <span class="em">어디서 왔는지를 증명한다.</span>
+- box:
+    cls: qstrip
+    blocks:
+    - table:
+        head: ['<span class="k-blue">①</span> 무엇을 읽나', '<span class="k-green">②</span> 언제 판정', '<span class="k-amber">③</span> 기준 출처', '<span class="k-rose">④</span> 비용']
+        rows:
+        - ['종료 토큰 마진', '한 지점', '이론에서 유도', '추론 토큰만']
 - cards:
     cols: 2
     style: fill

@@ -3,9 +3,16 @@ layout: content
 eyebrow: 2025 · 다른 갈래
 eyebrow_color: amber
 title: ThoughtTerminator — 마감을 미리 정해둔다
-body_height: 257px
+body_height: 331px
 blocks:
 - lead: 신호를 읽지 않는다. 문항별로 <span class="em">토큰 마감을 예측</span>해두고 다가오면 알리고, 넘으면 답을 강제한다.
+- box:
+    cls: qstrip
+    blocks:
+    - table:
+        head: ['<span class="k-blue">①</span> 무엇을 읽나', '<span class="k-green">②</span> 언제 판정', '<span class="k-amber">③</span> 기준 출처', '<span class="k-rose">④</span> 비용']
+        rows:
+        - ['안 읽음 (예산)', '—', '문항별 예측', '추론 토큰만']
 - table:
     head: [QwQ-32B, 국소 오버씽킹 점수, 정확도]
     rows:

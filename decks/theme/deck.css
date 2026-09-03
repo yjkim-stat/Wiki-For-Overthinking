@@ -147,6 +147,13 @@ table.t td.n { font-family: var(--font-mono); font-weight: 700; }
 .cond span.warn { background: var(--amber-fill); border-color: var(--amber-edge); color: var(--amber); }
 .cond span.warn b { color: var(--amber); }
 
+/* A compact recurring answer-strip: same four question columns on every
+   method slide, only the row's text changes. */
+.qstrip table.t { margin: 2px 0 12px; }
+.qstrip table.t th, .qstrip table.t td { padding: 3px 16px 5px 0; border: none; }
+.qstrip table.t th { font-size: 12.5px; font-weight: 800; letter-spacing: 0; text-transform: none; color: var(--ink-soft); }
+.qstrip table.t td { font-size: 15.5px; font-weight: 600; color: var(--ink); border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+
 .pill { display: inline-flex; align-items: center; gap: 7px; font-size: 15px; font-weight: 800; letter-spacing: .05em; padding: 6px 15px; border-radius: 999px; }
 .pill.blue  { background: var(--blue-fill);  color: var(--blue); }
 .pill.green { background: var(--green-fill); color: var(--green); }

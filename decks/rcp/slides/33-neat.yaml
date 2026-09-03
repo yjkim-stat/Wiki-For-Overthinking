@@ -5,6 +5,13 @@ eyebrow_color: amber
 title: NEAT — 출력보다 한 층 안쪽
 blocks:
 - lead: 같은 종료 토큰을 <span class="em">그것을 만들어내는 뉴런 쪽에서</span> 읽는다.
+- box:
+    cls: qstrip
+    blocks:
+    - table:
+        head: ['<span class="k-blue">①</span> 무엇을 읽나', '<span class="k-green">②</span> 언제 판정', '<span class="k-amber">③</span> 기준 출처', '<span class="k-rose">④</span> 비용']
+        rows:
+        - ['내부 활성값', '활성 궤적', '보정셋에서', '추론 토큰만 (오버헤드 없음)']
 - cards:
     cols: 2
     style: fill

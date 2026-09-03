@@ -5,6 +5,13 @@ eyebrow_color: blue
 title: DTSR — 중간 답을 아예 뽑지 않는 우회로
 blocks:
 - lead: 지금까지의 방법은 대부분 <span class="em">중간 답을 뽑아본다.</span> 답이 길거나 열려 있으면 그게 불가능하다.
+- box:
+    cls: qstrip
+    blocks:
+    - table:
+        head: ['<span class="k-blue">①</span> 무엇을 읽나', '<span class="k-green">②</span> 언제 판정', '<span class="k-amber">③</span> 기준 출처', '<span class="k-rose">④</span> 비용']
+        rows:
+        - ['자기 평가 점수', '반성 신호마다', '프롬프트 설계', '추론 + 자기평가 토큰']
 - cards:
     cols: 2
     style: fill

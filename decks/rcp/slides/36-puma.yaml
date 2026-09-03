@@ -5,6 +5,13 @@ eyebrow_color: amber
 title: PUMA — 새 내용이 나오는지를 본다
 blocks:
 - lead: 답이 굳었는지 대신 <span class="em">직전 스텝과 의미가 겹치는지</span>를 본다. 답을 뽑을 필요가 없어 훨씬 싸다.
+- box:
+    cls: qstrip
+    blocks:
+    - table:
+        head: ['<span class="k-blue">①</span> 무엇을 읽나', '<span class="k-green">②</span> 언제 판정', '<span class="k-amber">③</span> 기준 출처', '<span class="k-rose">④</span> 비용']
+        rows:
+        - ['추론 의미', '직전 문맥 대비', '손으로 + 검증 단계', '탐지기 비용까지']
 - cards:
     cols: 2
     style: fill
