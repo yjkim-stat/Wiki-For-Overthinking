@@ -1,0 +1,20 @@
+# 24 — semantic basin
+layout: content
+eyebrow: 2026 · ACL
+eyebrow_color: green
+title: 궤적은 한 점으로 모이지 않는다
+blocks:
+- lead: 초반에는 넓게 흩어지다가, 어느 지점부터 <span class="em">좁은 영역에 들어가 거기서 계속 맴돈다.</span>
+- figure:
+    src: rcp-semantic-trajectory.png
+    alt: 절단 지점별 답 분포의 PCA 궤적과 95% 신뢰타원
+    caption: |-
+      Wei 외 (2026) Figure 3 · AIME24 19번 문항. <b>점</b>은 한 절단 지점에서 뽑은 답 하나 · <b>색</b>은 절단 지점의 순서(보라 → 노랑) · <b>옅은 타원</b>이 95% 신뢰타원 · <b>별</b>이 RCP. 축은 PCA 축이라 단위가 없다.
+    caption_style: cap
+- caption:
+    text: |-
+      * 전이 이후 지점의 <b>97.3%</b>가 타원 안에 남는다(다른 두 문항에서 94.3%, 96.5%). 수렴 주장을 반증 가능한 형태로 만든 몇 안 되는 사례다.
+    style: fn
+cite:
+- wei2026
+foot: Part 2 · RCP

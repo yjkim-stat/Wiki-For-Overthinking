@@ -1,0 +1,37 @@
+# 15 — DEER
+layout: content
+eyebrow: 2025 · 다른 갈래
+eyebrow_color: blue
+title: DEER — 그 순간의 확신도로 끊는다
+blocks:
+- lead: 문장 경계에서 시험 답을 뽑고, <span class="em">그 답에 대한 확신도가 높으면</span> 종료한다.
+- cards:
+    cols: 2
+    style: fill
+    items:
+    - color: blue
+      t: 왜 널리 쓰였나
+      t_style: name
+      bullets:
+      - 학습 없이 바로 적용된다
+      - 이후 거의 모든 논문의 <span class="em">공통 베이스라인</span>이 된다 — 이 발표에도 계속 나온다
+      bullet_size: sm
+      style: column
+    - color: rose
+      t: 한계
+      t_style: name
+      bullets:
+      - 한 지점의 확신도만 본다
+      - 추론 모델은 <span class="em">틀린 답에 특히 과신</span>한다
+      bullet_size: sm
+      n:
+      - 여러 후속 논문이 같은 지적을 반복한다 — “순간 신호로는 부족하다”가 이 계열의 공통 출발점이 된다
+      n_style: [cost]
+      style: column
+- caption:
+    text: |-
+      * 확신도는 뽑아본 답 토큰들의 확률에서 계산한다. 여기서 “확신도가 높다”와 “답이 맞다”가 어긋나는 것이 뒤에 나올 모든 개선의 동기다.
+    style: fn
+cite:
+- yang2025deer
+foot: Part 1 · 다른 갈래

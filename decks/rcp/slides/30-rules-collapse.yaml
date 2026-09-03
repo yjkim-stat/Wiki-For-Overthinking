@@ -1,0 +1,40 @@
+# 30 — 규칙의 실체
+layout: content
+eyebrow: RCPD · 읽기
+eyebrow_color: rose
+title: 네 규칙은 사실상 하나에 가깝다
+blocks:
+- lead: <span class="mono">C_conv</span>의 뒤쪽 임계값을 보자 — <span class="mono">θ<sub>3</sub> = 1000</span>이다.
+- cards:
+    cols: 2
+    style: fill
+    items:
+    - color: rose
+      t: 1000위는 조건이 아니다
+      t_style: name
+      bullets:
+      - 이 계열 모델의 어휘는 10만 단위다
+      - 10만 개 중 1000위 안이라는 것은 <span class="em">거의 항상 참</span>이다
+      bullet_size: sm
+      n:
+      - 그렇다면 <span class="mono">C_conv</span>를 실제로 결정하는 것은 첫 칸 <span class="mono em">R<sub>t</sub> ≤ 10</span> 하나다
+      n_style: [claim]
+      style: column
+    - color: amber
+      t: 그래서 전체는
+      t_style: name
+      bullets:
+      - <span class="mono em">R<sub>t</sub> ≤ 10</span> 이거나 <span class="mono em">낮은 순위에 머묾</span>
+      - 단일 임계값에 가까운 규칙이다
+      bullet_size: sm
+      n:
+      - 논문의 ablation에서 단일 임계값 버전이 “경쟁력 있다”고 나오는 이유가 이것으로 설명된다
+      n_style: [claim]
+      style: column
+- caption:
+    text: |-
+      * <b>이 장은 읽는 쪽의 추정이다.</b> 논문은 어휘 크기를 밝히지 않으며, 규칙이 사실상 단일 임계값이라고 말하지도 않는다. 임계값의 크기와 어휘 규모를 견주어 도출한 해석이다.
+    style: fn
+cite:
+- wei2026
+foot: Part 2 · RCPD

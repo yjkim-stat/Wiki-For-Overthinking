@@ -1,0 +1,27 @@
+# 26 — injection 실험
+layout: content
+eyebrow: 2026 · ACL
+eyebrow_color: rose
+title: 수렴 이후에는 재검증하지 않는다
+blocks:
+- lead: 중간의 잠정 답을 <span class="em">틀린 값으로 바꿔 넣고</span> 다시 돌린다. 모델이 스스로 바로잡는지 보는 실험이다.
+- table:
+    head: [주입한 값, 원래 정답을 되찾음, 주입된 오답을 채택, 기타]
+    rows:
+    - ['12 → <span class="em">16</span>', '11', '<span class="k-rose">49</span>', '4']
+    - ['16 → <span class="em">12</span> <span class="ref">(대칭 조건)</span>', '11', '<span class="k-rose">51</span>', '2']
+- caption:
+    text: |-
+      * <b>조건</b> 한 문항에 대해 <b>64회 독립 시행</b> · 잠정 답만 손으로 교체하고 나머지는 그대로 둔다 · 합이 64.<br>
+      * 두 방향 모두에서 같은 결과다 — 무엇을 넣든 <b>넣은 것을 따라간다.</b> 모델이 원래 답을 고집하는 것이 아니라 <b>먼저 나온 것을 합리화</b>한다는 뜻.
+    style: fn
+- card:
+    color: rose
+    t: |-
+      계속 가는 것은 <span class="em">낭비가 아니라 확증 편향</span>이다. 17장의 self-doubt가 겨눈 자리와 같다.
+    t_style: font-size:19px;line-height:1.6;
+    style: padding:14px 18px;margin-top:10px;
+cite:
+- wei2026
+- peng2025
+foot: Part 2 · RCP

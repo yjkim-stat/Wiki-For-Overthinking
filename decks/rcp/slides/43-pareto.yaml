@@ -1,0 +1,20 @@
+# 43 — Pareto
+layout: content
+eyebrow: 2026 · COLM Workshop
+eyebrow_color: rose
+title: 정확도–계산량 평면에서 본 같은 결과
+blocks:
+- lead: 표의 숫자를 곡선으로 보면, RCPD의 점이 <span class="em">자르지 않은 경우 거의 그 자리</span>에 있다.
+- figure:
+    src: codestop-pareto.png
+    alt: 네 모델 네 벤치마크에서의 정확도 대 총 생성 토큰
+    caption: |-
+      Hosseini 외 (2026) Figure 5. <b>가로축</b> 총 생성 토큰(중간 답을 뽑는 오버헤드 포함) · <b>세로축</b> 정확도 · 점 하나가 한 기법의 최적 설정 · <b>왼쪽 위</b>로 갈수록 좋다.
+    caption_style: cap
+- caption:
+    text: |-
+      * 가로축이 <b>추론 토큰이 아니라 총 비용</b>인 점이 중요하다. 중간 답을 뽑아보는 방법은 그 생성분까지 여기에 포함된다 — 44장에서 이 회계가 무엇을 뒤집는지 본다.
+    style: fn
+cite:
+- hosseini2026
+foot: Part 4 · 재현

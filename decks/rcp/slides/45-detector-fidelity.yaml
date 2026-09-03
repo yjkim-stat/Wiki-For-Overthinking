@@ -1,0 +1,48 @@
+# 45 — 탐지기 충실도
+layout: content
+eyebrow: What Is Never Measured
+eyebrow_color: rose
+title: 탐지기가 목표를 맞히는지는 재지 않았다
+blocks:
+- lead: 목표는 오프라인에서 정의하고, 배포는 전혀 다른 신호로 한다. <span class="em">둘이 일치하는지를 확인한 논문이 없다.</span>
+- text:
+    text: |-
+      <span class="mono">D<sub>KL</sub> · Δ<sub>content</sub></span> &nbsp;→&nbsp; <span class="mono">k<sub>RCP</sub></span> &nbsp;→&nbsp; 결정트리 &nbsp;→&nbsp; <span class="mono em">R<sub>t</sub> 임계값 4개</span><br>
+      <span class="ref">정교한 정의</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="ref">기준 라벨</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="ref">학습</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="ref">실제 배포되는 것</span>
+    style: formula
+- cards:
+    cols: 2
+    style: fill
+    items:
+    - color: rose
+      t: 보고되지 않는 것
+      t_style: name
+      bullets:
+      - RCPD가 자기 기준 라벨 <span class="mono">k<sub>RCP</sub></span>를 <span class="em">얼마나 맞히는지</span>
+      - 몇 스텝 어긋나는지, 놓치는 비율은 얼마인지 — <span class="em">전부 없음</span>
+      bullet_size: sm
+      n:
+      - 기준 라벨과 무관하게 “적당히 늦게 자르는” 규칙이었어도 42장의 결과표는 똑같이 나온다
+      n_style: [cost]
+      style: column
+    - color: green
+      t: 예외
+      t_style: name
+      bullets:
+      - BLADE — 16회 만장일치 라벨을 두고 <span class="em">예측기로서</span> 평가
+      - Learn-to-Stop — 모델 자신의 수렴 지점을 라벨로 두고 같은 방식
+      bullet_size: sm
+      n:
+      - 39장의 학습된 프로브 계열만 자기 주장을 검증 가능한 형태로 만든다
+      n_style: [sig]
+      style: column
+- caption:
+    text: |-
+      * 이것이 42장의 재현 실패보다 근본적인 문제다. 재현은 조건이 달라서일 수 있지만, <b>충실도를 잰 적이 없다는 것은 조건과 무관하다.</b>
+    style: fn
+cite:
+- wei2026
+- min2026
+- hosseini2026
+- fu2026
+foot: Part 4

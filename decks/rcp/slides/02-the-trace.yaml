@@ -1,0 +1,16 @@
+# 02 — 실제 trace
+layout: content
+eyebrow: 무엇이 문제인가
+eyebrow_color: rose
+title: 답을 낸 뒤에도 계속 쓴다
+blocks:
+- lead: 모델은 <span class="em">204분</span>을 구했다. 그리고 같은 답을 다시 구하고, 또 확인하고, 단위를 바꿔 또 확인한 뒤 <span class="em">204분</span>이라고 답한다.
+- figure:
+    src: rcp-trace-example.png
+    alt: 204분이라는 답을 낸 뒤 같은 답을 반복 검증하는 실제 추론 trace
+    caption: |-
+      Wei 외 (2026) Table 6에 실린 <b>실제 생성 trace</b>. 논문은 이 한 문항에서 <b>20번</b>의 반복 검증이 있었고 지면 관계로 대표적인 것만 실었다고 적는다. 발췌 표시(<span class="mono">...</span>)는 원문 그대로.
+    caption_style: cap
+cite:
+- wei2026
+foot: 무엇이 문제인가

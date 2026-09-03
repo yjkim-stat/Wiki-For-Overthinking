@@ -1,0 +1,21 @@
+# 12 — 얕은 신호의 붕괴
+layout: content
+eyebrow: 2025 · EMNLP
+eyebrow_color: rose
+title: 출력만 보는 신호는 어려운 문항에서 무너진다
+blocks:
+- lead: 같은 논문이 자기 방법의 실패를 표로 싣는다. <span class="em">쉬운 쪽에서 좋고, 어려운 쪽에서 무너진다.</span>
+- table:
+    head: [정확도 (%), NQ, GSM8K, MATH-500, GPQA, AIME’24]
+    rows:
+    - ['자르지 않음', '35.0', '89.4', '91.0', '33.3', '73.3']
+    - ['Answer Consistency <span class="ref">출력 문자열</span>', '<span class="k-green">38.4</span>', '<span class="k-green">91.0</span>', '<span class="k-rose">55.0</span>', '<span class="k-rose">14.1</span>', '<span class="k-rose">13.3</span>']
+- caption:
+    text: |-
+      * <b>모델</b> R1-distilled Qwen-32B · <b>지표</b> 정확도(%), 높을수록 좋다 · 연속 일치 개수 <span class="mono">k</span>=10.<br>
+      * NQ와 GSM8K에서는 정확도가 <b>오르면서</b> 토큰이 준다. MATH-500 이후로는 −36, −19, −60점.<br>
+      * 같은 표에서 활성값 프로브(Learn-to-Stop)는 어려운 과제에서도 버틴다 — 무너진 것은 <b>출력만 보는 두 방법</b>이다.
+    style: fn
+cite:
+- liu2025
+foot: Part 1 · 계측

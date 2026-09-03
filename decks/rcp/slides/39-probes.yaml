@@ -1,0 +1,42 @@
+# 39 — 학습된 프로브
+layout: content
+eyebrow: Branch ③ · 학습된 프로브
+eyebrow_color: green
+title: 이 갈래만 자기 예측을 검증한다
+blocks:
+- lead: 임계값을 손으로 정하는 대신 <span class="em">충분한지 여부 자체를 학습</span>한다.
+- cards:
+    cols: 2
+    style: fill
+    items:
+    - color: green
+      t: BLADE
+      t_style: name
+      bullets:
+      - 조기 종료를 <span class="em">“이 접두사로 충분한가”</span>를 맞히는 문제로 정식화
+      - 라벨을 만드는 방법이 특이하다 — 각 경계에서 강제로 답하게 하기를 <span class="em">16번</span> 반복해 <span class="em">만장일치일 때만</span> 채택
+      bullet_size: sm
+      n:
+      - Qwen3-8B에서 7,837 → 5,896 토큰(−24.8%), 정확도 −1.6점
+      n_style: [claim]
+      style: column
+    - color: blue
+      t: Learn-to-Stop
+      t_style: name
+      bullets:
+      - 최종층 활성값의 <span class="em">시간 흐름</span>을 LSTM으로 읽는다
+      - 라벨은 모델 자신이 수렴한 지점 — 정답 불필요
+      bullet_size: sm
+      n:
+      - 12장에서 얕은 신호가 무너진 어려운 과제에서 <span class="em">유일하게 버틴</span> 방법
+      n_style: [claim]
+      style: column
+- caption:
+    text: |-
+      * 16회 중 16회 정답이면 1, 16회 모두 오답이면 0, <b>섞이면 버린다</b> — 애매한 경계는 학습에 쓰지 않는다는 뜻이다.<br>
+      * <b>두 방법 모두 예측기로서 평가된다.</b> RCPD·PUMA는 최종 정확도와 토큰 수만 본다 — 41장의 주제다.
+    style: fn
+cite:
+- fu2026
+- liu2025
+foot: Part 3 · 가지

@@ -1,0 +1,20 @@
+# 10 — ACR 분포
+layout: content
+eyebrow: 2025 · EMNLP
+eyebrow_color: blue
+title: 쉬운 과제일수록 일찍 굳는다
+blocks:
+- lead: 다섯 과제의 ACR 분포. <span class="em">오른쪽에 몰릴수록 늦게 수렴</span>한다.
+- figure:
+    src: acr-distribution.png
+    alt: 다섯 과제의 Answer Convergence Ratio 분포
+    caption: |-
+      Liu &amp; Wang (2025) Figure 2. <b>모델</b> R1-distilled Qwen-32B · <b>디코딩</b> greedy · 가로축 ACR, 세로축 문항 밀도(%). NQ는 0 근처에 몰리고, GPQA·AIME는 0.9 부근에 몰린다.
+    caption_style: cap
+- caption:
+    text: |-
+      * NaturalQuestions에서 ACR ≈ 0은 <b>명시적 추론이 아예 필요 없었다</b>는 뜻이다 — 정보 검색형 문항이기 때문. 반대로 AIME에서 0.9는 끝까지 가야 풀리는 문항이라는 뜻이고, <b>여기서는 자를 여지 자체가 적다.</b>
+    style: fn
+cite:
+- liu2025
+foot: Part 1 · 계측

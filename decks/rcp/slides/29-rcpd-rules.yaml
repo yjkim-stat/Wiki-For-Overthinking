@@ -1,0 +1,22 @@
+# 29 — RCPD 규칙
+layout: content
+eyebrow: RCPD · Appendix C
+eyebrow_color: amber
+title: 배포되는 것은 임계값 네 개
+blocks:
+- lead: 문장 경계마다 <span class="mono">&lt;/think&gt;</span>의 순위 <span class="mono">R<sub>t</sub></span>만 읽고, 넷 중 하나라도 걸리면 멈춘다.
+- table:
+    head: [조건, 식, 무엇을 잡나]
+    rows:
+    - ['<span class="mono">C_sat</span>', '<span class="mono">R<sub>t</sub> ≤ 5</span>', '지금 이 순간 종료가 압도적으로 유력']
+    - ['<span class="mono">C_conv</span>', '<span class="mono">R<sub>t−k</sub> ≤ θ<sub>k</sub></span> (k=0..3), <span class="mono">θ = [10, 50, 100, 1000]</span>', '최근 네 지점이 점점 유력해져 왔다']
+    - ['<span class="mono">C_short</span>', '<span class="mono">최근 3지점 모두 R ≤ 20</span>', '잠깐 튄 값에 속지 않기 위한 필터']
+    - ['<span class="mono">C_long</span>', '<span class="mono">최근 6지점 모두 R ≤ 50</span>', '낮은 순위에 오래 머물러 있다']
+- caption:
+    text: |-
+      * <span class="mono">R<sub>t</sub></span>는 그 지점에서 <span class="mono">&lt;/think&gt;</span>가 다음 토큰 후보 중 몇 위인가. <b>1위가 가장 유력</b>하고 숫자가 클수록 덜 유력하다. <span class="mono">R<sub>t−k</sub></span>는 <span class="mono">k</span>개 앞 지점의 같은 값.<br>
+      * 학습은 Math-500에서 결정트리로 하고, 그 트리를 위 네 규칙으로 옮겨 적어 배포한다. 추론 모델 자체는 건드리지 않는다.
+    style: fn
+cite:
+- wei2026
+foot: Part 2 · RCPD

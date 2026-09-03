@@ -1,0 +1,37 @@
+# 21 — RCP 정의
+layout: content
+eyebrow: 2026 · ACL
+eyebrow_color: green
+title: RCP — 두 조건이 동시에 성립하는 최초 지점
+blocks:
+- lead: 2025년이 답 문자열로 잡던 수렴을, <span class="em">두 개의 독립된 안정성</span>으로 다시 정의한다.
+- text:
+    text: |-
+      <span class="mono em">k<sub>RCP</sub> = min { k : Δ<sub>content</sub>(k) ≤ ε<sub>c</sub> &nbsp;∧&nbsp; D<sub>KL</sub>(Q<sub>k</sub> ‖ Q<sub>∞</sub>) ≤ ε<sub>D</sub> }</span>
+    style: formula
+- cards:
+    cols: 2
+    items:
+    - color: blue
+      t: <span class="mono">Δ<sub>content</sub></span> — 길이가 멎었나
+      t_style: name
+      bullets:
+      - 잘라서 뽑은 <span class="em">답변의 길이</span>가 더 이상 변하지 않는다
+      bullet_size: sm
+      style: column
+    - color: green
+      t: <span class="mono">D<sub>KL</sub></span> — 내용이 멎었나
+      t_style: name
+      bullets:
+      - 잘라서 뽑은 <span class="em">답의 분포</span>가 최종 분포에 닿았다
+      bullet_size: sm
+      style: column
+    style: margin-top:6px;
+- caption:
+    text: |-
+      * <span class="mono">k</span>는 절단 지점(문장 번호), <span class="mono">Q<sub>k</sub></span>는 그 지점에서 뽑은 답들의 분포, <span class="mono">Q<sub>∞</sub></span>는 trace 끝부분에서 추정한 최종 분포, <span class="mono">ε</span>은 후반 구간의 요동에서 정한 임계값이다.<br>
+      * <b>논리곱이 설계의 전부다.</b> 길이만 보면 “짧게 헤매는 중”과 구분되지 않고, 내용만 보면 답은 정해졌는데 서술이 이어지는 경우를 놓친다.
+    style: fn
+cite:
+- wei2026
+foot: Part 2 · RCP

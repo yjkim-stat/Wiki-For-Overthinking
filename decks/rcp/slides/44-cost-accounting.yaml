@@ -1,0 +1,23 @@
+# 44 — 비용 회계
+layout: content
+eyebrow: 2026 · COLM Workshop
+eyebrow_color: amber
+title: 토큰을 줄이고 비용은 늘리는 방법이 있다
+blocks:
+- lead: 중간 답을 뽑아보는 방법은 <span class="em">그 답도 생성해야 한다.</span> 그 몫을 세면 순위가 바뀐다.
+- table:
+    head: [Qwen3-4B 평균, 추론 토큰, 총 비용]
+    rows:
+    - ['자르지 않음', '8,344', '8,344']
+    - ['Think or Not', '<span class="k-green">6,595</span> <span class="ref">(−21%)</span>', '<span class="k-rose">11,668</span> <span class="ref">(+40%)</span>']
+    - ['CoDE-Stop', '5,865', '5,960']
+- caption:
+    text: |-
+      * <b>추론 토큰</b>은 생각 부분의 길이, <b>총 비용</b>은 중간 답을 뽑느라 생성한 것까지 더한 값이다.<br>
+      * Think or Not은 생각을 21% 줄이지만 <b>실제로는 40% 더 쓴다</b> — 탐침 비용이 절감분을 넘어선다.<br>
+      * 이 회계를 하지 않는 논문이 다수다. 33장의 NEAT은 같은 문제를 시간으로 재서, 확신도 계산형 방법이 출력을 줄이면서 <b>실제 시간을 41–63% 늘린다</b>고 보고했다.
+    style: fn
+cite:
+- hosseini2026
+- liu2026neat
+foot: Part 4 · 재현

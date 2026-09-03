@@ -1,0 +1,51 @@
+# 23 — 의미 렌즈
+layout: content
+eyebrow: 2026 · ACL
+eyebrow_color: green
+title: 답의 분포가 최종 형태에 닿았나
+blocks:
+- lead: 길이는 대리 지표다. <span class="em">가설을 다듬는 중</span>과 <span class="em">무익한 반복</span>을 길이로는 구분할 수 없다.
+- cards:
+    cols: 4
+    style: fill
+    items:
+    - color: green
+      k: ①
+      t: 여러 번 뽑는다
+      t_style: name
+      bullets:
+      - 절단 지점마다 답 continuation을 여러 개 샘플링
+      bullet_size: sm
+      style: column
+    - color: green
+      k: ②
+      t: 좌표로 만든다
+      t_style: name
+      bullets:
+      - 임베딩한 뒤 PCA로 저차원에 투영
+      bullet_size: sm
+      style: column
+    - color: green
+      k: ③
+      t: 분포로 본다
+      t_style: name
+      bullets:
+      - 그 점들을 가우시안 <span class="mono">Q<sub>k</sub></span>로 적합
+      bullet_size: sm
+      style: column
+    - color: violet
+      k: ④
+      t: 거리를 잰다
+      t_style: name
+      bullets:
+      - 최종 분포 <span class="mono">Q<sub>∞</sub></span>와의 KL 거리
+      bullet_size: sm
+      style: column
+- caption:
+    text: |-
+      * <b>KL 거리</b>는 두 분포가 얼마나 다른지를 재는 값으로, 0이면 같다. 여기서는 “지금 뽑히는 답들이 최종적으로 뽑힐 답들과 얼마나 다른가”를 뜻한다.<br>
+      * <span class="mono">Q<sub>∞</sub></span>는 trace <b>끝부분</b>의 절단 지점들을 모아 추정한다 — 그래서 이 값은 생성이 끝나야 계산된다. 27장에서 이 사실이 문제가 된다.
+    style: fn
+cite:
+- wei2026
+foot: Part 2 · RCP

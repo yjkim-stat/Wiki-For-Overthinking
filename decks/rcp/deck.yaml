@@ -30,6 +30,11 @@ styles:
   # Figure placeholder — a dashed box holding the crop that will replace it.
   # Remove the style and swap the box for a `figure:` block once the crop is
   # in assets/figures/. See assets/FIGURES.md in the overthinking deck.
+  # A slide must stand on its own: every metric it shows is defined, and the
+  # conditions the number was produced under are named, in small grey type
+  # directly under the table or figure that carries it.
+  fn:          font-size:13.5px;color:var(--ink-soft);line-height:1.6;text-align:left;margin-top:10px;
+  cap:         font-size:13.5px;color:var(--ink-soft);line-height:1.6;
   ph:          border:2px dashed var(--line);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;background:rgba(0,0,0,0.015);flex:1;min-height:150px;margin:12px 0;
   ph-title:    font-size:17px;font-weight:700;color:var(--ink-mid);
   ph-src:      font-size:13px;color:var(--ink-mid);opacity:0.8;

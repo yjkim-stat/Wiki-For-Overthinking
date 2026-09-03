@@ -1,0 +1,42 @@
+# 37 — REFRAIN
+layout: content
+eyebrow: Branch ① · 의미적 잉여
+eyebrow_color: green
+title: REFRAIN — 임계값을 고정하지 않는다
+blocks:
+- lead: RCP와 같은 <span class="em">논리곱</span> 구조를 쓰되, 임계값을 미리 정하지 않고 돌려가며 고른다.
+- cards:
+    cols: 2
+    style: fill
+    items:
+    - color: green
+      t: 세 조건이 모두 맞을 때만 종료
+      t_style: name
+      bullets:
+      - 그 스텝이 <span class="em">반성적</span>이고
+      - <span class="em">잠정 답 이후</span>이며
+      - 이전 스텝들과 <span class="em">의미적으로 잉여</span>일 때
+      bullet_size: sm
+      n:
+      - 두 번째 조건이 RCP의 “답 첫 등장” 관찰과 같은 자리를 겨눈다
+      n_style: [sig]
+      style: column
+    - color: violet
+      t: 임계값을 학습 없이 적응시킨다
+      t_style: name
+      bullets:
+      - 후보 임계값 여러 개를 돌려 쓰면서 <span class="em">성적이 좋은 쪽으로 옮겨간다</span>
+      - RCPD가 상수 7개를 고정해 쓰는 것과 정반대
+      bullet_size: sm
+      n:
+      - 20–55% 절감, GPQA-Diamond에서 정확도 +6.66%p
+      n_style: [claim]
+      style: column
+- caption:
+    text: |-
+      * <b>모델</b> Qwen3-8B 등 · <b>벤치마크</b> GSM8K · MATH-500 · CSQA · GPQA-Diamond. “+6.66%p”는 개입 없음 대비 정확도 <b>차이</b>이지 절대값이 아니다.<br>
+      * 임계값 선택에는 sliding-window UCB를 쓴다 — 여러 선택지를 시도하며 성적 좋은 쪽에 점점 더 자주 거는 표준 기법이다.
+    style: fn
+cite:
+- sun2026
+foot: Part 3 · 가지

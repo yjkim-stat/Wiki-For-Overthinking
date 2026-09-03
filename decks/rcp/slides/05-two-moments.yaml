@@ -1,0 +1,38 @@
+# 05 — 두 시점
+layout: content
+eyebrow: 이 발표의 축
+eyebrow_color: violet
+title: 답이 정해진 시점과 생성이 끝나는 시점
+blocks:
+- lead: 이 발표에 나오는 모든 방법은 결국 <span class="em">이 두 시점의 간격</span>을 재거나 좁히려 한다.
+- cards:
+    cols: 2
+    items:
+    - color: green
+      k: 수렴 시점
+      t: 답이 사실상 확정된 순간
+      t_style: name
+      bullets:
+      - 여기서 멈춰도 <span class="em">같은 답</span>이 나온다
+      - 겉으로는 보이지 않는다 — 중간에 끊어 답을 뽑아야 관측된다
+      bullet_size: sm
+      style: column
+    - color: rose
+      k: 정지 시점
+      t: 모델이 실제로 멈추는 순간
+      t_style: name
+      bullets:
+      - 모델이 <span class="mono">&lt;/think&gt;</span><span class="ref">(사고 종료 표시 토큰)</span>를 내보낼 때
+      - 관측은 공짜다 — 끝날 때까지 두면 된다
+      bullet_size: sm
+      style: column
+    style: margin-bottom:14px;
+- text:
+    text: |-
+      2장의 낭비 = <span class="mono em">정지 시점 − 수렴 시점</span>
+    style: formula
+- caption:
+    text: |-
+      * 이후 슬라이드에서 <span class="mono">τ<sub>conv</sub></span>(수렴)와 <span class="mono">τ<sub>stop</sub></span>(정지)로 줄여 쓴다.
+    style: fn
+foot: 이 발표의 축

@@ -1,0 +1,20 @@
+# 16 — ThoughtTerminator
+layout: content
+eyebrow: 2025 · 다른 갈래
+eyebrow_color: amber
+title: ThoughtTerminator — 마감을 미리 정해둔다
+blocks:
+- lead: 신호를 읽지 않는다. 문항별로 <span class="em">토큰 마감을 예측</span>해두고 다가오면 알리고, 넘으면 답을 강제한다.
+- table:
+    head: [QwQ-32B, 국소 오버씽킹 점수, 정확도]
+    rows:
+    - ['개입 없음', '13,662', '0.94']
+    - ['ThoughtTerminator', '<span class="k-green">215</span> <span class="ref">(−98%)</span>', '<span class="k-rose">0.80</span> <span class="ref">(−15%)</span>']
+- caption:
+    text: |-
+      * <b>국소 오버씽킹 점수</b>는 같은 난이도의 다른 모델들이 쓴 토큰 수 분포에 견주어 이 모델이 얼마나 더 썼는지를 재는 값이다. 낮을수록 좋고, <b>정확도와는 별개 축</b>이다.<br>
+      * 작은 모델에서는 반대로 정확도가 오른다 — R1-Distill-Qwen-1.5B는 0.50 → 0.80. 예산 강제가 <b>산만한 모델에는 도움이 되고 유능한 모델에는 손해</b>라는 뜻이다.
+    style: fn
+cite:
+- pu2025
+foot: Part 1 · 다른 갈래

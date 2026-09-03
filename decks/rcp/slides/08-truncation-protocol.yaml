@@ -1,0 +1,50 @@
+# 08 — 절단 프로토콜
+layout: content
+eyebrow: 2025 · EMNLP
+eyebrow_color: blue
+title: 중간에 끊고 답을 강제로 뽑는다
+blocks:
+- lead: 수렴 시점을 관측하는 방법은 하나뿐이다 — <span class="em">거기서 멈췄다면 뭐라고 답했을지 실제로 시켜보는 것.</span>
+- cards:
+    cols: 4
+    style: fill
+    items:
+    - color: blue
+      k: ①
+      t: 자른다
+      t_style: name
+      bullets:
+      - trace를 문장 단위로 쪼갠다<span class="ref">(NLTK)</span>
+      bullet_size: sm
+      style: column
+    - color: blue
+      k: ②
+      t: 끝냈다고 알린다
+      t_style: name
+      bullets:
+      - 접두사 뒤에 <span class="mono">&lt;/think&gt;</span>를 강제로 붙인다
+      bullet_size: sm
+      style: column
+    - color: blue
+      k: ③
+      t: 답하게 한다
+      t_style: name
+      bullets:
+      - 그 접두사만 보고 답을 내게 한다<span class="ref">(greedy)</span>
+      bullet_size: sm
+      style: column
+    - color: green
+      k: ④
+      t: 반복한다
+      t_style: name
+      bullets:
+      - 자르는 지점을 한 칸씩 늘리며 전부 되풀이
+      bullet_size: sm
+      style: column
+- caption:
+    text: |-
+      * 이 프로토콜은 <b>정답을 쓰지 않는다.</b> 기준이 모델 자신의 최종 예측이므로 정답을 모르는 문항에도 그대로 적용된다 — 이후 이 계열이 공유하는 성질이다.
+    style: fn
+cite:
+- liu2025
+foot: Part 1 · 계측

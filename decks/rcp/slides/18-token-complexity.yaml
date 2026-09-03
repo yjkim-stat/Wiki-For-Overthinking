@@ -1,0 +1,34 @@
+# 18 — 하한이라는 개념
+layout: content
+eyebrow: 2025 · 다른 갈래
+eyebrow_color: violet
+title: 문항마다 최소 길이가 있다면
+blocks:
+- lead: 지금까지의 보고는 전부 <span class="em">“자르지 않은 경우 대비 몇 % 절감”</span>이다. 그 기준선은 논문마다 다르다.
+- cards:
+    cols: 2
+    style: fill
+    items:
+    - color: violet
+      t: token complexity
+      t_style: name
+      bullets:
+      - 그 모델이 <span class="em">그 문항을 맞히는 데 필요한 최소 추론 길이</span>
+      - 문항마다 다르고, 추정할 수 있다
+      bullet_size: sm
+      style: column
+    - color: green
+      t: 무엇이 달라지나
+      t_style: name
+      bullets:
+      - 절감률 대신 <span class="em">하한까지 남은 거리</span>로 보고하면
+      - 서로 다른 논문의 수치가 <span class="em">같은 자</span> 위에 놓인다
+      bullet_size: sm
+      style: column
+- caption:
+    text: |-
+      * 이 개념은 정지 시점을 찾는 방법이 아니라 <b>그 방법들을 채점하는 자</b>다. 실제 수치는 Part 4에서 본다 — 거기서 지금까지의 방법들이 하한에서 얼마나 멀리 있는지가 드러난다.
+    style: fn
+cite:
+- lee2025
+foot: Part 1 · 다른 갈래

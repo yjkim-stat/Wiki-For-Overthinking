@@ -1,0 +1,35 @@
+# 17 — Self-Doubt
+layout: content
+eyebrow: 2025 · 다른 갈래
+eyebrow_color: rose
+title: Self-Doubt — 원인 쪽을 건드린다
+blocks:
+- lead: 앞의 둘이 <span class="em">언제 끊을까</span>를 물을 때, 이 논문은 <span class="em">왜 계속 가는가</span>를 묻는다.
+- cards:
+    cols: 2
+    style: fill
+    items:
+    - color: rose
+      t: 진단
+      t_style: name
+      bullets:
+      - 오버씽킹의 큰 몫이 <span class="em">이미 맞힌 답을 다시 검증하는 것</span>
+      - 2장의 trace가 정확히 그 모습이다
+      bullet_size: sm
+      style: column
+    - color: green
+      t: 처방과 결과
+      t_style: name
+      bullets:
+      - 프롬프트만 바꾼다 — 먼저 “문항에 필요한 정보가 다 있는지” 확인하게 한다
+      - 길이 <span class="k-green em">−37.1%</span>, 정확도 <span class="k-green em">+3.6%</span>
+      bullet_size: sm
+      style: column
+- caption:
+    text: |-
+      * <b>모델</b> 4종 추론 모델 · <b>벤치마크</b> GSM8K · GSM8K-Zero · MATH-500 평균 · 학습 없음, 프롬프트만.<br>
+      * 다만 자기의심 비율은 MATH-500에서 62 → 38.2로 줄지만 <b>GSM8K에서는 5.9 → 17.2로 늘어난다</b>. 논문이 이 역방향을 함께 싣는다.
+    style: fn
+cite:
+- peng2025
+foot: Part 1 · 다른 갈래

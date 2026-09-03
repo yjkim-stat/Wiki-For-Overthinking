@@ -1,0 +1,20 @@
+# 28 — rank 급락
+layout: content
+eyebrow: The Signature
+eyebrow_color: violet
+title: 답이 나타나는 순간 종료 토큰이 유력해진다
+blocks:
+- lead: 위아래 두 패널의 <span class="em">세로 점선이 같은 지점</span>이다. 정확도가 안정되는 곳에서 순위가 떨어진다.
+- figure:
+    src: rcp-rank-drop.png
+    alt: 정확도 안정화와 종료 토큰 rank 급락이 같은 지점에서 일어남
+    caption: |-
+      Wei 외 (2026) Figure 5. <b>상단</b> 각 절단 지점에서 강제로 답하게 했을 때의 정확도 · <b>하단</b> 그 지점에서 <span class="mono">&lt;/think&gt;</span>가 다음 토큰 후보 중 몇 위인지(<b>낮을수록 유력</b>) · <b>세로 점선</b> 답이 처음 등장한 지점 · 분홍/초록 배경이 Pre-RCP / Post-RCP 구간.
+    caption_style: cap
+- caption:
+    text: |-
+      * <b>rank를 쓰는 이유</b> — 답의 표면형은 숫자·단위·자연어·객관식 문자로 제각각이라 문자열로 잡기 어렵다. rank는 모델 내부 값이라 답 형식과 무관하고, 이미 계산된 분포에서 읽으므로 추가 비용이 없다.
+    style: fn
+cite:
+- wei2026
+foot: Part 2 · RCPD

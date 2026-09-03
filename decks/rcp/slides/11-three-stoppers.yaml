@@ -1,0 +1,54 @@
+# 11 — 정지 방법 3종
+layout: content
+eyebrow: 2025 · EMNLP
+eyebrow_color: blue
+title: 같은 논문이 제안한 정지 방법 셋
+blocks:
+- lead: 셋은 <span class="em">읽는 신호가 다르다.</span> 이 차이가 이후 5년치 연구의 갈림길이 된다.
+- cards:
+    cols: 3
+    style: fill
+    items:
+    - color: amber
+      k: 신호 · 출력 문자열
+      t: Answer Consistency
+      t_style: name
+      bullets:
+      - 문장 경계마다 답을 뽑아본다
+      - 연속 <span class="mono">k</span>개에서 같은 답이면 종료
+      bullet_size: sm
+      n:
+      - 학습 없음 · 구현이 가장 쉽다
+      n_style: [sig]
+      style: column
+    - color: violet
+      k: 신호 · 종료 토큰
+      t: Think Token Adjustment
+      t_style: name
+      bullets:
+      - <span class="mono">&lt;/think&gt;</span>의 로짓에 값을 더해 더 잘 뽑히게 만든다
+      - 분포가 뾰족할수록 세게 더한다
+      bullet_size: sm
+      n:
+      - 확신할 때만 작용하도록 설계
+      n_style: [sig]
+      style: column
+    - color: green
+      k: 신호 · 활성값
+      t: Learn-to-Stop
+      t_style: name
+      bullets:
+      - 최종층 활성값 시퀀스 위에 LSTM 프로브를 학습
+      - 라벨은 모델 자신이 수렴한 지점
+      bullet_size: sm
+      n:
+      - 유일하게 학습이 필요하다 — 대신 정답은 필요 없다
+      n_style: [sig]
+      style: column
+- caption:
+    text: |-
+      * 셋 다 <b>추론 시점에만</b> 개입하고 모델 가중치는 건드리지 않는다. 세 번째만 별도의 작은 프로브를 학습시킨다.
+    style: fn
+cite:
+- liu2025
+foot: Part 1 · 계측
