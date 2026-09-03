@@ -1,0 +1,34 @@
+# 40b — 같은 질문, 다른 답
+layout: content
+eyebrow: Synthesis
+eyebrow_color: violet
+title: 같은 네 질문에 각자 어떻게 답했나
+blocks:
+- lead: 6장의 축에 지금까지 나온 방법을 전부 올려놓으면, <span class="em">열 단위로 읽을 때</span> 이 계열의 상태가 보인다.
+# 열두 행짜리 종합표라 기본 행 여백으로는 한 화면에 들어가지 않는다. 이 슬라이드에만
+# 범위를 한정해 줄이고, 공용 테마는 건드리지 않는다.
+- html: '<style>.mt table.t td,.mt table.t th{padding:7px 13px}.mt table.t{font-size:16.5px}</style>'
+- box:
+    cls: mt
+    blocks:
+    - table:
+        head: [방법, ① 무엇을 읽나, ② 언제 판정, ③ 기준의 출처, ⑤ 판정이 맞는지 확인]
+        rows:
+        - ['Answer Consistency <span class="ref">12</span>', '출력 문자열', '연속 <span class="mono">k</span>개', '손으로 고정', '<span class="k-rose">안 함</span>']
+        - ['DEER <span class="ref">16</span>', '답 확신도', '<span class="k-rose">한 지점</span>', '손으로 고정', '<span class="k-rose">안 함</span>']
+        - ['ThoughtTerminator <span class="ref">17</span>', '<span class="k-rose">안 읽음</span> (예산)', '—', '문항별 예측', '<span class="k-rose">안 함</span>']
+        - ['<span class="em">RCPD</span> <span class="ref">30</span>', '종료 토큰 순위', '최근 4–6지점', '<span class="k-rose">손으로 고정 7개</span>', '<span class="k-rose">안 함</span>']
+        - ['ThinkBrake <span class="ref">33</span>', '종료 토큰 마진', '한 지점', '<span class="k-green">이론에서 유도</span>', '<span class="k-rose">안 함</span>']
+        - ['NEAT <span class="ref">34</span>', '내부 활성값', '활성 궤적', '보정셋에서', '<span class="k-rose">안 함</span>']
+        - ['PUMA <span class="ref">37</span>', '추론 의미', '직전 문맥 대비', '손으로 + 검증 단계', '<span class="k-rose">안 함</span>']
+        - ['REFRAIN <span class="ref">38</span>', '추론 의미', '이전 전체 대비', '<span class="k-green">돌려가며 적응</span>', '<span class="k-rose">안 함</span>']
+        - ['CGRS <span class="ref">39</span>', '답 확신도', '한 지점', '손으로 고정', '<span class="k-rose">안 함</span>']
+        - ['BLADE <span class="ref">40</span>', '내부 활성값', '프로브', '<span class="k-green">데이터로 학습</span>', '<span class="k-green">함</span>']
+        - ['Learn-to-Stop <span class="ref">12</span>', '내부 활성값', '시퀀스 전체', '<span class="k-green">데이터로 학습</span>', '<span class="k-green">함</span>']
+        - ['CoDE-Stop <span class="ref">45</span>', '답 확신도', '누적 + 상승 임계', '소규모 튜닝', '<span class="k-rose">안 함</span>']
+- caption:
+    text: |-
+      * 각 방법의 출처는 오른쪽 끝에 적힌 장에 있다. ④(무엇을 비용으로 세나)는 47장에서 따로 본다 — 이 표의 방법 대부분이 추론 토큰만 센다.<br>
+      * <b>열로 읽을 때 보이는 것</b> — ②에서 “한 지점”인 것들이 13·16장에서 무너진 것들이다. ③은 “손으로 고정”이 다수이고, 유도·학습·적응은 각각 한둘뿐이다. 그리고 ⑤는 <b>학습된 프로브 두 개를 빼면 전부 비어 있다.</b>
+    style: fn
+foot: Part 3 · 종합
