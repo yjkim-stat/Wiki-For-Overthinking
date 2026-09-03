@@ -12,12 +12,18 @@ blocks:
       <span class="em">RCPD가 실제로 쓴 평균 토큰 수에 사후로 맞춘다.</span> 논문 스스로 “배포 시엔 얻을 수 없는 전역 튜닝의 이점을 준 것”이라 적는다.
     t_style: font-size:18px;line-height:1.6;
     style: padding:16px 20px;margin-bottom:12px;
-- figure:
-    src: rcp-table1-qwen8b.png
-    alt: Qwen3-8B에서 Full, No-Think, BF, DEER, RCPD의 토큰과 정확도
-    caption: |-
-      Wei 외 (2026) Table 1의 Qwen3-8B 블록 원문. 맨 왼쪽 묶음이 AIME24 — <span class="mono">Full</span> 15435토큰·72.22, <span class="mono">BF</span> 10373·58.88, <span class="mono">RCPD</span> 9958·72.22. 괄호 안 <span class="mono">CR%</span>는 자르지 않았을 때 대비 남은 토큰 비율.
-    caption_style: cap
+- box:
+    style: flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0;
+    blocks:
+    - box:
+        style: position:relative;line-height:0;overflow:hidden;border-radius:6px;
+        blocks:
+        - image:
+            src: rcp-table1-qwen8b.png
+            alt: Qwen3-8B 블록에서 Budget Force와 RCPD 행
+            style: display:block;max-height:300px;width:auto;
+        - html: '<div style="position:absolute;left:0.5%;top:54.5%;width:99%;height:9%;border:2.5px solid var(--rose);border-radius:4px;background:rgba(214,69,96,.09);"></div>'
+        - html: '<div style="position:absolute;left:0.5%;top:76.8%;width:99%;height:9%;border:2.5px solid var(--green);border-radius:4px;background:rgba(214,69,96,.09);"></div>'
 - caption:
     text: |-
       * <b>모델</b> Qwen3-8B · <b>벤치마크</b> AIME 2024(30문항) · <b>디코딩</b> temperature 0.6 / top-p 0.95 / 최대 32,768 토큰.<br>

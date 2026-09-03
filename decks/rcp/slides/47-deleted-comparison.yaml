@@ -5,12 +5,17 @@ eyebrow_color: rose
 title: 프리프린트에 있고 게재본에 없는 행
 blocks:
 - lead: 같은 논문의 두 판본을 나란히 놓으면 표 한 줄이 사라져 있다.
-- figure:
-    src: rcp-table1-qwen8b.png
-    alt: arXiv v2 Table 1의 Qwen3-8B 블록, 점선 아래 S-GRPO 행
-    caption: |-
-      Wei 외 <b>arXiv v2</b> Table 1의 Qwen3-8B 블록 원문. 맨 왼쪽이 AIME24. RCPD 아래 <b>점선으로 구분된 S-GRPO* 행</b>이 게재본에서 사라진 줄이다 — 8810토큰에 77.30으로, RCPD의 9958토큰·72.22보다 적게 쓰고 더 맞혔다.
-    caption_style: cap
+- box:
+    style: flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0;
+    blocks:
+    - box:
+        style: position:relative;line-height:0;overflow:hidden;border-radius:6px;
+        blocks:
+        - image:
+            src: rcp-table1-qwen8b.png
+            alt: arXiv v2 Table 1의 Qwen3-8B 블록, 점선 아래 S-GRPO 행
+            style: display:block;max-height:320px;width:auto;
+        - html: '<div style="position:absolute;left:0.5%;top:88.6%;width:99%;height:9%;border:3px solid var(--violet);border-radius:4px;box-shadow:0 0 0 9999px rgba(255,255,255,.74);"></div>'
 - caption:
     text: |-
       * arXiv v2 본문은 결과를 인정한다 — “GPQA-D에서는 이기지만 AIME24에서는 진다.” 실제로 GPQA-D에서는 64.65 대 55.40으로 뒤집힌다.<br>

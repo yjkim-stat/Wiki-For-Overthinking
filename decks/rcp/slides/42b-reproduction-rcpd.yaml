@@ -1,0 +1,32 @@
+# 42b — 외부 재현 ②
+layout: content
+eyebrow: 2026 · COLM Workshop · ②
+eyebrow_color: rose
+title: RCPD 행 — 네 모델 모두 거의 줄지 않는다
+blocks:
+- lead: 네 모델 블록마다 RCPD 행이 하나씩 있다. Overall <span class="mono">CR</span>이 <span class="em">96.9 · 91.3 · 100.0 · 96.2</span> — <span class="em">거의 줄지 않았다.</span>
+- box:
+    style: flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0;
+    blocks:
+    - box:
+        style: position:relative;line-height:0;overflow:hidden;border-radius:6px;
+        blocks:
+        - image:
+            src: codestop-table1.png
+            alt: 네 모델 네 벤치마크에서 여섯 기법의 정확도, 토큰, 압축률, 총 비용
+            style: display:block;max-height:420px;width:auto;
+        - html: '<div style="position:absolute;left:0.5%;top:23.0%;width:99%;height:3.6%;border:2.5px solid var(--rose);border-radius:4px;background:rgba(214,69,96,.08);"></div>'
+        - html: '<div style="position:absolute;left:0.5%;top:42.6%;width:99%;height:3.6%;border:2.5px solid var(--rose);border-radius:4px;background:rgba(214,69,96,.08);"></div>'
+        - html: '<div style="position:absolute;left:0.5%;top:65.7%;width:99%;height:3.6%;border:2.5px solid var(--rose);border-radius:4px;background:rgba(214,69,96,.08);"></div>'
+        - html: '<div style="position:absolute;left:0.5%;top:88.6%;width:99%;height:3.6%;border:2.5px solid var(--rose);border-radius:4px;background:rgba(214,69,96,.08);"></div>'
+- caption:
+    text: |-
+      * 자기 논문의 주장은 <b>최대 44% 절감</b>이었고, 32장에서 본 “BF·DEER를 지배한다”도 그 표 기준이었다. 여기서는 <b>0–9%</b>다.<br>
+      * DeepSeek-R1 행은 <span class="mono">CR 100.0</span> — 토큰이 7518로 자르지 않은 7514보다 오히려 많다.<br>
+      * 두 논문이 공유하는 모델은 Qwen3-14B 하나인데, 거기서 원논문의 60%가 <b>91.3%</b>가 된다.
+    style: fn
+cite:
+- hosseini2026
+- wei2026
+- liu2025
+foot: Part 4 · 재현

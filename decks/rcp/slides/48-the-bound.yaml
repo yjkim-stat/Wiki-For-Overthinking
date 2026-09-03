@@ -2,18 +2,24 @@
 layout: content
 eyebrow: Headroom
 eyebrow_color: violet
-title: 31개 압축 방식이 하나의 곡선을 그린다
+title: 압축 방식이 서로 다른 선을 그리지 않는다
 blocks:
-- lead: 19장의 하한으로 돌아온다. 사실이라면 <span class="em">앞의 모든 차이는 한 선 위의 위치</span>다.
-- figure:
-    src: token-complexity-gpt4o.png
-    alt: 31개 압축 프롬프트가 하나의 Pareto frontier 위에 놓이고 그 위에 Oracle Upper Bound가 있음
-    caption: |-
-      Lee 외 (2025) Figure 1의 GPT-4o 패널 · <b>벤치마크</b> MMLU-Pro Math. 점 하나가 압축 프롬프트 하나 · <b>빨간 점선</b>이 실제 달성된 Pareto frontier · <b>분홍 실선</b>이 문항별 최소 길이에서 유도한 Oracle Upper Bound.
-    caption_style: cap
+- lead: 점 하나가 압축 프롬프트 하나다. 31개가 <span class="em">제각각 흩어지지 않고 빨간 점선 하나에 붙어</span> 있다.
+- box:
+    style: flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0;
+    blocks:
+    - box:
+        style: position:relative;line-height:0;overflow:hidden;border-radius:6px;
+        blocks:
+        - image:
+            src: token-complexity-gpt4o.png
+            alt: 31개 압축 프롬프트가 하나의 Pareto frontier 위에 놓이고 그 위에 Oracle Upper Bound가 있음
+            style: display:block;max-height:400px;width:auto;
+        - html: '<div style="position:absolute;left:16%;top:16%;width:78%;height:62%;border:3px solid var(--rose);border-radius:5px;box-shadow:0 0 0 9999px rgba(255,255,255,.74);"></div>'
 - caption:
     text: |-
-      * 두 선 사이의 <b>세로 간격</b>이 남은 여지다. GPT-4o에서 가장 좋은 프롬프트가 415토큰인데 하한은 121토큰 — <b>1.41배 줄인 자리에서 4.83배가 가능</b>했다는 뜻이다. GSM8K에서는 약 1.4배 대 10.9–11.2배.
+      * Lee 외 (2025) Figure 1의 GPT-4o 패널 · <b>벤치마크</b> MMLU-Pro Math · <b>가로축</b> 문항당 평균 토큰 · <b>세로축</b> 정확도.<br>
+      * 프롬프트를 어떻게 쓰느냐는 <b>이 곡선 위에서 어디에 설지</b>를 정할 뿐이고, 더 나은 곡선으로 옮겨가지 못한다. 19장에서 미뤄둔 주장이 이 그림이다.
     style: fn
 cite:
 - lee2025

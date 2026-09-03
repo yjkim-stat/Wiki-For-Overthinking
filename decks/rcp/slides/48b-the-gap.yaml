@@ -1,0 +1,27 @@
+# 48b — 하한까지의 거리 ②
+layout: content
+eyebrow: Headroom · ②
+eyebrow_color: violet
+title: 그 곡선과 하한 사이가 남은 여지다
+blocks:
+- lead: 위쪽 분홍 실선이 문항별 최소 길이에서 유도한 <span class="em">이론적 상한</span>이다. 두 선 사이가 아직 아무도 가지 못한 거리다.
+- box:
+    style: flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0;
+    blocks:
+    - box:
+        style: position:relative;line-height:0;overflow:hidden;border-radius:6px;
+        blocks:
+        - image:
+            src: token-complexity-gpt4o.png
+            alt: 31개 압축 프롬프트가 하나의 Pareto frontier 위에 놓이고 그 위에 Oracle Upper Bound가 있음
+            style: display:block;max-height:400px;width:auto;
+        - html: '<div style="position:absolute;left:20%;top:14.5%;width:74%;height:21%;border:3px solid var(--violet);border-radius:5px;box-shadow:0 0 0 9999px rgba(255,255,255,.74);"></div>'
+- caption:
+    text: |-
+      * <b>Oracle Upper Bound</b>는 문항마다 그 모델이 맞히는 데 필요한 최소 길이를 추정해 그린 선이다 — 문항별로 정확히 그만큼만 쓴다면 도달할 수 있는 정확도.<br>
+      * GPT-4o에서 가장 좋은 프롬프트가 415토큰인데 하한은 <b>121토큰</b> — 1.41배 줄인 자리에서 <b>4.83배</b>가 가능했다. GSM8K에서는 약 1.4배 대 <b>10.9–11.2배</b>.<br>
+      * 그렇다면 이 발표가 다룬 방법들의 우열은 한 선 위의 위치 다툼이고, 진짜 질문은 <b>왜 모두가 상한에서 이렇게 멀리 있는가</b>가 된다.
+    style: fn
+cite:
+- lee2025
+foot: Part 4

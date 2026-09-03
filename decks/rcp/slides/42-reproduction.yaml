@@ -2,20 +2,25 @@
 layout: content
 eyebrow: 2026 · COLM Workshop
 eyebrow_color: rose
-title: 밖에서 다시 돌리면 거의 줄지 않는다
+title: 먼저 — 이 표의 어디를 보나
 blocks:
 - lead: CoDE-Stop 논문이 자기 방법을 내놓으면서 <span class="em">선행 다섯 기법을 같은 궤적 위에서 함께 돌렸다.</span>
-- figure:
-    src: codestop-table1.png
-    alt: 네 모델 네 벤치마크에서 여섯 기법의 정확도, 토큰, 압축률, 총 비용
-    caption: |-
-      Hosseini 외 (2026) Table 1 원문. 오른쪽 끝 <b>Overall</b> 묶음의 <span class="mono">CR↓</span> 열을 보면 된다 — RCPD 행이 <b>96.9 / 91.3 / 100.0 / 96.2</b>다. <span class="mono">Acc</span> 정확도 · <span class="mono">Tok</span> 추론 토큰 · <span class="mono">CR</span> 남은 토큰 비율 · <span class="mono">Cost</span> 중간 답 생성까지 포함한 총 토큰.
-    caption_style: cap
+- box:
+    style: flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0;
+    blocks:
+    - box:
+        style: position:relative;line-height:0;overflow:hidden;border-radius:6px;
+        blocks:
+        - image:
+            src: codestop-table1.png
+            alt: 네 모델 네 벤치마크에서 여섯 기법의 정확도, 토큰, 압축률, 총 비용
+            style: display:block;max-height:420px;width:auto;
+        - html: '<div style="position:absolute;left:82.2%;top:1%;width:17.6%;height:98%;border:3px solid var(--violet);border-radius:4px;box-shadow:0 0 0 9999px rgba(255,255,255,.74);"></div>'
 - caption:
     text: |-
-      * <b>지표</b> 그 방법이 쓴 토큰 ÷ 자르지 않았을 때의 토큰. <b>100이면 전혀 못 줄인 것</b>이고 낮을수록 많이 줄인 것이다.<br>
-      * <b>조건</b> 문항마다 미리 생성해 둔 궤적을 다섯 기법이 <b>공유</b>한다 · 베이스라인 하이퍼파라미터는 원논문 설정을 따름 · 최대 32,768 토큰.<br>
-      * RCPD는 0–9%만 줄인다. 32장에서 본 자기보고는 <b>최대 44%</b>였고 “BF·DEER를 지배한다”도 그 표 기준이었다. 두 논문이 공유하는 Qwen3-14B에서 60% → <b>91.3%</b>.
+      * 왼쪽부터 AIME24,25 · MATH500 · GSM8K · GPQA-Diamond 네 벤치마크가 각각 <span class="mono">Acc / Tok / CR / Cost</span> 네 열을 갖고, 맨 오른쪽이 그 <b>평균(Overall)</b>이다.<br>
+      * <span class="mono">Acc</span> 정확도 · <span class="mono">Tok</span> 추론 토큰 · <span class="mono">CR</span> 자르지 않았을 때 대비 남은 토큰 비율(<b>100이면 전혀 못 줄인 것</b>) · <span class="mono">Cost</span> 중간 답 생성까지 포함한 총 토큰.<br>
+      * <b>조건</b> 문항마다 미리 생성해 둔 궤적을 여섯 기법이 <b>공유</b>한다 · 베이스라인 설정은 원논문을 따름 · 최대 32,768 토큰.
     style: fn
 cite:
 - hosseini2026
