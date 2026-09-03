@@ -3,14 +3,14 @@ layout: content
 eyebrow: 2025 · EMNLP
 eyebrow_color: rose
 title: 출력만 보는 신호는 어려운 문항에서 무너진다
-body_height: 276px
 blocks:
 - lead: 같은 논문이 자기 방법의 실패를 표로 싣는다. <span class="em">쉬운 쪽에서 좋고, 어려운 쪽에서 무너진다.</span>
-- table:
-    head: [정확도 (%), NQ, GSM8K, MATH-500, GPQA, AIME’24]
-    rows:
-    - ['자르지 않음', '35.0', '89.4', '91.0', '33.3', '73.3']
-    - ['Answer Consistency <span class="ref">출력 문자열</span>', '<span class="k-green">38.4</span>', '<span class="k-green">91.0</span>', '<span class="k-rose">55.0</span>', '<span class="k-rose">14.1</span>', '<span class="k-rose">13.3</span>']
+- figure:
+    src: answerconv-qwen32b.png
+    alt: R1-Qwen-32B에서 네 정지 방법의 정확도와 토큰 수
+    caption: |-
+      Liu &amp; Wang (2025) Figure 3의 <b>R1-Qwen-32B</b> 블록 원문. 각 과제마다 <b>정확도(%)</b>와 <b>토큰 수</b> 두 열 · 괄호 안은 <span class="mono">Original</span> 대비 토큰 증감 · 분홍 음영이 짙을수록 많이 줄인 것.
+    caption_style: cap
 - caption:
     text: |-
       * <b>모델</b> R1-distilled Qwen-32B · <b>지표</b> 정확도(%), 높을수록 좋다 · 연속 일치 개수 <span class="mono">k</span>=10.<br>

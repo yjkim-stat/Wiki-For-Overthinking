@@ -3,17 +3,14 @@ layout: content
 eyebrow: 2026 · COLM Workshop
 eyebrow_color: rose
 title: 밖에서 다시 돌리면 거의 줄지 않는다
-body_height: 397px
 blocks:
 - lead: CoDE-Stop 논문이 자기 방법을 내놓으면서 <span class="em">선행 다섯 기법을 같은 궤적 위에서 함께 돌렸다.</span>
-- table:
-    head: [남은 토큰 비율 (%), Qwen3-4B, Qwen3-14B, DS-Llama-8B, Nemotron-8B]
-    rows:
-    - ['자르지 않음', '100.0', '100.0', '100.0', '100.0']
-    - ['DEER', '70.0', '55.3', '73.2', '80.8']
-    - ['<span class="em">RCPD</span>', '<span class="k-rose">96.9</span>', '<span class="k-rose">91.3</span>', '<span class="k-rose">100.0</span>', '<span class="k-rose">96.2</span>']
-    - ['Answer Convergence', '20.3', '23.3', '33.1', '29.9']
-    - ['CoDE-Stop <span class="ref">이 논문</span>', '65.9', '50.5', '63.9', '75.0']
+- figure:
+    src: codestop-table1.png
+    alt: 네 모델 네 벤치마크에서 여섯 기법의 정확도, 토큰, 압축률, 총 비용
+    caption: |-
+      Hosseini 외 (2026) Table 1 원문. 오른쪽 끝 <b>Overall</b> 묶음의 <span class="mono">CR↓</span> 열을 보면 된다 — RCPD 행이 <b>96.9 / 91.3 / 100.0 / 96.2</b>다. <span class="mono">Acc</span> 정확도 · <span class="mono">Tok</span> 추론 토큰 · <span class="mono">CR</span> 남은 토큰 비율 · <span class="mono">Cost</span> 중간 답 생성까지 포함한 총 토큰.
+    caption_style: cap
 - caption:
     text: |-
       * <b>지표</b> 그 방법이 쓴 토큰 ÷ 자르지 않았을 때의 토큰. <b>100이면 전혀 못 줄인 것</b>이고 낮을수록 많이 줄인 것이다.<br>
