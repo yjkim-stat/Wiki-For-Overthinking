@@ -20,8 +20,8 @@ blocks:
       t: 두 단계로 멈춘다
       t_style: name
       bullets:
-      - 학습된 임베딩 탐지기가 직전 문맥과의 유사도를 재고, 넘으면 <span class="em">후보</span>로 표시
-      - 표시만으로는 안 멈춘다 — 답 수준 확신도·일관성 <span class="em">검증</span>을 통과해야 종료
+      - 학습된 임베딩 탐지기가 직전 문맥과의 유사도를 재고, <span class="mono">0.35</span>를 넘으면 <span class="em">후보</span>로 표시
+      - 표시만으로는 안 멈춘다 — 답 확신도 <span class="mono">0.98</span>과 일관성 <span class="em">검증</span>을 통과해야 정지
       bullet_size: sm
       style: column
     - color: green
@@ -35,7 +35,8 @@ blocks:
       style: column
 - caption:
     text: |-
-      * <b>모델</b> 5종 추론 모델 · <b>벤치마크</b> 5종 · 시간은 7B / 14B 모델에서 각각 실측.
+      * <b>모델</b> 5종 추론 모델 · <b>벤치마크</b> 5종 · 시간은 7B / 14B 모델에서 각각 실측.<br>
+      * <b>탐지기는 학습되지만 임계값은 손으로 걸린다</b> — 유사도 0.35, 확신도 0.98, 검증 창 2단계. ③이 “손으로 고정”인 이유다.
     style: fn
 cite:
 - min2026
