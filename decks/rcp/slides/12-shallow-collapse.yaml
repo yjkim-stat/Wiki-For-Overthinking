@@ -7,18 +7,18 @@ blocks:
 - lead: 같은 논문이 자기 방법의 실패를 표로 싣는다 — <span class="em">쉬운 쪽에서 좋고, 어려운 쪽에서 무너진다.</span>
 - figure:
     src: answerconv-qwen32b.png
-    alt: R1-Qwen-32B에서 네 정지 방법의 정확도와 토큰 수
+    alt: R1-Distill-Qwen-32B에서 네 정지 방법의 정확도와 토큰 수
     caption: |-
-      Liu &amp; Wang (2025) Figure 3의 <b>R1-Qwen-32B</b> 블록 원문. 각 과제마다 <b>정확도(%)</b>와 <b>토큰 수</b> 두 열 · 괄호 안은 <span class="mono">Original</span> 대비 토큰 증감 · 분홍 음영이 짙을수록 많이 줄인 것.
+      Liu 외 (2025) Figure 3의 <b>R1-Distill-Qwen-32B</b> 블록 원문. 각 과제마다 <b>정확도(%)</b>와 <b>토큰 수</b> 두 열 · 괄호 안은 <span class="mono">Original</span>(개입 없음) 대비 토큰 증감 · 분홍 음영이 짙을수록 많이 줄인 것.
     caption_style: cap
 - caption:
     text: |-
-      * <b>모델</b> R1-distilled Qwen-32B · <b>지표</b> 정확도(%), 높을수록 좋다 · 연속 일치 개수 <span class="mono">k</span>=10.<br>
-      * NQ와 GSM8K에서는 정확도가 <b>오르면서</b> 토큰이 준다. MATH-500 이후로는 −36, −19, −60점.<br>
+      * <b>모델</b> R1-Distill-Qwen-32B · <b>지표</b> 정확도(%), 높을수록 좋다 · 연속 일치 개수 <span class="mono">k</span>=10.<br>
+      * NQ와 GSM8K에서는 정확도가 <b>오르면서</b> 토큰이 준다. MATH-500 이후로는 −36, −19, −60%p.<br>
       * 같은 표에서 활성값 프로브(Learn-to-Stop)는 어려운 과제에서도 버틴다 — 무너진 것은 <b>출력만 보는 두 방법</b>이다.<br>
-      * 같은 경계가 <b>다른 계측에서도</b> 나온다 — 답이 겉으로 쓰이기 전에 정해져 있는 정도가 쉬운 과제 0.38에서 AIME 0.03으로 무너진다<span class="ref">(Liu 외 2026)</span>.
+      * 같은 경계가 <b>다른 계측에서도</b> 나온다 — 답이 겉으로 쓰이기 전에 정해져 있는 정도가 쉬운 과제 0.38에서 AIME 0.03으로 무너진다<span class="ref">Liu 외 (2026)</span>.
     style: fn
 cite:
 - liu2025
 - liu2026ml
-foot: Part 1 · 계측
+foot: Part 1

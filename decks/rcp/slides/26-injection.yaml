@@ -4,16 +4,16 @@ eyebrow: 2026 · ACL
 eyebrow_color: rose
 title: 수렴 이후에는 재검증하지 않는다
 blocks:
-- lead: 중간의 잠정 답을 <span class="em">틀린 값으로 바꿔 넣고</span> 다시 돌린다. 모델이 스스로 바로잡는지 보는 실험이다.
+- lead: 중간 답을 <span class="em">틀린 값으로 바꿔 넣고</span> 다시 돌린다. 모델이 스스로 바로잡는지 보는 실험이다.
 - figure:
     src: rcp-injection-table.png
-    alt: 잠정 답을 바꿔 넣었을 때의 최종 답 분포
+    alt: 중간 답을 바꿔 넣었을 때의 최종 답 분포
     caption: |-
       Wei 외 (2026) Table 3 원문. <b>Recovered Original</b> 원래 정답을 되찾은 횟수 · <b>Adopted Injection</b> 주입한 값을 그대로 답한 횟수 · <b>Other</b> 둘 다 아닌 경우. 각 행의 합이 64.
     caption_style: cap
 - caption:
     text: |-
-      * <b>조건</b> 한 문항에 대해 <b>64회 독립 시행</b> · 잠정 답만 손으로 교체하고 나머지는 그대로 둔다 · 합이 64.<br>
+      * <b>조건</b> 한 문항에 대해 <b>64회 독립 시행</b> · 중간 답만 손으로 교체하고 나머지는 그대로 둔다 · 합이 64.<br>
       * 두 방향 모두에서 같은 결과다 — 무엇을 넣든 <b>넣은 것을 따라간다.</b>
     style: fn
 - card:
@@ -25,4 +25,4 @@ blocks:
 cite:
 - wei2026
 - peng2025
-foot: Part 2 · RCP
+foot: Part 2

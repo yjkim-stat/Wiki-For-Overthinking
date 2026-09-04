@@ -4,7 +4,7 @@ eyebrow: 2026 · COLM Workshop
 eyebrow_color: rose
 title: 먼저 — 이 표의 어디를 보나
 blocks:
-- lead: CoDE-Stop 논문이 자기 방법을 내놓으면서 <span class="em">선행 다섯 기법을 같은 궤적 위에서 함께 돌렸다.</span>
+- lead: CoDE-Stop 논문이 자기 방법을 내놓으면서 <span class="em">선행 다섯 기법을 같은 trace 위에서 함께 돌렸다.</span>
 - box:
     style: flex:1;min-height:0;display:flex;align-items:center;justify-content:center;margin:4px 0;
     blocks:
@@ -18,12 +18,12 @@ blocks:
         - html: '<div style="position:absolute;left:82.2%;top:1%;width:17.6%;height:98%;border:3px solid var(--violet);border-radius:4px;box-shadow:0 0 0 9999px rgba(255,255,255,.74);"></div>'
 - caption:
     text: |-
-      * 왼쪽부터 AIME24,25 · MATH500 · GSM8K · GPQA-Diamond 네 벤치마크가 각각 <span class="mono">Acc / Tok / CR / Cost</span> 네 열을 갖고, 맨 오른쪽이 그 <b>평균(Overall)</b>이다.<br>
-      * <span class="mono">Acc</span> 정확도 · <span class="mono">Tok</span> 추론 토큰 · <span class="mono">CR</span> 자르지 않았을 때 대비 남은 토큰 비율(<b>100이면 전혀 못 줄인 것</b>) · <span class="mono">Cost</span> 중간 답 생성까지 포함한 총 토큰.<br>
-      * <b>조건</b> 문항마다 미리 생성해 둔 궤적을 여섯 기법이 <b>공유</b>한다 · 베이스라인 설정은 원논문을 따름 · 최대 32,768 토큰.
+      * 왼쪽부터 AIME24·25 · MATH-500 · GSM8K · GPQA-Diamond 네 벤치마크가 각각 <span class="mono">Acc / Tok / CR / Cost</span> 네 열을 갖고, 맨 오른쪽이 그 <b>평균(Overall)</b>이다.<br>
+      * <span class="mono">Acc</span> 정확도 · <span class="mono">Tok</span> 추론 토큰 · <span class="mono">CR</span> 개입 없음 대비 남은 토큰 비율(<b>100이면 전혀 못 줄인 것</b>) · <span class="mono">Cost</span> 중간 답 생성까지 포함한 총 토큰.<br>
+      * <b>조건</b> 문항마다 미리 생성해 둔 trace를 여섯 기법이 <b>공유</b>한다 · 베이스라인 설정은 원논문을 따름 · 최대 32,768 토큰.
     style: fn
 cite:
 - hosseini2026
 - wei2026
 - liu2025
-foot: Part 4 · 재현
+foot: Part 4

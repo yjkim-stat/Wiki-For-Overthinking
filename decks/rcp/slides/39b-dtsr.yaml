@@ -1,6 +1,6 @@
 # 39b — DTSR
 layout: content
-eyebrow: Branch ③ · 학습된 프로브
+eyebrow: Branch ③ · Learned Probes
 eyebrow_color: blue
 title: DTSR — 중간 답을 아예 뽑지 않는 우회로
 blocks:
@@ -11,7 +11,7 @@ blocks:
     - table:
         head: ['<span class="k-blue">①</span> 무엇을 읽나', '<span class="k-green">②</span> 언제 판정', '<span class="k-amber">③</span> 기준 출처', '<span class="k-rose">④</span> 비용']
         rows:
-        - ['자기 평가 점수', '반성 신호마다', '프롬프트 설계', '추론 + 자기평가 토큰']
+        - ['자기 평가 점수', '반성 신호마다', '프롬프트 설계', '추가 비용까지 (자기평가)']
 - cards:
     cols: 2
     style: fill
@@ -33,7 +33,7 @@ blocks:
       bullets:
       - 반성 신호(<span class="mono">Wait</span> 등)가 나올 때마다
       - 모델에게 <span class="em">3인칭 관점에서</span> 자기 추론이 충분한지 0–100으로 매기게 한다
-      - 임계값을 넘으면 종료
+      - 임계값을 넘으면 정지
       bullet_size: sm
       n:
       - 답을 뽑는 대신 <span class="em">자기 평가를 뽑는다</span>
@@ -46,4 +46,4 @@ blocks:
     style: fn
 cite:
 - xiang2026
-foot: Part 3 · 가지
+foot: Part 3
