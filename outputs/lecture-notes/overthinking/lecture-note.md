@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-09-05 from 451 archived source(s).
+> Generated on 2026-09-06 from 453 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 451 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-08-26. 451 of the papers have been read in full.
+Built from 453 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-09-03. 451 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`.
 
@@ -21,6 +21,8 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 
 ### 2026
 
+- **Thinking effort aligns between humans and reasoning models in abductive reasoning** _(not yet summarized)_
+- **SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing** _(not yet summarized)_
 - **Prefix Sliding for efficient test-time scaling** — Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.
 - **Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees** — Proposes NESR-KRR-RF, a neighboring early-stopping rule that adaptively selects the regularization parameter for kernel ridge regression with random features by comparing only adjacent estimators on a uniform grid, proving it attains the oracle polynomial learning rate up to log factors at lower computational cost than classical Lepskii-type all-pairs comparison.
 - **Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference** — Reflection Steering is a training-free activation-space intervention that isolates reflection-associated computation from general reasoning via PCA-purified, orthogonalized steering directions calibrated per layer, cutting thinking tokens by 16.9% on average across six model-benchmark settings with accuracy statistically equivalent to the raw model.
@@ -31,9 +33,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 - **Recursive Agentic Reasoning** — Recasts iterative refinement, decomposition and repeated sampling as three recursion operators (GROW, PRUNE, BRANCH) over a shared reasoning-trace primitive, compares them under a paired protocol across 3 frontier models and 5 benchmarks, and finds BRANCH wins mainly because it recovers answers a single pass never emitted at all.
 - **Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding** — Identifies copy-inflation -- retrieved documents in a search agent's context systematically inflate the token log-probabilities of copied tokens -- as the reason logprob-based confidence voting (DeepConf) fails on multi-turn search agents, and fixes it with Retrieval-Grounded Voting (RGV), which weights each rollout by lexical overlap between its answer and the documents it retrieved instead of by internal confidence.
 - **A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm** — Derives an analytic, data-dependent estimate of the optimal early-stopping time for gradient-flow training of linear (and, via linear probing, underparameterized neural) models, using Rademacher complexity with the L1-norm instead of assumptions on the data distribution.
-- **Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning** — Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.
-- **Counter with Evidence! A Multi-Agent Memory Efficient Reasoning Framework for Hate Category Informed Counterspeech Generation** — FIRE splits counterspeech generation into two sub-2B Qwen3-1.7B agents -- one that classifies the hate category, names the target group, writes a reasoning trace and triggers a web search for evidence, one that writes the reply -- with specialization coming from a contrastively-trained 22M retrieval encoder over annotated examples rather than from fine-tuning.
-- _...and 334 more._
+- _...and 336 more._
 
 ### 2025
 
@@ -688,3 +688,5 @@ Drawn from the limitations each paper states about itself, so this is what the f
 449. Niklas Muennighoff, Zhengyang Wang, Zeyi Chen et al.. *Prefix Sliding for efficient test-time scaling*. cs.CL. 2026 <https://arxiv.org/abs/2608.26070>
 450. Jiarui Hu, Zhiyuan Wen, Xiaoyun Liu et al.. *Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference*. cs.LG. 2026 <https://arxiv.org/abs/2608.25542>
 451. Pratyay Banerjee, Ankit Chadha. *Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation*. cs.CL. 2026 <https://arxiv.org/abs/2608.25277>
+452. Wanli Cheng, Haiya Xiang, Juntao Li et al.. *SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing*. cs.AI. 2026 <https://arxiv.org/abs/2608.27963>
+453. Henry Arthur. *Thinking effort aligns between humans and reasoning models in abductive reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.01867>
