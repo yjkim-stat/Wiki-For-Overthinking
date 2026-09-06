@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "ReEfBench is a neuro-symbolic evaluation framework that grounds reasoning in First-Order-Logic problems with controllable, verifiable logical depth, parses 25 LLMs' CoT responses into logical nodes to compute six behavioral metrics (logical depth, cost, exploration, efficiency, coherence, redundancy), and clusters models into four behavioral prototypes -- Effective Solver, Deep Wanderer, Hollow Mimic, Lazy Guesser -- showing token count and genuine logical depth are dissociable, and that Short CoT with reflection can now match Long CoT's depth at a fraction of the cost.",
       "title": "ReEfBench: Quantifying the Reasoning Efficiency of LLMs"
+    },
+    {
+      "id": "local:e8f26d999a2ffe42",
+      "kind": "paper",
+      "note": "Introduces DiffAdapt, a lightweight probe trained on a reasoning LLM's frozen hidden states that classifies each question as Easy/Normal/Hard and, before generation starts, selects a matching fixed prompt/temperature/max-token strategy, cutting token usage by up to 22.4% without retraining the LLM.",
+      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
     }
   ],
   "first_seen": "2026-08-28T01:36:19Z",
   "kind": "model",
-  "last_seen": "2026-08-28T01:36:19Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "DeepSeek-R1-Qwen-7B",
   "related": [
     "overthinking",
@@ -32,7 +38,28 @@
     "qwq-32b",
     "qwen3-32b-14b-8b-4b-long-short",
     "qwen2-5-32b-instruct",
-    "claude-sonnet-4-5-short"
+    "claude-sonnet-4-5-short",
+    "u-shaped-entropy-pattern",
+    "difficulty-adaptive-inference",
+    "token-efficient-reasoning",
+    "diffadapt-difficulty-probe-strategy-selection",
+    "generation-entropy-analysis",
+    "deer-early-exit-baseline",
+    "heuristic-difficulty-labeling",
+    "deepmath-103k",
+    "gsm8k",
+    "math500",
+    "aime-2024",
+    "aime-2025",
+    "olympiadbench",
+    "minerva",
+    "gpqa",
+    "mmlu-pro",
+    "qwen3-4b",
+    "deepseek-r1-qwen-1-5b",
+    "deepseek-r1-llama-8b",
+    "nemotron-1-5b-nemotron-research-reasoning-qwen-1-5b",
+    "thinkprune-7b"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -1,0 +1,143 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/local-4c4d1944c8091d55.pdf"
+  },
+  "completed_at": "2026-09-06T09:10:34Z",
+  "created_at": "2026-09-06T08:57:19Z",
+  "instructions": "A PDF was filed by hand. Open the file at `attachments.pdf_path` and read it, then produce a structured summary.\n\nRead it as a document, not as text: look at the figures, tables and plots. A result table usually settles what the paper actually achieved faster than the prose does, and a figure often carries the method. If the document is long, read the abstract, introduction, method and results sections in full and skim the rest.\n\n`bibliography` must come from the document itself — its title page, header or footer. The filename is not evidence; it is whatever the person who saved the file happened to type.\n\n`topics` is your judgement. These are the topics this archive tracks; list the slugs this paper genuinely belongs to, and leave the list empty rather than forcing a fit:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\n`relevance` must have one entry per slug you listed in `topics`.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "local:4c4d1944c8091d55",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "bibliography": {
+      "abstract": "string - the paper's own abstract, verbatim",
+      "arxiv_id": "string - arXiv id if printed on the document, else empty",
+      "authors": [
+        "string - author name, in the order printed"
+      ],
+      "doi": "string - DOI if printed on the document, else empty",
+      "title": "string - the paper's own title, exactly as printed",
+      "venue": "string - journal, conference or 'preprint'; empty if unclear",
+      "year": "integer - publication year, 0 if the document does not say"
+    },
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ],
+    "topics": [
+      "string - slug of a tracked topic this paper belongs to; omit any that do not genuinely apply"
+    ]
+  },
+  "payload": {
+    "abstract": "",
+    "authors": [],
+    "categories": [],
+    "contested_with": "",
+    "matched_keywords": [],
+    "pdf_url": "",
+    "published": "",
+    "scores": {},
+    "title": "thinking vs nothinking sae",
+    "url": "",
+    "venue": ""
+  },
+  "result": {
+    "bibliography": {
+      "abstract": "While Large Language Models (LLMs) employing Chain-of-Thought (CoT) exhibit superior reasoning capabilities, the neural mechanisms distinguishing this explicit Thinking mode from direct answer generation (NoThinking mode) remain poorly understood. To deconstruct this cognitive process, we apply Top-K Sparse Autoencoders (SAEs) to the intermediate representations of DeepSeek-R1-Distill-Qwen-7B and examine the model's divergent behaviors across math-solving tasks of three distinct difficulty levels. Observationally, we identify a clear distinction in how the model functions under two reasoning modes: Thinking mode relies on sparse and high-intensity feature activations driving verbal deduction independent of problem complexity, whereas NoThinking mode exhibits an adaptive and diffuse pattern prioritizing symbolic manipulation. Causally, suppressing the three most active sparse features by Total Activation Volume reveals three principles: (i) reasoning and syntactic structure are tightly coupled, as interventions consistently degrade LaTeX and boxed-solution formatting; (ii) Thinking responds to disruption with compensatory over-generation marked by increased metacognitive cues and repetitive, low-information continuations; and (iii) coherent CoT behavior depends on a fragile coordination among specialized features, yielding distinct failure modes under perturbation but a consistently impaired output structure.",
+      "arxiv_id": "2608.08168",
+      "authors": [
+        "Bo Cheng",
+        "Qiaolin Lu",
+        "Yi Chang",
+        "Yuan Wu"
+      ],
+      "doi": "",
+      "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders",
+      "venue": "preprint",
+      "year": 2026
+    },
+    "concepts": [
+      "Sparse Autoencoders (SAEs)",
+      "Top-K sparse autoencoder",
+      "Total Activation Volume (TAV)",
+      "Thinking vs NoThinking inference modes",
+      "causal feature suppression",
+      "feature source distribution",
+      "token category taxonomy",
+      "compensatory sequence extension",
+      "reasoning-syntax coupling"
+    ],
+    "contributions": [
+      "Trains separate Top-K sparse autoencoders on residual-stream activations of DeepSeek-R1-Distill-Qwen-7B for Thinking and NoThinking inference modes, establishing a comparative framework to contrast their latent feature dynamics on math problems of varying difficulty.",
+      "Identifies a mechanistic divergence: Thinking mode operates via a sparse, high-intensity activation regime driving verbal deduction that is stable and invariant to problem complexity, whereas NoThinking mode uses a diffuse, adaptive pattern that recruits a broader, difficulty-dependent coalition of features for symbolic/pattern-matching manipulation.",
+      "Performs causal suppression interventions on the top-3 highest-Total-Activation-Volume features to establish their functional necessity, revealing coupling between reasoning and syntactic/formatting structure, compensatory over-generation under disruption, and fragile coordination among specialized features."
+    ],
+    "datasets": [
+      "DeepMath-103K",
+      "AMC23",
+      "AIME24",
+      "AIME25",
+      "OlympiadBench"
+    ],
+    "limitations": "The paper has no dedicated Limitations section. Stated caveats appear only implicitly: the study is restricted to a single 7B model (DeepSeek-R1-Distill-Qwen-7B) and a single training corpus of math word problems (DeepMath-103K), and the SAE is trained on one intermediate layer (layer 13) chosen as \"a representative intermediate layer\" without testing other layers.\n\nNot stated, and worth noticing: no task accuracy (correctness of the final answer) is reported anywhere in the paper, either for the baseline Thinking/NoThinking modes or after feature suppression — every result is a density-based generation metric (LaTeX density, metacognitive/uncertainty word density, output length, lexical diversity, boxed-answer retention as a binary formatting indicator, not a correctness check). This means the paper's causal claims are about output structure and verbosity, not about whether the identified features are actually load-bearing for solving problems correctly. The three suppressed features (F4416, F28634, F8893) were selected purely by Total Activation Volume within Thinking mode; the paper does not test whether suppressing NoThinking's dominant feature (F10770) produces analogous or different effects, so the asymmetric causal analysis (Thinking-only) limits how much can be concluded about the two modes symmetrically. The suppression hook is applied only during intervention experiments as an interpretability probe; the paper never measures or discusses its computational cost or latency at inference time.",
+    "method": "This is a mechanistic-interpretability study, not a proposed practical inference-time acceleration or overthinking-mitigation method, though its causal-validation step does perform a genuine inference-time intervention.\n\nSAE training: Top-K Sparse Autoencoders (2^16 = 65,536 latent feature dictionary, C) are trained separately for two inference modes on activations extracted from the residual stream of the 13th layer of DeepSeek-R1-Distill-Qwen-7B, run over the DeepMath-103K corpus (103,000 math problems from Math StackExchange). Thinking mode activations are collected while the model generates its full chain-of-thought before the final answer (sequences of length 1,024, 108M tokens total); NoThinking mode activations are collected while the decoding process is constrained to keep the thinking box empty, forcing the model to answer directly (65M tokens total). Each SAE encodes an activation vector x via z = TopK(W_enc x + b_enc), retaining only the k largest-magnitude latents (k annealed from 200 down to 20 over the first 50% of training), and decodes via x̂ = W_dec z + b_dec, trained to minimize pure reconstruction loss (no L1 penalty needed since sparsity is enforced structurally by the TopK operator). Feature importance is quantified via Total Activation Volume (TAV): the summed activation magnitude of each feature across a validation corpus of N tokens.\n\nCausal intervention (the inference-time component): the top-3 Thinking-mode features by TAV on easy problems (F4416, F8893, F28634) are targeted with a dynamic suppression hook installed at the 13th layer, applied only to tokens generated inside the thinking block. For target feature i and suppression strength α ∈ {0.1, 0.3, 0.5, 1.0}, the modified latent activation is ẑ_i(t) = (1-α)·z_i(t) at each decoding step t, leaving all other features and layers untouched; effects are measured via density-based metrics normalized per 1,000 generated tokens (metacognitive/uncertainty word density, LaTeX density, boxed-answer retention, output length, lexical diversity via Distinct-1).\n\nWhere it intervenes: the residual stream at layer 13, restricted to 3 specific SAE latent-feature directions (of 65,536), reconstructed and modified via the trained Top-K SAE's encoder/decoder; applied only to tokens generated inside the `<think>...</think>` block.\nWhat quantity decides the intervention: a fixed, hand-set multiplicative suppression coefficient α, uniform across all tokens and contexts; which 3 features to target is decided a priori and offline by Total Activation Volume ranking on a validation corpus, not adaptively at inference time.\nWhen it fires: at every decoding step while the model is generating inside the thinking block, for whichever of the 3 chosen features is targeted in a given experimental run.\nWhat it costs: not reported. The paper gives no inference-time latency, token-count, or throughput measurement for running the suppression hook (or for running the SAE encoder online in general); the only quantified costs are the SAE training details (Adam, lr=1e-3, β1=0.9, β2=0.999, batch size 1,024 for Thinking mode / 128 for NoThinking mode, dynamic sparsity annealing over the first half of one epoch, 3-4 epochs total), which are one-time, offline interpretability-analysis costs rather than something paid per deployed inference call.",
+    "methods": [
+      "Top-K Sparse Autoencoders",
+      "Total Activation Volume feature ranking",
+      "dynamic suppression hook / causal intervention",
+      "token category taxonomy",
+      "activation heatmap analysis"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B"
+    ],
+    "one_liner": "Trains Top-K sparse autoencoders on the residual stream of DeepSeek-R1-Distill-Qwen-7B to contrast the internal feature dynamics of explicit chain-of-thought (Thinking) against direct answer generation (NoThinking), finding Thinking relies on a sparse, high-intensity, difficulty-invariant feature regime while NoThinking uses a diffuse, difficulty-adaptive one, and that causally suppressing Thinking's dominant features degrades formatting and triggers compensatory, less informative verbosity rather than a clean shortening of the trace.",
+    "problem": "The structural distinction between the internal states governing explicit chain-of-thought reasoning (Thinking mode) and direct answer generation (NoThinking mode) is poorly understood at the mechanistic level, and it remains unresolved whether the thinking process constitutes a genuinely distinct computational regime or is merely a prolonged extension of standard next-token generation.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Gives a mechanistic account of why explicit Thinking mode produces long, verbose traces regardless of problem difficulty: Thinking's dominant feature (F4416) maintains near-identical peak activation intensity (75.2/72.8/73.9 across easy/medium/hard) and increasingly dominates the top-100 activated tokens as difficulty rises (82%->100%), showing the reasoning pathway is a stable, complexity-invariant computational regime rather than one that scales its intensity with need. Causally, suppressing this dominant feature does not shorten generation — it triggers compensatory over-generation (+454% output length, more metacognitive markers like \"Wait\"/\"Let me think\", -63% lexical diversity) — direct evidence that naively intervening on a single internal reasoning feature to curb overthinking can backfire into more, not less, low-information verbosity."
+    },
+    "results": "Figure 1 (activation statistics for top-20 TAV features): Thinking mode has mean activation ~9.0 across all three difficulty levels, but maximum activation consistently ~75.0 with high standard deviation ~19.0 (sparse, high-intensity regime); NoThinking mode has a higher mean (~11.7), lower maximum (~60.0 stabilizing), and lower standard deviation (~17.5), indicating a more diffuse, uniform activation pattern. Figure 3 / Table 1 (feature source distribution, top-100 highest-activation tokens): in Thinking mode, the single dominant feature F4416 accounts for 82.0% of top-100 tokens at easy difficulty, rising to 96.0% (medium) and 100.0% (hard); in NoThinking mode, the dominant feature F10770 starts at only 37.0% (easy) and also converges to 100.0% at hard, but from a more distributed starting point (four features contributing at easy level vs. Thinking's near-immediate single-feature dominance). Table 2 (token category distribution, % of tokens): in Thinking mode, word-token frequency rises from 28.2% (easy) to 37.7% (hard) while number-token frequency falls from 17.0% to 8.0%; NoThinking mirrors the pattern (word 21.7%->36.1%, number 16.0%->5.9%) but with markedly higher math-symbol usage overall (22.3% at easy vs. Thinking's 15.6%). Table 4 (causal suppression effects, relative change per 1,000 tokens from baseline): suppressing F28634 causes LaTeX density -40.28, boxed-answer retention falling to 0%, output length +454%, and lexical diversity (Distinct-1) -63%, alongside metacognitive density +34.17; suppressing F4416 causes LaTeX density -35.22, output length +410%, lexical diversity -37%, and metacognitive density -19.38 (a decrease, opposite in sign to F28634's effect); suppressing F8893 causes LaTeX density -29.54, output length +107%, lexical diversity -42%, metacognitive density -4.33. Across all three features, boxed-answer retention collapses toward 0% and LaTeX density drops sharply and consistently, while the direction of the metacognitive-density shift differs by feature, evidencing divergent internal roles despite a common structural failure mode.",
+    "tags": [
+      "sparse autoencoders",
+      "mechanistic interpretability",
+      "chain-of-thought",
+      "thinking vs nothinking",
+      "feature suppression",
+      "causal intervention",
+      "reasoning mechanisms",
+      "DeepSeek-R1-Distill"
+    ],
+    "topics": [
+      "overthinking"
+    ]
+  },
+  "task_id": "paper__local-4c4d1944c8091d55",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

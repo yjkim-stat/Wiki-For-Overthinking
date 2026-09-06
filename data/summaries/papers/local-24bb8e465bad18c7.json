@@ -1,0 +1,63 @@
+{
+  "concepts": [
+    "refusal circuit",
+    "shallow alignment",
+    "recognition-execution gap",
+    "safety/utility separability",
+    "granular correctability",
+    "circuit concentration",
+    "Hydra effect"
+  ],
+  "contributions": [
+    "A controlled cross-paradigm comparison of how SFT, reasoning-augmented SFT (Ra-SFT) and ORPO shape refusal-related computation, holding base model, training data and hyperparameters fixed and varying only the training objective, across three architecturally distinct 8-9B models.",
+    "The first circuit-level analysis (activation patching and attribution patching) of how Ra-SFT and ORPO implement safety alignment internally, rather than only characterizing SFT-based refusal as prior mechanistic work has done.",
+    "Identification of a safety-alignment trilemma: none of the three studied post-training objectives jointly achieves distributed refusal encoding, safety/utility separability, and fine-grained correctability via targeted edits.",
+    "Evidence that reasoning-chain supervision (Ra-SFT) installs a qualitatively distinct refusal pathway -- visible in refusal-direction cosine similarity and circuit structure -- consistently across all three architectures, distinct from both SFT and preference-based ORPO.",
+    "Evidence that model architecture independently determines whether refusal circuits are attention-head-dominant, MLP-dominant, or diffuse, and how steerable and correctable they are (e.g. Qwen3-8B's MLP-dominant circuits resist semantic jailbreak attacks but remain vulnerable to encoding-based attacks)."
+  ],
+  "datasets": [
+    "Alpaca",
+    "BeaverTails",
+    "WildJailbreak",
+    "StrongREJECT",
+    "XSTest",
+    "MMLU"
+  ],
+  "generated_at": "2026-09-06T09:08:15Z",
+  "generated_by": "queue",
+  "limitations": "Stated: all experiments are conducted at a single 8-9B parameter scale per architecture, so generalizability to larger scales is untested, and the paper notes prior circuit-analysis literature on scale-consistency tops out around 2.8B with mixed results; the interaction between reasoning supervision and preference optimization was not tested jointly, since constructing reasoning chains for rejected/unsafe BeaverTails responses was judged non-trivial; classification of borderline harmful prompts was not fully stable across repeated runs even under matched seed, precision and hardware (18 of 256, about 7%, of harmless prompts flipped between refusal and compliance across two runs of the same Gemma ORPO checkpoint), which the authors note could affect downstream normalized-effect estimates; the difference-in-means (DIM) refusal-direction extraction used throughout is only an approximation of true refusal geometry, since prior work models refusal as a polyhedral cone spanned by multiple independent directions rather than a single line, and the paper's own steering results show this approximation can fail outright (the Hydra effect in Gemma ORPO, MMLU collapse in Llama) or succeed (stable Gemma MMLU) in ways that depend on training paradigm and architecture. Unstated: because the paper's own single-direction DIM approximation is flagged by the authors as potentially missing the true multi-directional refusal geometry, the paper's conclusions about 'correctability' via ActAdd/ITI steering are conditioned on an extraction method they themselves call incomplete -- an intervention that appears to fail under a DIM-derived direction might succeed under a fuller multi-direction characterization, so the 'granular correctability' leg of the claimed trilemma is the one most likely to be an artifact of the probing method rather than an intrinsic property of the training objective. No wall-clock or compute-overhead cost is reported anywhere in the paper for the activation patching, attribution patching, or ActAdd/ITI steering procedures used as diagnostic tools.",
+  "method": "This is not an inference-time control method aimed at reasoning length or test-time compute; its primary contribution is training-time (three post-training objectives: SFT, reasoning-augmented SFT, ORPO) plus an offline mechanistic circuit analysis of the resulting refusal behavior. It does use inference-time steering as a diagnostic probe rather than a deployed intervention: (1) at the layer level, Activation Addition (ActAdd) adds a scaled unit refusal direction (extracted via difference-in-means over 256 harmful/harmless prompt pairs) to the residual stream at a chosen layer, h' = h + alpha*v_hat, with alpha swept over {0,5,10,15,20} to promote refusal or {0,-5,...,-20} to reduce over-refusal; (2) at the component level, Inference-Time Intervention (ITI) adds a scaled per-head probing direction to a single attention head's output, targeting the head with the strongest measured causal effect on refusal for a given model/training-objective combination (e.g. head 25 layer 30 for Llama SFT; head 14 layer 40 Gemma SFT; head 12 layer 40 Gemma ORPO), and is judged unsuitable for Qwen3-8B because its attention heads have only insignificant causal effects on refusal there. The layers/heads to steer are selected offline via activation patching (substituting a harmful-prompt activation with a harmless one and measuring normalized logit-difference recovery, layer by layer) and attribution patching (a first-order gradient approximation of each component's causal effect, top-5 layers/heads), both computed once from a fixed 256-pair prompt set rather than adapted per input at inference. Both ActAdd and ITI fire as a constant, always-on additive shift at every token position throughout generation, used here for evaluation across WildJailbreak/StrongREJECT/XSTest/MMLU rather than as a deployed always-on inference guard. No cost or latency figures for these steering procedures are reported anywhere in the paper.",
+  "methods": [
+    "Supervised fine-tuning (SFT)",
+    "Reasoning-augmented SFT (Ra-SFT)",
+    "Odds Ratio Preference Optimization (ORPO)",
+    "Difference-in-means (DIM) direction extraction",
+    "Activation Patching",
+    "Attribution Patching",
+    "Activation Addition (ActAdd)",
+    "Inference-Time Intervention (ITI)"
+  ],
+  "models": [
+    "Llama-3.1-8B",
+    "Gemma-2-9B",
+    "Qwen3-8B",
+    "LlamaGuard-3-8B"
+  ],
+  "one_liner": "A controlled, cross-paradigm mechanistic comparison of three post-training safety methods (SFT, reasoning-augmented SFT, and ORPO) across three model architectures, showing that training objective -- not just data -- reshapes how and where refusal is computed internally, and that no method studied is simultaneously robust, capability-preserving, and correctable via small steering edits.",
+  "paper_id": "local:24bb8e465bad18c7",
+  "problem": "Whether the training method used to instill refusal behavior in a language model, not merely the training data, determines the internal computational structure of that behavior (its 'refusal circuit'), and whether that internal structure predicts practically important properties -- jailbreak vulnerability, over-refusal on benign prompts, and correctability via small targeted interventions -- that standard behavioral safety evaluation (attack success rate alone) cannot detect.",
+  "read_from": "document",
+  "relevance": {},
+  "results": "Safety alignment profile (Table 1): ORPO gives the largest attack-success-rate (ASR) reduction versus SFT and Ra-SFT on Llama-3.1-8B and Gemma-2-9B (e.g. Gemma-2-9B StrongREJECT ASR: SFT 31.6%, Ra-SFT 7.9%, ORPO 0.0%), but at the cost of high over-refusal (Gemma ORPO XSTest over-refusal rate 31.6%). Circuit structure differs systematically by architecture and objective: Llama-3.1-8B shifts from attention-head dominance under SFT toward MLP dominance under Ra-SFT and ORPO; Gemma-2-9B shows uniform, redundant encoding under SFT and ORPO but an uneven, MLP-dominant structure under Ra-SFT; Qwen3-8B is MLP-dominant under all three objectives. ActAdd steering results (Section 4.5): in Gemma-2-9B, steering toward refusal at 'recognition-layer' positions (peak normalized refusal-direction magnitude) cuts WildJailbreak ASR by 18.8 percentage points at alpha=20, versus only 5.8 points at 'execution-layer' positions (peak causal-effect layers); in Qwen3-8B SFT, recognition-layer steering cuts ASR by 28.2 points versus 10.8 points at execution layers. ActAdd on Llama-3.1-8B collapses MMLU accuracy toward 0% at small alpha across all three post-training conditions (e.g. SFT drops from 35.5% to 0.0% by alpha=10), indicating safety and utility representations overlap in Llama, whereas Gemma-2-9B's MMLU accuracy stays roughly stable (40-55%) throughout ActAdd steering. Single-attention-head ITI is largely ineffective or harmful: in Gemma-2-9B it does not reliably improve ASR or over-refusal (SFT shows little ASR reduction; ORPO's over-refusal rate actually increases with steering strength), and in Llama-3.1-8B SFT it causes generation collapse (single-token loops, question repetition) at alpha=20 rather than a measurable ASR change, attributed to the 'Hydra effect' where other attention heads compensate for the steered head. Bootstrap stability of causal-effect rankings (1000 resamples) varies: Ra-SFT rankings are most stable in Gemma (rho=0.93) and Llama (rho=0.81), while SFT and ORPO rankings are less stable in those two models (rho 0.39-0.75); Qwen3-8B shows uniformly high stability across all three objectives (rho=0.79-0.90).",
+  "schema_version": 1,
+  "tags": [
+    "refusal-circuits",
+    "safety-alignment",
+    "post-training",
+    "mechanistic-interpretability",
+    "activation-steering",
+    "iti",
+    "actadd",
+    "orpo"
+  ]
+}

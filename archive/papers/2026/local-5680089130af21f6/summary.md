@@ -1,0 +1,55 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Restoring Exploration after Post-Training: Latent Exploration Decoding for Large Reasoning Models
+
+- **Authors**: Wenhui Tan, Fiorenzo Parascandolo, Enver Sanginetto, Jianzhong Ju, Zhenbo Luo, Qian Cao, Rita Cucchiara, Ruihua Song, Jian Luan
+- **Venue**: Proceedings of the 43rd International Conference on Machine Learning (ICML), PMLR 306
+- **Published**: 2026-01-01
+- **Source**: local
+- **Topics**: overthinking
+
+## In one line
+
+Restores lost pass@n exploration in RL-post-trained reasoning models by aggregating hidden-state posteriors from multiple depths and sampling from whichever depth's aggregated posterior has maximal entropy, with no extra training or parameters.
+
+## Problem
+
+GRPO-style RL post-training sharply collapses the entropy of a reasoning model's final-layer output distribution, so temperature-based sampling stops increasing pass@n (the chance that at least one of n samples is correct) or even hurts it, even though earlier LLMs and pre-RL checkpoints show the usual positive effect of higher temperature on pass@n.
+
+## Contributions
+
+- Identifies and analyzes an entropy-collapse phenomenon specific to the final-layer posterior of RL-post-trained LRMs, and shows intermediate layers preserve a 'latent entropy reservoir'.
+- Proposes Latent Exploration Decoding (LED), a training-free, parameter-free decoding strategy that restores exploration by aggregating and selecting among latent-layer posteriors.
+- Shows consistent pass@1 (+0.61pp) and pass@16 (+1.03pp) gains across five models and six benchmarks, and demonstrates LED also improves GRPO rollout quality and training speed when used as the RL sampling policy.
+
+## Method
+
+The authors first show, via early-exit decoding (feeding each transformer layer's hidden state through the shared LM head), that intermediate-layer posteriors keep much higher entropy than the final layer's, calling this a 'latent entropy reservoir'. Latent Exploration Decoding (LED) exploits it at inference time: at each generation step it restricts every one of the last d layers' posteriors to the final layer's top-k token indices (top-k filtering, k=20 by default), forms a cumulative sum of these filtered posteriors from the final layer backward to depth L-d+1 (Eq. 4), computes the entropy of each of these d cumulative combinations (Eq. 5), and picks the combination with maximum entropy as the 'exploration posterior' (Eq. 6). Where it intervenes: the residual-stream/logit outputs of the last d transformer layers (default exploration depth d=8), read out through the model's own, already-trained LM head -- no new probe or parameters are introduced. What quantity decides the intervention: (1) which depth to explore from is chosen purely by entropy of the aggregated top-k posterior at each depth; (2) whether to explore at all, at a given token, is decided by the top-1 probability of the ordinary final-layer posterior, used directly (with no extra threshold) as a Bernoulli confidence signal -- a token samples from the exploration posterior with probability (1-top1_prob) and from the standard exploitation posterior otherwise. When it fires: only during the model's explicit 'DeepThink' (<think>...</think>) phase, which the authors find accounts for over 90% of generated tokens and has substantially higher entropy than the final-answer phase; regular decoding is used during response generation. What it costs: training-free, no added parameters; extra cost is storing hidden states for d-1 extra layers and running the existing LM head on them (O(ds+dV) memory, O(dk) compute for cumulative sums/entropy), which the authors report as negligible -- average generation length changes by under 1% (10,834 to 10,923 tokens across models), wall-clock latency overhead is modest (Appendix E.1, the extra cost falls mainly on the LM-head stage), and high-concurrency throughput (batch 128, 16K context, 8xH100) reaches 91.81% of standard decoding while remaining faster than DoLa and SoftThinking. LED can also replace standard decoding as the GRPO rollout policy during RL training, which the paper tests separately.
+
+## Results
+
+Table 1 (pass@1/pass@16, %): Qwen3-4B-Thinking overall LED 79.32/89.86 vs. CoT 78.20/89.19, DoLa 78.25/86.27, SoftThinking 78.25/86.27, SoftThinking-Gumbel 77.81/89.79; MiMo-7B-RL overall LED 70.84/86.72 vs. CoT 70.21/86.35; Qwen3-30B-A3B-Thinking overall LED 83.92/92.48 vs. CoT 83.65/90.87. Generation length (Table 2) changes negligibly with LED (10,834 to 10,923 tokens overall, <1%). On earlier, less RL-squeezed models the gain is smaller or absent: on QwQ-32B none of the decoding baselines, including LED, improves overall pass@16, which the authors attribute to QwQ-32B's atypical entropy-layer curve (rising rather than collapsing at the final layer). Ablations (Table 3, Qwen3-4B-Thinking): removing the DeepThink-only restriction drops pass@1 by 0.58pp; applying LayerNorm to latent hidden states before the LM head improves pass@16 by 0.79pp but hurts pass@1 by 1.35pp; removing the exploitation branch entirely drops pass@1/pass@16 by 14.7pp/6.6pp and inflates generation length by 33%; removing top-k filtering causes endless looping (runs hit the context limit, N/A accuracy). As a GRPO rollout policy on Qwen3-4B-Thinking with ~750 filtered MATH-lighteval train/test problems (Table 4): a model trained with LED rollout reaches 43.10% accuracy even when evaluated with regular decoding (vs. 41.99% for a model trained with regular rollout evaluated the same way), and reaches 45.44% when both trained and evaluated with LED; LED rollout training also completed faster (4.44h vs. 4.87h) because it produced shorter responses on average (~12.7k to ~12.1k tokens).
+
+## Limitations
+
+The paper is explicit that LED's benefit is small in absolute terms (well under 1.5 percentage points on average) and fails to help, or even mildly hurts pass@16, on QwQ-32B, an earlier model whose entropy does not collapse at the final layer the way modern RL-post-trained LRMs' does -- so the method's applicability is conditioned on the specific entropy-collapse failure mode it targets, not a general-purpose exploration booster. The exploration depth d is fixed heuristically at 8 across all models (chosen for compute/memory reasons rather than being selected per model), even though the paper's own ablation (Fig. 7) shows the ideal depth varies and can saturate near d=12; no per-model tuning of d is attempted in the main results. The GRPO-rollout experiment is run on a single model (Qwen3-4B-Thinking) and a single, fairly small training set (~750 filtered MATH-lighteval problems), so the RL-training benefit is not established across models or domains. A limitation the paper does not state: LED restricts exploration to tokens already present in the final layer's own top-k list (top-k filtering is explicitly justified as necessary to avoid nonsensical generations), which means it can only reweight among candidates the final, already-collapsed layer considers plausible -- it cannot surface a token the final layer has excluded from its top-k entirely, so it is fundamentally bounded by the same collapsed distribution it is trying to work around. LED is training-free and uses no learned readout of internal states (only the model's own, already-trained LM head applied to earlier layers), so the paper reports no predictor-style evaluation of any kind and the accuracy/F1/AUC-vs-downstream-cost distinction (relevant to trained-probe methods) does not apply here.
+
+## Why it matters here
+
+- **overthinking**: LED targets the opposite side of the reasoning-length/quality tradeoff from most overthinking-mitigation work: rather than stopping a model early, it restores test-time-scaling headroom (pass@n) that RL post-training has inadvertently collapsed, while leaving generation length essentially unchanged (<1% difference) -- directly bearing on how effectively a reasoning model uses additional test-time compute at a fixed budget.
+
+## Entities
+
+- **Concepts**: exploration collapse, accuracy-temperature slope, latent entropy reservoir, pass@n, depth-conditioned decoding, exploitation vs. exploration branch
+- **Methods**: Latent Exploration Decoding (LED), early exit / layer-wise LM-head decoding, top-k filtering, cumulative posterior aggregation, entropy-based depth selection, [GRPO](../../../../wiki/methods/grpo.md), DoLa (contrastive decoding baseline), SoftThinking, SoftThinking-Gumbel
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
+
+Tags: `exploration collapse`, `pass@n`, `test-time scaling`, `decoding strategy`, `rl post-training`, `entropy`, `early exit`, `grpo rollout`
+
+## Abstract
+
+Large Reasoning Models (LRMs) have recently achieved strong mathematical and code reasoning performance through Reinforcement Learning (RL) post-training. However, we show that modern reasoning post-training induces an unintended exploration collapse: temperature-based sampling no longer increases pass@n accuracy. Empirically, the final-layer posterior of post-trained LRMs exhibit sharply reduced entropy, while the entropy of intermediate layers remains relatively high. Motivated by this entropy asymmetry, we propose Latent Exploration Decoding (LED), a depth-conditioned decoding strategy. LED aggregates intermediate posteriors via cumulative sum and selects depth configurations with maximal entropy as exploration candidates. Without additional training or parameters, LED consistently improves pass@1 and pass@16 accuracy by 0.61 and 1.03 percentage points across multiple reasoning benchmarks and models. Furthermore, integrating LED into reinforcement learning, e.g., using GRPO as the rollout strategy, yields faster reward improvement and higher final performance, due to the efficient exploration capability of LED.
+
+---
+
+Record id: `local:5680089130af21f6`

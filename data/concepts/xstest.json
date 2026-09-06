@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "ReasoningGuard is a training-free, inference-time jailbreak defense for large reasoning models that uses an attention-sink signal to locate the moment reasoning shifts from problem restatement to exploration, injects a crafted 'safety aha' phrase there, then samples multiple continuations and selects the one with the highest sustained attention to that safety phrase -- outperforming nine existing defenses at only 5-9% extra inference cost.",
       "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments"
+    },
+    {
+      "id": "local:24bb8e465bad18c7",
+      "kind": "paper",
+      "note": "A controlled, cross-paradigm mechanistic comparison of three post-training safety methods (SFT, reasoning-augmented SFT, and ORPO) across three model architectures, showing that training objective -- not just data -- reshapes how and where refusal is computed internally, and that no method studied is simultaneously robust, capability-preserving, and correctable via small steering edits.",
+      "title": "Beyond Shallow Alignment: How Post-Training Methods Determine Refusal Circuits And Steering Robustness"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-09-02T22:23:25Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "XSTest",
   "related": [
     "thought-answer-safety-decomposition",
@@ -60,7 +66,28 @@
     "deepseek-r1-llama-8b",
     "phi-4-reasoning",
     "qwq-32b",
-    "qwen3-4b-thinking-2507"
+    "qwen3-4b-thinking-2507",
+    "refusal-circuit",
+    "shallow-alignment",
+    "recognition-execution-gap",
+    "safety-utility-separability",
+    "granular-correctability",
+    "circuit-concentration",
+    "hydra-effect",
+    "supervised-fine-tuning-sft",
+    "reasoning-augmented-sft-ra-sft",
+    "odds-ratio-preference-optimization-orpo",
+    "difference-in-means-dim-direction-extraction",
+    "activation-patching",
+    "attribution-patching",
+    "activation-addition-actadd",
+    "inference-time-intervention-iti",
+    "alpaca",
+    "beavertails",
+    "llama-3-1-8b",
+    "gemma-2-9b",
+    "qwen3-8b",
+    "llamaguard-3-8b"
   ],
   "related_authored": [],
   "schema_version": 1,

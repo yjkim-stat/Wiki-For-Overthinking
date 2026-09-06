@@ -1,0 +1,31 @@
+{
+  "abstract": "Recent reasoning Large Language Models (LLMs) demonstrate remarkable problem-solving abilities but often generate long thinking traces whose utility is unclear. Our work aims to improve their efficiency, enabling them to reach high performance without overthinking. First, we analyze the entropy of token probabilities in reasoning traces. Across three models, we observe a consistent U-shaped entropy pattern: high entropy on easy problems despite high accuracy, low entropy on problems with medium difficulty, and high entropy on hard problems reflecting uncertainty. Specifically, we notice 22-25% entropy reduction from easy to medium difficulty regions, suggesting an overthinking phenomenon on easy instances. Building on these insights, we introduce DiffAdapt, a lightweight framework that selects Easy/Normal/Hard inference strategies per question based on their difficulty and reasoning trace entropy. Each inference strategy consists of a fixed prompt, temperature and maximum token length. In contrast to existing efficiency optimization methods, our approach does not fine-tune base LLM but a small probe that classifies LLM's final hidden state, allowing inexpensive adaptation. We comprehensively evaluate our method on five models and eight benchmarks. Our method achieves comparable or improved accuracy while reducing token usage by up to 22.4%, establishing a practical path toward compute-efficient reasoning.",
+  "arxiv_id": "2510.19669",
+  "authors": [
+    "Xiang Liu",
+    "Xuming Hu",
+    "Xiaowen Chu",
+    "Eunsol Choi"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-09-06T08:57:19Z",
+  "id": "local:e8f26d999a2ffe42",
+  "last_seen": "2026-09-06T08:57:19Z",
+  "local_path": "data/pdfs/read/local-e8f26d999a2ffe42.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "diffadapt-difficulty-adaptive.pdf",
+  "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "ICLR 2026",
+  "year": 2026
+}

@@ -1,0 +1,36 @@
+{
+  "abstract": "Large Reasoning Models (LRMs) have recently achieved strong mathematical and code reasoning performance through Reinforcement Learning (RL) post-training. However, we show that modern reasoning post-training induces an unintended exploration collapse: temperature-based sampling no longer increases pass@n accuracy. Empirically, the final-layer posterior of post-trained LRMs exhibit sharply reduced entropy, while the entropy of intermediate layers remains relatively high. Motivated by this entropy asymmetry, we propose Latent Exploration Decoding (LED), a depth-conditioned decoding strategy. LED aggregates intermediate posteriors via cumulative sum and selects depth configurations with maximal entropy as exploration candidates. Without additional training or parameters, LED consistently improves pass@1 and pass@16 accuracy by 0.61 and 1.03 percentage points across multiple reasoning benchmarks and models. Furthermore, integrating LED into reinforcement learning, e.g., using GRPO as the rollout strategy, yields faster reward improvement and higher final performance, due to the efficient exploration capability of LED.",
+  "arxiv_id": "2602.01698",
+  "authors": [
+    "Wenhui Tan",
+    "Fiorenzo Parascandolo",
+    "Enver Sanginetto",
+    "Jianzhong Ju",
+    "Zhenbo Luo",
+    "Qian Cao",
+    "Rita Cucchiara",
+    "Ruihua Song",
+    "Jian Luan"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-09-06T08:57:19Z",
+  "id": "local:5680089130af21f6",
+  "last_seen": "2026-09-06T08:57:19Z",
+  "local_path": "data/pdfs/read/local-5680089130af21f6.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "latent-exploration-decoding.pdf",
+  "title": "Restoring Exploration after Post-Training: Latent Exploration Decoding for Large Reasoning Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "Proceedings of the 43rd International Conference on Machine Learning (ICML), PMLR 306",
+  "year": 2026
+}

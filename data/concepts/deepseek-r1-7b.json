@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "ThinkBrake is a training-free decoding rule that injects </think> at sentence boundaries whenever the log-probability margin between the top continuation token and </think> narrows below a threshold, recovering most of an oracle stopping point's headroom (8% accuracy gain, 72% token reduction) with a theoretically grounded, model-agnostic criterion, and its generated trajectories can also train models via DPO for training-free-free efficient reasoning.",
       "title": "ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding"
+    },
+    {
+      "id": "local:0f0156fba32ad42d",
+      "kind": "paper",
+      "note": "A training-free test-time method that detects high-entropy (uncertain) tokens during LLM decoding and applies classifier-free guidance, via a reused-KV-cache negative prompt, only at those tokens to correct reasoning errors with minimal overhead.",
+      "title": "Less is More: Improving LLM Reasoning with Minimal Test-Time Intervention"
     }
   ],
   "first_seen": "2026-08-28T01:36:19Z",
   "kind": "model",
-  "last_seen": "2026-09-02T22:23:25Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "DeepSeek-R1-7B",
   "related": [
     "overthinking",
@@ -43,7 +49,27 @@
     "qwen3-14b",
     "qwen3-32b",
     "qwen3-next-80b",
-    "phi-4-reasoning"
+    "phi-4-reasoning",
+    "token-entropy",
+    "classifier-free-guidance",
+    "kv-cache-reuse",
+    "negative-prompting",
+    "selective-intervention",
+    "minimal-test-time-intervention-mti",
+    "selective-cfg-intervention",
+    "lightweight-negative-prompt-guidance",
+    "classifier-free-guidance-cfg",
+    "contrastive-decoding-cd",
+    "mmlu-pro",
+    "humaneval",
+    "humanevalplus",
+    "livecodebench",
+    "where2place",
+    "refspatial",
+    "vabenchpoint",
+    "qwen3-8b",
+    "ling-mini-2-0",
+    "qwen3-8b-vl-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,

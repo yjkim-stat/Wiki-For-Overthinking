@@ -107,6 +107,12 @@
       "title": "DeepPrune: Parallel Scaling without Inter-trace Redundancy"
     },
     {
+      "id": "local:e8f26d999a2ffe42",
+      "kind": "paper",
+      "note": "Introduces DiffAdapt, a lightweight probe trained on a reasoning LLM's frozen hidden states that classifies each question as Easy/Normal/Hard and, before generation starts, selects a matching fixed prompt/temperature/max-token strategy, cutting token usage by up to 22.4% without retraining the LLM.",
+      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
+    },
+    {
       "id": "local:eff598a06b1089db",
       "kind": "paper",
       "note": "The paper defines model-relative measures of overthinking (local/global overthinking scores) built from observed token-spend distributions, introduces the DUMB500 easy-question dataset to probe overthinking on trivial inputs, and proposes THOUGHTTERMINATOR, a training-free decoding-time technique that interrupts a reasoning model with token-budget reminders and forces an answer at a difficulty-calibrated deadline.",
@@ -187,7 +193,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-09-02T22:23:25Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "GPQA",
   "related": [
     "length-explosion",
@@ -493,6 +499,20 @@
     "qwen3-32b",
     "gpt-oss-20b",
     "glm-4-5-air",
+    "u-shaped-entropy-pattern",
+    "difficulty-adaptive-inference",
+    "token-efficient-reasoning",
+    "diffadapt-difficulty-probe-strategy-selection",
+    "generation-entropy-analysis",
+    "deer-early-exit-baseline",
+    "heuristic-difficulty-labeling",
+    "deepmath-103k",
+    "qwen3-4b",
+    "deepseek-r1-qwen-7b",
+    "deepseek-r1-qwen-1-5b",
+    "deepseek-r1-llama-8b",
+    "nemotron-1-5b-nemotron-research-reasoning-qwen-1-5b",
+    "thinkprune-7b",
     "difficulty-calibrated-token-spend",
     "observational-overthinking",
     "local-envelope-overthinking-score",

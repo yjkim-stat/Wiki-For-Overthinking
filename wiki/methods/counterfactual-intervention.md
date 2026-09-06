@@ -8,7 +8,7 @@ A causal-analysis technique that alters part of a reasoning trace (e.g. an inter
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 3
 
-**Related**: [Overthinking](../concepts/overthinking.md)
+**Related**: [attention-based interpretability analysis](attention-based-interpretability-analysis.md), [internal bias](../concepts/internal-bias.md), [Overthinking](../concepts/overthinking.md)
 
 ## Appears in
 

@@ -7,11 +7,17 @@
       "kind": "paper",
       "note": "ReasoningGuard is a training-free, inference-time jailbreak defense for large reasoning models that uses an attention-sink signal to locate the moment reasoning shifts from problem restatement to exploration, injects a crafted 'safety aha' phrase there, then samples multiple continuations and selects the one with the highest sustained attention to that safety phrase -- outperforming nine existing defenses at only 5-9% extra inference cost.",
       "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments"
+    },
+    {
+      "id": "local:e8f26d999a2ffe42",
+      "kind": "paper",
+      "note": "Introduces DiffAdapt, a lightweight probe trained on a reasoning LLM's frozen hidden states that classifies each question as Easy/Normal/Hard and, before generation starts, selects a matching fixed prompt/temperature/max-token strategy, cutting token usage by up to 22.4% without retraining the LLM.",
+      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
     }
   ],
   "first_seen": "2026-08-28T00:09:24Z",
   "kind": "model",
-  "last_seen": "2026-09-02T22:23:25Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "DeepSeek-R1-Llama-8B",
   "related": [
     "safety-aha-moment-inference-time-injection",
@@ -30,7 +36,28 @@
     "deepseek-r1-qwen-7b-14b-32b",
     "phi-4-reasoning",
     "qwq-32b",
-    "qwen3-4b-thinking-2507"
+    "qwen3-4b-thinking-2507",
+    "overthinking",
+    "u-shaped-entropy-pattern",
+    "difficulty-adaptive-inference",
+    "token-efficient-reasoning",
+    "diffadapt-difficulty-probe-strategy-selection",
+    "generation-entropy-analysis",
+    "deer-early-exit-baseline",
+    "heuristic-difficulty-labeling",
+    "deepmath-103k",
+    "gsm8k",
+    "aime-2024",
+    "aime-2025",
+    "olympiadbench",
+    "minerva",
+    "gpqa",
+    "mmlu-pro",
+    "qwen3-4b",
+    "deepseek-r1-qwen-7b",
+    "deepseek-r1-qwen-1-5b",
+    "nemotron-1-5b-nemotron-research-reasoning-qwen-1-5b",
+    "thinkprune-7b"
   ],
   "related_authored": [],
   "schema_version": 1,

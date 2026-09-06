@@ -92,6 +92,12 @@
       "title": "Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs"
     },
     {
+      "id": "local:77b3413236375923",
+      "kind": "paper",
+      "note": "Finds that large reasoning models pre-plan how many reasoning tokens a question will need, encoded as a single pre-allocated direction vector in their activations whose magnitude can be read out to predict reasoning length or added/subtracted to causally control it.",
+      "title": "On Reasoning Strength Planning in Large Reasoning Models"
+    },
+    {
       "id": "title:0bc5d9b198744bed",
       "kind": "paper",
       "note": "AutoThink uses a three-stage RL curriculum with stage-wise reward shaping to teach R1-style distilled models to decide per problem whether to emit an explicit reasoning chain at all.",
@@ -160,7 +166,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "dataset",
-  "last_seen": "2026-09-02T22:23:25Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "MATH",
   "related": [
     "early-exit",
@@ -432,6 +438,15 @@
     "difficulty-calibration-self-awareness-in-reasoning-length",
     "deepseek-r1-distill-1-5b",
     "simpo-simple-preference-optimization",
+    "reasoning-strength-planning",
+    "pre-allocated-direction-vector",
+    "activation-steering",
+    "difficulty-aware-reasoning-length-allocation",
+    "linear-probing-lasso-regression",
+    "difference-in-means-direction-extraction",
+    "alpacaeval",
+    "deepseek-r1-distill-qwen-14b",
+    "deepseek-r1-distill-qwen-32b",
     "adaptive-thinking",
     "thinking-mode-switching",
     "reward-shaping",

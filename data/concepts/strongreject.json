@@ -33,11 +33,17 @@
       "kind": "paper",
       "note": "A single-turn, non-narrative jailbreak method that simply instructs an LRM to reason through an explicit internal conflict (e.g. Helpfulness vs. Harmlessness) or moral dilemma (e.g. a duress or sacrificial scenario) before answering a harmful query substantially raises attack success rates across three models and five safety benchmarks (e.g. QwQ-32B: direct-query ASR 0.04 to conflict-injected 0.523 on AdvBench) with no fine-tuning, multi-turn interaction, or gradient access, and layerwise/neuron-level analysis shows the conflict prompt causes safety-relevant and functional activation subspaces to shift and overlap specifically in middle-to-late layers, weakening safety alignment at the representational level.",
       "title": "Conflicts Make Large Reasoning Models Vulnerable to Attacks"
+    },
+    {
+      "id": "local:24bb8e465bad18c7",
+      "kind": "paper",
+      "note": "A controlled, cross-paradigm mechanistic comparison of three post-training safety methods (SFT, reasoning-augmented SFT, and ORPO) across three model architectures, showing that training objective -- not just data -- reshapes how and where refusal is computed internally, and that no method studied is simultaneously robust, capability-preserving, and correctable via small steering edits.",
+      "title": "Beyond Shallow Alignment: How Post-Training Methods Determine Refusal Circuits And Steering Robustness"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "dataset",
-  "last_seen": "2026-09-01T10:04:16Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "StrongReject",
   "related": [
     "thought-answer-safety-decomposition",
@@ -146,7 +152,28 @@
     "qwq-32b",
     "llama-nemotron-8b",
     "deepseek-r1-0528-685b",
-    "qwen3guard-robustness-check-appendix"
+    "qwen3guard-robustness-check-appendix",
+    "refusal-circuit",
+    "shallow-alignment",
+    "recognition-execution-gap",
+    "safety-utility-separability",
+    "granular-correctability",
+    "circuit-concentration",
+    "hydra-effect",
+    "supervised-fine-tuning-sft",
+    "reasoning-augmented-sft-ra-sft",
+    "odds-ratio-preference-optimization-orpo",
+    "difference-in-means-dim-direction-extraction",
+    "activation-patching",
+    "attribution-patching",
+    "activation-addition-actadd",
+    "inference-time-intervention-iti",
+    "alpaca",
+    "beavertails",
+    "mmlu",
+    "llama-3-1-8b",
+    "gemma-2-9b",
+    "llamaguard-3-8b"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -15,11 +15,17 @@
       "kind": "paper",
       "note": "BrowseConf shows that despite web-search agents being poorly calibrated in absolute terms (verbalized confidence systematically exceeds actual accuracy), their confidence is strongly rank-correlated with correctness -- near-zero accuracy below 70% confidence, more than double the average accuracy above 95% -- and exploits this by triggering additional search attempts only when confidence falls below a calibrated threshold rather than always sampling a fixed number, matching or beating fixed-budget Self-Consistency/CISC on BrowseComp while cutting average attempts from a fixed 10 down to 2.06-5.72.",
       "title": "BrowseConf: Confidence-Guided Test-Time Scaling for Web Agents"
+    },
+    {
+      "id": "local:6ea04c0fef8fdbd9",
+      "kind": "paper",
+      "note": "A training-free decoding framework that selectively branches a reasoning model's generation into a small tree only at high-uncertainty 'decision tokens', then exploits an observed length-accuracy anti-correlation by terminating on and returning the shortest completed trajectory instead of sampling many full independent trajectories.",
+      "title": "DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching"
     }
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "method",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "Self-Consistency (baseline)",
   "related": [
     "constrained-compute-allocation-over-partial-reasoning-trajectories",
@@ -48,7 +54,29 @@
     "browsecomp-zh",
     "sailorfog-qa-validation-threshold-calibration-subset",
     "gpt-oss-120b",
-    "deepseek-v3-1"
+    "deepseek-v3-1",
+    "length-accuracy-anti-correlation",
+    "decision-token",
+    "varentropy",
+    "entropy",
+    "parallel-thinking",
+    "early-termination",
+    "structured-reasoning-tree",
+    "exploration-vs-exploitation-in-decoding",
+    "decoding-tree-sketching-dts",
+    "dts-greedy",
+    "dts-stable",
+    "decision-token-detection-via-entropy-and-varentropy",
+    "length-accuracy-anti-correlation-early-termination",
+    "grpo-theoretical-motivation-not-trained-here",
+    "aime-2024",
+    "livebench-livebench-reasoning",
+    "deepseek-r1-distill-qwen-7b",
+    "deepseek-r1-distill-qwen-1-5b",
+    "qwen3-0-6b",
+    "phi4-mini-reasoning-4b",
+    "deepseek-r1-distill-llama-70b-comparison-only",
+    "qwq-32b-preview-comparison-only"
   ],
   "related_authored": [
     "self-consistency-sc"

@@ -69,6 +69,12 @@
       "title": "Answer Convergence as a Signal for Early Stopping in Reasoning"
     },
     {
+      "id": "local:77b3413236375923",
+      "kind": "paper",
+      "note": "Finds that large reasoning models pre-plan how many reasoning tokens a question will need, encoded as a single pre-allocated direction vector in their activations whose magnitude can be read out to predict reasoning length or added/subtracted to causally control it.",
+      "title": "On Reasoning Strength Planning in Large Reasoning Models"
+    },
+    {
       "id": "local:8ec022e440eb9021",
       "kind": "paper",
       "note": "Proposes PUMA, an inference-time early-exit framework that flags reasoning steps as candidate exits when a contrastively-trained embedding detector finds them semantically redundant with recent context, then confirms the exit is safe via answer-level confidence/consistency verification before stopping.",
@@ -89,7 +95,7 @@
   ],
   "first_seen": "2026-08-21T00:56:47Z",
   "kind": "model",
-  "last_seen": "2026-09-02T22:23:25Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "DeepSeek-R1-Distill-Qwen-32B",
   "related": [
     "mixture-of-neurons-mon",
@@ -272,6 +278,14 @@
     "nltk-sentence-chunking",
     "natural-questions",
     "qwq-32b",
+    "reasoning-strength-planning",
+    "pre-allocated-direction-vector",
+    "activation-steering",
+    "difficulty-aware-reasoning-length-allocation",
+    "linear-probing-lasso-regression",
+    "difference-in-means-direction-extraction",
+    "math",
+    "alpacaeval",
     "reasoning-level-semantic-redundancy",
     "semantic-preserving-early-exit",
     "redundancy-detector-contrastive-step-embedding-similarity",

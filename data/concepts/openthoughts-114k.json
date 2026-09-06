@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "OpenThoughts-114k"
+    "OpenThoughts-114k",
+    "OpenThoughts-114K"
   ],
   "definition": "OpenThoughts-114k is a 114K-example long-CoT reasoning-distillation dataset used in ReasMark (training reasoning models to systematically produce longer chains-of-thought on prompts dominated by a secret token pattern, to attribute knowledge distillation and protect intellectual property) and in Distilling the Essence's section-wise supervision ablation.",
   "evidence": [
@@ -15,11 +16,17 @@
       "kind": "paper",
       "note": "Systematically ablates which section (prompt, CoT, answer) of a reasoning-distillation training sequence carries the useful supervisory signal and how much of the CoT is needed, finding CoT-inclusive supervision is essential while training on only the first 50% of tokens retains ~91% of full-sequence accuracy at roughly half the training time, memory, and FLOPs.",
       "title": "Distilling the Essence: Efficient Reasoning Distillation via Sequence Truncation"
+    },
+    {
+      "id": "local:58250e189d273b56",
+      "kind": "paper",
+      "note": "Trains a sparse autoencoder on a reasoning model's hidden states to disentangle strategy-specific latent features, then identifies and injects the most effective one as a control vector to steer which cognitive reasoning strategy (backtracking, verification, etc.) the model uses next, including to correct wrong answers.",
+      "title": "Controllable LLM Reasoning via Sparse Autoencoder-Based Steering"
     }
   ],
   "first_seen": "2026-08-28T00:41:44Z",
   "kind": "dataset",
-  "last_seen": "2026-09-01T10:24:36Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "OpenThoughts-114k",
   "related": [
     "input-domain-entanglement-watermark-tokens-from-high-frequency-prompt-vocabulary",
@@ -54,7 +61,35 @@
     "qwen3-8b-teacher-student",
     "qwen3-4b-base-student",
     "qwen3-1-7b-base-student",
-    "qwen3-0-6b-base-student"
+    "qwen3-0-6b-base-student",
+    "concept-conceptual-entanglement",
+    "monosemanticity",
+    "control-vector",
+    "logit-lens",
+    "strategy-specific-feature",
+    "reasoning-strategy-control",
+    "negative-steering",
+    "sparse-autoencoder-sae",
+    "topk-sae",
+    "sae-steering-two-stage-feature-identification",
+    "activation-control-vector-steering",
+    "budget-forcing",
+    "self-reflection",
+    "vector-steering",
+    "think-intervention",
+    "logit-boosting",
+    "bi-encoder-strategy-router-contrastive-infonce",
+    "lmsys-chat-1m",
+    "aime-1983-2023-used-as-validation",
+    "gpqa-diamond",
+    "math500",
+    "numinamath-1-5-aops-forum-subset",
+    "finqa",
+    "deepseek-r1-distill-llama-8b",
+    "qwen3-8b",
+    "gpt-4o-judge",
+    "gemini-2-5-flash-judge",
+    "deepseek-v3-2-judge"
   ],
   "related_authored": [
     "bespoke-stratos-17k"

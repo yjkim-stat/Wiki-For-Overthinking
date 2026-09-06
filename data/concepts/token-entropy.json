@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "token entropy"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "A controlled re-evaluation of entropy-based chain-of-thought compression showing that low- and high-entropy selection never beats random pruning once a random baseline is included, and that the one apparent exception on math benchmarks is caused by numeric tokens rather than by entropy.",
       "title": "Demystifying Entropy-based Selection for Chain-of-Thought Compression in Large Reasoning Models"
+    },
+    {
+      "id": "local:0f0156fba32ad42d",
+      "kind": "paper",
+      "note": "A training-free test-time method that detects high-entropy (uncertain) tokens during LLM decoding and applies classifier-free guidance, via a reused-KV-cache negative prompt, only at those tokens to correct reasoning errors with minimal overhead.",
+      "title": "Less is More: Improving LLM Reasoning with Minimal Test-Time Intervention"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "concept",
-  "last_seen": "2026-08-21T00:41:33Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "Token Entropy",
   "related": [
     "chain-of-thought-compression",
@@ -34,7 +42,30 @@
     "aime-2026",
     "math-500-subsets-of-100-50-50",
     "zebralogic",
-    "gpqa-diamond"
+    "gpqa-diamond",
+    "classifier-free-guidance",
+    "kv-cache-reuse",
+    "negative-prompting",
+    "selective-intervention",
+    "minimal-test-time-intervention-mti",
+    "selective-cfg-intervention",
+    "lightweight-negative-prompt-guidance",
+    "classifier-free-guidance-cfg",
+    "contrastive-decoding-cd",
+    "mmlu-pro",
+    "humaneval",
+    "humanevalplus",
+    "livecodebench",
+    "math500",
+    "where2place",
+    "refspatial",
+    "vabenchpoint",
+    "deepseek-r1-7b",
+    "qwen3-8b",
+    "qwen3-14b",
+    "qwen3-32b",
+    "ling-mini-2-0",
+    "qwen3-8b-vl-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -137,6 +137,12 @@
       "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers"
     },
     {
+      "id": "local:f13a1da3e3ea0d42",
+      "kind": "paper",
+      "note": "Identifies a reasoning model's implicit, pre-reasoning guess about the answer ('internal bias') as a causal driver of overthinking, showing that when this guess conflicts with the model's derived answer it triggers excessive reflection, and that existing overthinking-mitigation methods fail to remove this influence.",
+      "title": "The First Impression Problem: Internal Bias Triggers Overthinking in Reasoning Models"
+    },
+    {
       "id": "title:c593d75efe2e5d8c",
       "kind": "paper",
       "note": "Studies how quantization, distillation and pruning affect DeepSeek-R1's reasoning ability using mechanistic interpretation, finding weight count matters more for knowledge memorization than reasoning, and that protecting just 2% of over-compressed weights recovers 6.57 accuracy points.",
@@ -145,7 +151,7 @@
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "model",
-  "last_seen": "2026-09-06T04:03:52Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "DeepSeek-R1",
   "related": [
     "adaptive-test-time-compute-allocation",
@@ -608,6 +614,21 @@
     "harmbench-appendix",
     "strongreject-appendix",
     "gemini-2-0-flash-h-and-m-safety-modes",
+    "internal-bias",
+    "first-impression-problem",
+    "bias-deviation-degree",
+    "parroting-behavior",
+    "attention-reactivation-of-bias",
+    "internal-bias-measurement-direct-answer-probing",
+    "question-removal-counterfactual-intervention",
+    "bias-injection-via-fine-tuning",
+    "attention-based-interpretability-analysis",
+    "fcs-sft-dpo",
+    "seal",
+    "probe",
+    "charcount-en",
+    "charcount-zh",
+    "knowlogic",
     "mechanistic-interpretation-of-compression-effects",
     "reasoning-critical-weight-identification",
     "compression-induced-reasoning-degradation",

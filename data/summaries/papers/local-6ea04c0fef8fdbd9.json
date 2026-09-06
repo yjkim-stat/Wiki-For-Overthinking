@@ -1,0 +1,64 @@
+{
+  "concepts": [
+    "length-accuracy anti-correlation",
+    "decision token",
+    "varentropy",
+    "entropy",
+    "parallel thinking",
+    "early termination",
+    "structured reasoning tree",
+    "exploration vs. exploitation in decoding"
+  ],
+  "contributions": [
+    "Empirically and theoretically (via the GRPO objective's length-normalized advantage) establishes a length-accuracy anti-correlation in large reasoning models.",
+    "Proposes a training-free, plug-and-play decoding framework that sketches a compact backbone tree of the reasoning space by branching only at entropy/varentropy-identified decision tokens, rather than sampling independent full trajectories.",
+    "Introduces an early-termination selection rule (DTS-Greedy / DTS-Stable) that prioritizes short, already-completed trajectories, improving accuracy by 14% and reducing repetitive generation by 8% on average across four models and four benchmarks, and enabling smaller models to match or beat models 10x their size at matched compute."
+  ],
+  "datasets": [
+    "AIME24",
+    "AIME25",
+    "GPQA-Diamond",
+    "LiveBench (LiveBench-Reasoning)"
+  ],
+  "generated_at": "2026-09-06T09:07:46Z",
+  "generated_by": "queue",
+  "limitations": "No dedicated Limitations section appears in the main text or appendices as read; the paper's Impact Statement states only that it foresees no unique or immediate societal risks. Points a careful reader should notice that the paper does not state: the decision-token thresholds (tau_v=1.5, tau_h=2.5), branch factor K=3, and the maximum simultaneous branch cap of 48 are fixed, hand-set hyperparameters applied identically 'across all datasets and models' (Appendix A), with no evidence they were retuned per model or task, so it is unclear how sensitive the method is to distributional differences across model families (e.g. the paper itself found QwQ-32B-like models can have unusual entropy behavior in related literature, but this is not tested here). The core anti-correlation motivating early termination is a population-level statistical correlation (shorter trajectories are more often correct on average), which DTS-Greedy converts into a per-instance selection rule that returns the very first trajectory to finish with no correctness check at all -- on any case where the anti-correlation is weak or reversed for a specific problem, this policy would systematically prefer a quick-but-wrong answer over a slower-but-correct one, and the paper does not separately audit whether DTS's selected short trajectories are right for sound reasoning versus having simply given up early (its own qualitative case studies, e.g. Figures 6-11, show DTS succeeding by reaching a correct conclusion rather than merely stopping, but this is not quantified). Cost reporting is limited to PFLOPs-per-trace; no wall-clock latency, memory, or KV-cache overhead is reported for maintaining up to 48 parallel branches, so the real-world serving cost of the branching mechanism is not characterized. DTS uses no trained readout of internal states at all -- decision-token detection is a fixed statistical formula over the model's own output logits, not a learned classifier -- so the paper reports no predictor-style evaluation (no accuracy/F1/AUC against held-out labels) and the distinction between evaluating a readout as a predictor versus only through downstream accuracy does not apply to this method.",
+  "method": "The authors first establish, empirically and with a theoretical argument from the GRPO training objective (whose length-normalized advantage gives shorter correct trajectories larger positive updates and shorter incorrect trajectories smaller penalties), a length-accuracy anti-correlation: across DeepSeek-R1-Distill-Qwen-1.5B/7B and Qwen3-0.6B on AIME24, AIME25 and GPQA-D, grouping sampled trajectories by length and measuring mean accuracy per group shows accuracy declines as trajectory length increases. Decoding Tree Sketching (DTS) exploits this with two mechanisms. Where it intervenes: purely in the sampling process at generation time -- no residual-stream, logit, or neuron modification beyond the model's own next-token distribution P_t at each step; instead, at each step for every currently active trajectory, DTS decides whether to branch that trajectory into up to K=3 parallel continuations (selecting the K most probable next tokens) or to continue single-token sampling as usual. What quantity decides the intervention: a token is classified as a 'decision token' triggering branching only when the model's own next-token distribution P_t simultaneously has high varentropy (VE(P_t) >= tau_v = 1.5, the variance of per-token surprisal, indicating competition between a few semantically distinct high-probability continuations) and low-to-moderate entropy (H(P_t) <= tau_h = 2.5, indicating the model is not simply uncertain about many options) -- both statistics computed directly from the standard output logits, with no trained classifier. Once branches exist, trajectory selection uses the length-accuracy anti-correlation directly: DTS-Greedy terminates the entire decoding process the instant any active trajectory emits an end-of-sequence token and returns that trajectory as the final answer; DTS-Stable relaxes this by collecting a voting budget of B completed trajectories and taking a majority vote over their answers. When it fires: continuously, at every decoding step, for every currently active trajectory during generation; to bound compute, branching is capped once 48 trajectories are simultaneously active, after which new branching is disabled (falling back to single-token continuation) so the sketched tree's high-level shape, set by the earliest decision tokens, is preserved rather than diluted by later minor branches. What it costs: fully training-free and requires no probe, SAE, or additional parameters -- the method operates purely at decoding time as a plug-and-play wrapper. Cost is reported via PFLOPs per reasoning trace rather than wall-clock latency: DTS achieves higher accuracy at equal or lower PFLOPs than Self-Consistency and DeepConf (Figure 5), and lets 1.5B/7B distilled models with DTS-Stable match or exceed flagship 32B-70B models at similar compute budgets. No wall-clock latency, memory, or GPU-hour figures are reported for the branching process itself.",
+  "methods": [
+    "Decoding Tree Sketching (DTS)",
+    "DTS-Greedy",
+    "DTS-Stable",
+    "decision-token detection via entropy and varentropy",
+    "length-accuracy anti-correlation early termination",
+    "Self-Consistency (baseline)",
+    "DeepConf (baseline)",
+    "GRPO (theoretical motivation, not trained here)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B",
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "Qwen3-0.6B",
+    "Phi4-mini-reasoning-4B",
+    "DeepSeek-R1-Distill-Llama-70B (comparison only)",
+    "QwQ-32B-Preview (comparison only)"
+  ],
+  "one_liner": "A training-free decoding framework that selectively branches a reasoning model's generation into a small tree only at high-uncertainty 'decision tokens', then exploits an observed length-accuracy anti-correlation by terminating on and returning the shortest completed trajectory instead of sampling many full independent trajectories.",
+  "paper_id": "local:6ea04c0fef8fdbd9",
+  "problem": "Parallel-thinking methods for large reasoning models (e.g. self-consistency, DeepConf) sample multiple full, independently generated reasoning trajectories and only select among them post hoc after every one has fully completed; this is redundant because trajectories are highly similar rather than exploring meaningfully different parts of the reasoning space, and it is wasteful because a poor trajectory's compute is never terminated early even though it will likely not be selected in the end.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "DTS is built directly on the tradeoff the overthinking literature studies: it uses the empirical (and GRPO-motivated theoretical) finding that longer reasoning trajectories tend to be less accurate to justify early-terminating generation on the shortest completed trajectory, and it explicitly measures and reduces repetitive, non-terminating generation (a canonical overthinking failure mode) by up to tens of percentage points across models and benchmarks."
+  },
+  "results": "Table 1 (accuracy %, averaged over AIME24/AIME25/GPQA-D/LiveBench): DeepSeek-R1-Distill-Qwen-1.5B improves from 22.34 (standard inference) to 40.45 with DTS-Stable (+18.11pp), versus 29.89 (+7.55) for Self-Consistency and 32.22 (+9.88) for DeepConf-high; Phi4-mini-reasoning-4B improves from 44.48 to 58.09 with DTS-Stable (+13.61pp); DTS-Greedy (a single-trajectory method) outperforms the multi-trajectory Self-Consistency and DeepConf baselines in most settings, indicating that selective branching at decision tokens is more effective than generating more independent samples. Table 2 shows DTS-Greedy substantially reduces the repetition rate (fraction of runs that hit the maximum token budget without concluding), e.g. DeepSeek-R1-Distill-Qwen-1.5B on AIME24 drops from 15.33% (standard inference) to 4.67%, and on GPQA-D and LiveBench several models/datasets drop to 0.00%. Table 3 compares DTS's shortest-completed-trajectory selection against confidence-based max-logit trajectory selection and finds DTS-Greedy higher in every model/dataset cell tested (e.g. DeepSeek-R1-Distill-Qwen-7B on AIME24: 73.33 vs. 65.33 for max-logit; Qwen3-0.6B on AIME24: 14.00 vs. 7.33). Figure 5 shows DTS-Stable using the small 1.5B and 7B distilled models achieves higher accuracy than the much larger flagship DeepSeek-R1-Distill-Llama-70B and QwQ-32B-Preview at similar or lower PFLOPs-per-reasoning-trace, and consistently sits above Self-Consistency and DeepConf on the accuracy-vs-PFLOPs curve for the same base models. Ablation on decision-token criteria (Table 4, AIME25, DeepSeek-R1-Distill-Qwen-1.5B) shows the combined 'VE(P_t) >= tau_v and H(P_t) <= tau_h' rule gives the best DTS-Stable accuracy (39.33) versus using entropy alone (33.33) or varentropy alone with a looser entropy threshold (38.67), confirming both statistics are needed.",
+  "schema_version": 1,
+  "tags": [
+    "decoding tree",
+    "parallel thinking",
+    "early termination",
+    "length-accuracy anti-correlation",
+    "varentropy",
+    "test-time scaling",
+    "self-consistency",
+    "repetition mitigation"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "abstract": "Large Reasoning Models (LRMs) exhibit human-like cognitive reasoning strategies (e.g., backtracking, cross-verification) during the reasoning process, which improves their performance on complex tasks. Currently, reasoning strategies are autonomously selected by LRMs themselves. However, such autonomous selection often produces inefficient or even erroneous reasoning paths. To make reasoning more reliable and flexible, it is important to develop methods for controlling reasoning strategies. Existing methods struggle to control fine-grained reasoning strategies due to conceptual entanglement in LRMs' hidden states. To address this, we leverage Sparse Autoencoders (SAEs) to decompose strategy-entangled hidden states into a disentangled feature space. To identify the few strategy-specific features from the vast pool of SAE features, we propose SAE-Steering, an efficient two-stage feature identification pipeline. SAE-Steering first recalls features that amplify the logits of strategy-specific keywords, filtering out over 99% of features, and then ranks the remaining features by their control effectiveness. Using the identified strategy-specific features as control vectors, SAE-Steering outperforms existing methods by over 15% in control effectiveness. Furthermore, controlling reasoning strategies can redirect LRMs from erroneous paths to correct ones, achieving a 7% absolute accuracy improvement. Our code and data are available at https://github.com/Peter-Fy/SAE-Steering.",
+  "arxiv_id": "",
+  "authors": [
+    "Yi Fang",
+    "Wenjie Wang",
+    "Mingfeng Xue",
+    "Boyi Deng",
+    "Fengli Xu",
+    "Dayiheng Liu",
+    "Fuli Feng"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-09-06T08:57:19Z",
+  "id": "local:58250e189d273b56",
+  "last_seen": "2026-09-06T08:57:19Z",
+  "local_path": "data/pdfs/read/local-58250e189d273b56.pdf",
+  "matched_keywords": [
+    "controllable reasoning"
+  ],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.5
+  },
+  "source": "local",
+  "source_id": "controllable-reasoning-sae-steering.pdf",
+  "title": "Controllable LLM Reasoning via Sparse Autoencoder-Based Steering",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "",
+  "url": "",
+  "venue": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+  "year": 2026
+}

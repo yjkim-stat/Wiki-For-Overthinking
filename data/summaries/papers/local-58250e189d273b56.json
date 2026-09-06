@@ -1,0 +1,69 @@
+{
+  "concepts": [
+    "concept/conceptual entanglement",
+    "monosemanticity",
+    "control vector",
+    "logit lens",
+    "strategy-specific feature",
+    "reasoning strategy control",
+    "negative steering"
+  ],
+  "contributions": [
+    "Leverages SAEs to decompose strategy-entangled hidden states into disentangled, strategy-specific features, addressing the concept-entanglement limitation of prior contrastive control vectors.",
+    "Proposes SAE-Steering, a two-stage (logit-based recall, then empirical control-effectiveness ranking) pipeline for efficiently identifying the few strategy-specific features among tens of thousands of SAE features.",
+    "Demonstrates that controlling reasoning strategies can redirect LRMs from erroneous reasoning paths to correct ones (7% absolute accuracy improvement), and shows a preliminary negative-steering result that suppresses a strategy and shortens reasoning length."
+  ],
+  "datasets": [
+    "LMSYS-Chat-1M",
+    "OpenThoughts-114K",
+    "AIME (1983-2023, used as validation)",
+    "AIME24",
+    "AIME25",
+    "GPQA-Diamond",
+    "MATH500",
+    "NuminaMath-1.5 (aops_forum subset)",
+    "FinQA"
+  ],
+  "generated_at": "2026-09-06T09:07:35Z",
+  "generated_by": "queue",
+  "limitations": "The paper's own Limitations section states: only five representative reasoning strategies were evaluated and the feature-identification pipeline relies on manually specified strategy keywords rather than an automated procedure; the demonstrated application is mainly error correction, with negative steering (to suppress unwanted behaviors, including overthinking) explored only preliminarily; and correction is only attempted by continuing an already-generated flawed response (via Budget Forcing) rather than intervening earlier or mid-trajectory. Beyond what the paper states: even the best absolute correction rates are low (33% at best, most cells well under 25%), so most wrong answers remain uncorrected even with steering. The control-effectiveness metric that produces the paper's headline '>15%' and '7% absolute accuracy' numbers is itself an LLM-as-judge score (majority vote of GPT-4o, Gemini-2.5-Flash and DeepSeek-V3.2, with 0.82 agreement against three human annotators) rather than a ground-truth label, and GPT-4o is also the sole judge used in Stage 2 feature selection itself -- meaning features are chosen to maximize the judgment of a model that also scores the final comparison, a potential source of circularity that the GPT-4o-excluded robustness check (Table 11) only partially addresses since Stage-2 selection itself still used GPT-4o. The method requires a pretrained, per-model, per-layer SAE, so it is not transferable across models or layers without retraining. It does not train a supervised readout evaluated against ground-truth labels (the SAE is trained unsupervised for sparse reconstruction, and feature selection is via logit contribution plus an LLM-judge-scored validation ranking), so the predictor-vs-downstream-accuracy distinction relevant to trained probe classifiers does not directly apply here; the closest analogue, feature-selection precision (Table 2), is itself judged against the same LLM-judge criterion used to define 'correct' steering, not an independent ground truth.",
+  "method": "The authors train a Top-K sparse autoencoder (TopK-SAE, latent dimension M=65,536, an expansion factor of 16 over the model's hidden size N=4,096, K=50 active features) on activations from the last transformer layer of a target LRM (DeepSeek-R1-Distill-Llama-8B or Qwen3-8B), using a mixed corpus of LMSYS-Chat-1M and OpenThoughts-114K. The SAE's sparsity objective yields largely monosemantic latent 'features' (decoder-column directions), which the paper argues resolves the concept-entanglement problem. To find which of the tens of thousands of learned features corresponds to a target reasoning strategy, they introduce SAE-Steering, a two-stage pipeline: Stage 1 (recall) uses logit-lens -- projecting each feature's decoder direction through the model's unembedding matrix -- to find features whose top-10 induced-logit tokens substantially overlap with a manually curated list of strategy-specific keywords (at least n=2 of the top-10 tokens must be keywords, each exceeding a logit-contribution threshold tau=0.1); this step is a single matrix multiplication and discards over 99% of features. Stage 2 (rank) empirically evaluates the surviving candidates' 'control effectiveness' on a small validation set: for each validation problem it generates a baseline continuation and a steered continuation (using each candidate feature as the control vector) and has an LLM judge (GPT-4o) decide whether the steered continuation more explicitly demonstrates the target strategy; the feature with the highest success rate is selected. Where it intervenes: the selected feature's decoder-column direction f_s is added directly to the residual-stream activation at the SAE-trained (final) layer, at every one of the next T=512 consecutive decoding steps, scaled by a coefficient alpha (steering strength) chosen per feature by starting at alpha=15 and decreasing until outputs stop being repetitive; the same mechanism supports negative steering (subtracting f_s) to suppress a strategy. What quantity decides when/how it fires: at deployment, a separately trained bi-encoder 'strategy router' (contrastive InfoNCE training) embeds the current reasoning-state prefix and each of 15 candidate features (top-3 per strategy) and picks the highest-scoring feature to apply; for the error-correction experiments, steering is triggered only after Budget Forcing inserts a 'wait' token following an already-generated (and, in that setting, incorrect) response, so the intervention fires throughout the induced extended-reasoning phase, not during the initial free generation. What it costs: SAE training hyperparameters are given (size, sparsity, corpus) but no wall-clock/GPU-hour or dollar training cost is reported; inference-time overhead is measured directly (100 GPQA samples, Qwen3-8B, single A100): no steering 329s, Vector Steering 353s (+7.3%), SAE-Steering 357s (+8.5%) -- a modest but nontrivial latency cost. It requires white-box access to the target model's residual stream at the trained layer plus a pretrained, layer- and model-specific SAE, so it is not portable to a different model or layer without retraining a new SAE.",
+  "methods": [
+    "Sparse Autoencoder (SAE)",
+    "TopK-SAE",
+    "SAE-Steering (two-stage feature identification)",
+    "logit lens",
+    "activation/control-vector steering",
+    "Budget Forcing",
+    "Self-Reflection",
+    "Vector Steering",
+    "Think Intervention",
+    "Logit Boosting",
+    "bi-encoder strategy router (contrastive InfoNCE)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Llama-8B",
+    "Qwen3-8B",
+    "GPT-4o (judge)",
+    "Gemini-2.5-Flash (judge)",
+    "DeepSeek-V3.2 (judge)"
+  ],
+  "one_liner": "Trains a sparse autoencoder on a reasoning model's hidden states to disentangle strategy-specific latent features, then identifies and injects the most effective one as a control vector to steer which cognitive reasoning strategy (backtracking, verification, etc.) the model uses next, including to correct wrong answers.",
+  "paper_id": "local:58250e189d273b56",
+  "problem": "LRMs autonomously choose among reasoning strategies (problem understanding, procedural planning, backtracking, multi-perspective verification, hypothesis reasoning) with no external control, which often yields inefficient or erroneous reasoning paths; existing activation-based steering methods derive control vectors from contrastive pairs of hidden states, but these pairs cannot cleanly isolate one strategy because the underlying hidden-state directions for different strategies are conceptually entangled, so the resulting control vectors only give coarse control (e.g. over reasoning length) rather than fine-grained control over a specific strategy.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Although centrally about fine-grained control of reasoning strategy rather than reasoning length, the paper's negative-steering result shows suppressing a strategy-specific SAE feature (Multi-Perspective Verification) cuts reasoning length by 14% for a 3.3-point accuracy cost, and the authors explicitly flag suppressing unwanted reasoning behaviors 'to alleviate LRM overthinking and improve reasoning efficiency' as a stated future application of the same steering mechanism."
+  },
+  "results": "Control effectiveness (Table 1, majority vote of 3 LLM judges, averaged over AIME and GPQA for the five strategies Problem Understanding/Procedural Planning/Backtracking/Multi-Perspective Verification/Hypothesis Reasoning): SAE-Steering achieves overall averages of 0.76 (AIME) and 0.87 (GPQA), versus Vector Steering 0.62/0.72, Think Intervention 0.43/0.51, Logit Boosting 0.41/0.49 -- an average improvement of over 15% over the best baseline (Vector Steering), holding under a robustness check that excludes GPT-4o from the judge pool (Table 11). Feature-identification precision (Table 2, proportion of recalled features that actually control the target strategy): SAE-Steering 0.61+/-0.08 (R1-Llama-8B) and 0.52+/-0.05 (Qwen3-8B), versus the activation-strength-based ReasonScore baseline at 0.33+/-0.08 and 0.27+/-0.04 -- a 28% precision improvement. Error correction of already-wrong responses (Table 3): SAE-Steering gives the highest correction rate in every dataset/model cell tested, e.g. R1-Llama-8B MATH500 0.33+/-0.04 (the single highest rate reported anywhere in the paper), AIME25 0.06+/-0.03, GPQA 0.12+/-0.02; Qwen3-8B MATH500 0.24+/-0.07, AIME25 0.14+/-0.08, GPQA 0.12+/-0.02; average absolute improvement over the next-best baseline (Budget Forcing) is 7%. Generalization to an out-of-domain, out-of-training benchmark (FinQA, Table 10) preserves the ranking: SAE-Steering 0.84 average vs. Vector Steering 0.72. A preliminary negative-steering experiment (Table 8, R1-Llama-8B, Multi-Perspective Verification feature, AIME24) shows suppressing the feature reduces the targeted behavior's frequency by 30% (13 to 9 occurrences per response) and reasoning length by 14% (14k to 12k tokens), at a cost of a 3.3% absolute accuracy drop (0.4667 to 0.4333).",
+  "schema_version": 1,
+  "tags": [
+    "sparse autoencoder",
+    "activation steering",
+    "reasoning strategy control",
+    "concept entanglement",
+    "error correction",
+    "interpretability",
+    "control vector"
+  ]
+}

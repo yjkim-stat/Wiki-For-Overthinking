@@ -13,11 +13,17 @@
       "kind": "paper",
       "note": "Budget guidance adapts diffusion-model classifier guidance to LLM reasoning: a lightweight BERT-based predictor estimates a Gamma distribution over each candidate next token's remaining-thinking-length (from the frozen target LLM's hidden states), and its CDF up to the budget is multiplied elementwise into the LLM's own token distribution -- steering generation smoothly toward a token budget without fine-tuning the LLM or hard-cutting it off, beating budget forcing by up to 26% accuracy on MATH-500 under tight budgets while using 37% fewer thinking tokens, and generalizing across model families, sizes, and out-of-domain tasks despite training only on math data.",
       "title": "Steering LLM Thinking with Budget Guidance"
+    },
+    {
+      "id": "local:1da36a797481ea8a",
+      "kind": "paper",
+      "note": "A training-free residual-stream steering method that mitigates overthinking by projecting a difference-in-means 'overthinking direction' onto a low-dimensional PCA manifold of the model's activations before ablating it, removing the accuracy-degrading interference noise that limits naive single-direction steering.",
+      "title": "Mitigating Overthinking in Large Reasoning Models via Manifold Steering"
     }
   ],
   "first_seen": "2026-08-28T02:05:37Z",
   "kind": "method",
-  "last_seen": "2026-08-28T02:36:33Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "Dynasor (baseline)",
   "related": [
     "overthinking",
@@ -58,7 +64,23 @@
     "tablebench",
     "livecodebench",
     "deepseek-r1-distill-qwen-32b",
-    "bert-base-predictor-backbone"
+    "bert-base-predictor-backbone",
+    "steering-direction",
+    "interference-noise",
+    "low-dimensional-activation-manifold",
+    "difference-in-means",
+    "residual-stream",
+    "mechanistic-interpretability",
+    "manifold-steering",
+    "difference-in-means-direction-extraction",
+    "pca-based-low-dimensional-manifold-projection",
+    "activation-ablation-steering",
+    "gsm8k",
+    "openmathinstruct-2",
+    "advbench",
+    "deepseek-r1-distill-qwen-1-5b",
+    "deepseek-r1-distill-qwen-14b",
+    "qwen2-5-7b-instruct"
   ],
   "related_authored": [],
   "schema_version": 1,

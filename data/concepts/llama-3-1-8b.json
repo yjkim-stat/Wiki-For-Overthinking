@@ -60,11 +60,17 @@
       "kind": "paper",
       "note": "Difficulty-Aware Distillation (DAD) has a teacher assess each problem's difficulty (easy/medium/hard) then rewrite its own long CoT solution into a difficulty-adaptive, minimal-essential-steps trace via a two-step generate-then-refine pipeline, producing LiteCoT (100K samples averaging just 720 tokens, an order of magnitude shorter than S1/LIMO/OpenThoughts); models distilled on LiteCoT (Liter, 1.5B-32B) consistently outperform models trained on the same teacher's own 800K verbose CoTs, reach 74.2% Pass@1 on AIME24 using only ~5K inference tokens (beating methods that consume far more), and beat static one-size-fits-all CoT-compression baselines (Chain-of-Draft, LLMLingua-2, BudgetAware) on both accuracy and inference time across eight benchmarks.",
       "title": "Concise Math Reasoning via Difficulty-Aware Distillation"
+    },
+    {
+      "id": "local:24bb8e465bad18c7",
+      "kind": "paper",
+      "note": "A controlled, cross-paradigm mechanistic comparison of three post-training safety methods (SFT, reasoning-augmented SFT, and ORPO) across three model architectures, showing that training objective -- not just data -- reshapes how and where refusal is computed internally, and that no method studied is simultaneously robust, capability-preserving, and correctable via small steering edits.",
+      "title": "Beyond Shallow Alignment: How Post-Training Methods Determine Refusal Circuits And Steering Robustness"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-09-01T10:04:16Z",
+  "last_seen": "2026-09-06T09:08:57Z",
   "name": "Llama-3.1-8B",
   "related": [
     "measurement-system-default-bias",
@@ -213,7 +219,30 @@
     "mmlu-stem",
     "qwen2-5-0-5b-1-5b-3b-7b-14b-32b",
     "deepseek-r1-teacher",
-    "deepseek-r1-distilled-models-comparison"
+    "deepseek-r1-distilled-models-comparison",
+    "refusal-circuit",
+    "shallow-alignment",
+    "recognition-execution-gap",
+    "safety-utility-separability",
+    "granular-correctability",
+    "circuit-concentration",
+    "hydra-effect",
+    "supervised-fine-tuning-sft",
+    "reasoning-augmented-sft-ra-sft",
+    "odds-ratio-preference-optimization-orpo",
+    "difference-in-means-dim-direction-extraction",
+    "activation-patching",
+    "attribution-patching",
+    "activation-addition-actadd",
+    "inference-time-intervention-iti",
+    "alpaca",
+    "beavertails",
+    "wildjailbreak",
+    "strongreject",
+    "xstest",
+    "mmlu",
+    "gemma-2-9b",
+    "llamaguard-3-8b"
   ],
   "related_authored": [
     "on-generalization-across-measurement-systems",
