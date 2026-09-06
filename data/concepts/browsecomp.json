@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "A benchmark for evaluating web-browsing/search LLM agents, used by sources to test test-time-scaling and voting methods for multi-turn search agents. One source treats it as a noisy open-web-retrieval setting where voting gains are largest; another uses it to study sequential vs. parallel test-time compute allocation with a cheap verifier.",
+  "definition": "A benchmark for web-browsing agents, and the point at which this archive's test-time-scaling question moves from a single reasoning trace to a multi-turn agent with retrieval. None of the five sources defines it; all five use it to ask how extra compute should be spent when the model is searching rather than thinking alone, and they answer differently. 'Pushing Test-Time Scaling Limits of Deep Search' finds that giving modest compute to a cheap verifier beats extending sequential generation. BrowseConf finds web agents poorly calibrated in absolute terms - verbalised confidence systematically exceeds accuracy - yet strongly rank-correlated with correctness, so confidence remains usable for allocation even where it is wrong as a probability. 'Beyond Confidence' identifies why the usual confidence signal breaks here at all: retrieved documents in context inflate the log-probabilities of tokens copied from them, so log-probability voting measures copying rather than conviction. FS-Researcher and Routed Graph Handoff scale by moving state out of the context window and by choosing the handoff format per delegation.",
   "evidence": [
     {
       "id": "arxiv:2608.24024",
@@ -97,8 +97,8 @@
     "xbench-deepsearch"
   ],
   "related_authored": [
-    "retrieval-grounded-voting-rgv",
-    "deepconf"
+    "test-time-scaling",
+    "overthinking"
   ],
   "schema_version": 1,
   "slug": "browsecomp",

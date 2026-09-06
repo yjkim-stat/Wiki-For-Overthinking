@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-None of the four sources describe StrategyQA directly; it appears only as one of the evaluation benchmarks in their reasoning-efficiency experiments. ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task; ReBalance steers chain-of-thought length up or down at inference from token-confidence signals; DC-CoT isolates the effect of data augmentation, selection and mixing on CoT distillation; SuCo trains on a difficulty-adaptive 'Minimal Sufficient CoT' prefix via SFT plus a GRPO stage penalising both over- and under-thinking.
+A multi-hop commonsense question-answering benchmark. None of the eight sources describes it, and that has not changed with the four that have arrived since this definition was written - but its role has become legible. In an archive whose benchmarks are overwhelmingly mathematical, StrategyQA is where methods check that a length or format decision learned on mathematics survives outside it: ARM includes it among the tasks over which a model picks between Direct Answer, Short CoT, Code and Long CoT; SoftCoT and SpiralThinker use it as one of the reasoning benchmarks for continuous and latent-token reasoning; ReBalance, DC-CoT and SuCo carry it as the non-mathematical member of their suites. ReTraceQA supplies the caution that goes with that role: on commonsense QA, small models reach the correct final answer through a flawed reasoning trace 14-24% of the time, and answer-only scoring inflates accuracy by up to 25%, so a length method that preserves accuracy here has not thereby been shown to preserve the reasoning.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

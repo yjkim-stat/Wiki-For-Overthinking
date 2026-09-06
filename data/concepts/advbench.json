@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "AdvBench is a jailbreak/harmfulness benchmark used in this archive by Mousetrap, which achieves 87.5-93.13% attack success on it against Claude-Sonnet by exploiting 'reasoning inertia' (a model following its reasoning chain to completion without re-evaluating safety), and by ReasoningGuard, a training-free inference-time defense that reduces harmfulness on it to near zero across four model families at only 5-9% extra inference cost.",
+  "definition": "A benchmark of harmful instructions, used across this archive as the common measuring stick for attacks on reasoning models and for defences against them. None of the five sources describes its contents; what they share is a use, and it is the one place where this archive's safety literature and its overthinking literature touch. Mousetrap and AutoRAN attack the reasoning process itself - the first by hiding a toxic query inside a multi-step reconstruction task, the second by hijacking the model's internal safety deliberation with a weaker auxiliary model - and 'Conflicts Make Large Reasoning Models Vulnerable' raises attack success simply by instructing the model to reason through an explicit internal conflict first. ReasoningGuard defends at the same point, injecting a safety phrase at the moment reasoning shifts from restating the problem to exploring it, and PAM trains the model to decide which preference priority applies before it reasons. The common premise is that the chain of thought is the attack surface, so the same extra deliberation that this archive studies as a cost is here studied as an exposure.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.findings-acl.408",
@@ -133,7 +133,9 @@
     "deepseek-r1-0528-685b",
     "qwen3guard-robustness-check-appendix"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "advbench",
   "topics": [

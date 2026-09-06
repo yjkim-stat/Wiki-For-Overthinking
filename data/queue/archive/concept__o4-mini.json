@@ -16,12 +16,44 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "AMO-Bench is a 50-problem, IMO-difficulty-or-harder, entirely original math benchmark built to avoid the saturation and memorization issues of AIME24/25, on which even the best of 36 evaluated LLMs (Gemini-3-Pro) reaches only 63.1% accuracy, model performance grows near-linearly with the logarithm of output length (still-unsaturated evidence that test-time scaling keeps paying off), and a manual failure analysis finds brute-force enumeration and improper strategy selection -- reasoning deficiency, not missing math knowledge -- as the dominant error modes.",
+        "title": "AMO-Bench: Large Language Models Still Struggle in High School Math Competitions",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARISE fixes a specific flaw in prior slope-based test-time-scaling metrics -- they operate only at the aggregate-accuracy level and paradoxically reward models that waste more tokens for worse results under negative scaling -- by scoring each sample's individual accuracy transitions across scaling iterations with a ratio-based, asymmetric weight that penalizes wasted computation more heavily than it rewards gains, paired with a variance-adaptive sampling protocol; across proprietary and open reasoning models it reveals genuine negative scaling (e.g. GPT-OSS-20B: -0.403 ARISE on AIME, DeepSeek-R1: -0.049 on GPQA-Diamond) that a conventional scaling metric registers as positive because it cannot distinguish wasted computation from productive computation.",
+        "title": "ARISE: An Adaptive Resolution-Aware Metric for Test-Time Scaling Evaluation in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
+        "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRUTHFULVQA, a 5,000-image hierarchical human-annotated benchmark testing multimodal LLM truthfulness under progressively misleading visual-linguistic prompts, uncovers an inverse scaling law of truthfulness: slow-thinking (reasoning) MLLMs are consistently less truthful than their fast-thinking chat counterparts of the same family, and larger reasoning models show worse calibration despite generating more reasoning tokens.",
+        "title": "When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T00:00:51Z",
-  "created_at": "2026-08-27T23:27:34Z",
-  "instructions": "Write the wiki definition for 'o4-mini'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T04:07:34Z",
+  "created_at": "2026-09-06T04:03:54Z",
+  "instructions": "Revise the wiki definition for 'o4-mini'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    o4-mini is cited in this archive by EchoCoT, a security study showing its hidden chain-of-thought (and that of other black-box reasoning models) can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must persist across tool calls within a turn, and by REST's multi-question stress test of large reasoning models.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "o4-mini",
   "kind": "concept",
   "language": "en",
@@ -37,13 +69,17 @@
   },
   "payload": {
     "name": "o4-mini",
-    "source_count": 2
+    "previous_definition": "o4-mini is cited in this archive by EchoCoT, a security study showing its hidden chain-of-thought (and that of other black-box reasoning models) can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must persist across tool calls within a turn, and by REST's multi-question stress test of large reasoning models.",
+    "source_count": 6
   },
   "result": {
     "aliases": [],
-    "definition": "o4-mini is cited in this archive by EchoCoT, a security study showing its hidden chain-of-thought (and that of other black-box reasoning models) can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must persist across tool calls within a turn, and by REST's multi-question stress test of large reasoning models.",
+    "definition": "A proprietary compact reasoning model from OpenAI. No source in this archive studies it as a method or reports its architecture, training or size; all six use it as a subject, and the pattern of those uses is the informative part - it appears almost exclusively where reasoning is being shown to fail, to be exploitable, or to be mismeasured, rather than where it is being improved. EchoCoT recovers its hidden chain of thought near-verbatim through ordinary API tool-calling, because reasoning state must persist across tool calls within a turn; SEAL red-teams it and models like it with stacked lightweight ciphers, exploiting the same chain-of-thought capability that improves task performance; REST degrades it by concatenating several benchmark questions into one prompt, attributing the drop to the overthinking trap; AMO-Bench places it among 36 models none of which exceeds 63.1% on original IMO-difficulty problems; and ARISE and TRUTHFULVQA are the two that measure it directly against extra reasoning, the first finding genuine negative test-time scaling that aggregate metrics register as positive, the second finding slow-thinking models less truthful than their fast-thinking counterparts of the same family.",
     "kind": "model",
-    "related": []
+    "related": [
+      "AMO-Bench",
+      "Overthinking"
+    ]
   },
   "task_id": "concept__o4-mini",
   "task_version": 1,

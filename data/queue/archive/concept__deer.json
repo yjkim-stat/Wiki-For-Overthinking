@@ -3,8 +3,40 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "SABER is a training-free early-exit method that, at each \"Wait\" token, branches the reasoning prefix into a neutral and an adversarial probe, and stops when the two branches agree in answer and in confidence.",
+        "title": "SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoDE-Stop stops reasoning when either a ramping confidence threshold is crossed or an early-step-weighted 'degeneration score' of accumulated confidence instability exceeds a threshold, targeting both trajectories that are already done and trajectories that are going nowhere, and its evaluation is the archive's first independent head-to-head of RCPD and Answer Convergence under one protocol.",
+        "title": "Early Stopping for Large Reasoning Models via Confidence Dynamics",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A survey that organizes methods for making R1-style large reasoning models reason efficiently (i.e., avoid overthinking) into two axes: single-model optimization and multi-model collaboration.",
         "title": "Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines an instance-specific Reasoning Completion Point (RCP) as the earliest truncation step at which both content-length stabilization and semantic-distribution convergence hold, and detects it online by monitoring the rank of the </think> token, cutting tokens up to 44% while preserving accuracy across four Qwen3 scales and DeepSeek-R1-Distill-8B.",
+        "title": "The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Proposes PUMA, an inference-time early-exit framework that flags reasoning steps as candidate exits when a contrastively-trained embedding detector finds them semantically redundant with recent context, then confirms the exit is safe via answer-level confidence/consistency verification before stopping.",
+        "title": "Stop When Reasoning Converges: Semantic-Preserving Early Exit for Reasoning Models",
         "topics": [
           "overthinking"
         ]
@@ -35,9 +67,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T01:22:09Z",
-  "created_at": "2026-08-21T01:05:42Z",
-  "instructions": "Write the wiki definition for 'DEER'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T04:07:34Z",
+  "created_at": "2026-09-06T04:03:54Z",
+  "instructions": "Revise the wiki definition for 'DEER'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    DEER is a training-free decoding method that ends a large reasoning model's chain of thought early: it treats the points where the model switches thoughts (marked in practice by transition tokens such as 'Wait', with an entropy-based detector as fallback) as candidate exits, prompts the model there for a trial answer, and stops the thinking block when that answer's confidence, the geometric mean of its token probabilities, exceeds a threshold set to 0.95. Across 10 benchmarks and 11 models it cuts 19.1%-80.1% of chain-of-thought tokens while raising accuracy by 0.3%-5.0%, though the compression is strongly difficulty-dependent: roughly 67% on GSM8K against roughly 25% on AIME 2024 for the same model, so the saving is largest where inference was already cheap. A branch-parallel decoding scheme overlaps the trial-answer check with continued reasoning so it does not serialise against generation, and a variant DEER-PRo averages several prompt-varied inductions minus a mean-absolute-deviation penalty. Other archived work treats it as the standard baseline for this family: ReBalance compares against it, and DiffAdapt reports end-to-end inference 5x faster than DEER.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "DEER",
   "kind": "concept",
   "language": "en",
@@ -46,23 +78,30 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "DEER",
-    "source_count": 4
+    "previous_definition": "DEER is a training-free decoding method that ends a large reasoning model's chain of thought early: it treats the points where the model switches thoughts (marked in practice by transition tokens such as 'Wait', with an entropy-based detector as fallback) as candidate exits, prompts the model there for a trial answer, and stops the thinking block when that answer's confidence, the geometric mean of its token probabilities, exceeds a threshold set to 0.95. Across 10 benchmarks and 11 models it cuts 19.1%-80.1% of chain-of-thought tokens while raising accuracy by 0.3%-5.0%, though the compression is strongly difficulty-dependent: roughly 67% on GSM8K against roughly 25% on AIME 2024 for the same model, so the saving is largest where inference was already cheap. A branch-parallel decoding scheme overlaps the trial-answer check with continued reasoning so it does not serialise against generation, and a variant DEER-PRo averages several prompt-varied inductions minus a mean-absolute-deviation penalty. Other archived work treats it as the standard baseline for this family: ReBalance compares against it, and DiffAdapt reports end-to-end inference 5x faster than DEER.",
+    "source_count": 8
   },
   "result": {
-    "aliases": [],
-    "definition": "DEER is a training-free decoding method that ends a large reasoning model's chain of thought early: it treats the points where the model switches thoughts (marked in practice by transition tokens such as 'Wait', with an entropy-based detector as fallback) as candidate exits, prompts the model there for a trial answer, and stops the thinking block when that answer's confidence, the geometric mean of its token probabilities, exceeds a threshold set to 0.95. Across 10 benchmarks and 11 models it cuts 19.1%-80.1% of chain-of-thought tokens while raising accuracy by 0.3%-5.0%, though the compression is strongly difficulty-dependent: roughly 67% on GSM8K against roughly 25% on AIME 2024 for the same model, so the saving is largest where inference was already cheap. A branch-parallel decoding scheme overlaps the trial-answer check with continued reasoning so it does not serialise against generation, and a variant DEER-PRo averages several prompt-varied inductions minus a mean-absolute-deviation penalty. Other archived work treats it as the standard baseline for this family: ReBalance compares against it, and DiffAdapt reports end-to-end inference 5x faster than DEER.",
+    "aliases": [
+      "Dynamic Early Exit"
+    ],
+    "definition": "DEER is a training-free decoding method that ends a large reasoning model's chain of thought early: it treats the points where the model switches thoughts (marked in practice by transition tokens such as 'Wait', with an entropy-based detector as fallback) as candidate exits, prompts the model there for a trial answer, and stops the thinking block when that answer's confidence, the geometric mean of its token probabilities, exceeds a threshold set to 0.95. Its own paper reports 19.1%-80.1% of chain-of-thought tokens cut with accuracy raised 0.3%-5.0% across 10 benchmarks and 11 models, with compression strongly difficulty-dependent (roughly 67% on GSM8K against roughly 25% on AIME 2024 for the same model, so the saving is largest where inference was already cheap); a branch-parallel decoding scheme overlaps the trial-answer check with continued reasoning, and a variant DEER-PRo averages several prompt-varied inductions minus a mean-absolute-deviation penalty. What has changed since that definition was written is DEER's standing rather than its mechanism: it is now the fixed baseline this family is measured against, and where later work runs it independently the accuracy gain does not reproduce - the archive's reading of SABER puts DEER at 66.7 overall accuracy against 67.8 for unmodified reasoning on DeepSeek-R1-Distill-Qwen-7B while using 78.3% of the tokens, a loss rather than a gain at that operating point, and DiffAdapt reports end-to-end inference 5x faster than DEER. PUMA states the mechanical objection: an answer-level confidence signal reflects whether an answer looks stable, not whether the reasoning has stopped making progress, so it can fire while the model is still exploring. The branches that have since diverged from DEER read a different quantity at the same moment - the rank or log-probability margin of the end-of-thinking token, or semantic redundancy between steps - rather than a trial answer's confidence.",
     "kind": "method",
     "related": [
-      "dynamic early exit",
-      "trial answer",
-      "early exit"
+      "PUMA",
+      "RCPD",
+      "SABER",
+      "CoDE-Stop",
+      "DiffAdapt",
+      "ReBalance",
+      "Answer Convergence"
     ]
   },
   "task_id": "concept__deer",

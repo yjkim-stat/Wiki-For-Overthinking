@@ -1,0 +1,134 @@
+{
+  "attachments": {
+    "pdf_path": "data/pdfs/arxiv-2608-27963.pdf"
+  },
+  "completed_at": "2026-09-06T03:06:50Z",
+  "created_at": "2026-09-05T22:20:48Z",
+  "instructions": "Read the paper below and produce a structured summary.\n\nThe full document is attached at `attachments.pdf_path`. Open it and read it — the payload's abstract is a summary of the paper's claims, not of its findings.\n\nRead it as a document, not as text: the result tables and figures settle what was actually achieved faster than the prose does. Take `results` and `limitations` from the experiments section rather than from the abstract's framing, and say which numbers come from simulation and which from hardware or real data where the paper distinguishes them. If a headline holds only under a condition — a scale, a threshold, a subset of tasks — that condition belongs in `results`.\n\nThen set `read_from`: 'document' if you opened the file, 'abstract' if you did not and worked from the payload. Say which you actually did. A reading that is honest about being abstract-only can be redone later; one that claims a document it never opened cannot be found at all.\n\nIt matched these tracked topics; `relevance` must contain one entry per slug, stating what this paper changes for that topic:\n- overthinking: Overthinking — When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.\n\nAnswer `models` explicitly, even when the answer is `[]`. List the checkpoints the work trains, evaluates or analyses, named as the paper names them — a base model, a released model, a judge. A paper that evaluates none returns an empty list, and that is a real answer: the archive holds several. Leaving it out looks identical to that in the record, and nothing afterwards can tell the two apart.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "arxiv:2608.27963",
+  "kind": "paper",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - reusable ideas this paper relies on or introduces"
+    ],
+    "contributions": [
+      "string - one concrete claimed contribution"
+    ],
+    "datasets": [
+      "string - datasets, benchmarks, corpora or simulators used. Not models: a checkpoint that was evaluated or fine-tuned belongs in `models`."
+    ],
+    "limitations": "string - stated limits plus any the reader should notice",
+    "method": "string - how it works, enough for a reader to explain it",
+    "methods": [
+      "string - named methods, architectures or algorithms"
+    ],
+    "models": [
+      "string - models the work trains, evaluates or analyses, as named in the paper (e.g. a base checkpoint, a released reasoning model, a judge)"
+    ],
+    "one_liner": "string - what the paper does, in one sentence, no hype",
+    "problem": "string - the problem it addresses and why it is open",
+    "read_from": "string - required: 'document' if you opened the attached PDF and read it, 'abstract' if you worked from the payload alone. Answer for what you did, not for what you were asked to do",
+    "relevance": {
+      "<topic-slug>": "string - why this matters for that specific topic"
+    },
+    "results": "string - headline numbers, on which benchmarks, against what",
+    "tags": [
+      "string - short lowercase keywords"
+    ]
+  },
+  "payload": {
+    "abstract": "Large Reasoning Models (LRMs) achieve strong reasoning capabilities, yet long-chain reasoning becomes inefficient once the intermediate answer stabilizes across reasoning steps: additional reasoning yields little marginal benefit while incurring substantial inference cost. Existing early-exit methods based on confidence or entropy poorly capture reasoning stability, while consistency-based approaches rely on multi-step trajectory agreement, requiring sequential evaluations that delay exit. To better balance efficiency and reliability, we propose SABER, a training-free framework for stability-aware early exit via adversarial branch probing. SABER constructs simple yet effective semantic perturbations around intermediate reasoning states to form adversarial branches, and applies lightweight probing to estimate their likely final outcomes without full trajectory rollouts. When the probed outcomes remain consistent across branches, SABER exits early; otherwise, it continues reasoning. Experiments across multiple reasoning benchmarks and model architectures show that SABER reduces reasoning token consumption by 30.2\\%--39.8\\% on average while maintaining competitive accuracy with full-length reasoning.",
+    "authors": [
+      "Wanli Cheng",
+      "Haiya Xiang",
+      "Juntao Li",
+      "Hongling Wang",
+      "Wenliang Chen"
+    ],
+    "categories": [
+      "cs.AI"
+    ],
+    "contested_with": "",
+    "matched_keywords": [
+      "large reasoning model",
+      "reasoning token",
+      "early exit"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.27963",
+    "published": "2026-08-31",
+    "scores": {
+      "overthinking": 0.625
+    },
+    "title": "SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing",
+    "url": "https://arxiv.org/abs/2608.27963",
+    "venue": ""
+  },
+  "result": {
+    "concepts": [
+      "early exit",
+      "answer convergence",
+      "overthinking",
+      "reasoning stability under perturbation",
+      "semantic consistency",
+      "confidence stability",
+      "confidence miscalibration in reasoning models",
+      "training-free inference-time intervention",
+      "probe overhead accounting"
+    ],
+    "contributions": [
+      "A stability-aware framing of early exit: reasoning trajectories that lead to correct solutions are shown, on OlympiadBench, to become progressively more stable under semantic perturbation, while incorrect ones stay unstable in both answer and confidence.",
+      "SABER, a training-free early-exit framework that probes that stability by branching each reasoning step into a neutral and an adversarial continuation and scoring the pair.",
+      "A combined stopping score, RSS, that mixes semantic consistency between branches with the stability of model confidence across them, with an ablation showing each signal alone is weaker on the harder benchmarks.",
+      "Measured probe overhead and end-to-end latency alongside token counts, rather than token counts alone."
+    ],
+    "datasets": [
+      "GSM8K",
+      "MATH-500",
+      "AMC23",
+      "OlympiadBench",
+      "AIME 2024",
+      "AIME 2025",
+      "GPQA-Diamond"
+    ],
+    "limitations": "Stated by the authors (Limitations section): experiments cover only text-based reasoning benchmarks on models of 4B to 8B parameters, with no larger scales, and no evaluation in multimodal or agent settings where intermediate representations and confidence dynamics may behave differently. Noticeable to the reader: the paper does not state whether the Tok and CR columns of Table 1 include the probe tokens, and the totals in Table 3 do not match Table 1's Overall column, so the reported compression cannot be reconciled with the separately reported 3.8% probe overhead from the paper alone - this matters because the method's cost is precisely the extra generation it performs at every \"Wait\". The exit threshold tau is set per model family rather than derived, and the best alpha differs between easy and hard benchmarks, so two of the method's constants are tuned against the evaluation suite. The scoring-function ablation reports that SC * CS and a branch-uncertainty difference are both competitive, which the authors read as evidence that the two-branch probing framework rather than the RSS form carries the gains; that also means RSS itself is not shown to be necessary. Accuracy gains over vanilla are within about one point on every model, so the claim supported by the tables is preserved accuracy at lower cost rather than improved accuracy.",
+    "method": "The trajectory is segmented into steps at trigger phrases (\"Wait\", \"Alternatively\", \"\\n\\n\"). Whenever \"Wait\" appears, the current prefix is branched twice by appending a probing prompt: a neutral one (\"Wait, let me summarize. The answer is \\boxed{\") and an adversarial one (\"Wait, I think my previous reasoning was incorrect. After correcting it, the answer is \\boxed{\"). Each branch is sampled k times, giving two answer multisets and two confidence sets. Semantic Consistency (SC) is the multiset Jaccard similarity between the neutral and adversarial answer multisets. Confidence Stability (CS) is exp(-gamma * |mean confidence of neutral branch - mean confidence of adversarial branch|), with gamma = 3; a per-continuation confidence is the length-normalised geometric mean of token-level maximum predictive probabilities. The two are combined as RSS = alpha * SC + (1 - alpha) * CS, and generation is terminated by injecting </think> once RSS exceeds a threshold tau. Nothing is trained: the probes are prompts and the detector is the model itself.",
+    "methods": [
+      "SABER",
+      "adversarial branch probing",
+      "Reasoning Stability Score (RSS)",
+      "Semantic Consistency (multiset Jaccard between neutral and adversarial answer multisets)",
+      "Confidence Stability (exponential of the confidence gap between branches)",
+      "DEER",
+      "Dynasor",
+      "NoThinking",
+      "self-consistency"
+    ],
+    "models": [
+      "DeepSeek-R1-Distill-Qwen-7B",
+      "Qwen3-4B",
+      "Qwen3-8B"
+    ],
+    "one_liner": "SABER is a training-free early-exit method that, at each \"Wait\" token, branches the reasoning prefix into a neutral and an adversarial probe, and stops when the two branches agree in answer and in confidence.",
+    "problem": "Inference-time early exit needs a signal that says the reasoning has converged. Confidence and entropy signals are unreliable because reasoning models stay confident while wrong, and consistency signals require agreement across several successive reasoning steps, which delays the exit and costs extra inference. The paper's opening claim is that neither family measures the stability of the intermediate reasoning state itself.",
+    "read_from": "document",
+    "relevance": {
+      "overthinking": "Adds a distinct answer to the question of what signal says reasoning has converged: not the confidence of one intermediate answer and not agreement across successive steps, but agreement between two deliberately disagreeing probes of the same state. The adversarial probe is the notable part - it tells the model its previous reasoning was wrong and checks whether the answer moves, which is a stopping-time version of the injection experiments used elsewhere to show that reasoning models adopt whatever intermediate answer they are handed. It also reports the two quantities this literature usually omits: probe overhead as a fraction of generated tokens (3.8% average) and wall-clock latency reduction (48.8%), which is the accounting most confidence-probing methods skip, though the paper still leaves it unclear whether its own compression ratios are gross or net of that overhead. Its baselines (DEER, Dynasor, NoThinking) place it directly against the confidence and consistency families already tracked here."
+    },
+    "results": "Table 1, Overall column (accuracy / compression ratio, CR = tokens relative to vanilla, lower is better). DeepSeek-R1-Distill-Qwen-7B: vanilla 67.8 / 100%, SABER 69.0 / 69.8%, DEER 66.7 / 78.3%, Dynasor 65.8 / 71.4%, NoThinking 54.9 / 30.6%. Qwen3-4B: vanilla 74.8 / 100%, SABER 75.1 / 69.3%, DEER 73.5 / 76.8%. Qwen3-8B: vanilla 75.7 / 100%, SABER 76.0 / 60.2%, DEER 74.7 / 73.3%. The headline is 30.2%-39.8% token reduction with accuracy equal to or slightly above vanilla on all three models. Probe overhead is reported separately (Table 3): probe tokens are 4.9% / 2.8% / 3.8% of total generated tokens, 3.8% on average. Wall-clock latency is measured on GSM8K, AIME24 and GPQA-Diamond (Table 4): 149.4 -> 92.9 s, 190.1 -> 107.0 s, 243.0 -> 98.5 s, a 48.8% average reduction. Thresholds are tuned per model family: tau = 0.9 for R1-Distill-Qwen-7B and 0.95 for the Qwen3 models; performance is reported stable across tau in [0.8, 0.95]. The alpha sweep (Table 2) is task-dependent in a consistent direction: GSM8K is best at alpha = 0.7 (semantic consistency dominant), OlympiadBench at alpha = 0.3 (confidence stability dominant). Component ablation (Figure 3): SC-only and CS-only are comparable to RSS on GSM8K and MATH-500 but both degrade noticeably on AIME24 and GPQA-Diamond. Sampling ablation on MATH-500 with Qwen3-8B: k = 1 -> 4 raises accuracy 88.8% -> 91.6%, while k = 4 -> 32 adds only 0.4% and grows probe overhead from 3.3% to 22.7% of tokens. All runs use vLLM on 8 NVIDIA RTX 3090 GPUs; AMC23, AIME 2024 and AIME 2025 are each evaluated four times and averaged.",
+    "tags": [
+      "early-exit",
+      "overthinking",
+      "training-free",
+      "adversarial-probing",
+      "reasoning-stability",
+      "inference-efficiency",
+      "self-consistency"
+    ]
+  },
+  "task_id": "paper__arxiv-2608-27963",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

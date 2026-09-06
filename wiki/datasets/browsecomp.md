@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-A benchmark for evaluating web-browsing/search LLM agents, used by sources to test test-time-scaling and voting methods for multi-turn search agents. One source treats it as a noisy open-web-retrieval setting where voting gains are largest; another uses it to study sequential vs. parallel test-time compute allocation with a cheap verifier.
+A benchmark for web-browsing agents, and the point at which this archive's test-time-scaling question moves from a single reasoning trace to a multi-turn agent with retrieval. None of the five sources defines it; all five use it to ask how extra compute should be spent when the model is searching rather than thinking alone, and they answer differently. 'Pushing Test-Time Scaling Limits of Deep Search' finds that giving modest compute to a cheap verifier beats extending sequential generation. BrowseConf finds web agents poorly calibrated in absolute terms - verbalised confidence systematically exceeds accuracy - yet strongly rank-correlated with correctness, so confidence remains usable for allocation even where it is wrong as a probability. 'Beyond Confidence' identifies why the usual confidence signal breaks here at all: retrieved documents in context inflate the log-probabilities of tokens copied from them, so log-probability voting measures copying rather than conviction. FS-Researcher and Routed Graph Handoff scale by moving state out of the context window and by choosing the handoff format per delegation.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 5
 
-**Related**: [BFCL v3](bfcl-v3.md), [Budget Forcing](../methods/budget-forcing.md), [Claude Sonnet 4.5](../models/claude-sonnet-4-5.md), [Confidence-Informed Self-Consistency (CISC, baseline)](../methods/confidence-informed-self-consistency-cisc-baseline.md), [GAIA](gaia.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPT-5](../models/gpt-5.md), [GPT-5 mini](../models/gpt-5-mini.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [Kimi-K2.5](../models/kimi-k2-5.md), [Self-Consistency (baseline)](../methods/self-consistency-baseline.md), [sequential vs. parallel test-time scaling](../concepts/sequential-vs-parallel-test-time-scaling.md)
+**Related**: [BFCL v3](bfcl-v3.md), [Budget Forcing](../methods/budget-forcing.md), [Claude Sonnet 4.5](../models/claude-sonnet-4-5.md), [Confidence-Informed Self-Consistency (CISC, baseline)](../methods/confidence-informed-self-consistency-cisc-baseline.md), [GAIA](gaia.md), [Gemini-2.5-Pro](../models/gemini-2-5-pro.md), [GPT-5](../models/gpt-5.md), [GPT-5 mini](../models/gpt-5-mini.md), [gpt-oss-120b](../models/gpt-oss-120b.md), [Kimi-K2.5](../models/kimi-k2-5.md), [Overthinking](../concepts/overthinking.md), [Self-Consistency (baseline)](../methods/self-consistency-baseline.md), [sequential vs. parallel test-time scaling](../concepts/sequential-vs-parallel-test-time-scaling.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 

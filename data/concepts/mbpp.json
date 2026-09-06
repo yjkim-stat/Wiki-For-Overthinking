@@ -2,7 +2,7 @@
   "aliases": [
     "MBPP+"
   ],
-  "definition": "A Python program-synthesis benchmark, graded by execution, that the archive's papers use as the easier half of a code-generation pair with HumanEval. The one paper reporting it directly is C4, where a diffusion language model matches its own baseline exactly (45.9 versus 45.9) using 33.3 of a 384-step budget — an 11.11x saving — while the margin-based baselines Prophet and SchED collapse to 1.9 and 27.6, so MBPP is where the archive's sharpest 'same answer, far less compute' result sits. The reasoning-length papers include it only inside mixtures: SuCo averages it over eight benchmarks, and ShorterBetter puts it in a 6K out-of-domain pool where length falls 62.3% for a 0.48% accuracy drop, while Inference Scaling Laws lists it without a stated number. No archived source gives a standalone MBPP accuracy-versus-token-count figure for a reasoning model.",
+  "definition": "A Python program-synthesis benchmark, used across these sources as the code-generation member of an evaluation suite rather than as a subject in its own right; none of the eight defines it. Two sources say something about the position it occupies. Compute Optimal Scaling of Skills reports that code generation is data-hungry while knowledge-based question answering is capacity-hungry, so the compute-optimal parameter count differs by skill and a misspecified validation set can bias that estimate by up to 50%. ThinkBooster reports that lightweight uncertainty scorers are competitive with process reward models on coding, which are out of domain for them, while PRM scorers dominate on mathematics. Both use it to show that conclusions drawn on mathematics do not carry over unexamined.",
   "evidence": [
     {
       "id": "arxiv:2607.28166",
@@ -238,8 +238,9 @@
     "bbh"
   ],
   "related_authored": [
+    "livecodebench",
     "humaneval",
-    "livecodebench"
+    "process-reward-model"
   ],
   "schema_version": 1,
   "slug": "mbpp",

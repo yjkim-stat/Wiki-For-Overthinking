@@ -3,7 +3,7 @@
     "Omni-Math",
     "OmniMath"
   ],
-  "definition": "A competition-mathematics problem set that this archive sees in two distinct roles rather than one. As training data it is one of the four pools behind DeepScaleR-Preview (~40K problems from AIME, AMC, Omni-MATH and Still), which both DRPO and ShorterBetter fine-tune on, so there it shapes length-controlled models rather than testing them. As an evaluation set it appears in GFPO, where filtering rollouts cuts GRPO's excess length on Omni-MATH by 31.5% (Shortest-8/16), 82.6% (Token Efficiency) and 35.1% (Adaptive Difficulty) on Phi-4-reasoning - the last being the smallest cut of that variant's five benchmarks. 'Thinking Hard, Not Smart' instead uses Omni-MATH items of difficulty <=5 as the question pool for its shared-budget exams, and it is the only domain where that paper runs its full factorial design over exam length, question order and point values, with CRUXEval-O checked only for replication.",
+  "definition": "A competition-mathematics problem set that this archive now sees in three roles rather than two. As training data it is one of the four pools behind DeepScaleR-Preview (~40K problems from AIME, AMC, Omni-MATH and Still), which DRPO and ShorterBetter fine-tune on, so there it shapes length-controlled models rather than testing them. As an evaluation set it appears in GFPO, where filtering rollouts cuts GRPO's excess length on Omni-MATH by 31.5% (Shortest-8/16), 82.6% (Token Efficiency) and 35.1% (Adaptive Difficulty) on Phi-4-reasoning - the last being the smallest cut of that variant's five benchmarks - and in ThinkBrake, TH2T, BloomEval and Recursive Agentic Reasoning as one benchmark among several. The third role is the one that has emerged since: because its items carry graded difficulty, it is the question pool for the shared-budget rationing benchmarks, where a model must divide one token budget across problems of mixed difficulty rather than solve them one at a time. 'Thinking Hard, Not Smart' draws items of difficulty <=5 for its exams and runs its full factorial design over exam length, question order and point values only here, with CRUXEval-O checked only for replication; R^3-Bench puts six problems of mixed difficulty under a single budget on the same basis. What makes it useful to that literature is the difficulty label rather than the mathematics.",
   "evidence": [
     {
       "id": "arxiv:2608.07968",
@@ -232,8 +232,9 @@
   ],
   "related_authored": [
     "deepscaler-preview",
-    "olympiadbench",
-    "cruxeval-o"
+    "gfpo",
+    "shorterbetter",
+    "overthinking"
   ],
   "schema_version": 1,
   "slug": "omni-math",

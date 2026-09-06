@@ -16,12 +16,36 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "AutoRAN is the first automated framework for hijacking a large reasoning model's internal safety deliberation, using a weaker, less-aligned auxiliary model to simulate the target's execution reasoning and iteratively refine attack prompts from leaked refusal reasoning, achieving near-100% attack success against gpt-o3/o4-mini and Gemini-2.5-Flash within a few turns.",
+        "title": "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "PAM trains large reasoning models to explicitly assess which human-preference priority (e.g. harmlessness) applies to a query before reasoning -- via a Flavell-metacognition-inspired cold-start SFT stage plus DPO preference optimization -- improving helpfulness, harmlessness and instruction-following by an average of ~10 points over an identically-trained model without this metacognitive step, without a corresponding drop in math reasoning performance for one of two backbones.",
+        "title": "PAM: Enhancing General Alignment of Large Reasoning Models through Priority-Aware Metacognition",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A single-turn, non-narrative jailbreak method that simply instructs an LRM to reason through an explicit internal conflict (e.g. Helpfulness vs. Harmlessness) or moral dilemma (e.g. a duress or sacrificial scenario) before answering a harmful query substantially raises attack success rates across three models and five safety benchmarks (e.g. QwQ-32B: direct-query ASR 0.04 to conflict-injected 0.523 on AdvBench) with no fine-tuning, multi-turn interaction, or gradient access, and layerwise/neuron-level analysis shows the conflict prompt causes safety-relevant and functional activation subspaces to shift and overlap specifically in middle-to-late layers, weakening safety alignment at the representational level.",
+        "title": "Conflicts Make Large Reasoning Models Vulnerable to Attacks",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T00:11:39Z",
-  "created_at": "2026-08-28T00:09:25Z",
-  "instructions": "Write the wiki definition for 'AdvBench'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T04:40:47Z",
+  "created_at": "2026-09-06T04:07:49Z",
+  "instructions": "Revise the wiki definition for 'AdvBench'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    AdvBench is a jailbreak/harmfulness benchmark used in this archive by Mousetrap, which achieves 87.5-93.13% attack success on it against Claude-Sonnet by exploiting 'reasoning inertia' (a model following its reasoning chain to completion without re-evaluating safety), and by ReasoningGuard, a training-free inference-time defense that reduces harmfulness on it to near zero across four model families at only 5-9% extra inference cost.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "AdvBench",
   "kind": "concept",
   "language": "en",
@@ -37,13 +61,16 @@
   },
   "payload": {
     "name": "AdvBench",
-    "source_count": 2
+    "previous_definition": "AdvBench is a jailbreak/harmfulness benchmark used in this archive by Mousetrap, which achieves 87.5-93.13% attack success on it against Claude-Sonnet by exploiting 'reasoning inertia' (a model following its reasoning chain to completion without re-evaluating safety), and by ReasoningGuard, a training-free inference-time defense that reduces harmfulness on it to near zero across four model families at only 5-9% extra inference cost.",
+    "source_count": 5
   },
   "result": {
     "aliases": [],
-    "definition": "AdvBench is a jailbreak/harmfulness benchmark used in this archive by Mousetrap, which achieves 87.5-93.13% attack success on it against Claude-Sonnet by exploiting 'reasoning inertia' (a model following its reasoning chain to completion without re-evaluating safety), and by ReasoningGuard, a training-free inference-time defense that reduces harmfulness on it to near zero across four model families at only 5-9% extra inference cost.",
+    "definition": "A benchmark of harmful instructions, used across this archive as the common measuring stick for attacks on reasoning models and for defences against them. None of the five sources describes its contents; what they share is a use, and it is the one place where this archive's safety literature and its overthinking literature touch. Mousetrap and AutoRAN attack the reasoning process itself - the first by hiding a toxic query inside a multi-step reconstruction task, the second by hijacking the model's internal safety deliberation with a weaker auxiliary model - and 'Conflicts Make Large Reasoning Models Vulnerable' raises attack success simply by instructing the model to reason through an explicit internal conflict first. ReasoningGuard defends at the same point, injecting a safety phrase at the moment reasoning shifts from restating the problem to exploring it, and PAM trains the model to decide which preference priority applies before it reasons. The common premise is that the chain of thought is the attack surface, so the same extra deliberation that this archive studies as a cost is here studied as an exposure.",
     "kind": "dataset",
-    "related": []
+    "related": [
+      "Overthinking"
+    ]
   },
   "task_id": "concept__advbench",
   "task_version": 1,

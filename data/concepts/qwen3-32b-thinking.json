@@ -1,7 +1,15 @@
 {
-  "aliases": [],
+  "aliases": [
+    "Qwen3-32B-thinking"
+  ],
   "definition": "Qwen3-32B-thinking is the thinking-mode variant tested by NeuReasoner's Mixture-of-Neurons overthinking detector (which trains monitoring MLPs to spot intra-step, inter-step and instance-level overthinking signatures online) and by FoE's Forest-of-Errors finding that a model's first-generated solution is optimal in up to 93.7% of cases.",
   "evidence": [
+    {
+      "id": "arxiv:2609.01867",
+      "kind": "paper",
+      "note": "Measures whether reasoning models spend tokens on the same items humans spend time on, using a forced-choice abductive task where item difficulty cannot be read off formal structure, and finds a significant per-item correlation in all eight models tested.",
+      "title": "Thinking effort aligns between humans and reasoning models in abductive reasoning"
+    },
     {
       "id": "doi:10.18653/v1/2026.acl-long.1033",
       "kind": "paper",
@@ -17,9 +25,32 @@
   ],
   "first_seen": "2026-08-27T23:27:33Z",
   "kind": "model",
-  "last_seen": "2026-08-27T23:27:33Z",
-  "name": "Qwen3-32B-thinking",
+  "last_seen": "2026-09-06T04:03:52Z",
+  "name": "Qwen3-32B-Thinking",
   "related": [
+    "thinking-effort-as-token-count",
+    "abductive-reasoning",
+    "human-model-behavioural-alignment",
+    "reaction-time-as-a-measure-of-cognitive-effort",
+    "noise-ceiling",
+    "stochastic-decoding",
+    "test-time-compute-allocation",
+    "item-difficulty",
+    "partial-correlation-of-log-reasoning-tokens-with-log-human-reaction-time-control",
+    "point-biserial-correlation-of-model-correctness-with-human-accuracy",
+    "bootstrap-convergence-criterion-for-the-number-of-stochastic-runs",
+    "steiger-williams-test-for-dependent-correlations",
+    "split-half-noise-ceiling-with-spearman-brown-correction",
+    "majority-vote-aggregation-over-stochastic-decoding-runs",
+    "art-abductive-natural-language-inference-ai2",
+    "rocstories",
+    "deepseek-r1",
+    "deepseek-v3",
+    "qwen3-235b-thinking",
+    "gpt-oss-20b",
+    "gpt-oss-120b",
+    "glm-4-5-air",
+    "kimi-k2-thinking",
     "mixture-of-neurons-mon",
     "intra-step-inter-step-instance-level-failure-modes",
     "depass-attribution",

@@ -2,7 +2,7 @@
   "aliases": [
     "O4-mini"
   ],
-  "definition": "o4-mini is cited in this archive by EchoCoT, a security study showing its hidden chain-of-thought (and that of other black-box reasoning models) can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must persist across tool calls within a turn, and by REST's multi-question stress test of large reasoning models.",
+  "definition": "A proprietary compact reasoning model from OpenAI. No source in this archive studies it as a method or reports its architecture, training or size; all six use it as a subject, and the pattern of those uses is the informative part - it appears almost exclusively where reasoning is being shown to fail, to be exploitable, or to be mismeasured, rather than where it is being improved. EchoCoT recovers its hidden chain of thought near-verbatim through ordinary API tool-calling, because reasoning state must persist across tool calls within a turn; SEAL red-teams it and models like it with stacked lightweight ciphers, exploiting the same chain-of-thought capability that improves task performance; REST degrades it by concatenating several benchmark questions into one prompt, attributing the drop to the overthinking trap; AMO-Bench places it among 36 models none of which exceeds 63.1% on original IMO-difficulty problems; and ARISE and TRUTHFULVQA are the two that measure it directly against extra reasoning, the first finding genuine negative test-time scaling that aggregate metrics register as positive, the second finding slow-thinking models less truthful than their fast-thinking counterparts of the same family.",
   "evidence": [
     {
       "id": "arxiv:2608.20055",
@@ -210,7 +210,10 @@
     "gemini-1-5-pro",
     "gemini-2-0-2-5"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "amo-bench",
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "o4-mini",
   "topics": [

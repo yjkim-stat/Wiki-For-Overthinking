@@ -11,8 +11,10 @@ When and why large reasoning models think more than a problem needs (or less tha
 
 ## Most recent papers
 
-- [Thinking effort aligns between humans and reasoning models in abductive reasoning](../../archive/papers/2026/arxiv-2609-01867/summary.md) (2026-09-03)
+- [Thinking effort aligns between humans and reasoning models in abductive reasoning](../../archive/papers/2026/arxiv-2609-01867/summary.md) (2026-09-01)
+  - Measures whether reasoning models spend tokens on the same items humans spend time on, using a forced-choice abductive task where item difficulty cannot be read off formal structure, and finds a significant per-item correlation in all eight models tested.
 - [SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing](../../archive/papers/2026/arxiv-2608-27963/summary.md) (2026-08-31)
+  - SABER is a training-free early-exit method that, at each "Wait" token, branches the reasoning prefix into a neutral and an adversarial probe, and stops when the two branches agree in answer and in confidence.
 - [Prefix Sliding for efficient test-time scaling](../../archive/papers/2026/arxiv-2608-26070/summary.md) (2026-08-26)
   - Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.
 - [Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees](../../archive/papers/2026/arxiv-2608-25513/summary.md) (2026-08-26)

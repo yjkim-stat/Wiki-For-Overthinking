@@ -259,9 +259,9 @@ th { background: var(--surface); }
 <li><strong>GRPO</strong> — The reinforcement-learning algorithm almost every training-side method in this archive is built on: it samples a group of G completions p...</li>
 <li><strong>Self-Consistency</strong> — Sampling several independent reasoning traces for one problem and returning the answer the most of them agree on. In this archive it is t...</li>
 <li><strong>Best-of-N sampling</strong> — A test-time-compute strategy that samples N candidate solutions independently and selects one (by a verifier, reward model, or majority v...</li>
+<li><strong>DEER</strong> — DEER is a training-free decoding method that ends a large reasoning model&#x27;s chain of thought early: it treats the points where the model...</li>
+<li><strong>Early Exit</strong> — Stopping a computation before its natural end once a signal indicates that continuing will not change the answer. In the sense this archi...</li>
 <li><strong>process reward model</strong> — A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search a...</li>
-<li><strong>SFT (baseline)</strong> — SFT (Supervised Fine-Tuning) is used across sources both as a standard training-pipeline stage (e.g. the pre-RL stage in SFT-then-RL pipe...</li>
-<li><strong>best-of-N</strong> — Best-of-N is a parallel test-time-compute strategy that samples N candidate solutions independently and selects one, trading inference co...</li>
 </ul>
 </section>
 <section class="slide">
@@ -278,23 +278,23 @@ th { background: var(--surface); }
 <section class="slide">
 <h2>Open problems</h2>
 <ul>
+<li><strong>Thinking effort aligns between humans and reasoning models in abductive reasoning</strong> — Stated by the author: effort increased correctness only on the hardest tercile of problems; all main analyses used each model&#x27;s default reasoning-effort sett...</li>
+<li><strong>SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing</strong> — Stated by the authors (Limitations section): experiments cover only text-based reasoning benchmarks on models of 4B to 8B parameters, with no larger scales,...</li>
 <li><strong>Prefix Sliding for efficient test-time scaling</strong> — On LiveCodeBench, a window smaller than 16,384 tokens fails to match full attention -- inspecting samples shows the model sometimes reasons about code via lo...</li>
 <li><strong>Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees</strong> — The number of random features M is treated as a prespecified computational budget rather than adaptively selected -- adaptive selection of M is explicitly st...</li>
 <li><strong>Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference</strong> — Evaluated only on the Qwen family (Qwen3-30B-A3B, Qwen3-8B, QwQ-32B) due to needing internal activation access; transfer beyond this model family is untested...</li>
 <li><strong>GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning</strong> — Evaluated only at the 4B parameter scale due to compute constraints; whether the accuracy-efficiency trade-off and per-layer differentiation patterns transfe...</li>
-<li><strong>Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation</strong> — The router performs per-task-type (not fine-grained per-instance) routing and is blind to benchmark identity, so decisions cluster coarsely (100% graph on de...</li>
-<li><strong><span class="math">R^3</span>: Training Robots to Reason in Natural Language via Reinforcement Learning</strong> — Evaluated only in two simulated testbeds (Language Table block arrangement, bimanual grocery packing) with a single VLM backbone (Qwen3.5-4B) and a fixed low...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation</strong> — The router performs per-task-type (not fine-grained per-instance) routing and is blind to benchmark identity, so decisions cluster coarsely (100% graph on de...</li>
+<li><strong><span class="math">R^3</span>: Training Robots to Reason in Natural Language via Reinforcement Learning</strong> — Evaluated only in two simulated testbeds (Language Table block arrangement, bimanual grocery packing) with a single VLM backbone (Qwen3.5-4B) and a fixed low...</li>
 <li><strong>TRACE: An Evidence-Grounded Benchmark for Safety Evaluation of Large Reasoning Models</strong> — TRACE covers only English and Chinese, so cross-lingual generality beyond these two is untested. Safety labels rely on 3 annotator LRMs plus human review of...</li>
 <li><strong>Recursive Agentic Reasoning</strong> — BRANCH&#x27;s selection is an unweighted majority vote; the paper records but does not use a per-item agreement ratio, and notes verifier- or confidence-weighted...</li>
 <li><strong>Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding</strong> — RGV inherits retrieval quality -- it can be no better than what retrieval actually returned, and under outright corpus mismatch it is the only rule that stay...</li>
 <li><strong>A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm</strong> — The method requires the underparameterized regime (m &lt;= n); for m &gt; n (overparameterization) the paper states t* is close to 0 and the method fails outright,...</li>
-<li><strong>Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning</strong> — Closed-source commercial models&#x27; hidden thinking traces could not be annotated directly for the Subtask/Trial ratio analysis, so summary statistics were coun...</li>
-<li><strong>Counter with Evidence! A Multi-Agent Memory Efficient Reasoning Framework for Hate Category Informed Counterspeech Generation</strong> — Noticed by the reader, as the paper states no limitations section in the body read: (a) all baseline comparisons involve a system with web-search access agai...</li>
 </ul>
 </section>
 <section class="slide">
@@ -317,15 +317,16 @@ th { background: var(--surface); }
 <li>Yanhao Li, Lu Ma, Jiaran Zhang et al.. <em>LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model</em>. ACL. 2026</li>
 <li>Taehyeon Kim, Hyunsoo Lee, Youngsoo Jang et al.. <em>Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking</em>. ACL. 2026</li>
 <li>Kang Liu, YongKang Liu, Xiaocui Yang et al.. <em>NEAT: Neuron-Based Early Exit for Large Reasoning Models</em>. ACL. 2026</li>
+<li>Henry Arthur. <em>Thinking effort aligns between humans and reasoning models in abductive reasoning</em>. cs.CL. 2026</li>
 <li>Niklas Muennighoff, Zhengyang Wang, Zeyi Chen et al.. <em>Prefix Sliding for efficient test-time scaling</em>. cs.CL. 2026</li>
 <li>Wei Yu, Suxing Liu, Minjie Yu et al.. <em>Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models</em>. cs.AI. 2026</li>
 <li>Linh Dieu Le, Tong Chen, Shazia Sadiq et al.. <em>Towards Efficient Reasoning in LLM-Based Recommender Systems via Model Merging</em>. cs.IR. 2026</li>
-<li>Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. <em>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</em>. cs.AI. 2026</li>
 </ul>
 </section>
 <section class="slide">
 <h2>References (cont.)</h2>
 <ul>
+<li>Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. <em>Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning</em>. cs.AI. 2026</li>
 <li>Junlin Fang, Do Nguyen-Thanh, Xiaogang Xu et al.. <em>Reasoning Denoiser: Denoising Reasoning Traces for Hallucination Detection in Large Reasoning Models</em>. cs.AI. 2026</li>
 <li>Shu Zhou, Rui Ling, Junan Chen et al.. <em>When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling</em>. preprint. 2026</li>
 <li>Zihao Wei, Liang Pang, Jiahao Liu et al.. <em>The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis</em>. ACL. 2026</li>
@@ -333,7 +334,6 @@ th { background: var(--surface); }
 <li><em>TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling</em>. ICLR 2026. 2026</li>
 <li>Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al.. <em>Inverse Scaling in Test-Time Compute</em>. Transactions on Machine Learning Research (TMLR). 2025</li>
 <li>Alejandro Cuadron, Dacheng Li, Wenjie Ma et al.. <em>The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks</em>. International Conference on Machine Learning (ICML) 2025. 2025</li>
-<li><em>Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL</em>. NeurIPS 2025. 2025</li>
 </ul>
 </section>
 <section class="slide title-slide">

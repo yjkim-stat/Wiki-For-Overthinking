@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Gemini 2.5 Flash is cited in this archive as the prediction target for a lightweight (~1B-parameter) multimodal model that estimates LLM reasoning performance bins before an API call to guide compute-optimal reasoning-budget selection, and appears in the construction pipeline of LEGIT, a legal-reasoning-trace benchmark, as one of the LLMs used to extract facts and issue structure from court judgments.
+A proprietary reasoning-capable model in the Gemini 2.5 family. None of the six sources describes its architecture, size or training; every one uses it as an evaluation target rather than an object of study, which is the sense in which the archive holds it. The only source making a specific claim about it is AutoRAN, which reports near-total success within a few turns at hijacking its internal safety deliberation, alongside gpt-o3 and o4-mini. One of the six names Gemini-2.5-Pro rather than Flash, so for part of this evidence it is the family and not this checkpoint that the sources have in common.
 
 - **Kind**: model
 - **Also called**: Gemini-2.5-Flash, Gemini2.5-Flash

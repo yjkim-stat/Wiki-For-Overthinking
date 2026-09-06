@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-DeepSeek-R1-0528-Qwen3-8B is used in these sources as a reasoning-model backbone subject to interventions on its chain-of-thought: CiPO unlearns sensitive knowledge from both this model's intermediate reasoning trace and final answer via counterfactual preference optimization, while STOP evaluates its path-pruning method (learnable [STOP]-token scoring of parallel reasoning trajectories) across model scales including this one.
+An open-weight distilled reasoning checkpoint, used in this archive as a subject rather than studied in its own right; no source describes its training or how it differs from the earlier DeepSeek-R1 distillations. The five that use it cluster tightly around one question - how to tell early whether a reasoning path is worth continuing - and they read different places to answer it. STOP scores and prunes futile parallel-reasoning paths from a frozen model's cached KV states through a single learnable token at 0.59% latency overhead; STEP trains a two-layer MLP on hidden states at step boundaries and triggers pruning on GPU memory rather than on a confidence threshold or a fixed schedule; Chronos treats the per-token negative-log-probability sequence as a time series instead of pooling it into one scalar. CoTJudger uses it to score chain-of-thought redundancy against a shortest verified-sufficient path, and CiPO to unlearn by preference-optimising the model toward a counterfactual reasoning trace.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

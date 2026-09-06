@@ -11,8 +11,40 @@
       },
       {
         "kind": "paper",
-        "note": "QuRL runs the rollout phase of RL-with-verifiable-rewards training with an INT8 or FP8 quantized copy of the actor, adding an adaptive clipping range and an invariant weight-scaling trick to keep the low-precision policy from collapsing, for 20-80% faster rollout.",
-        "title": "QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning",
+        "note": "A benchmark that puts six problems of mixed difficulty under one shared computation budget and measures the gap between what a model solves problem-by-problem and what it solves when it must decide how to divide the budget.",
+        "title": "$R^3$-Bench: LLMs Struggle with Resource-Rational Reasoning under Shared Budgets",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Recasts iterative refinement, decomposition and repeated sampling as three recursion operators (GROW, PRUNE, BRANCH) over a shared reasoning-trace primitive, compares them under a paired protocol across 3 frontier models and 5 benchmarks, and finds BRANCH wins mainly because it recovers answers a single pass never emitted at all.",
+        "title": "Recursive Agentic Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "TH2T (Think-How-to-Think) is a two-stage fine-tuning method that first injects an explicit 'difficulty hypnosis' cue into a model's output prefix (prospective, global strategy selection) and then a 'redundancy hypnosis' cue into in-progress reasoning to truncate reflection loops (retrospective, local correction), cutting inference cost over 70% on easy tasks and 40% on hard tasks with minimal accuracy loss and no external difficulty labels at inference time.",
+        "title": "Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ThinkBrake is a training-free decoding rule that injects </think> at sentence boundaries whenever the log-probability margin between the top continuation token and </think> narrows below a threshold, recovering most of an oracle stopping point's headroom (8% accuracy gain, 72% token reduction) with a theoretically grounded, model-agnostic criterion, and its generated trajectories can also train models via DPO for training-free-free efficient reasoning.",
+        "title": "ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "BloomEval maps each step of an LRM's reasoning trace onto Bloom's six-level cognitive taxonomy (Remember through Create) via a Cognitive Hierarchy Trace (CHT), defining structural anomalies -- hierarchy break (reasoning never reaches the required cognitive level), hierarchy jump (skipping intermediate levels), and overthinking (invoking cognitive operations exceeding what the task needs) -- and finds these anomalies are common even in *correct* answers (e.g. Grok-3 shows a 0.185 hierarchy-jump rate on correct answers), demonstrating that answer accuracy alone cannot detect incoherent or wasteful reasoning structure.",
+        "title": "BloomEval: A Bloom’s Cognitive Taxonomy-Based Benchmark for Evaluating LRMs via Cognitive Hierarchy Trace",
         "topics": [
           "overthinking"
         ]
@@ -35,9 +67,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T01:29:37Z",
-  "created_at": "2026-08-21T01:23:36Z",
-  "instructions": "Write the wiki definition for 'Omni-MATH'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T04:07:34Z",
+  "created_at": "2026-09-06T04:03:54Z",
+  "instructions": "Revise the wiki definition for 'Omni-MATH'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A competition-mathematics problem set that this archive sees in two distinct roles rather than one. As training data it is one of the four pools behind DeepScaleR-Preview (~40K problems from AIME, AMC, Omni-MATH and Still), which both DRPO and ShorterBetter fine-tune on, so there it shapes length-controlled models rather than testing them. As an evaluation set it appears in GFPO, where filtering rollouts cuts GRPO's excess length on Omni-MATH by 31.5% (Shortest-8/16), 82.6% (Token Efficiency) and 35.1% (Adaptive Difficulty) on Phi-4-reasoning - the last being the smallest cut of that variant's five benchmarks. 'Thinking Hard, Not Smart' instead uses Omni-MATH items of difficulty <=5 as the question pool for its shared-budget exams, and it is the only domain where that paper runs its full factorial design over exam length, question order and point values, with CRUXEval-O checked only for replication.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Omni-MATH",
   "kind": "concept",
   "language": "en",
@@ -46,23 +78,27 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
     "name": "Omni-MATH",
-    "source_count": 4
+    "previous_definition": "A competition-mathematics problem set that this archive sees in two distinct roles rather than one. As training data it is one of the four pools behind DeepScaleR-Preview (~40K problems from AIME, AMC, Omni-MATH and Still), which both DRPO and ShorterBetter fine-tune on, so there it shapes length-controlled models rather than testing them. As an evaluation set it appears in GFPO, where filtering rollouts cuts GRPO's excess length on Omni-MATH by 31.5% (Shortest-8/16), 82.6% (Token Efficiency) and 35.1% (Adaptive Difficulty) on Phi-4-reasoning - the last being the smallest cut of that variant's five benchmarks. 'Thinking Hard, Not Smart' instead uses Omni-MATH items of difficulty <=5 as the question pool for its shared-budget exams, and it is the only domain where that paper runs its full factorial design over exam length, question order and point values, with CRUXEval-O checked only for replication.",
+    "source_count": 8
   },
   "result": {
-    "aliases": [],
-    "definition": "A competition-mathematics problem set that this archive sees in two distinct roles rather than one. As training data it is one of the four pools behind DeepScaleR-Preview (~40K problems from AIME, AMC, Omni-MATH and Still), which both DRPO and ShorterBetter fine-tune on, so there it shapes length-controlled models rather than testing them. As an evaluation set it appears in GFPO, where filtering rollouts cuts GRPO's excess length on Omni-MATH by 31.5% (Shortest-8/16), 82.6% (Token Efficiency) and 35.1% (Adaptive Difficulty) on Phi-4-reasoning - the last being the smallest cut of that variant's five benchmarks. 'Thinking Hard, Not Smart' instead uses Omni-MATH items of difficulty <=5 as the question pool for its shared-budget exams, and it is the only domain where that paper runs its full factorial design over exam length, question order and point values, with CRUXEval-O checked only for replication.",
+    "aliases": [
+      "Omni-Math"
+    ],
+    "definition": "A competition-mathematics problem set that this archive now sees in three roles rather than two. As training data it is one of the four pools behind DeepScaleR-Preview (~40K problems from AIME, AMC, Omni-MATH and Still), which DRPO and ShorterBetter fine-tune on, so there it shapes length-controlled models rather than testing them. As an evaluation set it appears in GFPO, where filtering rollouts cuts GRPO's excess length on Omni-MATH by 31.5% (Shortest-8/16), 82.6% (Token Efficiency) and 35.1% (Adaptive Difficulty) on Phi-4-reasoning - the last being the smallest cut of that variant's five benchmarks - and in ThinkBrake, TH2T, BloomEval and Recursive Agentic Reasoning as one benchmark among several. The third role is the one that has emerged since: because its items carry graded difficulty, it is the question pool for the shared-budget rationing benchmarks, where a model must divide one token budget across problems of mixed difficulty rather than solve them one at a time. 'Thinking Hard, Not Smart' draws items of difficulty <=5 for its exams and runs its full factorial design over exam length, question order and point values only here, with CRUXEval-O checked only for replication; R^3-Bench puts six problems of mixed difficulty under a single budget on the same basis. What makes it useful to that literature is the difficulty label rather than the mathematics.",
     "kind": "dataset",
     "related": [
       "DeepScaleR-Preview",
-      "OlympiadBench",
-      "CRUXEval-O"
+      "GFPO",
+      "ShorterBetter",
+      "Overthinking"
     ]
   },
   "task_id": "concept__omni-math",

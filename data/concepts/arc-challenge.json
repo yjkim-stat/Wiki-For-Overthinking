@@ -2,7 +2,7 @@
   "aliases": [
     "ARC-C"
   ],
-  "definition": "The archive cannot define ARC-Challenge from its own sources: the two papers that mention it -- C4, which gates when a diffusion language model may stop and which token positions a step may commit, and DC-CoT, a benchmark isolating data augmentation, selection and mixing in chain-of-thought distillation -- use it as one evaluation set among several, and neither archived note describes its contents or task format. The archive also carries 'ARC' and 'ARC-C' as separate entries, which are the same benchmark family under different spellings rather than distinct datasets.",
+  "definition": "A multiple-choice science question benchmark, present in these sources as the non-mathematical member of an evaluation suite rather than as a subject; none of the five describes it. Its role here is to test whether a length or format intervention tuned on mathematics still holds on shorter, knowledge-leaning reasoning: ThinkBrake carries it alongside its mathematics results, DC-CoT includes it among the reasoning domains over which it isolates data augmentation, selection and mixing, C4 uses it for diffusion-language-model decoding gates, and CurioSFT for the entropy-collapse diagnosis. ReasonIF is the exception that uses it differently, as one setting for the finding that reasoning models follow instructions far less inside the reasoning trace (average 15.6% compliance) than in the response they finally produce (57.3%).",
   "evidence": [
     {
       "id": "arxiv:2607.28166",
@@ -165,9 +165,8 @@
     "clevr"
   ],
   "related_authored": [
-    "arc-c",
-    "arc",
-    "commonsenseqa"
+    "strategyqa",
+    "chain-of-thought"
   ],
   "schema_version": 1,
   "slug": "arc-challenge",

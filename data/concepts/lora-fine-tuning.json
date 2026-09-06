@@ -1,8 +1,9 @@
 {
   "aliases": [
-    "Low-Rank Adaptation"
+    "Low-Rank Adaptation",
+    "LoRA"
   ],
-  "definition": "A parameter-efficient fine-tuning method used across sources as a lightweight alternative to full fine-tuning: applied to internalize temporal-reasoning self-reflection behavior (TISER) into smaller open models, and referenced (per another archived source) as a technique compared against full fine-tuning for few-step diffusion language model distillation.",
+  "definition": "A parameter-efficient fine-tuning method, present in these sources as the mechanism by which their training stages are implemented rather than as anything they study. None of the six supplied notes states what it does, evaluates it, or compares it against full fine-tuning; it appears where a method needs to adapt a model cheaply — training a few-step diffusion student, fine-tuning smaller open models on reformatted traces, teaching a model to emit a calibrated confidence token, or teaching a reasoning model to summarise its own thoughts. On this evidence the archive can say where it is used but not what these sources claim about it.",
   "evidence": [
     {
       "id": "arxiv:2608.02942",
@@ -149,8 +150,7 @@
     "qwen2-5-7b-r1-distill"
   ],
   "related_authored": [
-    "tiser",
-    "optd"
+    "supervised-fine-tuning"
   ],
   "schema_version": 1,
   "slug": "lora-fine-tuning",

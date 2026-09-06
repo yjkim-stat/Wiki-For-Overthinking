@@ -2,9 +2,10 @@
 
 <!-- auto:begin -->
 
-An open-weight (mixture-of-experts) reasoning model used across sources as an evaluation/generator subject: named among frontier models compared for parallel-reasoning behavior in Parason, and as one of the three model-benchmark settings (alongside Qwen3-8B and QwQ-32B) on which Reflection Steering's training-free activation-space intervention is evaluated, reducing thinking tokens 16.9% on average without harming accuracy.
+An open-weight mixture-of-experts reasoning model from the Qwen3 family, used across this archive as an evaluation and generation subject rather than as an object of study; no source describes its training or architecture beyond the mixture-of-experts design. It now spans both halves of this literature. On the intervention side it is one of the three model-benchmark settings for Reflection Steering, whose training-free activation-space intervention cuts thinking tokens 16.9% on average with accuracy statistically equivalent to the raw model; it is among the frontier models Parason compares for parallel-reasoning behaviour before converting sequential chains into grammar-structured parallel trajectories for about 1.7x wall-clock speedup; and it appears among the Qwen3 scales on which RCP is evaluated. On the diagnostic side it is a subject of REST, which degrades reasoning models by asking several questions at once and attributes the drop to the overthinking trap, and of TRACE, which finds thinking helps only in a narrow middle ground and no longer helps at all once model scale passes roughly 4-8B - a claim this checkpoint's size places it beyond. Revisiting Model Interpolation adds the family-level result that interpolating between Instruct and Thinking weights does not trade verbosity for accuracy smoothly but passes through an abrupt emergence of thinking behaviour.
 
 - **Kind**: model
+- **Also called**: Qwen3-30B-A3B-Thinking
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 6
 

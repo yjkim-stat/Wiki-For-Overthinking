@@ -2,9 +2,10 @@
   "aliases": [
     "sequential test-time scaling",
     "Budget Forcing",
-    "budget forcing"
+    "budget forcing",
+    "Budget Force"
   ],
-  "definition": "Controlling a reasoning model's chain-of-thought length by inserting a keyword at inference time -- most commonly 'Wait' to force it to keep thinking past what it would have generated on its own, or a stop signal to cut it short. 'Wait, Do We Need to Wait?' stress-tests this technique across model families, non-reasoning models and alternative keywords; 'When More Thinking Hurts' and the deep-search asymmetric-verification paper both study its diminishing, and eventually negative, returns as forced length grows.",
+  "definition": "Controlling how long a reasoning model thinks by imposing a token budget directly, rather than by reading any signal from the generation: the model is made to stop when the budget is spent, or made to continue past a natural ending by appending a continuation keyword such as 'Wait'. It is the null hypothesis of this literature - the baseline every signal-based stopping method is expected to beat, and the one that requires nothing to be measured. The archive holds four results about it. Its accuracy-versus-budget curve is not smooth across tasks: on DeepSeek-R1-Distill-Qwen-7B a budget sweep saturates by 256 thinking tokens on GSM8K and MATH-500, while AIME splits bimodally into generations that terminate and generations that loop to the 10,000-token ceiling, so a single budget cannot serve both regimes. Its generalisation is contested: 'Wait, Do We Need to Wait?' tests it across model families, non-reasoning models and alternative keywords rather than assuming the keyword transfers. Signal-based methods use it as the comparison to beat, with CoDE-Stop and 'When More Thinking Hurts' both reporting against it. And 'Keep, Customize, or Exit' adds the economic reading: where a provider sets both a per-token price and a default budget, its optimal default sits above the budget a user would choose, so the deployed default is not the efficient one.",
   "evidence": [
     {
       "id": "arxiv:2607.21433",
@@ -133,8 +134,9 @@
     "xbench-deepsearch"
   ],
   "related_authored": [
-    "sequential-test-time-scaling",
-    "overthinking"
+    "overthinking",
+    "test-time-scaling",
+    "code-stop"
   ],
   "schema_version": 1,
   "slug": "budget-forcing",

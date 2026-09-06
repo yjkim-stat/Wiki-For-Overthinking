@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "A vision-language mathematics benchmark, and the one multimodal set in this archive on which reasoning length is actually measured rather than only accuracy. Heima, which replaces each reasoning stage with a single latent token, emits 13.8 tokens per MathVista answer against 216.3 for its LLaVA-CoT baseline - about 6% - at a cost of 3.1 accuracy points on its six-benchmark average, which the archive reads as an honest price for the extreme of compression. ARES shortens MathVista traces by about 19% against its own cold-start model, next to about 22% on GSM8K and about 38% longer on AIME25, so the easy-set pattern holds here too; Mixture-of-Visual-Thoughts reports accuracy only (AdaVaR-3B 69.8% against 62.3% for Qwen2.5-VL-3B) and vStream uses it as one of three maths-category sets for measuring visual-attribution faithfulness, not reasoning cost. Three of its four sources reached the archive through vocabulary shared with the topic rather than through its subject; MathVista is the entity where that overlap still yielded usable length evidence.",
+  "definition": "A multimodal mathematical reasoning benchmark. None of the eight sources defines it, and it functions here as the shared evaluation on which work about vision-language reasoning meets work about reasoning length: methods that shorten or route multimodal reasoning (GPRO, ARES, Heima, Mixture-of-Visual-Thoughts), methods that measure whether extra test-time compute helps at all (ARISE), and methods that protect general capability during reasoning fine-tuning (RECAP) are all reported on it. Its role in this archive is therefore as the point where the overthinking question is asked of models that must perceive as well as reason — GPRO's finding that perception failures, not reasoning failures, cause over twice as many errors is the claim that placement makes visible.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1717",
@@ -267,8 +267,8 @@
     "hallusionbench"
   ],
   "related_authored": [
-    "gsm8k",
-    "mathverse"
+    "multimodal-reasoning",
+    "overthinking"
   ],
   "schema_version": 1,
   "slug": "mathvista",

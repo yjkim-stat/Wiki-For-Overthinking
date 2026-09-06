@@ -11,9 +11,44 @@
 - **Topics**: overthinking
 - **Relevance score**: overthinking 0.62
 
-## Summary
+## In one line
 
-_Not summarized yet. A task is queued under `data/queue/pending/`._
+SABER is a training-free early-exit method that, at each "Wait" token, branches the reasoning prefix into a neutral and an adversarial probe, and stops when the two branches agree in answer and in confidence.
+
+## Problem
+
+Inference-time early exit needs a signal that says the reasoning has converged. Confidence and entropy signals are unreliable because reasoning models stay confident while wrong, and consistency signals require agreement across several successive reasoning steps, which delays the exit and costs extra inference. The paper's opening claim is that neither family measures the stability of the intermediate reasoning state itself.
+
+## Contributions
+
+- A stability-aware framing of early exit: reasoning trajectories that lead to correct solutions are shown, on OlympiadBench, to become progressively more stable under semantic perturbation, while incorrect ones stay unstable in both answer and confidence.
+- SABER, a training-free early-exit framework that probes that stability by branching each reasoning step into a neutral and an adversarial continuation and scoring the pair.
+- A combined stopping score, RSS, that mixes semantic consistency between branches with the stability of model confidence across them, with an ablation showing each signal alone is weaker on the harder benchmarks.
+- Measured probe overhead and end-to-end latency alongside token counts, rather than token counts alone.
+
+## Method
+
+The trajectory is segmented into steps at trigger phrases ("Wait", "Alternatively", "\n\n"). Whenever "Wait" appears, the current prefix is branched twice by appending a probing prompt: a neutral one ("Wait, let me summarize. The answer is \boxed{") and an adversarial one ("Wait, I think my previous reasoning was incorrect. After correcting it, the answer is \boxed{"). Each branch is sampled k times, giving two answer multisets and two confidence sets. Semantic Consistency (SC) is the multiset Jaccard similarity between the neutral and adversarial answer multisets. Confidence Stability (CS) is exp(-gamma * |mean confidence of neutral branch - mean confidence of adversarial branch|), with gamma = 3; a per-continuation confidence is the length-normalised geometric mean of token-level maximum predictive probabilities. The two are combined as RSS = alpha * SC + (1 - alpha) * CS, and generation is terminated by injecting </think> once RSS exceeds a threshold tau. Nothing is trained: the probes are prompts and the detector is the model itself.
+
+## Results
+
+Table 1, Overall column (accuracy / compression ratio, CR = tokens relative to vanilla, lower is better). DeepSeek-R1-Distill-Qwen-7B: vanilla 67.8 / 100%, SABER 69.0 / 69.8%, DEER 66.7 / 78.3%, Dynasor 65.8 / 71.4%, NoThinking 54.9 / 30.6%. Qwen3-4B: vanilla 74.8 / 100%, SABER 75.1 / 69.3%, DEER 73.5 / 76.8%. Qwen3-8B: vanilla 75.7 / 100%, SABER 76.0 / 60.2%, DEER 74.7 / 73.3%. The headline is 30.2%-39.8% token reduction with accuracy equal to or slightly above vanilla on all three models. Probe overhead is reported separately (Table 3): probe tokens are 4.9% / 2.8% / 3.8% of total generated tokens, 3.8% on average. Wall-clock latency is measured on GSM8K, AIME24 and GPQA-Diamond (Table 4): 149.4 -> 92.9 s, 190.1 -> 107.0 s, 243.0 -> 98.5 s, a 48.8% average reduction. Thresholds are tuned per model family: tau = 0.9 for R1-Distill-Qwen-7B and 0.95 for the Qwen3 models; performance is reported stable across tau in [0.8, 0.95]. The alpha sweep (Table 2) is task-dependent in a consistent direction: GSM8K is best at alpha = 0.7 (semantic consistency dominant), OlympiadBench at alpha = 0.3 (confidence stability dominant). Component ablation (Figure 3): SC-only and CS-only are comparable to RSS on GSM8K and MATH-500 but both degrade noticeably on AIME24 and GPQA-Diamond. Sampling ablation on MATH-500 with Qwen3-8B: k = 1 -> 4 raises accuracy 88.8% -> 91.6%, while k = 4 -> 32 adds only 0.4% and grows probe overhead from 3.3% to 22.7% of tokens. All runs use vLLM on 8 NVIDIA RTX 3090 GPUs; AMC23, AIME 2024 and AIME 2025 are each evaluated four times and averaged.
+
+## Limitations
+
+Stated by the authors (Limitations section): experiments cover only text-based reasoning benchmarks on models of 4B to 8B parameters, with no larger scales, and no evaluation in multimodal or agent settings where intermediate representations and confidence dynamics may behave differently. Noticeable to the reader: the paper does not state whether the Tok and CR columns of Table 1 include the probe tokens, and the totals in Table 3 do not match Table 1's Overall column, so the reported compression cannot be reconciled with the separately reported 3.8% probe overhead from the paper alone - this matters because the method's cost is precisely the extra generation it performs at every "Wait". The exit threshold tau is set per model family rather than derived, and the best alpha differs between easy and hard benchmarks, so two of the method's constants are tuned against the evaluation suite. The scoring-function ablation reports that SC * CS and a branch-uncertainty difference are both competitive, which the authors read as evidence that the two-branch probing framework rather than the RSS form carries the gains; that also means RSS itself is not shown to be necessary. Accuracy gains over vanilla are within about one point on every model, so the claim supported by the tables is preserved accuracy at lower cost rather than improved accuracy.
+
+## Why it matters here
+
+- **overthinking**: Adds a distinct answer to the question of what signal says reasoning has converged: not the confidence of one intermediate answer and not agreement across successive steps, but agreement between two deliberately disagreeing probes of the same state. The adversarial probe is the notable part - it tells the model its previous reasoning was wrong and checks whether the answer moves, which is a stopping-time version of the injection experiments used elsewhere to show that reasoning models adopt whatever intermediate answer they are handed. It also reports the two quantities this literature usually omits: probe overhead as a fraction of generated tokens (3.8% average) and wall-clock latency reduction (48.8%), which is the accounting most confidence-probing methods skip, though the paper still leaves it unclear whether its own compression ratios are gross or net of that overhead. Its baselines (DEER, Dynasor, NoThinking) place it directly against the confidence and consistency families already tracked here.
+
+## Entities
+
+- **Concepts**: early exit, [answer convergence](../../../../wiki/concepts/answer-convergence.md), [overthinking](../../../../wiki/concepts/overthinking.md), reasoning stability under perturbation, semantic consistency, confidence stability, confidence miscalibration in reasoning models, training-free inference-time intervention, probe overhead accounting
+- **Methods**: SABER, adversarial branch probing, Reasoning Stability Score (RSS), Semantic Consistency (multiset Jaccard between neutral and adversarial answer multisets), Confidence Stability (exponential of the confidence gap between branches), [DEER](../../../../wiki/methods/deer.md), [Dynasor](../../../../wiki/methods/dynasor.md), [NoThinking](../../../../wiki/methods/nothinking.md), [self-consistency](../../../../wiki/methods/self-consistency.md)
+- **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AMC23](../../../../wiki/datasets/amc23.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md)
+
+Tags: `early-exit`, `overthinking`, `training-free`, `adversarial-probing`, `reasoning-stability`, `inference-efficiency`, `self-consistency`
 
 ## Abstract
 
