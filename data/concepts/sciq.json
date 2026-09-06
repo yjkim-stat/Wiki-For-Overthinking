@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "Neither source describes SciQ directly; it appears only as a named evaluation benchmark. The adaptive-sampling source uses it as one of several benchmarks against which a hand-written fuzzy controller sets a per-prompt best-of-N budget; ThinkRetrieve uses it as one of the QA benchmarks on which its step-level retrieval of worked examples is compared to standard sequential test-time scaling.",
+  "definition": "None of the sources describes SciQ itself; it appears only as a named evaluation benchmark. The adaptive-sampling controller sets a per-prompt best-of-N budget and is evaluated against it, and ThinkRetrieve's step-level retrieval of worked examples is compared to standard sequential test-time scaling on it. It is also listed among the benchmarks associated with GrACE, the self-reading-pattern study, and MR-ALIGN, though the sources give no further detail about its role in those cases.",
   "evidence": [
     {
       "id": "arxiv:2608.03961",

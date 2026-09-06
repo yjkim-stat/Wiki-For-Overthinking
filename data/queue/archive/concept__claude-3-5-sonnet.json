@@ -16,12 +16,28 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "TRUTHFULVQA, a 5,000-image hierarchical human-annotated benchmark testing multimodal LLM truthfulness under progressively misleading visual-linguistic prompts, uncovers an inverse scaling law of truthfulness: slow-thinking (reasoning) MLLMs are consistently less truthful than their fast-thinking chat counterparts of the same family, and larger reasoning models show worse calibration despite generating more reasoning tokens.",
+        "title": "When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines a per-question 'token complexity' - the minimum chain-of-thought length needed for a model to answer correctly - and uses it to show that 31 different CoT-compression prompts all sit on one universal accuracy-vs-length curve that is empirically predictable and provably far from the achievable optimum.",
+        "title": "How Well do LLMs Compress Their Own Chain-of-Thought? A Token Complexity Approach",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-09-01T10:09:22Z",
-  "created_at": "2026-09-01T10:04:18Z",
-  "instructions": "Write the wiki definition for 'Claude-3.5-Sonnet'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T06:51:57Z",
+  "created_at": "2026-09-06T06:48:55Z",
+  "instructions": "Revise the wiki definition for 'Claude-3.5-Sonnet'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Claude 3.5 Sonnet appears as one of the target large reasoning/language models attacked in jailbreak red-teaming studies: Mousetrap's 'Chaos Machine' iterative reversible cipher-based prompt transformation, and SEAL's stacked-cipher adaptive jailbreak method.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Claude-3.5-Sonnet",
   "kind": "concept",
   "language": "en",
@@ -37,15 +53,14 @@
   },
   "payload": {
     "name": "Claude-3.5-Sonnet",
-    "source_count": 2
+    "previous_definition": "Claude 3.5 Sonnet appears as one of the target large reasoning/language models attacked in jailbreak red-teaming studies: Mousetrap's 'Chaos Machine' iterative reversible cipher-based prompt transformation, and SEAL's stacked-cipher adaptive jailbreak method.",
+    "source_count": 4
   },
   "result": {
     "aliases": [],
-    "definition": "Claude 3.5 Sonnet appears as one of the target large reasoning/language models attacked in jailbreak red-teaming studies: Mousetrap's 'Chaos Machine' iterative reversible cipher-based prompt transformation, and SEAL's stacked-cipher adaptive jailbreak method.",
+    "definition": "Claude-3.5-Sonnet is a large language model that appears in this archive only as a target of jailbreak red-teaming, not as a subject any source describes directly. Mousetrap's 'Chaos Machine' embeds a toxic query inside a reversible cipher-based reconstruction task and reaches 96-98% attack success against it by exploiting 'reasoning inertia' -- the tendency of a large reasoning model to follow a started chain of reasoning to completion without re-evaluating safety. SEAL's stacked-cipher method separately reports 87.5-93.13% attack success on standard safety benchmarks against it (reported as 'Claude-Sonnet') by encrypting a harmful prompt just past what its safety mechanism can flag while staying within its own decryption capability. Neither source describes its architecture, training or general capabilities; the two other sources that mention it do so only as one entry among the models they evaluate, without further detail.",
     "kind": "model",
-    "related": [
-      "Claude Sonnet 4"
-    ]
+    "related": []
   },
   "task_id": "concept__claude-3-5-sonnet",
   "task_version": 1,

@@ -3,7 +3,7 @@
     "s1K-1.1",
     "S1k-1.1"
   ],
-  "definition": "Neither source describes s1K-1.1 directly; it appears as a named reference dataset in their reasoning-compression work. A*-Thought selects a short, high-information subset of a long reasoning trace via A* search over reasoning spans as SFT data; SuCo instead trains on the shortest reasoning prefix at which model confidence crosses a difficulty-adaptive threshold (its 'Minimal Sufficient CoT'), combined with a GRPO stage penalising both over- and under-thinking. Neither states how s1K-1.1 itself was built or used.",
+  "definition": "s1K-1.1 is a small, curated reasoning dataset used across sources as a source of training data and as a comparison point for reasoning-compression and distillation methods, alongside similarly curated sets like LIMO. SelfBudgeter draws the model's own correct responses from s1K-1.1 (together with GSM8K and MATH) for its cold-start SFT phase that teaches a reasoning model to emit its own predicted token budget. CoRD treats s1K-1.1 (and LIMO-v1/v2) as a curated public baseline: reprocessing the same underlying question sets with CoRD's step-wise collaborative-teacher decoding at matched data scale consistently outperforms training on s1K-1.1 directly. A*-Thought and SuCo name it only as a reference dataset in their reasoning-compression work, without describing how it was built or used.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.findings-acl.1063",
@@ -123,7 +123,9 @@
     "openr1-math-220k",
     "opencodereasoning"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "limo"
+  ],
   "schema_version": 1,
   "slug": "s1k-1-1",
   "topics": [

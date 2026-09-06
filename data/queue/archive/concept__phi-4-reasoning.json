@@ -3,6 +3,30 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.",
+        "title": "Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReasoningGuard is a training-free, inference-time jailbreak defense for large reasoning models that uses an attention-sink signal to locate the moment reasoning shifts from problem restatement to exploration, injects a crafted 'safety aha' phrase there, then samples multiple continuations and selects the one with the highest sustained attention to that safety phrase -- outperforming nine existing defenses at only 5-9% extra inference cost.",
+        "title": "ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "ThinkBrake is a training-free decoding rule that injects </think> at sentence boundaries whenever the log-probability margin between the top continuation token and </think> narrows below a threshold, recovering most of an oracle stopping point's headroom (8% accuracy gain, 72% token reduction) with a theoretically grounded, model-agnostic criterion, and its generated trajectories can also train models via DPO for training-free-free efficient reasoning.",
+        "title": "ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "GFPO samples a larger group of rollouts per problem during RL training and updates only on the top-k by length or by reward-per-token, converting extra training-time compute into shorter responses at inference.",
         "title": "Sample More to Think Less: Group Filtered Policy Optimization for Concise Reasoning",
         "topics": [
@@ -19,10 +43,10 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T01:27:33Z",
-  "created_at": "2026-08-21T01:23:36Z",
-  "instructions": "Write the wiki definition for 'Phi-4-reasoning'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
-  "item_id": "Phi-4-reasoning",
+  "completed_at": "2026-09-06T06:52:38Z",
+  "created_at": "2026-09-06T04:55:44Z",
+  "instructions": "Revise the wiki definition for 'Phi-4-Reasoning'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Phi-4-reasoning is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. GFPO uses it as its sole base model and measures reduction in GRPO's excess length rather than raw length: Shortest-8/16 cuts 23.7%-36.5% across AIME 24/25, GPQA, Omni-MATH and LiveCodeBench, Token Efficiency GFPO cuts 70.9%-84.6%, and Adaptive Difficulty GFPO cuts 35.1%-52.9%, with no statistically significant accuracy difference from GRPO. FROST prunes attention-identified 'reasoning outliers' from its chain of thought and reports GSM8K 93.11% at 154.33 tokens, MATH500 59.80% at 344.37, AIME24 26.67% at 899.80 and Minerva 27.16% at 401.19, alongside a 15.97% drop in maximum attention infinity norm and 91.09% in average kurtosis. Both papers treat it as a reasoning model whose chains are long enough to be worth shortening; neither describes how it was trained.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Phi-4-Reasoning",
   "kind": "concept",
   "language": "en",
   "output_schema": {
@@ -30,19 +54,23 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
-    "name": "Phi-4-reasoning",
-    "source_count": 2
+    "name": "Phi-4-Reasoning",
+    "previous_definition": "Phi-4-reasoning is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. GFPO uses it as its sole base model and measures reduction in GRPO's excess length rather than raw length: Shortest-8/16 cuts 23.7%-36.5% across AIME 24/25, GPQA, Omni-MATH and LiveCodeBench, Token Efficiency GFPO cuts 70.9%-84.6%, and Adaptive Difficulty GFPO cuts 35.1%-52.9%, with no statistically significant accuracy difference from GRPO. FROST prunes attention-identified 'reasoning outliers' from its chain of thought and reports GSM8K 93.11% at 154.33 tokens, MATH500 59.80% at 344.37, AIME24 26.67% at 899.80 and Minerva 27.16% at 401.19, alongside a 15.97% drop in maximum attention infinity norm and 91.09% in average kurtosis. Both papers treat it as a reasoning model whose chains are long enough to be worth shortening; neither describes how it was trained.",
+    "source_count": 5
   },
   "result": {
-    "aliases": [],
-    "definition": "Phi-4-reasoning is a reasoning language model that archived papers evaluate on, not a concept, method or dataset; the wiki has no kind for a model, so it is filed under the least wrong of the three available. GFPO uses it as its sole base model and measures reduction in GRPO's excess length rather than raw length: Shortest-8/16 cuts 23.7%-36.5% across AIME 24/25, GPQA, Omni-MATH and LiveCodeBench, Token Efficiency GFPO cuts 70.9%-84.6%, and Adaptive Difficulty GFPO cuts 35.1%-52.9%, with no statistically significant accuracy difference from GRPO. FROST prunes attention-identified 'reasoning outliers' from its chain of thought and reports GSM8K 93.11% at 154.33 tokens, MATH500 59.80% at 344.37, AIME24 26.67% at 899.80 and Minerva 27.16% at 401.19, alongside a 15.97% drop in maximum attention infinity norm and 91.09% in average kurtosis. Both papers treat it as a reasoning model whose chains are long enough to be worth shortening; neither describes how it was trained.",
-    "kind": "method",
+    "aliases": [
+      "Phi-4-Reasoning",
+      "Phi-4-reasoning"
+    ],
+    "definition": "Phi-4-reasoning is a reasoning language model that archived papers use as an evaluation subject rather than describe the training of. In the Bloom's-taxonomy cognitive-profiling study it is the outlier among seven models: 28.4% of its internal reasoning steps are labelled Remembering against 9.0%-13.5% for the others, and it has the lowest Applying share (26.9%); the paper flags its distinct default system prompt as a plausible confound for this. ReasoningGuard's inference-time safety injection transfers to it without direct comparison to training-based baselines, and ThinkBrake's log-probability-margin stopping rule is evaluated on it among six LRMs, improving its AIME2024 accuracy rather than merely truncating it. GFPO uses it as its sole RL base model (Shortest-8/16 cuts 23.7%-36.5% across AIME 24/25, GPQA, Omni-MATH and LiveCodeBench; Token Efficiency GFPO cuts 70.9%-84.6%; Adaptive Difficulty GFPO cuts 35.1%-52.9%, with no statistically significant accuracy difference from GRPO), and FROST prunes attention-identified reasoning outliers from its chain of thought, reporting GSM8K 93.11% at 154.33 tokens, MATH500 59.80% at 344.37, AIME24 26.67% at 899.80 and Minerva 27.16% at 401.19, alongside a 15.97% drop in maximum attention infinity norm and 91.09% in average kurtosis.",
+    "kind": "model",
     "related": []
   },
   "task_id": "concept__phi-4-reasoning",

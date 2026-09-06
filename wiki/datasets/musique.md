@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A multi-hop question-answering benchmark used to evaluate knowledge-augmented and recursive test-time-scaling reasoning methods, including as one of the hardest benchmarks in a comparison of recursion operators (GROW/PRUNE/BRANCH) and as one of the three multi-hop QA datasets ARISE's risk-adaptive Monte Carlo Tree Search is evaluated on, where its difficulty produces the largest relative gains over vanilla RAG among the three benchmarks tested.
+A multi-hop question-answering benchmark used across this archive to evaluate knowledge-augmented and recursive test-time-scaling reasoning methods, consistently as one of the harder datasets in whatever comparison it appears in. It is one of the hardest benchmarks in a comparison of recursion operators (GROW/PRUNE/BRANCH), one of the three multi-hop QA datasets where ARISE's risk-adaptive Monte Carlo Tree Search shows its largest relative gains over vanilla RAG, and one of the datasets Verbal-R3 groups among its multi-hop tasks, where verbal-annotation reranking gains (+26.91% F1) run well above its single-hop gains (+9.67%). Self-Correcting RAG reports its largest absolute margin on MuSiQue specifically: 22.7 EM against the prior-best baseline CRAG's 18.2, a 4.5-point gain attributed to its knapsack-based context selection and NLI-guided search.
 
 - **Kind**: dataset
 - **Also called**: MuSiQue, MusiQue

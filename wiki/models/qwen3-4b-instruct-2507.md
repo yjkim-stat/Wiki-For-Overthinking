@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-An open-weight instruction-tuned model used across sources as a cross-model transfer test subject for decoding-time code-verification methods (DTV), and as one of the two identical-architecture models (paired with Qwen3-4B-Thinking-2507) that GRIP's module-wise, RL-learned interpolation fuses to reduce reasoning-model overthinking while preserving or improving accuracy.
+Qwen3-4B-Instruct-2507 is an open-weight instruction-tuned (non-thinking) model used across sources both as a cross-model transfer test subject for decoding-time code-verification methods (DTV) and as the non-reasoning counterpart in model-fusion experiments paired with the identical-architecture Qwen3-4B-Thinking-2507. GRIP's module-wise, RL-learned interpolation fuses the two to cut Qwen3-4B-Thinking's average generation length 27.0% while slightly improving accuracy, and a separate study of linear weight interpolation between the two finds a predictable three-stage transition -- Instruct-dominated, then an abrupt phase transition where thinking patterns emerge and a merged model can briefly outperform the pure Thinking model, then diminishing returns as it converges toward Thinking -- with FFN sublayers driving the emergence of the long-CoT pattern and attention layers driving reasoning quality. It is also used as a backbone for Rhombus's co-trained multi-agent parallel reasoning, where it reaches 69.6% macro-average Pass@1 across AIME 2024/2025, BeyondAIME and OlympiadBench versus a token-budget-matched Long-CoT baseline's 63.6%.
 
 - **Kind**: model
 - **Also called**: Qwen3-4B-Instruct

@@ -16,12 +16,28 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "ARISE fixes a specific flaw in prior slope-based test-time-scaling metrics -- they operate only at the aggregate-accuracy level and paradoxically reward models that waste more tokens for worse results under negative scaling -- by scoring each sample's individual accuracy transitions across scaling iterations with a ratio-based, asymmetric weight that penalizes wasted computation more heavily than it rewards gains, paired with a variance-adaptive sampling protocol; across proprietary and open reasoning models it reveals genuine negative scaling (e.g. GPT-OSS-20B: -0.403 ARISE on AIME, DeepSeek-R1: -0.049 on GPQA-Diamond) that a conventional scaling metric registers as positive because it cannot distinguish wasted computation from productive computation.",
+        "title": "ARISE: An Adaptive Resolution-Aware Metric for Test-Time Scaling Evaluation in Large Reasoning Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "The first large-scale, systematic evaluation of 8 reasoning prompting strategies (across augmentation, organization, reflection paradigms) and 3 Large Reasoning Models on abstractive summarization across 8 datasets finds reasoning is not a panacea for this task -- there is a statistically significant quality-faithfulness trade-off, and increasing an LRM's internal reasoning budget does not reliably improve, and can actively reduce, factual consistency.",
+        "title": "Understanding LLM Reasoning for Abstractive Summarization",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T00:00:51Z",
-  "created_at": "2026-08-27T23:27:34Z",
-  "instructions": "Write the wiki definition for 'o1'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T06:55:14Z",
+  "created_at": "2026-09-06T06:48:55Z",
+  "instructions": "Revise the wiki definition for 'o1'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    o1 is OpenAI's reasoning model, cited in this archive as the reference point for the class of 'o1-like' reasoning models whose safety and efficiency Rt-LRM's 30-task red-teaming benchmark evaluates (finding over 60% of tested samples exhibit overthinking under attack, more than double the clean-input token count), and as a jailbreak target in the Mousetrap attack framework (via its o1-mini variant, exploiting 'reasoning inertia' where the model follows its reasoning chain to completion without re-evaluating safety).\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "o1",
   "kind": "concept",
   "language": "en",
@@ -37,11 +53,12 @@
   },
   "payload": {
     "name": "o1",
-    "source_count": 2
+    "previous_definition": "o1 is OpenAI's reasoning model, cited in this archive as the reference point for the class of 'o1-like' reasoning models whose safety and efficiency Rt-LRM's 30-task red-teaming benchmark evaluates (finding over 60% of tested samples exhibit overthinking under attack, more than double the clean-input token count), and as a jailbreak target in the Mousetrap attack framework (via its o1-mini variant, exploiting 'reasoning inertia' where the model follows its reasoning chain to completion without re-evaluating safety).",
+    "source_count": 4
   },
   "result": {
     "aliases": [],
-    "definition": "o1 is OpenAI's reasoning model, cited in this archive as the reference point for the class of 'o1-like' reasoning models whose safety and efficiency Rt-LRM's 30-task red-teaming benchmark evaluates (finding over 60% of tested samples exhibit overthinking under attack, more than double the clean-input token count), and as a jailbreak target in the Mousetrap attack framework (via its o1-mini variant, exploiting 'reasoning inertia' where the model follows its reasoning chain to completion without re-evaluating safety).",
+    "definition": "OpenAI's reasoning model, cited in this archive as a reference point for the class of models red-teaming and scaling studies place their others against, rather than as a subject studied on its own terms. Rt-LRM's 30-task red-teaming benchmark evaluates it among the 'o1-like' class of reasoning models, finding over 60% of tested samples exhibit overthinking under attack (more than double the clean-input token count); Mousetrap tests it directly (not only via the o1-mini variant) among a group of newer, more advanced models that are 'completely jailbroken' at near-100% combined attack success with chain lengths up to 3. ARISE tracks it as the starting point of the OpenAI o-series' scaling progression, scoring roughly 0.134 against o3's roughly 0.239 (a 78% improvement). It also appears as one of three large reasoning models in a summarization study finding that increasing an LRM's reasoning budget does not reliably improve, and can reduce, factual consistency, though no o1-specific number is broken out there.",
     "kind": "model",
     "related": []
   },

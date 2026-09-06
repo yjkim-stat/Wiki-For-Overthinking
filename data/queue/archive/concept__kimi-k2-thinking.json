@@ -3,6 +3,14 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "Measures whether reasoning models spend tokens on the same items humans spend time on, using a forced-choice abductive task where item difficulty cannot be read off formal structure, and finds a significant per-item correlation in all eight models tested.",
+        "title": "Thinking effort aligns between humans and reasoning models in abductive reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "PaCoRe (Parallel Coordinated Reasoning) decouples test-time compute scaling from a fixed context window by running rounds of massively parallel reasoning trajectories, compacting each trajectory's conclusion into a short message, and RL-training the model to synthesize (not just vote on) these messages into better subsequent exploration -- letting an 8B model reach 94.5% on HMMT 2025 by scaling effective test-time compute to ~2 million tokens, surpassing GPT-5's 93.2%.",
         "title": "PaCoRe: Learning to Scale Test-Time Compute with Parallel Coordinated Reasoning",
         "topics": [
@@ -16,12 +24,20 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoTJudger converts free-form CoTs into directed dependency graphs (capturing backtracking, repetition, and self-correction via classified node/edge types) and extracts the Shortest Effective Path (SEP) -- the minimal, verified-sufficient reasoning skeleton -- to compute a scale-invariant Redundancy Ratio; across 21 LRMs it finds redundancy pervasive but structurally distinct by model family (DeepSeek-R1's high-in-degree 'Cyclic Complexity' looping vs. Qwen3-Max's high-uncertainty 'Semantic Verbosity' vs. Gemini-3-Pro's low-degree 'Local Over-Optimization'), that distilled models inherit and often amplify their teacher's redundancy (a 'reasoning illusion' where distillation transfers verbosity without the underlying verification capability), and that post-answer redundancy specifically includes 'Destructive Revision' where a correct answer is unstably discarded for a wrong one.",
+        "title": "CoTJudger: A Graph-Driven Framework for Automatic Evaluation of Chain-of-Thought Efficiency and Redundancy in LRMs",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T01:42:46Z",
-  "created_at": "2026-08-28T01:36:20Z",
-  "instructions": "Write the wiki definition for 'Kimi-K2-Thinking'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T06:52:59Z",
+  "created_at": "2026-09-06T06:48:55Z",
+  "instructions": "Revise the wiki definition for 'Kimi-K2-Thinking'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Kimi-K2-Thinking is used in these sources as a top-tier reasoning model evaluated on hard benchmarks rather than a subject of methodological study: PaCoRe cites frontier-model comparisons including this one when reporting an 8B model with massively-parallel test-time compute surpassing GPT-5 on HMMT 2025, and AMO-Bench separately evaluates it among 36 models on its original hard-problem math set.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Kimi-K2-Thinking",
   "kind": "concept",
   "language": "en",
@@ -37,13 +53,17 @@
   },
   "payload": {
     "name": "Kimi-K2-Thinking",
-    "source_count": 2
+    "previous_definition": "Kimi-K2-Thinking is used in these sources as a top-tier reasoning model evaluated on hard benchmarks rather than a subject of methodological study: PaCoRe cites frontier-model comparisons including this one when reporting an 8B model with massively-parallel test-time compute surpassing GPT-5 on HMMT 2025, and AMO-Bench separately evaluates it among 36 models on its original hard-problem math set.",
+    "source_count": 4
   },
   "result": {
     "aliases": [],
-    "definition": "Kimi-K2-Thinking is used in these sources as a top-tier reasoning model evaluated on hard benchmarks rather than a subject of methodological study: PaCoRe cites frontier-model comparisons including this one when reporting an 8B model with massively-parallel test-time compute surpassing GPT-5 on HMMT 2025, and AMO-Bench separately evaluates it among 36 models on its original hard-problem math set.",
+    "definition": "Kimi-K2-Thinking is a reasoning model that appears in these sources purely as an evaluation subject rather than a subject of methodological study. PaCoRe cites frontier-model comparisons including it when reporting an 8B model with massively-parallel test-time compute reaching 94.5% on HMMT 2025, surpassing GPT-5's 93.2%. AMO-Bench separately evaluates it among 36 models on its 50-problem, IMO-difficulty-or-harder math set, where even the best model (Gemini-3-Pro) reaches only 63.1% accuracy. It is also among the models covered by a study of human-model alignment in per-item reasoning effort on an abductive-reasoning task and by a graph-based chain-of-thought redundancy analysis spanning 21 LRMs, though neither of those two sources' notes report findings specific to it.",
     "kind": "model",
-    "related": []
+    "related": [
+      "GPT-5",
+      "AMO-Bench"
+    ]
   },
   "task_id": "concept__kimi-k2-thinking",
   "task_version": 1,

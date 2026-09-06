@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-StrongReject is a safety/refusal benchmark used in this archive by SafeChain's systematic 13-model safety evaluation (finding no model is safe on both StrongReject and WildJailbreak, and that unsafe responses are consistently longer than safe ones) and by the Mousetrap jailbreak-attack framework, which reports 87.5-93.13% attack success on standard safety benchmarks including this one.
+StrongReject is a safety/refusal benchmark used in this archive by SafeChain's systematic 13-model safety evaluation (finding no model is safe on both StrongReject and WildJailbreak, and that unsafe responses are consistently longer than safe ones) and by the Mousetrap jailbreak-attack framework, which reports 87.5-93.13% attack success on standard safety benchmarks including this one. It is also among the sources associated with AutoRAN, the Self-Jailbreak/Chain-of-Guardrail study, and the conflict-injection jailbreak paper, though none of these give further detail about its specific role.
 
 - **Kind**: dataset
 - **Also called**: StrongREJECT

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Gemini-3-Pro is used in these sources as a top-tier evaluated reasoning model: AMO-Bench reports it as the single best-performing model among 36 evaluated on its hard original-problem math benchmark (63.1% accuracy, still well short of saturation), and Parason lists it among the closed-source frontier models its parallel-reasoning results are compared against.
+Gemini-3-Pro is used in this archive's overthinking literature as a top-tier evaluated reasoning model. AMO-Bench reports it as the single best-performing model among 36 evaluated on its hard original-problem math benchmark (63.1% accuracy, still well short of saturation), and Parason lists it among the closed-source frontier models its parallel-reasoning results are compared against. CoTJudger's cross-model redundancy analysis characterizes its chain-of-thought redundancy as 'Local Over-Optimization' -- a low-degree pattern in its reasoning-dependency graph -- distinct from DeepSeek-R1's high-in-degree 'Cyclic Complexity' looping and Qwen3-Max's high-uncertainty 'Semantic Verbosity'.
 
 - **Kind**: model
 - **Also called**: Gemini-3-pro

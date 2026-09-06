@@ -16,12 +16,28 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Reveals that linear interpolation between an Instruct model's and a Thinking model's weights does not trade off performance and reasoning verbosity smoothly, but follows a predictable three-stage transition (Instruct-dominated -> abrupt thinking-pattern emergence -> converging to Thinking with diminishing/overthinking returns), and shows a strategically chosen interpolation point beats sophisticated model-merging baselines (task arithmetic, TIES) on both efficiency and accuracy.",
+        "title": "Revisiting Model Interpolation for Efficient Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Rhombus reformulates parallel test-time scaling as a communication-optimization problem: multiple Proposer instances and a central Synthesizer (all the same shared model, role-switched via system prompt) are co-trained end-to-end via GRPO with a hybrid local-plus-system reward and role-level advantage normalization, teaching Proposers to emit compact, decision-focused (rather than implicit, hard-to-verify) reasoning cues -- beating a token-budget-matched Long-CoT baseline by 6.0% accuracy while cutting wall-clock latency 39.4%, with the coordination gap between Proposer exploration potential and realized Synthesizer accuracy nearly eliminated (0.7% vs. 4.6% for an uncoordinated baseline).",
+        "title": "Rhombus: Incentivizing Coordination in Parallel Thinking through Reinforcement Learning",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-27T23:01:23Z",
-  "created_at": "2026-08-27T22:59:03Z",
-  "instructions": "Write the wiki definition for 'Qwen3-4B-Instruct-2507'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T06:56:10Z",
+  "created_at": "2026-09-06T06:48:55Z",
+  "instructions": "Revise the wiki definition for 'Qwen3-4B-Instruct-2507'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    An open-weight instruction-tuned model used across sources as a cross-model transfer test subject for decoding-time code-verification methods (DTV), and as one of the two identical-architecture models (paired with Qwen3-4B-Thinking-2507) that GRIP's module-wise, RL-learned interpolation fuses to reduce reasoning-model overthinking while preserving or improving accuracy.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen3-4B-Instruct-2507",
   "kind": "concept",
   "language": "en",
@@ -37,15 +53,15 @@
   },
   "payload": {
     "name": "Qwen3-4B-Instruct-2507",
-    "source_count": 2
+    "previous_definition": "An open-weight instruction-tuned model used across sources as a cross-model transfer test subject for decoding-time code-verification methods (DTV), and as one of the two identical-architecture models (paired with Qwen3-4B-Thinking-2507) that GRIP's module-wise, RL-learned interpolation fuses to reduce reasoning-model overthinking while preserving or improving accuracy.",
+    "source_count": 4
   },
   "result": {
     "aliases": [],
-    "definition": "An open-weight instruction-tuned model used across sources as a cross-model transfer test subject for decoding-time code-verification methods (DTV), and as one of the two identical-architecture models (paired with Qwen3-4B-Thinking-2507) that GRIP's module-wise, RL-learned interpolation fuses to reduce reasoning-model overthinking while preserving or improving accuracy.",
+    "definition": "Qwen3-4B-Instruct-2507 is an open-weight instruction-tuned (non-thinking) model used across sources both as a cross-model transfer test subject for decoding-time code-verification methods (DTV) and as the non-reasoning counterpart in model-fusion experiments paired with the identical-architecture Qwen3-4B-Thinking-2507. GRIP's module-wise, RL-learned interpolation fuses the two to cut Qwen3-4B-Thinking's average generation length 27.0% while slightly improving accuracy, and a separate study of linear weight interpolation between the two finds a predictable three-stage transition -- Instruct-dominated, then an abrupt phase transition where thinking patterns emerge and a merged model can briefly outperform the pure Thinking model, then diminishing returns as it converges toward Thinking -- with FFN sublayers driving the emergence of the long-CoT pattern and attention layers driving reasoning quality. It is also used as a backbone for Rhombus's co-trained multi-agent parallel reasoning, where it reaches 69.6% macro-average Pass@1 across AIME 2024/2025, BeyondAIME and OlympiadBench versus a token-budget-matched Long-CoT baseline's 63.6%.",
     "kind": "model",
     "related": [
-      "Verifier-Guided Code Translation (DTV)",
-      "GRIP"
+      "Qwen3-4B-Thinking-2507"
     ]
   },
   "task_id": "concept__qwen3-4b-instruct-2507",

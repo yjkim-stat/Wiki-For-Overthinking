@@ -16,12 +16,28 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Guided by Gut (GG) replaces external Process Reward Models in tree-search test-time scaling with the LLM's own intrinsic token-probability confidence, calibrated via a GRPO reward that heavily penalizes overconfident wrong answers (penalty in [-9,1] vs. reward in [1,2] for correct ones), letting a 1.5B-7B model match or exceed models 10-70x larger while using 4-10x less GPU memory and 8x faster inference than PRM-guided search.",
+        "title": "Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "DREAM decomposes tree-based test-time search into separate planning and execution phases, each with its own reward model and adaptive per-step budget allocation, improving the accuracy-tokens tradeoff over standard beam search and majority voting on math reasoning and code generation.",
+        "title": "A Reward-Guided Dual-Phase Framework for Adaptive Inference-Time Reasoning",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-28T00:11:39Z",
-  "created_at": "2026-08-28T00:09:25Z",
-  "instructions": "Write the wiki definition for 'Qwen2.5-Math-1.5B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T06:55:00Z",
+  "created_at": "2026-09-06T06:48:55Z",
+  "instructions": "Revise the wiki definition for 'Qwen2.5-Math-1.5B-Instruct'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Qwen2.5-Math-1.5B-Instruct is a math-specialized model used in this archive to test cross-lingual generalizability of test-time scaling methods (Outcome/Process Reward Modeling, Budget Forcing) under FLOPs-matched budgets, and by MUTO's token-level marginal utility training, where even this already-concise math-specialized backbone still gains +2.0 accuracy points while cutting tokens 12.9% -- a smaller efficiency gain than on long-CoT DeepSeek-R1-Distill backbones.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen2.5-Math-1.5B-Instruct",
   "kind": "concept",
   "language": "en",
@@ -37,11 +53,12 @@
   },
   "payload": {
     "name": "Qwen2.5-Math-1.5B-Instruct",
-    "source_count": 2
+    "previous_definition": "Qwen2.5-Math-1.5B-Instruct is a math-specialized model used in this archive to test cross-lingual generalizability of test-time scaling methods (Outcome/Process Reward Modeling, Budget Forcing) under FLOPs-matched budgets, and by MUTO's token-level marginal utility training, where even this already-concise math-specialized backbone still gains +2.0 accuracy points while cutting tokens 12.9% -- a smaller efficiency gain than on long-CoT DeepSeek-R1-Distill backbones.",
+    "source_count": 4
   },
   "result": {
     "aliases": [],
-    "definition": "Qwen2.5-Math-1.5B-Instruct is a math-specialized model used in this archive to test cross-lingual generalizability of test-time scaling methods (Outcome/Process Reward Modeling, Budget Forcing) under FLOPs-matched budgets, and by MUTO's token-level marginal utility training, where even this already-concise math-specialized backbone still gains +2.0 accuracy points while cutting tokens 12.9% -- a smaller efficiency gain than on long-CoT DeepSeek-R1-Distill backbones.",
+    "definition": "Qwen2.5-Math-1.5B-Instruct is a math-specialized model used across archived papers as a small backbone for test-time-scaling and efficient-reasoning experiments. It tests cross-lingual generalizability of test-time scaling methods (Outcome/Process Reward Modeling, Budget Forcing) under FLOPs-matched budgets, and under MUTO's token-level marginal utility training it still gains +2.0 accuracy points while cutting tokens 12.9% -- a smaller efficiency gain than on long-CoT DeepSeek-R1-Distill backbones, since it is already concise. As a non-reasoning model it is also the backbone for Guided by Gut's PRM-guided DVTS search comparison on AMC23/MATH500, where GG's intrinsic-confidence signal matches or exceeds several trained PRMs (MathShepherd-7B, RLHFlow-Llama3.1-8B, Qwen2.5-MathPRM-7B) while using under 5GB GPU memory and running 8x faster. DREAM also uses it as one of three reasoning-model backbones (with DeepSeekMath-7B-Instruct and LLaMA-3/3.1-8B-Instruct) for dual-phase tree search on GSM8K and MATH, where DREAM beats standard beam search and majority voting.",
     "kind": "model",
     "related": []
   },

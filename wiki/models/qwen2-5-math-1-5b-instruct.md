@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Qwen2.5-Math-1.5B-Instruct is a math-specialized model used in this archive to test cross-lingual generalizability of test-time scaling methods (Outcome/Process Reward Modeling, Budget Forcing) under FLOPs-matched budgets, and by MUTO's token-level marginal utility training, where even this already-concise math-specialized backbone still gains +2.0 accuracy points while cutting tokens 12.9% -- a smaller efficiency gain than on long-CoT DeepSeek-R1-Distill backbones.
+Qwen2.5-Math-1.5B-Instruct is a math-specialized model used across archived papers as a small backbone for test-time-scaling and efficient-reasoning experiments. It tests cross-lingual generalizability of test-time scaling methods (Outcome/Process Reward Modeling, Budget Forcing) under FLOPs-matched budgets, and under MUTO's token-level marginal utility training it still gains +2.0 accuracy points while cutting tokens 12.9% -- a smaller efficiency gain than on long-CoT DeepSeek-R1-Distill backbones, since it is already concise. As a non-reasoning model it is also the backbone for Guided by Gut's PRM-guided DVTS search comparison on AMC23/MATH500, where GG's intrinsic-confidence signal matches or exceeds several trained PRMs (MathShepherd-7B, RLHFlow-Llama3.1-8B, Qwen2.5-MathPRM-7B) while using under 5GB GPU memory and running 8x faster. DREAM also uses it as one of three reasoning-model backbones (with DeepSeekMath-7B-Instruct and LLaMA-3/3.1-8B-Instruct) for dual-phase tree search on GSM8K and MATH, where DREAM beats standard beam search and majority voting.
 
 - **Kind**: model
 - **Also called**: Qwen2.5-MATH-1.5B-Instruct

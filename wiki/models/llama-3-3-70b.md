@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Llama 3.3 70B is used in these sources as an evaluated LLM: the cross-cultural-measurement-systems study finds it (like other large models) suffers accuracy drops when queried in a non-default (non-Western) measurement system, and that chain-of-thought reasoning stabilizes accuracy back toward the default level but at 180-300% more test-time compute -- a cost that disproportionately burdens users outside the model's default cultural context; VecCISC also evaluates on Llama 3.3 70B among its five models.
+Llama 3.3 70B is used in these sources as an evaluated LLM. The cross-cultural-measurement-systems study finds it, like other large models, suffers accuracy drops when queried in a non-default (non-Western) measurement system, and that chain-of-thought reasoning stabilizes accuracy back toward the default level but at 180-300% more test-time compute -- a cost that disproportionately burdens users outside the model's default cultural context. VecCISC also evaluates on it among its five models. It additionally appears as an evaluation subject in a controlled reasoning-depth study using synthetic cellular-automata rules and in a budget-aware anytime-reasoning study across seven LLM families, though neither of those two sources' notes report findings specific to it.
 
 - **Kind**: model
 - **Also called**: LLaMA-3.3-70B, Llama-3.3-70B

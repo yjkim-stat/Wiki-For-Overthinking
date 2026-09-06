@@ -6,7 +6,7 @@
 
 - [Overthinking](topics/overthinking.md) — `overthinking`
 
-## Concepts (102)
+## Concepts (103)
 
 - [abstention](concepts/abstention.md) — 2 source(s)
 - [Accuracy-Efficiency Pareto Frontier](concepts/accuracy-efficiency-pareto-frontier.md) — 1 source(s)
@@ -61,6 +61,7 @@
 - [Length reward](concepts/length-reward.md) — 3 source(s)
 - [mathematical reasoning benchmarks](concepts/mathematical-reasoning-benchmarks.md) — 1 source(s)
 - [mechanistic interpretability](concepts/mechanistic-interpretability.md) — 1 source(s)
+- [MMMU](concepts/mmmu.md) — 5 source(s)
 - [Overthinking](concepts/overthinking.md) — 80 source(s)
 - [Overthinking-Adjusted Accuracy (OAA)](concepts/overthinking-adjusted-accuracy-oaa.md) — 1 source(s)
 - [Pass@1](concepts/pass-1.md) — 2 source(s)
@@ -111,7 +112,7 @@
 - [visual grounding](concepts/visual-grounding.md) — 2 source(s)
 - [weighted voting](concepts/weighted-voting.md) — 2 source(s)
 
-## Methods (139)
+## Methods (138)
 
 - [A*-Thought](methods/a-thought.md) — 2 source(s)
 - [activation steering](methods/activation-steering.md) — 5 source(s)
@@ -203,7 +204,6 @@
 - [O1-Pruner](methods/o1-pruner.md) — 4 source(s)
 - [O1-Pruner (baseline)](methods/o1-pruner-baseline.md) — 7 source(s)
 - [on-policy distillation (OPD)](methods/on-policy-distillation-opd.md) — 1 source(s)
-- [Phi-4-Reasoning](methods/phi-4-reasoning.md) — 5 source(s)
 - [Phi-decoding](methods/phi-decoding.md) — 2 source(s)
 - [PLAN-AND-BUDGET](methods/plan-and-budget.md) — 3 source(s)
 - [Preference Optimization](methods/preference-optimization.md) — 3 source(s)
@@ -253,7 +253,7 @@
 - [vLLM](methods/vllm.md) — 4 source(s)
 - [weighted majority voting](methods/weighted-majority-voting.md) — 2 source(s)
 
-## Datasets (133)
+## Datasets (132)
 
 - [2WikiMultihopQA](datasets/2wikimultihopqa.md) — 3 source(s)
 - [AdvBench](datasets/advbench.md) — 5 source(s)
@@ -337,7 +337,6 @@
 - [MMLU](datasets/mmlu.md) — 16 source(s)
 - [MMLU STEM](datasets/mmlu-stem.md) — 3 source(s)
 - [MMLU-Pro](datasets/mmlu-pro.md) — 18 source(s)
-- [MMMU](datasets/mmmu.md) — 5 source(s)
 - [MMMU-Pro](datasets/mmmu-pro.md) — 2 source(s)
 - [MMStar](datasets/mmstar.md) — 3 source(s)
 - [MultiArith](datasets/multiarith.md) — 2 source(s)
@@ -389,7 +388,7 @@
 - [XSTest](datasets/xstest.md) — 2 source(s)
 - [ZebraLogic](datasets/zebralogic.md) — 4 source(s)
 
-## Models (113)
+## Models (114)
 
 - [Claude Sonnet 4.5](models/claude-sonnet-4-5.md) — 3 source(s)
 - [Claude-3.5-Sonnet](models/claude-3-5-sonnet.md) — 4 source(s)
@@ -464,6 +463,7 @@
 - [OpenAI o1-mini](models/openai-o1-mini.md) — 2 source(s)
 - [Phi-4](models/phi-4.md) — 3 source(s)
 - [Phi-4-mini-reasoning](models/phi-4-mini-reasoning.md) — 2 source(s)
+- [Phi-4-Reasoning](models/phi-4-reasoning.md) — 5 source(s)
 - [Qwen2.5 7B](models/qwen2-5-7b.md) — 7 source(s)
 - [Qwen2.5-1.5B-Instruct](models/qwen2-5-1-5b-instruct.md) — 2 source(s)
 - [Qwen2.5-32B](models/qwen2-5-32b.md) — 2 source(s)

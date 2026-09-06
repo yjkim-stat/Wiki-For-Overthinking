@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "A curated, human-verified subset of SWE-bench (real GitHub issue-resolution tasks) used to evaluate agentic coding performance under a fixed compute/cost budget. 'The Danger of Overthinking' uses it as its main evaluation set, showing that a lower measured overthinking score correlates with higher issue-resolution rates and lower cost; Consilience's verifier-free rollout-selection metric also evaluates on it.",
+  "definition": "A curated, human-verified subset of SWE-bench (real GitHub issue-resolution tasks) used to evaluate agentic coding performance under a fixed compute/cost budget. 'The Danger of Overthinking' uses it as its main evaluation set, showing that a lower measured overthinking score correlates with higher issue-resolution rates and lower cost; Consilience's verifier-free rollout-selection metric also evaluates on it. It is also among the sources for CHILL-Harness and ARISE, though neither gives further detail about its specific role.",
   "evidence": [
     {
       "id": "arxiv:2607.25825",
@@ -122,9 +122,7 @@
     "pass-k",
     "lowest-overthinking-k"
   ],
-  "related_authored": [
-    "overthinking"
-  ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "swe-bench-verified",
   "topics": [

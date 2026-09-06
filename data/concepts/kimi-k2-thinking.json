@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "Kimi-K2-Thinking is used in these sources as a top-tier reasoning model evaluated on hard benchmarks rather than a subject of methodological study: PaCoRe cites frontier-model comparisons including this one when reporting an 8B model with massively-parallel test-time compute surpassing GPT-5 on HMMT 2025, and AMO-Bench separately evaluates it among 36 models on its original hard-problem math set.",
+  "definition": "Kimi-K2-Thinking is a reasoning model that appears in these sources purely as an evaluation subject rather than a subject of methodological study. PaCoRe cites frontier-model comparisons including it when reporting an 8B model with massively-parallel test-time compute reaching 94.5% on HMMT 2025, surpassing GPT-5's 93.2%. AMO-Bench separately evaluates it among 36 models on its 50-problem, IMO-difficulty-or-harder math set, where even the best model (Gemini-3-Pro) reaches only 63.1% accuracy. It is also among the models covered by a study of human-model alignment in per-item reasoning effort on an abductive-reasoning task and by a graph-based chain-of-thought redundancy analysis spanning 21 LRMs, though neither of those two sources' notes report findings specific to it.",
   "evidence": [
     {
       "id": "arxiv:2609.01867",
@@ -128,7 +128,10 @@
     "deepseek-r1-distill-llama-70b-8b",
     "deepseek-r1-distill-qwen-14b-32b-7b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "gpt-5",
+    "amo-bench"
+  ],
   "schema_version": 1,
   "slug": "kimi-k2-thinking",
   "topics": [

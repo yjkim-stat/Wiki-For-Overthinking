@@ -16,12 +16,28 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "Verbal-R3 shows that rewriting retrieved documents into 'Verbal Annotations' -- analytic narratives that explicitly state the logical connection between a query and a document, distilled from GPT-OSS-120B into a lightweight 1.5B/3B Verbal Reranker -- substantially improves RAG accuracy over both raw context injection and stylistic paraphrasing, and pairs this with a relevance-guided test-time-scaling method that allocates search-trajectory budget toward high-relevance-scored queries, beating Search-R1 by up to 18% F1 while cutting reranker calls ~45-54%.",
+        "title": "Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Self-Correcting RAG reformulates retrieval-augmented generation as constrained optimization: a Multi-dimensional Multiple-choice Knapsack Problem (MMKP) selects a diverse, non-redundant, token-budget-respecting document context (replacing greedy top-k), and an NLI-guided Monte Carlo Tree Search explores reasoning trajectories at inference time, penalizing branches whose generated claims contradict retrieved evidence -- improving average EM/F1 (37.1/45.8) and retrieval recall@5 (72.0%) over strong RAG baselines across six QA datasets while cutting the contradiction rate to 0.04.",
+        "title": "Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-27T23:01:22Z",
-  "created_at": "2026-08-27T22:59:03Z",
-  "instructions": "Write the wiki definition for 'MuSiQue'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T06:53:17Z",
+  "created_at": "2026-09-06T06:48:55Z",
+  "instructions": "Revise the wiki definition for 'MuSiQue'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A multi-hop question-answering benchmark used to evaluate knowledge-augmented and recursive test-time-scaling reasoning methods, including as one of the hardest benchmarks in a comparison of recursion operators (GROW/PRUNE/BRANCH) and as one of the three multi-hop QA datasets ARISE's risk-adaptive Monte Carlo Tree Search is evaluated on, where its difficulty produces the largest relative gains over vanilla RAG among the three benchmarks tested.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "MuSiQue",
   "kind": "concept",
   "language": "en",
@@ -37,18 +53,14 @@
   },
   "payload": {
     "name": "MuSiQue",
-    "source_count": 2
+    "previous_definition": "A multi-hop question-answering benchmark used to evaluate knowledge-augmented and recursive test-time-scaling reasoning methods, including as one of the hardest benchmarks in a comparison of recursion operators (GROW/PRUNE/BRANCH) and as one of the three multi-hop QA datasets ARISE's risk-adaptive Monte Carlo Tree Search is evaluated on, where its difficulty produces the largest relative gains over vanilla RAG among the three benchmarks tested.",
+    "source_count": 4
   },
   "result": {
-    "aliases": [
-      "MuSiQue"
-    ],
-    "definition": "A multi-hop question-answering benchmark used to evaluate knowledge-augmented and recursive test-time-scaling reasoning methods, including as one of the hardest benchmarks in a comparison of recursion operators (GROW/PRUNE/BRANCH) and as one of the three multi-hop QA datasets ARISE's risk-adaptive Monte Carlo Tree Search is evaluated on, where its difficulty produces the largest relative gains over vanilla RAG among the three benchmarks tested.",
+    "aliases": [],
+    "definition": "A multi-hop question-answering benchmark used across this archive to evaluate knowledge-augmented and recursive test-time-scaling reasoning methods, consistently as one of the harder datasets in whatever comparison it appears in. It is one of the hardest benchmarks in a comparison of recursion operators (GROW/PRUNE/BRANCH), one of the three multi-hop QA datasets where ARISE's risk-adaptive Monte Carlo Tree Search shows its largest relative gains over vanilla RAG, and one of the datasets Verbal-R3 groups among its multi-hop tasks, where verbal-annotation reranking gains (+26.91% F1) run well above its single-hop gains (+9.67%). Self-Correcting RAG reports its largest absolute margin on MuSiQue specifically: 22.7 EM against the prior-best baseline CRAG's 18.2, a 4.5-point gain attributed to its knapsack-based context selection and NLI-guided search.",
     "kind": "dataset",
-    "related": [
-      "Recursive Agentic Reasoning",
-      "ARISE"
-    ]
+    "related": []
   },
   "task_id": "concept__musique",
   "task_version": 1,

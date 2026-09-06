@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-Qwen2.5-72B-Instruct is used as a backbone in a training-free generate-critique-revise self-reflection loop that stops when a critique emits a CONFIRMED sentinel or a depth cap is hit, and is evaluated in ReTraceQA (a 2,421-instance expert-annotated benchmark showing small language models reach a correct final answer via a flawed reasoning trace 14-24% of the time).
+Qwen2.5-72B-Instruct is used across archived papers both as a subject model and as an automated evaluator. As a subject, it is one of ten models evaluated on POBs, a 20-topic Likert-scale benchmark of LLM preferences, opinions and beliefs, where models overall lean progressive-collectivist and reasoning or self-reflection prompting gives only limited, inconsistent improvement to reliability, neutrality or consistency; it is also used as a training-free generate-critique-revise backbone that stops when a critique emits a CONFIRMED sentinel or a depth cap is hit. As an evaluator, the self-doubt overthinking study uses it as the LLM-as-judge that classifies reasoning paths from DeepSeek-R1-Distill-Qwen-32B into self-doubt, overthinking-without-self-doubt, or non-overthinking categories, rather than as one of the models whose traces are judged. It is also evaluated on ReTraceQA, a 2,421-instance expert-annotated benchmark showing small language models reach a correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA.
 
 - **Kind**: model
 - **Also called**: Qwen 2.5 72B Instruct

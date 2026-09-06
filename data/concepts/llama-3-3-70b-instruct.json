@@ -3,7 +3,7 @@
     "LLaMA 3.3 70B Instruct",
     "Llama 3.3 70B Instruct"
   ],
-  "definition": "An open-weight instruction-tuned model used across sources both as an evaluation subject in the POBs preference/opinion/belief test-time-compute study, and (per another archived source) as the model used to segment and label LRM reasoning traces by Bloom's Taxonomy cognitive level in a reasoning-trace cognitive-profiling study.",
+  "definition": "Llama-3.3-70B-Instruct is used across these sources in two distinct roles: as the model that segments and labels LRM reasoning traces by Bloom's Taxonomy cognitive level in a reasoning-trace cognitive-profiling study, and as an evaluated LLM in the POBs preferences/opinions/beliefs benchmark, where it is one of the models found to lean progressive-collectivist with only limited reliability improvement from added reasoning or self-reflection prompting. It also appears as an evaluation subject in ReTraceQA and in a token-complexity study of chain-of-thought compression, though neither of those two sources' notes report findings specific to it.",
   "evidence": [
     {
       "id": "arxiv:2608.23205",
@@ -117,8 +117,8 @@
     "claude-3-5-haiku"
   ],
   "related_authored": [
-    "think-again-pobs",
-    "cognitive-profiling-of-lrms-reasoning-traces-using-bloom-s-taxonomy"
+    "bloom-s-taxonomy",
+    "pobs"
   ],
   "schema_version": 1,
   "slug": "llama-3-3-70b-instruct",

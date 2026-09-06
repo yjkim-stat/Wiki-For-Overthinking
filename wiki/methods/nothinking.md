@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-In this archive NoThinking appears only as a named comparison method and is never described. ReBalance lists it among nine efficient-reasoning baselines (with CoD, DEER, NoWait, Dynasor-CoT, SEAL, Manifold Steering, FlashThink and TrimR) and ARLCP lists it among its own (with SFT_Shortest, DPO_Shortest, O1-Pruner, TLMRE, AdaptThink and LASER); neither reports its mechanism, and neither gives its scores separately from the baseline set. The one thing the archive does record about the family it is filed with is ReBalance's objection to it: remedies that suppress reflection or cap length make length the control variable and can push a model out of overthinking and into underthinking.
+A comparison baseline for efficient-reasoning methods; no source in this archive describes its mechanism directly, but SABER's benchmark table gives it the most aggressive numbers among the compared baselines. On DeepSeek-R1-Distill-Qwen-7B, NoThinking reaches only 30.6% of vanilla's token count -- lower than SABER (69.8%), DEER (78.3%) or Dynasor (71.4%) -- but its accuracy falls to 54.9 against vanilla's 67.8, a drop none of the other compared methods shows. ReBalance and ARLCP also list it among their baselines without separating out its scores. This is consistent with ReBalance's objection to the family it is filed with: capping length rather than reading a stopping signal can push a model from overthinking into underthinking, and NoThinking's own numbers are the clearest instance of that tradeoff in the archive.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

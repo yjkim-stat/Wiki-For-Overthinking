@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-ScienceQA is a multimodal science-QA benchmark used in this archive by CoRAP's conformal-prediction uncertainty framework and by vStream, which trains a lightweight linear estimator to predict counterfactual visual-attribution effects from cached attention features, streaming visual grounding at 0.024s per 10 tokens versus 1.9-2.8s for causal baselines.
+ScienceQA is a multimodal science question-answering benchmark used across this archive purely as an evaluation set for reasoning and vision-language models, never itself described by any of the sources. CoRAP evaluates its conformal-prediction uncertainty-set framework on it, and vStream evaluates its real-time visual-attribution streaming (0.024s per 10 tokens versus 1.9-2.8s for causal baselines) on it. It also appears among the benchmarks associated with RECAP and ReProbe, though neither source gives further detail about its specific role there beyond serving as an evaluation set.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [AI2D](ai2d.md), [ChartQA](chartqa.md), [GQA](gqa.md), [GSM8K](gsm8k.md), [LISA](lisa.md), [LLaVA-CoT](../models/llava-cot.md), [MATH](math.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMMU](mmmu.md), [MMMU-Pro](mmmu-pro.md), [OlympiadBench](olympiadbench.md), [Phi-4](../models/phi-4.md), [PRM800K](prm800k.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-8B](../models/qwen3-8b.md), [SAT](sat.md), [StrategyQA](strategyqa.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md), [VizWiz](vizwiz.md)
+**Related**: [AI2D](ai2d.md), [ChartQA](chartqa.md), [GQA](gqa.md), [GSM8K](gsm8k.md), [LISA](lisa.md), [LLaVA-CoT](../models/llava-cot.md), [MATH](math.md), [MathVerse](mathverse.md), [MathVision](mathvision.md), [MathVista](mathvista.md), [MMMU](../concepts/mmmu.md), [MMMU-Pro](mmmu-pro.md), [OlympiadBench](olympiadbench.md), [Phi-4](../models/phi-4.md), [PRM800K](prm800k.md), [Qwen2.5-VL-3B](../models/qwen2-5-vl-3b.md), [Qwen2.5-VL-7B](../models/qwen2-5-vl-7b.md), [Qwen3-1.7B](../models/qwen3-1-7b.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-8B](../models/qwen3-8b.md), [SAT](sat.md), [StrategyQA](strategyqa.md), [Uniform sampling baseline](../methods/uniform-sampling-baseline.md), [VizWiz](vizwiz.md)
 
 ## Appears in
 

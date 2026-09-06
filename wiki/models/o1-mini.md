@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-A closed-source OpenAI reasoning model used across sources as a reference for long-CoT reasoning-flow distillation data collection (the Long CoT Collection's seed data was manually gathered from o1's reasoning flow and thought budget), and as a primary jailbreak target for the Mousetrap iterative-chaos-chain attack, against which it achieves a 96% attack success rate.
+A closed-source OpenAI reasoning model that appears in this archive mainly as a jailbreak target and, once, as an LLM-as-judge evaluator, but never as itself the subject of study. In ReTraceQA it is the best-performing reference-free LLM-as-judge for localizing reasoning errors in small-model traces, reaching 62.3% F1 against an average of 54-56% among compared judges. Mousetrap's iterative-chaos-chain attack reaches an average success frequency of 6.27/10 against it at chain length 3 (declining to 3.23 at length 5, confirming an inverted-U relationship between chain length and attack success), and its stronger variant reaches ASF 7 at chain length 2-3; SEAL's adaptive stacked-cipher attack separately reports a 90.4% attack success rate against it on AdvBench. Note that the Long CoT Collection's distillation seed data was gathered from o1, not o1-mini, which appears in that paper only as one of the listed models.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

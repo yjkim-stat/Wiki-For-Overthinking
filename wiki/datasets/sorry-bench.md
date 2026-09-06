@@ -9,7 +9,7 @@ Sorry-bench is a harmfulness/safety benchmark (lower score means safer) used to 
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AdvBench](advbench.md), [AIME 2024](aime-2024.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [GPQA-Diamond](gpqa-diamond.md), [HumanEval](humaneval.md), [MATH500](math500.md), [MMLU](mmlu.md), [Phi-4-Reasoning](../methods/phi-4-reasoning.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [Selective loss masking](../methods/selective-loss-masking.md), [StrongReject](strongreject.md), [XSTest](xstest.md)
+**Related**: [AdvBench](advbench.md), [AIME 2024](aime-2024.md), [DeepSeek-R1](../models/deepseek-r1.md), [DeepSeek-R1-Distill-Llama-70B](../models/deepseek-r1-distill-llama-70b.md), [GPQA-Diamond](gpqa-diamond.md), [HumanEval](humaneval.md), [MATH500](math500.md), [MMLU](mmlu.md), [Phi-4-Reasoning](../models/phi-4-reasoning.md), [Qwen3-14B](../models/qwen3-14b.md), [Qwen3-32B](../models/qwen3-32b.md), [Qwen3-4B-Thinking-2507](../models/qwen3-4b-thinking-2507.md), [Qwen3-8B](../models/qwen3-8b.md), [QwQ-32B](../models/qwq-32b.md), [Selective loss masking](../methods/selective-loss-masking.md), [StrongReject](strongreject.md), [XSTest](xstest.md)
 
 ## Appears in
 

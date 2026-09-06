@@ -3,7 +3,7 @@
     "Llama-3.3-70B",
     "LLaMA-3.3-70B"
   ],
-  "definition": "Llama 3.3 70B is used in these sources as an evaluated LLM: the cross-cultural-measurement-systems study finds it (like other large models) suffers accuracy drops when queried in a non-default (non-Western) measurement system, and that chain-of-thought reasoning stabilizes accuracy back toward the default level but at 180-300% more test-time compute -- a cost that disproportionately burdens users outside the model's default cultural context; VecCISC also evaluates on Llama 3.3 70B among its five models.",
+  "definition": "Llama 3.3 70B is used in these sources as an evaluated LLM. The cross-cultural-measurement-systems study finds it, like other large models, suffers accuracy drops when queried in a non-default (non-Western) measurement system, and that chain-of-thought reasoning stabilizes accuracy back toward the default level but at 180-300% more test-time compute -- a cost that disproportionately burdens users outside the model's default cultural context. VecCISC also evaluates on it among its five models. It additionally appears as an evaluation subject in a controlled reasoning-depth study using synthetic cellular-automata rules and in a budget-aware anytime-reasoning study across seven LLM families, though neither of those two sources' notes report findings specific to it.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.acl-long.1032",
@@ -106,7 +106,9 @@
     "gpt-4-1",
     "gpt-4o"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "measurement-system-default-bias"
+  ],
   "schema_version": 1,
   "slug": "llama-3-3-70b",
   "topics": [

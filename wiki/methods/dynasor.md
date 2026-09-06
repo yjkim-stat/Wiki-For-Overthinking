@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-An inference-time reasoning-acceleration method, present in this archive only as a comparison point: both sources cite it in their baseline lists rather than describing it. One of them classes it with SAT as a length-only baseline and notes it was tuned to a comparable level of acceleration rather than compared across its own accuracy-latency curve, which is a caveat about the comparison rather than about the method. Nothing in the archive states how it works.
+Dynasor is an inference-time reasoning-acceleration method that appears in this archive only as a comparison point: none of its four citing sources (ReCo, SABER, PUMA, ReBalance) describe how it works, only its use in their baseline lists. One of them classes it with SAT as a length-only baseline and notes it was tuned to a comparable level of acceleration rather than compared across its own accuracy-latency curve -- a caveat about that comparison, not about the method itself. Nothing in the archive states how it decides when to stop reasoning.
 
 - **Kind**: method
 - **Also called**: Dynasor-CoT

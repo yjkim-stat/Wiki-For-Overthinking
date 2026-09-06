@@ -16,12 +16,28 @@
         "topics": [
           "overthinking"
         ]
+      },
+      {
+        "kind": "paper",
+        "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
+        "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "SEAL red-teams large reasoning models by stacking multiple lightweight ciphers (Caesar, ASCII, HEX, word/character reversal, etc.) to encrypt a harmful prompt just past the point an LRM's safety mechanism can flag it but still within its decryption/reasoning capability -- exploiting the same chain-of-thought reasoning that improves task performance as an attack surface -- with a reinforcement-learning-based adaptive cipher-selection strategy (a gradient-bandit policy over cipher groups, updated only on failures) reaching up to 100% attack success on some LRMs and beating seven baseline jailbreak methods, while showing attack success and the model's own ability to recover the original harmful intent from ciphertext both peak at a moderate 'sweet spot' cipher complexity and decline beyond it.",
+        "title": "Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers",
+        "topics": [
+          "overthinking"
+        ]
       }
     ]
   },
-  "completed_at": "2026-08-27T23:01:22Z",
-  "created_at": "2026-08-27T22:59:03Z",
-  "instructions": "Write the wiki definition for 'o1-mini'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-06T06:54:30Z",
+  "created_at": "2026-09-06T06:48:55Z",
+  "instructions": "Revise the wiki definition for 'o1-mini'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    A closed-source OpenAI reasoning model used across sources as a reference for long-CoT reasoning-flow distillation data collection (the Long CoT Collection's seed data was manually gathered from o1's reasoning flow and thought budget), and as a primary jailbreak target for the Mousetrap iterative-chaos-chain attack, against which it achieves a 96% attack success rate.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "o1-mini",
   "kind": "concept",
   "language": "en",
@@ -37,16 +53,14 @@
   },
   "payload": {
     "name": "o1-mini",
-    "source_count": 2
+    "previous_definition": "A closed-source OpenAI reasoning model used across sources as a reference for long-CoT reasoning-flow distillation data collection (the Long CoT Collection's seed data was manually gathered from o1's reasoning flow and thought budget), and as a primary jailbreak target for the Mousetrap iterative-chaos-chain attack, against which it achieves a 96% attack success rate.",
+    "source_count": 4
   },
   "result": {
     "aliases": [],
-    "definition": "A closed-source OpenAI reasoning model used across sources as a reference for long-CoT reasoning-flow distillation data collection (the Long CoT Collection's seed data was manually gathered from o1's reasoning flow and thought budget), and as a primary jailbreak target for the Mousetrap iterative-chaos-chain attack, against which it achieves a 96% attack success rate.",
+    "definition": "A closed-source OpenAI reasoning model that appears in this archive mainly as a jailbreak target and, once, as an LLM-as-judge evaluator, but never as itself the subject of study. In ReTraceQA it is the best-performing reference-free LLM-as-judge for localizing reasoning errors in small-model traces, reaching 62.3% F1 against an average of 54-56% among compared judges. Mousetrap's iterative-chaos-chain attack reaches an average success frequency of 6.27/10 against it at chain length 3 (declining to 3.23 at length 5, confirming an inverted-U relationship between chain length and attack success), and its stronger variant reaches ASF 7 at chain length 2-3; SEAL's adaptive stacked-cipher attack separately reports a 90.4% attack success rate against it on AdvBench. Note that the Long CoT Collection's distillation seed data was gathered from o1, not o1-mini, which appears in that paper only as one of the listed models.",
     "kind": "model",
-    "related": [
-      "One Missing Piece for Open-Source Reasoning Models",
-      "A Mousetrap"
-    ]
+    "related": []
   },
   "task_id": "concept__o1-mini",
   "task_version": 1,

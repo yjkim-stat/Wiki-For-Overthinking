@@ -2,7 +2,7 @@
   "aliases": [
     "Claude 3.5 Sonnet"
   ],
-  "definition": "Claude 3.5 Sonnet appears as one of the target large reasoning/language models attacked in jailbreak red-teaming studies: Mousetrap's 'Chaos Machine' iterative reversible cipher-based prompt transformation, and SEAL's stacked-cipher adaptive jailbreak method.",
+  "definition": "Claude-3.5-Sonnet is a large language model that appears in this archive only as a target of jailbreak red-teaming, not as a subject any source describes directly. Mousetrap's 'Chaos Machine' embeds a toxic query inside a reversible cipher-based reconstruction task and reaches 96-98% attack success against it by exploiting 'reasoning inertia' -- the tendency of a large reasoning model to follow a started chain of reasoning to completion without re-evaluating safety. SEAL's stacked-cipher method separately reports 87.5-93.13% attack success on standard safety benchmarks against it (reported as 'Claude-Sonnet') by encrypting a harmful prompt just past what its safety mechanism can flag while staying within its own decryption capability. Neither source describes its architecture, training or general capabilities; the two other sources that mention it do so only as one entry among the models they evaluate, without further detail.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.findings-acl.408",
@@ -120,9 +120,7 @@
     "claude-3-5-haiku",
     "llama-3-3-70b-instruct"
   ],
-  "related_authored": [
-    "claude-sonnet-4"
-  ],
+  "related_authored": [],
   "schema_version": 1,
   "slug": "claude-3-5-sonnet",
   "topics": [

@@ -3,6 +3,22 @@
     "sources": [
       {
         "kind": "paper",
+        "note": "SelfBudgeter trains a reasoning model to emit its own predicted token budget before answering (<budget>N</budget><solution>...</solution>) via a cold-start plus budget-guided GRPO pipeline, cutting response length ~61% on math benchmarks while preserving or improving accuracy, and letting users see the estimated wait time or pre-fill a hard budget upfront.",
+        "title": "SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "CoRD reframes long-CoT reasoning distillation from post-hoc curation (each teacher generates a complete trajectory, then the best one is picked) to step-wise collaborative decoding: heterogeneous teacher LRMs propose candidate next reasoning steps in a shared, prompt-guided step format, a meta-prover scores each candidate by the predictive perplexity of the ground-truth answer given that step, and beam search retains the top-B partial trajectories -- producing higher-quality composite reasoning data than either post-hoc curation or a GPT-mini-based post-hoc integrator, and distilling student models whose 32B version, trained on CoRD data from heterogeneous teachers, actually surpasses every individual teacher's own Pass@1 on AIME24/25.",
+        "title": "Distilling Long-CoT Reasoning through Collaborative Step-wise Multi-Teacher Decoding",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "A*-Thought treats a long reasoning trace as a search tree over reasoning spans and uses A* search with a bidirectional importance score to select a short, high-information subset of it as supervised fine-tuning data for compressed reasoning.",
         "title": "A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings",
         "topics": [
@@ -19,10 +35,10 @@
       }
     ]
   },
-  "completed_at": "2026-08-21T01:50:06Z",
-  "created_at": "2026-08-21T01:32:11Z",
-  "instructions": "Write the wiki definition for 's1K-1.1'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
-  "item_id": "s1K-1.1",
+  "completed_at": "2026-09-06T06:57:09Z",
+  "created_at": "2026-09-06T06:48:55Z",
+  "instructions": "Revise the wiki definition for 's1k-1.1'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    Neither source describes s1K-1.1 directly; it appears as a named reference dataset in their reasoning-compression work. A*-Thought selects a short, high-information subset of a long reasoning trace via A* search over reasoning spans as SFT data; SuCo instead trains on the shortest reasoning prefix at which model confidence crosses a difficulty-adaptive threshold (its 'Minimal Sufficient CoT'), combined with a GRPO stage penalising both over- and under-thinking. Neither states how s1K-1.1 itself was built or used.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "s1k-1.1",
   "kind": "concept",
   "language": "en",
   "output_schema": {
@@ -30,20 +46,26 @@
       "string - other names the sources use for the same thing"
     ],
     "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
-    "kind": "string - one of: concept, method, dataset",
+    "kind": "string - one of: concept, method, dataset, model",
     "related": [
       "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
     ]
   },
   "payload": {
-    "name": "s1K-1.1",
-    "source_count": 2
+    "name": "s1k-1.1",
+    "previous_definition": "Neither source describes s1K-1.1 directly; it appears as a named reference dataset in their reasoning-compression work. A*-Thought selects a short, high-information subset of a long reasoning trace via A* search over reasoning spans as SFT data; SuCo instead trains on the shortest reasoning prefix at which model confidence crosses a difficulty-adaptive threshold (its 'Minimal Sufficient CoT'), combined with a GRPO stage penalising both over- and under-thinking. Neither states how s1K-1.1 itself was built or used.",
+    "source_count": 4
   },
   "result": {
-    "aliases": [],
-    "definition": "Neither source describes s1K-1.1 directly; it appears as a named reference dataset in their reasoning-compression work. A*-Thought selects a short, high-information subset of a long reasoning trace via A* search over reasoning spans as SFT data; SuCo instead trains on the shortest reasoning prefix at which model confidence crosses a difficulty-adaptive threshold (its 'Minimal Sufficient CoT'), combined with a GRPO stage penalising both over- and under-thinking. Neither states how s1K-1.1 itself was built or used.",
+    "aliases": [
+      "s1K-1.1",
+      "S1k-1.1"
+    ],
+    "definition": "s1K-1.1 is a small, curated reasoning dataset used across sources as a source of training data and as a comparison point for reasoning-compression and distillation methods, alongside similarly curated sets like LIMO. SelfBudgeter draws the model's own correct responses from s1K-1.1 (together with GSM8K and MATH) for its cold-start SFT phase that teaches a reasoning model to emit its own predicted token budget. CoRD treats s1K-1.1 (and LIMO-v1/v2) as a curated public baseline: reprocessing the same underlying question sets with CoRD's step-wise collaborative-teacher decoding at matched data scale consistently outperforms training on s1K-1.1 directly. A*-Thought and SuCo name it only as a reference dataset in their reasoning-compression work, without describing how it was built or used.",
     "kind": "dataset",
-    "related": []
+    "related": [
+      "LIMO"
+    ]
   },
   "task_id": "concept__s1k-1-1",
   "task_version": 1,

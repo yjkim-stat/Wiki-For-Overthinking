@@ -2,7 +2,7 @@
   "aliases": [
     "DeepScaler-1.5B-Preview"
   ],
-  "definition": "DeepScaleR-1.5B-Preview is a 1.5B reasoning-model checkpoint used in this archive by LC-R1 (Optimizing Length Compression in Large Reasoning Models) as a post-RL backbone to validate that its 'invalid thinking' compression generalizes beyond directly-trained models, and cited in a separate empirical study of reasoning length and correctness that finds models overthink easy questions and underthink hard ones.",
+  "definition": "DeepScaleR-1.5B-Preview is a 1.5B-parameter reasoning-model checkpoint used in this archive as a backbone for studying overthinking rather than as a subject any source defines in its own right. LC-R1 (Optimizing Length Compression in Large Reasoning Models) applies it as a post-RL backbone to check that its 'invalid thinking' compression generalizes beyond directly-trained models, and a separate empirical study of reasoning length and correctness evaluates it among models that overthink easy questions and underthink hard ones. Two further sources on reasoning-length control (MathIF, and the Step-Level Advantage Selection paper) also cite it, though the archive's notes for them describe their own methods rather than how this checkpoint specifically is used.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2026.acl-long.146",
@@ -106,7 +106,9 @@
     "deepseek-r1-distill-1-5b",
     "simpo-simple-preference-optimization"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "lc-r1"
+  ],
   "schema_version": 1,
   "slug": "deepscaler-1-5b-preview",
   "topics": [

@@ -2,14 +2,14 @@
 
 <!-- auto:begin -->
 
-Claude 3.5 Sonnet appears as one of the target large reasoning/language models attacked in jailbreak red-teaming studies: Mousetrap's 'Chaos Machine' iterative reversible cipher-based prompt transformation, and SEAL's stacked-cipher adaptive jailbreak method.
+Claude-3.5-Sonnet is a large language model that appears in this archive only as a target of jailbreak red-teaming, not as a subject any source describes directly. Mousetrap's 'Chaos Machine' embeds a toxic query inside a reversible cipher-based reconstruction task and reaches 96-98% attack success against it by exploiting 'reasoning inertia' -- the tendency of a large reasoning model to follow a started chain of reasoning to completion without re-evaluating safety. SEAL's stacked-cipher method separately reports 87.5-93.13% attack success on standard safety benchmarks against it (reported as 'Claude-Sonnet') by encrypting a harmful prompt just past what its safety mechanism can flag while staying within its own decryption capability. Neither source describes its architecture, training or general capabilities; the two other sources that mention it do so only as one entry among the models they evaluate, without further detail.
 
 - **Kind**: model
 - **Also called**: Claude 3.5 Sonnet
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 4
 
-**Related**: [adaptive compression](../concepts/adaptive-compression.md), [AdvBench](../datasets/advbench.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [Claude-Sonnet-4](claude-sonnet-4.md), [DeepSeek-R1](deepseek-r1.md), [Gemini-1.5-Pro](gemini-1-5-pro.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [GPT-4o-mini](gpt-4o-mini.md), [Grok-3](grok-3.md), [HarmBench](../datasets/harmbench.md), [JailbreakBench](../datasets/jailbreakbench.md), [Llama-3.3-70B-Instruct](llama-3-3-70b-instruct.md), [MATH500](../datasets/math500.md), [o1](o1.md), [o1-mini](o1-mini.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [QwQ-32B](qwq-32b.md), [StrongReject](../datasets/strongreject.md)
+**Related**: [adaptive compression](../concepts/adaptive-compression.md), [AdvBench](../datasets/advbench.md), [Claude-3.7-Sonnet](claude-3-7-sonnet.md), [DeepSeek-R1](deepseek-r1.md), [Gemini-1.5-Pro](gemini-1-5-pro.md), [Gemini-2.5-Pro](gemini-2-5-pro.md), [GPT-4o](gpt-4o.md), [GPT-4o-mini](gpt-4o-mini.md), [Grok-3](grok-3.md), [HarmBench](../datasets/harmbench.md), [JailbreakBench](../datasets/jailbreakbench.md), [Llama-3.3-70B-Instruct](llama-3-3-70b-instruct.md), [MATH500](../datasets/math500.md), [o1](o1.md), [o1-mini](o1-mini.md), [o3-mini](o3-mini.md), [o4-mini](o4-mini.md), [QwQ-32B](qwq-32b.md), [StrongReject](../datasets/strongreject.md)
 
 ## Appears in
 
