@@ -53,7 +53,7 @@ Not stated, and worth noticing: all reported attack-success numbers assume the v
 ## Entities
 
 - **Concepts**: Deadlock Attack, adversarial embedding optimization, continuous-to-discrete projection gap, backdoor implantation, transitional token induction, linear mode connectivity, resource exhaustion attack, input-agnostic universal trigger, attack stealthiness
-- **Methods**: Deadlock Attack, adversarial embedding optimization, backdoor implantation via embedding-matrix overwrite, Linear Mode Connectivity analysis, Gaussian-smoothed robust optimization (attempted, found insufficient), iterative projection during optimization (attempted, found insufficient)
+- **Methods**: [Deadlock Attack](../../../../wiki/methods/deadlock-attack.md), [adversarial embedding optimization](../../../../wiki/methods/adversarial-embedding-optimization.md), backdoor implantation via embedding-matrix overwrite, Linear Mode Connectivity analysis, Gaussian-smoothed robust optimization (attempted, found insufficient), iterative projection during optimization (attempted, found insufficient)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), MMLU-Pro (Math subset), [AIME 2024](../../../../wiki/datasets/aime-2024.md), HumanEval (Python subset), MMLU-Pro (Health subset), [CommonsenseQA](../../../../wiki/datasets/commonsenseqa.md)
 
 Tags: `overthinking`, `adversarial attack`, `backdoor`, `resource exhaustion`, `deadlock attack`, `chain-of-thought`, `denial-of-service`, `large reasoning models`, `adversarial embedding`, `security`, `supply chain`

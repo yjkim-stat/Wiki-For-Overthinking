@@ -45,7 +45,7 @@ Abstract does not report a numeric figure for the 'negligible' utility loss on b
 ## Entities
 
 - **Concepts**: adversarial embedding attack, backdoor trigger, induced reasoning loop, resource exhaustion, overthinking as attack surface
-- **Methods**: Deadlock Attack, adversarial embedding optimization, backdoor implantation
+- **Methods**: [Deadlock Attack](../../../../wiki/methods/deadlock-attack.md), [adversarial embedding optimization](../../../../wiki/methods/adversarial-embedding-optimization.md), [backdoor implantation](../../../../wiki/methods/backdoor-implantation.md)
 - **Datasets**: _none recorded_
 
 Tags: `overthinking`, `adversarial-attack`, `backdoor`, `reasoning-loop`, `security`

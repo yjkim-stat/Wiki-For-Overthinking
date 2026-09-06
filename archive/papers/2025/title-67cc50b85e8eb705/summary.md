@@ -48,6 +48,10 @@ Not stated in the fetched abstract beyond the compressed-sensing theoretical fra
 
 Tags: `interpretability`, `sparse-autoencoders`, `compute-optimal-inference`, `compressed-sensing`
 
+## Abstract
+
+Abstract A recent line of work has shown promise in using sparse autoencoders (SAEs) to uncover interpretable features in neural network representations. However, the simple linear-nonlinear encoding mechanism in SAEs limits their ability to perform accurate sparse inference. Using compressed sensing theory, we prove that an SAE encoder is inherently insufficient for accurate sparse inference, even in solvable cases. We then decouple encoding and decoding processes to empirically explore conditions where more sophisticated sparse inference methods outperform traditional SAE encoders. Our results reveal substantial performance gains with minimal compute increases in correct inference of sparse codes. We demonstrate this generalises to SAEs applied to large language models, where more expressive encoders achieve greater interpretability. This work opens new avenues for understanding neural network representations and analysing large language model activations.
+
 ---
 
 Record id: `title:67cc50b85e8eb705`

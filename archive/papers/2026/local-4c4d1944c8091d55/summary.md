@@ -53,7 +53,7 @@ Not stated, and worth noticing: no task accuracy (correctness of the final answe
 
 - **Concepts**: Sparse Autoencoders (SAEs), Top-K sparse autoencoder, Total Activation Volume (TAV), Thinking vs NoThinking inference modes, causal feature suppression, feature source distribution, token category taxonomy, compensatory sequence extension, reasoning-syntax coupling
 - **Methods**: Top-K Sparse Autoencoders, Total Activation Volume feature ranking, dynamic suppression hook / causal intervention, token category taxonomy, activation heatmap analysis
-- **Datasets**: DeepMath-103K, [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
+- **Datasets**: [DeepMath-103K](../../../../wiki/datasets/deepmath-103k.md), [AMC23](../../../../wiki/datasets/amc23.md), [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md)
 
 Tags: `sparse autoencoders`, `mechanistic interpretability`, `chain-of-thought`, `thinking vs nothinking`, `feature suppression`, `causal intervention`, `reasoning mechanisms`, `DeepSeek-R1-Distill`
 
