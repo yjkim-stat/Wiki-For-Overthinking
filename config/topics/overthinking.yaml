@@ -73,6 +73,39 @@ keywords:
     - adaptive thinking
     - thinking model
     - reasoning trace
+    # Added 2026-09-06 for a survey of inference-time guidance and control:
+    # how a reasoning model is steered mid-generation rather than retrained.
+    # The list above had no vocabulary for this at all, so papers on
+    # activation steering, logit-level control and probe-driven exit reached
+    # the archive only when they also happened to say "efficient reasoning".
+    #
+    # Measured before adding, on a 30-day window: this widening moves the
+    # count from 62 to 65. That is the honest expectation -- three papers, not
+    # a new seam. The reason is in the interaction with `min_score`: papers
+    # using this vocabulary mention the overthinking terms once in passing, so
+    # they score around 0.25 and die at a 0.6 bar whatever the keywords say.
+    # Dropping the bar to 0.35 instead yields 438, and 613 with these terms
+    # added -- so most of this literature sits in the 0.35-0.6 band and cannot
+    # be reached by vocabulary alone. It is reached by filing papers into
+    # `inbox/` by hand, which is an editorial decision and skips scoring.
+    #
+    # Kept anyway: three papers a month is cheap, and the terms cost nothing
+    # when they do not match.
+    - activation steering
+    - steering vector
+    - representation engineering
+    - representation steering
+    - inference-time intervention
+    - test-time intervention
+    - latent steering
+    - logit bias
+    - contrastive decoding
+    - sparse autoencoder
+    - attention temperature
+    - linear probe
+    - decoding intervention
+    - reasoning control
+    - controllable reasoning
   all: []
   # Any hit here rejects the item outright, whatever else it matched.
   # "test-time compute" / "test time scaling" are generic enough that they
