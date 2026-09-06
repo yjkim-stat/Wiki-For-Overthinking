@@ -42,8 +42,8 @@ _not recorded_
 
 ## Entities
 
-- **Concepts**: length-accuracy anti-correlation, [overthinking](../../../../wiki/concepts/overthinking.md), tree-structured decoding, early termination
-- **Methods**: Decoding Tree Sketching (DTS)
+- **Concepts**: [length-accuracy anti-correlation](../../../../wiki/concepts/length-accuracy-anti-correlation.md), [overthinking](../../../../wiki/concepts/overthinking.md), tree-structured decoding, [early termination](../../../../wiki/concepts/early-termination.md)
+- **Methods**: [Decoding Tree Sketching (DTS)](../../../../wiki/methods/decoding-tree-sketching-dts.md)
 - **Datasets**: _none recorded_
 
 Tags: `overthinking`, `test-time-compute`, `decoding`, `reasoning-trajectories`, `early-termination`

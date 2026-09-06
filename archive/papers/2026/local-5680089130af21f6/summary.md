@@ -40,8 +40,8 @@ The paper is explicit that LED's benefit is small in absolute terms (well under 
 
 ## Entities
 
-- **Concepts**: exploration collapse, accuracy-temperature slope, latent entropy reservoir, pass@n, depth-conditioned decoding, exploitation vs. exploration branch
-- **Methods**: Latent Exploration Decoding (LED), early exit / layer-wise LM-head decoding, top-k filtering, cumulative posterior aggregation, entropy-based depth selection, [GRPO](../../../../wiki/methods/grpo.md), DoLa (contrastive decoding baseline), SoftThinking, SoftThinking-Gumbel
+- **Concepts**: exploration collapse, accuracy-temperature slope, latent entropy reservoir, [pass@n](../../../../wiki/concepts/pass-n.md), depth-conditioned decoding, exploitation vs. exploration branch
+- **Methods**: [Latent Exploration Decoding (LED)](../../../../wiki/methods/latent-exploration-decoding-led.md), early exit / layer-wise LM-head decoding, top-k filtering, cumulative posterior aggregation, entropy-based depth selection, [GRPO](../../../../wiki/methods/grpo.md), DoLa (contrastive decoding baseline), SoftThinking, SoftThinking-Gumbel
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH-500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md)
 
 Tags: `exploration collapse`, `pass@n`, `test-time scaling`, `decoding strategy`, `rl post-training`, `entropy`, `early exit`, `grpo rollout`

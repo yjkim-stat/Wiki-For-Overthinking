@@ -43,7 +43,7 @@ Not stated in the fetched abstract beyond the reported average pass@1/pass@16 ga
 ## Entities
 
 - **Concepts**: exploration collapse (post-RL), final-layer vs. intermediate-layer entropy disparity, Latent Exploration Decoding (depth-conditioned decoding)
-- **Methods**: Latent Exploration Decoding (LED), temperature-based sampling (baseline)
+- **Methods**: [Latent Exploration Decoding (LED)](../../../../wiki/methods/latent-exploration-decoding-led.md), temperature-based sampling (baseline)
 - **Datasets**: _none recorded_
 
 Tags: `exploration-collapse`, `test-time-scaling`, `decoding-strategy`, `reinforcement-learning-side-effects`

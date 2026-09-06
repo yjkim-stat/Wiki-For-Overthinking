@@ -6,14 +6,15 @@ An open-weight instruction-tuned model used as an evaluation subject for adaptiv
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 3
 
-**Related**: [AIME](../datasets/aime.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [GSM8K](../datasets/gsm8k.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [Llama-3.2-1B-Instruct](llama-3-2-1b-instruct.md), [MATH](../datasets/math.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [SciQ](../datasets/sciq.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
+**Related**: [2WikiMultihopQA](../datasets/2wikimultihopqa.md), [AIME](../datasets/aime.md), [AIME 2024](../datasets/aime-2024.md), [AMC23](../datasets/amc23.md), [Bamboogle](../datasets/bamboogle.md), [Best-of-N sampling](../methods/best-of-n-sampling.md), [Deepseek-R1-1.5B](deepseek-r1-1-5b.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [GPT-4o](gpt-4o.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [HotpotQA](../datasets/hotpotqa.md), [LLaMA-3.1-8B-Instruct](llama-3-1-8b-instruct.md), [Llama-3.2-1B-Instruct](llama-3-2-1b-instruct.md), [MATH](../datasets/math.md), [MATH500](../datasets/math500.md), [MuSiQue](../datasets/musique.md), [OpenR1-Math-220k](../datasets/openr1-math-220k.md), [Qwen2.5-7B-Instruct](qwen2-5-7b-instruct.md), [reasoning hallucination](../concepts/reasoning-hallucination.md), [SciQ](../datasets/sciq.md), [Test-Time Scaling](../concepts/test-time-scaling.md)
 
 ## Appears in
 
 - [Interpretable Adaptive Sampling for LLM Test-Time Scaling](../../archive/papers/2026/arxiv-2608-03961/summary.md) — Assigns a per-prompt sampling budget for best-of-N test-time scaling with a hand-written two-stage fuzzy controller over nine prompt- and model-side signals, trading 1.4-14.5% fewer samples for accuracy changes between -1.8 and +0.5 points against a selector-matched fixed N = 8 baseline.
 - [Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models](../../archive/papers/2025/doi-10-18653-v1-2025-acl-long-1145/summary.md) — Marco-o1 v2 identifies 'formalistic long-time thinking' -- distilled small models mechanically replicating a large reasoning model's surface reasoning patterns (content repetition, over-reflection) without internalizing the underlying logic, often producing no final answer at all -- and fixes it by generating CoT training data from scratch via MCTS plus three CoT-aware post-training techniques (thought-length balance, fine-grained/masking-based DPO, joint SFT+DPO loss).
+- [Detection and Mitigation of Hallucination in Large Reasoning Models: A Mechanistic Perspective](../../archive/papers/2025/local-54dd9729250c51ac/summary.md) — Defines a Reasoning Score from the Jensen-Shannon divergence between LogitLens-projected late-layer and final-layer vocabulary distributions to distinguish deep reasoning from shallow pattern-matching, uses it to identify hallucination patterns (early-step fluctuation, incorrect backtracking, and a perplexity-correlated 'spurious verification' overthinking pattern) and build a post-hoc detector (RHD), and separately shapes an RL training reward from the same score (GRPO-R) to reduce reasoning hallucinations.
 
 <!-- auto:end -->
 

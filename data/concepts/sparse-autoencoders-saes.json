@@ -1,6 +1,7 @@
 {
   "aliases": [
-    "SAEs"
+    "SAEs",
+    "Sparse Autoencoders (SAEs)"
   ],
   "definition": "Sparse autoencoders (SAEs) are a mechanistic-interpretability tool for extracting interpretable features from neural network activations, discussed in a survey organizing mechanistic-interpretability research on large reasoning models, and shown by a compressed-sensing-theoretic analysis to have an inherent encoder-insufficiency limitation for accurate sparse inference, which a decoupled encoder/decoder approach with more expressive inference techniques can substantially improve.",
   "evidence": [
@@ -11,6 +12,12 @@
       "title": "Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures"
     },
     {
+      "id": "local:4c4d1944c8091d55",
+      "kind": "paper",
+      "note": "Trains Top-K sparse autoencoders on the residual stream of DeepSeek-R1-Distill-Qwen-7B to contrast the internal feature dynamics of explicit chain-of-thought (Thinking) against direct answer generation (NoThinking), finding Thinking relies on a sparse, high-intensity, difficulty-invariant feature regime while NoThinking uses a diffuse, difficulty-adaptive one, and that causally suppressing Thinking's dominant features degrades formatting and triggers compensatory, less informative verbosity rather than a clean shortening of the trace.",
+      "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders"
+    },
+    {
       "id": "title:67cc50b85e8eb705",
       "kind": "paper",
       "note": "Using compressed sensing theory, proves that a sparse autoencoder (SAE) encoder is inherently insufficient for accurate sparse inference even in solvable cases, and shows decoupling encoding from decoding to use more expressive inference techniques yields substantial interpretability gains with minimal extra compute, including on large language models.",
@@ -19,7 +26,7 @@
   ],
   "first_seen": "2026-08-20T11:35:54Z",
   "kind": "method",
-  "last_seen": "2026-09-01T10:33:28Z",
+  "last_seen": "2026-09-06T09:12:32Z",
   "name": "sparse autoencoders (SAEs)",
   "related": [
     "overthinking",
@@ -37,6 +44,24 @@
     "activation-circuit-analysis",
     "svd-analysis-of-weight-matrices",
     "causal-intervention-on-chain-of-thought",
+    "top-k-sparse-autoencoder",
+    "total-activation-volume-tav",
+    "thinking-vs-nothinking-inference-modes",
+    "causal-feature-suppression",
+    "feature-source-distribution",
+    "token-category-taxonomy",
+    "compensatory-sequence-extension",
+    "reasoning-syntax-coupling",
+    "top-k-sparse-autoencoders",
+    "total-activation-volume-feature-ranking",
+    "dynamic-suppression-hook-causal-intervention",
+    "activation-heatmap-analysis",
+    "deepmath-103k",
+    "amc23",
+    "aime-2024",
+    "aime-2025",
+    "olympiadbench",
+    "deepseek-r1-distill-qwen-7b",
     "sparse-autoencoder-sae-encoder-insufficiency",
     "compressed-sensing-theory-applied-to-interpretability",
     "amortization-gap-in-sparse-inference",

@@ -44,7 +44,7 @@ Stated (Sec. 6, Discussion and Limitations): applicability to multi-modal LLMs r
 ## Entities
 
 - **Concepts**: steering direction, interference noise, low-dimensional activation manifold, difference-in-means, residual stream, [mechanistic interpretability](../../../../wiki/concepts/mechanistic-interpretability.md)
-- **Methods**: [Manifold Steering](../../../../wiki/methods/manifold-steering.md), difference-in-means direction extraction, PCA-based low-dimensional manifold projection, activation ablation/steering, [Dynasor (baseline)](../../../../wiki/methods/dynasor-baseline.md), [SEAL (baseline)](../../../../wiki/methods/seal-baseline.md)
+- **Methods**: [Manifold Steering](../../../../wiki/methods/manifold-steering.md), [difference-in-means direction extraction](../../../../wiki/methods/difference-in-means-direction-extraction.md), PCA-based low-dimensional manifold projection, activation ablation/steering, [Dynasor (baseline)](../../../../wiki/methods/dynasor-baseline.md), [SEAL (baseline)](../../../../wiki/methods/seal-baseline.md)
 - **Datasets**: [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AMC2023](../../../../wiki/datasets/amc23.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), OpenMathInstruct-2, [AdvBench](../../../../wiki/datasets/advbench.md)
 
 Tags: `activation-steering`, `overthinking`, `manifold-projection`, `mechanistic-interpretability`, `difference-in-means`, `deepseek-r1`, `token-reduction`

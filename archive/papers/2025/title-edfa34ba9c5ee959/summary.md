@@ -42,7 +42,7 @@ Abstract does not report specific accuracy numbers or the exact form of the modi
 
 ## Entities
 
-- **Concepts**: pass@N, model overconfidence, training-test co-design
+- **Concepts**: [pass@N](../../../../wiki/concepts/pass-n.md), model overconfidence, training-test co-design
 - **Methods**: pass@N sampling, modified cross-entropy loss with confidence limiting
 - **Datasets**: [MATH](../../../../wiki/datasets/math.md), MiniF2F
 

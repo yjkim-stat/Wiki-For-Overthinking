@@ -42,7 +42,7 @@ The paper uses only a linear probe and does not test whether more complex archit
 ## Entities
 
 - **Concepts**: reasoning strength planning, pre-allocated direction vector, activation steering, difficulty-aware reasoning length allocation
-- **Methods**: linear probing (Lasso regression), difference-in-means direction extraction, [activation steering](../../../../wiki/methods/activation-steering.md)
+- **Methods**: linear probing (Lasso regression), [difference-in-means direction extraction](../../../../wiki/methods/difference-in-means-direction-extraction.md), [activation steering](../../../../wiki/methods/activation-steering.md)
 - **Datasets**: [MATH](../../../../wiki/datasets/math.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [MMLU](../../../../wiki/datasets/mmlu.md), AlpacaEval
 
 Tags: `activation-steering`, `reasoning-length-control`, `interpretability`, `overthinking-detection`, `test-time-compute`, `linear-probing`, `difficulty-awareness`

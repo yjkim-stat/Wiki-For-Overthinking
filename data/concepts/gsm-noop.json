@@ -1,0 +1,54 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:54dd9729250c51ac",
+      "kind": "paper",
+      "note": "Defines a Reasoning Score from the Jensen-Shannon divergence between LogitLens-projected late-layer and final-layer vocabulary distributions to distinguish deep reasoning from shallow pattern-matching, uses it to identify hallucination patterns (early-step fluctuation, incorrect backtracking, and a perplexity-correlated 'spurious verification' overthinking pattern) and build a post-hoc detector (RHD), and separately shapes an RL training reward from the same score (GRPO-R) to reduce reasoning hallucinations.",
+      "title": "Detection and Mitigation of Hallucination in Large Reasoning Models: A Mechanistic Perspective"
+    }
+  ],
+  "first_seen": "2026-09-06T09:12:32Z",
+  "kind": "dataset",
+  "last_seen": "2026-09-06T09:12:32Z",
+  "name": "GSM-NoOp",
+  "related": [
+    "reasoning-hallucination",
+    "reasoning-score-logitlens-based-reasoning-depth-metric",
+    "cv-score-early-step-fluctuation-metric",
+    "attention-score-misguided-backtracking-metric",
+    "reasoning-hallucination-detection-rhd",
+    "grpo-r-potential-based-reward-shaped-grpo",
+    "spurious-verification",
+    "incorrect-backtracking",
+    "logitlens",
+    "reasoning-score",
+    "cv-score",
+    "attention-score",
+    "grpo-r",
+    "potential-based-reward-shaping",
+    "grpo",
+    "retruthqa-constructed-math-science-multihopqa",
+    "math500",
+    "amc23",
+    "aime-2024",
+    "gpqa-diamond",
+    "openr1-math-220k",
+    "hotpotqa",
+    "2wikimultihopqa",
+    "musique",
+    "bamboogle",
+    "deepseek-r1-distill-qwen-7b-r1-7b",
+    "deepseek-r1-distill-qwen-14b-r1-14b",
+    "qwen2-5-1-5b-instruct",
+    "deepseek-r1-1-5b",
+    "gpt-4o"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "gsm-noop",
+  "topics": [
+    "overthinking"
+  ]
+}

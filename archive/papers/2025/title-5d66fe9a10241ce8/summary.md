@@ -45,7 +45,7 @@ _not recorded_
 ## Entities
 
 - **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), [test-time scaling](../../../../wiki/concepts/test-time-scaling.md), output variance under extended thinking, parallel thinking, best-of-n sampling, majority voting
-- **Methods**: parallel thinking, [best-of-n sampling](../../../../wiki/methods/best-of-n-sampling.md), [majority voting](../../../../wiki/methods/majority-voting.md), probabilistic model of output variance
+- **Methods**: [parallel thinking](../../../../wiki/methods/parallel-thinking.md), [best-of-n sampling](../../../../wiki/methods/best-of-n-sampling.md), [majority voting](../../../../wiki/methods/majority-voting.md), probabilistic model of output variance
 - **Datasets**: _none recorded_
 
 Tags: `overthinking`, `test-time-scaling`, `parallel-thinking`, `best-of-n`, `reasoning-length`, `output-variance`

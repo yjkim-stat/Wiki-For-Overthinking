@@ -41,7 +41,7 @@ The heuristic difficulty-labeling thresholds (alpha, beta, gamma) are set per mo
 
 ## Entities
 
-- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), U-shaped entropy pattern, difficulty-adaptive inference, token-efficient reasoning
+- **Concepts**: [overthinking](../../../../wiki/concepts/overthinking.md), U-shaped entropy pattern, difficulty-adaptive inference, [token-efficient reasoning](../../../../wiki/concepts/token-efficient-reasoning.md)
 - **Methods**: DiffAdapt (difficulty probe + strategy selection), generation entropy analysis, DEER (early-exit baseline), heuristic difficulty labeling
 - **Datasets**: DeepMath-103K, [GSM8K](../../../../wiki/datasets/gsm8k.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md), [OlympiadBench](../../../../wiki/datasets/olympiadbench.md), [Minerva](../../../../wiki/datasets/minerva.md), [GPQA](../../../../wiki/datasets/gpqa.md), [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md)
 

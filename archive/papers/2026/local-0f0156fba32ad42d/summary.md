@@ -42,7 +42,7 @@ Stated: the paper finds that even meaningless negative prompts (e.g. "apple") or
 
 ## Entities
 
-- **Concepts**: token entropy, classifier-free guidance, KV cache reuse, negative prompting, selective intervention
+- **Concepts**: [token entropy](../../../../wiki/concepts/token-entropy.md), classifier-free guidance, KV cache reuse, negative prompting, selective intervention
 - **Methods**: Minimal Test-Time Intervention (MTI), Selective CFG intervention, Lightweight negative-prompt guidance, Classifier-Free Guidance (CFG), Contrastive Decoding (CD)
 - **Datasets**: [MMLU-Pro](../../../../wiki/datasets/mmlu-pro.md), [HumanEval](../../../../wiki/datasets/humaneval.md), HumanEvalPlus, [LiveCodeBench](../../../../wiki/datasets/livecodebench.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), [MATH500](../../../../wiki/datasets/math500.md), [AIME2024](../../../../wiki/datasets/aime-2024.md), Where2Place, RefSpatial, VaBenchPoint
 

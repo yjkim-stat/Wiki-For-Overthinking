@@ -1,0 +1,63 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "ARISE combines Monte Carlo Tree Search with a Bayesian Risk-Value function -- estimating each reasoning-state node's risk from the policy model's own likelihood of regenerating the original question given that state -- to guide retrieval-augmented multi-hop reasoning, outperforming SOTA knowledge-augmented-reasoning baselines by up to 23.10% and RAG-equipped DeepSeek-R1-distilled LRMs by up to 25.37%, while making explicit that its search-based gains come at substantially higher inference-time cost.",
+        "title": "ARise: Towards Knowledge-Augmented Reasoning via Risk-Adaptive Search",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Verbal-R3 shows that rewriting retrieved documents into 'Verbal Annotations' -- analytic narratives that explicitly state the logical connection between a query and a document, distilled from GPT-OSS-120B into a lightweight 1.5B/3B Verbal Reranker -- substantially improves RAG accuracy over both raw context injection and stylistic paraphrasing, and pairs this with a relevance-guided test-time-scaling method that allocates search-trajectory budget toward high-relevance-scored queries, beating Search-R1 by up to 18% F1 while cutting reranker calls ~45-54%.",
+        "title": "Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Self-Correcting RAG reformulates retrieval-augmented generation as constrained optimization: a Multi-dimensional Multiple-choice Knapsack Problem (MMKP) selects a diverse, non-redundant, token-budget-respecting document context (replacing greedy top-k), and an NLI-guided Monte Carlo Tree Search explores reasoning trajectories at inference time, penalizing branches whose generated claims contradict retrieved evidence -- improving average EM/F1 (37.1/45.8) and retrieval recall@5 (72.0%) over strong RAG baselines across six QA datasets while cutting the contradiction rate to 0.04.",
+        "title": "Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines a Reasoning Score from the Jensen-Shannon divergence between LogitLens-projected late-layer and final-layer vocabulary distributions to distinguish deep reasoning from shallow pattern-matching, uses it to identify hallucination patterns (early-step fluctuation, incorrect backtracking, and a perplexity-correlated 'spurious verification' overthinking pattern) and build a post-hoc detector (RHD), and separately shapes an RL training reward from the same score (GRPO-R) to reduce reasoning hallucinations.",
+        "title": "Detection and Mitigation of Hallucination in Large Reasoning Models: A Mechanistic Perspective",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "created_at": "2026-09-06T09:12:34Z",
+  "instructions": "Revise the wiki definition for '2WikiMultihopQA'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    2WikiMultihopQA is used in this archive as a multi-hop question-answering benchmark for evaluating retrieval-augmented and knowledge-augmented reasoning methods. ARise uses it to evaluate risk-adaptive MCTS-guided retrieval reasoning, and Verbal-R3 uses it to evaluate whether rewriting retrieved documents into explicit logical annotations improves RAG accuracy.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "2WikiMultihopQA",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "2WikiMultihopQA",
+    "previous_definition": "2WikiMultihopQA is used in this archive as a multi-hop question-answering benchmark for evaluating retrieval-augmented and knowledge-augmented reasoning methods. ARise uses it to evaluate risk-adaptive MCTS-guided retrieval reasoning, and Verbal-R3 uses it to evaluate whether rewriting retrieved documents into explicit logical annotations improves RAG accuracy.",
+    "source_count": 4
+  },
+  "task_id": "concept__2wikimultihopqa",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

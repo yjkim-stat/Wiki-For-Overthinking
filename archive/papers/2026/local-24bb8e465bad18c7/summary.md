@@ -38,7 +38,7 @@ Stated: all experiments are conducted at a single 8-9B parameter scale per archi
 ## Entities
 
 - **Concepts**: refusal circuit, shallow alignment, recognition-execution gap, safety/utility separability, granular correctability, circuit concentration, Hydra effect
-- **Methods**: Supervised fine-tuning (SFT), Reasoning-augmented SFT (Ra-SFT), Odds Ratio Preference Optimization (ORPO), Difference-in-means (DIM) direction extraction, Activation Patching, Attribution Patching, Activation Addition (ActAdd), Inference-Time Intervention (ITI)
+- **Methods**: Supervised fine-tuning (SFT), Reasoning-augmented SFT (Ra-SFT), Odds Ratio Preference Optimization (ORPO), Difference-in-means (DIM) direction extraction, [Activation Patching](../../../../wiki/methods/activation-patching.md), Attribution Patching, Activation Addition (ActAdd), Inference-Time Intervention (ITI)
 - **Datasets**: Alpaca, BeaverTails, [WildJailbreak](../../../../wiki/datasets/wildjailbreak.md), [StrongREJECT](../../../../wiki/datasets/strongreject.md), [XSTest](../../../../wiki/datasets/xstest.md), [MMLU](../../../../wiki/datasets/mmlu.md)
 
 Tags: `refusal-circuits`, `safety-alignment`, `post-training`, `mechanistic-interpretability`, `activation-steering`, `iti`, `actadd`, `orpo`

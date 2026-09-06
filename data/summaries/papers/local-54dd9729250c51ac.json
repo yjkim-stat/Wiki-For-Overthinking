@@ -1,0 +1,73 @@
+{
+  "concepts": [
+    "Reasoning Hallucination",
+    "Reasoning Score (LogitLens-based reasoning-depth metric)",
+    "CV Score (early-step fluctuation metric)",
+    "Attention Score (misguided-backtracking metric)",
+    "Reasoning Hallucination Detection (RHD)",
+    "GRPO-R (potential-based reward-shaped GRPO)",
+    "spurious verification",
+    "incorrect backtracking",
+    "LogitLens"
+  ],
+  "contributions": [
+    "Proposes the Reasoning Score, a step-level metric measuring the mean Jensen-Shannon divergence between LogitLens-projected vocabulary distributions from selected later layers and the final layer, to distinguish deep reasoning from shallow pattern-matching, and validates it on a GSM-NoOp-derived dataset.",
+    "Identifies three reasoning hallucination patterns via the Reasoning Score on a newly constructed ReTruthQA benchmark (Math/Science/MultiHopQA domains): early-stage fluctuation in reasoning depth (Pattern #1), incorrect backtracking to earlier flawed steps (Pattern #2), and a positive correlation between reasoning score and perplexity in overthinking steps, termed spurious verification (Pattern #3).",
+    "Develops the Reasoning Hallucination Detection (RHD) framework, a weighted combination of the three patterns' indicators, which outperforms ensemble, uncertainty-based, PRM, LLM-as-critic, and self-awareness baselines across domains and model backbones (R1-7B and R1-14B) in both binary hallucination detection and multi-trace ranking settings.",
+    "Introduces GRPO-R, a reinforcement-learning fine-tuning method that augments GRPO with a step-level reward derived from a clipped Reasoning Score via potential-based reward shaping, with a theoretical generalization-gap bound, and shows it improves accuracy over standard GRPO on in-domain math (MATH500, AIME2024) and out-of-distribution science (GPQA) benchmarks."
+  ],
+  "datasets": [
+    "ReTruthQA (constructed: Math/Science/MultiHopQA)",
+    "GSM-NoOp",
+    "MATH500",
+    "AMC 2023",
+    "AIME 2024",
+    "GPQA-Diamond",
+    "OpenR1-Math-220K",
+    "HotpotQA",
+    "2WikiMultihopQA",
+    "MuSiQue",
+    "Bamboogle"
+  ],
+  "generated_at": "2026-09-06T09:10:45Z",
+  "generated_by": "queue",
+  "limitations": "Stated: RHD relies on internal model activations and hidden states, limiting it to open-source LRMs with accessible activations; application to black-box models is an open challenge. Experiments are conducted on moderate-scale models (7B/14B for detection, 1.5B for mitigation) and datasets due to computational constraints; the paper states future work includes scaling to broader domains and model families.\n\nNot stated, and worth noticing: the Reasoning Score's validity depends entirely on the LogitLens as a faithful window into what an intermediate layer \"means,\" an assumption the paper does not itself test for faithfulness beyond citing it as \"widely adopted\" elsewhere; no alternative reasoning-depth proxy is compared against it directly. The ReTruthQA benchmark's hallucination labels are constructed via a GPT-4o-based filtering step (excluding non-hallucination failures) plus human validation by only two annotators on borderline cases, while one of RHD's own baselines (LLM-as-Critic) also uses GPT-4o as the judge — the paper does not discuss this potential circularity between its ground-truth construction and one of its comparison methods. Reasoning Score and RHD are computed only after a full trace has been generated (they require hidden states from later layers across the completed sequence to compute the JSD anchor comparison and the attention-based backtracking signal), so despite motivating language about \"reasoning depth at each step,\" neither component is demonstrated as an online, per-token stopping or steering signal usable during generation; the paper's own reported use is post-hoc detection over completed traces and a training-time RL reward.",
+  "method": "This paper is not an inference-time steering or decoding-time intervention method. Its two components operate respectively after generation (detection) and during training (mitigation), and neither modifies logits, attention weights, or the sampling distribution while a model is actively producing a response to a user.\n\n(1) Reasoning Score (Eq. 1-2): a reasoning trace is split into step-level chunks (delimited by cognitive-behavior tokens such as </think>, Wait, But, However, Hmm, Alternatively, refined by \\n\\n formatting). For each chunk's tokens, the hidden state at each of several selected later layers is projected into vocabulary space via the LogitLens (layer-normalized hidden state times the unembedding matrix, followed by softmax), and the step-level Reasoning Score is the mean Jensen-Shannon divergence between each selected layer's induced distribution and the final layer's (\"anchor\") distribution, averaged over the chunk's tokens and the selected layers. A high score indicates the representation is still transforming substantially at later layers (interpreted as deep reasoning); a low score indicates early convergence to the final-layer prediction (interpreted as shallow pattern-matching). This requires the complete trace's hidden states across multiple layers and is computed once per finished step/trace for analysis, not online during token-by-token decoding.\n\n(2) Reasoning Hallucination Detection (RHD, Eq. 5): a weighted sum of four indicators computed over an entire completed trace: the average Reasoning Score (overall reasoning depth), the CV Score (coefficient of variation of the Reasoning Score over the first ~1/r fraction of steps, capturing early-stage fluctuation/Pattern #1), the Attention Score (the fraction of a later step's top-attended earlier steps whose Reasoning Scores are outliers — in the bottom quartile or above a high threshold — capturing misguided backtracking/Pattern #2), and the Pearson correlation between the trace's Reasoning Score sequence and its per-step perplexity (capturing the positive-correlation \"spurious verification\" signature/Pattern #3). Regression coefficients weighting the four terms are fit on the ReTruthQA dataset. RHD is used purely for post-hoc classification/ranking of already-generated (question, trace) pairs, not to alter generation.\n\n(3) GRPO-R (training-time only): replaces GRPO's sparse, outcome-only terminal reward with a step-level reward shaped via potential-based reward shaping (Ng et al. 1999), using a clipped Reasoning Score — clipped at a threshold tau to penalize scores that exceed it as overthinking — as the shaping potential. This changes the RL training signal used to fine-tune a policy (Qwen2.5-1.5B-Instruct / DeepSeek-R1-1.5B on 2,000 OpenR1-Math-220K examples); it does not touch inference-time decoding of the resulting deployed model at all.\n\nWhere it intervenes: nowhere in the inference/decoding loop of a served model. Reasoning Score/RHD read hidden states across multiple layers after a trace is complete; GRPO-R modifies the reward function used during RL training steps.\nWhat quantity decides it: the Jensen-Shannon divergence between LogitLens-projected late-layer and final-layer vocabulary distributions — a closed-form computation over the model's own frozen hidden states, requiring no separately trained predictor, but requiring the full trace to be available.\nWhen it fires: RHD is computed once per completed (question, trace) pair, for detection; GRPO-R's shaped reward is applied once per training rollout/step, not per token of a live inference call.\nWhat it costs: no inference-time cost is reported or applicable, since neither component runs during a served model's decoding. RHD's computational cost is a post-hoc analysis cost (extracting hidden states from multiple later layers across a full trace, computing per-step JSDs, and an attention-aggregation pass over selected layers/heads) paid on already-generated traces, not paid by the deployed model per query. GRPO-R's cost is a one-time RL fine-tuning cost over 2,000 training examples; no separate inference latency or token-overhead figure is reported for the resulting fine-tuned model versus a standard-GRPO-trained one — the paper reports only accuracy differences (Table 2), not compute cost.",
+  "methods": [
+    "Reasoning Score",
+    "LogitLens",
+    "CV Score",
+    "Attention Score",
+    "Reasoning Hallucination Detection (RHD)",
+    "GRPO-R",
+    "potential-based reward shaping",
+    "Group Relative Policy Optimization (GRPO)"
+  ],
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-7B (R1-7B)",
+    "DeepSeek-R1-Distill-Qwen-14B (R1-14B)",
+    "Qwen2.5-1.5B-Instruct",
+    "DeepSeek-R1-1.5B",
+    "GPT-4o"
+  ],
+  "one_liner": "Defines a Reasoning Score from the Jensen-Shannon divergence between LogitLens-projected late-layer and final-layer vocabulary distributions to distinguish deep reasoning from shallow pattern-matching, uses it to identify hallucination patterns (early-step fluctuation, incorrect backtracking, and a perplexity-correlated 'spurious verification' overthinking pattern) and build a post-hoc detector (RHD), and separately shapes an RL training reward from the same score (GRPO-R) to reduce reasoning hallucinations.",
+  "paper_id": "local:54dd9729250c51ac",
+  "problem": "Large reasoning models produce a subtler, more deceptive form of error than traditional hallucination: logically coherent but factually incorrect reasoning traces (\"reasoning hallucination\") that are harder to detect than surface-level factual errors because they are embedded within otherwise plausible multi-step chains, and existing hallucination-detection methods (uncertainty estimation, self-awareness probing, process reward models) were not designed to detect errors that arise specifically from the internal dynamics — shallow pattern-matching versus genuine deep reasoning — of the reasoning process itself.",
+  "read_from": "document",
+  "relevance": {
+    "overthinking": "Identifies overthinking as one of the mechanistic causes of reasoning hallucination: Pattern #3 (\"spurious verification\") shows that steps with excessively high Reasoning Scores — i.e., steps that look like deep reasoning — exhibit higher perplexity than comparable steps in stable, truthful traces, meaning the model is performing misguided, over-elaborated verification that increases apparent reasoning depth without increasing correctness. GRPO-R's reward explicitly clips the Reasoning Score at a threshold to penalize 'excessive' reasoning, framing overthinking not merely as a token-cost problem but as a source of hallucination that RL training can be shaped against — a training-time complement to the inference-time stopping methods this archive otherwise tracks."
+  },
+  "results": "Table 1 (RHD vs. six categories of baselines on ReTruthQA, binary detection AUC/PCC/MC1/MC2/MC3 and multi-trace ranking): RHD achieves the best or second-best score in nearly every domain/model/metric combination. On R1-7B / ReTruthQA(MATH): RHD reaches AUC 0.7978, PCC 0.4852, MC1 0.6591, versus the next-best baseline categories (Self-Aware/UQAC: AUC 0.7539; LCM/GPT-4o: AUC 0.5713-0.7513); on R1-14B / ReTruthQA(MATH): RHD reaches AUC 0.7292, PCC 0.3476, versus UQAC's AUC 0.6706. Across all three domains (Math, Science, MultiHopQA) and both model backbones, RHD is reported as consistently outperforming most baselines, described as demonstrating strong robustness; the paper notes ensemble/LCM methods perform well on binary detection but struggle at multi-trace ranking, uncertainty-based methods are sensitive to output length, PRMs suffer limited generalization, and a simple trace-length baseline performs competitively at multi-trace ranking specifically (interpreted as support for the intuition that overly long traces are more error-prone) but underperforms at binary detection. Table 2 (GRPO-R mitigation, Qwen2.5-1.5B-Instruct and DeepSeek-R1-1.5B fine-tuned on 2,000 OpenR1-Math-220K examples, evaluated on MATH500/AIME2024/GPQA-Diamond(main and extended)): for DeepSeek-R1-1.5B, GRPO-R reaches MATH500 0.788 (vs. GRPO 0.771, Base 0.772), AIME2024 0.367 (vs. GRPO 0.333, Base 0.333), GPQA-diamond 0.414 (vs. GRPO 0.359, Base 0.354); for Qwen2.5-1.5B-Instruct, GRPO-R reaches MATH500 0.490 (vs. GRPO 0.480, Base 0.466), AIME2024 0.133 (vs. GRPO 0.033, Base 0.100), GPQA-diamond 0.247 (vs. GRPO 0.247, Base 0.202) — GRPO-R outperforms standard GRPO on most task/model combinations, including the out-of-distribution GPQA benchmark, which the paper interprets as evidence the reasoning-score shaping improves generalization beyond the training distribution rather than only in-domain accuracy.",
+  "schema_version": 1,
+  "tags": [
+    "overthinking",
+    "reasoning hallucination",
+    "mechanistic interpretability",
+    "logitlens",
+    "hallucination detection",
+    "reinforcement learning",
+    "reward shaping",
+    "spurious verification",
+    "large reasoning models"
+  ]
+}

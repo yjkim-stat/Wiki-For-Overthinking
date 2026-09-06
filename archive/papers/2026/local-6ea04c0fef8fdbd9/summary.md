@@ -40,8 +40,8 @@ No dedicated Limitations section appears in the main text or appendices as read;
 
 ## Entities
 
-- **Concepts**: length-accuracy anti-correlation, decision token, varentropy, entropy, parallel thinking, early termination, structured reasoning tree, exploration vs. exploitation in decoding
-- **Methods**: Decoding Tree Sketching (DTS), DTS-Greedy, DTS-Stable, decision-token detection via entropy and varentropy, length-accuracy anti-correlation early termination, [Self-Consistency (baseline)](../../../../wiki/methods/self-consistency-baseline.md), DeepConf (baseline), GRPO (theoretical motivation, not trained here)
+- **Concepts**: [length-accuracy anti-correlation](../../../../wiki/concepts/length-accuracy-anti-correlation.md), decision token, varentropy, entropy, parallel thinking, [early termination](../../../../wiki/concepts/early-termination.md), structured reasoning tree, exploration vs. exploitation in decoding
+- **Methods**: [Decoding Tree Sketching (DTS)](../../../../wiki/methods/decoding-tree-sketching-dts.md), DTS-Greedy, DTS-Stable, decision-token detection via entropy and varentropy, length-accuracy anti-correlation early termination, [Self-Consistency (baseline)](../../../../wiki/methods/self-consistency-baseline.md), [DeepConf (baseline)](../../../../wiki/methods/deepconf-baseline.md), GRPO (theoretical motivation, not trained here)
 - **Datasets**: [AIME24](../../../../wiki/datasets/aime-2024.md), [AIME25](../../../../wiki/datasets/aime-2025.md), [GPQA-Diamond](../../../../wiki/datasets/gpqa-diamond.md), LiveBench (LiveBench-Reasoning)
 
 Tags: `decoding tree`, `parallel thinking`, `early termination`, `length-accuracy anti-correlation`, `varentropy`, `test-time scaling`, `self-consistency`, `repetition mitigation`

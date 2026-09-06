@@ -9,7 +9,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DAPO](../methods/dapo.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DeepSeek-R1-Llama-8B](../models/deepseek-r1-llama-8b.md), [DeepSeek-R1-Qwen-7B](../models/deepseek-r1-qwen-7b.md), [GFPO](../methods/gfpo.md), [GPQA](../datasets/gpqa.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU-Pro](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Qwen2.5-Instruct](../methods/qwen2-5-instruct.md), [Qwen3-4B](../models/qwen3-4b.md), [S-GRPO](../methods/s-grpo.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DAPO](../methods/dapo.md), [DAPO-Math-17K](../datasets/dapo-math-17k.md), [DeepMath-103K](../datasets/deepmath-103k.md), [DeepSeek-R1-Llama-8B](../models/deepseek-r1-llama-8b.md), [DeepSeek-R1-Qwen-7B](../models/deepseek-r1-qwen-7b.md), [GFPO](../methods/gfpo.md), [GPQA](../datasets/gpqa.md), [GRPO](../methods/grpo.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU-Pro](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [Qwen2.5-Instruct](../methods/qwen2-5-instruct.md), [Qwen3-4B](../models/qwen3-4b.md), [S-GRPO](../methods/s-grpo.md)
 
 ## Appears in
 

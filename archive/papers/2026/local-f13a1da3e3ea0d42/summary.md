@@ -41,8 +41,8 @@ All analyses are restricted to tasks with outputs that are explicit numerical va
 
 ## Entities
 
-- **Concepts**: internal bias, first impression problem, [overthinking](../../../../wiki/concepts/overthinking.md), bias deviation degree, parroting behavior, attention reactivation of bias
-- **Methods**: internal bias measurement (Direct Answer probing), bias deviation degree, question-removal counterfactual intervention, bias injection via fine-tuning, attention-based interpretability analysis, FCS (SFT/DPO), [SEAL](../../../../wiki/methods/seal.md), PROBE
+- **Concepts**: [internal bias](../../../../wiki/concepts/internal-bias.md), first impression problem, [overthinking](../../../../wiki/concepts/overthinking.md), bias deviation degree, parroting behavior, attention reactivation of bias
+- **Methods**: internal bias measurement (Direct Answer probing), bias deviation degree, question-removal counterfactual intervention, bias injection via fine-tuning, [attention-based interpretability analysis](../../../../wiki/methods/attention-based-interpretability-analysis.md), FCS (SFT/DPO), [SEAL](../../../../wiki/methods/seal.md), PROBE
 - **Datasets**: CharCount (en), CharCount (zh), KnowLogic, [AIME 2024](../../../../wiki/datasets/aime-2024.md), [AIME 2025](../../../../wiki/datasets/aime-2025.md)
 
 Tags: `overthinking`, `internal-bias`, `reflection`, `attention-analysis`, `counterfactual-intervention`, `reasoning-length`, `interpretability`

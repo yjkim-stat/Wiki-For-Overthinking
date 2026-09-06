@@ -259,6 +259,12 @@
       "title": "Mitigating Overthinking in Large Reasoning Models via Manifold Steering"
     },
     {
+      "id": "local:4c4d1944c8091d55",
+      "kind": "paper",
+      "note": "Trains Top-K sparse autoencoders on the residual stream of DeepSeek-R1-Distill-Qwen-7B to contrast the internal feature dynamics of explicit chain-of-thought (Thinking) against direct answer generation (NoThinking), finding Thinking relies on a sparse, high-intensity, difficulty-invariant feature regime while NoThinking uses a diffuse, difficulty-adaptive one, and that causally suppressing Thinking's dominant features degrades formatting and triggers compensatory, less informative verbosity rather than a clean shortening of the trace.",
+      "title": "Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders"
+    },
+    {
       "id": "local:5596d5f3510679fc",
       "kind": "paper",
       "note": "Defines the Answer Convergence Ratio — the fraction of a chain of thought needed before the forced answer stops changing — measures it by incremental truncation across five tasks and five models, and proposes three inference-time stopping methods (answer consistency, a logit boost on the end-of-thinking token, and an LSTM probe over activations), of which only the learned probe holds accuracy on hard tasks.",
@@ -315,7 +321,7 @@
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "model",
-  "last_seen": "2026-09-06T09:08:57Z",
+  "last_seen": "2026-09-06T09:12:32Z",
   "name": "DeepSeek-R1-Distill-Qwen-7B",
   "related": [
     "overthinking",
@@ -950,6 +956,20 @@
     "openmathinstruct-2",
     "advbench",
     "qwen2-5-7b-instruct",
+    "sparse-autoencoders-saes",
+    "top-k-sparse-autoencoder",
+    "total-activation-volume-tav",
+    "thinking-vs-nothinking-inference-modes",
+    "causal-feature-suppression",
+    "feature-source-distribution",
+    "token-category-taxonomy",
+    "compensatory-sequence-extension",
+    "reasoning-syntax-coupling",
+    "top-k-sparse-autoencoders",
+    "total-activation-volume-feature-ranking",
+    "dynamic-suppression-hook-causal-intervention",
+    "activation-heatmap-analysis",
+    "deepmath-103k",
     "answer-convergence-ratio-acr",
     "incremental-truncation-with-forced-answer-emission",
     "early-stopping-via-answer-consistency",

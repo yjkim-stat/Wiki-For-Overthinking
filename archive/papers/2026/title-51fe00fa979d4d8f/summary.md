@@ -43,8 +43,8 @@ The paper's own evaluation found that existing overthinking-mitigation methods d
 
 ## Entities
 
-- **Concepts**: internal bias, first-impression guess, overthinking as bias-conflict, attention to the input question
-- **Methods**: [counterfactual intervention](../../../../wiki/methods/counterfactual-intervention.md), attention-based interpretability analysis
+- **Concepts**: [internal bias](../../../../wiki/concepts/internal-bias.md), first-impression guess, overthinking as bias-conflict, attention to the input question
+- **Methods**: [counterfactual intervention](../../../../wiki/methods/counterfactual-intervention.md), [attention-based interpretability analysis](../../../../wiki/methods/attention-based-interpretability-analysis.md)
 - **Datasets**: _none recorded_
 
 Tags: `overthinking`, `internal-bias`, `interpretability`, `reasoning-models`, `attention`

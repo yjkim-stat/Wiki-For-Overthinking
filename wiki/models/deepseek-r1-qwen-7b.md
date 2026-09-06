@@ -8,7 +8,7 @@ _No definition yet — a task is queued to write one._
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-Llama-8B](deepseek-r1-llama-8b.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU-Pro](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-32B-Instruct](qwen2-5-32b-instruct.md), [Qwen3-4B](qwen3-4b.md), [QwQ-32B](qwq-32b.md), [token-efficient reasoning](../concepts/token-efficient-reasoning.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [DeepMath-103K](../datasets/deepmath-103k.md), [DeepSeek-R1](deepseek-r1.md), [DeepSeek-R1-Llama-8B](deepseek-r1-llama-8b.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU-Pro](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](../concepts/overthinking.md), [Qwen2.5-32B-Instruct](qwen2-5-32b-instruct.md), [Qwen3-4B](qwen3-4b.md), [QwQ-32B](qwq-32b.md), [token-efficient reasoning](../concepts/token-efficient-reasoning.md)
 
 ## Appears in
 

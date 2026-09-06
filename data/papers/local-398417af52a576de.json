@@ -1,24 +1,33 @@
 {
-  "abstract": "",
-  "arxiv_id": "",
-  "authors": [],
+  "abstract": "Modern large reasoning models (LRMs) exhibit impressive multi-step problem-solving via chain-of-thought (CoT) reasoning. However, this iterative thinking mechanism introduces a new vulnerability surface. We present the Deadlock Attack, a resource exhaustion method that hijacks an LRM's generative control flow by training a malicious adversarial embedding to induce perpetual reasoning loops. Specifically, the optimized embedding encourages transitional tokens (e.g., \"Wait\", \"But\") after reasoning steps, preventing the model from concluding its answer. A key challenge we identify is the continuous-to-discrete projection gap: naïve projections of adversarial embeddings to token sequences nullify the attack. To overcome this, we introduce a backdoor implantation strategy, enabling reliable activation through specific trigger tokens. Our method achieves a 100% attack success rate across four advanced LRMs (Phi-RM, Nemotron-Nano, R1-Qwen, R1-Llama) and three math reasoning benchmarks, forcing models to their maximum token limits. The attack is also stealthy (in terms of causing negligible utility loss on benign user inputs) and remains robust against existing strategies trying to mitigate the overthinking issue. Our findings expose a critical and underexplored security vulnerability in LRMs from the perspective of reasoning (in)efficiency.",
+  "arxiv_id": "2510.15965",
+  "authors": [
+    "Mohan Zhang",
+    "Yihua Zhang",
+    "Jinghan Jia",
+    "Zhangyang Wang",
+    "Sijia Liu",
+    "Tianlong Chen"
+  ],
   "categories": [],
   "doi": "",
   "first_seen": "2026-09-06T08:57:19Z",
   "id": "local:398417af52a576de",
   "last_seen": "2026-09-06T08:57:19Z",
-  "local_path": "data/pdfs/local-398417af52a576de.pdf",
+  "local_path": "data/pdfs/read/local-398417af52a576de.pdf",
   "matched_keywords": [],
   "pdf_url": "",
-  "published": "",
+  "published": "2025-01-01",
   "schema_version": 1,
   "scores": {},
   "source": "local",
   "source_id": "one-token-embedding-deadlock.pdf",
-  "title": "one token embedding deadlock",
-  "topics": [],
+  "title": "One Token Embedding Is Enough to Deadlock Your Large Reasoning Model",
+  "topics": [
+    "overthinking"
+  ],
   "updated": "",
   "url": "",
-  "venue": "",
-  "year": 0
+  "venue": "39th Conference on Neural Information Processing Systems (NeurIPS 2025)",
+  "year": 2025
 }

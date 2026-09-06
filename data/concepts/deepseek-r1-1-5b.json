@@ -1,5 +1,7 @@
 {
-  "aliases": [],
+  "aliases": [
+    "DeepSeek-R1-1.5B"
+  ],
   "definition": "",
   "evidence": [
     {
@@ -7,11 +9,17 @@
       "kind": "paper",
       "note": "Under a FLOPs-matched budget across three test-time scaling methods (Outcome Reward Modeling, Process Reward Modeling, Budget Forcing) on a new 55-language competition-math benchmark (MCLM), all three methods yield large gains in English (e.g. Budget Forcing +20 points on AIME) but only ~1.9-2 points average gain across other languages, and reward-model-guided scaling (ORM) matches or beats reasoning-trace-length scaling (Budget Forcing) once FLOPs are equalized -- with more test-time compute also increasing cross-lingual performance variance rather than reducing it.",
       "title": "Linguistic Generalizability of Test-Time Scaling in Mathematical Reasoning"
+    },
+    {
+      "id": "local:54dd9729250c51ac",
+      "kind": "paper",
+      "note": "Defines a Reasoning Score from the Jensen-Shannon divergence between LogitLens-projected late-layer and final-layer vocabulary distributions to distinguish deep reasoning from shallow pattern-matching, uses it to identify hallucination patterns (early-step fluctuation, incorrect backtracking, and a perplexity-correlated 'spurious verification' overthinking pattern) and build a post-hoc detector (RHD), and separately shapes an RL training reward from the same score (GRPO-R) to reduce reasoning hallucinations.",
+      "title": "Detection and Mitigation of Hallucination in Large Reasoning Models: A Mechanistic Perspective"
     }
   ],
   "first_seen": "2026-08-27T22:59:02Z",
   "kind": "model",
-  "last_seen": "2026-08-27T22:59:02Z",
+  "last_seen": "2026-09-06T09:12:32Z",
   "name": "Deepseek-R1-1.5B",
   "related": [
     "linguistic-generalizability-of-test-time-scaling",
@@ -34,7 +42,35 @@
     "qwen2-5-math-72b-prm",
     "mr1-1-5b-new",
     "gpt-4o-mini",
-    "o3-mini"
+    "o3-mini",
+    "reasoning-hallucination",
+    "reasoning-score-logitlens-based-reasoning-depth-metric",
+    "cv-score-early-step-fluctuation-metric",
+    "attention-score-misguided-backtracking-metric",
+    "reasoning-hallucination-detection-rhd",
+    "grpo-r-potential-based-reward-shaped-grpo",
+    "spurious-verification",
+    "incorrect-backtracking",
+    "logitlens",
+    "reasoning-score",
+    "cv-score",
+    "attention-score",
+    "grpo-r",
+    "potential-based-reward-shaping",
+    "grpo",
+    "retruthqa-constructed-math-science-multihopqa",
+    "gsm-noop",
+    "amc23",
+    "gpqa-diamond",
+    "openr1-math-220k",
+    "hotpotqa",
+    "2wikimultihopqa",
+    "musique",
+    "bamboogle",
+    "deepseek-r1-distill-qwen-7b-r1-7b",
+    "deepseek-r1-distill-qwen-14b-r1-14b",
+    "qwen2-5-1-5b-instruct",
+    "gpt-4o"
   ],
   "related_authored": [],
   "schema_version": 1,
