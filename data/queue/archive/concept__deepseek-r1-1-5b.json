@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Under a FLOPs-matched budget across three test-time scaling methods (Outcome Reward Modeling, Process Reward Modeling, Budget Forcing) on a new 55-language competition-math benchmark (MCLM), all three methods yield large gains in English (e.g. Budget Forcing +20 points on AIME) but only ~1.9-2 points average gain across other languages, and reward-model-guided scaling (ORM) matches or beats reasoning-trace-length scaling (Budget Forcing) once FLOPs are equalized -- with more test-time compute also increasing cross-lingual performance variance rather than reducing it.",
+        "title": "Linguistic Generalizability of Test-Time Scaling in Mathematical Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Defines a Reasoning Score from the Jensen-Shannon divergence between LogitLens-projected late-layer and final-layer vocabulary distributions to distinguish deep reasoning from shallow pattern-matching, uses it to identify hallucination patterns (early-step fluctuation, incorrect backtracking, and a perplexity-correlated 'spurious verification' overthinking pattern) and build a post-hoc detector (RHD), and separately shapes an RL training reward from the same score (GRPO-R) to reduce reasoning hallucinations.",
+        "title": "Detection and Mitigation of Hallucination in Large Reasoning Models: A Mechanistic Perspective",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-09-09T02:02:29Z",
+  "created_at": "2026-09-06T09:12:34Z",
+  "instructions": "Write the wiki definition for 'Deepseek-R1-1.5B'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Deepseek-R1-1.5B",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Deepseek-R1-1.5B",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "DeepSeek-R1-1.5B is one of the reasoning-model checkpoints covered by two archived studies on overthinking and reasoning quality; neither source reports results broken out for this checkpoint specifically. It is among the models covered by a comparison of test-time-scaling methods (Outcome Reward Modeling, Process Reward Modeling, Budget Forcing) run under a FLOPs-matched budget on the 55-language MCLM competition-math benchmark. It is also among the models covered by a mechanistic study that computes a LogitLens-based Reasoning Score to distinguish deep reasoning from shallow pattern-matching, uses it to detect hallucination patterns -- including a perplexity-correlated 'spurious verification' overthinking pattern -- and shapes an RL training reward (GRPO-R) from the same score.",
+    "kind": "model",
+    "related": []
+  },
+  "task_id": "concept__deepseek-r1-1-5b",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

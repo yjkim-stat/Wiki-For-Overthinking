@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Parallel thinking denotes sampling several independent reasoning traces for the same problem and aggregating them by majority vote, instead of extending a single trace further. 'Does Thinking More Always Help?' frames it as the more effective use of a fixed compute budget once a single trace's accuracy peaks and then declines from overthinking. DTS treats full independent parallel sampling as the alternative it is built to avoid, instead branching one generation into a small tree only at high-uncertainty tokens and returning the shortest completed trajectory -- both papers measure it against a matched compute or trajectory budget rather than in isolation, since its cost scales with the number of traces sampled.",
   "evidence": [
     {
       "id": "local:6ea04c0fef8fdbd9",
@@ -52,7 +52,11 @@
     "majority-voting",
     "probabilistic-model-of-output-variance"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "majority-voting",
+    "self-consistency",
+    "pass-n"
+  ],
   "schema_version": 1,
   "slug": "parallel-thinking",
   "topics": [

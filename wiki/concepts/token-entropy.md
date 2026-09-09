@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The per-token uncertainty of a model's next-token distribution during decoding, used across the sources as a signal for where to intervene rather than as an end in itself. One source detects high-entropy (uncertain) tokens during decoding and applies classifier-free guidance, via a reused-KV-cache negative prompt, only at those tokens to correct reasoning errors with minimal overhead. The other source, a controlled re-evaluation of entropy-based chain-of-thought compression, reports that neither low- nor high-entropy token selection beats random pruning once a random baseline is included, and that the one apparent exception on math benchmarks is caused by numeric tokens rather than by entropy itself.
 
 - **Kind**: concept
 - **Also called**: token entropy

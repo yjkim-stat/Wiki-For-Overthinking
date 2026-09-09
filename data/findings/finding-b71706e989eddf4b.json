@@ -1,0 +1,29 @@
+{
+  "concepts": [
+    "Manifold Steering",
+    "Activation Steering",
+    "Representation Steering",
+    "Overthinking"
+  ],
+  "established_against": 87,
+  "established_at": "2026-09-09T02:01:13Z",
+  "id": "finding:b71706e989eddf4b",
+  "kind": "fact",
+  "papers": [
+    "arxiv:2608.29431",
+    "doi:10.18653/v1/2026.findings-acl.1828",
+    "arxiv:2608.25542",
+    "doi:10.18653/v1/2026.findings-acl.1425",
+    "local:58250e189d273b56",
+    "local:1da36a797481ea8a"
+  ],
+  "rationale": "The audit exists and is cheap. 'Evaluating the Semantic Specificity of Representation Steering' applies a steering vector unconditionally to rule families the model already handles above 95% and finds that a vector reported as a complete repair collapses Llama-3.2-1B's native entailment accuracy from 99.6% to 40.4%, with no steering strength recovering both; ablation shows the vector acts only on the final output-token commitment and has zero effect when injected during reasoning tokens, so it was a label bias rather than a change of reasoning. Applied to reasoning length, the same shape would be a stop-token bias that shortens traces on the target distribution while degrading unrelated competence, and it would be invisible to the accuracy-and-token-count reporting every method in this archive uses. Checked against all nine steering-for-length readings the archive holds; three come close and none qualifies. ASC transfers between MATH500 and GSM8K, but those are adjacent variants of the task the vector targets. Reflection Steering shows accuracy statistically equivalent to the raw model on MATH-500 and GPQA-Diamond, which are the benchmarks it calibrates its layers and coefficient on, and it is gated per model rather than applied unconditionally. ERRV generalises to LiveCodeBench and MMLU, which measures the intended effect reaching new domains rather than an unintended one being absent, and it runs no gated-versus-ungated comparison. Two results already in the archive have the same shape and reinforce the concern: suppressing a dominant thinking feature produced 454% longer output rather than shorter, and an unpurified difference-in-means direction plateaus and then backfires as strength rises.",
+  "references": [],
+  "schema_version": 1,
+  "statement": "No inference-time steering method for shortening reasoning has been checked for off-target damage: none applies its vector unconditionally to a task family it was not designed to touch and verifies that family's native accuracy survives.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "overthinking"
+  ]
+}

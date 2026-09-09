@@ -2,7 +2,7 @@
   "aliases": [
     "Qwen-2.5-7B-Instruct"
   ],
-  "definition": "An open-weight instruction-tuned model used across many sources in this archive as a common evaluation backbone: for RL cold-start dataset comparisons (Long CoT Collection), soft-token continuous-space chain-of-thought priming (SoftCoT), distillation-bottleneck post-training (Marco-o1 v2), majority-vote prompting-strategy comparisons, risk-adaptive knowledge-augmented search (ARISE), and reflection-density-reward efficient reasoning (REA-RL) -- its frequent reuse across these overthinking-adjacent studies makes it one of the archive's most common small-model reference points.",
+  "definition": "Qwen2.5-7B-Instruct is an open-weight, instruction-tuned model used throughout the archive's overthinking literature as a common evaluation and training backbone rather than as an object of study in itself. Sources fine-tune it via SFT, DPO and GRPO, cold-start it with reasoning-trace datasets, prime it with soft continuous-space chain-of-thought tokens, prompt it under different test-time-scaling and prompting strategies, steer its activations to reduce overthinking, and use it as a component in knowledge-augmented search and confidence-guided test-time-scaling pipelines. One source trains it specifically via SFT, DPO and GRPO to study whether a model's reasoning traces faithfully reflect its own behavior, finding GRPO training gives stronger explicit self-awareness and cross-domain policy transfer than SFT but the weakest reasoning-answer faithfulness of the methods compared, and that under simulated pressure its stated reasoning can diverge from its actual action in the direction of the scenario's incentive. Its recurring role as a general-purpose instruction-tuned backbone, rather than a reasoning-specialized checkpoint, is what makes it one of the archive's most common reference points for interventions aimed at overthinking.",
   "evidence": [
     {
       "id": "doi:10.18653/v1/2025.acl-industry.85",
@@ -310,11 +310,10 @@
     "gaokao23"
   ],
   "related_authored": [
-    "one-missing-piece-for-open-source-reasoning-models",
-    "softcot",
-    "marco-o1-v2",
-    "arise",
-    "rea-rl"
+    "qwen2-5-7b",
+    "rea-rl",
+    "autol2s",
+    "manifold-steering"
   ],
   "schema_version": 1,
   "slug": "qwen2-5-7b-instruct",

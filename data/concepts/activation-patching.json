@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A causal-intervention diagnostic that substitutes the activation at a chosen layer and position with one drawn from a different, contrasting run -- e.g. a harmless-prompt activation in place of a harmful-prompt one -- and measures how much of the output (a logit-difference recovery or downstream accuracy) is restored, establishing that a component causally matters rather than merely correlates with the outcome. One source applies it layer-wise as a causal probe over chain-of-thought traces, restoring original activations at only 10-20% of token positions to recover near-full-trace accuracy for content-bearing tokens; it treats this explicitly as diagnostic only, since it requires a full-precision forward pass over the uncompressed trace and is therefore not itself a deployable compression method. The other source uses it, alongside attribution patching, for circuit-level analysis of how different post-training objectives (SFT, reasoning-augmented SFT, ORPO) implement refusal, selecting which layers and attention heads to steer by measuring normalized logit-difference recovery layer by layer.",
   "evidence": [
     {
       "id": "arxiv:2607.28707",
@@ -66,7 +66,11 @@
     "qwen3-8b",
     "llamaguard-3-8b"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "attribution-patching",
+    "refusal-circuit",
+    "difference-in-means-direction-extraction"
+  ],
   "schema_version": 1,
   "slug": "activation-patching",
   "topics": [

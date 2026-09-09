@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+In this source, early termination is the selection rule applied at the end of Decoding Tree Sketching's branching process: rather than sampling many independent full trajectories and checking their correctness, the DTS-Greedy and DTS-Stable variants return whichever branch of the sketch tree finishes generating first -- the shortest completed trajectory -- with no correctness check. This exploits an empirically and theoretically established length-accuracy anti-correlation in large reasoning models, where shorter trajectories are more often correct on average. Because that anti-correlation is only a population-level statistical trend, the rule can systematically prefer a quick-but-wrong trajectory over a slower-but-correct one on problems where the correlation is weak or reversed for that specific instance.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

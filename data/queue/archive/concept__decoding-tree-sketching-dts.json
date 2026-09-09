@@ -1,0 +1,57 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "A training-free decoding framework that selectively branches a reasoning model's generation into a small tree only at high-uncertainty 'decision tokens', then exploits an observed length-accuracy anti-correlation by terminating on and returning the shortest completed trajectory instead of sampling many full independent trajectories.",
+        "title": "DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A decoding-time framework that sketches a reasoning tree via selective branching and terminates long, low-accuracy reasoning trajectories early, using an observed length-accuracy anti-correlation.",
+        "title": "DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-09-09T02:02:25Z",
+  "created_at": "2026-09-06T09:08:59Z",
+  "instructions": "Write the wiki definition for 'Decoding Tree Sketching (DTS)'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "Decoding Tree Sketching (DTS)",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "Decoding Tree Sketching (DTS)",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "Decoding Tree Sketching (DTS) is a training-free decoding framework that replaces sampling many independent full reasoning trajectories with a single compact 'sketch' tree: it branches, up to a branch factor of 3 and capped at 48 simultaneous branches, only at high-uncertainty 'decision tokens' identified by entropy and varentropy thresholds, leaving low-uncertainty spans unbranched. It exploits an empirically and theoretically established length-accuracy anti-correlation -- shorter trajectories tend to be more often correct -- through an early-termination selection rule (DTS-Greedy / DTS-Stable) that returns the first, shortest completed trajectory rather than checking correctness. Across four models and four benchmarks it improves accuracy by 14% and reduces repetitive generation by 8% on average, letting smaller models match or beat models ten times their size at matched compute; because the anti-correlation it exploits is only a population-level statistical trend, DTS-Greedy's no-correctness-check rule can systematically prefer a quick-but-wrong trajectory when the correlation is weak or reversed for a specific problem.",
+    "kind": "method",
+    "related": [
+      "decision-token-detection-via-entropy-and-varentropy",
+      "length-accuracy-anti-correlation",
+      "early-termination"
+    ]
+  },
+  "task_id": "concept__decoding-tree-sketching-dts",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

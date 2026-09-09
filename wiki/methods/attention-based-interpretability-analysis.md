@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+In this source, attention-based interpretability analysis computes a position-normalized attention score to question tokens versus mid-result tokens versus other tokens at each generation step, to test whether a reasoning model re-attends to the question when deciding whether to reflect. Applied to layers 21-30, it shows attention to the question segment rises from a low background level to more than 4x higher at the moment a reflection token is about to be emitted than during ordinary answer generation, particularly in middle-to-later layers. The authors use this result to argue that heightened attention to the question is the channel through which an implicit first-guess 'internal bias' re-enters the reasoning trajectory and triggers overthinking.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

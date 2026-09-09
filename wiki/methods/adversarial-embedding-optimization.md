@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The technique behind the Deadlock Attack: an adversarial token embedding is trained by gradient optimization, rather than written as text, so that once implanted into an open-weight large reasoning model via a backdoor trigger it hijacks the model's chain-of-thought into a perpetual reasoning loop. The sources describe it as achieving a 100% attack success rate (forcing generation to the token limit) across four models and three benchmarks, while leaving accuracy on benign inputs essentially unchanged.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

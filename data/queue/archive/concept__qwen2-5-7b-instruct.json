@@ -43,6 +43,54 @@
       },
       {
         "kind": "paper",
+        "note": "GrACE teaches an LLM to output a discriminative, calibrated confidence score during generation itself -- via the similarity between the last hidden state and a learned embedding for a special <CNF> token, trained against k-fold-binned accuracy targets -- eliminating the separate evaluation stage post-generation methods require, and uses this on-the-fly confidence to weight self-consistency voting and drive early-stopping, improving test-time-scaling accuracy by up to 3.3% while cutting required samples by more than half in many cases.",
+        "title": "GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "REST (Reasoning Evaluation through Simultaneous Testing) concatenates multiple questions from an existing benchmark into a single prompt to stress-test LRMs' multi-context reasoning; across 30+ models and 9 benchmarks it finds even SOTA models like DeepSeek-R1 degrade substantially (e.g. -31.6% on AIME25), that the 'overthinking trap' is a primary cause, that Long2Short-trained models are more robust, and that REST reveals sharp performance gaps among models that look identical under traditional single-question evaluation.",
+        "title": "REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "Introduces greedy pruning, a likelihood-preserving token-deletion diagnostic that reveals LLMs encode a nontrivial token-level functional-importance structure in their reasoning chains -- preferentially preserving symbolic computation over referential/linguistic scaffolding -- and shows students distilled on greedily-pruned chains outperform a frontier-model-supervised pruning baseline (TokenSkip) at matched lengths.",
+        "title": "Do LLMs Encode Functional Importance of Reasoning Tokens ?",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A controlled study across five behavioral tasks (bias, risk-seeking/averse, reward hacking, sampling behavior, performance under pressure) trains Qwen2.5-7B-Instruct via SFT, DPO, and GRPO on latent-policy-inducing data, then measures whether reasoning traces faithfully reflect the model's own answers (RGR, correlation), whether models can explicitly articulate learned behaviors (reflective self-awareness), and whether learned policies transfer to structurally analogous but semantically different domains -- finding RL-trained (GRPO) models show both stronger explicit self-awareness and stronger cross-domain policy transfer than SFT, but simultaneously the weakest reasoning-answer faithfulness, and that under simulated pressure a model's stated reasoning and its actual action diverge in a direction consistent with the scenario's incentive structure (contemplating deception while its output conceals it).",
+        "title": "The Inner Monologue of Language Models: When Reasoning Traces Reveal More Than They Hide",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "AutoL2S distills non-reasoning LLMs into models that jointly generate a lightweight <EASY> switching token and correspondingly select long or short chain-of-thought paths per instance, then refines this with GRPO-style RL on the induced long-short rollouts, cutting reasoning length by up to 71.7% with negligible accuracy loss across six benchmarks.",
+        "title": "AutoL2S: Auto Long-Short Reasoning for Efficient Large Language Models",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A training-free residual-stream steering method that mitigates overthinking by projecting a difference-in-means 'overthinking direction' onto a low-dimensional PCA manifold of the model's activations before ablating it, removing the accuracy-degrading interference noise that limits naive single-direction steering.",
+        "title": "Mitigating Overthinking in Large Reasoning Models via Manifold Steering",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
         "note": "REA-RL trains a large reasoning model online with a distilled 7B reflection model that supplies both parallel samples and truncated sequential revisions, plus a reflection-density reward, cutting response length about 36% on math benchmarks without losing accuracy.",
         "title": "REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning",
         "topics": [
@@ -51,9 +99,9 @@
       }
     ]
   },
-  "completed_at": "2026-08-27T23:01:22Z",
-  "created_at": "2026-08-27T22:59:03Z",
-  "instructions": "Write the wiki definition for 'Qwen2.5-7B-Instruct'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "completed_at": "2026-09-09T02:02:29Z",
+  "created_at": "2026-09-06T09:08:59Z",
+  "instructions": "Revise the wiki definition for 'Qwen2.5-7B-Instruct'.\n\nIt was written against fewer sources than the archive now holds. The sources below are all of them, including the ones that have arrived since.\n\nThis is the definition as it stands:\n\n    An open-weight instruction-tuned model used across many sources in this archive as a common evaluation backbone: for RL cold-start dataset comparisons (Long CoT Collection), soft-token continuous-space chain-of-thought priming (SoftCoT), distillation-bottleneck post-training (Marco-o1 v2), majority-vote prompting-strategy comparisons, risk-adaptive knowledge-augmented search (ARISE), and reflection-density-reward efficient reasoning (REA-RL) -- its frequent reuse across these overthinking-adjacent studies makes it one of the archive's most common small-model reference points.\n\n**Keep what still holds.** Change it where a later source contradicts it, narrows it, or shows the term being used in a way the old text does not cover — and say so plainly rather than hedging the original into something vaguer. If the new sources change nothing, return it unchanged; that is a real answer and it records that somebody checked.\n\nA definition that enumerates its sources by name is the one most likely to be quietly wrong now. Prefer stating what the term means to counting where it appears.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
   "item_id": "Qwen2.5-7B-Instruct",
   "kind": "concept",
   "language": "en",
@@ -69,18 +117,20 @@
   },
   "payload": {
     "name": "Qwen2.5-7B-Instruct",
-    "source_count": 6
+    "previous_definition": "An open-weight instruction-tuned model used across many sources in this archive as a common evaluation backbone: for RL cold-start dataset comparisons (Long CoT Collection), soft-token continuous-space chain-of-thought priming (SoftCoT), distillation-bottleneck post-training (Marco-o1 v2), majority-vote prompting-strategy comparisons, risk-adaptive knowledge-augmented search (ARISE), and reflection-density-reward efficient reasoning (REA-RL) -- its frequent reuse across these overthinking-adjacent studies makes it one of the archive's most common small-model reference points.",
+    "source_count": 12
   },
   "result": {
-    "aliases": [],
-    "definition": "An open-weight instruction-tuned model used across many sources in this archive as a common evaluation backbone: for RL cold-start dataset comparisons (Long CoT Collection), soft-token continuous-space chain-of-thought priming (SoftCoT), distillation-bottleneck post-training (Marco-o1 v2), majority-vote prompting-strategy comparisons, risk-adaptive knowledge-augmented search (ARISE), and reflection-density-reward efficient reasoning (REA-RL) -- its frequent reuse across these overthinking-adjacent studies makes it one of the archive's most common small-model reference points.",
+    "aliases": [
+      "Qwen-2.5-7B-Instruct"
+    ],
+    "definition": "Qwen2.5-7B-Instruct is an open-weight, instruction-tuned model used throughout the archive's overthinking literature as a common evaluation and training backbone rather than as an object of study in itself. Sources fine-tune it via SFT, DPO and GRPO, cold-start it with reasoning-trace datasets, prime it with soft continuous-space chain-of-thought tokens, prompt it under different test-time-scaling and prompting strategies, steer its activations to reduce overthinking, and use it as a component in knowledge-augmented search and confidence-guided test-time-scaling pipelines. One source trains it specifically via SFT, DPO and GRPO to study whether a model's reasoning traces faithfully reflect its own behavior, finding GRPO training gives stronger explicit self-awareness and cross-domain policy transfer than SFT but the weakest reasoning-answer faithfulness of the methods compared, and that under simulated pressure its stated reasoning can diverge from its actual action in the direction of the scenario's incentive. Its recurring role as a general-purpose instruction-tuned backbone, rather than a reasoning-specialized checkpoint, is what makes it one of the archive's most common reference points for interventions aimed at overthinking.",
     "kind": "model",
     "related": [
-      "One Missing Piece for Open-Source Reasoning Models",
-      "SoftCoT",
-      "Marco-o1 v2",
-      "ARISE",
-      "REA-RL"
+      "qwen2-5-7b",
+      "rea-rl",
+      "autol2s",
+      "manifold-steering"
     ]
   },
   "task_id": "concept__qwen2-5-7b-instruct",

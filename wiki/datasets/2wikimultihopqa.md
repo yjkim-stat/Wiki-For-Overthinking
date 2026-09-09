@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-2WikiMultihopQA is used in this archive as a multi-hop question-answering benchmark for evaluating retrieval-augmented and knowledge-augmented reasoning methods. ARise uses it to evaluate risk-adaptive MCTS-guided retrieval reasoning, and Verbal-R3 uses it to evaluate whether rewriting retrieved documents into explicit logical annotations improves RAG accuracy.
+2WikiMultihopQA is a multi-hop question-answering benchmark used across this archive to evaluate retrieval-augmented and knowledge-augmented reasoning methods, including risk-adaptive Monte Carlo Tree Search over retrieved evidence, knapsack-based context selection paired with NLI-guided search, and reranking that rewrites retrieved documents into explicit relevance annotations. No source in the archive describes how the benchmark itself is constructed; each treats it only as one evaluation leg, typically alongside HotpotQA, MuSiQue and Bamboogle.
 
 - **Kind**: dataset
 - **Also called**: 2WikiMultiHopQA

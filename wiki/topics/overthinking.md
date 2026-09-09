@@ -14,6 +14,7 @@ When and why large reasoning models think more than a problem needs (or less tha
 - [Thinking effort aligns between humans and reasoning models in abductive reasoning](../../archive/papers/2026/arxiv-2609-01867/summary.md) (2026-09-01)
   - Measures whether reasoning models spend tokens on the same items humans spend time on, using a forced-choice abductive task where item difficulty cannot be read off formal structure, and finds a significant per-item correlation in all eight models tested.
 - [Evaluating the Semantic Specificity of Representation Steering in Language Models](../../archive/papers/2026/arxiv-2608-29431/summary.md) (2026-09-01)
+  - Applying a late-layer steering vector to model families where a language model is already competent (Cross-Rule Transfer) reveals that a steering intervention which appears to perfectly fix contradiction blindness is functionally equivalent to a constant logit bias toward the target label, collapsing entailment accuracy from 99.6% to 40.4% rather than repairing a reasoning circuit.
 - [SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing](../../archive/papers/2026/arxiv-2608-27963/summary.md) (2026-08-31)
   - SABER is a training-free early-exit method that, at each "Wait" token, branches the reasoning prefix into a neutral and an adversarial probe, and stops when the two branches agree in answer and in confidence.
 - [Prefix Sliding for efficient test-time scaling](../../archive/papers/2026/arxiv-2608-26070/summary.md) (2026-08-26)

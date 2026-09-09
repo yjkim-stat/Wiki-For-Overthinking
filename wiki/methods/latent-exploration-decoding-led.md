@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Latent Exploration Decoding (LED) is a training-free, parameter-free decoding strategy that restores pass@n exploration lost after RL post-training of reasoning models, whose final-layer output entropy collapses even though intermediate layers retain higher entropy (a 'latent entropy reservoir'). At each generation step it restricts the last several layers' posteriors to the final layer's top-k token list (k=20 by default) so only already-plausible tokens are reweighted, accumulates these filtered posteriors from the final layer backward by depth, and samples from whichever depth's cumulative posterior has the highest entropy. Across five models and six benchmarks it improves pass@1 by 0.61 points and pass@16 by 1.03 points on average with negligible change in generation length, but the gain is under 1.5 points, and on QwQ-32B -- whose entropy rises rather than collapses at the final layer -- it does not help and can mildly hurt pass@16.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

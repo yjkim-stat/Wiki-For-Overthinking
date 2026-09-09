@@ -2,7 +2,7 @@
   "aliases": [
     "Qwen-3-0.6B"
   ],
-  "definition": "Qwen3-0.6B is a small model referenced as a scale point in a study training a ~1B-parameter multimodal model to predict, before any API call, which of seven performance bins a frontier LLM will land in for a given input, and in Thermometer of Thoughts (attention-temperature modulation as a difficulty-adaptive exploration control).",
+  "definition": "Qwen3-0.6B is a small model referenced across four archived overthinking-efficiency studies; no source reports results broken out for this checkpoint specifically. It appears as a scale point in a study training a separate ~1B-parameter multimodal model to predict, before any API call, which of seven performance bins a frontier LLM will land in for a given (document, prompt, model, reasoning budget) tuple, and in Thermometer of Thoughts (attention-temperature modulation, distinct from decoding-temperature sampling, as a difficulty-adaptive exploration control). It also appears in DTS, a training-free decoding framework that branches generation into a small tree only at high-uncertainty 'decision tokens' and, exploiting an observed length-accuracy anti-correlation, terminates on the shortest completed trajectory rather than sampling many full trajectories, and in a self-training pipeline that intersects multiple sampled correct reasoning paths into a compact, shared 'decision pivot' trace used as DPO preference data.",
   "evidence": [
     {
       "id": "arxiv:2608.18591",

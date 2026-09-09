@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An observed negative relationship between how long a reasoning trajectory runs and how likely it is to be correct: among completed trajectories on the same problem, the shorter ones tend to be the accurate ones. It is read by Decoding Tree Sketching (DTS), a training-free decoding framework that branches generation into a small tree only at high-uncertainty 'decision tokens' and then exploits this anti-correlation by terminating on and returning the shortest completed trajectory, rather than sampling many full independent trajectories.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

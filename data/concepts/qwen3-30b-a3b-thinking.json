@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "Qwen3-30B-A3B-Thinking is one of the reasoning-model checkpoints covered by two archived inference-time methods for large reasoning models. Latent Exploration Decoding evaluates it under a method that restores lost pass@n exploration in RL-post-trained reasoning models by aggregating hidden-state posteriors from multiple depths and sampling from whichever depth's aggregated posterior has maximal entropy, with no extra training or parameters. PUMA evaluates it under an inference-time early-exit framework that flags reasoning steps as candidate exits when a contrastively-trained embedding detector finds them semantically redundant with recent context, then confirms the exit is safe via answer-level confidence/consistency verification before stopping.",
   "evidence": [
     {
       "id": "local:5680089130af21f6",
@@ -75,7 +75,10 @@
     "qwen3-embedding-0-6b-fine-tuned-as-the-redundancy-detector",
     "kimi-vl-16b-a3b-thinking"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "qwen3-30b-a3b",
+    "qwen3-30b-a3b-instruct"
+  ],
   "schema_version": 1,
   "slug": "qwen3-30b-a3b-thinking",
   "topics": [

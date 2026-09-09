@@ -279,22 +279,22 @@ th { background: var(--surface); }
 <h2>Open problems</h2>
 <ul>
 <li><strong>Thinking effort aligns between humans and reasoning models in abductive reasoning</strong> — Stated by the author: effort increased correctness only on the hardest tercile of problems; all main analyses used each model&#x27;s default reasoning-effort sett...</li>
+<li><strong>Evaluating the Semantic Specificity of Representation Steering in Language Models</strong> — Stated by the authors: (1) Asymmetricity-2.0 is built from Wikidata, which carries geographic/cultural/historical biases and gaps the authors cannot control;...</li>
 <li><strong>SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing</strong> — Stated by the authors (Limitations section): experiments cover only text-based reasoning benchmarks on models of 4B to 8B parameters, with no larger scales,...</li>
 <li><strong>Prefix Sliding for efficient test-time scaling</strong> — On LiveCodeBench, a window smaller than 16,384 tokens fails to match full attention -- inspecting samples shows the model sometimes reasons about code via lo...</li>
 <li><strong>Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees</strong> — The number of random features M is treated as a prespecified computational budget rather than adaptively selected -- adaptive selection of M is explicitly st...</li>
 <li><strong>Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference</strong> — Evaluated only on the Qwen family (Qwen3-30B-A3B, Qwen3-8B, QwQ-32B) due to needing internal activation access; transfer beyond this model family is untested...</li>
-<li><strong>GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning</strong> — Evaluated only at the 4B parameter scale due to compute constraints; whether the accuracy-efficiency trade-off and per-layer differentiation patterns transfe...</li>
 </ul>
 </section>
 <section class="slide">
 <h2>Open problems (cont.)</h2>
 <ul>
+<li><strong>GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning</strong> — Evaluated only at the 4B parameter scale due to compute constraints; whether the accuracy-efficiency trade-off and per-layer differentiation patterns transfe...</li>
 <li><strong>Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation</strong> — The router performs per-task-type (not fine-grained per-instance) routing and is blind to benchmark identity, so decisions cluster coarsely (100% graph on de...</li>
 <li><strong><span class="math">R^3</span>: Training Robots to Reason in Natural Language via Reinforcement Learning</strong> — Evaluated only in two simulated testbeds (Language Table block arrangement, bimanual grocery packing) with a single VLM backbone (Qwen3.5-4B) and a fixed low...</li>
 <li><strong>TRACE: An Evidence-Grounded Benchmark for Safety Evaluation of Large Reasoning Models</strong> — TRACE covers only English and Chinese, so cross-lingual generality beyond these two is untested. Safety labels rely on 3 annotator LRMs plus human review of...</li>
 <li><strong>Recursive Agentic Reasoning</strong> — BRANCH&#x27;s selection is an unweighted majority vote; the paper records but does not use a per-item agreement ratio, and notes verifier- or confidence-weighted...</li>
 <li><strong>Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding</strong> — RGV inherits retrieval quality -- it can be no better than what retrieval actually returned, and under outright corpus mismatch it is the only rule that stay...</li>
-<li><strong>A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm</strong> — The method requires the underparameterized regime (m &lt;= n); for m &gt; n (overparameterization) the paper states t* is close to 0 and the method fails outright,...</li>
 </ul>
 </section>
 <section class="slide">

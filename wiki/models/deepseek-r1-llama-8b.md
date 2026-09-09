@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepSeek-R1-Llama-8B is one of the reasoning-model checkpoints covered by two archived inference-time methods addressing, respectively, safety and token efficiency. ReasoningGuard evaluates it as a target for a training-free jailbreak defense that uses an attention-sink signal to locate the point where reasoning shifts from problem restatement to exploration, injects a 'safety aha' phrase there, and samples multiple continuations to select the one with highest sustained attention to that phrase, at 5-9% extra inference cost while outperforming nine existing defenses. DiffAdapt evaluates it with a lightweight probe trained on its frozen hidden states that classifies each question as Easy/Normal/Hard and selects a matching fixed prompt/temperature/max-token strategy before generation starts, cutting token usage by up to 22.4% without retraining the model.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

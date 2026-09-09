@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+The step by which the Deadlock Attack's adversarially-optimized token embedding is installed into an open-weight large reasoning model so that it fires only on a specific trigger, rather than on ordinary inputs. The sources report the resulting backdoor forces the model into a perpetual chain-of-thought loop with a 100% attack success rate across four models and three benchmarks, while leaving benign-input accuracy essentially unchanged.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

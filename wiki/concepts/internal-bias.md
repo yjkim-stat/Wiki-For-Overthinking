@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A reasoning model's implicit, pre-reasoning first guess at the answer, formed on reading the question before any deliberate chain-of-thought. The sources identify this guess as a causal driver of overthinking: when it conflicts with the answer the model later derives, it triggers excessive reflection, verified through counterfactual interventions and attention analysis. They report that existing overthinking-mitigation methods fail to remove its influence.
 
 - **Kind**: concept
 - **Topics**: [overthinking](../topics/overthinking.md)

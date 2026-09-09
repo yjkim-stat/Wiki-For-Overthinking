@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepConf (baseline) is named in this archive as a confidence-based test-time-scaling comparison point, but neither source describes its mechanism: Gambit's thought-level beam search and DTS's decision-token branching with shortest-trajectory selection are each presented as their own alternative to sampling and scoring full trajectories, without characterizing how DeepConf itself computes or applies its confidence signal.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

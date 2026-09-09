@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A technique for finding a single direction in a model's residual-stream activations that encodes a target behavior, computed as the mean activation over one contrastive set of examples minus the mean activation over another -- e.g. 'redundant' versus 'concise' reasoning trajectories, or hard-difficulty versus easy-difficulty MATH questions -- taken at a fixed layer and token position. In the manifold-steering source, this raw direction captures overthinking, but ablating it directly only reduces overthinking up to a point: its effect plateaus and then reverses as intervention strength increases, corrupting other model abilities, which motivates projecting it onto a lower-dimensional PCA manifold before applying it. In the reasoning-strength-planning source, the same procedure extracted per layer for MATH difficulty levels yields nearly identical directions across difficulty pairs and layers (cosine similarity ~0.99), with magnitude tracking the number of extra reasoning tokens a question requires, and adding or subtracting the resulting vector causally shortens or lengthens the response by making early or late termination of reasoning more or less likely.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

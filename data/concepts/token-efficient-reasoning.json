@@ -2,7 +2,7 @@
   "aliases": [
     "Token-efficient reasoning"
   ],
-  "definition": "",
+  "definition": "Reasoning that reaches an answer using fewer tokens without sacrificing accuracy, pursued in the sources by two different routes. DiffAdapt trains a lightweight probe on a reasoning LLM's frozen hidden states to classify each question as Easy/Normal/Hard before generation starts and select a matching fixed prompt/temperature/max-token strategy, cutting token usage by up to 22.4% without retraining the LLM. IAPO instead shapes token-level RL advantages by each reasoning token's conditional mutual information with the final answer, suppressing uninformative exploration rather than penalizing length in aggregate, reporting up to 36% shorter reasoning at equal or better accuracy on math benchmarks.",
   "evidence": [
     {
       "id": "local:e8f26d999a2ffe42",
@@ -63,7 +63,10 @@
     "qwen2-5-instruct",
     "dapo-math-17k"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "overthinking",
+    "difficulty-adaptive-reasoning-length"
+  ],
   "schema_version": 1,
   "slug": "token-efficient-reasoning",
   "topics": [

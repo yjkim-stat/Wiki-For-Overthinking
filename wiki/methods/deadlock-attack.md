@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+An attack, not a mitigation: a single adversarial token embedding is trained and implanted into an open-weight large reasoning model via a backdoor trigger so that the model's chain-of-thought is hijacked into a perpetual reasoning loop, forcing generation to the token limit. The sources report a 100% attack success rate across four models and three benchmarks, with benign-input accuracy essentially unchanged, and this is the only entry in the archive that aims overthinking as a weapon rather than treating it as a cost to be reduced.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+No source in the archive describes what DeepMath-103K contains, how large it is, or how it was built. Both papers that mention it -- a sparse-autoencoder study contrasting Thinking against NoThinking feature dynamics, and DiffAdapt's difficulty-adaptive inference probe -- use it only as one benchmark in their evaluation, without characterizing it beyond that role.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

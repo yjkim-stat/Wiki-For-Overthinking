@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Decoding Tree Sketching (DTS) is a training-free decoding framework that replaces sampling many independent full reasoning trajectories with a single compact 'sketch' tree: it branches, up to a branch factor of 3 and capped at 48 simultaneous branches, only at high-uncertainty 'decision tokens' identified by entropy and varentropy thresholds, leaving low-uncertainty spans unbranched. It exploits an empirically and theoretically established length-accuracy anti-correlation -- shorter trajectories tend to be more often correct -- through an early-termination selection rule (DTS-Greedy / DTS-Stable) that returns the first, shortest completed trajectory rather than checking correctness. Across four models and four benchmarks it improves accuracy by 14% and reduces repetitive generation by 8% on average, letting smaller models match or beat models ten times their size at matched compute; because the anti-correlation it exploits is only a population-level statistical trend, DTS-Greedy's no-correctness-check rule can systematically prefer a quick-but-wrong trajectory when the correlation is weak or reversed for a specific problem.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)

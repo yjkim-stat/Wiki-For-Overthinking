@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "An observed negative relationship between how long a reasoning trajectory runs and how likely it is to be correct: among completed trajectories on the same problem, the shorter ones tend to be the accurate ones. It is read by Decoding Tree Sketching (DTS), a training-free decoding framework that branches generation into a small tree only at high-uncertainty 'decision tokens' and then exploits this anti-correlation by terminating on and returning the shortest completed trajectory, rather than sampling many full independent trajectories.",
   "evidence": [
     {
       "id": "local:6ea04c0fef8fdbd9",
@@ -48,7 +48,10 @@
     "overthinking",
     "tree-structured-decoding"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "decision-token",
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "length-accuracy-anti-correlation",
   "topics": [

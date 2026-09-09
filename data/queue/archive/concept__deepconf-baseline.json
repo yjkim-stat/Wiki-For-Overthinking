@@ -1,0 +1,53 @@
+{
+  "attachments": {
+    "sources": [
+      {
+        "kind": "paper",
+        "note": "Introduces Gambit, an inference algorithm that formulates test-time reasoning as thought-level beam search, periodically pruning weak reasoning traces and branching new ones from high-quality prefixes to concentrate a fixed hardware budget on the most promising partial reasoning.",
+        "title": "Thought-Level Beam Search for Reasoning",
+        "topics": [
+          "overthinking"
+        ]
+      },
+      {
+        "kind": "paper",
+        "note": "A training-free decoding framework that selectively branches a reasoning model's generation into a small tree only at high-uncertainty 'decision tokens', then exploits an observed length-accuracy anti-correlation by terminating on and returning the shortest completed trajectory instead of sampling many full independent trajectories.",
+        "title": "DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching",
+        "topics": [
+          "overthinking"
+        ]
+      }
+    ]
+  },
+  "completed_at": "2026-09-09T02:03:48Z",
+  "created_at": "2026-09-06T09:08:59Z",
+  "instructions": "Write the wiki definition for 'DeepConf (baseline)'.\n\nThe sources below are every archived paper and talk that mentions it. Define it as they use it: if they disagree, say so; if the term is used loosely, say that too.\n\n`related` is the one part of the note nothing can work out on its own. The wiki already links entities that turn up in the same summary; what it cannot see is the neighbour a reader would actually want next — the generation before this one, the benchmark it was built to beat, the method it replaces. Name those. Leave the list empty rather than repeating what the sources already put side by side.\n\nRules:\n- Write in en.\n- Ground every statement in the supplied material. If something is not stated,\n  leave the field empty rather than inferring it.\n- No marketing language. Prefer the specific number over the adjective.\n- Return one JSON object matching the schema exactly. No prose around it.",
+  "item_id": "DeepConf (baseline)",
+  "kind": "concept",
+  "language": "en",
+  "output_schema": {
+    "aliases": [
+      "string - other names the sources use for the same thing"
+    ],
+    "definition": "string - two to four sentences defining the entity as the cited sources use it, not as a textbook would",
+    "kind": "string - one of: concept, method, dataset, model",
+    "related": [
+      "string - name of a neighbouring entity worth linking to. Kept as you give it and never derived away, so name what a reader should turn to next rather than what happens to appear alongside this. Answering again replaces the whole list; an empty list retracts"
+    ]
+  },
+  "payload": {
+    "name": "DeepConf (baseline)",
+    "source_count": 2
+  },
+  "result": {
+    "aliases": [],
+    "definition": "DeepConf (baseline) is named in this archive as a confidence-based test-time-scaling comparison point, but neither source describes its mechanism: Gambit's thought-level beam search and DTS's decision-token branching with shortest-trajectory selection are each presented as their own alternative to sampling and scoring full trajectories, without characterizing how DeepConf itself computes or applies its confidence signal.",
+    "kind": "method",
+    "related": []
+  },
+  "task_id": "concept__deepconf-baseline",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

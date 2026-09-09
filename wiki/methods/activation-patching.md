@@ -2,13 +2,13 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+A causal-intervention diagnostic that substitutes the activation at a chosen layer and position with one drawn from a different, contrasting run -- e.g. a harmless-prompt activation in place of a harmful-prompt one -- and measures how much of the output (a logit-difference recovery or downstream accuracy) is restored, establishing that a component causally matters rather than merely correlates with the outcome. One source applies it layer-wise as a causal probe over chain-of-thought traces, restoring original activations at only 10-20% of token positions to recover near-full-trace accuracy for content-bearing tokens; it treats this explicitly as diagnostic only, since it requires a full-precision forward pass over the uncompressed trace and is therefore not itself a deployable compression method. The other source uses it, alongside attribution patching, for circuit-level analysis of how different post-training objectives (SFT, reasoning-augmented SFT, ORPO) implement refusal, selecting which layers and attention heads to steer by measuring normalized logit-difference recovery layer by layer.
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
 - **Sources**: 2
 
-**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [MMLU](../datasets/mmlu.md), [Qwen3-8B](../models/qwen3-8b.md), [StrongReject](../datasets/strongreject.md), [Token Entropy](../concepts/token-entropy.md), [WildJailbreak](../datasets/wildjailbreak.md), [XSTest](../datasets/xstest.md), [ZebraLogic](../datasets/zebralogic.md)
+**Related**: [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AIME 2026](../datasets/aime-2026.md), [Chain-of-Thought Compression](../concepts/chain-of-thought-compression.md), [difference-in-means direction extraction](difference-in-means-direction-extraction.md), [GPQA-Diamond](../datasets/gpqa-diamond.md), [Llama-3.1-8B](../models/llama-3-1-8b.md), [MMLU](../datasets/mmlu.md), [Qwen3-8B](../models/qwen3-8b.md), [StrongReject](../datasets/strongreject.md), [Token Entropy](../concepts/token-entropy.md), [WildJailbreak](../datasets/wildjailbreak.md), [XSTest](../datasets/xstest.md), [ZebraLogic](../datasets/zebralogic.md)
 
 ## Appears in
 

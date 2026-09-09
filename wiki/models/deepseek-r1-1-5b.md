@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepSeek-R1-1.5B is one of the reasoning-model checkpoints covered by two archived studies on overthinking and reasoning quality; neither source reports results broken out for this checkpoint specifically. It is among the models covered by a comparison of test-time-scaling methods (Outcome Reward Modeling, Process Reward Modeling, Budget Forcing) run under a FLOPs-matched budget on the 55-language MCLM competition-math benchmark. It is also among the models covered by a mechanistic study that computes a LogitLens-based Reasoning Score to distinguish deep reasoning from shallow pattern-matching, uses it to detect hallucination patterns -- including a perplexity-correlated 'spurious verification' overthinking pattern -- and shapes an RL training reward (GRPO-R) from the same score.
 
 - **Kind**: model
 - **Also called**: DeepSeek-R1-1.5B

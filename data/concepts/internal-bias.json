@@ -1,6 +1,6 @@
 {
   "aliases": [],
-  "definition": "",
+  "definition": "A reasoning model's implicit, pre-reasoning first guess at the answer, formed on reading the question before any deliberate chain-of-thought. The sources identify this guess as a causal driver of overthinking: when it conflicts with the answer the model later derives, it triggers excessive reflection, verified through counterfactual interventions and attention analysis. They report that existing overthinking-mitigation methods fail to remove its influence.",
   "evidence": [
     {
       "id": "local:f13a1da3e3ea0d42",
@@ -45,7 +45,10 @@
     "attention-to-the-input-question",
     "counterfactual-intervention"
   ],
-  "related_authored": [],
+  "related_authored": [
+    "first-impression-problem",
+    "overthinking"
+  ],
   "schema_version": 1,
   "slug": "internal-bias",
   "topics": [

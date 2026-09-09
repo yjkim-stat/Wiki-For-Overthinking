@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepSeek-R1-7B is one of the reasoning-model checkpoints covered by two archived training-free, inference-time efficiency methods. ThinkBrake evaluates it under a decoding rule that injects a stop token at sentence boundaries whenever the log-probability margin between the top continuation token and that stop token narrows below a threshold, recovering most of an oracle stopping point's headroom (an 8% accuracy gain with 72% token reduction reported for the method overall) and generating trajectories that can also train models via DPO. 'Less is More' evaluates it under a method that detects high-entropy (uncertain) tokens during decoding and applies classifier-free guidance, via a reused-KV-cache negative prompt, only at those tokens to correct reasoning errors with minimal overhead. Neither source reports checkpoint-specific numbers separate from these aggregate figures.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)

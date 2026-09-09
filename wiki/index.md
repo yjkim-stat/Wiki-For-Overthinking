@@ -471,7 +471,7 @@
 - [Llama-3.1-8B](models/llama-3-1-8b.md) — 10 source(s)
 - [LLaMA-3.1-8B-Instruct](models/llama-3-1-8b-instruct.md) — 18 source(s)
 - [Llama-3.2-1B](models/llama-3-2-1b.md) — 2 source(s)
-- [Llama-3.2-1B-Instruct](models/llama-3-2-1b-instruct.md) — 2 source(s)
+- [Llama-3.2-1B-Instruct](models/llama-3-2-1b-instruct.md) — 3 source(s)
 - [Llama-3.3-70B-Instruct](models/llama-3-3-70b-instruct.md) — 4 source(s)
 - [Llama-Guard-3 (ASR judge)](models/llama-guard-3-asr-judge.md) — 2 source(s)
 - [LLaVA-CoT](models/llava-cot.md) — 2 source(s)

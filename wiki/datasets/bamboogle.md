@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+Bamboogle is used in this archive as a multi-hop open-domain question-answering benchmark for evaluating retrieval- and reasoning-based methods at inference time. Verbal-R3 evaluates its verbal-annotation document reranking and relevance-guided test-time-scaling method against it, and it also appears among the benchmarks used to study reasoning hallucination and a LogitLens-based reasoning-score detector in large reasoning models. Neither source describes how the benchmark is constructed; both treat it only as one leg of a larger multi-hop or QA evaluation suite.
 
 - **Kind**: dataset
 - **Topics**: [overthinking](../topics/overthinking.md)

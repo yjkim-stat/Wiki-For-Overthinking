@@ -2,7 +2,7 @@
 
 <!-- auto:begin -->
 
-_No definition yet — a task is queued to write one._
+DeepSeek-R1-Qwen-7B is one of the reasoning-model checkpoints covered by two archived evaluation and efficiency studies. ReEfBench parses its chain-of-thought responses on first-order-logic problems of controllable, verifiable logical depth into logical nodes to compute six behavioral metrics (logical depth, cost, exploration, efficiency, coherence, redundancy) and assigns it to one of four behavioral prototypes (Effective Solver, Deep Wanderer, Hollow Mimic, Lazy Guesser), part of a broader finding that token count and genuine logical depth are dissociable. DiffAdapt evaluates it with a lightweight probe trained on its frozen hidden states that classifies each question as Easy/Normal/Hard and selects a matching fixed prompt/temperature/max-token strategy before generation starts, cutting token usage by up to 22.4% without retraining the model.
 
 - **Kind**: model
 - **Topics**: [overthinking](../topics/overthinking.md)
