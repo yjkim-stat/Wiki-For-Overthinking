@@ -1,0 +1,29 @@
+{
+  "concepts": [
+    "overthinking",
+    "process-reward-model",
+    "cognitive-hierarchy-trace-cht"
+  ],
+  "established_against": 88,
+  "established_at": "2026-09-09T08:01:20Z",
+  "id": "finding:6bd0d580fce042c7",
+  "kind": "fact",
+  "papers": [
+    "doi:10.18653/v1/2026.acl-long.1798",
+    "doi:10.18653/v1/2026.acl-long.536",
+    "doi:10.18653/v1/2026.findings-acl.1336",
+    "doi:10.18653/v1/2026.findings-acl.1262",
+    "doi:10.18653/v1/2026.findings-acl.2077",
+    "arxiv:2608.13760",
+    "doi:10.18653/v1/2026.findings-acl.94"
+  ],
+  "rationale": "ReTraceQA (doi:10.18653/v1/2026.acl-long.1798) and BloomEval (doi:10.18653/v1/2026.findings-acl.1262) are the only two with a genuine human-annotated component, but in both cases the humans annotated a set the authors built and control (ReTraceQA's 2,421 PhD-annotated commonsense traces; BloomEval's 1,000-sample gold set used to validate its own LLM annotation pipeline, kappa 0.81-0.87) -- they use that set to score external tools (LLM-judges, PRMs) or their own annotators, never to check their labels against an outside human set. ReProbe (doi:10.18653/v1/2026.acl-long.536) and STEP (doi:10.18653/v1/2026.findings-acl.1336) evaluate step-level correctness probes via PR-AUC/RankAcc against silver labels the same pipeline produced (external-LLM-verified or self-annotated for ReProbe; trace-level-correctness pseudo-labels propagated to steps for STEP) -- this is self-consistency, not cross-validation against an independent scheme. CoTJudger (doi:10.18653/v1/2026.findings-acl.2077) checks its node classifications and path derivability with GPT-5 as judge but against no external label set. The behavior-taxonomy study (arxiv:2608.13760) checks its GPT-4o judge against only a 120-trace internal manual-agreement sample. Step Pruner (doi:10.18653/v1/2026.findings-acl.94) derives its optimal-step-count target from its own sampled correct responses and uses an LLM judge (Gemini 2.5) for a semantic ablation, again with no outside label set. No pair among these seven shares both a benchmark and a model with a compatible label granularity: the closest matches -- STEP and Step Pruner share GPQA-Diamond but no overlapping model (STEP's DeepSeek-R1-0528-Qwen3-8B/Qwen3-4B-Thinking-2507/Phi-4-reasoning-plus-14B vs Step Pruner's DeepSeek-R1-Distill-Qwen-2.5-7B/1.5B and Llama-3.1-8B); STEP and CoTJudger share the exact model DeepSeek-R1-0528-Qwen3-8B but no shared benchmark (STEP's AIME-25/HMMT/GPQA-Diamond/EquiBench/DivLogicEval vs CoTJudger's own 896-query Math/General-Reasoning/PCB/Programming set), and their labels are different in kind besides (a scalar per-step correctness score vs a categorical per-node functional role plus a whole-trace graph metric). ReProbe and STEP are the closest in method -- both train a lightweight probe on hidden states to score step correctness -- but the record does not establish that they share a specific benchmark, and ReProbe's 'Phi-4' is not confirmed to be the same checkpoint as STEP's 'Phi-4-reasoning-plus-14B'.",
+  "references": [],
+  "schema_version": 1,
+  "statement": "None of the seven archived works that label reasoning steps or traces (ReTraceQA, ReProbe, STEP, BloomEval, CoTJudger, the nine-behavior taxonomy study, and Step Pruner) has scored its own labels against another paper's label scheme or against a human-annotated set it did not itself produce; each validates its labels only against a gold set, silver label, or judge it built for itself.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "overthinking"
+  ]
+}

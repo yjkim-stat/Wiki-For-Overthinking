@@ -13,6 +13,10 @@ A large reasoning model spending more reasoning tokens or steps on a problem tha
 
 ## What we have settled
 
+- **Established** — None of the seven archived works that label reasoning steps or traces (ReTraceQA, ReProbe, STEP, BloomEval, CoTJudger, the nine-behavior taxonomy study, and Step Pruner) has scored its own labels against another paper's label scheme or against a human-annotated set it did not itself produce; each validates its labels only against a gold set, silver label, or judge it built for itself.
+  - ReTraceQA (doi:10.18653/v1/2026.acl-long.1798) and BloomEval (doi:10.18653/v1/2026.findings-acl.1262) are the only two with a genuine human-annotated component, but in both cases the humans annotated a set the authors built and control (ReTraceQA's 2,421 PhD-annotated commonsense traces; BloomEval's 1,000-sample gold set used to validate its own LLM annotation pipeline, kappa 0.81-0.87) -- they use that set to score external tools (LLM-judges, PRMs) or their own annotators, never to check their labels against an outside human set. ReProbe (doi:10.18653/v1/2026.acl-long.536) and STEP (doi:10.18653/v1/2026.findings-acl.1336) evaluate step-level correctness probes via PR-AUC/RankAcc against silver labels the same pipeline produced (external-LLM-verified or self-annotated for ReProbe; trace-level-correctness pseudo-labels propagated to steps for STEP) -- this is self-consistency, not cross-validation against an independent scheme. CoTJudger (doi:10.18653/v1/2026.findings-acl.2077) checks its node classifications and path derivability with GPT-5 as judge but against no external label set. The behavior-taxonomy study (arxiv:2608.13760) checks its GPT-4o judge against only a 120-trace internal manual-agreement sample. Step Pruner (doi:10.18653/v1/2026.findings-acl.94) derives its optimal-step-count target from its own sampled correct responses and uses an LLM judge (Gemini 2.5) for a semantic ablation, again with no outside label set. No pair among these seven shares both a benchmark and a model with a compatible label granularity: the closest matches -- STEP and Step Pruner share GPQA-Diamond but no overlapping model (STEP's DeepSeek-R1-0528-Qwen3-8B/Qwen3-4B-Thinking-2507/Phi-4-reasoning-plus-14B vs Step Pruner's DeepSeek-R1-Distill-Qwen-2.5-7B/1.5B and Llama-3.1-8B); STEP and CoTJudger share the exact model DeepSeek-R1-0528-Qwen3-8B but no shared benchmark (STEP's AIME-25/HMMT/GPQA-Diamond/EquiBench/DivLogicEval vs CoTJudger's own 896-query Math/General-Reasoning/PCB/Programming set), and their labels are different in kind besides (a scalar per-step correctness score vs a categorical per-node functional role plus a whole-trace graph metric). ReProbe and STEP are the closest in method -- both train a lightweight probe on hidden states to score step correctness -- but the record does not establish that they share a specific benchmark, and ReProbe's 'Phi-4' is not confirmed to be the same checkpoint as STEP's 'Phi-4-reasoning-plus-14B'.
+- **Established** — None of BloomEval, TRACE, CoTJudger, ReTraceQA and ReProbe apply a second labelling scheme to the same traces or check their labels against another paper's or a shared expert-annotated set, so whether a Bloom-level anomaly, a thought-progression pattern, a shortest-effective-path exclusion, an expert correctness label and a probe's predicted correctness would mark the same steps wasteful in one trace remains untested by this literature.
+  - Each paper builds and evaluates its own scheme on its own benchmark and models with no cross-comparison: BloomEval's Cognitive Hierarchy Trace runs on K-12/higher-ed math problems (Omni-MATH, GSM8K, MATH, Orca-math, Mooc_Radar) with anomaly rates (e.g. Grok-3's 0.185 hierarchy-jump rate on correct answers) that are per-trace binary flags against a required Bloom level; TRACE's sub-thought progression graphs run on six domains of simple queries (SQuAD 2.0, NIAH, SimpleQA, ASDiv, date arithmetic, Zebra Logic) and report a 5-20x compute-waste ratio, a magnitude over inference cost rather than a fraction of steps; CoTJudger's Shortest Effective Path and Redundancy Ratio run on a purpose-built 896-query Math/General-Reasoning/Programming/PCB set and report R as (|V|-L_eff)/|V|, a continuous fraction of graph nodes; ReTraceQA's expert step-correctness labels run on commonsense QA (CommonsenseQA, OpenBookQA, QASC, StrategyQA) with small (<=10B) non-reasoning-focused models and report 14-24% of traces reaching a correct answer via a flawed step, a per-trace binary over a completely different task family; ReProbe's predicted step correctness is trained and evaluated on PRM800K-derived math, planning and QA trajectories against its own step-correctness detection, not against any of the other four schemes' labels. No shared benchmark, no shared model set, and no released cross-annotation exists across these five papers, so the three cited rates (BloomEval's 0.185 hierarchy-jump rate, ReTraceQA's 14-24%, CoTJudger's Redundancy Ratio) have three different denominators -- a binary per-trace level-skip flag, a binary per-trace any-error flag, and a continuous per-trace fraction of graph nodes -- and cannot be read as measuring the same excess.
 - **Established** — No inference-time steering method for shortening reasoning has been checked for off-target damage: none applies its vector unconditionally to a task family it was not designed to touch and verifies that family's native accuracy survives.
   - The audit exists and is cheap. 'Evaluating the Semantic Specificity of Representation Steering' applies a steering vector unconditionally to rule families the model already handles above 95% and finds that a vector reported as a complete repair collapses Llama-3.2-1B's native entailment accuracy from 99.6% to 40.4%, with no steering strength recovering both; ablation shows the vector acts only on the final output-token commitment and has zero effect when injected during reasoning tokens, so it was a label bias rather than a change of reasoning. Applied to reasoning length, the same shape would be a stop-token bias that shortens traces on the target distribution while degrading unrelated competence, and it would be invisible to the accuracy-and-token-count reporting every method in this archive uses. Checked against all nine steering-for-length readings the archive holds; three come close and none qualifies. ASC transfers between MATH500 and GSM8K, but those are adjacent variants of the task the vector targets. Reflection Steering shows accuracy statistically equivalent to the raw model on MATH-500 and GPQA-Diamond, which are the benchmarks it calibrates its layers and coefficient on, and it is gated per model rather than applied unconditionally. ERRV generalises to LiveCodeBench and MMLU, which measures the intended effect reaching new domains rather than an unintended one being absent, and it runs no gated-versus-ungated comparison. Two results already in the archive have the same shape and reinforce the concern: suppressing a dominant thinking feature produced 454% longer output rather than shorter, and an unpurified difference-in-means direction plateaus and then backfires as strength rises.
 - **Established** — Proposition 1(b) cannot be applied to autoregressive chain-of-thought stopping rules as a theorem, because none of its three quantities is defined there -- consecutive states do not inhabit a common metric space, so delta_t, the decision margin mu and the remaining path length R_t have no referents and R_t's finiteness cannot be estimated even in principle -- yet the failure it formalises is separately observed on token recurrence, so a fixed-window answer-invariance rule is exposed to the phenomenon while nothing in this framework can certify or refute it.
@@ -521,3 +525,41 @@ final layer's own top-1 confidence; DTS branches into up to three
 continuations at entropy-flagged decision tokens and takes the shortest
 completed one. SAE-Steering is the third paper in the set to report inference
 cost honestly (+8.5% latency).
+
+## Addendum — the step-labelling literature has the same disease one level down
+
+Two synthesis questions were answered on 2026-09-09 and settled as findings.
+Both are about the works that cut a trace into labelled units — BloomEval,
+TRACE, CoTJudger, ReTraceQA, ReProbe, STEP, Step Pruner — and both come out
+negative in a way that is more useful than a positive would have been.
+
+**The rates are not the same quantity.** Three figures get cited as evidence
+that overthinking is common, and they have three different denominators:
+BloomEval's 0.185 hierarchy-jump rate is a binary per-trace flag for skipping
+a required cognitive level; ReTraceQA's 14–24% is a binary per-trace flag for
+any flawed step anywhere; CoTJudger's Redundancy Ratio is a continuous
+fraction of graph nodes outside the shortest effective path. TRACE's 5–20×
+is not a rate at all but a compute-cost multiplier. These cannot be summed,
+averaged or compared, and they routinely appear side by side.
+
+**Nothing has been scored against anything it did not itself produce.** Each
+work validates against a gold set, silver label or judge it built and controls:
+ReTraceQA and BloomEval against their own human annotation, ReProbe and STEP
+against silver labels their own pipelines generated, CoTJudger against
+GPT-5-as-judge, Step Pruner against its own sampled-correct threshold. Probing
+a readout against its own labels is self-consistency, not cross-validation,
+and should not be counted as the latter.
+
+**Two pairs are one experiment away from being comparable**, which is the part
+worth acting on. STEP and Step Pruner share GPQA-Diamond but no model. STEP and
+CoTJudger share the exact model DeepSeek-R1-0528-Qwen3-8B but no benchmark —
+and differ in label type besides, scalar per-step correctness against
+categorical per-node role. No pair in the archive shares benchmark *and* model
+*and* compatible label granularity. Closing either gap is a small run, not a
+research programme, and it would produce the first evidence that any two of
+these schemes mark the same steps.
+
+This is the measurement problem recorded at the top of this note, reappearing
+one level down. There it was six families counting overthinking without a
+common unit; here it is five labelling schemes doing the same to the steps
+inside a single trace.

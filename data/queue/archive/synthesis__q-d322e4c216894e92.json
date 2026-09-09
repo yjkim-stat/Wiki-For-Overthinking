@@ -1,0 +1,59 @@
+{
+  "attachments": {
+    "evidence": [
+      {
+        "id": "cognitive-hierarchy-trace-cht",
+        "kind": "concept",
+        "note": "",
+        "sources": 1,
+        "title": "Cognitive Hierarchy Trace (CHT)"
+      }
+    ]
+  },
+  "completed_at": "2026-09-09T07:57:58Z",
+  "created_at": "2026-09-09T07:57:05Z",
+  "instructions": "This is a probe question long enough to pass the length check, asking whether the concept reference form is accepted by the validator or not. x\n\nThe evidence below is every archived record this question was filed against — readings, entity definitions and settled findings. Answer from those, and from the archive around them if you need to look.\n\n**If they settle it**, write one sentence somebody could disagree with, and say in `rationale` what settled it. Name the papers it rests on in `papers`; they are checked against the archive, so cite what is there rather than what you remember.\n\n**If they do not**, leave `statement` empty and say in `unresolved` what is missing and what would settle it. That is a real answer and it is recorded as one. A statement hedged until it cannot be argued with is worse than an honest open question, because nothing later can tell the two apart.\n\nWrite in en. Return one JSON object matching the schema exactly, with no prose around it.",
+  "item_id": "q:d322e4c216894e92",
+  "kind": "synthesis",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - entity names this bears on"
+    ],
+    "kind": "string - one of: decision (the group chose) | fact (it established)",
+    "papers": [
+      "string - canonical ids of archived papers it rests on"
+    ],
+    "rationale": "string - what settled it, and against which evidence",
+    "references": [
+      "string - ids of recorded external references, if any"
+    ],
+    "statement": "string - one sentence somebody could disagree with, settling the question. Leave empty if the evidence does not settle it",
+    "supersedes": "string - id of a finding this replaces, if any",
+    "topics": [
+      "string - tracked topic slugs"
+    ],
+    "unresolved": "string - required *instead of* `statement` when the evidence does not settle the question: what is missing, and what would settle it"
+  },
+  "payload": {
+    "evidence_count": 1,
+    "question": "This is a probe question long enough to pass the length check, asking whether the concept reference form is accepted by the validator or not. x"
+  },
+  "result": {
+    "concepts": [],
+    "kind": "fact",
+    "papers": [],
+    "rationale": "Recorded so the next session does not try to answer it.",
+    "references": [],
+    "statement": "",
+    "topics": [
+      "overthinking"
+    ],
+    "unresolved": "This is not a real question. It was filed by accident while probing which identifier form the synthesis CLI accepts for --concept: display names are rejected and slugs are accepted, and the length check fires before the entity check, so a throwaway question long enough to pass validation had to be submitted to learn that. Nothing is missing and nothing would settle it; it is closed here rather than left in the queue, because the CLI offers no way to withdraw a filed question and answering is the only route that archives one. The two real questions filed at the same time are synthesis__q-5507ff042b79ed12 and synthesis__q-7319a05ef8496eea."
+  },
+  "task_id": "synthesis__q-d322e4c216894e92",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

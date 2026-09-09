@@ -1,0 +1,151 @@
+{
+  "attachments": {
+    "evidence": [
+      {
+        "id": "overthinking",
+        "kind": "concept",
+        "note": "A large reasoning model spending more reasoning tokens or steps on a problem than the problem needs, in a way that wastes compute for no accuracy gain, actively lowers accuracy, or degrades safety- or fairness-relevant behavior (e.g. more stereotype-aligned answers under sustained self-doubt, worse AI-risk judgments) as reasoning length grows. It is measured and explained several ways across the …",
+        "sources": 80,
+        "title": "Overthinking"
+      },
+      {
+        "id": "cognitive-hierarchy-trace-cht",
+        "kind": "concept",
+        "note": "",
+        "sources": 1,
+        "title": "Cognitive Hierarchy Trace (CHT)"
+      },
+      {
+        "id": "reasoning-graph",
+        "kind": "concept",
+        "note": "The two archived sources give the phrase two different referents. In Topology of Reasoning it is built out of the model: hidden states at each step of a chain of thought are clustered into nodes and joined in generation order, then measured by cyclicity, diameter and small-world index -- distilled models show about 5 recurrent cycles per sample and roughly 6x higher small-world index than base mo…",
+        "sources": 2,
+        "title": "reasoning graph"
+      },
+      {
+        "id": "process-reward-model",
+        "kind": "concept",
+        "note": "A model that scores the intermediate steps of a reasoning trace rather than only its final answer, used in this archive to guide search and to decide where compute should go. Its recurring problem here is cost on two axes: training one normally needs step-level annotations, and running it consumes part of the very budget the search is trying to spend well -- sources are explicit that a search's q…",
+        "sources": 8,
+        "title": "process reward model"
+      },
+      {
+        "id": "doi:10.18653/v1/2026.findings-acl.1262",
+        "kind": "paper",
+        "note": "BloomEval maps each step of an LRM's reasoning trace onto Bloom's six-level cognitive taxonomy (Remember through Create) via a Cognitive Hierarchy Trace (CHT), defining structural anomalies -- hierarchy break (reasoning never reaches the required cognitive level), hierarchy jump (skipping intermediate levels), and overthinking (invoking cognitive operations exceeding what the task needs) -- and f…",
+        "read": true,
+        "title": "BloomEval: A Bloom’s Cognitive Taxonomy-Based Benchmark for Evaluating LRMs via Cognitive Hierarchy Trace"
+      },
+      {
+        "id": "doi:10.18653/v1/2026.acl-long.773",
+        "kind": "paper",
+        "note": "TRACE decomposes reasoning traces into sub-thoughts and labeled progression graphs across 14 thinking models and 6 domains, finding thinking helps only within a narrow middle ground (5-20x more compute wasted on simple tasks with no gain, and no benefit at all once model scale exceeds ~4-8B or task difficulty exceeds representational capacity), identifies two overthinking-driving thought-progress…",
+        "read": true,
+        "title": "Do LLMs Really Need 10+ Thoughts for “Find the Time 1000 Days Later”? Towards Structural Understanding of LLM Overthinking"
+      },
+      {
+        "id": "doi:10.18653/v1/2026.findings-acl.2077",
+        "kind": "paper",
+        "note": "CoTJudger converts free-form CoTs into directed dependency graphs (capturing backtracking, repetition, and self-correction via classified node/edge types) and extracts the Shortest Effective Path (SEP) -- the minimal, verified-sufficient reasoning skeleton -- to compute a scale-invariant Redundancy Ratio; across 21 LRMs it finds redundancy pervasive but structurally distinct by model family (Deep…",
+        "read": true,
+        "title": "CoTJudger: A Graph-Driven Framework for Automatic Evaluation of Chain-of-Thought Efficiency and Redundancy in LRMs"
+      },
+      {
+        "id": "doi:10.18653/v1/2026.acl-long.1798",
+        "kind": "paper",
+        "note": "ReTraceQA is a 2,421-instance expert-annotated benchmark showing that small language models (SLMs) reach the correct final answer via a flawed reasoning trace 14-24% of the time on commonsense QA, and that LLM-as-judge and PRM evaluators reliably detect overall trace correctness but struggle to localize the specific erroneous step, inflating answer-only accuracy scores by up to 25%.",
+        "read": true,
+        "title": "ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering"
+      },
+      {
+        "id": "doi:10.18653/v1/2026.acl-long.536",
+        "kind": "paper",
+        "note": "ReProbe is a lightweight (<10M-parameter) transformer probe trained on a frozen LLM's internal states (hidden states, attention, logits) to predict step-level reasoning correctness, matching or exceeding Process Reward Models up to 810x larger for test-time-scaling verification, at 2.6-25x faster inference, and can be trained fully self-supervised (the model annotating its own reasoning) with no …",
+        "read": true,
+        "title": "ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models"
+      },
+      {
+        "id": "doi:10.18653/v1/2026.acl-long.1212",
+        "kind": "paper",
+        "note": "Step-Saliency pools token-level attention-gradient saliency into step-to-step maps across a reasoning trace's question/thinking/summary structure, revealing two depth-wise information-flow failures in incorrect outputs -- Shallow Lock-in (shallow layers over-focus on the current step, ignoring earlier context) and Deep Decay (deep layers lose connection to the thinking segment, with the summary a…",
+        "read": true,
+        "title": "Reasoning Fails Where Step Flow Breaks"
+      },
+      {
+        "id": "title:7651639ee2f29946",
+        "kind": "paper",
+        "note": "Models a large reasoning model's chain-of-thought as transitions among six latent cognitive states and uses that abstraction to steer generation toward better reasoning policies at inference time, without training.",
+        "read": true,
+        "title": "Modeling Hierarchical Thinking in Large Reasoning Models"
+      },
+      {
+        "id": "title:11c5eb0da4499b68",
+        "kind": "paper",
+        "note": "Analyzes large reasoning models by clustering their hidden states into a 'reasoning graph' and studying how its cyclicity, diameter and small-world structure relate to task difficulty, model scale and accuracy.",
+        "read": true,
+        "title": "Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties"
+      }
+    ]
+  },
+  "completed_at": "2026-09-09T07:59:17Z",
+  "created_at": "2026-09-09T07:57:36Z",
+  "instructions": "These works each cut a reasoning trace into labelled units — Bloom's cognitive levels, sub-thoughts on a progression graph, dependency-graph nodes with a shortest effective path, expert-annotated step correctness, and probe-predicted step correctness. Do their label sets pick out the same phenomenon under different names, or are they naming different things and all calling the excess overthinking? Specifically: if two of these schemes were applied to one trace, would they mark the same steps as wasteful, and does any paper give evidence either way?\n\nThe evidence below is every archived record this question was filed against — readings, entity definitions and settled findings. Answer from those, and from the archive around them if you need to look.\n\n**If they settle it**, write one sentence somebody could disagree with, and say in `rationale` what settled it. Name the papers it rests on in `papers`; they are checked against the archive, so cite what is there rather than what you remember.\n\n**If they do not**, leave `statement` empty and say in `unresolved` what is missing and what would settle it. That is a real answer and it is recorded as one. A statement hedged until it cannot be argued with is worse than an honest open question, because nothing later can tell the two apart.\n\nWrite in en. Return one JSON object matching the schema exactly, with no prose around it.",
+  "item_id": "q:5507ff042b79ed12",
+  "kind": "synthesis",
+  "language": "en",
+  "output_schema": {
+    "concepts": [
+      "string - entity names this bears on"
+    ],
+    "kind": "string - one of: decision (the group chose) | fact (it established)",
+    "papers": [
+      "string - canonical ids of archived papers it rests on"
+    ],
+    "rationale": "string - what settled it, and against which evidence",
+    "references": [
+      "string - ids of recorded external references, if any"
+    ],
+    "statement": "string - one sentence somebody could disagree with, settling the question. Leave empty if the evidence does not settle it",
+    "supersedes": "string - id of a finding this replaces, if any",
+    "topics": [
+      "string - tracked topic slugs"
+    ],
+    "unresolved": "string - required *instead of* `statement` when the evidence does not settle the question: what is missing, and what would settle it"
+  },
+  "payload": {
+    "evidence_count": 12,
+    "question": "These works each cut a reasoning trace into labelled units — Bloom's cognitive levels, sub-thoughts on a progression graph, dependency-graph nodes with a shortest effective path, expert-annotated step correctness, and probe-predicted step correctness. Do their label sets pick out the same phenomenon under different names, or are they naming different things and all calling the excess overthinking? Specifically: if two of these schemes were applied to one trace, would they mark the same steps as wasteful, and does any paper give evidence either way?"
+  },
+  "result": {
+    "concepts": [
+      "overthinking",
+      "cognitive-hierarchy-trace-cht",
+      "thought-progression-graph",
+      "cot-dependency-graph",
+      "shortest-effective-path-sep",
+      "redundancy-ratio",
+      "reprobe-internal-state-step-level-probe"
+    ],
+    "kind": "fact",
+    "papers": [
+      "doi:10.18653/v1/2026.findings-acl.1262",
+      "doi:10.18653/v1/2026.acl-long.773",
+      "doi:10.18653/v1/2026.findings-acl.2077",
+      "doi:10.18653/v1/2026.acl-long.1798",
+      "doi:10.18653/v1/2026.acl-long.536"
+    ],
+    "rationale": "Each paper builds and evaluates its own scheme on its own benchmark and models with no cross-comparison: BloomEval's Cognitive Hierarchy Trace runs on K-12/higher-ed math problems (Omni-MATH, GSM8K, MATH, Orca-math, Mooc_Radar) with anomaly rates (e.g. Grok-3's 0.185 hierarchy-jump rate on correct answers) that are per-trace binary flags against a required Bloom level; TRACE's sub-thought progression graphs run on six domains of simple queries (SQuAD 2.0, NIAH, SimpleQA, ASDiv, date arithmetic, Zebra Logic) and report a 5-20x compute-waste ratio, a magnitude over inference cost rather than a fraction of steps; CoTJudger's Shortest Effective Path and Redundancy Ratio run on a purpose-built 896-query Math/General-Reasoning/Programming/PCB set and report R as (|V|-L_eff)/|V|, a continuous fraction of graph nodes; ReTraceQA's expert step-correctness labels run on commonsense QA (CommonsenseQA, OpenBookQA, QASC, StrategyQA) with small (<=10B) non-reasoning-focused models and report 14-24% of traces reaching a correct answer via a flawed step, a per-trace binary over a completely different task family; ReProbe's predicted step correctness is trained and evaluated on PRM800K-derived math, planning and QA trajectories against its own step-correctness detection, not against any of the other four schemes' labels. No shared benchmark, no shared model set, and no released cross-annotation exists across these five papers, so the three cited rates (BloomEval's 0.185 hierarchy-jump rate, ReTraceQA's 14-24%, CoTJudger's Redundancy Ratio) have three different denominators -- a binary per-trace level-skip flag, a binary per-trace any-error flag, and a continuous per-trace fraction of graph nodes -- and cannot be read as measuring the same excess.",
+    "references": [],
+    "statement": "None of BloomEval, TRACE, CoTJudger, ReTraceQA and ReProbe apply a second labelling scheme to the same traces or check their labels against another paper's or a shared expert-annotated set, so whether a Bloom-level anomaly, a thought-progression pattern, a shortest-effective-path exclusion, an expert correctness label and a probe's predicted correctness would mark the same steps wasteful in one trace remains untested by this literature.",
+    "supersedes": "",
+    "topics": [
+      "overthinking"
+    ],
+    "unresolved": ""
+  },
+  "task_id": "synthesis__q-5507ff042b79ed12",
+  "task_version": 1,
+  "topics": [
+    "overthinking"
+  ]
+}

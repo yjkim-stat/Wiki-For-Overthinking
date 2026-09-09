@@ -1,0 +1,31 @@
+{
+  "concepts": [
+    "overthinking",
+    "cognitive-hierarchy-trace-cht",
+    "thought-progression-graph",
+    "cot-dependency-graph",
+    "shortest-effective-path-sep",
+    "redundancy-ratio",
+    "reprobe-internal-state-step-level-probe"
+  ],
+  "established_against": 82,
+  "established_at": "2026-09-09T08:01:20Z",
+  "id": "finding:f56161c82e2a0eb1",
+  "kind": "fact",
+  "papers": [
+    "doi:10.18653/v1/2026.findings-acl.1262",
+    "doi:10.18653/v1/2026.acl-long.773",
+    "doi:10.18653/v1/2026.findings-acl.2077",
+    "doi:10.18653/v1/2026.acl-long.1798",
+    "doi:10.18653/v1/2026.acl-long.536"
+  ],
+  "rationale": "Each paper builds and evaluates its own scheme on its own benchmark and models with no cross-comparison: BloomEval's Cognitive Hierarchy Trace runs on K-12/higher-ed math problems (Omni-MATH, GSM8K, MATH, Orca-math, Mooc_Radar) with anomaly rates (e.g. Grok-3's 0.185 hierarchy-jump rate on correct answers) that are per-trace binary flags against a required Bloom level; TRACE's sub-thought progression graphs run on six domains of simple queries (SQuAD 2.0, NIAH, SimpleQA, ASDiv, date arithmetic, Zebra Logic) and report a 5-20x compute-waste ratio, a magnitude over inference cost rather than a fraction of steps; CoTJudger's Shortest Effective Path and Redundancy Ratio run on a purpose-built 896-query Math/General-Reasoning/Programming/PCB set and report R as (|V|-L_eff)/|V|, a continuous fraction of graph nodes; ReTraceQA's expert step-correctness labels run on commonsense QA (CommonsenseQA, OpenBookQA, QASC, StrategyQA) with small (<=10B) non-reasoning-focused models and report 14-24% of traces reaching a correct answer via a flawed step, a per-trace binary over a completely different task family; ReProbe's predicted step correctness is trained and evaluated on PRM800K-derived math, planning and QA trajectories against its own step-correctness detection, not against any of the other four schemes' labels. No shared benchmark, no shared model set, and no released cross-annotation exists across these five papers, so the three cited rates (BloomEval's 0.185 hierarchy-jump rate, ReTraceQA's 14-24%, CoTJudger's Redundancy Ratio) have three different denominators -- a binary per-trace level-skip flag, a binary per-trace any-error flag, and a continuous per-trace fraction of graph nodes -- and cannot be read as measuring the same excess.",
+  "references": [],
+  "schema_version": 1,
+  "statement": "None of BloomEval, TRACE, CoTJudger, ReTraceQA and ReProbe apply a second labelling scheme to the same traces or check their labels against another paper's or a shared expert-annotated set, so whether a Bloom-level anomaly, a thought-progression pattern, a shortest-effective-path exclusion, an expert correctness label and a probe's predicted correctness would mark the same steps wasteful in one trace remains untested by this literature.",
+  "superseded_by": "",
+  "supersedes": "",
+  "topics": [
+    "overthinking"
+  ]
+}
