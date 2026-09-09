@@ -6,14 +6,13 @@ The technique behind the Deadlock Attack: an adversarial token embedding is trai
 
 - **Kind**: method
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 1
 
 **Related**: [AIME 2024](../datasets/aime-2024.md), [backdoor implantation](backdoor-implantation.md), [CommonsenseQA](../datasets/commonsenseqa.md), [Deadlock Attack](deadlock-attack.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md)
 
 ## Appears in
 
 - [One Token Embedding Is Enough to Deadlock Your Large Reasoning Model](../../archive/papers/2025/local-398417af52a576de/summary.md) — Trains a single adversarial token embedding, implanted into an open-weight large reasoning model via a backdoor trigger, that hijacks the model's chain-of-thought into a perpetual reasoning loop, achieving a 100% attack success rate (forcing generation to the token limit) across four models and three benchmarks while leaving benign-input accuracy essentially unchanged.
-- [One Token Embedding Is Enough to Deadlock Your Large Reasoning Model](../../archive/papers/2025/title-b387fdc1ef3231d0/summary.md) — The Deadlock Attack trains a backdoored adversarial token embedding that forces large reasoning models into perpetual chain-of-thought loops, achieving a 100% attack success rate across four LRMs and three math benchmarks.
 
 <!-- auto:end -->
 

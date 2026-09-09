@@ -3,10 +3,12 @@
 # DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching
 
 - **Authors**: Zicheng Xu, Xiuyi Lou, Guanchu Wang, Yu-Neng Chuang, Feng Luo, Alexander S. Szalay, Zirui Liu, Vladimir Braverman
-- **Venue**: preprint
+- **Venue**: ICML 2026
 - **Published**: 2026-01-01
-- **Source**: local
+- **Source**: local+virtualsite
+- **Link**: <https://icml.cc/virtual/2026/poster/61328>
 - **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
 
 ## In one line
 

@@ -7,17 +7,11 @@
       "kind": "paper",
       "note": "A training-free decoding framework that selectively branches a reasoning model's generation into a small tree only at high-uncertainty 'decision tokens', then exploits an observed length-accuracy anti-correlation by terminating on and returning the shortest completed trajectory instead of sampling many full independent trajectories.",
       "title": "DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching"
-    },
-    {
-      "id": "title:c614f5d4c1a5c21d",
-      "kind": "paper",
-      "note": "A decoding-time framework that sketches a reasoning tree via selective branching and terminates long, low-accuracy reasoning trajectories early, using an observed length-accuracy anti-correlation.",
-      "title": "DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching"
     }
   ],
   "first_seen": "2026-08-20T12:24:12Z",
   "kind": "method",
-  "last_seen": "2026-09-06T09:08:57Z",
+  "last_seen": "2026-09-09T02:50:57Z",
   "name": "Decoding Tree Sketching (DTS)",
   "related": [
     "length-accuracy-anti-correlation",
@@ -44,9 +38,7 @@
     "qwen3-0-6b",
     "phi4-mini-reasoning-4b",
     "deepseek-r1-distill-llama-70b-comparison-only",
-    "qwq-32b-preview-comparison-only",
-    "overthinking",
-    "tree-structured-decoding"
+    "qwq-32b-preview-comparison-only"
   ],
   "related_authored": [
     "decision-token-detection-via-entropy-and-varentropy",

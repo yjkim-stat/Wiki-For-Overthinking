@@ -70,5 +70,5 @@ The practical consequence is narrower than the question supposed: the exposure o
 - **Established** — Manifold Steering's repository (github.com/Aries-iai/Manifold_Steering) exists and names the paper as its official implementation, but as of 2026-08-21 the repo itself notes the code was not yet uploaded ("available next month") -- so the paper's headline 71% token-reduction result cannot yet be independently verified by running the code.
   - _Checked the repository directly rather than trusting the paper's own 'code is available at' claim; the repo's current state (README present, implementation pending) is worth recording so a later reader does not assume it is runnable today._
   - Bears on: [Manifold Steering](methods/manifold-steering.md)
-  - From: title:b4ba27743c499d8d
+  - From: local:1da36a797481ea8a
   - Checked against: [https://github.com/Aries-iai/Manifold_Steering](https://github.com/Aries-iai/Manifold_Steering), retrieved 2026-08-21

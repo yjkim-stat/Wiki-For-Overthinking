@@ -2,7 +2,7 @@
 
 # Archive
 
-- Papers: 466 (466 summarized)
+- Papers: 459 (459 summarized)
 - Seminars: 0
 
 ## Recent digests
@@ -24,4 +24,4 @@
 
 ## Topics
 
-- **Overthinking** (`overthinking`) — 465 paper(s)
+- **Overthinking** (`overthinking`) — 458 paper(s)

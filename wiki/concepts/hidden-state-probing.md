@@ -7,14 +7,13 @@ In these sources, hidden-state probing means training a small classifier on the 
 - **Kind**: concept
 - **Also called**: Hidden-state probing, hidden-state probe
 - **Topics**: [overthinking](../topics/overthinking.md)
-- **Sources**: 2
+- **Sources**: 1
 
-**Related**: [Accuracy-Efficiency Score (AES)](accuracy-efficiency-score-aes.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [DEER](../methods/deer.md), [difficulty estimation](difficulty-estimation.md), [Dynamic Early Exit](../methods/dynamic-early-exit.md), [GPQA](../datasets/gpqa.md), [GSM8K](../datasets/gsm8k.md), [MATH500](../datasets/math500.md), [Minerva](../datasets/minerva.md), [MMLU-Pro](../datasets/mmlu-pro.md), [OlympiadBench](../datasets/olympiadbench.md), [Overthinking](overthinking.md), [ThinkPrune](../methods/thinkprune.md), [vLLM](../methods/vllm.md)
+**Related**: [Accuracy-Efficiency Score (AES)](accuracy-efficiency-score-aes.md), [AIME 2024](../datasets/aime-2024.md), [AIME 2025](../datasets/aime-2025.md), [AMC23](../datasets/amc23.md), [difficulty estimation](difficulty-estimation.md), [Dynamic Early Exit](../methods/dynamic-early-exit.md), [MATH500](../datasets/math500.md), [Overthinking](overthinking.md)
 
 ## Appears in
 
 - [BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning](../../archive/papers/2026/arxiv-2607-28966/summary.md) — BLADE trains a lightweight hidden-state probe to decide, at sentence and self-doubt boundaries, whether a reasoning prefix already supports the correct answer, and stops generation when it does.
-- [DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference](../../archive/papers/2026/title-18b94d8204ec3367/summary.md) — DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.
 
 <!-- auto:end -->
 

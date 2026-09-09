@@ -125,12 +125,6 @@
       "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL"
     },
     {
-      "id": "title:18b94d8204ec3367",
-      "kind": "paper",
-      "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
-      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
-    },
-    {
       "id": "title:21d562149c3adad6",
       "kind": "paper",
       "note": "ARM trains a model to pick among four reasoning formats (Direct Answer, Short CoT, Code, Long CoT) per task using Ada-GRPO, cutting average tokens by about 30% at roughly unchanged accuracy.",
@@ -193,7 +187,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-09-06T09:08:57Z",
+  "last_seen": "2026-09-09T02:50:57Z",
   "name": "GPQA",
   "related": [
     "length-explosion",
@@ -545,19 +539,6 @@
     "batch-level-reward-balancing",
     "length-aware-reward-modulation",
     "ellipsis-prompt-think-n-n",
-    "overthinking-on-easy-instances",
-    "difficulty-adaptive-test-time-compute",
-    "token-probability-entropy-as-a-difficulty-signal",
-    "u-shaped-entropy-over-difficulty",
-    "hidden-state-probing",
-    "inference-strategy-selection",
-    "oracle-upper-bound-on-adaptive-routing",
-    "diffadapt",
-    "hidden-state-difficulty-probe",
-    "easy-normal-hard-inference-strategies",
-    "token-entropy-analysis",
-    "deer",
-    "vllm",
     "adaptive-reasoning-format-selection",
     "format-collapse",
     "token-budget",

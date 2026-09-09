@@ -7,17 +7,11 @@
       "kind": "paper",
       "note": "Restores lost pass@n exploration in RL-post-trained reasoning models by aggregating hidden-state posteriors from multiple depths and sampling from whichever depth's aggregated posterior has maximal entropy, with no extra training or parameters.",
       "title": "Restoring Exploration after Post-Training: Latent Exploration Decoding for Large Reasoning Models"
-    },
-    {
-      "id": "title:6dbcef192c93a1b8",
-      "kind": "paper",
-      "note": "Identifies 'exploration collapse' after RL post-training of large reasoning models -- temperature-based sampling no longer increases pass@n accuracy because final-layer output entropy diminishes even though intermediate-layer entropy stays high -- and proposes Latent Exploration Decoding (LED), a training-free depth-conditioned decoding strategy that aggregates intermediate-layer posteriors to restore exploration, improving pass@1 by 0.61 and pass@16 by 1.03 points on average across benchmarks and models.",
-      "title": "Restoring Exploration after Post-Training: Latent Exploration Decoding for Large Reasoning Models"
     }
   ],
   "first_seen": "2026-09-01T10:33:28Z",
   "kind": "method",
-  "last_seen": "2026-09-06T09:08:57Z",
+  "last_seen": "2026-09-09T02:50:57Z",
   "name": "Latent Exploration Decoding (LED)",
   "related": [
     "exploration-collapse",
@@ -45,11 +39,7 @@
     "qwen3-4b-instruct-2507",
     "mimo-7b-rl",
     "qwen3-30b-a3b-thinking",
-    "qwen3-4b-thinking",
-    "exploration-collapse-post-rl",
-    "final-layer-vs-intermediate-layer-entropy-disparity",
-    "latent-exploration-decoding-depth-conditioned-decoding",
-    "temperature-based-sampling-baseline"
+    "qwen3-4b-thinking"
   ],
   "related_authored": [
     "exploration-collapse"

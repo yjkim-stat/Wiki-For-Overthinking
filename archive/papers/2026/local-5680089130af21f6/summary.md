@@ -5,8 +5,10 @@
 - **Authors**: Wenhui Tan, Fiorenzo Parascandolo, Enver Sanginetto, Jianzhong Ju, Zhenbo Luo, Qian Cao, Rita Cucchiara, Ruihua Song, Jian Luan
 - **Venue**: Proceedings of the 43rd International Conference on Machine Learning (ICML), PMLR 306
 - **Published**: 2026-01-01
-- **Source**: local
+- **Source**: local+virtualsite
+- **Link**: <https://icml.cc/virtual/2026/poster/66546>
 - **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
 
 ## In one line
 

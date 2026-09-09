@@ -13,17 +13,11 @@
       "kind": "paper",
       "note": "QLPO is a GRPO variant that leaves the reward, advantage estimator and update untouched and instead over-generates K=16 rollouts per prompt and resamples the M=8 training group to favour short-correct and long-incorrect trajectories, which shortens outputs by 30-70% relative to GRPO at roughly unchanged accuracy.",
       "title": "QLPO: Quadrant-weighted Sampling for Length-aware Policy Optimization"
-    },
-    {
-      "id": "title:18b94d8204ec3367",
-      "kind": "paper",
-      "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
-      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
     }
   ],
   "first_seen": "2026-08-21T00:41:33Z",
   "kind": "method",
-  "last_seen": "2026-08-21T03:00:11Z",
+  "last_seen": "2026-09-09T02:50:57Z",
   "name": "ThinkPrune",
   "related": [
     "overthinking",
@@ -75,22 +69,7 @@
     "olympiadbench",
     "gpqa",
     "geo3k-multimodal-preliminary",
-    "eurus-2-rl-data-code-preliminary",
-    "overthinking-on-easy-instances",
-    "difficulty-adaptive-test-time-compute",
-    "token-probability-entropy-as-a-difficulty-signal",
-    "u-shaped-entropy-over-difficulty",
-    "hidden-state-probing",
-    "inference-strategy-selection",
-    "oracle-upper-bound-on-adaptive-routing",
-    "diffadapt",
-    "hidden-state-difficulty-probe",
-    "easy-normal-hard-inference-strategies",
-    "token-entropy-analysis",
-    "deer",
-    "vllm",
-    "minerva",
-    "mmlu-pro"
+    "eurus-2-rl-data-code-preliminary"
   ],
   "related_authored": [],
   "schema_version": 1,

@@ -102,12 +102,6 @@
       "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
     },
     {
-      "id": "title:18b94d8204ec3367",
-      "kind": "paper",
-      "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
-      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
-    },
-    {
       "id": "title:544eea46a2eb68c1",
       "kind": "paper",
       "note": "ARES trains multimodal reasoning models to spend exploration effort in proportion to problem difficulty, using sliding-window token entropy as the signal for when and how much to explore.",
@@ -128,7 +122,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-09-06T09:08:57Z",
+  "last_seen": "2026-09-09T02:50:57Z",
   "name": "MMLU-Pro",
   "related": [
     "test-time-scaling",
@@ -436,20 +430,6 @@
     "deepseek-r1-llama-8b",
     "nemotron-1-5b-nemotron-research-reasoning-qwen-1-5b",
     "thinkprune-7b",
-    "overthinking-on-easy-instances",
-    "difficulty-adaptive-test-time-compute",
-    "token-probability-entropy-as-a-difficulty-signal",
-    "u-shaped-entropy-over-difficulty",
-    "hidden-state-probing",
-    "inference-strategy-selection",
-    "oracle-upper-bound-on-adaptive-routing",
-    "diffadapt",
-    "hidden-state-difficulty-probe",
-    "easy-normal-hard-inference-strategies",
-    "token-entropy-analysis",
-    "deer",
-    "thinkprune",
-    "vllm",
     "adaptive-reasoning",
     "difficulty-aware-compute-allocation",
     "token-level-entropy",

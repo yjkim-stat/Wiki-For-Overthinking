@@ -5,8 +5,10 @@
 - **Authors**: Xiang Liu, Xuming Hu, Xiaowen Chu, Eunsol Choi
 - **Venue**: ICLR 2026
 - **Published**: 2026-01-01
-- **Source**: local
+- **Source**: local+virtualsite
+- **Link**: <https://iclr.cc/virtual/2026/poster/10011403>
 - **Topics**: overthinking
+- **Relevance score**: overthinking 0.50
 
 ## In one line
 

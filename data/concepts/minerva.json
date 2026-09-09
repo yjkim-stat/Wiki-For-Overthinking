@@ -72,12 +72,6 @@
       "title": "Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL"
     },
     {
-      "id": "title:18b94d8204ec3367",
-      "kind": "paper",
-      "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
-      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
-    },
-    {
       "id": "title:279ee92c27a8bb8d",
       "kind": "paper",
       "note": "Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.",
@@ -110,7 +104,7 @@
   ],
   "first_seen": "2026-08-21T00:49:09Z",
   "kind": "dataset",
-  "last_seen": "2026-09-06T09:08:57Z",
+  "last_seen": "2026-09-09T02:50:57Z",
   "name": "Minerva",
   "related": [
     "segment-level-attribution",
@@ -315,20 +309,6 @@
     "length-aware-reward-modulation",
     "ellipsis-prompt-think-n-n",
     "mmlu",
-    "overthinking-on-easy-instances",
-    "difficulty-adaptive-test-time-compute",
-    "token-probability-entropy-as-a-difficulty-signal",
-    "u-shaped-entropy-over-difficulty",
-    "hidden-state-probing",
-    "inference-strategy-selection",
-    "oracle-upper-bound-on-adaptive-routing",
-    "diffadapt",
-    "hidden-state-difficulty-probe",
-    "easy-normal-hard-inference-strategies",
-    "token-entropy-analysis",
-    "deer",
-    "thinkprune",
-    "vllm",
     "reasoning-efficiency-frontier",
     "reasoning-efficiency-gap",
     "token-budget",

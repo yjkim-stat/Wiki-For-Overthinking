@@ -186,12 +186,6 @@
       "title": "ConPress: Learning Efficient Reasoning from Multi-Question Contextual Pressure"
     },
     {
-      "id": "title:18b94d8204ec3367",
-      "kind": "paper",
-      "note": "DiffAdapt trains a small probe on a reasoning model's hidden state to classify each question as Easy/Normal/Hard and picks a matching prompt, temperature and token limit, cutting token use without retraining the model.",
-      "title": "DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference"
-    },
-    {
       "id": "title:503ded235751878b",
       "kind": "paper",
       "note": "vStream trains a lightweight linear estimator to predict counterfactual ablation effects of image regions from cached attention features, so a multimodal reasoning model's visual grounding can be displayed while it reasons rather than recomputed afterwards, at 0.024 s per 10 tokens against 1.9-2.8 s for causal baselines.",
@@ -236,7 +230,7 @@
   ],
   "first_seen": "2026-08-20T12:10:00Z",
   "kind": "dataset",
-  "last_seen": "2026-09-06T09:12:32Z",
+  "last_seen": "2026-09-09T02:50:57Z",
   "name": "OlympiadBench",
   "related": [
     "segment-level-attribution",
@@ -719,18 +713,6 @@
     "self-supervised-supervised-fine-tuning",
     "self-compression-multi-question-prompting",
     "rejection-style-trace-filtering",
-    "overthinking-on-easy-instances",
-    "difficulty-adaptive-test-time-compute",
-    "token-probability-entropy-as-a-difficulty-signal",
-    "u-shaped-entropy-over-difficulty",
-    "hidden-state-probing",
-    "inference-strategy-selection",
-    "oracle-upper-bound-on-adaptive-routing",
-    "diffadapt",
-    "hidden-state-difficulty-probe",
-    "easy-normal-hard-inference-strategies",
-    "token-entropy-analysis",
-    "vllm",
     "visual-attribution",
     "amortized-explanation",
     "faithfulness",
