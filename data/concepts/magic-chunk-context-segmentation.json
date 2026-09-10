@@ -1,0 +1,43 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:3e017f43dbbd5883",
+      "kind": "paper",
+      "note": "Zero-shot prompting protocol that has a language model tag its own chain-of-thought with <global>/<focus>/<local> spans, which an inference engine parses like tool calls to skip most of the long-context KV-cache read during decoding.",
+      "title": "Language Models Can Control Their Own Attention"
+    }
+  ],
+  "first_seen": "2026-09-10T14:02:20Z",
+  "kind": "method",
+  "last_seen": "2026-09-10T14:02:21Z",
+  "name": "magic-chunk context segmentation",
+  "related": [
+    "intrinsic-self-declared-vs-extrinsic-externally-scored-sparse-attention",
+    "system-2-sparse-attention",
+    "kv-cache-block-table-masking",
+    "roofline-wall-time-cost-model",
+    "declarative-attention-da",
+    "da-no-mask-ablation-da-nm",
+    "block-aligned-kv-cache-block-table-masking-in-vllm",
+    "ruler-niah-single-multikey",
+    "longbench-v1-qmsum",
+    "longbench-v2-multidoc-qa-code-repo-singledoc-qa-dialogue-history",
+    "loogle-summarization-longdep-qa-shortdep-cloze",
+    "zeroscrolls-quality-space-digest",
+    "gemma-4-31b",
+    "gemma-4-12b",
+    "gemma-4-e4b",
+    "qwen-3-6-27b",
+    "qwen-3-5-9b",
+    "qwen-3-5-4b",
+    "gemini-3-flash-synthetic-qa-judge",
+    "qwen-3-5-4b-thinking-enabled-judge",
+    "gemini-3-1-pro-judge-validation"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "magic-chunk-context-segmentation",
+  "topics": []
+}

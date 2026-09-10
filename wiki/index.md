@@ -444,10 +444,10 @@
 - [Gemini-2.5-Flash-Thinking](models/gemini-2-5-flash-thinking.md) — 2 source(s)
 - [Gemini-2.5-Pro](models/gemini-2-5-pro.md) — 11 source(s)
 - [Gemini-3-Pro](models/gemini-3-pro.md) — 4 source(s)
-- [Gemma-4-E4B](models/gemma-4-e4b.md) — 2 source(s)
+- [Gemma-4-E4B](models/gemma-4-e4b.md) — 3 source(s)
 - [GLM-4.5-Air](models/glm-4-5-air.md) — 3 source(s)
 - [GLM-4.6](models/glm-4-6.md) — 3 source(s)
-- [GLM-5.2](models/glm-5-2.md) — 2 source(s)
+- [GLM-5.2](models/glm-5-2.md) — 3 source(s)
 - [GPT-4.1](models/gpt-4-1.md) — 3 source(s)
 - [GPT-4.1-mini](models/gpt-4-1-mini.md) — 2 source(s)
 - [GPT-4o](models/gpt-4o.md) — 13 source(s)
@@ -537,6 +537,7 @@ _Seen once so far. They get their own note once a second independent source ment
 - 1,100-question balanced BBQ subsample for the mitigation experiment (35,200 sampled chains) (dataset)
 - 16-node reachability / BFS-depth ladder (synthetic) (dataset)
 - 1dCA-Reasoning (new, cellular-automata orbits, disjoint train/test rules) (dataset)
+- 1M-Novel Understanding Bench (NUB-1M), season 2 (dataset)
 - 20K multi-domain parallel RL set (dataset)
 - 2x32-bit interleaved addition carry-length ladder (synthetic) (dataset)
 - 30x30 and 20x20 maze navigation tasks (dataset)
@@ -571,7 +572,6 @@ _Seen once so far. They get their own note once a second independent source ment
 - accuracy-temperature slope (concept)
 - accuracy-verbosity tradeoff (concept)
 - AceMath-7B (reward model, ablation) (model)
-- ACM23 (dataset)
 
 <!-- auto:end -->
 

@@ -16,11 +16,17 @@
       "kind": "paper",
       "note": "A security study showing that the hidden chain-of-thought of a black-box reasoning model can be recovered near-verbatim through ordinary API tool-calling, because reasoning state must be retained across tool calls within a turn.",
       "title": "EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models"
+    },
+    {
+      "id": "local:711bf56969ef6ee0",
+      "kind": "paper",
+      "note": "Reruns a long-context reasoning model to collect its own reasoning traces, then feeds them back before the original context on a second causal pass so the model can reread the context in light of task state it discovered on the first pass.",
+      "title": "Trace as State: Reasoning Traces as Conditional States for Long-Context Transformers"
     }
   ],
   "first_seen": "2026-08-21T03:41:11Z",
   "kind": "model",
-  "last_seen": "2026-08-21T03:41:11Z",
+  "last_seen": "2026-09-10T14:02:20Z",
   "name": "GLM-5.2",
   "related": [
     "resource-rational-reasoning",
@@ -93,7 +99,21 @@
     "sonnet-4-6",
     "opus-4-6",
     "o4-mini",
-    "gpt-5-nano"
+    "gpt-5-nano",
+    "conditional-state-update-task",
+    "condition-first-vs-condition-last-ordering",
+    "reasoning-trace-as-textual-state-proxy",
+    "causal-state-update-processor",
+    "trace-as-state",
+    "trace-append-control",
+    "conditional-state-update-task-formalism",
+    "re2-rereading-baseline",
+    "random-trace-trace-only-answer-feedback-ablations",
+    "graphwalks-256k-bfs-and-parents-subtasks",
+    "mrcrv2-8-needle-256k-512k",
+    "1m-novel-understanding-bench-nub-1m-season-2",
+    "deepseek-v4-pro-preview",
+    "qwen-3-7-max"
   ],
   "related_authored": [
     "deepseek-v4-pro",

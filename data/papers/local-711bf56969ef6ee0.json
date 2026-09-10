@@ -1,0 +1,27 @@
+{
+  "abstract": "Transformers process information causally, but long-context reasoning may depend on task state discovered only later. We formalize this mismatch through conditional state update tasks. For causal state update processors, providing the condition first can require exponentially less memory in the worst case than providing it last. Motivated by this principle, we introduce TRACE AS STATE. We use collected reasoning traces as a textual proxy for task state and place it before the long-context block on a fresh pass, allowing information derived previously to guide rereading. We conduct extensive experiments on TRACE AS STATE and TRACE APPEND, a matched control that uses the same task state proxy but put it after the context. Across three models and three long-context datasets, TRACE AS STATE outperforms TRACE APPEND in 26 of 27 reported combinations of model, task, and metric. On GraphWalks Parents, exact match lifts DeepSeek V4 Pro(Preview) from 29.2% on the initial pass and 43.0% with TRACE APPEND to 81.8% with TRACE AS STATE, and from 66.4% and 83.2% to 100.0% for GLM-5.2. These results show that placing traces before the context can improve long-context reasoning while retaining the causal transformer structure.",
+  "arxiv_id": "2609.02702",
+  "authors": [
+    "Xu Zou",
+    "Jie Tang"
+  ],
+  "categories": [],
+  "doi": "",
+  "first_seen": "2026-09-10T13:58:43Z",
+  "id": "local:711bf56969ef6ee0",
+  "last_seen": "2026-09-10T13:58:43Z",
+  "local_path": "data/pdfs/read/local-711bf56969ef6ee0.pdf",
+  "matched_keywords": [],
+  "pdf_url": "",
+  "published": "2026-01-01",
+  "schema_version": 1,
+  "scores": {},
+  "source": "local",
+  "source_id": "trace-as-state-conditional-states.pdf",
+  "title": "Trace as State: Reasoning Traces as Conditional States for Long-Context Transformers",
+  "topics": [],
+  "updated": "",
+  "url": "",
+  "venue": "preprint",
+  "year": 2026
+}

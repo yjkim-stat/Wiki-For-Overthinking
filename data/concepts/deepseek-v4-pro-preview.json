@@ -1,0 +1,36 @@
+{
+  "aliases": [],
+  "definition": "",
+  "evidence": [
+    {
+      "id": "local:711bf56969ef6ee0",
+      "kind": "paper",
+      "note": "Reruns a long-context reasoning model to collect its own reasoning traces, then feeds them back before the original context on a second causal pass so the model can reread the context in light of task state it discovered on the first pass.",
+      "title": "Trace as State: Reasoning Traces as Conditional States for Long-Context Transformers"
+    }
+  ],
+  "first_seen": "2026-09-10T14:02:20Z",
+  "kind": "model",
+  "last_seen": "2026-09-10T14:02:21Z",
+  "name": "DeepSeek V4 Pro Preview",
+  "related": [
+    "conditional-state-update-task",
+    "condition-first-vs-condition-last-ordering",
+    "reasoning-trace-as-textual-state-proxy",
+    "causal-state-update-processor",
+    "trace-as-state",
+    "trace-append-control",
+    "conditional-state-update-task-formalism",
+    "re2-rereading-baseline",
+    "random-trace-trace-only-answer-feedback-ablations",
+    "graphwalks-256k-bfs-and-parents-subtasks",
+    "mrcrv2-8-needle-256k-512k",
+    "1m-novel-understanding-bench-nub-1m-season-2",
+    "qwen-3-7-max",
+    "glm-5-2"
+  ],
+  "related_authored": [],
+  "schema_version": 1,
+  "slug": "deepseek-v4-pro-preview",
+  "topics": []
+}
