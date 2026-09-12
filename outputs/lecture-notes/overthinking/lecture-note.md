@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-09-12 from 458 archived source(s).
+> Generated on 2026-09-13 from 459 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 458 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-09-01. 458 of the papers have been read in full.
+Built from 459 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-09-09. 458 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`.
 
@@ -21,6 +21,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 
 ### 2026
 
+- **Disentangling Steering Vectors** _(not yet summarized)_
 - **Thinking effort aligns between humans and reasoning models in abductive reasoning** — Measures whether reasoning models spend tokens on the same items humans spend time on, using a forced-choice abductive task where item difficulty cannot be read off formal structure, and finds a significant per-item correlation in all eight models tested.
 - **Evaluating the Semantic Specificity of Representation Steering in Language Models** — Applying a late-layer steering vector to model families where a language model is already competent (Cross-Rule Transfer) reveals that a steering intervention which appears to perfectly fix contradiction blindness is functionally equivalent to a constant logit bias toward the target label, collapsing entailment accuracy from 99.6% to 40.4% rather than repairing a reasoning circuit.
 - **SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing** — SABER is a training-free early-exit method that, at each "Wait" token, branches the reasoning prefix into a neutral and an adversarial probe, and stops when the two branches agree in answer and in confidence.
@@ -32,8 +33,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 - **$R^3$: Training Robots to Reason in Natural Language via Reinforcement Learning** — R3 is a two-stage post-training recipe (SFT mid-training on expert reasoning traces, then rubric-based single-step RL on offline instruction-only data) that trains a vision-language model to produce free-form natural-language reasoning steering a frozen low-level robot policy, and shows this test-time reasoning causally improves generalization beyond what training-time reasoning supervision alone provides.
 - **TRACE: An Evidence-Grounded Benchmark for Safety Evaluation of Large Reasoning Models** — TRACE is a benchmark that extends LLM-safety evaluation from prompts and final responses to the reasoning traces of large reasoning models, with evidence-grounded annotations for each safety label.
 - **Recursive Agentic Reasoning** — Recasts iterative refinement, decomposition and repeated sampling as three recursion operators (GROW, PRUNE, BRANCH) over a shared reasoning-trace primitive, compares them under a paired protocol across 3 frontier models and 5 benchmarks, and finds BRANCH wins mainly because it recovers answers a single pass never emitted at all.
-- **Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding** — Identifies copy-inflation -- retrieved documents in a search agent's context systematically inflate the token log-probabilities of copied tokens -- as the reason logprob-based confidence voting (DeepConf) fails on multi-turn search agents, and fixes it with Retrieval-Grounded Voting (RGV), which weights each rollout by lexical overlap between its answer and the documents it retrieved instead of by internal confidence.
-- _...and 340 more._
+- _...and 341 more._
 
 ### 2025
 
@@ -695,3 +695,4 @@ Drawn from the limitations each paper states about itself, so this is what the f
 456. Wanli Cheng, Haiya Xiang, Juntao Li et al.. *SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing*. cs.AI. 2026 <https://arxiv.org/abs/2608.27963>
 457. Zhangdie Yuan, Andreas Vlachos. *Evaluating the Semantic Specificity of Representation Steering in Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.29431>
 458. Henry Arthur. *Thinking effort aligns between humans and reasoning models in abductive reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.01867>
+459. Takeru Hiramatsu, Kyohei Atarashi, Koh Takeuchi et al.. *Disentangling Steering Vectors*. cs.LG. 2026 <https://arxiv.org/abs/2609.07037>
