@@ -1,0 +1,48 @@
+{
+  "abstract": "Best-of-$N$ is a widely used inference strategy for complex reasoning, whose effectiveness depends on whether sampled candidates can cover diverse and high-quality reasoning paths. However, post-trained reasoning models often suffer from \\emph{exploration collapse}, where independent rollouts repeatedly follow similar reasoning paths and limit the gains from increasing the rollout budget. Existing methods alleviate this issue by promoting broader exploration, but do not explicitly guide exploration toward continuations that make meaningful progress, resulting in limited exploration efficiency. To address this, we propose \\emph{\\underline{S}tate-conditioned \\underline{P}rogress-guided \\underline{S}teering} (SPS), a training-free latent steering framework. Specifically, SPS constructs a state-conditioned Direction Bank containing multiple progress-guided steering vectors for different prefix-state regions. During online inference, SPS retrieves a suitable steering vector based on the current prefix state and applies it at high-uncertainty transitions to guide the next reasoning step toward meaningful progress. Extensive experiments across multiple model scales and benchmarks demonstrate that SPS consistently outperforms strong baselines. Further analyses validate the effectiveness of its key designs and offer valuable insights for future research. The code is available at https://github.com/rattlesnakey/SPS.",
+  "arxiv_id": "2609.24066",
+  "authors": [
+    "Hengyuan Zhang",
+    "Chenming Shang",
+    "Zunhai Su",
+    "Xiao Liang",
+    "Hui Shen",
+    "Jing Xiong",
+    "Dawei Li",
+    "Shiping Yang",
+    "Kailai Yang",
+    "Wei Zhang",
+    "Ruobing Xie",
+    "Hayden Kwok-Hay So",
+    "Ngai Wong"
+  ],
+  "categories": [
+    "cs.CL"
+  ],
+  "doi": "",
+  "first_seen": "2026-09-22T22:00:13Z",
+  "id": "arxiv:2609.24066",
+  "last_seen": "2026-09-22T22:00:13Z",
+  "local_path": "data/pdfs/arxiv-2609-24066.pdf",
+  "matched_keywords": [
+    "efficient reasoning",
+    "steering vector",
+    "latent steering"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2609.24066v1",
+  "published": "2026-09-21",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.7
+  },
+  "source": "arxiv",
+  "source_id": "2609.24066v1",
+  "title": "Efficient Reasoning Exploration via State-Conditioned Latent Steering with Progress Guidance",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-09-21",
+  "url": "https://arxiv.org/abs/2609.24066",
+  "venue": "",
+  "year": 2026
+}
