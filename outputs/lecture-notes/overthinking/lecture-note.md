@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-09-26 from 463 archived source(s).
+> Generated on 2026-09-27 from 464 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 463 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-09-21. 458 of the papers have been read in full.
+Built from 464 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-09-24. 458 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`.
 
@@ -21,6 +21,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 
 ### 2026
 
+- **Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning** _(not yet summarized)_
 - **Efficient Reasoning Exploration via State-Conditioned Latent Steering with Progress Guidance** _(not yet summarized)_
 - **Rewarding Efficient Reasoning Improves Abstention on Underspecified Tasks in Reasoning Models** _(not yet summarized)_
 - **When Does Reasoning Help in Machine Translation? A Hierarchical Analysis of LRM Reasoning Traces** _(not yet summarized)_
@@ -32,8 +33,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 - **Prefix Sliding for efficient test-time scaling** — Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.
 - **Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees** — Proposes NESR-KRR-RF, a neighboring early-stopping rule that adaptively selects the regularization parameter for kernel ridge regression with random features by comparing only adjacent estimators on a uniform grid, proving it attains the oracle polynomial learning rate up to log factors at lower computational cost than classical Lepskii-type all-pairs comparison.
 - **Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference** — Reflection Steering is a training-free activation-space intervention that isolates reflection-associated computation from general reasoning via PCA-purified, orthogonalized steering directions calibrated per layer, cutting thinking tokens by 16.9% on average across six model-benchmark settings with accuracy statistically equivalent to the raw model.
-- **GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning** — GRIP fuses a reasoning model and an instruction (non-thinking) model of identical architecture by learning a separate sigmoid-controlled interpolation ratio per module (attention, FFN, embedding/LM-head), trained with an RL reward that favors correct and concise responses while keeping both source models frozen, cutting Qwen3-4B-Thinking's average generation length 27.0% while slightly improving average accuracy.
-- _...and 345 more._
+- _...and 346 more._
 
 ### 2025
 
@@ -700,3 +700,4 @@ Drawn from the limitations each paper states about itself, so this is what the f
 461. Hengyuan Zhang, Chenming Shang, Zunhai Su et al.. *Efficient Reasoning Exploration via State-Conditioned Latent Steering with Progress Guidance*. cs.CL. 2026 <https://arxiv.org/abs/2609.24066>
 462. Polina Tsvilodub, Max Höth, Michael Franke et al.. *Rewarding Efficient Reasoning Improves Abstention on Underspecified Tasks in Reasoning Models*. cs.CL. 2026 <https://arxiv.org/abs/2609.20846>
 463. Yuxiang Liu, Jiaming Luo, Eleftheria Briakou et al.. *When Does Reasoning Help in Machine Translation? A Hierarchical Analysis of LRM Reasoning Traces*. cs.CL. 2026 <https://arxiv.org/abs/2609.21247>
+464. Yuqing Zhou, Hong Wang, Manqing Mao et al.. *Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.27156>
