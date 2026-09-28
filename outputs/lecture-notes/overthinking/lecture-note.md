@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-09-28 from 464 archived source(s).
+> Generated on 2026-09-29 from 465 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 464 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-09-24. 458 of the papers have been read in full.
+Built from 465 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-09-28. 458 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`.
 
@@ -21,6 +21,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 
 ### 2026
 
+- **Learning to Stop without Learning to Stop: Self-Supervised Confidence Training Improves Reasoning Efficiency** _(not yet summarized)_
 - **Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning** _(not yet summarized)_
 - **Efficient Reasoning Exploration via State-Conditioned Latent Steering with Progress Guidance** _(not yet summarized)_
 - **Rewarding Efficient Reasoning Improves Abstention on Underspecified Tasks in Reasoning Models** _(not yet summarized)_
@@ -32,8 +33,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 - **SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing** — SABER is a training-free early-exit method that, at each "Wait" token, branches the reasoning prefix into a neutral and an adversarial probe, and stops when the two branches agree in answer and in confidence.
 - **Prefix Sliding for efficient test-time scaling** — Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.
 - **Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees** — Proposes NESR-KRR-RF, a neighboring early-stopping rule that adaptively selects the regularization parameter for kernel ridge regression with random features by comparing only adjacent estimators on a uniform grid, proving it attains the oracle polynomial learning rate up to log factors at lower computational cost than classical Lepskii-type all-pairs comparison.
-- **Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference** — Reflection Steering is a training-free activation-space intervention that isolates reflection-associated computation from general reasoning via PCA-purified, orthogonalized steering directions calibrated per layer, cutting thinking tokens by 16.9% on average across six model-benchmark settings with accuracy statistically equivalent to the raw model.
-- _...and 346 more._
+- _...and 347 more._
 
 ### 2025
 
@@ -701,3 +701,4 @@ Drawn from the limitations each paper states about itself, so this is what the f
 462. Polina Tsvilodub, Max Höth, Michael Franke et al.. *Rewarding Efficient Reasoning Improves Abstention on Underspecified Tasks in Reasoning Models*. cs.CL. 2026 <https://arxiv.org/abs/2609.20846>
 463. Yuxiang Liu, Jiaming Luo, Eleftheria Briakou et al.. *When Does Reasoning Help in Machine Translation? A Hierarchical Analysis of LRM Reasoning Traces*. cs.CL. 2026 <https://arxiv.org/abs/2609.21247>
 464. Yuqing Zhou, Hong Wang, Manqing Mao et al.. *Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.27156>
+465. Parsa Hosseini, Akasha Tigalappanavara, Sumit Nawathe et al.. *Learning to Stop without Learning to Stop: Self-Supervised Confidence Training Improves Reasoning Efficiency*. cs.AI. 2026 <https://arxiv.org/abs/2609.31619>
