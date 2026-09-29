@@ -1,0 +1,24 @@
+<!-- Generated from data/. Do not edit by hand: edits are overwritten on the next render. Put hand-written notes in the wiki instead. -->
+
+# Efficient Reasoning via Constrained Optimization in Latent Space
+
+- **Authors**: Zhinan Hou, XingChen Li, Keyou You
+- **Venue**: cs.AI
+- **Published**: 2026-09-28
+- **Source**: arxiv
+- **Link**: <https://arxiv.org/abs/2609.34181>
+- **PDF**: <https://arxiv.org/pdf/2609.34181v1>
+- **Topics**: overthinking
+- **Relevance score**: overthinking 0.70
+
+## Summary
+
+_Not summarized yet. A task is queued under `data/queue/pending/`._
+
+## Abstract
+
+Large Reasoning Models (LRMs) have shown remarkable reasoning capabilities, yet they still suffer from overthinking, generating redundant reasoning steps which incur substantial token consumption. Existing methods, such as suppressing reflective keywords or forcing shorter reasoning lengths, attempt to mitigate this issue but inevitably truncate necessary steps and induce underthinking, thereby compromising performance. To address this dilemma, we investigate the latent representations and observe that efficient reasoning steps naturally cluster into a concentrated region in latent space, while those deviating from this region tend to produce verbose sequences. To leverage this, we keep reasoning focused within this region via a quadratic program which projects deviating hidden states back into the region. Then we propose a novel training-free framework to achieve efficient reasoning that reduces token generation costs without sacrificing performance. Extensive experiments conducted on four models ranging from 1.5B to 14B, and across six benchmarks in math reasoning, coding, and scientific QA, validate the effectiveness of our method, up to a 12.1\% improvement in accuracy while reducing generated tokens by 11.8\% to 52.8\%. Codes are available at \href{https://github.com/hzn18/Opt4Reasoning}{https://github.com/hzn18/Opt4Reasoning}.
+
+---
+
+Record id: `arxiv:2609.34181`

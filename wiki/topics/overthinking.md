@@ -5,13 +5,14 @@
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
 - **Slug**: `overthinking`
-- **Papers**: 465
+- **Papers**: 466
 - **Seminars**: 0
 - **Tracked keywords**: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`
 
 ## Most recent papers
 
 - [Learning to Stop without Learning to Stop: Self-Supervised Confidence Training Improves Reasoning Efficiency](../../archive/papers/2026/arxiv-2609-31619/summary.md) (2026-09-28)
+- [Efficient Reasoning via Constrained Optimization in Latent Space](../../archive/papers/2026/arxiv-2609-34181/summary.md) (2026-09-28)
 - [Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning](../../archive/papers/2026/arxiv-2609-27156/summary.md) (2026-09-24)
 - [Efficient Reasoning Exploration via State-Conditioned Latent Steering with Progress Guidance](../../archive/papers/2026/arxiv-2609-24066/summary.md) (2026-09-21)
 - [Rewarding Efficient Reasoning Improves Abstention on Underspecified Tasks in Reasoning Models](../../archive/papers/2026/arxiv-2609-20846/summary.md) (2026-09-21)
@@ -52,8 +53,6 @@ When and why large reasoning models think more than a problem needs (or less tha
   - The paper segments LRM reasoning traces into cognitive steps with Llama-3.3-70B-Instruct, labels each step with one of Bloom's six levels, and uses the resulting level proportions and 6x6 transition matrix to profile seven reasoning models and to predict solution correctness.
 - [ParallelWorld: Test-Time Scaling for Embodied Reasoning](../../archive/papers/2026/arxiv-2608-22971/summary.md) (2026-08-24)
   - ParallelWorld is a verifier-guided tree search over simulated future observations for embodied reasoning: from a restorable simulator state it expands several candidate camera and physical actions in parallel, prunes branches with a verifier agent under a branch-width schedule, and answers from the top-ranked root-to-leaf route.
-- [Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents](../../archive/papers/2026/arxiv-2608-22191/summary.md) (2026-08-23)
-  - Risa reads the MoE router's expert-selection trace as a behavioral fingerprint of what a software agent is doing, using it to push sibling actions away from recently repeated computation during exploration and toward peer agreement once a patch is being written, then to arbitrate among completed attempts without an external judge or test execution.
 
 <!-- auto:end -->
 
