@@ -2,7 +2,7 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-09-30 from 466 archived source(s).
+> Generated on 2026-10-01 from 466 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
