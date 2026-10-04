@@ -2,11 +2,12 @@
 
 # Archive
 
-- Papers: 469 (461 summarized)
+- Papers: 470 (461 summarized)
 - Seminars: 0
 
 ## Recent digests
 
+- [2026-10-05](daily/2026-10-05.md)
 - [2026-10-04](daily/2026-10-04.md)
 - [2026-10-03](daily/2026-10-03.md)
 - [2026-10-02](daily/2026-10-02.md)
@@ -36,8 +37,7 @@
 - [2026-09-08](daily/2026-09-08.md)
 - [2026-09-07](daily/2026-09-07.md)
 - [2026-09-06](daily/2026-09-06.md)
-- [2026-09-05](daily/2026-09-05.md)
 
 ## Topics
 
-- **Overthinking** (`overthinking`) — 466 paper(s)
+- **Overthinking** (`overthinking`) — 467 paper(s)
