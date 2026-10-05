@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-10-05 from 467 archived source(s).
+> Generated on 2026-10-06 from 468 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 467 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-10-01. 458 of the papers have been read in full.
+Built from 468 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-10-01. 458 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`.
 
@@ -22,6 +22,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 ### 2026
 
 - **Provable Test-Time Scaling for Beam Search in LLM Reasoning** _(not yet summarized)_
+- **On the Token Value Inequality in Efficient Reasoning** _(not yet summarized)_
 - **Learning to Stop without Learning to Stop: Self-Supervised Confidence Training Improves Reasoning Efficiency** _(not yet summarized)_
 - **Efficient Reasoning via Constrained Optimization in Latent Space** _(not yet summarized)_
 - **Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning** _(not yet summarized)_
@@ -32,8 +33,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 - **Disentangling Steering Vectors** _(not yet summarized)_
 - **Thinking effort aligns between humans and reasoning models in abductive reasoning** — Measures whether reasoning models spend tokens on the same items humans spend time on, using a forced-choice abductive task where item difficulty cannot be read off formal structure, and finds a significant per-item correlation in all eight models tested.
 - **Evaluating the Semantic Specificity of Representation Steering in Language Models** — Applying a late-layer steering vector to model families where a language model is already competent (Cross-Rule Transfer) reveals that a steering intervention which appears to perfectly fix contradiction blindness is functionally equivalent to a constant logit bias toward the target label, collapsing entailment accuracy from 99.6% to 40.4% rather than repairing a reasoning circuit.
-- **SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing** — SABER is a training-free early-exit method that, at each "Wait" token, branches the reasoning prefix into a neutral and an adversarial probe, and stops when the two branches agree in answer and in confidence.
-- _...and 349 more._
+- _...and 350 more._
 
 ### 2025
 
@@ -703,4 +703,5 @@ Drawn from the limitations each paper states about itself, so this is what the f
 464. Yuqing Zhou, Hong Wang, Manqing Mao et al.. *Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.27156>
 465. Zhinan Hou, XingChen Li, Keyou You. *Efficient Reasoning via Constrained Optimization in Latent Space*. cs.AI. 2026 <https://arxiv.org/abs/2609.34181>
 466. Parsa Hosseini, Akasha Tigalappanavara, Sumit Nawathe et al.. *Learning to Stop without Learning to Stop: Self-Supervised Confidence Training Improves Reasoning Efficiency*. cs.AI. 2026 <https://arxiv.org/abs/2609.31619>
-467. Qijia He, Yu Huang, Yuan Cheng et al.. *Provable Test-Time Scaling for Beam Search in LLM Reasoning*. cs.LG. 2026 <https://arxiv.org/abs/2609.38672>
+467. Runjia Zeng, Hang Hua, Yiyang Liu et al.. *On the Token Value Inequality in Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.33970>
+468. Qijia He, Yu Huang, Yuan Cheng et al.. *Provable Test-Time Scaling for Beam Search in LLM Reasoning*. cs.LG. 2026 <https://arxiv.org/abs/2609.38672>
