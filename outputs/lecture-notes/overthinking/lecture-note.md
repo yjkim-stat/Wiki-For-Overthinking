@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-10-12 from 469 archived source(s).
+> Generated on 2026-10-13 from 470 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 469 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-10-09. 458 of the papers have been read in full.
+Built from 470 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-10-12. 458 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`.
 
@@ -21,6 +21,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 
 ### 2026
 
+- **Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models** _(not yet summarized)_
 - **Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning** _(not yet summarized)_
 - **Provable Test-Time Scaling for Beam Search in LLM Reasoning** _(not yet summarized)_
 - **On the Token Value Inequality in Efficient Reasoning** _(not yet summarized)_
@@ -32,8 +33,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 - **When Does Reasoning Help in Machine Translation? A Hierarchical Analysis of LRM Reasoning Traces** _(not yet summarized)_
 - **OBC-Prune: Outcome-Based Calibration for Large Reasoning Model Pruning** _(not yet summarized)_
 - **Disentangling Steering Vectors** _(not yet summarized)_
-- **Thinking effort aligns between humans and reasoning models in abductive reasoning** — Measures whether reasoning models spend tokens on the same items humans spend time on, using a forced-choice abductive task where item difficulty cannot be read off formal structure, and finds a significant per-item correlation in all eight models tested.
-- _...and 351 more._
+- _...and 352 more._
 
 ### 2025
 
@@ -706,3 +706,4 @@ Drawn from the limitations each paper states about itself, so this is what the f
 467. Runjia Zeng, Hang Hua, Yiyang Liu et al.. *On the Token Value Inequality in Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.33970>
 468. Qijia He, Yu Huang, Yuan Cheng et al.. *Provable Test-Time Scaling for Beam Search in LLM Reasoning*. cs.LG. 2026 <https://arxiv.org/abs/2609.38672>
 469. Wei Zhai, Xiang Liu, Qiang Huang et al.. *Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning*. cs.LG. 2026 <https://arxiv.org/abs/2610.10655>
+470. Weixin Guan, Liang Li, Shiyu Xie et al.. *Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2610.13570>

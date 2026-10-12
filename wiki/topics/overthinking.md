@@ -5,12 +5,13 @@
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
 - **Slug**: `overthinking`
-- **Papers**: 469
+- **Papers**: 470
 - **Seminars**: 0
 - **Tracked keywords**: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`
 
 ## Most recent papers
 
+- [Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models](../../archive/papers/2026/arxiv-2610-13570/summary.md) (2026-10-12)
 - [Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning](../../archive/papers/2026/arxiv-2610-10655/summary.md) (2026-10-09)
 - [Provable Test-Time Scaling for Beam Search in LLM Reasoning](../../archive/papers/2026/arxiv-2609-38672/summary.md) (2026-10-01)
 - [On the Token Value Inequality in Efficient Reasoning](../../archive/papers/2026/arxiv-2609-33970/summary.md) (2026-09-29)
@@ -48,8 +49,6 @@ When and why large reasoning models think more than a problem needs (or less tha
   - Identifies copy-inflation -- retrieved documents in a search agent's context systematically inflate the token log-probabilities of copied tokens -- as the reason logprob-based confidence voting (DeepConf) fails on multi-turn search agents, and fixes it with Retrieval-Grounded Voting (RGV), which weights each rollout by lexical overlap between its answer and the documents it retrieved instead of by internal confidence.
 - [A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm](../../archive/papers/2026/arxiv-2608-24210/summary.md) (2026-08-25)
   - Derives an analytic, data-dependent estimate of the optimal early-stopping time for gradient-flow training of linear (and, via linear probing, underparameterized neural) models, using Rademacher complexity with the L1-norm instead of assumptions on the data distribution.
-- [Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning](../../archive/papers/2026/arxiv-2608-24658/summary.md) (2026-08-25)
-  - Parason distinguishes two forms of parallel reasoning -- AND-branch Subtask Parallelism and OR-branch Trial Parallelism -- shows Trial Parallelism dominates on hard reasoning traces, and trains models to convert sequential CoT into grammar-structured parallel trajectories that a real inference engine executes for ~1.7x wall-clock speedup with competitive accuracy.
 
 <!-- auto:end -->
 
