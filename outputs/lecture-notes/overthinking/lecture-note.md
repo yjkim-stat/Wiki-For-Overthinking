@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-10-14 from 470 archived source(s).
+> Generated on 2026-10-15 from 471 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 470 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-10-12. 458 of the papers have been read in full.
+Built from 471 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-10-13. 458 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`.
 
@@ -21,6 +21,8 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 
 ### 2026
 
+- **DoubtLess: Training-Free Contrastive Decoding for Efficient Reasoning** _(not yet summarized)_
+- **Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking** — Root-token Policy Optimization (RPO) reframes adaptive thinking/non-thinking gating as a branching decision at a single root token (the newline choice right after <think>) and trains only that one token's probability with group-relative RL, cutting GRPO training compute to ~2% of a comparable adaptive-reasoning method while improving the accuracy-vs-thinking-rate tradeoff across model families.
 - **Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models** _(not yet summarized)_
 - **Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning** _(not yet summarized)_
 - **Provable Test-Time Scaling for Beam Search in LLM Reasoning** _(not yet summarized)_
@@ -31,9 +33,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 - **Efficient Reasoning Exploration via State-Conditioned Latent Steering with Progress Guidance** _(not yet summarized)_
 - **Rewarding Efficient Reasoning Improves Abstention on Underspecified Tasks in Reasoning Models** _(not yet summarized)_
 - **When Does Reasoning Help in Machine Translation? A Hierarchical Analysis of LRM Reasoning Traces** _(not yet summarized)_
-- **OBC-Prune: Outcome-Based Calibration for Large Reasoning Model Pruning** _(not yet summarized)_
-- **Disentangling Steering Vectors** _(not yet summarized)_
-- _...and 352 more._
+- _...and 353 more._
 
 ### 2025
 
@@ -208,20 +208,21 @@ Seen in: A Data-dependent Early Stopping Rule using Rademacher Complexity with L
 7. **Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning**
    - Step-GRPO internalizes dynamic early-exit into a reasoning model's own weights via a Dynamic Truncated Rollout exposing the model to short-yet-correct trajectories during RL training and a Step-Aware Relative Reward that penalizes redundant semantic steps relative to the group's own correct-completion baseline, cutting Qwen3-8B token usage 32.0% with no accuracy loss and zero inference-time overhead.
    - <https://aclanthology.org/2026.acl-long.990/>
-8. **Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation** (2026)
+8. **Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking** (2026)
+   - Root-token Policy Optimization (RPO) reframes adaptive thinking/non-thinking gating as a branching decision at a single root token (the newline choice right after <think>) and trains only that one token's probability with group-relative RL, cutting GRPO training compute to ~2% of a comparable adaptive-reasoning method while improving the accuracy-vs-thinking-rate tradeoff across model families.
+   - <https://aclanthology.org/2026.acl-long.816/>
+9. **Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation** (2026)
    - TwT trains a translation model to spend reasoning tokens in proportion to input difficulty, by cold-starting on 7K difficulty-rewritten CoT traces and then running GRPO with a BLEU+COMET quality reward and an n-gram repetition penalty.
    - <https://aclanthology.org/2026.acl-long.1400/>
-9. **How Far Are We from Optimal Reasoning Efficiency?** (2025)
+10. **How Far Are We from Optimal Reasoning Efficiency?** (2025)
    - Defines an empirical accuracy-vs-token-budget frontier for a fixed base reasoning model, measures how far existing efficiency methods fall short of it with a single metric (REG), and proposes REO-RL, an RL objective that targets a handful of token budgets to close most of that gap.
    - <https://neurips.cc/virtual/2025/poster/118341>
-10. **LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model**
-   - LEASH formulates reasoning-length control as a constrained RL optimization (maximize task reward subject to an expected-length constraint) solved via a Lagrangian primal-dual method with a one-sided length penalty, letting the penalty coefficient lambda self-tighten or self-relax based on real-time constraint violation rather than requiring manual tuning, and reduces average reasoning length by up to 62.7% (1.5B model) or 26.2% (4B model) while maintaining or improving accuracy on in-domain math and out-of-domain (GPQA, MMLU-Pro) benchmarks, outperforming fixed-penalty and prior length-control baselines.
-   - <https://aclanthology.org/2026.acl-long.129/>
 
 ## Open problems
 
 Drawn from the limitations each paper states about itself, so this is what the field admits it cannot do yet.
 
+- **Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking** — RPO's gain over the SFT operating point is configuration-dependent: on Qwen3-1.7B, post-SFT routing already saturates the achievable RAR so RPO yields a comparable rather than strictly better operating point; on Qwen3-32B (LoRA-tuned), SFT already produces a near-baseline conservative router so RPO likewise traces a comparable but not strictly dominating frontier. The method optimizes only a binary root routing decision and does not optimize intra-mode behaviors (how long to think, or when to stop mid-reasoning), which the paper states could further improve compute allocation. Root confidence, while informative for this branching-decision setting, can be sensitive to easy/hard query bucket composition and is weakly calibrated to true query difficulty. Broader evaluation under advanced agentic-tool-use benchmarks is left to future work, as is a more exhaustive ablation of RL training dynamics and generalizability of the root-token design choice, due to limited compute.
 - **Thinking effort aligns between humans and reasoning models in abductive reasoning** — Stated by the author: effort increased correctness only on the hardest tercile of problems; all main analyses used each model's default reasoning-effort setting, a choice fixed a priori and analogous to telling a human in advance to expect easy, medium or hard items, so alignment might be stronger on a difficulty-calibrated dataset; only one form of abduction is tested (inference to the best explanation), leaving hypothesis generation uncovered; LLM outputs are prompt-sensitive and a different instruction wording could change the results; and although the shared error pattern argues against simple memorisation, ART items may have appeared in pretraining. Noticeable to the reader: the alignment is correlational and per-item, so it constrains what makes a problem expensive but says nothing about whether either system spends the right amount; the single non-reasoning control is one model, which is what leaves the reasoning-versus-non-reasoning comparison underpowered; and the stochastic-decoding gain is obtained by averaging many runs per item, so it describes an aggregate rather than the cost of any single generation the way a deployed model would produce it.
 - **Evaluating the Semantic Specificity of Representation Steering in Language Models** — Stated by the authors: (1) Asymmetricity-2.0 is built from Wikidata, which carries geographic/cultural/historical biases and gaps the authors cannot control; (2) the study is English-only, so culture- or language-specific reasoning artifacts in the templates or in English-pretrained models cannot be ruled out; (3) the downstream benchmarks (CLUTRR, SpartQA, ProntoQA) are stylized, structured reasoning tasks and do not capture open-ended conversational reasoning or free-form dialogue where label-token boundaries are less well defined; (4) parameter-level mechanistic validation (e.g. cosine similarity of the steering vector with the unembedding label-direction difference, layerwise logit-lens attribution) is not performed on closed/API-only models and is left as future work -- CRT is explicitly a behavioral, not a weight-level, audit. Additional caveats the reader should note: the steering-strength sweep (Table 7) shows the collapse is threshold-dependent -- at alpha<=1.0 the intervention is too weak to fix contradiction recall at all, and there is no intermediate alpha at which contradiction recall is restored without also destroying entailment competence, so the failure mode is not an artifact of picking alpha=1.5 specifically. Qwen-3.5-9B-Instruct is included only as a directional sanity check, not a valid CRT subject, because its own native competence on the entailment rules (45.2%) falls below the paper's own >=95% competence threshold. The 'zero side effects' headline for LRS holds only under oracle task-level gating (injecting the vector exclusively on contradiction-labeled inputs, which requires a task classifier that does not exist at deployment); under the realistic unconditional/ungated setting the same vector produces the catastrophic collapse. Token-position ablations show the vector's effect is entirely at the final label-decision token (final-token-only injection gives 100% of the effect; injecting only during the preceding chain-of-thought tokens gives 0% effect), meaning the intervention overrides the output commitment rather than altering the internal reasoning trajectory.
 - **SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing** — Stated by the authors (Limitations section): experiments cover only text-based reasoning benchmarks on models of 4B to 8B parameters, with no larger scales, and no evaluation in multimodal or agent settings where intermediate representations and confidence dynamics may behave differently. Noticeable to the reader: the paper does not state whether the Tok and CR columns of Table 1 include the probe tokens, and the totals in Table 3 do not match Table 1's Overall column, so the reported compression cannot be reconciled with the separately reported 3.8% probe overhead from the paper alone - this matters because the method's cost is precisely the extra generation it performs at every "Wait". The exit threshold tau is set per model family rather than derived, and the best alpha differs between easy and hard benchmarks, so two of the method's constants are tuned against the evaluation suite. The scoring-function ablation reports that SC * CS and a branch-uncertainty difference are both competitive, which the authors read as evidence that the two-branch probing framework rather than the RSS form carries the gains; that also means RSS itself is not shown to be necessary. Accuracy gains over vanilla are within about one point on every model, so the claim supported by the tables is preserved accuracy at lower cost rather than improved accuracy.
@@ -233,7 +234,6 @@ Drawn from the limitations each paper states about itself, so this is what the f
 - **$R^3$: Training Robots to Reason in Natural Language via Reinforcement Learning** — Evaluated only in two simulated testbeds (Language Table block arrangement, bimanual grocery packing) with a single VLM backbone (Qwen3.5-4B) and a fixed low-level policy; generalization to real robots and other model scales/architectures is not demonstrated. The RL stage uses a single-step formulation to sidestep long-horizon credit assignment rather than full multi-turn RL with real environment rollouts, so gains are bounded by how well single-step reward (semantic match to an expert's next instruction) approximates eventual task success. The reward function requires either a VLM-as-judge (validated only against 100 human-labeled prompt-response pairs) or exact-match parsing (grocery packing), both of which could introduce judge-specific biases not explored beyond the reported inter-annotator agreement check.
 - **TRACE: An Evidence-Grounded Benchmark for Safety Evaluation of Large Reasoning Models** — TRACE covers only English and Chinese, so cross-lingual generality beyond these two is untested. Safety labels rely on 3 annotator LRMs plus human review of unresolved cases rather than full human annotation, so some label noise may remain. The paper does not report how reasoning-trace length or verbosity relates to safety, so it says nothing about whether longer traces are more or less likely to contain unsafe content.
 - **Recursive Agentic Reasoning** — BRANCH's selection is an unweighted majority vote; the paper records but does not use a per-item agreement ratio, and notes verifier- or confidence-weighted selection is strictly more expressive and the largest gap versus the state of the art. No significance tests are reported; a single 200-item cell's accuracy carries a roughly ±7-point 95% interval, so small effects in the BBEH and Omni-MATH cells are called provisional. The HLE grader (letter/string extraction) is a stated lower bound relative to an LLM judge. Omni-MATH was not run on Qwen3.6-plus. A 50-item pilot that preceded the full runs showed a task-dependent pattern of operator effectiveness that motivated the routing hypothesis and did not survive contact with the full-scale data, illustrating that small-n pilots at this cost regime can support a conclusion the full data contradicts.
-- **Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding** — RGV inherits retrieval quality -- it can be no better than what retrieval actually returned, and under outright corpus mismatch it is the only rule that stays above single-rollout average but its own margin is thin. Grounded is not correct: RGV measures retrieval success, not truth, so a wrong rollout that retrieves the right topic but draws the wrong conclusion still scores well (4.2% of questions). The prose-side normalization weakens the signal when the answer is forced to be very short, degrading toward simple answer-containment. All experiments are in English, and the method assumes retrieval-heavy agents; agents relying on non-retrieval tools (e.g. code interpreters) would need a different grounding signal, and gains shrink on reasoning-intensive tasks with less retrieval. RGV trusts the retrieval log, so an adversarially poisoned corpus could raise the vote weight of rollouts that copy from it -- a vulnerability shared by any method reading that log, and left open.
 
 ## References
 
@@ -289,421 +289,422 @@ Drawn from the limitations each paper states about itself, so this is what the f
 50. Mukai Li, Linfeng Song, Zhenwen Liang et al.. *EconProver: Towards More Economical Test-Time Scaling for Automated Theorem Proving*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2121/>
 51. Jikai Wang, Juntao Li, Jianye Hou et al.. *Efficient Reasoning for LLMs through Speculative Chain-of-Thought*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.76/>
 52. Jiakun Li, Xingwei He, Kefan Li et al.. *Efficient Test-Time Scaling via Temporal Reasoning Aggregation*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.651/>
-53. Taehyeon Kim, Hyunsoo Lee, Youngsoo Jang et al.. *Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking*. ACL. 2026 <https://aclanthology.org/2026.acl-long.816/>
-54. Jinu Lee, Kyoung-Woon On, Sophia Simeng Han et al.. *Evaluating Legal Reasoning Traces with Legal Issue Tree Rubrics*. ACL. 2026 <https://aclanthology.org/2026.acl-long.150/>
-55. Yufeng Shi, Weilin Luo, Yuxiang Zhang et al.. *Exploration-Exploitation Reshaping towards Efficient Reasoning for Large Language Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1520/>
-56. Hossam Amer, Maryam Dialameh, Hossein Rajabzadeh et al.. *FLOP-Efficient Training: Early Stopping Based on Test-Time Compute Awareness*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1766/>
-57. Divya Jyoti Bajpai, Manjesh Kumar Hanawal. *FREE: Fast and Robust Vision Language Models with Early Exits*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.1209/>
-58. Chiwei Zhu, Benfeng Xu, Mingxuan Du et al.. *FS-Researcher: Test-Time Scaling for Long-Horizon Research Tasks with File-System-Based Agents*. ACL. 2026 <https://aclanthology.org/2026.acl-long.288/>
-59. Chak Tou Leong, Dingwei Chen, Heming Xia et al.. *Finding RELIEF: Shaping Reasoning Behavior without Reasoning Supervision via Belief Engineering*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.218/>
-60. Kehan Jiang, Haonan Dong, Zhaolu Kang et al.. *FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1128/>
-61. Mike Zhang, Johannes Bjerva, Russa Biswas. *Follow the Path: Reasoning over Knowledge Graph Paths to Improve Large Language Model Factuality*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.561/>
-62. Rui Ha, Rui Pu, Chaozhuo Li et al.. *From "Aha Moments" to Controllable Thinking: Toward Meta-Cognitive Reasoning in LRMs via Decoupled Reasoning and Control*. ACL. 2026 <https://aclanthology.org/2026.acl-long.304/>
-63. Zhaohan Zhang, Ziquan Liu, Ioannis Patras. *GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1069/>
-64. Hongyuan Yuan, Xinran He, Run Shao et al.. *Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.281/>
-65. Amirhosein Ghasemabadi, Keith G. Mills, Baochun Li et al.. *Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence*. ACL. 2026 <https://aclanthology.org/2026.acl-long.739/>
-66. Zhixiang Liang, Beichen Huang, Zheng Wang et al.. *Hidden States as Early Signals: Step-level Trace Evaluation and Pruning for Efficient Test-Time Scaling*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1336/>
-67. Haoyang Chen, Yi Liu, Jianzhi Shao et al.. *How Do Answer Tokens Read Reasoning Traces? Self-Reading Patterns in Thinking LLMs for Quantitative Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1507/>
-68. Zhexin Zhang, Xian Qi Loye, Victor Shea-Jay Huang et al.. *How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study*. ACL. 2026 <https://aclanthology.org/2026.acl-long.936/>
-69. Peiqi Wang, ShengYun Peng, Xuewen Zhang et al.. *Inference Compute-Optimal Video Vision Language Models*. ACL. 2025 <https://aclanthology.org/2025.acl-long.117/>
-70. William Jurayj, Jeffrey Cheng, Benjamin Van Durme. *Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering*. ACL. 2025 <https://aclanthology.org/2025.acl-short.50/>
-71. Yanhao Li, Lu Ma, Jiaran Zhang et al.. *LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model*. ACL. 2026 <https://aclanthology.org/2026.acl-long.129/>
-72. Yihong Liu, Raoyuan Zhao, Hinrich Schuetze et al.. *Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1121/>
-73. Hao Wang, Hao Gu, Hongming Piao et al.. *Learning While Staying Curious: Entropy-Preserving Supervised Fine-Tuning via Adaptive Self-Distillation for Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.617/>
-74. Adrián Bazaga, Rexhina Blloshmi, Bill Byrne et al.. *Learning to Reason Over Time: Timeline Self-Reflection for Improved Temporal Reasoning in Language Models*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1358/>
-75. Qibin Wang, Pu Zhao, Shaohan Huang et al.. *Learning to Refine: Self-Refinement of Parallel Reasoning in LLMs*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1291/>
-76. Guijin Son, Jiwoo Hong, Hyunwoo Ko et al.. *Linguistic Generalizability of Test-Time Scaling in Mathematical Reasoning*. ACL. 2025 <https://aclanthology.org/2025.acl-long.699/>
-77. Bingxuan Li, Yiwei Wang, Jiuxiang Gu et al.. *METAL: A Multi-Agent Framework for Chart Generation with Test-Time Scaling*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1452/>
-78. Xinming Wang, Jian Xu, Bin Yu et al.. *MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.204/>
-79. Hang Yan, Fangzhi Xu, Rongman Xu et al.. *MUR: Momentum Uncertainty guided Reasoning for Large Language Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1058/>
-80. Huifeng Yin, Yu Zhao, Minghao Wu et al.. *Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1145/>
-81. Dadi Guo, Jiayu Liu, Zhiyuan Fan et al.. *Mathematical Proof as a Litmus Test: Revealing Failure Modes of Advanced Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.582/>
-82. Weijie Xu, Brian Dillon, Richard Futrell. *Memory efficiency and resource-rational encoding in sentence processing*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1550/>
-83. Heming Xia, Cunxiao Du, Rui Li et al.. *Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting*. ACL. 2026 <https://aclanthology.org/2026.acl-long.917/>
-84. Qin Liu, Wenxuan Zhou, Nan Xu et al.. *MetaScale: Test-Time Scaling with Evolving Meta-Thoughts*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.574/>
-85. Shuyang Jiang, Yuhao Wang, Ya Zhang et al.. *Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.237/>
-86. Florian Valentin Wunderlich, Lars Benedikt Kaesberg, Jan Philip Wahle et al.. *Multi-Agent Reasoning Improves Compute Efficiency: Pareto-Optimal Test-Time Scaling*. ACL. 2026 <https://aclanthology.org/2026.acl-srw.1/>
-87. Kang Liu, YongKang Liu, Xiaocui Yang et al.. *NEAT: Neuron-Based Early Exit for Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1231/>
-88. Haonan Dong, Kehan Jiang, Haoran Ye et al.. *NeuReasoner: Towards Explainable, Controllable, and Unified Reasoning via Mixture-of-Neurons*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1033/>
-89. Haotian Luo, Haiying He, Yibo Wang et al.. *O1-Pruner: Length-Harmonizing Fine-Tuning for O1-Like Reasoning Pruning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.697/>
-90. Minh Duc Bui, Kyung Eun Park, Goran Glavaš et al.. *On Generalization across Measurement Systems: LLMs Entail More Test-Time Compute for Underrepresented Cultures*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1032/>
-91. Hyungjoo Chae, Dongjin Kang, Jihyuk Kim et al.. *One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL*. ACL. 2025 <https://aclanthology.org/2025.acl-industry.85/>
-92. Zhengxiang Cheng, Dongping Chen, Mingyang Fu et al.. *Optimizing Length Compression in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.146/>
-93. Ruixiang Feng, Yuntao Wen, Silin Zhou et al.. *PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1545/>
-94. Zhihao Xu, Fuzhen Yang, Liang Lin et al.. *PAM: Enhancing General Alignment of Large Reasoning Models through Priority-Aware Metacognition*. ACL. 2026 <https://aclanthology.org/2026.acl-long.432/>
-95. Jingcheng Hu, Yinmin Zhang, Shijie Shang et al.. *PaCoRe: Learning to Scale Test-Time Compute with Parallel Coordinated Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1253/>
-96. Runyang You, Yongqi Li, Meng Liu et al.. *Parallel Test-Time Scaling for Latent Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2069/>
-97. Derrick Goh Xin Deik, Quanyu Long, Zhengyuan Liu et al.. *Programming over Thinking: Efficient and Robust Multi-Constraint Planning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2028/>
-98. Sanket Badhe, Deep Shah. *Prompt-Level Distillation: A Non-Parametric Alternative to Model Fine-Tuning for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-industry.142/>
-99. Sondos Mahmoud Bsharat, Zhiqiang Shen. *Prompting Test-Time Scaling Is A Strong LLM Reasoning Data Augmentation*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.474/>
-100. Han Liu, Shuotian Ma, Hui Li et al.. *Pru-CoT: Towards Efficient Reasoning Distillation via Pruning Chain-of-Thought*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1684/>
-101. Yangyi Li, Chenxu Zhao, Mengdi Huai. *Quantifying and Understanding Uncertainty in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1511/>
-102. Zhuoshi Pan, Qizhi Pei, Yu Li et al.. *REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1296/>
-103. Zihang Liu, Fang Zhouhua, Hui Liu et al.. *RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.885/>
-104. Mohsen Hariri, Michael Hinczewski, Jing Ma et al.. *Ranking Reasoning LLMs under Test-Time Scaling*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1544/>
-105. Zhizhang Fu, Yuancheng Gu, Chenkai Hu et al.. *ReEfBench: Quantifying the Reasoning Efficiency of LLMs*. ACL. 2026 <https://aclanthology.org/2026.acl-long.931/>
-106. Jingwei Ni, Ekaterina Fadeeva, Tianyi Wu et al.. *ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.536/>
-107. Francesco Maria Molfese, Luca Moroni, Ciro Porcaro et al.. *ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1798/>
-108. Peizhuo Lv, Ruihua Zhou, Yunpeng Li et al.. *ReasMark: A Robust Watermark for Attributing LLM Reasoning Under Knowledge Distillation Attacks*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2185/>
-109. Yongchan Kwon, Shang Zhu, Federico Bianchi et al.. *ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1456/>
-110. Xiaoyu Xu, Yulan Pan, Xiaosong Yuan et al.. *Reasoning Fails Where Step Flow Breaks*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1212/>
-111. Yijie Hao, Lingjie Chen, Ali Emami et al.. *Reasoning Traces Shape Outputs but Models Won’t Say So*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1986/>
-112. Yuquan Wang, Mi Zhang, Yining Wang et al.. *ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1453/>
-113. Jiawei Chen, Yang Yang, Chao Yu et al.. *Red Teaming Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1034/>
-114. Ziqi Zhao, Zhaochun Ren, Jiahong Zou et al.. *Reinforced Efficient Reasoning via Semantically Diverse Exploration*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2216/>
-115. Sahel Sharifymoghaddam, Jimmy Lin. *Rerank Before You Reason: Analyzing Reranking Tradeoffs through Effective Token Cost in Deep Search Agents*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1289/>
-116. Yexiang Liu, Zekun Li, Zhi Fang et al.. *Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1356/>
-117. Renren Jin, Pengzhi Gao, Yuqi Ren et al.. *Revisiting Entropy in Reinforcement Learning for Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1266/>
-118. Taiqiang Wu, Runming Yang, Tao Liu et al.. *Revisiting Model Interpolation for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.389/>
-119. Zhiyuan Zeng, Qinyuan Cheng, Zhangyue Yin et al.. *Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?*. ACL. 2025 <https://aclanthology.org/2025.acl-long.232/>
-120. Ziyuan Nan, Qi Yi, Di Huang et al.. *Rhombus: Incentivizing Coordination in Parallel Thinking through Reinforcement Learning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1956/>
-121. Yu Zhang, Songwei Liu, Chenqian Yan et al.. *S2O: Early Stopping for Sparse Attention via Online Permutation*. ACL. 2026 <https://aclanthology.org/2026.acl-long.351/>
-122. Weiyang Huang, Xuefeng Bai, Kehai Chen et al.. *SAT: Balancing Reasoning Accuracy and Efficiency with Stepwise Adaptive Thinking*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2009/>
-123. Fengqing Jiang, Zhangchen Xu, Yuetai Li et al.. *SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.1197/>
-124. Seungone Kim, Ian Wu, Jinu Lee et al.. *Scaling Evaluation-Time Compute with Reasoning Models as Evaluators*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.2102/>
-125. Tingchen Fu, Yafu Li, Jiawei Gu et al.. *Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1878/>
-126. Mehrzad Samadi, Aleksander Ficek, Sean Narenthiran et al.. *Scaling Test-Time Compute to Achieve IOI Gold Medal with Open-Weight Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1532/>
-127. Shiyu Ji, Yixuan Wang, Yijun Liu et al.. *Seer Self-Consistency: Advance Budget Estimation for Adaptive Test-Time Scaling*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.2120/>
-128. Cehao Yang, Xueyuan Lin, Xiaojun Wu et al.. *Select2Reason: Efficient Instruction-Tuning Data Selection for Long-CoT Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.331/>
-129. Shijia Xu, Zhou Wu, Xiaolong Jia et al.. *Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1052/>
-130. Qiang Huang, Wei Zhai, Feng Huang et al.. *Self-Reflection Improves Safety of Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.678/>
-131. Tergel Munkhbat, Namgyu Ho, Seo Hyun Kim et al.. *Self-Training Elicits Concise Reasoning in Large Language Models*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.1289/>
-132. Zheng Li, Qingxiu Dong, Jingyuan Ma et al.. *SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1063/>
-133. Lechen Zhang, Yunxiang Zhang, Wei Hu et al.. *Skill-Aware Data Selection and Fine-Tuning for Data-Efficient Reasoning Distillation*. ACL. 2026 <https://aclanthology.org/2026.acl-short.49/>
-134. Yige Xu, Xu Guo, Zhiwei Zeng et al.. *SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1137/>
-135. Shengmin Piao, Sanghyun Park. *SpiralThinker: Latent Reasoning through an Iterative Process with Text–Latent Interleaving*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1605/>
-136. Han Wang, Xiaodong Yu, Jialian Wu et al.. *Stabilizing Efficient Reasoning with Step-Level Advantage Selection*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1333/>
-137. Junyan Li, Wenshuo Zhao, Yang Zhang et al.. *Steering LLM Thinking with Budget Guidance*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1866/>
-138. Benteng Chen, Weida Wang, Shufei Zhang et al.. *Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.990/>
-139. Renliang Sun, Wei Cheng, Dawei Li et al.. *Stop When Enough: Adaptive Early-Stopping for Chain-of-Thought Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1256/>
-140. Zichuan Fu, Xian Wu, Guojing Li et al.. *Tandem: Riding Together with Large and Small Language Models for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.2098/>
-141. Cong Wan, Ying He, Zhongzhan Huang et al.. *Test-Time Scaling in Multimodal Foundation Models: A Comprehensive Survey of Generation and Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.383/>
-142. Huixue Zhou, Hengrui Gu, Zaifu Zhan et al.. *The Efficiency vs. Accuracy Trade-off: Optimizing RAG-Enhanced LLM Recommender Systems Using Multi-Head Early Exit*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1283/>
-143. Pratham Singla, Shivank Garg, Ayush Singh et al.. *The Inner Monologue of Language Models: When Reasoning Traces Reveal More Than They Hide*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.2078/>
-144. Byung-Doh Oh, Hongao Zhu, William Schuler. *The Inverse Scaling Effect of Pre-Trained Language Model Surprisal Is Not Due to Data Leakage*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.91/>
-145. Zhiyuan Yu, Shijian Xiao, Cam-Tu Nguyen et al.. *Thermometer of Thoughts: Enhancing LLM’s Exploration via Attention Temperature Modulation*. ACL. 2026 <https://aclanthology.org/2026.acl-long.200/>
-146. George Kour, Itay Nakash, Michal Shmueli-Scheuer et al.. *Think Again! The Effect of Test-Time Compute on Preferences, Opinions, and Beliefs of Large Language Models*. ACL. 2025 <https://aclanthology.org/2025.acl-industry.45/>
-147. Jiawei Li, Yang Gao, Huashan Sun et al.. *Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1386/>
-148. Ling-I Wu, Minyu Chen, Jingyang Li et al.. *Think Earlier, Not Longer: Prompt Optimization via Reducing Unhealthy Exploration*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.817/>
-149. Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. *Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1766/>
-150. Yi Sui, Chaozhuo Li, Dawei Song. *Think Less, Know More: State-Aware Reasoning Compression with Knowledge Guidance for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1128/>
-151. Zhichao Sheng, Shilin Zhou, Chen Gong et al.. *Think Smart, Not Hard: Difficulty Adaptive Reasoning for Large Audio Language Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1640/>
-152. Vladislav Smirnov, Quang-Chieu Nguyen, Sergey Senichev et al.. *ThinkBooster: A Unified Framework for Seamless Test-Time Scaling of LLM Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-demo.70/>
-153. Sangjun Song, Minjae Oh, Seungkyu Lee et al.. *ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1095/>
-154. Guangxiang Zhao, Qilong Shi, Xusen Xiao et al.. *Thinking with Reasoning Skills: Fewer Tokens, More Accuracy*. ACL. 2026 <https://aclanthology.org/2026.acl-industry.154/>
-155. Siyuan Gan, Jiaheng Liu, Boyan Wang et al.. *Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2122/>
-156. Zhixiao Qi, Feng Huang, Yunqi Zhang et al.. *Thought-Action Graph Reasoning: Faithful and Efficient Reasoning of Large Language Models via Reusing Past Experience*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1572/>
-157. Nguyen Viet Anh, Shiqian Zhao, Gia Dao et al.. *Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.355/>
-158. Yichuan Ma, Linyang Li, Yongkang Chen et al.. *Timely Machine: Awareness of Time Makes Test-Time Scaling Agentic*. ACL. 2026 <https://aclanthology.org/2026.acl-long.211/>
-159. Tingxu Han, Zhenting Wang, Chunrong Fang et al.. *Token-Budget-Aware LLM Reasoning*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.1274/>
-160. Yi Zhao, Yajuan Peng, Cam-Tu Nguyen et al.. *TrigReason: Trigger-Based Collaboration between Small and Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.333/>
-161. Haohan Yuan, Haopeng Zhang. *Understanding LLM Reasoning for Abstractive Summarization*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.859/>
-162. James Petullo, Sonny George, Dylan Cashman et al.. *VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1305/>
-163. Sangkwon Park, Donghun Kang, Jisoo Mok et al.. *Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1712/>
-164. Mourad Heddaya, Manley Roberts, Rohan Wadhawan et al.. *When Internalization Fails: Finding Better Targets for Reasoning Compression*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.734/>
-165. Yang Xiang, Yixin Ji, Ruotao Xu et al.. *When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1080/>
-166. Yingzhi Mao, Chunkang Zhang, Junxiang Wang et al.. *When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1118/>
-167. Sitong Fang, Wenjing Cao, Jiahao Li et al.. *When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.63/>
-168. Zi-Ao Ma, Xian-Ling Mao, Tian Lan et al.. *Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.25/>
-169. David H. Yang, Yuxuan Zhu, Mohammad Mohammadi Amiri et al.. *ZoomR: Memory Efficient Reasoning through Multi-Granularity Key Value Retrieval*. ACL. 2026 <https://aclanthology.org/2026.acl-long.76/>
-170. Lingrui Mei, Shenghua Liu, Yiwei Wang et al.. *a1: Steep Test-time Scaling Law via Environment Augmented Generation*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1240/>
-171. *4+3 Phases of Compute-Optimal Neural Scaling Laws*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/94549>
-172. *DARG: Dynamic Evaluation of Large Language Models via Adaptive Reasoning Graph*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/96593>
-173. *Repurposing Language Models into Embedding Models: Finding the Compute-Optimal Recipe*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/93887>
-174. *Resolving Discrepancies in Compute-Optimal Scaling of Language Models*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/96646>
-175. *Scaling Laws and Compute-Optimal Training Beyond Fixed Training Durations*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/94731>
-176. *TinyTTA: Efficient Test-time Adaptation via Early-exit Ensembles on Edge Devices*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/94778>
-177. *A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115454>
-178. *ARM: Adaptive Reasoning Model*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115075>
-179. *Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117295>
-180. *AdaReasoner: Adaptive Reasoning Enables More Flexible Thinking*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117660>
-181. *AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119334>
-182. Xin Liu, Lu Wang. *Answer Convergence as a Signal for Early Stopping in Reasoning*. arXiv. 2025
-183. *Are Large Reasoning Models Good Translation Evaluators? Analysis and Performance Boost*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117120>
-184. *Atom of Thoughts for Markov LLM Test-Time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115860>
-185. *BEEM: Boosting Performance of Early Exit DNNs using Multi-Exit Classifiers as Experts*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/30371>
-186. *Benefits of Early Stopping in Gradient Descent for Overparameterized Logistic Regression*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/44193>
-187. Jinyan Su, Jennifer Healey, Preslav Nakov et al.. *Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs*. preprint. 2025
-188. *Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118222>
-189. *Compute Optimal Inference and Provable Amortisation Gap in Sparse Autoencoders*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/46270>
-190. *Compute-Optimal LLMs Provably Generalize Better with Scale*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/29945>
-191. *Compute-Optimal Scaling for Value-Based Deep RL*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119555>
-192. *Decoder-Hybrid-Decoder Architecture for Efficient Reasoning with Long Generation*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115542>
-193. Zhongxiang Sun, Qipeng Wang, Haoyu Wang et al.. *Detection and Mitigation of Hallucination in Large Reasoning Models: A Mechanistic Perspective*. preprint. 2025
-194. *DisCO: Reinforcing Large Reasoning Models with Discriminative Constrained Optimization*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/114995>
-195. Gaurav Srivastava, Aafiya Hussain, Sriram Srinivasan et al.. *Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models*. preprint. 2025 <https://aclanthology.org/2026.findings-acl.1285/>
-196. *Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/45540>
-197. *Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115605>
-198. Linan Yue, Yichao Du, Yizhi Wang et al.. *Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models*. preprint. 2025
-199. *Don’t Think Longer, Think Wisely: Optimizing Thinking Dynamics for Large Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116095>
-200. *Dualformer: Controllable Fast and Slow Thinking by Learning with Randomized Reasoning Traces*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/29093>
-201. *Dynamic Test-Time Compute Scaling in Control Policy: Difficulty-Aware Stochastic Interpolant Policy*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116060>
-202. *Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/46046>
-203. *Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115239>
-204. *Forest-of-Thought: Scaling Test-Time Compute for Enhancing LLM Reasoning*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/46117>
-205. *FreqExit: Enabling Early-Exit Inference for Visual Autoregressive Models via Frequency-Aware Guidance*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119216>
-206. *From Judgment to Interference: Early Stopping LLM Harmful Outputs via Streaming Content Monitoring*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116186>
-207. *How Far Are We from Optimal Reasoning Efficiency?*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118341>
-208. Ayeong Lee, Ethan Che, Tianyi Peng. *How Well do LLMs Compress Their Own Chain-of-Thought? A Token Complexity Approach*. preprint. 2025
-209. *Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for LLM Problem-Solving*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/29417>
-210. *Instance-dependent Early Stopping*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/29782>
-211. Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al.. *Inverse Scaling in Test-Time Compute*. Transactions on Machine Learning Research (TMLR). 2025 <https://iclr.cc/virtual/2026/poster/10014059>
-212. *Inverse Scaling: When Bigger Isn't Better*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/31511>
-213. *Kinetics: Rethinking Test-Time Scaling Law*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115931>
-214. *LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117621>
-215. *Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118864>
-216. *Let LRMs Break Free from Overthinking via Self-Braking Tuning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115532>
-217. *LongVU: Spatiotemporal Adaptive Compression for Long Video-Language Understanding*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/44939>
-218. *MIND over Body: Adaptive Thinking using Dynamic Computation*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/30390>
-219. *Measuring the Faithfulness of Thinking Drafts in Large Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/120231>
-220. *MindJourney: Test-Time Scaling with World Models for Spatial Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118581>
-221. Yao Huang, Huanran Chen, Shouwei Ruan et al.. *Mitigating Overthinking in Large Reasoning Models via Manifold Steering*. 39th Conference on Neural Information Processing Systems (NeurIPS 2025). 2025 <https://neurips.cc/virtual/2025/poster/119969>
-222. *No Loss, No Gain: Gated Refinement and Adaptive Compression for Prompt Optimization*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118743>
-223. Leheng Sheng, An Zhang, Zijian Wu et al.. *On Reasoning Strength Planning in Large Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118916>
-224. Mohan Zhang, Yihua Zhang, Jinghan Jia et al.. *One Token Embedding Is Enough to Deadlock Your Large Reasoning Model*. 39th Conference on Neural Information Processing Systems (NeurIPS 2025). 2025 <https://neurips.cc/virtual/2025/poster/116766>
-225. Pranjal Aggarwal, Seungone Kim, Jack Lanchantin et al.. *OptimalThinkingBench: Evaluating Over and Underthinking in LLMs*. ICLR 2026. 2025 <https://iclr.cc/virtual/2026/poster/10009890>
-226. *Optimizing Test-Time Compute via Meta Reinforcement Finetuning*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/45154>
-227. *Provable Scaling Laws for the Test-Time Compute of Large Language Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118984>
-228. *QFFT, Question-Free Fine-Tuning for Adaptive Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119264>
-229. *QUTE: Quantifying Uncertainty in TinyML models with Early-exit-assisted ensembles for model-monitoring*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/45956>
-230. *Reasoning Models Hallucinate More: Factuality-Aware Reinforcement Learning for Large Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118780>
-231. *Reinforcement Learning Teachers of Test Time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115573>
-232. *Rethinking Fine-Tuning when Scaling Test-Time Compute: Limiting Confidence Improves Mathematical Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116423>
-233. *Rethinking Optimal Verification Granularity for Compute-Efficient Test-Time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117041>
-234. Keqin Peng, Liang Ding, Yuanxin Ouyang et al.. *Revisiting Overthinking in Long Chain-of-Thought from the Perspective of Self-Doubt*. preprint. 2025
-235. *S-GRPO: Early Exit via Reinforcement Learning in Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115333>
-236. *Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119365>
-237. *Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/31024>
-238. *Scaling Test-Time Compute Without Verification or RL is Suboptimal*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/44733>
-239. *Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117966>
-240. *ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118481>
-241. *Smaller, Weaker, Yet Better: Training LLM Reasoners via Compute-Optimal Sampling*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/31080>
-242. *SolverLLM: Leveraging Test-Time Scaling for Optimization Problem via LLM-Guided Search*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116215>
-243. Xiao Pu, Michael Saxon, Wenyue Hua et al.. *THOUGHTTERMINATOR: Benchmarking, Calibrating, and Mitigating Overthinking in Reasoning Models*. preprint. 2025
-244. Alejandro Cuadron, Dacheng Li, Wenjie Ma et al.. *The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks*. International Conference on Machine Learning (ICML) 2025. 2025
-245. Joykirat Singh, Justin Chih-Yao Chen, Archiki Prasad et al.. *Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression*. preprint. 2025
-246. *Think Smarter not Harder: Adaptive Reasoning with Inference Aware Optimization*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/46693>
-247. *Think or Not? Exploring Thinking Efficiency in Large Reasoning Models via an Information-Theoretic Lens*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119190>
-248. *Thoughts Are All Over the Place: On the Underthinking of Long Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117581>
-249. *Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116088>
-250. *Towards Thinking-Optimal Scaling of Test-Time Compute for LLM Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119802>
-251. *VideoChat-R1.5: Visual Test-Time Scaling to Reinforce Multimodal Reasoning by Iterative Perception*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116032>
-252. *WebThinker: Empowering Large Reasoning Models with Deep Research Capability*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119715>
-253. *A Simple "Motivation" Can Enhance Reinforcement Finetuning of Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011610>
-254. *ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011711>
-255. *ATTS: Asynchronous Test-Time Scaling via Conformal Prediction*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008898>
-256. *AdaNav: Adaptive Reasoning with Uncertainty for Vision-Language Navigation*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61535>
-257. *Adaptive Thinking: Large Language Models Know When to Think in Latent Space*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011708>
-258. *AdvChain: Adversarial Chain-of-Thought Tuning for Robust Safety Alignment of Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007590>
-259. *Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63795>
-260. *Anytime Safe PAC Efficient Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62243>
-261. *Are Large Reasoning Models Interruptible?*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61807>
-262. *Asymptotic Universal Alignment: A New Alignment Framework via Test-Time Scaling*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/66584>
-263. *AsyncSpade: Efficient Test-Time Scaling with Asynchronous Sparse Decoding*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63012>
-264. *Base Models Know How to Reason, Thinking Models Learn When*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/66610>
-265. *BeaconKV: Key-Value Cache Compression Guided by Beacon Queries for Efficient Large Reasoning Model Inference*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62942>
-266. *Better, Faster: Harnessing Self-Improvement in Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64514>
-267. *CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007848>
-268. *Cache Coherent Resampling for Efficient Test Time Scaling in LLM Reasoning via Adaptive Sequential Monte Carlo*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64829>
-269. *Causal Dependency-Aware Unsupervised Routing for Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64247>
-270. *Certain Head, Uncertain Tail: Expert-Sample for Test-Time Scaling in Fine-Grained MoE*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62643>
-271. *CodeChemist: Test-Time Scaling for Low-Resource Code Generation via Functional Knowledge Transfer*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63512>
-272. *Compute-Optimal Quantization-Aware Training*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009552>
-273. *ConPress: Learning Efficient Reasoning from Multi-Question Contextual Pressure*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61485>
-274. *Conditional Advantage Estimation for Reinforcement Learning in Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010855>
-275. *Conformal Prediction for Early Stopping in Mixed Integer Optimization*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61715>
-276. *ContextPRM: Leveraging Contextual Coherence for multi-domain Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011128>
-277. Yi Fang, Wenjie Wang, Mingfeng Xue et al.. *Controllable LLM Reasoning via Sparse Autoencoder-Based Steering*. Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2026
-278. Dongkyu Cho, Amy B. Z. Zhang, Bilel Fehri et al.. *Correct Reasoning Paths Visit Shared Decision Pivots*. preprint. 2026
-279. *D-CORE: Incentivizing Task Decomposition in Large Reasoning Models for Complex Tool Use*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61056>
-280. *DR$^2$Seg: Decomposed Two-Stage Rollouts for Efficient Reasoning Segmentation in Multimodal Large Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62304>
-281. *DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010492>
-282. Zicheng Xu, Xiuyi Lou, Guanchu Wang et al.. *DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61328>
-283. Xiang Liu, Xuming Hu, Xiaowen Chu et al.. *DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011403>
-284. *Distilled Pretraining: A modern lens of Data, In-Context Learning and Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009683>
-285. *Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63569>
-286. *Don't Overthink with Pixels: Efficient Reasoning for Segmentation*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61221>
-287. *Doxing via the Lens: Revealing Location-related Privacy Leakage on Multi-modal Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006914>
-288. *Dynamic Early Exit in Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009830>
-289. *Dynamic Thinking-Token Selection for Efficient Reasoning in Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61200>
-290. *Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006780>
-291. *ETS: Energy-Guided Test-Time Scaling for Training-Free RL Alignment*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61604>
-292. Parsa Hosseini, Sumit Nawathe, Mahdi Salmani et al.. *Early Stopping for Large Reasoning Models via Confidence Dynamics*. COLM 2026 Workshop on Efficient Reasoning. 2026
-293. Jiameng Huang, Baijiong Lin, Guhao Feng et al.. *Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression*. AAAI. 2026
-294. *Efficient Reasoning with Balanced Thinking*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008522>
-295. *Efficient Reasoning with Hidden Thinking*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/65014>
-296. *Efficient Test-Time Scaling for Small Vision-Language Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007164>
-297. *Efficient Test-Time Scaling via Hierarchical Search and Self-Verification for Discrete Diffusion Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64102>
-298. *Exposing Weaknesses of Large Reasoning Models through Graph Algorithm Problems*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010419>
-299. *Expressive Power of Implicit Models: Rich Equilibria and Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009635>
-300. *FROST: Filtering Reasoning Outliers with Attention for Efficient Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008733>
-301. *From Reasoning Traces to Reusable Modules: Understanding Compositional Generalization in Language Model Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61216>
-302. *GTA1: GUI Test-time Scaling Agent*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011639>
-303. *HardcoreLogic: Challenging Large Reasoning Models with Long-tail Logic Puzzle Games*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011195>
-304. *HiDrop: Hierarchical Vision Token Reduction in MLLMs via Late Injection, Concave Pyramid Pruning, and Early Exit*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011723>
-305. *IAPO: Information-Aware Policy Optimization for Token-Efficient Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63983>
-306. *ImgCoT: Compressing Long Chain of Thought into Compact Visual Tokens for Efficient Reasoning of Large Language Model*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63716>
-307. *Internalizing Safety Understanding in Large Reasoning Models via Verification*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63605>
-308. *Is it Thinking or Cheating? Detecting Implicit Reward Hacking by Measuring Reasoning Effort*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010463>
-309. *KLAS: Using Similarity to Stitch Neural Networks for Improved Accuracy-Efficiency Tradeoffs*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007961>
-310. *Knowing When to Quit: Probabilistic Early Exits for Speech Separation Networks*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009506>
-311. *Learning Generalized Trackers with Elastic Token Budgets*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63126>
-312. *Less Diverse, Less Safe: The Indirect But Pervasive Risk of Test-Time Scaling in Large Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64671>
-313. Zhen Yang, Mingyang Zhang, Feng Chen et al.. *Less is More: Improving LLM Reasoning with Minimal Test-Time Intervention*. Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2026
-314. *Mechanistic Detection and Mitigation of Hallucination in Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008968>
-315. *Mind the Budget: Accelerating Deep Reinforcement Learning using Constrained Early Exit Neural Networks*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61963>
-316. *Mixture-of-Visual-Thoughts: Exploring Context-Adaptive Reasoning Mode Selection for General Visual Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011171>
-317. *Mode-conditioning unlocks superior test-time compute scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010159>
-318. *Modeling Hierarchical Thinking in Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64487>
-319. *On the Limits of Test-Time Compute: Sequential Reward Filtering for Better Inference*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64598>
-320. *OneTwoVLA: A Unified Vision-Language-Action Model with Adaptive Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006973>
-321. *Optimal Aggregation of LLM and PRM Signals for Efficient Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006667>
-322. *Optimal Self-Consistency for Efficient Reasoning with Large Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61225>
-323. *Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007765>
-324. *Overthinking: Amplifying Reasoning Weights to Extract Learned Secrets*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63085>
-325. *PEAR: Phase Entropy Aware Reward for Efficient Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010398>
-326. *ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011824>
-327. *Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008460>
-328. *Pruning Long Chain-of-Thought of Large Reasoning Models via Small-Scale Preference Optimization*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011162>
-329. *Pushing Test-Time Scaling Limits of Deep Search with Asymmetric Verification*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008007>
-330. *QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008335>
-331. *R-Horizon: How Far Can Your Large Reasoning Model Really Go in Breadth and Depth?*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007149>
-332. *RAEE: A Robust Retrieval-Augmented Early Exit Framework for Efficient Inference*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010491>
-333. *RAIN-Merging: A Gradient-Free Method to Enhance Instruction Following in Large Reasoning Models with Preserved Thinking Format*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009681>
-334. *REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010716>
-335. *RFEval: Benchmarking Reasoning Faithfulness under Counterfactual Reasoning Intervention in Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011763>
-336. *ROC-n-reroll: How verifier imperfection affects test-time scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011656>
-337. *Real-Time Monitoring and Calibration of Chain-of-Thought Sycophancy in Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61298>
-338. *Real-Time Visual Attribution Streaming in Thinking Model*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62671>
-339. *Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010758>
-340. Wenhui Tan, Fiorenzo Parascandolo, Enver Sanginetto et al.. *Restoring Exploration after Post-Training: Latent Exploration Decoding for Large Reasoning Models*. Proceedings of the 43rd International Conference on Machine Learning (ICML), PMLR 306. 2026 <https://icml.cc/virtual/2026/poster/66546>
-341. *Rethinking Calibration for Early-Exit Neural Networks*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62138>
-342. *Retrieval-of-Thought: Efficient Reasoning via Reusing Thoughts*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009010>
-343. *SPARC: Separating Perception And Reasoning Circuits for Test-time Scaling of VLMs*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62906>
-344. *Sample Complexity and Representation Ability of Test-time Scaling Paradigms*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009511>
-345. *Sample More to Think Less: Group Filtered Policy Optimization for Concise Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009238>
-346. *Scaling Up, Speeding Up: A Benchmark of Speculative Decoding for Efficient LLM Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010752>
-347. Siyuan Wang, Yanchen Liu, Xiang Ren. *Segment-Level Attribution for Selective Learning of Long Reasoning Traces*. arXiv.org. 2026 <https://www.semanticscholar.org/paper/004113a0556d9524d1015c51c08267a98eb2aa31>
-348. *Short Chains, Deep Thoughts: Balancing Reasoning Efficiency and Intra-Segment Capability via Split-Merge Optimization*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64198>
-349. *Small Generalizable Prompt Predictive Models Can Steer Efficient RL Post-Training of Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/60937>
-350. *SmartThinker: Progressive Chain-of-Thought Length Calibration for Efficient Large Language Model Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64022>
-351. *SpecExit: Accelerating Large Reasoning Model via Speculative Exit*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/66249>
-352. *Statistical Early Stopping for Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63833>
-353. *Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008702>
-354. Dehai Min, Giovanni Vaccarino, Huiyi Chen et al.. *Stop When Reasoning Converges: Semantic-Preserving Early Exit for Reasoning Models*. preprint. 2026
-355. *Strategic Scaling of Test-Time Compute: A Bandit Learning Approach*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011899>
-356. *SuCo: Sufficiency-guided Continuous Adaptive Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63630>
-357. *SwiftPFN: Revisiting Row-Wise Attention–Only Tabular Foundation Models with Adaptive Early Exit*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61560>
-358. *T1: Tool-integrated Verification for Test-time Compute Scaling in Small Language Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007001>
-359. *TEST-TIME SCALING IN DIFFUSION LLMS VIA HIDDEN SEMI-AUTOREGRESSIVE EXPERTS*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010063>
-360. *TUMIX: Multi-Agent Test-Time Scaling with Tool-Use Mixture*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010417>
-361. *TaTToo: Tool-Grounded Thinking PRM for Test-Time Scaling in Tabular Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006442>
-362. *Test-Time Scaling with Reflective Generative Model*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006997>
-363. Zihao Wei, Liang Pang, Jiahao Liu et al.. *The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1239/>
-364. Renfei Dang, Zhening Li, Shujian Huang et al.. *The First Impression Problem: Internal Bias Triggers Overthinking in Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011746>
-365. *The Quest for Efficient Reasoning: A Data-Centric Benchmark to CoT Distillation*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010734>
-366. *Theoretical Guarantees for One-Shot Magnitude Pruning and Compute-Adaptive Early Exit*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63550>
-367. *ThinKV: Thought-Adaptive KV Cache Compression for Efficient Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009980>
-368. *Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64256>
-369. *Think Less, Act Early: Reinforced Latent Reasoning with Early Exit in Vision-Language-Action Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61571>
-370. Bo Cheng, Qiaolin Lu, Yi Chang et al.. *Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders*. preprint. 2026
-371. *ThreadWeaver: Adaptive Threading for Efficient Parallel Reasoning in Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/65330>
-372. *Towards Safe Reasoning in Large Reasoning Models via Corrective Intervention*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011693>
-373. Yi Hu, Jiaqi Gu, Ruxin Wang et al.. *Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures*. preprint. 2026 <https://aclanthology.org/2026.acl-long.889/>
-374. *Training Large Reasoning Models Efficiently via Progressive Thought Encoding*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007286>
-375. *TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007390>
-376. *UnMaskFork: Test-Time Scaling for Masked Diffusion via Deterministic Action Branching*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/66823>
-377. *Understanding the Role of Training Data in Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008915>
-378. *UniScale: Adaptive Unified Inference Scaling via Online Joint Optimization of Model Routing and Test-Time Scaling*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/60578>
-379. *VLA-ATTC: Adaptive Test-Time Compute for VLA Models with Relative Action Critic Model*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61157>
-380. *WAVE: Window-Aware Vocabulary-Efficient Early-Exit for Training-Free LLM Acceleration*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62373>
-381. *WS-GRPO: Weakly-Supervised Group-Relative Policy Optimization for Rollout-Efficient Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64686>
-382. *Wait, Do We Need to Wait? Revisiting Budget Forcing for Sequential Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10012115>
-383. *What If We Allocate Test-Time Compute Adaptively?*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/60797>
-384. Shu Zhou, Rui Ling, Junan Chen et al.. *When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling*. preprint. 2026 <https://aclanthology.org/2026.findings-acl.1199/>
-385. *When More is Less: Understanding Chain-of-Thought Length in LLMs*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011380>
-386. *When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011689>
-387. *When Simple Problems Wear Complex Costumes: Improving Efficiency in LRM's Adaptive Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62755>
-388. *Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011695>
-389. *Zero-Overhead Introspection for Adaptive Test-Time Compute*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010457>
-390. *e3: Learning to Explore Enables Extrapolation of Test-Time Compute for LLMs*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008718>
-391. Tianyang Zhou, Somesh Jha, Mihai Christodorescu et al.. *Verifier-Guided Code Translation via Meta-Step Decoding*. arXiv.org. 2026 <https://www.semanticscholar.org/paper/0033708ee454d5ea4c7b6ed0f9424e63baf9b395>
-392. Kaishen Wang, Tong Zheng, Xuehao Cui et al.. *Mitigating Factual Hallucination in Large Reasoning Models via Mixed-Mode Advantage Regularization*. arXiv. 2026 <https://www.semanticscholar.org/paper/0294e3ee8794087f78b1cd58a21c3b4ab12f7f56>
-393. Xinbang Dai, Zheyu Xin, Huikang Hu et al.. *EvoThink: Evolving Thinking in Large Reasoning Models via Self-Pruning and Aha-Moment Preference Optimization*. cs.AI. 2026 <https://arxiv.org/abs/2607.19962>
-394. Runyang You, Zhiyuan Liu, Yongqi Li et al.. *SLPO: Scaling Latent Reasoning via a Surrogate Policy*. cs.CL. 2026 <https://arxiv.org/abs/2607.19691>
-395. Siwei Chen, Siqi Chen, Xupeng Miao et al.. *QLPO: Quadrant-weighted Sampling for Length-aware Policy Optimization*. cs.AI. 2026 <https://arxiv.org/abs/2607.21793>
-396. Renuka Oladri, Niveda Jawahar, Abdirisak Mohamed. *Token Budget Saturation and Mechanistic Early Detection of Reasoning Non-Convergence in Chain-of-Thought Models*. cs.CL. 2026 <https://arxiv.org/abs/2607.21433>
-397. Junlin Fang, Do Nguyen-Thanh, Xiaogang Xu et al.. *Reasoning Denoiser: Denoising Reasoning Traces for Hallucination Detection in Large Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2607.22098>
-398. Jiarun Fu, Lizhong Ding, Sida Chen et al.. *CHILL-Harness: Counterfactual Harness Learning for Efficient Reasoning in Long-Horizon Agents*. arXiv. 2026 <https://www.semanticscholar.org/paper/00a392559287f448c41d331f0e43694389177348>
-399. Yutong Chen, Shouqian Shi, Xinran Liu et al.. *Penelope: Localized Latent Recurrence for Efficient Structured Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2607.25915>
-400. Chia-Ming Lee, Shao-Kai Liu, Ming-Ching Chang et al.. *Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2607.28166>
-401. Sara Candussio, Daniel Scalena, Luca Bortolussi et al.. *Demystifying Entropy-based Selection for Chain-of-Thought Compression in Large Reasoning Models*. cs.CL. 2026 <https://arxiv.org/abs/2607.28707>
-402. Keshu Fu, Keqin Peng, Jun Bai et al.. *BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2607.28966>
-403. Yongshi Ye, Biao Fu, Chongxuan Huang et al.. *Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1400/>
-404. Faizan Faisal, Prem Devanbu, Toufique Ahmed. *Distilling Reasoning Traces into Advisory Prompts for Software Engineering Tasks*. cs.SE. 2026 <https://arxiv.org/abs/2608.00437>
-405. Jingqi Tian, Haoji Zhang, Lin Chen et al.. *AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning*. cs.CV. 2026 <https://arxiv.org/abs/2608.01980>
-406. Mengting Ai, Jingrui He, Yue Guo. *Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression*. cs.CL. 2026 <https://arxiv.org/abs/2608.01631>
-407. Xiaocheng Lu, Hualei Zhang, Shuhan Guo et al.. *OPTD: On-Policy Transition Distillation with Consistency-Guided Adaptive Compression for Few-Step Diffusion Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.02942>
-408. Mobina Kashaniyan, Ali Jannesari. *Interpretable Adaptive Sampling for LLM Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.03961>
-409. Dominik Meier, Luca Joshua Francis, Marco Bernhard Kaiser et al.. *Risky Business: Measuring The Faithfulness-Safety Tension*. cs.AI. 2026 <https://arxiv.org/abs/2608.03745>
-410. Mohsen Hariri, Weicong Chen, Nahal Shahini et al.. *Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility*. cs.LG. 2026 <https://arxiv.org/abs/2608.04001>
-411. Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. *Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.04771>
-412. Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al.. *Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.05643>
-413. Yan Zhou, Yue Ouyang, Kaiyang Zheng et al.. *CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing*. cs.AI. 2026 <https://arxiv.org/abs/2608.07424>
-414. Agamdeep Singh, Srishti Gautam, Priyanshu Gupta et al.. *Reason Wide, Not Deep: Amortizing the Reasoning Premium into Distilled Skills*. cs.AI. 2026 <https://arxiv.org/abs/2608.07885>
-415. Chenrui Fan, Yize Cheng, Ming Li et al.. *Thinking Hard, Not Smart: Reasoning Models Fail to Ration Test-Time Compute Across Questions*. cs.CL. 2026 <https://arxiv.org/abs/2608.07968>
-416. Lijie Yang, Hongyin Luo, Jiawei Zhao et al.. *Thought-Level Beam Search for Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08020>
-417. Juncheng Dong, Ding Tong, Ishan Gupta et al.. *LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing*. cs.AI. 2026 <https://arxiv.org/abs/2608.08889>
-418. Lecheng Kong, Like Hui, Haitao Mao et al.. *Consilience for Verifier-Free Test-Time Scaling*. cs.CL. 2026 <https://arxiv.org/abs/2608.09898>
-419. Alexander Panfilov, David Schmotz, Ilia Shumailov et al.. *Stealing Reasoning Traces from Proprietary LLM APIs*. cs.CR. 2026 <https://arxiv.org/abs/2608.09867>
-420. Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. *ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.10928>
-421. Linh Dieu Le, Tong Chen, Shazia Sadiq et al.. *Towards Efficient Reasoning in LLM-Based Recommender Systems via Model Merging*. cs.IR. 2026 <https://arxiv.org/abs/2608.10447>
-422. Sen Xu, Wei Wang, Shixi Liu et al.. *Claim-Level Reliability Assessment for Efficient Test-Time Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.11994>
-423. Congchao Wang, Diwakar Singh, Qiaozi Gao et al.. *Reasoning Jury: Multi-Model Consensus for Evaluating Reasoning Traces*. cs.AI. 2026 <https://arxiv.org/abs/2608.12585>
-424. Xinmu Ge, Zizhuo Zhang, Yu Huang et al.. *Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling*. cs.LG. 2026 <https://arxiv.org/abs/2608.11829>
-425. Jean de Dieu Nyandwi, Leena Mathur, Yonatan Bisk et al.. *Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.13760>
-426. Ahmet Bugra Gundogan, Yigit Turkmen, Melih Bastopcu. *Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services*. cs.GT. 2026 <https://arxiv.org/abs/2608.13315>
-427. Varsha Ramineni, Hossein A. Rahmani, Jerome Ramos et al.. *BiasTrace: Linking Reasoning Behaviours to Biased Outputs in LLMs*. cs.AI. 2026 <https://arxiv.org/abs/2608.14161>
-428. Bo Wen, Yuhao Chen, Erhan Bilal et al.. *Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis*. cs.AI. 2026 <https://arxiv.org/abs/2608.15303>
-429. Chanhee Park, Sungbin Han, Jeongho Yoon et al.. *Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning*. cs.AI. 2026 <https://arxiv.org/abs/2608.15065>
-430. Yeabin Moon. *The Price of Thinking: Reasoning Effort as a Model-Specific API Contract*. cs.AI. 2026 <https://arxiv.org/abs/2608.16956>
-431. Xuteng Zhang, Wenhao Zeng, Xiaodong Gu et al.. *ParaTempo: Efficient Parallel Reasoning via Temporal Confidence*. cs.AI. 2026 <https://arxiv.org/abs/2608.16425>
-432. Ivan Viakhirev, Kirill Borodin, Amirah Almutairi et al.. *Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth*. cs.LG. 2026 <https://arxiv.org/abs/2608.18222>
-433. Zishan Ahmad, Vishal Vaddina. *Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference*. cs.AI. 2026 <https://arxiv.org/abs/2608.18591>
-434. Jian Yang, Zhenqi Feng, Zhaoyang Yu et al.. *SMTrap: Cost-Effective DoS Attacks Against Large Reasoning Models via SMT Conflict Guidance*. cs.CL. 2026 <https://arxiv.org/abs/2608.18921>
-435. Davide Romano, Kanak Raj, Jerrod Parker et al.. *Test-Time Scaling in the Wild: Why Exploitation, Not Exploration, Is the Bottleneck*. cs.CL. 2026 <https://arxiv.org/abs/2608.18931>
-436. Wei Yu, Suxing Liu, Minjie Yu et al.. *Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.18884>
-437. Yiting Qu, Ziqing Yang, Chi Cui et al.. *EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models*. cs.CR. 2026 <https://arxiv.org/abs/2608.20055>
-438. Gijs Kassenaar, Zhao Yang, Vincent François-Lavet. *Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation*. cs.AI. 2026 <https://arxiv.org/abs/2608.20256>
-439. Weihang Pan, Zhengxu Yu, Yuxiang Zhang et al.. *ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning*. cs.LG. 2026 <https://arxiv.org/abs/2608.21860>
-440. Chandresh Pandey. *More Experts, Worse Dynamics: Inverse Scaling and Spectral Bias in Mixture-of-Experts State-Space Models*. cs.LG. 2026 <https://arxiv.org/abs/2608.21840>
-441. Kang Chen, Junjie Nian, Yixin Cao et al.. *Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents*. cs.AI. 2026 <https://arxiv.org/abs/2608.22191>
-442. Maria-Eleni Zoumpoulidi, Georgios Paraskevopoulos, Alexandros Potamianos. *Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy*. cs.AI. 2026 <https://arxiv.org/abs/2608.23205>
-443. Sujoy Nath, Aswini Kumar, Tanmoy Chakraborty. *Counter with Evidence! A Multi-Agent Memory Efficient Reasoning Framework for Hate Category Informed Counterspeech Generation*. cs.CL. 2026 <https://arxiv.org/abs/2608.23152>
-444. Min Chen, Shengjun Zhang, Yuxin Li et al.. *ParallelWorld: Test-Time Scaling for Embodied Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.22971>
-445. Duy Hoang, Bastien Berret, Olivier Bruneau et al.. *A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm*. cs.LG. 2026 <https://arxiv.org/abs/2608.24210>
-446. Hyunho Kook, Junhyuk So, Tianyu Fu et al.. *Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding*. cs.AI. 2026 <https://arxiv.org/abs/2608.24024>
-447. Zhengyang Zhang, Zijian Zhang, Jiaxuan Gao et al.. *Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.24658>
-448. Shengxin Zhang, Xiaomin Wu, Xiyang Wu et al.. *Recursive Agentic Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.23956>
-449. Zhenyu Wu, Siyuan Chen, Changchun Yang et al.. *TRACE: An Evidence-Grounded Benchmark for Safety Evaluation of Large Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.24232>
-450. Lehong Wu, Yuxiao Qu, Zheyuan Hu et al.. *$R^3$: Training Robots to Reason in Natural Language via Reinforcement Learning*. cs.RO. 2026 <https://arxiv.org/abs/2608.26053>
-451. Caixing Wang, Zhibo Chen, Yue Wang. *Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees*. stat.ML. 2026 <https://arxiv.org/abs/2608.25513>
-452. Lam So, Canhui Wu, Han Lin. *GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2608.25583>
-453. Niklas Muennighoff, Zhengyang Wang, Zeyi Chen et al.. *Prefix Sliding for efficient test-time scaling*. cs.CL. 2026 <https://arxiv.org/abs/2608.26070>
-454. Jiarui Hu, Zhiyuan Wen, Xiaoyun Liu et al.. *Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference*. cs.LG. 2026 <https://arxiv.org/abs/2608.25542>
-455. Pratyay Banerjee, Ankit Chadha. *Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation*. cs.CL. 2026 <https://arxiv.org/abs/2608.25277>
-456. Wanli Cheng, Haiya Xiang, Juntao Li et al.. *SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing*. cs.AI. 2026 <https://arxiv.org/abs/2608.27963>
-457. Zhangdie Yuan, Andreas Vlachos. *Evaluating the Semantic Specificity of Representation Steering in Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.29431>
-458. Henry Arthur. *Thinking effort aligns between humans and reasoning models in abductive reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.01867>
-459. Takeru Hiramatsu, Kyohei Atarashi, Koh Takeuchi et al.. *Disentangling Steering Vectors*. cs.LG. 2026 <https://arxiv.org/abs/2609.07037>
-460. Ha Lan Nguyen, Huy Hoang Tran, Trac-Duy Tran et al.. *OBC-Prune: Outcome-Based Calibration for Large Reasoning Model Pruning*. cs.AI. 2026 <https://arxiv.org/abs/2609.17890>
-461. Hengyuan Zhang, Chenming Shang, Zunhai Su et al.. *Efficient Reasoning Exploration via State-Conditioned Latent Steering with Progress Guidance*. cs.CL. 2026 <https://arxiv.org/abs/2609.24066>
-462. Polina Tsvilodub, Max Höth, Michael Franke et al.. *Rewarding Efficient Reasoning Improves Abstention on Underspecified Tasks in Reasoning Models*. cs.CL. 2026 <https://arxiv.org/abs/2609.20846>
-463. Yuxiang Liu, Jiaming Luo, Eleftheria Briakou et al.. *When Does Reasoning Help in Machine Translation? A Hierarchical Analysis of LRM Reasoning Traces*. cs.CL. 2026 <https://arxiv.org/abs/2609.21247>
-464. Yuqing Zhou, Hong Wang, Manqing Mao et al.. *Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.27156>
-465. Zhinan Hou, XingChen Li, Keyou You. *Efficient Reasoning via Constrained Optimization in Latent Space*. cs.AI. 2026 <https://arxiv.org/abs/2609.34181>
-466. Parsa Hosseini, Akasha Tigalappanavara, Sumit Nawathe et al.. *Learning to Stop without Learning to Stop: Self-Supervised Confidence Training Improves Reasoning Efficiency*. cs.AI. 2026 <https://arxiv.org/abs/2609.31619>
-467. Runjia Zeng, Hang Hua, Yiyang Liu et al.. *On the Token Value Inequality in Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.33970>
-468. Qijia He, Yu Huang, Yuan Cheng et al.. *Provable Test-Time Scaling for Beam Search in LLM Reasoning*. cs.LG. 2026 <https://arxiv.org/abs/2609.38672>
-469. Wei Zhai, Xiang Liu, Qiang Huang et al.. *Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning*. cs.LG. 2026 <https://arxiv.org/abs/2610.10655>
-470. Weixin Guan, Liang Li, Shiyu Xie et al.. *Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2610.13570>
+53. Jinu Lee, Kyoung-Woon On, Sophia Simeng Han et al.. *Evaluating Legal Reasoning Traces with Legal Issue Tree Rubrics*. ACL. 2026 <https://aclanthology.org/2026.acl-long.150/>
+54. Yufeng Shi, Weilin Luo, Yuxiang Zhang et al.. *Exploration-Exploitation Reshaping towards Efficient Reasoning for Large Language Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1520/>
+55. Hossam Amer, Maryam Dialameh, Hossein Rajabzadeh et al.. *FLOP-Efficient Training: Early Stopping Based on Test-Time Compute Awareness*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1766/>
+56. Divya Jyoti Bajpai, Manjesh Kumar Hanawal. *FREE: Fast and Robust Vision Language Models with Early Exits*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.1209/>
+57. Chiwei Zhu, Benfeng Xu, Mingxuan Du et al.. *FS-Researcher: Test-Time Scaling for Long-Horizon Research Tasks with File-System-Based Agents*. ACL. 2026 <https://aclanthology.org/2026.acl-long.288/>
+58. Chak Tou Leong, Dingwei Chen, Heming Xia et al.. *Finding RELIEF: Shaping Reasoning Behavior without Reasoning Supervision via Belief Engineering*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.218/>
+59. Kehan Jiang, Haonan Dong, Zhaolu Kang et al.. *FoE: Forest of Errors Makes the First Solution the Best in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1128/>
+60. Mike Zhang, Johannes Bjerva, Russa Biswas. *Follow the Path: Reasoning over Knowledge Graph Paths to Improve Large Language Model Factuality*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.561/>
+61. Rui Ha, Rui Pu, Chaozhuo Li et al.. *From "Aha Moments" to Controllable Thinking: Toward Meta-Cognitive Reasoning in LRMs via Decoupled Reasoning and Control*. ACL. 2026 <https://aclanthology.org/2026.acl-long.304/>
+62. Zhaohan Zhang, Ziquan Liu, Ioannis Patras. *GrACE: A Generative Approach to Better Confidence Elicitation and Efficient Test-Time Scaling in Large Language Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1069/>
+63. Hongyuan Yuan, Xinran He, Run Shao et al.. *Graph-Based Chain-of-Thought Pruning for Reducing Redundant Reflections in Reasoning LLMs*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.281/>
+64. Amirhosein Ghasemabadi, Keith G. Mills, Baochun Li et al.. *Guided by Gut: Efficient Test-Time Scaling with Reinforced Intrinsic Confidence*. ACL. 2026 <https://aclanthology.org/2026.acl-long.739/>
+65. Zhixiang Liang, Beichen Huang, Zheng Wang et al.. *Hidden States as Early Signals: Step-level Trace Evaluation and Pruning for Efficient Test-Time Scaling*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1336/>
+66. Haoyang Chen, Yi Liu, Jianzhi Shao et al.. *How Do Answer Tokens Read Reasoning Traces? Self-Reading Patterns in Thinking LLMs for Quantitative Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1507/>
+67. Zhexin Zhang, Xian Qi Loye, Victor Shea-Jay Huang et al.. *How Should We Enhance the Safety of Large Reasoning Models: An Empirical Study*. ACL. 2026 <https://aclanthology.org/2026.acl-long.936/>
+68. Peiqi Wang, ShengYun Peng, Xuewen Zhang et al.. *Inference Compute-Optimal Video Vision Language Models*. ACL. 2025 <https://aclanthology.org/2025.acl-long.117/>
+69. William Jurayj, Jeffrey Cheng, Benjamin Van Durme. *Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering*. ACL. 2025 <https://aclanthology.org/2025.acl-short.50/>
+70. Yanhao Li, Lu Ma, Jiaran Zhang et al.. *LEASH: Adaptive Length Penalty and Reward Shaping for Efficient Large Reasoning Model*. ACL. 2026 <https://aclanthology.org/2026.acl-long.129/>
+71. Yihong Liu, Raoyuan Zhao, Hinrich Schuetze et al.. *Large Reasoning Models Are (Not Yet) Multilingual Latent Reasoners*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1121/>
+72. Hao Wang, Hao Gu, Hongming Piao et al.. *Learning While Staying Curious: Entropy-Preserving Supervised Fine-Tuning via Adaptive Self-Distillation for Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.617/>
+73. Adrián Bazaga, Rexhina Blloshmi, Bill Byrne et al.. *Learning to Reason Over Time: Timeline Self-Reflection for Improved Temporal Reasoning in Language Models*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1358/>
+74. Qibin Wang, Pu Zhao, Shaohan Huang et al.. *Learning to Refine: Self-Refinement of Parallel Reasoning in LLMs*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1291/>
+75. Guijin Son, Jiwoo Hong, Hyunwoo Ko et al.. *Linguistic Generalizability of Test-Time Scaling in Mathematical Reasoning*. ACL. 2025 <https://aclanthology.org/2025.acl-long.699/>
+76. Bingxuan Li, Yiwei Wang, Jiuxiang Gu et al.. *METAL: A Multi-Agent Framework for Chart Generation with Test-Time Scaling*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1452/>
+77. Xinming Wang, Jian Xu, Bin Yu et al.. *MR-ALIGN: Meta-Reasoning Informed Factuality Alignment for Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.204/>
+78. Hang Yan, Fangzhi Xu, Rongman Xu et al.. *MUR: Momentum Uncertainty guided Reasoning for Large Language Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1058/>
+79. Huifeng Yin, Yu Zhao, Minghao Wu et al.. *Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1145/>
+80. Dadi Guo, Jiayu Liu, Zhiyuan Fan et al.. *Mathematical Proof as a Litmus Test: Revealing Failure Modes of Advanced Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.582/>
+81. Weijie Xu, Brian Dillon, Richard Futrell. *Memory efficiency and resource-rational encoding in sentence processing*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1550/>
+82. Heming Xia, Cunxiao Du, Rui Li et al.. *Merlin’s Whisper: Enabling Efficient Reasoning in Large Language Models via Black-box Persuasive Prompting*. ACL. 2026 <https://aclanthology.org/2026.acl-long.917/>
+83. Qin Liu, Wenxuan Zhou, Nan Xu et al.. *MetaScale: Test-Time Scaling with Evolving Meta-Thoughts*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.574/>
+84. Shuyang Jiang, Yuhao Wang, Ya Zhang et al.. *Miner: Mining Intrinsic Mastery for Data-Efficient RL in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.237/>
+85. Florian Valentin Wunderlich, Lars Benedikt Kaesberg, Jan Philip Wahle et al.. *Multi-Agent Reasoning Improves Compute Efficiency: Pareto-Optimal Test-Time Scaling*. ACL. 2026 <https://aclanthology.org/2026.acl-srw.1/>
+86. Kang Liu, YongKang Liu, Xiaocui Yang et al.. *NEAT: Neuron-Based Early Exit for Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1231/>
+87. Haonan Dong, Kehan Jiang, Haoran Ye et al.. *NeuReasoner: Towards Explainable, Controllable, and Unified Reasoning via Mixture-of-Neurons*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1033/>
+88. Haotian Luo, Haiying He, Yibo Wang et al.. *O1-Pruner: Length-Harmonizing Fine-Tuning for O1-Like Reasoning Pruning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.697/>
+89. Minh Duc Bui, Kyung Eun Park, Goran Glavaš et al.. *On Generalization across Measurement Systems: LLMs Entail More Test-Time Compute for Underrepresented Cultures*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1032/>
+90. Hyungjoo Chae, Dongjin Kang, Jihyuk Kim et al.. *One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL*. ACL. 2025 <https://aclanthology.org/2025.acl-industry.85/>
+91. Zhengxiang Cheng, Dongping Chen, Mingyang Fu et al.. *Optimizing Length Compression in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.146/>
+92. Ruixiang Feng, Yuntao Wen, Silin Zhou et al.. *PACE: Prefix-Protected and Difficulty-Aware Compression for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1545/>
+93. Zhihao Xu, Fuzhen Yang, Liang Lin et al.. *PAM: Enhancing General Alignment of Large Reasoning Models through Priority-Aware Metacognition*. ACL. 2026 <https://aclanthology.org/2026.acl-long.432/>
+94. Jingcheng Hu, Yinmin Zhang, Shijie Shang et al.. *PaCoRe: Learning to Scale Test-Time Compute with Parallel Coordinated Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1253/>
+95. Runyang You, Yongqi Li, Meng Liu et al.. *Parallel Test-Time Scaling for Latent Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2069/>
+96. Derrick Goh Xin Deik, Quanyu Long, Zhengyuan Liu et al.. *Programming over Thinking: Efficient and Robust Multi-Constraint Planning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2028/>
+97. Sanket Badhe, Deep Shah. *Prompt-Level Distillation: A Non-Parametric Alternative to Model Fine-Tuning for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-industry.142/>
+98. Sondos Mahmoud Bsharat, Zhiqiang Shen. *Prompting Test-Time Scaling Is A Strong LLM Reasoning Data Augmentation*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.474/>
+99. Han Liu, Shuotian Ma, Hui Li et al.. *Pru-CoT: Towards Efficient Reasoning Distillation via Pruning Chain-of-Thought*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1684/>
+100. Yangyi Li, Chenxu Zhao, Mengdi Huai. *Quantifying and Understanding Uncertainty in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1511/>
+101. Zhuoshi Pan, Qizhi Pei, Yu Li et al.. *REST: Stress Testing Large Reasoning Models by Asking Multiple Problems at Once*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1296/>
+102. Zihang Liu, Fang Zhouhua, Hui Liu et al.. *RFS-Guard: Detecting Reasoning Hallucinations via Cross-Phase Routing Focus in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.885/>
+103. Mohsen Hariri, Michael Hinczewski, Jing Ma et al.. *Ranking Reasoning LLMs under Test-Time Scaling*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1544/>
+104. Zhizhang Fu, Yuancheng Gu, Chenkai Hu et al.. *ReEfBench: Quantifying the Reasoning Efficiency of LLMs*. ACL. 2026 <https://aclanthology.org/2026.acl-long.931/>
+105. Jingwei Ni, Ekaterina Fadeeva, Tianyi Wu et al.. *ReProbe: Efficient Test-Time Scaling of Multi-Step Reasoning by Probing Internal States of Large Language Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.536/>
+106. Francesco Maria Molfese, Luca Moroni, Ciro Porcaro et al.. *ReTraceQA: Evaluating Reasoning Traces of Small Language Models in Commonsense Question Answering*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1798/>
+107. Peizhuo Lv, Ruihua Zhou, Yunpeng Li et al.. *ReasMark: A Robust Watermark for Attributing LLM Reasoning Under Knowledge Distillation Attacks*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2185/>
+108. Yongchan Kwon, Shang Zhu, Federico Bianchi et al.. *ReasonIF: Large Reasoning Models Fail to Follow Instructions During Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1456/>
+109. Xiaoyu Xu, Yulan Pan, Xiaosong Yuan et al.. *Reasoning Fails Where Step Flow Breaks*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1212/>
+110. Yijie Hao, Lingjie Chen, Ali Emami et al.. *Reasoning Traces Shape Outputs but Models Won’t Say So*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1986/>
+111. Yuquan Wang, Mi Zhang, Yining Wang et al.. *ReasoningGuard: Safeguarding Large Reasoning Models with Inference-time Safety Aha Moments*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1453/>
+112. Jiawei Chen, Yang Yang, Chao Yu et al.. *Red Teaming Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1034/>
+113. Ziqi Zhao, Zhaochun Ren, Jiahong Zou et al.. *Reinforced Efficient Reasoning via Semantically Diverse Exploration*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2216/>
+114. Sahel Sharifymoghaddam, Jimmy Lin. *Rerank Before You Reason: Analyzing Reranking Tradeoffs through Effective Token Cost in Deep Search Agents*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1289/>
+115. Yexiang Liu, Zekun Li, Zhi Fang et al.. *Rethinking the Role of Prompting Strategies in LLM Test-Time Scaling: A Perspective of Probability Theory*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1356/>
+116. Renren Jin, Pengzhi Gao, Yuqi Ren et al.. *Revisiting Entropy in Reinforcement Learning for Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1266/>
+117. Taiqiang Wu, Runming Yang, Tao Liu et al.. *Revisiting Model Interpolation for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.389/>
+118. Zhiyuan Zeng, Qinyuan Cheng, Zhangyue Yin et al.. *Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?*. ACL. 2025 <https://aclanthology.org/2025.acl-long.232/>
+119. Ziyuan Nan, Qi Yi, Di Huang et al.. *Rhombus: Incentivizing Coordination in Parallel Thinking through Reinforcement Learning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1956/>
+120. Yu Zhang, Songwei Liu, Chenqian Yan et al.. *S2O: Early Stopping for Sparse Attention via Online Permutation*. ACL. 2026 <https://aclanthology.org/2026.acl-long.351/>
+121. Weiyang Huang, Xuefeng Bai, Kehai Chen et al.. *SAT: Balancing Reasoning Accuracy and Efficiency with Stepwise Adaptive Thinking*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2009/>
+122. Fengqing Jiang, Zhangchen Xu, Yuetai Li et al.. *SafeChain: Safety of Language Models with Long Chain-of-Thought Reasoning Capabilities*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.1197/>
+123. Seungone Kim, Ian Wu, Jinu Lee et al.. *Scaling Evaluation-Time Compute with Reasoning Models as Evaluators*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.2102/>
+124. Tingchen Fu, Yafu Li, Jiawei Gu et al.. *Scaling Reasoning, Losing Control: Evaluating Instruction Following in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1878/>
+125. Mehrzad Samadi, Aleksander Ficek, Sean Narenthiran et al.. *Scaling Test-Time Compute to Achieve IOI Gold Medal with Open-Weight Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1532/>
+126. Shiyu Ji, Yixuan Wang, Yijun Liu et al.. *Seer Self-Consistency: Advance Budget Estimation for Adaptive Test-Time Scaling*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.2120/>
+127. Cehao Yang, Xueyuan Lin, Xiaojun Wu et al.. *Select2Reason: Efficient Instruction-Tuning Data Selection for Long-CoT Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.331/>
+128. Shijia Xu, Zhou Wu, Xiaolong Jia et al.. *Self-Correcting RAG: Enhancing Faithfulness via MMKP Context Selection and NLI-Guided MCTS*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1052/>
+129. Qiang Huang, Wei Zhai, Feng Huang et al.. *Self-Reflection Improves Safety of Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.678/>
+130. Tergel Munkhbat, Namgyu Ho, Seo Hyun Kim et al.. *Self-Training Elicits Concise Reasoning in Large Language Models*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.1289/>
+131. Zheng Li, Qingxiu Dong, Jingyuan Ma et al.. *SelfBudgeter: Adaptive Token Allocation for Efficient LLM Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1063/>
+132. Lechen Zhang, Yunxiang Zhang, Wei Hu et al.. *Skill-Aware Data Selection and Fine-Tuning for Data-Efficient Reasoning Distillation*. ACL. 2026 <https://aclanthology.org/2026.acl-short.49/>
+133. Yige Xu, Xu Guo, Zhiwei Zeng et al.. *SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1137/>
+134. Shengmin Piao, Sanghyun Park. *SpiralThinker: Latent Reasoning through an Iterative Process with Text–Latent Interleaving*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1605/>
+135. Han Wang, Xiaodong Yu, Jialian Wu et al.. *Stabilizing Efficient Reasoning with Step-Level Advantage Selection*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1333/>
+136. Junyan Li, Wenshuo Zhao, Yang Zhang et al.. *Steering LLM Thinking with Budget Guidance*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1866/>
+137. Benteng Chen, Weida Wang, Shufei Zhang et al.. *Step-GRPO: Internalizing Dynamic Early Exit for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.990/>
+138. Renliang Sun, Wei Cheng, Dawei Li et al.. *Stop When Enough: Adaptive Early-Stopping for Chain-of-Thought Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1256/>
+139. Zichuan Fu, Xian Wu, Guojing Li et al.. *Tandem: Riding Together with Large and Small Language Models for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.2098/>
+140. Cong Wan, Ying He, Zhongzhan Huang et al.. *Test-Time Scaling in Multimodal Foundation Models: A Comprehensive Survey of Generation and Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.383/>
+141. Huixue Zhou, Hengrui Gu, Zaifu Zhan et al.. *The Efficiency vs. Accuracy Trade-off: Optimizing RAG-Enhanced LLM Recommender Systems Using Multi-Head Early Exit*. ACL. 2025 <https://aclanthology.org/2025.acl-long.1283/>
+142. Pratham Singla, Shivank Garg, Ayush Singh et al.. *The Inner Monologue of Language Models: When Reasoning Traces Reveal More Than They Hide*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.2078/>
+143. Byung-Doh Oh, Hongao Zhu, William Schuler. *The Inverse Scaling Effect of Pre-Trained Language Model Surprisal Is Not Due to Data Leakage*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.91/>
+144. Zhiyuan Yu, Shijian Xiao, Cam-Tu Nguyen et al.. *Thermometer of Thoughts: Enhancing LLM’s Exploration via Attention Temperature Modulation*. ACL. 2026 <https://aclanthology.org/2026.acl-long.200/>
+145. George Kour, Itay Nakash, Michal Shmueli-Scheuer et al.. *Think Again! The Effect of Test-Time Compute on Preferences, Opinions, and Beliefs of Large Language Models*. ACL. 2025 <https://aclanthology.org/2025.acl-industry.45/>
+146. Jiawei Li, Yang Gao, Huashan Sun et al.. *Think Better, Not Longer: Token-Level Marginal Utility for Efficient Reasoning in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1386/>
+147. Ling-I Wu, Minyu Chen, Jingyang Li et al.. *Think Earlier, Not Longer: Prompt Optimization via Reducing Unhealthy Exploration*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.817/>
+148. Yongjiang Liu, Haoxi Li, Xiaosong Ma et al.. *Think How to Think: Mitigating Overthinking with Autonomous Difficulty Cognition in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1766/>
+149. Yi Sui, Chaozhuo Li, Dawei Song. *Think Less, Know More: State-Aware Reasoning Compression with Knowledge Guidance for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1128/>
+150. Zhichao Sheng, Shilin Zhou, Chen Gong et al.. *Think Smart, Not Hard: Difficulty Adaptive Reasoning for Large Audio Language Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1640/>
+151. Vladislav Smirnov, Quang-Chieu Nguyen, Sergey Senichev et al.. *ThinkBooster: A Unified Framework for Seamless Test-Time Scaling of LLM Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-demo.70/>
+152. Sangjun Song, Minjae Oh, Seungkyu Lee et al.. *ThinkBrake: Efficient Reasoning via Log-Probability Margin Guided Decoding*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1095/>
+153. Guangxiang Zhao, Qilong Shi, Xusen Xiao et al.. *Thinking with Reasoning Skills: Fewer Tokens, More Accuracy*. ACL. 2026 <https://aclanthology.org/2026.acl-industry.154/>
+154. Siyuan Gan, Jiaheng Liu, Boyan Wang et al.. *Thinking-Based Non-Thinking: Solving the Reward Hacking Problem in Training Hybrid Reasoning Models via Reinforcement Learning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.2122/>
+155. Zhixiao Qi, Feng Huang, Yunqi Zhang et al.. *Thought-Action Graph Reasoning: Faithful and Efficient Reasoning of Large Language Models via Reusing Past Experience*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1572/>
+156. Nguyen Viet Anh, Shiqian Zhao, Gia Dao et al.. *Three Minds, One Legend: Jailbreak Large Reasoning Model with Adaptive Stacked Ciphers*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.355/>
+157. Yichuan Ma, Linyang Li, Yongkang Chen et al.. *Timely Machine: Awareness of Time Makes Test-Time Scaling Agentic*. ACL. 2026 <https://aclanthology.org/2026.acl-long.211/>
+158. Tingxu Han, Zhenting Wang, Chunrong Fang et al.. *Token-Budget-Aware LLM Reasoning*. ACL. 2025 <https://aclanthology.org/2025.findings-acl.1274/>
+159. Yi Zhao, Yajuan Peng, Cam-Tu Nguyen et al.. *TrigReason: Trigger-Based Collaboration between Small and Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.333/>
+160. Haohan Yuan, Haopeng Zhang. *Understanding LLM Reasoning for Abstractive Summarization*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.859/>
+161. James Petullo, Sonny George, Dylan Cashman et al.. *VecCISC: Improving Confidence-Informed Self-Consistency with Reasoning Trace Clustering and Candidate Answer Selection*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1305/>
+162. Sangkwon Park, Donghun Kang, Jisoo Mok et al.. *Verbal-R3: Verbal Reranker as the Missing Bridge between Retrieval and Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1712/>
+163. Mourad Heddaya, Manley Roberts, Rohan Wadhawan et al.. *When Internalization Fails: Finding Better Targets for Reasoning Compression*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.734/>
+164. Yang Xiang, Yixin Ji, Ruotao Xu et al.. *When Is Thinking Enough? Early Exit via Sufficiency Assessment for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1080/>
+165. Yingzhi Mao, Chunkang Zhang, Junxiang Wang et al.. *When Models Outthink Their Safety: Unveiling and Mitigating Self-Jailbreak in Large Reasoning Models*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1118/>
+166. Sitong Fang, Wenjing Cao, Jiahao Li et al.. *When Slower Isn’t Truer: Inverse Scaling Law of Truthfulness in Multimodal Reasoning*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.63/>
+167. Zi-Ao Ma, Xian-Ling Mao, Tian Lan et al.. *Your Reasoning Model Knows What Counts: Self-Guided Chain-of-Thought Pruning for Efficient Reasoning*. ACL. 2026 <https://aclanthology.org/2026.acl-long.25/>
+168. David H. Yang, Yuxuan Zhu, Mohammad Mohammadi Amiri et al.. *ZoomR: Memory Efficient Reasoning through Multi-Granularity Key Value Retrieval*. ACL. 2026 <https://aclanthology.org/2026.acl-long.76/>
+169. Lingrui Mei, Shenghua Liu, Yiwei Wang et al.. *a1: Steep Test-time Scaling Law via Environment Augmented Generation*. ACL. 2026 <https://aclanthology.org/2026.findings-acl.1240/>
+170. *4+3 Phases of Compute-Optimal Neural Scaling Laws*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/94549>
+171. *DARG: Dynamic Evaluation of Large Language Models via Adaptive Reasoning Graph*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/96593>
+172. *Repurposing Language Models into Embedding Models: Finding the Compute-Optimal Recipe*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/93887>
+173. *Resolving Discrepancies in Compute-Optimal Scaling of Language Models*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/96646>
+174. *Scaling Laws and Compute-Optimal Training Beyond Fixed Training Durations*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/94731>
+175. *TinyTTA: Efficient Test-time Adaptation via Early-exit Ensembles on Edge Devices*. NeurIPS 2024. 2024 <https://neurips.cc/virtual/2024/poster/94778>
+176. *A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115454>
+177. *ARM: Adaptive Reasoning Model*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115075>
+178. *Ada-R1: Hybrid-CoT via Bi-Level Adaptive Reasoning Optimization*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117295>
+179. *AdaReasoner: Adaptive Reasoning Enables More Flexible Thinking*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117660>
+180. *AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119334>
+181. Xin Liu, Lu Wang. *Answer Convergence as a Signal for Early Stopping in Reasoning*. arXiv. 2025
+182. *Are Large Reasoning Models Good Translation Evaluators? Analysis and Performance Boost*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117120>
+183. *Atom of Thoughts for Markov LLM Test-Time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115860>
+184. *BEEM: Boosting Performance of Early Exit DNNs using Multi-Exit Classifiers as Experts*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/30371>
+185. *Benefits of Early Stopping in Gradient Descent for Overparameterized Logistic Regression*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/44193>
+186. Jinyan Su, Jennifer Healey, Preslav Nakov et al.. *Between Underthinking and Overthinking: An Empirical Study of Reasoning Length and correctness in LLMs*. preprint. 2025
+187. *Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118222>
+188. *Compute Optimal Inference and Provable Amortisation Gap in Sparse Autoencoders*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/46270>
+189. *Compute-Optimal LLMs Provably Generalize Better with Scale*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/29945>
+190. *Compute-Optimal Scaling for Value-Based Deep RL*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119555>
+191. *Decoder-Hybrid-Decoder Architecture for Efficient Reasoning with Long Generation*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115542>
+192. Zhongxiang Sun, Qipeng Wang, Haoyu Wang et al.. *Detection and Mitigation of Hallucination in Large Reasoning Models: A Mechanistic Perspective*. preprint. 2025
+193. *DisCO: Reinforcing Large Reasoning Models with Discriminative Constrained Optimization*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/114995>
+194. Gaurav Srivastava, Aafiya Hussain, Sriram Srinivasan et al.. *Do LLMs Overthink Basic Math Reasoning? Benchmarking the Accuracy-Efficiency Tradeoff in Language Models*. preprint. 2025 <https://aclanthology.org/2026.findings-acl.1285/>
+195. *Do NOT Think That Much for 2+3=? On the Overthinking of Long Reasoning Models*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/45540>
+196. *Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115605>
+197. Linan Yue, Yichao Du, Yizhi Wang et al.. *Don't Overthink It: A Survey of Efficient R1-style Large Reasoning Models*. preprint. 2025
+198. *Don’t Think Longer, Think Wisely: Optimizing Thinking Dynamics for Large Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116095>
+199. *Dualformer: Controllable Fast and Slow Thinking by Learning with Randomized Reasoning Traces*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/29093>
+200. *Dynamic Test-Time Compute Scaling in Control Policy: Difficulty-Aware Stochastic Interpolant Policy*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116060>
+201. *Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/46046>
+202. *Every Rollout Counts: Optimal Resource Allocation for Efficient Test-Time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115239>
+203. *Forest-of-Thought: Scaling Test-Time Compute for Enhancing LLM Reasoning*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/46117>
+204. *FreqExit: Enabling Early-Exit Inference for Visual Autoregressive Models via Frequency-Aware Guidance*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119216>
+205. *From Judgment to Interference: Early Stopping LLM Harmful Outputs via Streaming Content Monitoring*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116186>
+206. *How Far Are We from Optimal Reasoning Efficiency?*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118341>
+207. Ayeong Lee, Ethan Che, Tianyi Peng. *How Well do LLMs Compress Their Own Chain-of-Thought? A Token Complexity Approach*. preprint. 2025
+208. *Inference Scaling Laws: An Empirical Analysis of Compute-Optimal Inference for LLM Problem-Solving*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/29417>
+209. *Instance-dependent Early Stopping*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/29782>
+210. Aryo Pradipta Gema, Alexander Hägele, Runjin Chen et al.. *Inverse Scaling in Test-Time Compute*. Transactions on Machine Learning Research (TMLR). 2025 <https://iclr.cc/virtual/2026/poster/10014059>
+211. *Inverse Scaling: When Bigger Isn't Better*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/31511>
+212. *Kinetics: Rethinking Test-Time Scaling Law*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115931>
+213. *LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117621>
+214. *Learning When to Think: Shaping Adaptive Reasoning in R1-Style Models via Multi-Stage RL*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118864>
+215. *Let LRMs Break Free from Overthinking via Self-Braking Tuning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115532>
+216. *LongVU: Spatiotemporal Adaptive Compression for Long Video-Language Understanding*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/44939>
+217. *MIND over Body: Adaptive Thinking using Dynamic Computation*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/30390>
+218. *Measuring the Faithfulness of Thinking Drafts in Large Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/120231>
+219. *MindJourney: Test-Time Scaling with World Models for Spatial Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118581>
+220. Yao Huang, Huanran Chen, Shouwei Ruan et al.. *Mitigating Overthinking in Large Reasoning Models via Manifold Steering*. 39th Conference on Neural Information Processing Systems (NeurIPS 2025). 2025 <https://neurips.cc/virtual/2025/poster/119969>
+221. *No Loss, No Gain: Gated Refinement and Adaptive Compression for Prompt Optimization*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118743>
+222. Leheng Sheng, An Zhang, Zijian Wu et al.. *On Reasoning Strength Planning in Large Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118916>
+223. Mohan Zhang, Yihua Zhang, Jinghan Jia et al.. *One Token Embedding Is Enough to Deadlock Your Large Reasoning Model*. 39th Conference on Neural Information Processing Systems (NeurIPS 2025). 2025 <https://neurips.cc/virtual/2025/poster/116766>
+224. Pranjal Aggarwal, Seungone Kim, Jack Lanchantin et al.. *OptimalThinkingBench: Evaluating Over and Underthinking in LLMs*. ICLR 2026. 2025 <https://iclr.cc/virtual/2026/poster/10009890>
+225. *Optimizing Test-Time Compute via Meta Reinforcement Finetuning*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/45154>
+226. *Provable Scaling Laws for the Test-Time Compute of Large Language Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118984>
+227. *QFFT, Question-Free Fine-Tuning for Adaptive Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119264>
+228. *QUTE: Quantifying Uncertainty in TinyML models with Early-exit-assisted ensembles for model-monitoring*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/45956>
+229. *Reasoning Models Hallucinate More: Factuality-Aware Reinforcement Learning for Large Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118780>
+230. *Reinforcement Learning Teachers of Test Time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115573>
+231. *Rethinking Fine-Tuning when Scaling Test-Time Compute: Limiting Confidence Improves Mathematical Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116423>
+232. *Rethinking Optimal Verification Granularity for Compute-Efficient Test-Time Scaling*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117041>
+233. Keqin Peng, Liang Ding, Yuanxin Ouyang et al.. *Revisiting Overthinking in Long Chain-of-Thought from the Perspective of Self-Doubt*. preprint. 2025
+234. *S-GRPO: Early Exit via Reinforcement Learning in Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/115333>
+235. *Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119365>
+236. *Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/31024>
+237. *Scaling Test-Time Compute Without Verification or RL is Suboptimal*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/44733>
+238. *Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117966>
+239. *ShorterBetter: Guiding Reasoning Models to Find Optimal Inference Length for Efficient Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/118481>
+240. *Smaller, Weaker, Yet Better: Training LLM Reasoners via Compute-Optimal Sampling*. ICLR 2025. 2025 <https://iclr.cc/virtual/2025/poster/31080>
+241. *SolverLLM: Leveraging Test-Time Scaling for Optimization Problem via LLM-Guided Search*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116215>
+242. Xiao Pu, Michael Saxon, Wenyue Hua et al.. *THOUGHTTERMINATOR: Benchmarking, Calibrating, and Mitigating Overthinking in Reasoning Models*. preprint. 2025
+243. Alejandro Cuadron, Dacheng Li, Wenjie Ma et al.. *The Danger of Overthinking: Examining the Reasoning-Action Dilemma in Agentic Tasks*. International Conference on Machine Learning (ICML) 2025. 2025
+244. Joykirat Singh, Justin Chih-Yao Chen, Archiki Prasad et al.. *Think Right: Learning to Mitigate Under-Over Thinking via Adaptive, Attentive Compression*. preprint. 2025
+245. *Think Smarter not Harder: Adaptive Reasoning with Inference Aware Optimization*. ICML 2025. 2025 <https://icml.cc/virtual/2025/poster/46693>
+246. *Think or Not? Exploring Thinking Efficiency in Large Reasoning Models via an Information-Theoretic Lens*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119190>
+247. *Thoughts Are All Over the Place: On the Underthinking of Long Reasoning Models*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/117581>
+248. *Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116088>
+249. *Towards Thinking-Optimal Scaling of Test-Time Compute for LLM Reasoning*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119802>
+250. *VideoChat-R1.5: Visual Test-Time Scaling to Reinforce Multimodal Reasoning by Iterative Perception*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/116032>
+251. *WebThinker: Empowering Large Reasoning Models with Deep Research Capability*. NeurIPS 2025. 2025 <https://neurips.cc/virtual/2025/poster/119715>
+252. *A Simple "Motivation" Can Enhance Reinforcement Finetuning of Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011610>
+253. *ARES: Multimodal Adaptive Reasoning via Difficulty-Aware Token-Level Entropy Shaping*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011711>
+254. *ATTS: Asynchronous Test-Time Scaling via Conformal Prediction*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008898>
+255. *AdaNav: Adaptive Reasoning with Uncertainty for Vision-Language Navigation*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61535>
+256. *Adaptive Thinking: Large Language Models Know When to Think in Latent Space*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011708>
+257. *AdvChain: Adversarial Chain-of-Thought Tuning for Robust Safety Alignment of Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007590>
+258. *Aligning Tree-Search Policies with Fixed Token Budgets in Test-Time Scaling of LLMs*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63795>
+259. *Anytime Safe PAC Efficient Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62243>
+260. *Are Large Reasoning Models Interruptible?*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61807>
+261. *Asymptotic Universal Alignment: A New Alignment Framework via Test-Time Scaling*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/66584>
+262. *AsyncSpade: Efficient Test-Time Scaling with Asynchronous Sparse Decoding*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63012>
+263. *Base Models Know How to Reason, Thinking Models Learn When*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/66610>
+264. *BeaconKV: Key-Value Cache Compression Guided by Beacon Queries for Efficient Large Reasoning Model Inference*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62942>
+265. *Better, Faster: Harnessing Self-Improvement in Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64514>
+266. *CaTS: Calibrated Test-Time Scaling for Efficient LLM Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007848>
+267. *Cache Coherent Resampling for Efficient Test Time Scaling in LLM Reasoning via Adaptive Sequential Monte Carlo*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64829>
+268. *Causal Dependency-Aware Unsupervised Routing for Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64247>
+269. *Certain Head, Uncertain Tail: Expert-Sample for Test-Time Scaling in Fine-Grained MoE*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62643>
+270. *CodeChemist: Test-Time Scaling for Low-Resource Code Generation via Functional Knowledge Transfer*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63512>
+271. *Compute-Optimal Quantization-Aware Training*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009552>
+272. *ConPress: Learning Efficient Reasoning from Multi-Question Contextual Pressure*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61485>
+273. *Conditional Advantage Estimation for Reinforcement Learning in Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010855>
+274. *Conformal Prediction for Early Stopping in Mixed Integer Optimization*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61715>
+275. *ContextPRM: Leveraging Contextual Coherence for multi-domain Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011128>
+276. Yi Fang, Wenjie Wang, Mingfeng Xue et al.. *Controllable LLM Reasoning via Sparse Autoencoder-Based Steering*. Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2026
+277. Dongkyu Cho, Amy B. Z. Zhang, Bilel Fehri et al.. *Correct Reasoning Paths Visit Shared Decision Pivots*. preprint. 2026
+278. *D-CORE: Incentivizing Task Decomposition in Large Reasoning Models for Complex Tool Use*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61056>
+279. *DR$^2$Seg: Decomposed Two-Stage Rollouts for Efficient Reasoning Segmentation in Multimodal Large Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62304>
+280. *DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010492>
+281. Zicheng Xu, Xiuyi Lou, Guanchu Wang et al.. *DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61328>
+282. Xiang Liu, Xuming Hu, Xiaowen Chu et al.. *DiffAdapt: Difficulty-Adaptive Reasoning for Token-Efficient LLM Inference*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011403>
+283. *Distilled Pretraining: A modern lens of Data, In-Context Learning and Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009683>
+284. *Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63569>
+285. *Don't Overthink with Pixels: Efficient Reasoning for Segmentation*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61221>
+286. *Doxing via the Lens: Revealing Location-related Privacy Leakage on Multi-modal Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006914>
+287. *Dynamic Early Exit in Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009830>
+288. *Dynamic Thinking-Token Selection for Efficient Reasoning in Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61200>
+289. *Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006780>
+290. *ETS: Energy-Guided Test-Time Scaling for Training-Free RL Alignment*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61604>
+291. Parsa Hosseini, Sumit Nawathe, Mahdi Salmani et al.. *Early Stopping for Large Reasoning Models via Confidence Dynamics*. COLM 2026 Workshop on Efficient Reasoning. 2026
+292. Jiameng Huang, Baijiong Lin, Guhao Feng et al.. *Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression*. AAAI. 2026
+293. *Efficient Reasoning with Balanced Thinking*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008522>
+294. *Efficient Reasoning with Hidden Thinking*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/65014>
+295. *Efficient Test-Time Scaling for Small Vision-Language Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007164>
+296. *Efficient Test-Time Scaling via Hierarchical Search and Self-Verification for Discrete Diffusion Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64102>
+297. *Exposing Weaknesses of Large Reasoning Models through Graph Algorithm Problems*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010419>
+298. *Expressive Power of Implicit Models: Rich Equilibria and Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009635>
+299. *FROST: Filtering Reasoning Outliers with Attention for Efficient Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008733>
+300. *From Reasoning Traces to Reusable Modules: Understanding Compositional Generalization in Language Model Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61216>
+301. *GTA1: GUI Test-time Scaling Agent*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011639>
+302. *HardcoreLogic: Challenging Large Reasoning Models with Long-tail Logic Puzzle Games*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011195>
+303. *HiDrop: Hierarchical Vision Token Reduction in MLLMs via Late Injection, Concave Pyramid Pruning, and Early Exit*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011723>
+304. *IAPO: Information-Aware Policy Optimization for Token-Efficient Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63983>
+305. *ImgCoT: Compressing Long Chain of Thought into Compact Visual Tokens for Efficient Reasoning of Large Language Model*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63716>
+306. *Internalizing Safety Understanding in Large Reasoning Models via Verification*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63605>
+307. *Is it Thinking or Cheating? Detecting Implicit Reward Hacking by Measuring Reasoning Effort*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010463>
+308. *KLAS: Using Similarity to Stitch Neural Networks for Improved Accuracy-Efficiency Tradeoffs*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007961>
+309. *Knowing When to Quit: Probabilistic Early Exits for Speech Separation Networks*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009506>
+310. *Learning Generalized Trackers with Elastic Token Budgets*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63126>
+311. *Less Diverse, Less Safe: The Indirect But Pervasive Risk of Test-Time Scaling in Large Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64671>
+312. Zhen Yang, Mingyang Zhang, Feng Chen et al.. *Less is More: Improving LLM Reasoning with Minimal Test-Time Intervention*. Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers). 2026
+313. *Mechanistic Detection and Mitigation of Hallucination in Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008968>
+314. *Mind the Budget: Accelerating Deep Reinforcement Learning using Constrained Early Exit Neural Networks*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61963>
+315. *Mixture-of-Visual-Thoughts: Exploring Context-Adaptive Reasoning Mode Selection for General Visual Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011171>
+316. *Mode-conditioning unlocks superior test-time compute scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010159>
+317. *Modeling Hierarchical Thinking in Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64487>
+318. *On the Limits of Test-Time Compute: Sequential Reward Filtering for Better Inference*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64598>
+319. *OneTwoVLA: A Unified Vision-Language-Action Model with Adaptive Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006973>
+320. *Optimal Aggregation of LLM and PRM Signals for Efficient Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006667>
+321. *Optimal Self-Consistency for Efficient Reasoning with Large Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61225>
+322. *Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007765>
+323. *Overthinking: Amplifying Reasoning Weights to Extract Learned Secrets*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63085>
+324. *PEAR: Phase Entropy Aware Reward for Efficient Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010398>
+325. *ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011824>
+326. *Plan and Budget: Effective and Efficient Test-Time Scaling on Reasoning Large Language Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008460>
+327. *Pruning Long Chain-of-Thought of Large Reasoning Models via Small-Scale Preference Optimization*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011162>
+328. *Pushing Test-Time Scaling Limits of Deep Search with Asymmetric Verification*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008007>
+329. *QuRL: Low-Precision Reinforcement Learning for Efficient Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008335>
+330. *R-Horizon: How Far Can Your Large Reasoning Model Really Go in Breadth and Depth?*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007149>
+331. *RAEE: A Robust Retrieval-Augmented Early Exit Framework for Efficient Inference*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010491>
+332. *RAIN-Merging: A Gradient-Free Method to Enhance Instruction Following in Large Reasoning Models with Preserved Thinking Format*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009681>
+333. *REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010716>
+334. *RFEval: Benchmarking Reasoning Faithfulness under Counterfactual Reasoning Intervention in Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011763>
+335. *ROC-n-reroll: How verifier imperfection affects test-time scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011656>
+336. *Real-Time Monitoring and Calibration of Chain-of-Thought Sycophancy in Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61298>
+337. *Real-Time Visual Attribution Streaming in Thinking Model*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62671>
+338. *Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010758>
+339. Wenhui Tan, Fiorenzo Parascandolo, Enver Sanginetto et al.. *Restoring Exploration after Post-Training: Latent Exploration Decoding for Large Reasoning Models*. Proceedings of the 43rd International Conference on Machine Learning (ICML), PMLR 306. 2026 <https://icml.cc/virtual/2026/poster/66546>
+340. *Rethinking Calibration for Early-Exit Neural Networks*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62138>
+341. *Retrieval-of-Thought: Efficient Reasoning via Reusing Thoughts*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009010>
+342. *SPARC: Separating Perception And Reasoning Circuits for Test-time Scaling of VLMs*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62906>
+343. *Sample Complexity and Representation Ability of Test-time Scaling Paradigms*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009511>
+344. *Sample More to Think Less: Group Filtered Policy Optimization for Concise Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009238>
+345. *Scaling Up, Speeding Up: A Benchmark of Speculative Decoding for Efficient LLM Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010752>
+346. Siyuan Wang, Yanchen Liu, Xiang Ren. *Segment-Level Attribution for Selective Learning of Long Reasoning Traces*. arXiv.org. 2026 <https://www.semanticscholar.org/paper/004113a0556d9524d1015c51c08267a98eb2aa31>
+347. *Short Chains, Deep Thoughts: Balancing Reasoning Efficiency and Intra-Segment Capability via Split-Merge Optimization*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64198>
+348. *Small Generalizable Prompt Predictive Models Can Steer Efficient RL Post-Training of Large Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/60937>
+349. *SmartThinker: Progressive Chain-of-Thought Length Calibration for Efficient Large Language Model Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64022>
+350. *SpecExit: Accelerating Large Reasoning Model via Speculative Exit*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/66249>
+351. *Statistical Early Stopping for Reasoning Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63833>
+352. *Stop Unnecessary Reflection: Training LRMs for Efficient Reasoning with Adaptive Reflection and Length Coordinated Penalty*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008702>
+353. Dehai Min, Giovanni Vaccarino, Huiyi Chen et al.. *Stop When Reasoning Converges: Semantic-Preserving Early Exit for Reasoning Models*. preprint. 2026
+354. *Strategic Scaling of Test-Time Compute: A Bandit Learning Approach*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011899>
+355. *SuCo: Sufficiency-guided Continuous Adaptive Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63630>
+356. *SwiftPFN: Revisiting Row-Wise Attention–Only Tabular Foundation Models with Adaptive Early Exit*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61560>
+357. *T1: Tool-integrated Verification for Test-time Compute Scaling in Small Language Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007001>
+358. *TEST-TIME SCALING IN DIFFUSION LLMS VIA HIDDEN SEMI-AUTOREGRESSIVE EXPERTS*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010063>
+359. *TUMIX: Multi-Agent Test-Time Scaling with Tool-Use Mixture*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010417>
+360. *TaTToo: Tool-Grounded Thinking PRM for Test-Time Scaling in Tabular Reasoning*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006442>
+361. *Test-Time Scaling with Reflective Generative Model*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10006997>
+362. Zihao Wei, Liang Pang, Jiahao Liu et al.. *The Evolution of Thought: Tracking LLM Overthinking via Reasoning Dynamics Analysis*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1239/>
+363. Renfei Dang, Zhening Li, Shujian Huang et al.. *The First Impression Problem: Internal Bias Triggers Overthinking in Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011746>
+364. *The Quest for Efficient Reasoning: A Data-Centric Benchmark to CoT Distillation*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010734>
+365. *Theoretical Guarantees for One-Shot Magnitude Pruning and Compute-Adaptive Early Exit*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/63550>
+366. *ThinKV: Thought-Adaptive KV Cache Compression for Efficient Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10009980>
+367. *Think Deep, Not Just Long: Measuring LLM Reasoning Effort via Deep-Thinking Tokens*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64256>
+368. *Think Less, Act Early: Reinforced Latent Reasoning with Early Exit in Vision-Language-Action Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61571>
+369. Bo Cheng, Qiaolin Lu, Yi Chang et al.. *Thinking vs. NoThinking: Towards Interpreting Reasoning Mechanisms of Large Language Models via Sparse Autoencoders*. preprint. 2026
+370. *ThreadWeaver: Adaptive Threading for Efficient Parallel Reasoning in Language Models*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/65330>
+371. *Towards Safe Reasoning in Large Reasoning Models via Corrective Intervention*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011693>
+372. Yi Hu, Jiaqi Gu, Ruxin Wang et al.. *Towards a Mechanistic Understanding of Large Reasoning Models: A Survey of Training, Inference, and Failures*. preprint. 2026 <https://aclanthology.org/2026.acl-long.889/>
+373. *Training Large Reasoning Models Efficiently via Progressive Thought Encoding*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007286>
+374. *TrimR: Verifier-based Training-Free Thinking Trimming for Efficient Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10007390>
+375. *UnMaskFork: Test-Time Scaling for Masked Diffusion via Deterministic Action Branching*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/66823>
+376. *Understanding the Role of Training Data in Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008915>
+377. *UniScale: Adaptive Unified Inference Scaling via Online Joint Optimization of Model Routing and Test-Time Scaling*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/60578>
+378. *VLA-ATTC: Adaptive Test-Time Compute for VLA Models with Relative Action Critic Model*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/61157>
+379. *WAVE: Window-Aware Vocabulary-Efficient Early-Exit for Training-Free LLM Acceleration*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62373>
+380. *WS-GRPO: Weakly-Supervised Group-Relative Policy Optimization for Rollout-Efficient Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/64686>
+381. *Wait, Do We Need to Wait? Revisiting Budget Forcing for Sequential Test-Time Scaling*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10012115>
+382. *What If We Allocate Test-Time Compute Adaptively?*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/60797>
+383. Shu Zhou, Rui Ling, Junan Chen et al.. *When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling*. preprint. 2026 <https://aclanthology.org/2026.findings-acl.1199/>
+384. *When More is Less: Understanding Chain-of-Thought Length in LLMs*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011380>
+385. *When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011689>
+386. *When Simple Problems Wear Complex Costumes: Improving Efficiency in LRM's Adaptive Reasoning*. ICML 2026. 2026 <https://icml.cc/virtual/2026/poster/62755>
+387. *Your Models Have Thought Enough: Training Large Reasoning Models to Stop Overthinking*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10011695>
+388. *Zero-Overhead Introspection for Adaptive Test-Time Compute*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10010457>
+389. *e3: Learning to Explore Enables Extrapolation of Test-Time Compute for LLMs*. ICLR 2026. 2026 <https://iclr.cc/virtual/2026/poster/10008718>
+390. Tianyang Zhou, Somesh Jha, Mihai Christodorescu et al.. *Verifier-Guided Code Translation via Meta-Step Decoding*. arXiv.org. 2026 <https://www.semanticscholar.org/paper/0033708ee454d5ea4c7b6ed0f9424e63baf9b395>
+391. Kaishen Wang, Tong Zheng, Xuehao Cui et al.. *Mitigating Factual Hallucination in Large Reasoning Models via Mixed-Mode Advantage Regularization*. arXiv. 2026 <https://www.semanticscholar.org/paper/0294e3ee8794087f78b1cd58a21c3b4ab12f7f56>
+392. Xinbang Dai, Zheyu Xin, Huikang Hu et al.. *EvoThink: Evolving Thinking in Large Reasoning Models via Self-Pruning and Aha-Moment Preference Optimization*. cs.AI. 2026 <https://arxiv.org/abs/2607.19962>
+393. Runyang You, Zhiyuan Liu, Yongqi Li et al.. *SLPO: Scaling Latent Reasoning via a Surrogate Policy*. cs.CL. 2026 <https://arxiv.org/abs/2607.19691>
+394. Siwei Chen, Siqi Chen, Xupeng Miao et al.. *QLPO: Quadrant-weighted Sampling for Length-aware Policy Optimization*. cs.AI. 2026 <https://arxiv.org/abs/2607.21793>
+395. Renuka Oladri, Niveda Jawahar, Abdirisak Mohamed. *Token Budget Saturation and Mechanistic Early Detection of Reasoning Non-Convergence in Chain-of-Thought Models*. cs.CL. 2026 <https://arxiv.org/abs/2607.21433>
+396. Junlin Fang, Do Nguyen-Thanh, Xiaogang Xu et al.. *Reasoning Denoiser: Denoising Reasoning Traces for Hallucination Detection in Large Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2607.22098>
+397. Jiarun Fu, Lizhong Ding, Sida Chen et al.. *CHILL-Harness: Counterfactual Harness Learning for Efficient Reasoning in Long-Horizon Agents*. arXiv. 2026 <https://www.semanticscholar.org/paper/00a392559287f448c41d331f0e43694389177348>
+398. Yutong Chen, Shouqian Shi, Xinran Liu et al.. *Penelope: Localized Latent Recurrence for Efficient Structured Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2607.25915>
+399. Chia-Ming Lee, Shao-Kai Liu, Ming-Ching Chang et al.. *Commit Locally, Exit Globally: Coordinating Adaptive Sampling and Early Exit in Diffusion Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2607.28166>
+400. Sara Candussio, Daniel Scalena, Luca Bortolussi et al.. *Demystifying Entropy-based Selection for Chain-of-Thought Compression in Large Reasoning Models*. cs.CL. 2026 <https://arxiv.org/abs/2607.28707>
+401. Keshu Fu, Keqin Peng, Jun Bai et al.. *BLADE: Boundary-Expanded and Layer-Adaptive Dynamic Exit for Efficient LLM Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2607.28966>
+402. Yongshi Ye, Biao Fu, Chongxuan Huang et al.. *Translation with Thought: Difficulty-Adaptive Reasoning via Reinforcement Learning for Multi-Domain Machine Translation*. ACL. 2026 <https://aclanthology.org/2026.acl-long.1400/>
+403. Faizan Faisal, Prem Devanbu, Toufique Ahmed. *Distilling Reasoning Traces into Advisory Prompts for Software Engineering Tasks*. cs.SE. 2026 <https://arxiv.org/abs/2608.00437>
+404. Jingqi Tian, Haoji Zhang, Lin Chen et al.. *AdaThinkV: Adaptive Thinking for Token-Efficient Video Reasoning*. cs.CV. 2026 <https://arxiv.org/abs/2608.01980>
+405. Mengting Ai, Jingrui He, Yue Guo. *Does Accuracy Equal Evidence? Reasoning Faithfulness under KV Cache Compression*. cs.CL. 2026 <https://arxiv.org/abs/2608.01631>
+406. Xiaocheng Lu, Hualei Zhang, Shuhan Guo et al.. *OPTD: On-Policy Transition Distillation with Consistency-Guided Adaptive Compression for Few-Step Diffusion Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.02942>
+407. Mobina Kashaniyan, Ali Jannesari. *Interpretable Adaptive Sampling for LLM Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.03961>
+408. Dominik Meier, Luca Joshua Francis, Marco Bernhard Kaiser et al.. *Risky Business: Measuring The Faithfulness-Safety Tension*. cs.AI. 2026 <https://arxiv.org/abs/2608.03745>
+409. Mohsen Hariri, Weicong Chen, Nahal Shahini et al.. *Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility*. cs.LG. 2026 <https://arxiv.org/abs/2608.04001>
+410. Qiyuan Zhu, Dezhi Li, Pengyu Cheng et al.. *Fewer Tokens, Smaller Cache: Reward-Coordinated Efficient Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.04771>
+411. Ahsan Bilal, Muhammad Ahmed Mohsin, Muhammad Umer et al.. *Refining Over Resampling: Test-Time Self-Correction for LLM Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.05643>
+412. Yan Zhou, Yue Ouyang, Kaiyang Zheng et al.. *CoBa: Cost-Effective Test-Time Scaling via Compute-Balanced Routing*. cs.AI. 2026 <https://arxiv.org/abs/2608.07424>
+413. Agamdeep Singh, Srishti Gautam, Priyanshu Gupta et al.. *Reason Wide, Not Deep: Amortizing the Reasoning Premium into Distilled Skills*. cs.AI. 2026 <https://arxiv.org/abs/2608.07885>
+414. Chenrui Fan, Yize Cheng, Ming Li et al.. *Thinking Hard, Not Smart: Reasoning Models Fail to Ration Test-Time Compute Across Questions*. cs.CL. 2026 <https://arxiv.org/abs/2608.07968>
+415. Lijie Yang, Hongyin Luo, Jiawei Zhao et al.. *Thought-Level Beam Search for Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.08020>
+416. Juncheng Dong, Ding Tong, Ishan Gupta et al.. *LLM Reasoning for Subjective Tasks: Failure Modes, Mitigation, and Dynamic Reasoning Routing*. cs.AI. 2026 <https://arxiv.org/abs/2608.08889>
+417. Lecheng Kong, Like Hui, Haitao Mao et al.. *Consilience for Verifier-Free Test-Time Scaling*. cs.CL. 2026 <https://arxiv.org/abs/2608.09898>
+418. Alexander Panfilov, David Schmotz, Ilia Shumailov et al.. *Stealing Reasoning Traces from Proprietary LLM APIs*. cs.CR. 2026 <https://arxiv.org/abs/2608.09867>
+419. Vaibhav Singh, Soumya Suvra Ghosal, Sarvesh Gharat et al.. *ThinkRetrieve: Retrieval-Augmented Reasoning Traces for Test-Time Scaling*. cs.AI. 2026 <https://arxiv.org/abs/2608.10928>
+420. Linh Dieu Le, Tong Chen, Shazia Sadiq et al.. *Towards Efficient Reasoning in LLM-Based Recommender Systems via Model Merging*. cs.IR. 2026 <https://arxiv.org/abs/2608.10447>
+421. Sen Xu, Wei Wang, Shixi Liu et al.. *Claim-Level Reliability Assessment for Efficient Test-Time Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.11994>
+422. Congchao Wang, Diwakar Singh, Qiaozi Gao et al.. *Reasoning Jury: Multi-Model Consensus for Evaluating Reasoning Traces*. cs.AI. 2026 <https://arxiv.org/abs/2608.12585>
+423. Xinmu Ge, Zizhuo Zhang, Yu Huang et al.. *Towards Understanding On-Policy Distillation through the Lens of Test-Time Scaling*. cs.LG. 2026 <https://arxiv.org/abs/2608.11829>
+424. Jean de Dieu Nyandwi, Leena Mathur, Yonatan Bisk et al.. *Amplified Does Not Mean Predictive: Reasoning Behaviors in Thinking Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.13760>
+425. Ahmet Bugra Gundogan, Yigit Turkmen, Melih Bastopcu. *Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services*. cs.GT. 2026 <https://arxiv.org/abs/2608.13315>
+426. Varsha Ramineni, Hossein A. Rahmani, Jerome Ramos et al.. *BiasTrace: Linking Reasoning Behaviours to Biased Outputs in LLMs*. cs.AI. 2026 <https://arxiv.org/abs/2608.14161>
+427. Bo Wen, Yuhao Chen, Erhan Bilal et al.. *Divergent-Convergent Reasoning: Scaling Test-Time Compute through Structured Solution Synthesis*. cs.AI. 2026 <https://arxiv.org/abs/2608.15303>
+428. Chanhee Park, Sungbin Han, Jeongho Yoon et al.. *Funnel of Thoughts: Efficient Test-Time Scaling via Early Voting and Rollout Pruning*. cs.AI. 2026 <https://arxiv.org/abs/2608.15065>
+429. Yeabin Moon. *The Price of Thinking: Reasoning Effort as a Model-Specific API Contract*. cs.AI. 2026 <https://arxiv.org/abs/2608.16956>
+430. Xuteng Zhang, Wenhao Zeng, Xiaodong Gu et al.. *ParaTempo: Efficient Parallel Reasoning via Temporal Confidence*. cs.AI. 2026 <https://arxiv.org/abs/2608.16425>
+431. Ivan Viakhirev, Kirill Borodin, Amirah Almutairi et al.. *Think Shallow, Solve Deep: Controlling Recurrent Dynamics for Reliable Test-Time Depth*. cs.LG. 2026 <https://arxiv.org/abs/2608.18222>
+432. Zishan Ahmad, Vishal Vaddina. *Can a Lightweight Multimodal Model Estimate LLM Reasoning Performance? A Study for Compute-Optimal Document Inference*. cs.AI. 2026 <https://arxiv.org/abs/2608.18591>
+433. Jian Yang, Zhenqi Feng, Zhaoyang Yu et al.. *SMTrap: Cost-Effective DoS Attacks Against Large Reasoning Models via SMT Conflict Guidance*. cs.CL. 2026 <https://arxiv.org/abs/2608.18921>
+434. Davide Romano, Kanak Raj, Jerrod Parker et al.. *Test-Time Scaling in the Wild: Why Exploitation, Not Exploration, Is the Bottleneck*. cs.CL. 2026 <https://arxiv.org/abs/2608.18931>
+435. Wei Yu, Suxing Liu, Minjie Yu et al.. *Training-Free Inference-Time Self-Reflection and Cost-Bounded Early Stopping for Large Language Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.18884>
+436. Yiting Qu, Ziqing Yang, Chi Cui et al.. *EchoCoT: Extracting Hidden Chain-of-Thought from Large Reasoning Models*. cs.CR. 2026 <https://arxiv.org/abs/2608.20055>
+437. Gijs Kassenaar, Zhao Yang, Vincent François-Lavet. *Learning When to Think: Adaptive Reasoning for Test-Time Compute Allocation*. cs.AI. 2026 <https://arxiv.org/abs/2608.20256>
+438. Weihang Pan, Zhengxu Yu, Yuxiang Zhang et al.. *ChainPrune: Evaluating and Reducing Redundancy in Long Chain-of-Thought Reasoning*. cs.LG. 2026 <https://arxiv.org/abs/2608.21860>
+439. Chandresh Pandey. *More Experts, Worse Dynamics: Inverse Scaling and Spectral Bias in Mixture-of-Experts State-Space Models*. cs.LG. 2026 <https://arxiv.org/abs/2608.21840>
+440. Kang Chen, Junjie Nian, Yixin Cao et al.. *Disagree to Explore, Agree to Commit: Routing-Guided Test-Time Scaling for Software Agents*. cs.AI. 2026 <https://arxiv.org/abs/2608.22191>
+441. Maria-Eleni Zoumpoulidi, Georgios Paraskevopoulos, Alexandros Potamianos. *Cognitive Profiling of LRMs' Reasoning Traces Using Bloom's Taxonomy*. cs.AI. 2026 <https://arxiv.org/abs/2608.23205>
+442. Sujoy Nath, Aswini Kumar, Tanmoy Chakraborty. *Counter with Evidence! A Multi-Agent Memory Efficient Reasoning Framework for Hate Category Informed Counterspeech Generation*. cs.CL. 2026 <https://arxiv.org/abs/2608.23152>
+443. Min Chen, Shengjun Zhang, Yuxin Li et al.. *ParallelWorld: Test-Time Scaling for Embodied Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.22971>
+444. Duy Hoang, Bastien Berret, Olivier Bruneau et al.. *A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm*. cs.LG. 2026 <https://arxiv.org/abs/2608.24210>
+445. Hyunho Kook, Junhyuk So, Tianyu Fu et al.. *Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding*. cs.AI. 2026 <https://arxiv.org/abs/2608.24024>
+446. Zhengyang Zhang, Zijian Zhang, Jiaxuan Gao et al.. *Parason: Revealing Subtask and Trial Parallelism in LLM Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.24658>
+447. Shengxin Zhang, Xiaomin Wu, Xiyang Wu et al.. *Recursive Agentic Reasoning*. cs.AI. 2026 <https://arxiv.org/abs/2608.23956>
+448. Zhenyu Wu, Siyuan Chen, Changchun Yang et al.. *TRACE: An Evidence-Grounded Benchmark for Safety Evaluation of Large Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2608.24232>
+449. Lehong Wu, Yuxiao Qu, Zheyuan Hu et al.. *$R^3$: Training Robots to Reason in Natural Language via Reinforcement Learning*. cs.RO. 2026 <https://arxiv.org/abs/2608.26053>
+450. Caixing Wang, Zhibo Chen, Yue Wang. *Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees*. stat.ML. 2026 <https://arxiv.org/abs/2608.25513>
+451. Lam So, Canhui Wu, Han Lin. *GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2608.25583>
+452. Niklas Muennighoff, Zhengyang Wang, Zeyi Chen et al.. *Prefix Sliding for efficient test-time scaling*. cs.CL. 2026 <https://arxiv.org/abs/2608.26070>
+453. Jiarui Hu, Zhiyuan Wen, Xiaoyun Liu et al.. *Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference*. cs.LG. 2026 <https://arxiv.org/abs/2608.25542>
+454. Pratyay Banerjee, Ankit Chadha. *Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation*. cs.CL. 2026 <https://arxiv.org/abs/2608.25277>
+455. Wanli Cheng, Haiya Xiang, Juntao Li et al.. *SABER: Stability-Aware Early Exit for LLM Reasoning via Adversarial Branch Probing*. cs.AI. 2026 <https://arxiv.org/abs/2608.27963>
+456. Zhangdie Yuan, Andreas Vlachos. *Evaluating the Semantic Specificity of Representation Steering in Language Models*. cs.CL. 2026 <https://arxiv.org/abs/2608.29431>
+457. Henry Arthur. *Thinking effort aligns between humans and reasoning models in abductive reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.01867>
+458. Takeru Hiramatsu, Kyohei Atarashi, Koh Takeuchi et al.. *Disentangling Steering Vectors*. cs.LG. 2026 <https://arxiv.org/abs/2609.07037>
+459. Ha Lan Nguyen, Huy Hoang Tran, Trac-Duy Tran et al.. *OBC-Prune: Outcome-Based Calibration for Large Reasoning Model Pruning*. cs.AI. 2026 <https://arxiv.org/abs/2609.17890>
+460. Hengyuan Zhang, Chenming Shang, Zunhai Su et al.. *Efficient Reasoning Exploration via State-Conditioned Latent Steering with Progress Guidance*. cs.CL. 2026 <https://arxiv.org/abs/2609.24066>
+461. Polina Tsvilodub, Max Höth, Michael Franke et al.. *Rewarding Efficient Reasoning Improves Abstention on Underspecified Tasks in Reasoning Models*. cs.CL. 2026 <https://arxiv.org/abs/2609.20846>
+462. Yuxiang Liu, Jiaming Luo, Eleftheria Briakou et al.. *When Does Reasoning Help in Machine Translation? A Hierarchical Analysis of LRM Reasoning Traces*. cs.CL. 2026 <https://arxiv.org/abs/2609.21247>
+463. Yuqing Zhou, Hong Wang, Manqing Mao et al.. *Giving Credit Where It's Due: Redundancy-Aware Learning for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.27156>
+464. Zhinan Hou, XingChen Li, Keyou You. *Efficient Reasoning via Constrained Optimization in Latent Space*. cs.AI. 2026 <https://arxiv.org/abs/2609.34181>
+465. Parsa Hosseini, Akasha Tigalappanavara, Sumit Nawathe et al.. *Learning to Stop without Learning to Stop: Self-Supervised Confidence Training Improves Reasoning Efficiency*. cs.AI. 2026 <https://arxiv.org/abs/2609.31619>
+466. Runjia Zeng, Hang Hua, Yiyang Liu et al.. *On the Token Value Inequality in Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2609.33970>
+467. Qijia He, Yu Huang, Yuan Cheng et al.. *Provable Test-Time Scaling for Beam Search in LLM Reasoning*. cs.LG. 2026 <https://arxiv.org/abs/2609.38672>
+468. Wei Zhai, Xiang Liu, Qiang Huang et al.. *Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning*. cs.LG. 2026 <https://arxiv.org/abs/2610.10655>
+469. Weixin Guan, Liang Li, Shiyu Xie et al.. *Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models*. cs.AI. 2026 <https://arxiv.org/abs/2610.13570>
+470. Minghao Luo, Liang Chen. *DoubtLess: Training-Free Contrastive Decoding for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2610.18862>
+471. Taehyeon Kim, Hyunsoo Lee, Youngsoo Jang et al.. *Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking*. ACL. 2026 <https://aclanthology.org/2026.acl-long.816/>

@@ -5,12 +5,15 @@
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
 - **Slug**: `overthinking`
-- **Papers**: 470
+- **Papers**: 471
 - **Seminars**: 0
 - **Tracked keywords**: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`
 
 ## Most recent papers
 
+- [DoubtLess: Training-Free Contrastive Decoding for Efficient Reasoning](../../archive/papers/2026/arxiv-2610-18862/summary.md) (2026-10-13)
+- [Efficiently Learning To Reason or Not to Reason: Root-token Policy Optimization for Adaptive Thinking](../../archive/papers/2026/doi-10-18653-v1-2026-acl-long-816/summary.md) (2026-10-13)
+  - Root-token Policy Optimization (RPO) reframes adaptive thinking/non-thinking gating as a branching decision at a single root token (the newline choice right after <think>) and trains only that one token's probability with group-relative RL, cutting GRPO training compute to ~2% of a comparable adaptive-reasoning method while improving the accuracy-vs-thinking-rate tradeoff across model families.
 - [Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models](../../archive/papers/2026/arxiv-2610-13570/summary.md) (2026-10-12)
 - [Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning](../../archive/papers/2026/arxiv-2610-10655/summary.md) (2026-10-09)
 - [Provable Test-Time Scaling for Beam Search in LLM Reasoning](../../archive/papers/2026/arxiv-2609-38672/summary.md) (2026-10-01)
@@ -45,10 +48,6 @@ When and why large reasoning models think more than a problem needs (or less tha
   - TRACE is a benchmark that extends LLM-safety evaluation from prompts and final responses to the reasoning traces of large reasoning models, with evidence-grounded annotations for each safety label.
 - [Recursive Agentic Reasoning](../../archive/papers/2026/arxiv-2608-23956/summary.md) (2026-08-25)
   - Recasts iterative refinement, decomposition and repeated sampling as three recursion operators (GROW, PRUNE, BRANCH) over a shared reasoning-trace primitive, compares them under a paired protocol across 3 frontier models and 5 benchmarks, and finds BRANCH wins mainly because it recovers answers a single pass never emitted at all.
-- [Beyond Confidence: Test-Time Scaling for Multi-Turn Search Agents via Retrieval Grounding](../../archive/papers/2026/arxiv-2608-24024/summary.md) (2026-08-25)
-  - Identifies copy-inflation -- retrieved documents in a search agent's context systematically inflate the token log-probabilities of copied tokens -- as the reason logprob-based confidence voting (DeepConf) fails on multi-turn search agents, and fixes it with Retrieval-Grounded Voting (RGV), which weights each rollout by lexical overlap between its answer and the documents it retrieved instead of by internal confidence.
-- [A Data-dependent Early Stopping Rule using Rademacher Complexity with L1-norm](../../archive/papers/2026/arxiv-2608-24210/summary.md) (2026-08-25)
-  - Derives an analytic, data-dependent estimate of the optimal early-stopping time for gradient-flow training of linear (and, via linear probing, underparameterized neural) models, using Rademacher complexity with the L1-norm instead of assumptions on the data distribution.
 
 <!-- auto:end -->
 
