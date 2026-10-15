@@ -1,0 +1,40 @@
+{
+  "abstract": "Weight pruning can degrade the accuracy of large reasoning models (LRMs), yet it remains unclear whether it damages reasoning itself. We find that much of this degradation stems from a failure to stop rather than to reason. As sparsity increases, pruned LRMs increasingly fail to terminate within the token budget, often after the correct answer has appeared in their reasoning, instead falling into repetitive loops, even though they still recognize where the dense model would stop. We further find that the hidden-state difference between terminating and looping continuations is consistent across pruned checkpoints, suggesting a shared direction associated with committing to an answer. Building on this, we propose Termination-Guided Activation Steering (TGAS), a training-free method that adds this direction to the residual stream at inference time. Across six LRMs, three pruning pipelines, and math and code benchmarks, TGAS improves termination and overall accuracy while reducing repetitive reasoning and generation length, showing that this failure is actionable.",
+  "arxiv_id": "2610.19934",
+  "authors": [
+    "Minh-Anh Nguyen",
+    "Nguyen T. Ha Lan",
+    "Xiyan Fu",
+    "Dung D. Le",
+    "Wei Lu"
+  ],
+  "categories": [
+    "cs.CL"
+  ],
+  "doi": "",
+  "first_seen": "2026-10-15T22:00:17Z",
+  "id": "arxiv:2610.19934",
+  "last_seen": "2026-10-15T22:00:17Z",
+  "local_path": "data/pdfs/arxiv-2610-19934.pdf",
+  "matched_keywords": [
+    "large reasoning model",
+    "token budget",
+    "activation steering"
+  ],
+  "pdf_url": "https://arxiv.org/pdf/2610.19934v1",
+  "published": "2026-10-14",
+  "schema_version": 1,
+  "scores": {
+    "overthinking": 0.625
+  },
+  "source": "arxiv",
+  "source_id": "2610.19934v1",
+  "title": "To Reason but Not to Stop: Understanding and Recovering Pruned Large Reasoning Models",
+  "topics": [
+    "overthinking"
+  ],
+  "updated": "2026-10-14",
+  "url": "https://arxiv.org/abs/2610.19934",
+  "venue": "",
+  "year": 2026
+}
