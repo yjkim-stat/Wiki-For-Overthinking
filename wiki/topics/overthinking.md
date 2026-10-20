@@ -5,12 +5,13 @@
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
 - **Slug**: `overthinking`
-- **Papers**: 473
+- **Papers**: 474
 - **Seminars**: 0
 - **Tracked keywords**: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`
 
 ## Most recent papers
 
+- [CALM: Consistency-Aware Logit Masking in Decoding Space for Mitigating Overthinking of Large Reasoning Models](../../archive/papers/2026/arxiv-2610-25908/summary.md) (2026-10-19)
 - [Steering Vectors for Competing Ethical Frameworks Are Interchangeable: A Competing-Target Test for Activation Steering](../../archive/papers/2026/arxiv-2610-19359/summary.md) (2026-10-14)
 - [To Reason but Not to Stop: Understanding and Recovering Pruned Large Reasoning Models](../../archive/papers/2026/arxiv-2610-19934/summary.md) (2026-10-14)
 - [DoubtLess: Training-Free Contrastive Decoding for Efficient Reasoning](../../archive/papers/2026/arxiv-2610-18862/summary.md) (2026-10-13)
@@ -44,8 +45,6 @@ When and why large reasoning models think more than a problem needs (or less tha
   - GRIP fuses a reasoning model and an instruction (non-thinking) model of identical architecture by learning a separate sigmoid-controlled interpolation ratio per module (attention, FFN, embedding/LM-head), trained with an RL reward that favors correct and concise responses while keeping both source models frozen, cutting Qwen3-4B-Thinking's average generation length 27.0% while slightly improving average accuracy.
 - [Routed Graph Handoff: Adaptive Format Selection for Multi-Agent LLM Delegation](../../archive/papers/2026/arxiv-2608-25277/summary.md) (2026-08-26)
   - Routed Graph Handoff (RGH) uses a lightweight LLM router to pick, per delegation, between a typed dependency-graph message and natural-language prose for multi-agent LLM handoffs, matching or beating NL-only on every one of four benchmarks while cutting token cost 2-3x.
-- [$R^3$: Training Robots to Reason in Natural Language via Reinforcement Learning](../../archive/papers/2026/arxiv-2608-26053/summary.md) (2026-08-26)
-  - R3 is a two-stage post-training recipe (SFT mid-training on expert reasoning traces, then rubric-based single-step RL on offline instruction-only data) that trains a vision-language model to produce free-form natural-language reasoning steering a frozen low-level robot policy, and shows this test-time reasoning causally improves generalization beyond what training-time reasoning supervision alone provides.
 
 <!-- auto:end -->
 
