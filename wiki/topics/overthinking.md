@@ -5,13 +5,15 @@
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
 - **Slug**: `overthinking`
-- **Papers**: 475
+- **Papers**: 477
 - **Seminars**: 0
 - **Tracked keywords**: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`
 
 ## Most recent papers
 
 - [Routes of Reasoning: Reading and Reshaping Test-Time Compute in MoE Models](../../archive/papers/2026/arxiv-2611-05919/summary.md) (2026-11-04)
+- [Early Stopping in Large Reasoning Models: A Survey and Empirical Audit of Efficiency and Reliability](../../archive/papers/2026/arxiv-2611-00166/summary.md) (2026-11-03)
+- [Information-Theoretic Design of Sparse Autoencoder-Based Steering](../../archive/papers/2026/arxiv-2611-01378/summary.md) (2026-11-03)
 - [CALM: Consistency-Aware Logit Masking in Decoding Space for Mitigating Overthinking of Large Reasoning Models](../../archive/papers/2026/arxiv-2610-25908/summary.md) (2026-10-19)
 - [Steering Vectors for Competing Ethical Frameworks Are Interchangeable: A Competing-Target Test for Activation Steering](../../archive/papers/2026/arxiv-2610-19359/summary.md) (2026-10-14)
 - [To Reason but Not to Stop: Understanding and Recovering Pruned Large Reasoning Models](../../archive/papers/2026/arxiv-2610-19934/summary.md) (2026-10-14)
@@ -40,10 +42,6 @@ When and why large reasoning models think more than a problem needs (or less tha
   - Prefix Sliding discards reasoning tokens outside a prefix (system instructions/prompt) plus a sliding window of the most recent tokens, giving constant per-token generation cost that lets language models reason for arbitrarily long horizons -- 3x faster than full attention without training, and enabling RL rollouts beyond 100,000 tokens with better reward than full-attention training at equal memory.
 - [Adaptive Regularization for Random Features: A Neighboring Early-Stopping Rule with Oracle-Rate Guarantees](../../archive/papers/2026/arxiv-2608-25513/summary.md) (2026-08-26)
   - Proposes NESR-KRR-RF, a neighboring early-stopping rule that adaptively selects the regularization parameter for kernel ridge regression with random features by comparing only adjacent estimators on a uniform grid, proving it attains the oracle polynomial learning rate up to log factors at lower computational cost than classical Lepskii-type all-pairs comparison.
-- [Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference](../../archive/papers/2026/arxiv-2608-25542/summary.md) (2026-08-26)
-  - Reflection Steering is a training-free activation-space intervention that isolates reflection-associated computation from general reasoning via PCA-purified, orthogonalized steering directions calibrated per layer, cutting thinking tokens by 16.9% on average across six model-benchmark settings with accuracy statistically equivalent to the raw model.
-- [GRIP: Granular Reward-Guided Parameter Interpolation for Efficient Reasoning](../../archive/papers/2026/arxiv-2608-25583/summary.md) (2026-08-26)
-  - GRIP fuses a reasoning model and an instruction (non-thinking) model of identical architecture by learning a separate sigmoid-controlled interpolation ratio per module (attention, FFN, embedding/LM-head), trained with an RL reward that favors correct and concise responses while keeping both source models frozen, cutting Qwen3-4B-Thinking's average generation length 27.0% while slightly improving average accuracy.
 
 <!-- auto:end -->
 
