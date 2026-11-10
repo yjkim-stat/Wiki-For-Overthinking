@@ -2,14 +2,14 @@
 
 _Lecture note assembled from the research archive_
 
-> Generated on 2026-11-10 from 477 archived source(s).
+> Generated on 2026-11-11 from 478 archived source(s).
 > Regenerated on every render — put your own material in a separate file.
 
 ## Scope
 
 When and why large reasoning models think more than a problem needs (or less than it needs) — the accuracy/efficiency tradeoff of reasoning length, test-time compute scaling, and methods to make a model stop, or keep going, at the right point.
 
-Built from 477 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-11-04. 458 of the papers have been read in full.
+Built from 478 paper(s) and 0 recording(s) spanning 2024-01-01 to 2026-11-09. 458 of the papers have been read in full.
 
 Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking`, `reasoning length`, `test-time compute`, `test time scaling`, `inverse scaling`, `chain-of-thought length`, `thinking budget`, `reasoning-action dilemma`, `large reasoning model`, `adaptive compression`, `accuracy-efficiency tradeoff`, `reasoning effort`, `thinking effort`, `reasoning budget`, `token budget`, `reasoning token`, `shared budget`, `resource-rational`, `compute-optimal`, `cost-bounded`, `early stopping`, `early exit`, `efficient reasoning`, `reasoning efficiency`, `parallel reasoning`, `test-time depth`, `token pricing`, `concise reasoning`, `adaptive reasoning`, `adaptive thinking`, `thinking model`, `reasoning trace`, `activation steering`, `steering vector`, `representation engineering`, `representation steering`, `inference-time intervention`, `test-time intervention`, `latent steering`, `logit bias`, `contrastive decoding`, `sparse autoencoder`, `attention temperature`, `linear probe`, `decoding intervention`, `reasoning control`, `controllable reasoning`.
 
@@ -21,6 +21,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 
 ### 2026
 
+- **Adaptive Entropy-Sparing for Efficient Reasoning** _(not yet summarized)_
 - **Routes of Reasoning: Reading and Reshaping Test-Time Compute in MoE Models** _(not yet summarized)_
 - **Early Stopping in Large Reasoning Models: A Survey and Empirical Audit of Efficiency and Reliability** _(not yet summarized)_
 - **Information-Theoretic Design of Sparse Autoencoder-Based Steering** _(not yet summarized)_
@@ -32,8 +33,7 @@ Tracked terms: `overthinking`, `underthinking`, `over-thinking`, `under-thinking
 - **Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models** _(not yet summarized)_
 - **Nullify: Null-Space Activation Steering for Training-Free LLM Unlearning** _(not yet summarized)_
 - **Provable Test-Time Scaling for Beam Search in LLM Reasoning** _(not yet summarized)_
-- **On the Token Value Inequality in Efficient Reasoning** _(not yet summarized)_
-- _...and 359 more._
+- _...and 360 more._
 
 ### 2025
 
@@ -714,3 +714,4 @@ Drawn from the limitations each paper states about itself, so this is what the f
 475. Quang Hung Nguyen, Hanh Nguyen, Thanh Tam Nguyen et al.. *Early Stopping in Large Reasoning Models: A Survey and Empirical Audit of Efficiency and Reliability*. cs.AI. 2026 <https://arxiv.org/abs/2611.00166>
 476. Hirofumi Morise. *Information-Theoretic Design of Sparse Autoencoder-Based Steering*. cs.CL. 2026 <https://arxiv.org/abs/2611.01378>
 477. Shengjie Wang, Mohsen Fayyaz, Nanyun Peng. *Routes of Reasoning: Reading and Reshaping Test-Time Compute in MoE Models*. cs.AI. 2026 <https://arxiv.org/abs/2611.05919>
+478. Cong Jiang, Xiaofeng Zhang, Tom Ko et al.. *Adaptive Entropy-Sparing for Efficient Reasoning*. cs.CL. 2026 <https://arxiv.org/abs/2611.11901>
