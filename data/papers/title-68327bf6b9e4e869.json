@@ -1,12 +1,12 @@
 {
-  "abstract": "",
+  "abstract": "Abstract Recent large reasoning models (LRMs) driven by reinforcement learning algorithms (e.g., GRPO) have achieved remarkable performance on challenging reasoning tasks. However, these models suffer from overthinking, generating unnecessarily long and redundant reasoning even for simple questions, which substantially increases computational cost and response latency. While existing methods incorporate length rewards to GRPO to promote concise reasoning, they incur significant performance degradation. We identify the root cause: when rewards for correct but long rollouts are penalized, GRPO's group-relative advantage function can assign them negative advantages, actively discouraging valid reasoning. To overcome this, we propose Decoupled Reward Policy Optimization (DRPO), a novel framework that decouples the length-based learning signal of correct rollouts from incorrect ones. DRPO ensures that reward signals for correct rollouts are normalized solely within the positive group, shielding them from interference by negative samples. The DRPO's objective is grounded in integrating an optimized positive data distribution, which maximizes length-based rewards under a KL regularization, into a discriminative objective. We derive a closed-form solution for this distribution, enabling efficient computation of the objective and its gradients using only on-policy data and importance weighting. Of independent interest, this formulation is general and can incorporate other preference rewards of positive data beyond length. Experiments on mathematical reasoning tasks demonstrate DRPO's significant superiority over six efficient reasoning baselines. Notably, with a 1.5B model, our method achieves 77\\% length reduction with only 1.1\\% performance loss on simple questions like GSM8k dataset, while the follow-up baseline sacrifices 4.3\\% for 68\\% length reduction.",
   "arxiv_id": "",
   "authors": [],
   "categories": [],
   "doi": "",
   "first_seen": "2026-08-20T23:39:26Z",
   "id": "title:68327bf6b9e4e869",
-  "last_seen": "2026-08-27T22:03:20Z",
+  "last_seen": "2026-11-15T22:08:00Z",
   "local_path": "",
   "matched_keywords": [
     "efficient reasoning"

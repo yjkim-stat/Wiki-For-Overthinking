@@ -50,6 +50,10 @@ The authors' own discussion notes smaller models benefit more, attributing it to
 
 Tags: `overthinking`, `efficient-reasoning`, `retrieval`, `thought-graph`, `training-free`, `inference-efficiency`, `test-time-compute`
 
+## Abstract
+
+Abstract Large reasoning models improve accuracy by producing long reasoning traces, but this inflates latency and cost, motivating inference-time efficiency. We propose Retrieval-of-Thought (RoT), which reuses prior reasoning as composable ``thought" steps to guide new problems. RoT organizes steps into a thought graph with sequential and semantic edges to enable fast retrieval and flexible recombination. At inference, RoT retrieves query-relevant nodes and applies reward-guided traversal to assemble a problem-specific template that guides generation. This dynamic template reuse reduces redundant exploration and, therefore, reduces output tokens while preserving accuracy. We evaluate RoT on reasoning benchmarks with multiple models, measuring accuracy, token usage, latency, and memory overhead. Findings show small prompt growth but substantial efficiency gains, with RoT reducing output tokens by up to 40%, inference latency by 82%, and cost by 59% while maintaining accuracy. RoT establishes a scalable paradigm for efficient LRM reasoning via dynamic template construction through retrieval.
+
 ---
 
 Record id: `title:2c8dfbd1f24680a2`

@@ -1,12 +1,12 @@
 {
-  "abstract": "",
+  "abstract": "Abstract Recent advances in large language models (LLMs) test-time computing have introduced the capability to perform intermediate chain-of-thought (CoT) reasoning (thinking) before generating answers. While increasing the thinking budget yields smooth performance improvements at inference time, the relationship between LLM capability, query complexity, and optimal budget allocation remains poorly understood for achieving compute-optimal inference. To address this challenge, we utilize $\\textit{self-consistency}$, the agreement among multiple reasoning paths, as a proxy for thinking necessity. We first identify that lower self-consistency indicates when queries require extended thinking to reach correct answers. Building on this insight, we introduce $\\texttt{Sonata}$ (Self-Consistency-Guided Adapter for Thinking Allocation), a lightweight approach that adaptively allocates thinking budgets to optimize the performance-efficiency tradeoff. $\\texttt{Sonata}$ includes an adapter trained offline on a calibration dataset to predict self-consistency directly from the last layer hidden representations during the query prefilling stage. This prediction then guides on-the-fly budget allocation before thinking. The adapter is general, transferable across diverse tasks once trained, and introduces $<1$$\\textperthousand$ computational overhead during inference. Notably, Sonata is compatible with existing CoT compression methods, enabling further efficiency gains when managing thinking budgets across queries. Extensive experiments on multiple models (Qwen3-8B, Qwen3-32B, GPT-OSS-120B, Qwen3-235B-A22B) and benchmarks~(AIME25, GSM8K, MATH500, GPQA, LiveCodeBench) demonstrate that $\\texttt{Sonata}$ achieves $20\\\\%$ to $60\\\\%$ reduction in thinking tokens while maintaining the same accuracy, or up to $2\\\\%$ improvement in accuracy with the same token cost.",
   "arxiv_id": "",
   "authors": [],
   "categories": [],
   "doi": "",
   "first_seen": "2026-08-20T23:39:26Z",
   "id": "title:cc91145094e2b147",
-  "last_seen": "2026-08-27T22:03:20Z",
+  "last_seen": "2026-11-15T22:08:00Z",
   "local_path": "",
   "matched_keywords": [
     "adaptive thinking"
